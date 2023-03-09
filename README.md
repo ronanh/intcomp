@@ -1,5 +1,7 @@
 # Integer Compression
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/ronanh/intcomp.svg)](https://pkg.go.dev/github.com/ronanh/intcomp)
+
 This library provides high performance (GB/s) compression and decompression of integers (int32/uint32/int64/uint64).
 
 Good compression factor can be achieved when, on average, the difference between 2 consecutive
