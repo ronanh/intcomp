@@ -1,0 +1,112 @@
+// This file is generated, do not modify directly
+// go run gen/gendbp.go
+
+package intcomp
+
+{{- range $dp := .}}
+
+// DeltaPack_{{$dp.Typename}} Binary packing of one block of `in`, starting from `initoffset`
+// to out. Differential coding is applied first.
+// Caller must give the proper `bitlen` of the block
+func DeltaPack_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) {
+	switch {{$dp.BitlenExpr}} {
+{{- range $dpn := $dp.Dpn }}
+	case {{$dpn.N}}:
+		deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]{{$dp.Typename}})(in), (*[{{$dpn.N}}]{{$dp.Typename}})(out){{$dp.NtzExtraParam}})
+{{- end }}
+	case {{$dp.Bits}}:
+		*(*[{{$dp.Bits}}]{{$dp.Typename}})(out) = *(*[{{$dp.Bits}}]{{$dp.Typename}})(in)
+	default:
+		panic("unsupported bitlen")
+	}
+}
+
+// DeltaUnpack_{{$dp.Typename}} Decoding operation for DeltaPack_{{$dp.Typename}}
+func DeltaUnpack_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) {
+	switch {{$dp.BitlenExpr}} {
+{{- range $dpn := $dp.Dpn }}
+	case {{$dpn.N}}:
+		deltaunpack_{{$dp.Typename}}_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]{{$dp.Typename}})(in), (*[{{$dp.Bits}}]{{$dp.Typename}})(out){{$dp.NtzExtraParam}})
+{{- end }}
+	case {{$dp.Bits}}:
+		*(*[{{$dp.Bits}}]{{$dp.Typename}})(out) = *(*[{{$dp.Bits}}]{{$dp.Typename}})(in)
+	default:
+		panic("unsupported bitlen")
+	}
+}
+
+{{- range $dpn := $dp.Dpn }}
+
+func deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- range $dpnb := $dpn.Dpnb }}
+	out[{{$dpnb.I}}] = 
+{{- range $line := $dpnb.PackLines }}
+	 {{$line}}
+{{- end }}
+{{- end }}
+}
+{{- end }}
+
+{{- range $dpn := $dp.Dpn }}
+
+func deltaunpack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]{{$dp.Typename}}, out *[{{$dp.Bits}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- range $dunb := $dpn.Dunb }}
+	out[{{$dunb.I}}] = {{$dunb.UnpackLine}}
+{{- end }}
+}
+{{- end }}
+
+// --- zigzag
+
+// DeltaPackZigzag_{{$dp.Typename}} Binary packing of one block of `in`, starting from `initoffset`
+// to out. Differential coding is applied first, the difference is zigzag encoded.
+//  Caller must give the proper `bitlen` of the block
+func DeltaPackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) {
+	switch {{$dp.BitlenExpr}} {
+{{- range $dpn := $dp.Dpn }}
+	case {{$dpn.N}}:
+		deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]{{$dp.Typename}})(in), (*[{{$dpn.N}}]{{$dp.Typename}})(out){{$dp.NtzExtraParam}})
+{{- end }}
+	case {{$dp.Bits}}:
+		*(*[{{$dp.Bits}}]{{$dp.Typename}})(out) = *(*[{{$dp.Bits}}]{{$dp.Typename}})(in)
+	default:
+		panic("unsupported bitlen")
+	}
+}
+
+// DeltaUnpackZigzag_{{$dp.Typename}} Decoding operation for DeltaPackZigzag_{{$dp.Typename}}
+func DeltaUnpackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) {
+	switch {{$dp.BitlenExpr}} {
+{{- range $dpn := $dp.Dpn }}
+	case {{$dpn.N}}:
+		deltaunpackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]{{$dp.Typename}})(in), (*[{{$dp.Bits}}]{{$dp.Typename}})(out){{$dp.NtzExtraParam}})
+{{- end }}
+	case {{$dp.Bits}}:
+		*(*[{{$dp.Bits}}]{{$dp.Typename}})(out) = *(*[{{$dp.Bits}}]{{$dp.Typename}})(in)
+	default:
+		panic("unsupported bitlen")
+	}
+}
+
+{{- range $dpn := $dp.Dpn }}
+
+func deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- range $dpnb := $dpn.Dpnb }}
+	out[{{$dpnb.I}}] = 
+{{- range $line := $dpnb.PackLinesZigZag }}
+	 {{$line}}
+{{- end }}
+{{- end }}
+}
+{{- end }}
+
+{{- range $dpn := $dp.Dpn }}
+
+func deltaunpackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]{{$dp.Typename}}, out *[{{$dp.Bits}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- range $dunb := $dpn.Dunb }}
+	out[{{$dunb.I}}] = {{$dunb.UnpackLineZigZag}}
+{{- end }}
+}
+{{- end }}
+
+{{- end}}
