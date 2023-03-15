@@ -26,7 +26,7 @@ func TestCompressDeltaBinPackInt32(t *testing.T) {
 		70313, 70515, 70717, 70919, 71025, 71222, 71455, 71568, 71772, 72019, 72128, 72328, 72435, 72633, 72857, 72968, 73170, 73277, 73475, 73710, 73836, 73942, 74159, 74356, 74463, 74570, 74768, 74966, 75072, 75269, 75382, 75586, 75692, 75889,
 		75996, 76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497}
 
-	resinput, input2 := intcomp.CompressDeltaBinPackInt32(testInput, make([]int32, 0, 100))
+	resinput, input2 := intcomp.CompressDeltaBinPackInt32(testInput, make([]uint32, 0, 100))
 	resinput2, resoutput2 := intcomp.UncompressDeltaBinPackInt32(input2, nil)
 
 	if len(resoutput2) != len(testInput)-len(resinput) {
@@ -62,7 +62,7 @@ func TestCompressDeltaBinPackInt64_trailing(t *testing.T) {
 	for i := range testInput {
 		testInput[i] *= 8
 	}
-	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, make([]int64, 0, 100))
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, make([]uint64, 0, 100))
 	resinput2, resoutput2 := intcomp.UncompressDeltaBinPackInt64(input2, nil)
 
 	if len(resoutput2) != len(testInput)-len(resinput) {
@@ -131,7 +131,7 @@ func TestCompressDeltaBinPackInt64(t *testing.T) {
 		70313, 70515, 70717, 70919, 71025, 71222, 71455, 71568, 71772, 72019, 72128, 72328, 72435, 72633, 72857, 72968, 73170, 73277, 73475, 73710, 73836, 73942, 74159, 74356, 74463, 74570, 74768, 74966, 75072, 75269, 75382, 75586, 75692, 75889,
 		75996, 76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497}
 
-	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, make([]int64, 0, 100))
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, make([]uint64, 0, 100))
 	resinput2, resoutput2 := intcomp.UncompressDeltaBinPackInt64(input2, nil)
 
 	if len(resoutput2) != len(testInput)-len(resinput) {
@@ -371,7 +371,7 @@ func BenchmarkCompressDeltaBinPackInt32(b *testing.B) {
 				testInput = append(testInput, prev)
 			}
 
-			output := make([]int32, 0, 1024)
+			output := make([]uint32, 0, 1024)
 
 			b.Run(fmt.Sprintf("nBits=%d, sign=%d", nBits, sign), func(b *testing.B) {
 				for n := 0; n < b.N; n++ {
@@ -541,7 +541,7 @@ func BenchmarkCompressDeltaBinPackInt64(b *testing.B) {
 					testInput = append(testInput, prev)
 				}
 
-				output := make([]int64, 0, 1024)
+				output := make([]uint64, 0, 1024)
 
 				b.Run(fmt.Sprintf("nBits=%d, ntz=%d, sign=%d", nBits, ntz, sign), func(b *testing.B) {
 					for n := 0; n < b.N; n++ {
