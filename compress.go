@@ -7,7 +7,7 @@ package intcomp
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackInt32`
 //  2. Compress the remaining input with `CompressDeltaBinPackInt32`
-func CompressInt32(in, out []int32) []int32 {
+func CompressInt32(in []int32, out []uint32) []uint32 {
 	if len(in) == 0 {
 		return out
 	}
@@ -46,13 +46,13 @@ func CompressInt32(in, out []int32) []int32 {
 		}
 		out = compressDeltaVarByteInt32(in, out, deltaVarByteHeaderPos)
 	}
-	return append(out, int32(len(out)-newBlockHeaderPos))
+	return append(out, uint32(len(out)-newBlockHeaderPos))
 }
 
 // UncompressInt32 uncompress integers from `in` (compressed with `CompressInt32`)
 // and append the result to `out`.
 // `out` slice will be resized if necessary.
-func UncompressInt32(in, out []int32) []int32 {
+func UncompressInt32(in []uint32, out []int32) []int32 {
 	// truncate last value (lastblock compressed length)
 	if len(in) > 0 {
 		in = in[:len(in)-1]
@@ -60,8 +60,8 @@ func UncompressInt32(in, out []int32) []int32 {
 	// compute output len, using block headers
 	var iHeader, outlen int
 	for iHeader < len(in) {
-		outlen += int(in[iHeader])
-		iHeader += int(in[iHeader+1])
+		outlen += int(int32(in[iHeader]))
+		iHeader += int(int32(in[iHeader+1]))
 	}
 	// ensure enough space in out
 	if cap(out) <= outlen {
@@ -173,18 +173,18 @@ func UncompressUint32(in, out []uint32) []uint32 {
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackInt64`
 //  2. Compress the remaining input with `CompressDeltaBinPackInt64`
-func CompressInt64(in, out []int64) []int64 {
+func CompressInt64(in []int64, out []uint64) []uint64 {
 	if len(in) == 0 {
 		return out
 	}
 	deltaVarByteHeaderPos := -1
 	if len(out) > 0 {
 		// truncate last value (lastBlockCompressedLen)
-		lastBlockCompressedLen := int(out[len(out)-1])
+		lastBlockCompressedLen := int(int64(out[len(out)-1]))
 		out = out[:len(out)-1]
 		lastBlockHeaderPos := len(out) - lastBlockCompressedLen
 
-		lastBlockUncompressedLen := int(int32(out[lastBlockHeaderPos]))
+		lastBlockUncompressedLen := int(int32(int64(out[lastBlockHeaderPos])))
 		if lastBlockUncompressedLen < BitPackingBlockSize64 && len(in) < BitPackingBlockSize64 {
 			if lastBlockUncompressedLen+len(in) >= BitPackingBlockSize64 {
 				// special case: both input and last compressed block
@@ -212,13 +212,13 @@ func CompressInt64(in, out []int64) []int64 {
 		}
 		out = compressDeltaVarByteInt64(in, out, deltaVarByteHeaderPos)
 	}
-	return append(out, int64(len(out)-newBlockHeaderPos))
+	return append(out, uint64(len(out)-newBlockHeaderPos))
 }
 
 // UncompressInt64 uncompress integers from `in` (compressed with `CompressInt64`)
 // and append the result to `out`.
 // `out` slice will be resized if necessary.
-func UncompressInt64(in, out []int64) []int64 {
+func UncompressInt64(in []uint64, out []int64) []int64 {
 	// truncate last value (lastblock compressed length)
 	if len(in) > 0 {
 		in = in[:len(in)-1]
@@ -226,7 +226,7 @@ func UncompressInt64(in, out []int64) []int64 {
 	// compute output len, using block headers
 	var iHeader, outlen int
 	for iHeader < len(in) {
-		outlen += int(int32(in[iHeader]))
+		outlen += int(int32(int64(in[iHeader])))
 		iHeader += int(in[iHeader] >> 32)
 	}
 	// ensure enough space in out

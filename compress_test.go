@@ -24,7 +24,7 @@ func TestCompressCombinedInt32(t *testing.T) {
 		70313, 70515, 70717, 70919, 71025, 71222, 71455, 71568, 71772, 72019, 72128, 72328, 72435, 72633, 72857, 72968, 73170, 73277, 73475, 73710, 73836, 73942, 74159, 74356, 74463, 74570, 74768, 74966, 75072, 75269, 75382, 75586, 75692, 75889,
 		75996, 76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497, -320, math.MaxInt32, math.MinInt32, math.MaxInt32}
 
-	output := intcomp.CompressInt32(testInput, make([]int32, 0, 100))
+	output := intcomp.CompressInt32(testInput, make([]uint32, 0, 100))
 
 	input2 := intcomp.UncompressInt32(output, make([]int32, 0, 100))
 
@@ -58,7 +58,7 @@ func TestCompressCombinedInt32Multi(t *testing.T) {
 		75996}, {76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497, -320, math.MaxInt32, math.MinInt32, math.MaxInt32}}
 	var testInput []int32
 
-	var output []int32
+	var output []uint32
 	for _, ti := range testInputs {
 		output = intcomp.CompressInt32(ti, output)
 		testInput = append(testInput, ti...)
@@ -98,7 +98,7 @@ func TestCompressCombinedInt32_trailing(t *testing.T) {
 	for i := range testInput {
 		testInput[i] *= 8
 	}
-	output := intcomp.CompressInt32(testInput, make([]int32, 0, 100))
+	output := intcomp.CompressInt32(testInput, make([]uint32, 0, 100))
 
 	input2 := intcomp.UncompressInt32(output, make([]int32, 0, 100))
 
@@ -202,7 +202,7 @@ func TestCompressCombinedInt64(t *testing.T) {
 		70313, 70515, 70717, 70919, 71025, 71222, 71455, 71568, 71772, 72019, 72128, 72328, 72435, 72633, 72857, 72968, 73170, 73277, 73475, 73710, 73836, 73942, 74159, 74356, 74463, 74570, 74768, 74966, 75072, 75269, 75382, 75586, 75692, 75889,
 		75996, 76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497, -320, math.MaxInt64, math.MinInt64, math.MaxInt64}
 
-	output := intcomp.CompressInt64(testInput, make([]int64, 0, 100))
+	output := intcomp.CompressInt64(testInput, make([]uint64, 0, 100))
 
 	input2 := intcomp.UncompressInt64(output, make([]int64, 0, 100))
 
@@ -236,7 +236,7 @@ func TestCompressCombinedInt64Multi(t *testing.T) {
 		75996}, {76111, 76309, 76515, 76622, 76820, 76927, 77125, 77236, 77438, 77559, 77666, 77878, 77990, 78188, 78391, 78497, -320, math.MaxInt64, math.MinInt64, math.MaxInt64}}
 	var testInput []int64
 
-	var output []int64
+	var output []uint64
 	for _, ti := range testInputs {
 		output = intcomp.CompressInt64(ti, output)
 		testInput = append(testInput, ti...)
@@ -276,7 +276,7 @@ func TestCompressCombinedInt64_trailing(t *testing.T) {
 	for i := range testInput {
 		testInput[i] *= 8
 	}
-	output := intcomp.CompressInt64(testInput, make([]int64, 0, 100))
+	output := intcomp.CompressInt64(testInput, make([]uint64, 0, 100))
 
 	input2 := intcomp.UncompressInt64(output, make([]int64, 0, 100))
 
@@ -438,7 +438,7 @@ func TestCompressTimestampsInt64(t *testing.T) {
 		1678299351939000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000,
 		1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351940000000, 1678299351941000000, 1678299351941000000, 1678299351941000000, 1678299351941000000, 1678299351941000000}
 
-	output := intcomp.CompressInt64(testInput, make([]int64, 0, 100))
+	output := intcomp.CompressInt64(testInput, make([]uint64, 0, 100))
 
 	input2 := intcomp.UncompressInt64(output, make([]int64, 0, 100))
 
