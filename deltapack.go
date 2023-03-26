@@ -13366,9 +13366,11 @@ func DeltaUnpack_int64(initoffset int64, in, out []int64, ntz, bitlen int) {
 }
 
 func deltapack_int64_0(initoffset int64, in *[64]int64, out *[0]int64, ntz int) {
+	ntz = ntz&(64-1)
 }
 
 func deltapack_int64_1(initoffset int64, in *[64]int64, out *[1]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 1) | 
@@ -13437,6 +13439,7 @@ func deltapack_int64_1(initoffset int64, in *[64]int64, out *[1]int64, ntz int) 
 }
 
 func deltapack_int64_2(initoffset int64, in *[64]int64, out *[2]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 2) | 
@@ -13506,6 +13509,7 @@ func deltapack_int64_2(initoffset int64, in *[64]int64, out *[2]int64, ntz int) 
 }
 
 func deltapack_int64_3(initoffset int64, in *[64]int64, out *[3]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 3) | 
@@ -13578,6 +13582,7 @@ func deltapack_int64_3(initoffset int64, in *[64]int64, out *[3]int64, ntz int) 
 }
 
 func deltapack_int64_4(initoffset int64, in *[64]int64, out *[4]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 4) | 
@@ -13649,6 +13654,7 @@ func deltapack_int64_4(initoffset int64, in *[64]int64, out *[4]int64, ntz int) 
 }
 
 func deltapack_int64_5(initoffset int64, in *[64]int64, out *[5]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 5) | 
@@ -13725,6 +13731,7 @@ func deltapack_int64_5(initoffset int64, in *[64]int64, out *[5]int64, ntz int) 
 }
 
 func deltapack_int64_6(initoffset int64, in *[64]int64, out *[6]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 6) | 
@@ -13802,6 +13809,7 @@ func deltapack_int64_6(initoffset int64, in *[64]int64, out *[6]int64, ntz int) 
 }
 
 func deltapack_int64_7(initoffset int64, in *[64]int64, out *[7]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 7) | 
@@ -13882,6 +13890,7 @@ func deltapack_int64_7(initoffset int64, in *[64]int64, out *[7]int64, ntz int) 
 }
 
 func deltapack_int64_8(initoffset int64, in *[64]int64, out *[8]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 8) | 
@@ -13957,6 +13966,7 @@ func deltapack_int64_8(initoffset int64, in *[64]int64, out *[8]int64, ntz int) 
 }
 
 func deltapack_int64_9(initoffset int64, in *[64]int64, out *[9]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 9) | 
@@ -14041,6 +14051,7 @@ func deltapack_int64_9(initoffset int64, in *[64]int64, out *[9]int64, ntz int) 
 }
 
 func deltapack_int64_10(initoffset int64, in *[64]int64, out *[10]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 10) | 
@@ -14126,6 +14137,7 @@ func deltapack_int64_10(initoffset int64, in *[64]int64, out *[10]int64, ntz int
 }
 
 func deltapack_int64_11(initoffset int64, in *[64]int64, out *[11]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 11) | 
@@ -14214,6 +14226,7 @@ func deltapack_int64_11(initoffset int64, in *[64]int64, out *[11]int64, ntz int
 }
 
 func deltapack_int64_12(initoffset int64, in *[64]int64, out *[12]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 12) | 
@@ -14301,6 +14314,7 @@ func deltapack_int64_12(initoffset int64, in *[64]int64, out *[12]int64, ntz int
 }
 
 func deltapack_int64_13(initoffset int64, in *[64]int64, out *[13]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 13) | 
@@ -14393,6 +14407,7 @@ func deltapack_int64_13(initoffset int64, in *[64]int64, out *[13]int64, ntz int
 }
 
 func deltapack_int64_14(initoffset int64, in *[64]int64, out *[14]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 14) | 
@@ -14486,6 +14501,7 @@ func deltapack_int64_14(initoffset int64, in *[64]int64, out *[14]int64, ntz int
 }
 
 func deltapack_int64_15(initoffset int64, in *[64]int64, out *[15]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 15) | 
@@ -14582,6 +14598,7 @@ func deltapack_int64_15(initoffset int64, in *[64]int64, out *[15]int64, ntz int
 }
 
 func deltapack_int64_16(initoffset int64, in *[64]int64, out *[16]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 16) | 
@@ -14665,6 +14682,7 @@ func deltapack_int64_16(initoffset int64, in *[64]int64, out *[16]int64, ntz int
 }
 
 func deltapack_int64_17(initoffset int64, in *[64]int64, out *[17]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 17) | 
@@ -14765,6 +14783,7 @@ func deltapack_int64_17(initoffset int64, in *[64]int64, out *[17]int64, ntz int
 }
 
 func deltapack_int64_18(initoffset int64, in *[64]int64, out *[18]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 18) | 
@@ -14866,6 +14885,7 @@ func deltapack_int64_18(initoffset int64, in *[64]int64, out *[18]int64, ntz int
 }
 
 func deltapack_int64_19(initoffset int64, in *[64]int64, out *[19]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 19) | 
@@ -14970,6 +14990,7 @@ func deltapack_int64_19(initoffset int64, in *[64]int64, out *[19]int64, ntz int
 }
 
 func deltapack_int64_20(initoffset int64, in *[64]int64, out *[20]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 20) | 
@@ -15073,6 +15094,7 @@ func deltapack_int64_20(initoffset int64, in *[64]int64, out *[20]int64, ntz int
 }
 
 func deltapack_int64_21(initoffset int64, in *[64]int64, out *[21]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 21) | 
@@ -15181,6 +15203,7 @@ func deltapack_int64_21(initoffset int64, in *[64]int64, out *[21]int64, ntz int
 }
 
 func deltapack_int64_22(initoffset int64, in *[64]int64, out *[22]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 22) | 
@@ -15290,6 +15313,7 @@ func deltapack_int64_22(initoffset int64, in *[64]int64, out *[22]int64, ntz int
 }
 
 func deltapack_int64_23(initoffset int64, in *[64]int64, out *[23]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 23) | 
@@ -15402,6 +15426,7 @@ func deltapack_int64_23(initoffset int64, in *[64]int64, out *[23]int64, ntz int
 }
 
 func deltapack_int64_24(initoffset int64, in *[64]int64, out *[24]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 24) | 
@@ -15509,6 +15534,7 @@ func deltapack_int64_24(initoffset int64, in *[64]int64, out *[24]int64, ntz int
 }
 
 func deltapack_int64_25(initoffset int64, in *[64]int64, out *[25]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 25) | 
@@ -15625,6 +15651,7 @@ func deltapack_int64_25(initoffset int64, in *[64]int64, out *[25]int64, ntz int
 }
 
 func deltapack_int64_26(initoffset int64, in *[64]int64, out *[26]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 26) | 
@@ -15742,6 +15769,7 @@ func deltapack_int64_26(initoffset int64, in *[64]int64, out *[26]int64, ntz int
 }
 
 func deltapack_int64_27(initoffset int64, in *[64]int64, out *[27]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 27) | 
@@ -15862,6 +15890,7 @@ func deltapack_int64_27(initoffset int64, in *[64]int64, out *[27]int64, ntz int
 }
 
 func deltapack_int64_28(initoffset int64, in *[64]int64, out *[28]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 28) | 
@@ -15981,6 +16010,7 @@ func deltapack_int64_28(initoffset int64, in *[64]int64, out *[28]int64, ntz int
 }
 
 func deltapack_int64_29(initoffset int64, in *[64]int64, out *[29]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 29) | 
@@ -16105,6 +16135,7 @@ func deltapack_int64_29(initoffset int64, in *[64]int64, out *[29]int64, ntz int
 }
 
 func deltapack_int64_30(initoffset int64, in *[64]int64, out *[30]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 30) | 
@@ -16230,6 +16261,7 @@ func deltapack_int64_30(initoffset int64, in *[64]int64, out *[30]int64, ntz int
 }
 
 func deltapack_int64_31(initoffset int64, in *[64]int64, out *[31]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 31) | 
@@ -16358,6 +16390,7 @@ func deltapack_int64_31(initoffset int64, in *[64]int64, out *[31]int64, ntz int
 }
 
 func deltapack_int64_32(initoffset int64, in *[64]int64, out *[32]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 32)
@@ -16457,6 +16490,7 @@ func deltapack_int64_32(initoffset int64, in *[64]int64, out *[32]int64, ntz int
 }
 
 func deltapack_int64_33(initoffset int64, in *[64]int64, out *[33]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 33)
@@ -16589,6 +16623,7 @@ func deltapack_int64_33(initoffset int64, in *[64]int64, out *[33]int64, ntz int
 }
 
 func deltapack_int64_34(initoffset int64, in *[64]int64, out *[34]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 34)
@@ -16722,6 +16757,7 @@ func deltapack_int64_34(initoffset int64, in *[64]int64, out *[34]int64, ntz int
 }
 
 func deltapack_int64_35(initoffset int64, in *[64]int64, out *[35]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 35)
@@ -16858,6 +16894,7 @@ func deltapack_int64_35(initoffset int64, in *[64]int64, out *[35]int64, ntz int
 }
 
 func deltapack_int64_36(initoffset int64, in *[64]int64, out *[36]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 36)
@@ -16993,6 +17030,7 @@ func deltapack_int64_36(initoffset int64, in *[64]int64, out *[36]int64, ntz int
 }
 
 func deltapack_int64_37(initoffset int64, in *[64]int64, out *[37]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 37)
@@ -17133,6 +17171,7 @@ func deltapack_int64_37(initoffset int64, in *[64]int64, out *[37]int64, ntz int
 }
 
 func deltapack_int64_38(initoffset int64, in *[64]int64, out *[38]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 38)
@@ -17274,6 +17313,7 @@ func deltapack_int64_38(initoffset int64, in *[64]int64, out *[38]int64, ntz int
 }
 
 func deltapack_int64_39(initoffset int64, in *[64]int64, out *[39]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 39)
@@ -17418,6 +17458,7 @@ func deltapack_int64_39(initoffset int64, in *[64]int64, out *[39]int64, ntz int
 }
 
 func deltapack_int64_40(initoffset int64, in *[64]int64, out *[40]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 40)
@@ -17557,6 +17598,7 @@ func deltapack_int64_40(initoffset int64, in *[64]int64, out *[40]int64, ntz int
 }
 
 func deltapack_int64_41(initoffset int64, in *[64]int64, out *[41]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 41)
@@ -17705,6 +17747,7 @@ func deltapack_int64_41(initoffset int64, in *[64]int64, out *[41]int64, ntz int
 }
 
 func deltapack_int64_42(initoffset int64, in *[64]int64, out *[42]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 42)
@@ -17854,6 +17897,7 @@ func deltapack_int64_42(initoffset int64, in *[64]int64, out *[42]int64, ntz int
 }
 
 func deltapack_int64_43(initoffset int64, in *[64]int64, out *[43]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 43)
@@ -18006,6 +18050,7 @@ func deltapack_int64_43(initoffset int64, in *[64]int64, out *[43]int64, ntz int
 }
 
 func deltapack_int64_44(initoffset int64, in *[64]int64, out *[44]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 44)
@@ -18157,6 +18202,7 @@ func deltapack_int64_44(initoffset int64, in *[64]int64, out *[44]int64, ntz int
 }
 
 func deltapack_int64_45(initoffset int64, in *[64]int64, out *[45]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 45)
@@ -18313,6 +18359,7 @@ func deltapack_int64_45(initoffset int64, in *[64]int64, out *[45]int64, ntz int
 }
 
 func deltapack_int64_46(initoffset int64, in *[64]int64, out *[46]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 46)
@@ -18470,6 +18517,7 @@ func deltapack_int64_46(initoffset int64, in *[64]int64, out *[46]int64, ntz int
 }
 
 func deltapack_int64_47(initoffset int64, in *[64]int64, out *[47]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 47)
@@ -18630,6 +18678,7 @@ func deltapack_int64_47(initoffset int64, in *[64]int64, out *[47]int64, ntz int
 }
 
 func deltapack_int64_48(initoffset int64, in *[64]int64, out *[48]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 48)
@@ -18777,6 +18826,7 @@ func deltapack_int64_48(initoffset int64, in *[64]int64, out *[48]int64, ntz int
 }
 
 func deltapack_int64_49(initoffset int64, in *[64]int64, out *[49]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 49)
@@ -18941,6 +18991,7 @@ func deltapack_int64_49(initoffset int64, in *[64]int64, out *[49]int64, ntz int
 }
 
 func deltapack_int64_50(initoffset int64, in *[64]int64, out *[50]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 50)
@@ -19106,6 +19157,7 @@ func deltapack_int64_50(initoffset int64, in *[64]int64, out *[50]int64, ntz int
 }
 
 func deltapack_int64_51(initoffset int64, in *[64]int64, out *[51]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 51)
@@ -19274,6 +19326,7 @@ func deltapack_int64_51(initoffset int64, in *[64]int64, out *[51]int64, ntz int
 }
 
 func deltapack_int64_52(initoffset int64, in *[64]int64, out *[52]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 52)
@@ -19441,6 +19494,7 @@ func deltapack_int64_52(initoffset int64, in *[64]int64, out *[52]int64, ntz int
 }
 
 func deltapack_int64_53(initoffset int64, in *[64]int64, out *[53]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 53)
@@ -19613,6 +19667,7 @@ func deltapack_int64_53(initoffset int64, in *[64]int64, out *[53]int64, ntz int
 }
 
 func deltapack_int64_54(initoffset int64, in *[64]int64, out *[54]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 54)
@@ -19786,6 +19841,7 @@ func deltapack_int64_54(initoffset int64, in *[64]int64, out *[54]int64, ntz int
 }
 
 func deltapack_int64_55(initoffset int64, in *[64]int64, out *[55]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 55)
@@ -19962,6 +20018,7 @@ func deltapack_int64_55(initoffset int64, in *[64]int64, out *[55]int64, ntz int
 }
 
 func deltapack_int64_56(initoffset int64, in *[64]int64, out *[56]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 56)
@@ -20133,6 +20190,7 @@ func deltapack_int64_56(initoffset int64, in *[64]int64, out *[56]int64, ntz int
 }
 
 func deltapack_int64_57(initoffset int64, in *[64]int64, out *[57]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 57)
@@ -20313,6 +20371,7 @@ func deltapack_int64_57(initoffset int64, in *[64]int64, out *[57]int64, ntz int
 }
 
 func deltapack_int64_58(initoffset int64, in *[64]int64, out *[58]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 58)
@@ -20494,6 +20553,7 @@ func deltapack_int64_58(initoffset int64, in *[64]int64, out *[58]int64, ntz int
 }
 
 func deltapack_int64_59(initoffset int64, in *[64]int64, out *[59]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 59)
@@ -20678,6 +20738,7 @@ func deltapack_int64_59(initoffset int64, in *[64]int64, out *[59]int64, ntz int
 }
 
 func deltapack_int64_60(initoffset int64, in *[64]int64, out *[60]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 60)
@@ -20861,6 +20922,7 @@ func deltapack_int64_60(initoffset int64, in *[64]int64, out *[60]int64, ntz int
 }
 
 func deltapack_int64_61(initoffset int64, in *[64]int64, out *[61]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 61)
@@ -21049,6 +21111,7 @@ func deltapack_int64_61(initoffset int64, in *[64]int64, out *[61]int64, ntz int
 }
 
 func deltapack_int64_62(initoffset int64, in *[64]int64, out *[62]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 62)
@@ -21238,6 +21301,7 @@ func deltapack_int64_62(initoffset int64, in *[64]int64, out *[62]int64, ntz int
 }
 
 func deltapack_int64_63(initoffset int64, in *[64]int64, out *[63]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (in[0] - initoffset) >> ntz | 
 	 ((in[1] - in[0]) >> ntz << 63)
@@ -21430,6 +21494,7 @@ func deltapack_int64_63(initoffset int64, in *[64]int64, out *[63]int64, ntz int
 }
 
 func deltaunpack_int64_0(initoffset int64, in *[0]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -21497,6 +21562,7 @@ func deltaunpack_int64_0(initoffset int64, in *[0]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_1(initoffset int64, in *[1]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1 << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 1)) & 0x1 << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 2)) & 0x1 << ntz + out[1]
@@ -21564,6 +21630,7 @@ func deltaunpack_int64_1(initoffset int64, in *[1]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_2(initoffset int64, in *[2]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3 << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 2)) & 0x3 << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 4)) & 0x3 << ntz + out[1]
@@ -21631,6 +21698,7 @@ func deltaunpack_int64_2(initoffset int64, in *[2]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_3(initoffset int64, in *[3]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7 << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 3)) & 0x7 << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 6)) & 0x7 << ntz + out[1]
@@ -21698,6 +21766,7 @@ func deltaunpack_int64_3(initoffset int64, in *[3]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_4(initoffset int64, in *[4]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 4)) & 0xF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 8)) & 0xF << ntz + out[1]
@@ -21765,6 +21834,7 @@ func deltaunpack_int64_4(initoffset int64, in *[4]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_5(initoffset int64, in *[5]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1F << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 5)) & 0x1F << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 10)) & 0x1F << ntz + out[1]
@@ -21832,6 +21902,7 @@ func deltaunpack_int64_5(initoffset int64, in *[5]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_6(initoffset int64, in *[6]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3F << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 6)) & 0x3F << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 12)) & 0x3F << ntz + out[1]
@@ -21899,6 +21970,7 @@ func deltaunpack_int64_6(initoffset int64, in *[6]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_7(initoffset int64, in *[7]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7F << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 7)) & 0x7F << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 14)) & 0x7F << ntz + out[1]
@@ -21966,6 +22038,7 @@ func deltaunpack_int64_7(initoffset int64, in *[7]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_8(initoffset int64, in *[8]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 8)) & 0xFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 16)) & 0xFF << ntz + out[1]
@@ -22033,6 +22106,7 @@ func deltaunpack_int64_8(initoffset int64, in *[8]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_9(initoffset int64, in *[9]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 9)) & 0x1FF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 18)) & 0x1FF << ntz + out[1]
@@ -22100,6 +22174,7 @@ func deltaunpack_int64_9(initoffset int64, in *[9]int64, out *[64]int64, ntz int
 }
 
 func deltaunpack_int64_10(initoffset int64, in *[10]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 10)) & 0x3FF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 20)) & 0x3FF << ntz + out[1]
@@ -22167,6 +22242,7 @@ func deltaunpack_int64_10(initoffset int64, in *[10]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_11(initoffset int64, in *[11]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 11)) & 0x7FF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 22)) & 0x7FF << ntz + out[1]
@@ -22234,6 +22310,7 @@ func deltaunpack_int64_11(initoffset int64, in *[11]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_12(initoffset int64, in *[12]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 12)) & 0xFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 24)) & 0xFFF << ntz + out[1]
@@ -22301,6 +22378,7 @@ func deltaunpack_int64_12(initoffset int64, in *[12]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_13(initoffset int64, in *[13]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 13)) & 0x1FFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 26)) & 0x1FFF << ntz + out[1]
@@ -22368,6 +22446,7 @@ func deltaunpack_int64_13(initoffset int64, in *[13]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_14(initoffset int64, in *[14]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 14)) & 0x3FFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 28)) & 0x3FFF << ntz + out[1]
@@ -22435,6 +22514,7 @@ func deltaunpack_int64_14(initoffset int64, in *[14]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_15(initoffset int64, in *[15]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 15)) & 0x7FFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 30)) & 0x7FFF << ntz + out[1]
@@ -22502,6 +22582,7 @@ func deltaunpack_int64_15(initoffset int64, in *[15]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_16(initoffset int64, in *[16]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 16)) & 0xFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 32)) & 0xFFFF << ntz + out[1]
@@ -22569,6 +22650,7 @@ func deltaunpack_int64_16(initoffset int64, in *[16]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_17(initoffset int64, in *[17]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 17)) & 0x1FFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 34)) & 0x1FFFF << ntz + out[1]
@@ -22636,6 +22718,7 @@ func deltaunpack_int64_17(initoffset int64, in *[17]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_18(initoffset int64, in *[18]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 18)) & 0x3FFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 36)) & 0x3FFFF << ntz + out[1]
@@ -22703,6 +22786,7 @@ func deltaunpack_int64_18(initoffset int64, in *[18]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_19(initoffset int64, in *[19]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 19)) & 0x7FFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 38)) & 0x7FFFF << ntz + out[1]
@@ -22770,6 +22854,7 @@ func deltaunpack_int64_19(initoffset int64, in *[19]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_20(initoffset int64, in *[20]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 20)) & 0xFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 40)) & 0xFFFFF << ntz + out[1]
@@ -22837,6 +22922,7 @@ func deltaunpack_int64_20(initoffset int64, in *[20]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_21(initoffset int64, in *[21]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 21)) & 0x1FFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 42)) & 0x1FFFFF << ntz + out[1]
@@ -22904,6 +22990,7 @@ func deltaunpack_int64_21(initoffset int64, in *[21]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_22(initoffset int64, in *[22]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 22)) & 0x3FFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 44) | ((in[1] & 0x3) << 20)) << ntz + out[1]
@@ -22971,6 +23058,7 @@ func deltaunpack_int64_22(initoffset int64, in *[22]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_23(initoffset int64, in *[23]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 23)) & 0x7FFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 46) | ((in[1] & 0x1F) << 18)) << ntz + out[1]
@@ -23038,6 +23126,7 @@ func deltaunpack_int64_23(initoffset int64, in *[23]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_24(initoffset int64, in *[24]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 24)) & 0xFFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 48) | ((in[1] & 0xFF) << 16)) << ntz + out[1]
@@ -23105,6 +23194,7 @@ func deltaunpack_int64_24(initoffset int64, in *[24]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_25(initoffset int64, in *[25]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 25)) & 0x1FFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 50) | ((in[1] & 0x7FF) << 14)) << ntz + out[1]
@@ -23172,6 +23262,7 @@ func deltaunpack_int64_25(initoffset int64, in *[25]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_26(initoffset int64, in *[26]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 26)) & 0x3FFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 52) | ((in[1] & 0x3FFF) << 12)) << ntz + out[1]
@@ -23239,6 +23330,7 @@ func deltaunpack_int64_26(initoffset int64, in *[26]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_27(initoffset int64, in *[27]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 27)) & 0x7FFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 54) | ((in[1] & 0x1FFFF) << 10)) << ntz + out[1]
@@ -23306,6 +23398,7 @@ func deltaunpack_int64_27(initoffset int64, in *[27]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_28(initoffset int64, in *[28]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 28)) & 0xFFFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFF) << 8)) << ntz + out[1]
@@ -23373,6 +23466,7 @@ func deltaunpack_int64_28(initoffset int64, in *[28]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_29(initoffset int64, in *[29]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 29)) & 0x1FFFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 58) | ((in[1] & 0x7FFFFF) << 6)) << ntz + out[1]
@@ -23440,6 +23534,7 @@ func deltaunpack_int64_29(initoffset int64, in *[29]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_30(initoffset int64, in *[30]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 30)) & 0x3FFFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 60) | ((in[1] & 0x3FFFFFF) << 4)) << ntz + out[1]
@@ -23507,6 +23602,7 @@ func deltaunpack_int64_30(initoffset int64, in *[30]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_31(initoffset int64, in *[31]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 31)) & 0x7FFFFFFF << ntz + out[0]
 	out[2] = (int64(uint64(in[0]) >> 62) | ((in[1] & 0x1FFFFFFF) << 2)) << ntz + out[1]
@@ -23574,6 +23670,7 @@ func deltaunpack_int64_31(initoffset int64, in *[31]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_32(initoffset int64, in *[32]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFF << ntz + initoffset
 	out[1] = int64(uint64(in[0]) >> 32) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 0)) & 0xFFFFFFFF << ntz + out[1]
@@ -23641,6 +23738,7 @@ func deltaunpack_int64_32(initoffset int64, in *[32]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_33(initoffset int64, in *[33]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 33) | ((in[1] & 0x3) << 31)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 2)) & 0x1FFFFFFFF << ntz + out[1]
@@ -23708,6 +23806,7 @@ func deltaunpack_int64_33(initoffset int64, in *[33]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_34(initoffset int64, in *[34]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 34) | ((in[1] & 0xF) << 30)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 4)) & 0x3FFFFFFFF << ntz + out[1]
@@ -23775,6 +23874,7 @@ func deltaunpack_int64_34(initoffset int64, in *[34]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_35(initoffset int64, in *[35]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 35) | ((in[1] & 0x3F) << 29)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 6)) & 0x7FFFFFFFF << ntz + out[1]
@@ -23842,6 +23942,7 @@ func deltaunpack_int64_35(initoffset int64, in *[35]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_36(initoffset int64, in *[36]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 36) | ((in[1] & 0xFF) << 28)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 8)) & 0xFFFFFFFFF << ntz + out[1]
@@ -23909,6 +24010,7 @@ func deltaunpack_int64_36(initoffset int64, in *[36]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_37(initoffset int64, in *[37]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 37) | ((in[1] & 0x3FF) << 27)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 10)) & 0x1FFFFFFFFF << ntz + out[1]
@@ -23976,6 +24078,7 @@ func deltaunpack_int64_37(initoffset int64, in *[37]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_38(initoffset int64, in *[38]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 38) | ((in[1] & 0xFFF) << 26)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 12)) & 0x3FFFFFFFFF << ntz + out[1]
@@ -24043,6 +24146,7 @@ func deltaunpack_int64_38(initoffset int64, in *[38]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_39(initoffset int64, in *[39]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 39) | ((in[1] & 0x3FFF) << 25)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 14)) & 0x7FFFFFFFFF << ntz + out[1]
@@ -24110,6 +24214,7 @@ func deltaunpack_int64_39(initoffset int64, in *[39]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_40(initoffset int64, in *[40]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 40) | ((in[1] & 0xFFFF) << 24)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 16)) & 0xFFFFFFFFFF << ntz + out[1]
@@ -24177,6 +24282,7 @@ func deltaunpack_int64_40(initoffset int64, in *[40]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_41(initoffset int64, in *[41]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 41) | ((in[1] & 0x3FFFF) << 23)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 18)) & 0x1FFFFFFFFFF << ntz + out[1]
@@ -24244,6 +24350,7 @@ func deltaunpack_int64_41(initoffset int64, in *[41]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_42(initoffset int64, in *[42]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 42) | ((in[1] & 0xFFFFF) << 22)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 20)) & 0x3FFFFFFFFFF << ntz + out[1]
@@ -24311,6 +24418,7 @@ func deltaunpack_int64_42(initoffset int64, in *[42]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_43(initoffset int64, in *[43]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 43) | ((in[1] & 0x3FFFFF) << 21)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 22) | ((in[2] & 0x1) << 42)) << ntz + out[1]
@@ -24378,6 +24486,7 @@ func deltaunpack_int64_43(initoffset int64, in *[43]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_44(initoffset int64, in *[44]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 44) | ((in[1] & 0xFFFFFF) << 20)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 24) | ((in[2] & 0xF) << 40)) << ntz + out[1]
@@ -24445,6 +24554,7 @@ func deltaunpack_int64_44(initoffset int64, in *[44]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_45(initoffset int64, in *[45]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 45) | ((in[1] & 0x3FFFFFF) << 19)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 26) | ((in[2] & 0x7F) << 38)) << ntz + out[1]
@@ -24512,6 +24622,7 @@ func deltaunpack_int64_45(initoffset int64, in *[45]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_46(initoffset int64, in *[46]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 46) | ((in[1] & 0xFFFFFFF) << 18)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 28) | ((in[2] & 0x3FF) << 36)) << ntz + out[1]
@@ -24579,6 +24690,7 @@ func deltaunpack_int64_46(initoffset int64, in *[46]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_47(initoffset int64, in *[47]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 47) | ((in[1] & 0x3FFFFFFF) << 17)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 30) | ((in[2] & 0x1FFF) << 34)) << ntz + out[1]
@@ -24646,6 +24758,7 @@ func deltaunpack_int64_47(initoffset int64, in *[47]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_48(initoffset int64, in *[48]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 48) | ((in[1] & 0xFFFFFFFF) << 16)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 32) | ((in[2] & 0xFFFF) << 32)) << ntz + out[1]
@@ -24713,6 +24826,7 @@ func deltaunpack_int64_48(initoffset int64, in *[48]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_49(initoffset int64, in *[49]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 49) | ((in[1] & 0x3FFFFFFFF) << 15)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 34) | ((in[2] & 0x7FFFF) << 30)) << ntz + out[1]
@@ -24780,6 +24894,7 @@ func deltaunpack_int64_49(initoffset int64, in *[49]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_50(initoffset int64, in *[50]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 50) | ((in[1] & 0xFFFFFFFFF) << 14)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 36) | ((in[2] & 0x3FFFFF) << 28)) << ntz + out[1]
@@ -24847,6 +24962,7 @@ func deltaunpack_int64_50(initoffset int64, in *[50]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_51(initoffset int64, in *[51]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 38) | ((in[2] & 0x1FFFFFF) << 26)) << ntz + out[1]
@@ -24914,6 +25030,7 @@ func deltaunpack_int64_51(initoffset int64, in *[51]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_52(initoffset int64, in *[52]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 40) | ((in[2] & 0xFFFFFFF) << 24)) << ntz + out[1]
@@ -24981,6 +25098,7 @@ func deltaunpack_int64_52(initoffset int64, in *[52]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_53(initoffset int64, in *[53]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 42) | ((in[2] & 0x7FFFFFFF) << 22)) << ntz + out[1]
@@ -25048,6 +25166,7 @@ func deltaunpack_int64_53(initoffset int64, in *[53]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_54(initoffset int64, in *[54]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 44) | ((in[2] & 0x3FFFFFFFF) << 20)) << ntz + out[1]
@@ -25115,6 +25234,7 @@ func deltaunpack_int64_54(initoffset int64, in *[54]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_55(initoffset int64, in *[55]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18)) << ntz + out[1]
@@ -25182,6 +25302,7 @@ func deltaunpack_int64_55(initoffset int64, in *[55]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_56(initoffset int64, in *[56]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16)) << ntz + out[1]
@@ -25249,6 +25370,7 @@ func deltaunpack_int64_56(initoffset int64, in *[56]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_57(initoffset int64, in *[57]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14)) << ntz + out[1]
@@ -25316,6 +25438,7 @@ func deltaunpack_int64_57(initoffset int64, in *[57]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_58(initoffset int64, in *[58]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12)) << ntz + out[1]
@@ -25383,6 +25506,7 @@ func deltaunpack_int64_58(initoffset int64, in *[58]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_59(initoffset int64, in *[59]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10)) << ntz + out[1]
@@ -25450,6 +25574,7 @@ func deltaunpack_int64_59(initoffset int64, in *[59]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_60(initoffset int64, in *[60]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8)) << ntz + out[1]
@@ -25517,6 +25642,7 @@ func deltaunpack_int64_60(initoffset int64, in *[60]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_61(initoffset int64, in *[61]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6)) << ntz + out[1]
@@ -25584,6 +25710,7 @@ func deltaunpack_int64_61(initoffset int64, in *[61]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_62(initoffset int64, in *[62]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4)) << ntz + out[1]
@@ -25651,6 +25778,7 @@ func deltaunpack_int64_62(initoffset int64, in *[62]int64, out *[64]int64, ntz i
 }
 
 func deltaunpack_int64_63(initoffset int64, in *[63]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = (int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFFF << ntz + initoffset
 	out[1] = (int64(uint64(in[0]) >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1)) << ntz + out[0]
 	out[2] = (int64(uint64(in[1]) >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2)) << ntz + out[1]
@@ -25998,9 +26126,11 @@ func DeltaUnpackZigzag_int64(initoffset int64, in, out []int64, ntz, bitlen int)
 }
 
 func deltapackzigzag_int64_0(initoffset int64, in *[64]int64, out *[0]int64, ntz int) {
+	ntz = ntz&(64-1)
 }
 
 func deltapackzigzag_int64_1(initoffset int64, in *[64]int64, out *[1]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 1) | 
@@ -26069,6 +26199,7 @@ func deltapackzigzag_int64_1(initoffset int64, in *[64]int64, out *[1]int64, ntz
 }
 
 func deltapackzigzag_int64_2(initoffset int64, in *[64]int64, out *[2]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 2) | 
@@ -26138,6 +26269,7 @@ func deltapackzigzag_int64_2(initoffset int64, in *[64]int64, out *[2]int64, ntz
 }
 
 func deltapackzigzag_int64_3(initoffset int64, in *[64]int64, out *[3]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 3) | 
@@ -26210,6 +26342,7 @@ func deltapackzigzag_int64_3(initoffset int64, in *[64]int64, out *[3]int64, ntz
 }
 
 func deltapackzigzag_int64_4(initoffset int64, in *[64]int64, out *[4]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 4) | 
@@ -26281,6 +26414,7 @@ func deltapackzigzag_int64_4(initoffset int64, in *[64]int64, out *[4]int64, ntz
 }
 
 func deltapackzigzag_int64_5(initoffset int64, in *[64]int64, out *[5]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 5) | 
@@ -26357,6 +26491,7 @@ func deltapackzigzag_int64_5(initoffset int64, in *[64]int64, out *[5]int64, ntz
 }
 
 func deltapackzigzag_int64_6(initoffset int64, in *[64]int64, out *[6]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 6) | 
@@ -26434,6 +26569,7 @@ func deltapackzigzag_int64_6(initoffset int64, in *[64]int64, out *[6]int64, ntz
 }
 
 func deltapackzigzag_int64_7(initoffset int64, in *[64]int64, out *[7]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 7) | 
@@ -26514,6 +26650,7 @@ func deltapackzigzag_int64_7(initoffset int64, in *[64]int64, out *[7]int64, ntz
 }
 
 func deltapackzigzag_int64_8(initoffset int64, in *[64]int64, out *[8]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 8) | 
@@ -26589,6 +26726,7 @@ func deltapackzigzag_int64_8(initoffset int64, in *[64]int64, out *[8]int64, ntz
 }
 
 func deltapackzigzag_int64_9(initoffset int64, in *[64]int64, out *[9]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 9) | 
@@ -26673,6 +26811,7 @@ func deltapackzigzag_int64_9(initoffset int64, in *[64]int64, out *[9]int64, ntz
 }
 
 func deltapackzigzag_int64_10(initoffset int64, in *[64]int64, out *[10]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 10) | 
@@ -26758,6 +26897,7 @@ func deltapackzigzag_int64_10(initoffset int64, in *[64]int64, out *[10]int64, n
 }
 
 func deltapackzigzag_int64_11(initoffset int64, in *[64]int64, out *[11]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 11) | 
@@ -26846,6 +26986,7 @@ func deltapackzigzag_int64_11(initoffset int64, in *[64]int64, out *[11]int64, n
 }
 
 func deltapackzigzag_int64_12(initoffset int64, in *[64]int64, out *[12]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 12) | 
@@ -26933,6 +27074,7 @@ func deltapackzigzag_int64_12(initoffset int64, in *[64]int64, out *[12]int64, n
 }
 
 func deltapackzigzag_int64_13(initoffset int64, in *[64]int64, out *[13]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 13) | 
@@ -27025,6 +27167,7 @@ func deltapackzigzag_int64_13(initoffset int64, in *[64]int64, out *[13]int64, n
 }
 
 func deltapackzigzag_int64_14(initoffset int64, in *[64]int64, out *[14]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 14) | 
@@ -27118,6 +27261,7 @@ func deltapackzigzag_int64_14(initoffset int64, in *[64]int64, out *[14]int64, n
 }
 
 func deltapackzigzag_int64_15(initoffset int64, in *[64]int64, out *[15]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 15) | 
@@ -27214,6 +27358,7 @@ func deltapackzigzag_int64_15(initoffset int64, in *[64]int64, out *[15]int64, n
 }
 
 func deltapackzigzag_int64_16(initoffset int64, in *[64]int64, out *[16]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 16) | 
@@ -27297,6 +27442,7 @@ func deltapackzigzag_int64_16(initoffset int64, in *[64]int64, out *[16]int64, n
 }
 
 func deltapackzigzag_int64_17(initoffset int64, in *[64]int64, out *[17]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 17) | 
@@ -27397,6 +27543,7 @@ func deltapackzigzag_int64_17(initoffset int64, in *[64]int64, out *[17]int64, n
 }
 
 func deltapackzigzag_int64_18(initoffset int64, in *[64]int64, out *[18]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 18) | 
@@ -27498,6 +27645,7 @@ func deltapackzigzag_int64_18(initoffset int64, in *[64]int64, out *[18]int64, n
 }
 
 func deltapackzigzag_int64_19(initoffset int64, in *[64]int64, out *[19]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 19) | 
@@ -27602,6 +27750,7 @@ func deltapackzigzag_int64_19(initoffset int64, in *[64]int64, out *[19]int64, n
 }
 
 func deltapackzigzag_int64_20(initoffset int64, in *[64]int64, out *[20]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 20) | 
@@ -27705,6 +27854,7 @@ func deltapackzigzag_int64_20(initoffset int64, in *[64]int64, out *[20]int64, n
 }
 
 func deltapackzigzag_int64_21(initoffset int64, in *[64]int64, out *[21]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 21) | 
@@ -27813,6 +27963,7 @@ func deltapackzigzag_int64_21(initoffset int64, in *[64]int64, out *[21]int64, n
 }
 
 func deltapackzigzag_int64_22(initoffset int64, in *[64]int64, out *[22]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 22) | 
@@ -27922,6 +28073,7 @@ func deltapackzigzag_int64_22(initoffset int64, in *[64]int64, out *[22]int64, n
 }
 
 func deltapackzigzag_int64_23(initoffset int64, in *[64]int64, out *[23]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 23) | 
@@ -28034,6 +28186,7 @@ func deltapackzigzag_int64_23(initoffset int64, in *[64]int64, out *[23]int64, n
 }
 
 func deltapackzigzag_int64_24(initoffset int64, in *[64]int64, out *[24]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 24) | 
@@ -28141,6 +28294,7 @@ func deltapackzigzag_int64_24(initoffset int64, in *[64]int64, out *[24]int64, n
 }
 
 func deltapackzigzag_int64_25(initoffset int64, in *[64]int64, out *[25]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 25) | 
@@ -28257,6 +28411,7 @@ func deltapackzigzag_int64_25(initoffset int64, in *[64]int64, out *[25]int64, n
 }
 
 func deltapackzigzag_int64_26(initoffset int64, in *[64]int64, out *[26]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 26) | 
@@ -28374,6 +28529,7 @@ func deltapackzigzag_int64_26(initoffset int64, in *[64]int64, out *[26]int64, n
 }
 
 func deltapackzigzag_int64_27(initoffset int64, in *[64]int64, out *[27]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 27) | 
@@ -28494,6 +28650,7 @@ func deltapackzigzag_int64_27(initoffset int64, in *[64]int64, out *[27]int64, n
 }
 
 func deltapackzigzag_int64_28(initoffset int64, in *[64]int64, out *[28]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 28) | 
@@ -28613,6 +28770,7 @@ func deltapackzigzag_int64_28(initoffset int64, in *[64]int64, out *[28]int64, n
 }
 
 func deltapackzigzag_int64_29(initoffset int64, in *[64]int64, out *[29]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 29) | 
@@ -28737,6 +28895,7 @@ func deltapackzigzag_int64_29(initoffset int64, in *[64]int64, out *[29]int64, n
 }
 
 func deltapackzigzag_int64_30(initoffset int64, in *[64]int64, out *[30]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 30) | 
@@ -28862,6 +29021,7 @@ func deltapackzigzag_int64_30(initoffset int64, in *[64]int64, out *[30]int64, n
 }
 
 func deltapackzigzag_int64_31(initoffset int64, in *[64]int64, out *[31]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 31) | 
@@ -28990,6 +29150,7 @@ func deltapackzigzag_int64_31(initoffset int64, in *[64]int64, out *[31]int64, n
 }
 
 func deltapackzigzag_int64_32(initoffset int64, in *[64]int64, out *[32]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 32)
@@ -29089,6 +29250,7 @@ func deltapackzigzag_int64_32(initoffset int64, in *[64]int64, out *[32]int64, n
 }
 
 func deltapackzigzag_int64_33(initoffset int64, in *[64]int64, out *[33]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 33)
@@ -29221,6 +29383,7 @@ func deltapackzigzag_int64_33(initoffset int64, in *[64]int64, out *[33]int64, n
 }
 
 func deltapackzigzag_int64_34(initoffset int64, in *[64]int64, out *[34]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 34)
@@ -29354,6 +29517,7 @@ func deltapackzigzag_int64_34(initoffset int64, in *[64]int64, out *[34]int64, n
 }
 
 func deltapackzigzag_int64_35(initoffset int64, in *[64]int64, out *[35]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 35)
@@ -29490,6 +29654,7 @@ func deltapackzigzag_int64_35(initoffset int64, in *[64]int64, out *[35]int64, n
 }
 
 func deltapackzigzag_int64_36(initoffset int64, in *[64]int64, out *[36]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 36)
@@ -29625,6 +29790,7 @@ func deltapackzigzag_int64_36(initoffset int64, in *[64]int64, out *[36]int64, n
 }
 
 func deltapackzigzag_int64_37(initoffset int64, in *[64]int64, out *[37]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 37)
@@ -29765,6 +29931,7 @@ func deltapackzigzag_int64_37(initoffset int64, in *[64]int64, out *[37]int64, n
 }
 
 func deltapackzigzag_int64_38(initoffset int64, in *[64]int64, out *[38]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 38)
@@ -29906,6 +30073,7 @@ func deltapackzigzag_int64_38(initoffset int64, in *[64]int64, out *[38]int64, n
 }
 
 func deltapackzigzag_int64_39(initoffset int64, in *[64]int64, out *[39]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 39)
@@ -30050,6 +30218,7 @@ func deltapackzigzag_int64_39(initoffset int64, in *[64]int64, out *[39]int64, n
 }
 
 func deltapackzigzag_int64_40(initoffset int64, in *[64]int64, out *[40]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 40)
@@ -30189,6 +30358,7 @@ func deltapackzigzag_int64_40(initoffset int64, in *[64]int64, out *[40]int64, n
 }
 
 func deltapackzigzag_int64_41(initoffset int64, in *[64]int64, out *[41]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 41)
@@ -30337,6 +30507,7 @@ func deltapackzigzag_int64_41(initoffset int64, in *[64]int64, out *[41]int64, n
 }
 
 func deltapackzigzag_int64_42(initoffset int64, in *[64]int64, out *[42]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 42)
@@ -30486,6 +30657,7 @@ func deltapackzigzag_int64_42(initoffset int64, in *[64]int64, out *[42]int64, n
 }
 
 func deltapackzigzag_int64_43(initoffset int64, in *[64]int64, out *[43]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 43)
@@ -30638,6 +30810,7 @@ func deltapackzigzag_int64_43(initoffset int64, in *[64]int64, out *[43]int64, n
 }
 
 func deltapackzigzag_int64_44(initoffset int64, in *[64]int64, out *[44]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 44)
@@ -30789,6 +30962,7 @@ func deltapackzigzag_int64_44(initoffset int64, in *[64]int64, out *[44]int64, n
 }
 
 func deltapackzigzag_int64_45(initoffset int64, in *[64]int64, out *[45]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 45)
@@ -30945,6 +31119,7 @@ func deltapackzigzag_int64_45(initoffset int64, in *[64]int64, out *[45]int64, n
 }
 
 func deltapackzigzag_int64_46(initoffset int64, in *[64]int64, out *[46]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 46)
@@ -31102,6 +31277,7 @@ func deltapackzigzag_int64_46(initoffset int64, in *[64]int64, out *[46]int64, n
 }
 
 func deltapackzigzag_int64_47(initoffset int64, in *[64]int64, out *[47]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 47)
@@ -31262,6 +31438,7 @@ func deltapackzigzag_int64_47(initoffset int64, in *[64]int64, out *[47]int64, n
 }
 
 func deltapackzigzag_int64_48(initoffset int64, in *[64]int64, out *[48]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 48)
@@ -31409,6 +31586,7 @@ func deltapackzigzag_int64_48(initoffset int64, in *[64]int64, out *[48]int64, n
 }
 
 func deltapackzigzag_int64_49(initoffset int64, in *[64]int64, out *[49]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 49)
@@ -31573,6 +31751,7 @@ func deltapackzigzag_int64_49(initoffset int64, in *[64]int64, out *[49]int64, n
 }
 
 func deltapackzigzag_int64_50(initoffset int64, in *[64]int64, out *[50]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 50)
@@ -31738,6 +31917,7 @@ func deltapackzigzag_int64_50(initoffset int64, in *[64]int64, out *[50]int64, n
 }
 
 func deltapackzigzag_int64_51(initoffset int64, in *[64]int64, out *[51]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 51)
@@ -31906,6 +32086,7 @@ func deltapackzigzag_int64_51(initoffset int64, in *[64]int64, out *[51]int64, n
 }
 
 func deltapackzigzag_int64_52(initoffset int64, in *[64]int64, out *[52]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 52)
@@ -32073,6 +32254,7 @@ func deltapackzigzag_int64_52(initoffset int64, in *[64]int64, out *[52]int64, n
 }
 
 func deltapackzigzag_int64_53(initoffset int64, in *[64]int64, out *[53]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 53)
@@ -32245,6 +32427,7 @@ func deltapackzigzag_int64_53(initoffset int64, in *[64]int64, out *[53]int64, n
 }
 
 func deltapackzigzag_int64_54(initoffset int64, in *[64]int64, out *[54]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 54)
@@ -32418,6 +32601,7 @@ func deltapackzigzag_int64_54(initoffset int64, in *[64]int64, out *[54]int64, n
 }
 
 func deltapackzigzag_int64_55(initoffset int64, in *[64]int64, out *[55]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 55)
@@ -32594,6 +32778,7 @@ func deltapackzigzag_int64_55(initoffset int64, in *[64]int64, out *[55]int64, n
 }
 
 func deltapackzigzag_int64_56(initoffset int64, in *[64]int64, out *[56]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 56)
@@ -32765,6 +32950,7 @@ func deltapackzigzag_int64_56(initoffset int64, in *[64]int64, out *[56]int64, n
 }
 
 func deltapackzigzag_int64_57(initoffset int64, in *[64]int64, out *[57]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 57)
@@ -32945,6 +33131,7 @@ func deltapackzigzag_int64_57(initoffset int64, in *[64]int64, out *[57]int64, n
 }
 
 func deltapackzigzag_int64_58(initoffset int64, in *[64]int64, out *[58]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 58)
@@ -33126,6 +33313,7 @@ func deltapackzigzag_int64_58(initoffset int64, in *[64]int64, out *[58]int64, n
 }
 
 func deltapackzigzag_int64_59(initoffset int64, in *[64]int64, out *[59]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 59)
@@ -33310,6 +33498,7 @@ func deltapackzigzag_int64_59(initoffset int64, in *[64]int64, out *[59]int64, n
 }
 
 func deltapackzigzag_int64_60(initoffset int64, in *[64]int64, out *[60]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 60)
@@ -33493,6 +33682,7 @@ func deltapackzigzag_int64_60(initoffset int64, in *[64]int64, out *[60]int64, n
 }
 
 func deltapackzigzag_int64_61(initoffset int64, in *[64]int64, out *[61]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 61)
@@ -33681,6 +33871,7 @@ func deltapackzigzag_int64_61(initoffset int64, in *[64]int64, out *[61]int64, n
 }
 
 func deltapackzigzag_int64_62(initoffset int64, in *[64]int64, out *[62]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 62)
@@ -33870,6 +34061,7 @@ func deltapackzigzag_int64_62(initoffset int64, in *[64]int64, out *[62]int64, n
 }
 
 func deltapackzigzag_int64_63(initoffset int64, in *[64]int64, out *[63]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] =
 	 (int64((int64(in[0] - initoffset) << 1) ^ (int64(in[0] - initoffset) >> 63))) >> ntz | 
 	 ((int64((int64(in[1] - in[0]) << 1) ^ (int64(in[1] - in[0]) >> 63))) >> ntz << 63)
@@ -34062,6 +34254,7 @@ func deltapackzigzag_int64_63(initoffset int64, in *[64]int64, out *[63]int64, n
 }
 
 func deltaunpackzigzag_int64_0(initoffset int64, in *[0]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -34129,6 +34322,7 @@ func deltaunpackzigzag_int64_0(initoffset int64, in *[0]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_1(initoffset int64, in *[1]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 1)) & 0x1) & 1))^(((int64(uint64(in[0]) >> 1)) & 0x1)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 2)) & 0x1) & 1))^(((int64(uint64(in[0]) >> 2)) & 0x1)>>1)) << ntz + out[1]
@@ -34196,6 +34390,7 @@ func deltaunpackzigzag_int64_1(initoffset int64, in *[1]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_2(initoffset int64, in *[2]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 2)) & 0x3) & 1))^(((int64(uint64(in[0]) >> 2)) & 0x3)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 4)) & 0x3) & 1))^(((int64(uint64(in[0]) >> 4)) & 0x3)>>1)) << ntz + out[1]
@@ -34263,6 +34458,7 @@ func deltaunpackzigzag_int64_2(initoffset int64, in *[2]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_3(initoffset int64, in *[3]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 3)) & 0x7) & 1))^(((int64(uint64(in[0]) >> 3)) & 0x7)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 6)) & 0x7) & 1))^(((int64(uint64(in[0]) >> 6)) & 0x7)>>1)) << ntz + out[1]
@@ -34330,6 +34526,7 @@ func deltaunpackzigzag_int64_3(initoffset int64, in *[3]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_4(initoffset int64, in *[4]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 4)) & 0xF) & 1))^(((int64(uint64(in[0]) >> 4)) & 0xF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 8)) & 0xF) & 1))^(((int64(uint64(in[0]) >> 8)) & 0xF)>>1)) << ntz + out[1]
@@ -34397,6 +34594,7 @@ func deltaunpackzigzag_int64_4(initoffset int64, in *[4]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_5(initoffset int64, in *[5]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1F) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1F)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 5)) & 0x1F) & 1))^(((int64(uint64(in[0]) >> 5)) & 0x1F)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 10)) & 0x1F) & 1))^(((int64(uint64(in[0]) >> 10)) & 0x1F)>>1)) << ntz + out[1]
@@ -34464,6 +34662,7 @@ func deltaunpackzigzag_int64_5(initoffset int64, in *[5]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_6(initoffset int64, in *[6]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3F) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3F)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 6)) & 0x3F) & 1))^(((int64(uint64(in[0]) >> 6)) & 0x3F)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 12)) & 0x3F) & 1))^(((int64(uint64(in[0]) >> 12)) & 0x3F)>>1)) << ntz + out[1]
@@ -34531,6 +34730,7 @@ func deltaunpackzigzag_int64_6(initoffset int64, in *[6]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_7(initoffset int64, in *[7]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7F) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7F)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 7)) & 0x7F) & 1))^(((int64(uint64(in[0]) >> 7)) & 0x7F)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 14)) & 0x7F) & 1))^(((int64(uint64(in[0]) >> 14)) & 0x7F)>>1)) << ntz + out[1]
@@ -34598,6 +34798,7 @@ func deltaunpackzigzag_int64_7(initoffset int64, in *[7]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_8(initoffset int64, in *[8]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 8)) & 0xFF) & 1))^(((int64(uint64(in[0]) >> 8)) & 0xFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 16)) & 0xFF) & 1))^(((int64(uint64(in[0]) >> 16)) & 0xFF)>>1)) << ntz + out[1]
@@ -34665,6 +34866,7 @@ func deltaunpackzigzag_int64_8(initoffset int64, in *[8]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_9(initoffset int64, in *[9]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 9)) & 0x1FF) & 1))^(((int64(uint64(in[0]) >> 9)) & 0x1FF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 18)) & 0x1FF) & 1))^(((int64(uint64(in[0]) >> 18)) & 0x1FF)>>1)) << ntz + out[1]
@@ -34732,6 +34934,7 @@ func deltaunpackzigzag_int64_9(initoffset int64, in *[9]int64, out *[64]int64, n
 }
 
 func deltaunpackzigzag_int64_10(initoffset int64, in *[10]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 10)) & 0x3FF) & 1))^(((int64(uint64(in[0]) >> 10)) & 0x3FF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 20)) & 0x3FF) & 1))^(((int64(uint64(in[0]) >> 20)) & 0x3FF)>>1)) << ntz + out[1]
@@ -34799,6 +35002,7 @@ func deltaunpackzigzag_int64_10(initoffset int64, in *[10]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_11(initoffset int64, in *[11]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 11)) & 0x7FF) & 1))^(((int64(uint64(in[0]) >> 11)) & 0x7FF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 22)) & 0x7FF) & 1))^(((int64(uint64(in[0]) >> 22)) & 0x7FF)>>1)) << ntz + out[1]
@@ -34866,6 +35070,7 @@ func deltaunpackzigzag_int64_11(initoffset int64, in *[11]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_12(initoffset int64, in *[12]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 12)) & 0xFFF) & 1))^(((int64(uint64(in[0]) >> 12)) & 0xFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 24)) & 0xFFF) & 1))^(((int64(uint64(in[0]) >> 24)) & 0xFFF)>>1)) << ntz + out[1]
@@ -34933,6 +35138,7 @@ func deltaunpackzigzag_int64_12(initoffset int64, in *[12]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_13(initoffset int64, in *[13]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 13)) & 0x1FFF) & 1))^(((int64(uint64(in[0]) >> 13)) & 0x1FFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 26)) & 0x1FFF) & 1))^(((int64(uint64(in[0]) >> 26)) & 0x1FFF)>>1)) << ntz + out[1]
@@ -35000,6 +35206,7 @@ func deltaunpackzigzag_int64_13(initoffset int64, in *[13]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_14(initoffset int64, in *[14]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 14)) & 0x3FFF) & 1))^(((int64(uint64(in[0]) >> 14)) & 0x3FFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 28)) & 0x3FFF) & 1))^(((int64(uint64(in[0]) >> 28)) & 0x3FFF)>>1)) << ntz + out[1]
@@ -35067,6 +35274,7 @@ func deltaunpackzigzag_int64_14(initoffset int64, in *[14]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_15(initoffset int64, in *[15]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 15)) & 0x7FFF) & 1))^(((int64(uint64(in[0]) >> 15)) & 0x7FFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 30)) & 0x7FFF) & 1))^(((int64(uint64(in[0]) >> 30)) & 0x7FFF)>>1)) << ntz + out[1]
@@ -35134,6 +35342,7 @@ func deltaunpackzigzag_int64_15(initoffset int64, in *[15]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_16(initoffset int64, in *[16]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 16)) & 0xFFFF) & 1))^(((int64(uint64(in[0]) >> 16)) & 0xFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 32)) & 0xFFFF) & 1))^(((int64(uint64(in[0]) >> 32)) & 0xFFFF)>>1)) << ntz + out[1]
@@ -35201,6 +35410,7 @@ func deltaunpackzigzag_int64_16(initoffset int64, in *[16]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_17(initoffset int64, in *[17]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 17)) & 0x1FFFF) & 1))^(((int64(uint64(in[0]) >> 17)) & 0x1FFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 34)) & 0x1FFFF) & 1))^(((int64(uint64(in[0]) >> 34)) & 0x1FFFF)>>1)) << ntz + out[1]
@@ -35268,6 +35478,7 @@ func deltaunpackzigzag_int64_17(initoffset int64, in *[17]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_18(initoffset int64, in *[18]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 18)) & 0x3FFFF) & 1))^(((int64(uint64(in[0]) >> 18)) & 0x3FFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 36)) & 0x3FFFF) & 1))^(((int64(uint64(in[0]) >> 36)) & 0x3FFFF)>>1)) << ntz + out[1]
@@ -35335,6 +35546,7 @@ func deltaunpackzigzag_int64_18(initoffset int64, in *[18]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_19(initoffset int64, in *[19]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 19)) & 0x7FFFF) & 1))^(((int64(uint64(in[0]) >> 19)) & 0x7FFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 38)) & 0x7FFFF) & 1))^(((int64(uint64(in[0]) >> 38)) & 0x7FFFF)>>1)) << ntz + out[1]
@@ -35402,6 +35614,7 @@ func deltaunpackzigzag_int64_19(initoffset int64, in *[19]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_20(initoffset int64, in *[20]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 20)) & 0xFFFFF) & 1))^(((int64(uint64(in[0]) >> 20)) & 0xFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 40)) & 0xFFFFF) & 1))^(((int64(uint64(in[0]) >> 40)) & 0xFFFFF)>>1)) << ntz + out[1]
@@ -35469,6 +35682,7 @@ func deltaunpackzigzag_int64_20(initoffset int64, in *[20]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_21(initoffset int64, in *[21]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 21)) & 0x1FFFFF) & 1))^(((int64(uint64(in[0]) >> 21)) & 0x1FFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 42)) & 0x1FFFFF) & 1))^(((int64(uint64(in[0]) >> 42)) & 0x1FFFFF)>>1)) << ntz + out[1]
@@ -35536,6 +35750,7 @@ func deltaunpackzigzag_int64_21(initoffset int64, in *[21]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_22(initoffset int64, in *[22]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 22)) & 0x3FFFFF) & 1))^(((int64(uint64(in[0]) >> 22)) & 0x3FFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 44) | ((in[1] & 0x3) << 20))) & 1))^(((int64(uint64(in[0]) >> 44) | ((in[1] & 0x3) << 20)))>>1)) << ntz + out[1]
@@ -35603,6 +35818,7 @@ func deltaunpackzigzag_int64_22(initoffset int64, in *[22]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_23(initoffset int64, in *[23]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 23)) & 0x7FFFFF) & 1))^(((int64(uint64(in[0]) >> 23)) & 0x7FFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 46) | ((in[1] & 0x1F) << 18))) & 1))^(((int64(uint64(in[0]) >> 46) | ((in[1] & 0x1F) << 18)))>>1)) << ntz + out[1]
@@ -35670,6 +35886,7 @@ func deltaunpackzigzag_int64_23(initoffset int64, in *[23]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_24(initoffset int64, in *[24]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 24)) & 0xFFFFFF) & 1))^(((int64(uint64(in[0]) >> 24)) & 0xFFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 48) | ((in[1] & 0xFF) << 16))) & 1))^(((int64(uint64(in[0]) >> 48) | ((in[1] & 0xFF) << 16)))>>1)) << ntz + out[1]
@@ -35737,6 +35954,7 @@ func deltaunpackzigzag_int64_24(initoffset int64, in *[24]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_25(initoffset int64, in *[25]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 25)) & 0x1FFFFFF) & 1))^(((int64(uint64(in[0]) >> 25)) & 0x1FFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 50) | ((in[1] & 0x7FF) << 14))) & 1))^(((int64(uint64(in[0]) >> 50) | ((in[1] & 0x7FF) << 14)))>>1)) << ntz + out[1]
@@ -35804,6 +36022,7 @@ func deltaunpackzigzag_int64_25(initoffset int64, in *[25]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_26(initoffset int64, in *[26]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 26)) & 0x3FFFFFF) & 1))^(((int64(uint64(in[0]) >> 26)) & 0x3FFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 52) | ((in[1] & 0x3FFF) << 12))) & 1))^(((int64(uint64(in[0]) >> 52) | ((in[1] & 0x3FFF) << 12)))>>1)) << ntz + out[1]
@@ -35871,6 +36090,7 @@ func deltaunpackzigzag_int64_26(initoffset int64, in *[26]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_27(initoffset int64, in *[27]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 27)) & 0x7FFFFFF) & 1))^(((int64(uint64(in[0]) >> 27)) & 0x7FFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 54) | ((in[1] & 0x1FFFF) << 10))) & 1))^(((int64(uint64(in[0]) >> 54) | ((in[1] & 0x1FFFF) << 10)))>>1)) << ntz + out[1]
@@ -35938,6 +36158,7 @@ func deltaunpackzigzag_int64_27(initoffset int64, in *[27]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_28(initoffset int64, in *[28]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 28)) & 0xFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 28)) & 0xFFFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFF) << 8))) & 1))^(((int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFF) << 8)))>>1)) << ntz + out[1]
@@ -36005,6 +36226,7 @@ func deltaunpackzigzag_int64_28(initoffset int64, in *[28]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_29(initoffset int64, in *[29]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 29)) & 0x1FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 29)) & 0x1FFFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 58) | ((in[1] & 0x7FFFFF) << 6))) & 1))^(((int64(uint64(in[0]) >> 58) | ((in[1] & 0x7FFFFF) << 6)))>>1)) << ntz + out[1]
@@ -36072,6 +36294,7 @@ func deltaunpackzigzag_int64_29(initoffset int64, in *[29]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_30(initoffset int64, in *[30]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 30)) & 0x3FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 30)) & 0x3FFFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 60) | ((in[1] & 0x3FFFFFF) << 4))) & 1))^(((int64(uint64(in[0]) >> 60) | ((in[1] & 0x3FFFFFF) << 4)))>>1)) << ntz + out[1]
@@ -36139,6 +36362,7 @@ func deltaunpackzigzag_int64_30(initoffset int64, in *[30]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_31(initoffset int64, in *[31]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 31)) & 0x7FFFFFFF) & 1))^(((int64(uint64(in[0]) >> 31)) & 0x7FFFFFFF)>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[0]) >> 62) | ((in[1] & 0x1FFFFFFF) << 2))) & 1))^(((int64(uint64(in[0]) >> 62) | ((in[1] & 0x1FFFFFFF) << 2)))>>1)) << ntz + out[1]
@@ -36206,6 +36430,7 @@ func deltaunpackzigzag_int64_31(initoffset int64, in *[31]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_32(initoffset int64, in *[32]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-((int64(uint64(in[0]) >> 32)) & 1))^((int64(uint64(in[0]) >> 32))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 0)) & 0xFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 0)) & 0xFFFFFFFF)>>1)) << ntz + out[1]
@@ -36273,6 +36498,7 @@ func deltaunpackzigzag_int64_32(initoffset int64, in *[32]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_33(initoffset int64, in *[33]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 33) | ((in[1] & 0x3) << 31))) & 1))^(((int64(uint64(in[0]) >> 33) | ((in[1] & 0x3) << 31)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 2)) & 0x1FFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 2)) & 0x1FFFFFFFF)>>1)) << ntz + out[1]
@@ -36340,6 +36566,7 @@ func deltaunpackzigzag_int64_33(initoffset int64, in *[33]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_34(initoffset int64, in *[34]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 34) | ((in[1] & 0xF) << 30))) & 1))^(((int64(uint64(in[0]) >> 34) | ((in[1] & 0xF) << 30)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 4)) & 0x3FFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 4)) & 0x3FFFFFFFF)>>1)) << ntz + out[1]
@@ -36407,6 +36634,7 @@ func deltaunpackzigzag_int64_34(initoffset int64, in *[34]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_35(initoffset int64, in *[35]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 35) | ((in[1] & 0x3F) << 29))) & 1))^(((int64(uint64(in[0]) >> 35) | ((in[1] & 0x3F) << 29)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 6)) & 0x7FFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 6)) & 0x7FFFFFFFF)>>1)) << ntz + out[1]
@@ -36474,6 +36702,7 @@ func deltaunpackzigzag_int64_35(initoffset int64, in *[35]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_36(initoffset int64, in *[36]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 36) | ((in[1] & 0xFF) << 28))) & 1))^(((int64(uint64(in[0]) >> 36) | ((in[1] & 0xFF) << 28)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 8)) & 0xFFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 8)) & 0xFFFFFFFFF)>>1)) << ntz + out[1]
@@ -36541,6 +36770,7 @@ func deltaunpackzigzag_int64_36(initoffset int64, in *[36]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_37(initoffset int64, in *[37]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 37) | ((in[1] & 0x3FF) << 27))) & 1))^(((int64(uint64(in[0]) >> 37) | ((in[1] & 0x3FF) << 27)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 10)) & 0x1FFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 10)) & 0x1FFFFFFFFF)>>1)) << ntz + out[1]
@@ -36608,6 +36838,7 @@ func deltaunpackzigzag_int64_37(initoffset int64, in *[37]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_38(initoffset int64, in *[38]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 38) | ((in[1] & 0xFFF) << 26))) & 1))^(((int64(uint64(in[0]) >> 38) | ((in[1] & 0xFFF) << 26)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 12)) & 0x3FFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 12)) & 0x3FFFFFFFFF)>>1)) << ntz + out[1]
@@ -36675,6 +36906,7 @@ func deltaunpackzigzag_int64_38(initoffset int64, in *[38]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_39(initoffset int64, in *[39]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 39) | ((in[1] & 0x3FFF) << 25))) & 1))^(((int64(uint64(in[0]) >> 39) | ((in[1] & 0x3FFF) << 25)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 14)) & 0x7FFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 14)) & 0x7FFFFFFFFF)>>1)) << ntz + out[1]
@@ -36742,6 +36974,7 @@ func deltaunpackzigzag_int64_39(initoffset int64, in *[39]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_40(initoffset int64, in *[40]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 40) | ((in[1] & 0xFFFF) << 24))) & 1))^(((int64(uint64(in[0]) >> 40) | ((in[1] & 0xFFFF) << 24)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 16)) & 0xFFFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 16)) & 0xFFFFFFFFFF)>>1)) << ntz + out[1]
@@ -36809,6 +37042,7 @@ func deltaunpackzigzag_int64_40(initoffset int64, in *[40]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_41(initoffset int64, in *[41]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 41) | ((in[1] & 0x3FFFF) << 23))) & 1))^(((int64(uint64(in[0]) >> 41) | ((in[1] & 0x3FFFF) << 23)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 18)) & 0x1FFFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 18)) & 0x1FFFFFFFFFF)>>1)) << ntz + out[1]
@@ -36876,6 +37110,7 @@ func deltaunpackzigzag_int64_41(initoffset int64, in *[41]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_42(initoffset int64, in *[42]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 42) | ((in[1] & 0xFFFFF) << 22))) & 1))^(((int64(uint64(in[0]) >> 42) | ((in[1] & 0xFFFFF) << 22)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 20)) & 0x3FFFFFFFFFF) & 1))^(((int64(uint64(in[1]) >> 20)) & 0x3FFFFFFFFFF)>>1)) << ntz + out[1]
@@ -36943,6 +37178,7 @@ func deltaunpackzigzag_int64_42(initoffset int64, in *[42]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_43(initoffset int64, in *[43]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 43) | ((in[1] & 0x3FFFFF) << 21))) & 1))^(((int64(uint64(in[0]) >> 43) | ((in[1] & 0x3FFFFF) << 21)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 22) | ((in[2] & 0x1) << 42))) & 1))^(((int64(uint64(in[1]) >> 22) | ((in[2] & 0x1) << 42)))>>1)) << ntz + out[1]
@@ -37010,6 +37246,7 @@ func deltaunpackzigzag_int64_43(initoffset int64, in *[43]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_44(initoffset int64, in *[44]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 44) | ((in[1] & 0xFFFFFF) << 20))) & 1))^(((int64(uint64(in[0]) >> 44) | ((in[1] & 0xFFFFFF) << 20)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 24) | ((in[2] & 0xF) << 40))) & 1))^(((int64(uint64(in[1]) >> 24) | ((in[2] & 0xF) << 40)))>>1)) << ntz + out[1]
@@ -37077,6 +37314,7 @@ func deltaunpackzigzag_int64_44(initoffset int64, in *[44]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_45(initoffset int64, in *[45]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 45) | ((in[1] & 0x3FFFFFF) << 19))) & 1))^(((int64(uint64(in[0]) >> 45) | ((in[1] & 0x3FFFFFF) << 19)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 26) | ((in[2] & 0x7F) << 38))) & 1))^(((int64(uint64(in[1]) >> 26) | ((in[2] & 0x7F) << 38)))>>1)) << ntz + out[1]
@@ -37144,6 +37382,7 @@ func deltaunpackzigzag_int64_45(initoffset int64, in *[45]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_46(initoffset int64, in *[46]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 46) | ((in[1] & 0xFFFFFFF) << 18))) & 1))^(((int64(uint64(in[0]) >> 46) | ((in[1] & 0xFFFFFFF) << 18)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 28) | ((in[2] & 0x3FF) << 36))) & 1))^(((int64(uint64(in[1]) >> 28) | ((in[2] & 0x3FF) << 36)))>>1)) << ntz + out[1]
@@ -37211,6 +37450,7 @@ func deltaunpackzigzag_int64_46(initoffset int64, in *[46]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_47(initoffset int64, in *[47]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 47) | ((in[1] & 0x3FFFFFFF) << 17))) & 1))^(((int64(uint64(in[0]) >> 47) | ((in[1] & 0x3FFFFFFF) << 17)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 30) | ((in[2] & 0x1FFF) << 34))) & 1))^(((int64(uint64(in[1]) >> 30) | ((in[2] & 0x1FFF) << 34)))>>1)) << ntz + out[1]
@@ -37278,6 +37518,7 @@ func deltaunpackzigzag_int64_47(initoffset int64, in *[47]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_48(initoffset int64, in *[48]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 48) | ((in[1] & 0xFFFFFFFF) << 16))) & 1))^(((int64(uint64(in[0]) >> 48) | ((in[1] & 0xFFFFFFFF) << 16)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 32) | ((in[2] & 0xFFFF) << 32))) & 1))^(((int64(uint64(in[1]) >> 32) | ((in[2] & 0xFFFF) << 32)))>>1)) << ntz + out[1]
@@ -37345,6 +37586,7 @@ func deltaunpackzigzag_int64_48(initoffset int64, in *[48]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_49(initoffset int64, in *[49]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 49) | ((in[1] & 0x3FFFFFFFF) << 15))) & 1))^(((int64(uint64(in[0]) >> 49) | ((in[1] & 0x3FFFFFFFF) << 15)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 34) | ((in[2] & 0x7FFFF) << 30))) & 1))^(((int64(uint64(in[1]) >> 34) | ((in[2] & 0x7FFFF) << 30)))>>1)) << ntz + out[1]
@@ -37412,6 +37654,7 @@ func deltaunpackzigzag_int64_49(initoffset int64, in *[49]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_50(initoffset int64, in *[50]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 50) | ((in[1] & 0xFFFFFFFFF) << 14))) & 1))^(((int64(uint64(in[0]) >> 50) | ((in[1] & 0xFFFFFFFFF) << 14)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 36) | ((in[2] & 0x3FFFFF) << 28))) & 1))^(((int64(uint64(in[1]) >> 36) | ((in[2] & 0x3FFFFF) << 28)))>>1)) << ntz + out[1]
@@ -37479,6 +37722,7 @@ func deltaunpackzigzag_int64_50(initoffset int64, in *[50]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_51(initoffset int64, in *[51]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13))) & 1))^(((int64(uint64(in[0]) >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 38) | ((in[2] & 0x1FFFFFF) << 26))) & 1))^(((int64(uint64(in[1]) >> 38) | ((in[2] & 0x1FFFFFF) << 26)))>>1)) << ntz + out[1]
@@ -37546,6 +37790,7 @@ func deltaunpackzigzag_int64_51(initoffset int64, in *[51]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_52(initoffset int64, in *[52]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12))) & 1))^(((int64(uint64(in[0]) >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 40) | ((in[2] & 0xFFFFFFF) << 24))) & 1))^(((int64(uint64(in[1]) >> 40) | ((in[2] & 0xFFFFFFF) << 24)))>>1)) << ntz + out[1]
@@ -37613,6 +37858,7 @@ func deltaunpackzigzag_int64_52(initoffset int64, in *[52]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_53(initoffset int64, in *[53]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11))) & 1))^(((int64(uint64(in[0]) >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 42) | ((in[2] & 0x7FFFFFFF) << 22))) & 1))^(((int64(uint64(in[1]) >> 42) | ((in[2] & 0x7FFFFFFF) << 22)))>>1)) << ntz + out[1]
@@ -37680,6 +37926,7 @@ func deltaunpackzigzag_int64_53(initoffset int64, in *[53]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_54(initoffset int64, in *[54]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10))) & 1))^(((int64(uint64(in[0]) >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 44) | ((in[2] & 0x3FFFFFFFF) << 20))) & 1))^(((int64(uint64(in[1]) >> 44) | ((in[2] & 0x3FFFFFFFF) << 20)))>>1)) << ntz + out[1]
@@ -37747,6 +37994,7 @@ func deltaunpackzigzag_int64_54(initoffset int64, in *[54]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_55(initoffset int64, in *[55]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9))) & 1))^(((int64(uint64(in[0]) >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18))) & 1))^(((int64(uint64(in[1]) >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18)))>>1)) << ntz + out[1]
@@ -37814,6 +38062,7 @@ func deltaunpackzigzag_int64_55(initoffset int64, in *[55]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_56(initoffset int64, in *[56]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8))) & 1))^(((int64(uint64(in[0]) >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16))) & 1))^(((int64(uint64(in[1]) >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16)))>>1)) << ntz + out[1]
@@ -37881,6 +38130,7 @@ func deltaunpackzigzag_int64_56(initoffset int64, in *[56]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_57(initoffset int64, in *[57]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7))) & 1))^(((int64(uint64(in[0]) >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14))) & 1))^(((int64(uint64(in[1]) >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14)))>>1)) << ntz + out[1]
@@ -37948,6 +38198,7 @@ func deltaunpackzigzag_int64_57(initoffset int64, in *[57]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_58(initoffset int64, in *[58]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6))) & 1))^(((int64(uint64(in[0]) >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12))) & 1))^(((int64(uint64(in[1]) >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12)))>>1)) << ntz + out[1]
@@ -38015,6 +38266,7 @@ func deltaunpackzigzag_int64_58(initoffset int64, in *[58]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_59(initoffset int64, in *[59]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5))) & 1))^(((int64(uint64(in[0]) >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10))) & 1))^(((int64(uint64(in[1]) >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10)))>>1)) << ntz + out[1]
@@ -38082,6 +38334,7 @@ func deltaunpackzigzag_int64_59(initoffset int64, in *[59]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_60(initoffset int64, in *[60]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0xFFFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4))) & 1))^(((int64(uint64(in[0]) >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8))) & 1))^(((int64(uint64(in[1]) >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8)))>>1)) << ntz + out[1]
@@ -38149,6 +38402,7 @@ func deltaunpackzigzag_int64_60(initoffset int64, in *[60]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_61(initoffset int64, in *[61]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x1FFFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3))) & 1))^(((int64(uint64(in[0]) >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6))) & 1))^(((int64(uint64(in[1]) >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6)))>>1)) << ntz + out[1]
@@ -38216,6 +38470,7 @@ func deltaunpackzigzag_int64_61(initoffset int64, in *[61]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_62(initoffset int64, in *[62]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x3FFFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2))) & 1))^(((int64(uint64(in[0]) >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4))) & 1))^(((int64(uint64(in[1]) >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4)))>>1)) << ntz + out[1]
@@ -38283,6 +38538,7 @@ func deltaunpackzigzag_int64_62(initoffset int64, in *[62]int64, out *[64]int64,
 }
 
 func deltaunpackzigzag_int64_63(initoffset int64, in *[63]int64, out *[64]int64, ntz int) {
+	ntz = ntz&(64-1)
 	out[0] = ((-(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFFF) & 1))^(((int64(uint64(in[0]) >> 0)) & 0x7FFFFFFFFFFFFFFF)>>1)) << ntz + initoffset
 	out[1] = ((-(((int64(uint64(in[0]) >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1))) & 1))^(((int64(uint64(in[0]) >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1)))>>1)) << ntz + out[0]
 	out[2] = ((-(((int64(uint64(in[1]) >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2))) & 1))^(((int64(uint64(in[1]) >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2)))>>1)) << ntz + out[1]

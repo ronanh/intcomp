@@ -38,6 +38,9 @@ func DeltaUnpack_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{{$dp.T
 {{- range $dpn := $dp.Dpn }}
 
 func deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- if ne $dp.NtzExtraParamWithType ""}}
+	ntz = ntz&({{$dp.Bits}}-1)
+{{- end }}
 {{- range $dpnb := $dpn.Dpnb }}
 	out[{{$dpnb.I}}] = 
 {{- range $line := $dpnb.PackLines }}
@@ -50,6 +53,9 @@ func deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$
 {{- range $dpn := $dp.Dpn }}
 
 func deltaunpack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]{{$dp.Typename}}, out *[{{$dp.Bits}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- if ne $dp.NtzExtraParamWithType ""}}
+	ntz = ntz&({{$dp.Bits}}-1)
+{{- end }}
 {{- range $dunb := $dpn.Dunb }}
 	out[{{$dunb.I}}] = {{$dunb.UnpackLine}}
 {{- end }}
@@ -91,6 +97,9 @@ func DeltaUnpackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in, out []{
 {{- range $dpn := $dp.Dpn }}
 
 func deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- if ne $dp.NtzExtraParamWithType ""}}
+	ntz = ntz&({{$dp.Bits}}-1)
+{{- end }}
 {{- range $dpnb := $dpn.Dpnb }}
 	out[{{$dpnb.I}}] = 
 {{- range $line := $dpnb.PackLinesZigZag }}
@@ -103,6 +112,9 @@ func deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in
 {{- range $dpn := $dp.Dpn }}
 
 func deltaunpackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]{{$dp.Typename}}, out *[{{$dp.Bits}}]{{$dp.Typename}}{{$dp.NtzExtraParamWithType}}) {
+{{- if ne $dp.NtzExtraParamWithType ""}}
+	ntz = ntz&({{$dp.Bits}}-1)
+{{- end }}
 {{- range $dunb := $dpn.Dunb }}
 	out[{{$dunb.I}}] = {{$dunb.UnpackLineZigZag}}
 {{- end }}
