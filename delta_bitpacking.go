@@ -45,10 +45,10 @@ func CompressDeltaBinPackInt32(in, out []int32) ([]int32, []int32) {
 		inblock2 := in[inpos+32 : inpos+64]
 		inblock3 := in[inpos+64 : inpos+96]
 		inblock4 := in[inpos+96 : inpos+128]
-		bitlen1, sign1 := deltaBitLenAndSignInt32(initoffset, inblock1)
-		bitlen2, sign2 := deltaBitLenAndSignInt32(inblock1[31], inblock2)
-		bitlen3, sign3 := deltaBitLenAndSignInt32(inblock2[31], inblock3)
-		bitlen4, sign4 := deltaBitLenAndSignInt32(inblock3[31], inblock4)
+		bitlen1, sign1 := deltaBitLenAndSignInt32(initoffset, (*[32]int32)(inblock1))
+		bitlen2, sign2 := deltaBitLenAndSignInt32(inblock1[31], (*[32]int32)(inblock2))
+		bitlen3, sign3 := deltaBitLenAndSignInt32(inblock2[31], (*[32]int32)(inblock3))
+		bitlen4, sign4 := deltaBitLenAndSignInt32(inblock3[31], (*[32]int32)(inblock4))
 
 		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4; outpos+outsize+1 >= len(out) {
 			// no more space in out, realloc a bigger slice
@@ -187,15 +187,90 @@ func UncompressDeltaBinPackInt32(in, out []int32) ([]int32, []int32) {
 	return in[inpos:], out[:outpos]
 }
 
-func deltaBitLenAndSignInt32(initoffset int32, buf []int32) (int, int) {
+func deltaBitLenAndSignInt32(initoffset int32, buf *[32]int32) (int, int) {
 	var mask uint32
 
-	for _, v := range buf {
-		diff := v - initoffset
-		// zigzag encoding
-		mask |= uint32((diff << 1) ^ (diff >> 31))
-		initoffset = v
+	{
+		const base = 0
+		d0 := int32(buf[base] - initoffset)
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask = m0 | m1
 	}
+	{
+		const base = 4
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 8
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 12
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 16
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 20
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 24
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+	{
+		const base = 28
+		d0 := int32(buf[base] - buf[base-1])
+		d1 := int32(buf[base+1] - buf[base])
+		d2 := int32(buf[base+2] - buf[base+1])
+		d3 := int32(buf[base+3] - buf[base+2])
+		m0 := uint32((d0<<1)^(d0>>31)) | uint32((d1<<1)^(d1>>31))
+		m1 := uint32((d2<<1)^(d2>>31)) | uint32((d3<<1)^(d3>>31))
+		mask |= m0 | m1
+	}
+
 	sign := int(mask & 1)
 	// remove sign in zigzag encoding
 	mask >>= 1
@@ -654,15 +729,93 @@ func UncompressDeltaBinPackInt64(in, out []int64) ([]int64, []int64) {
 	return in[inpos:], out[:outpos]
 }
 
-func deltaBitTzAndLenAndSignInt64(initoffset int64, buf []int64) (int, int, int) {
+func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, int) {
 	var mask uint64
 
-	for _, v := range buf {
-		diff := v - initoffset
-		// zigzag encoding
-		mask |= uint64((diff << 1) ^ (diff >> 63))
-		initoffset = v
+	for _, buf := range []*[32]int64{(*[32]int64)(inbuf[:32]), (*[32]int64)(inbuf[32:64])} {
+		{
+			const base = 0
+			d0 := int64(buf[base] - initoffset)
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 4
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 8
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 12
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 16
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 20
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 24
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 28
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+			initoffset = buf[base+3]
+		}
 	}
+
 	sign := int(mask & 1)
 	// remove sign in zigzag encoding
 	mask >>= 1
@@ -711,10 +864,10 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		inblock2 := in[inpos+64 : inpos+128]
 		inblock3 := in[inpos+128 : inpos+192]
 		inblock4 := in[inpos+192 : inpos+256]
-		bitlen1, sign1 := deltaBitLenAndSignUint64(initoffset, (*[32]uint64)(inblock1))
-		bitlen2, sign2 := deltaBitLenAndSignUint64(inblock1[63], (*[32]uint64)(inblock2))
-		bitlen3, sign3 := deltaBitLenAndSignUint64(inblock2[63], (*[32]uint64)(inblock3))
-		bitlen4, sign4 := deltaBitLenAndSignUint64(inblock3[63], (*[32]uint64)(inblock4))
+		bitlen1, sign1 := deltaBitLenAndSignUint64(initoffset, inblock1)
+		bitlen2, sign2 := deltaBitLenAndSignUint64(inblock1[63], inblock2)
+		bitlen3, sign3 := deltaBitLenAndSignUint64(inblock2[63], inblock3)
+		bitlen4, sign4 := deltaBitLenAndSignUint64(inblock3[63], inblock4)
 
 		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4; outpos+outsize+1 >= len(out) {
 			// no more space in out, realloc a bigger slice
@@ -854,88 +1007,91 @@ func UncompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 	return in[inpos:], out[:outpos]
 }
 
-func deltaBitLenAndSignUint64(initoffset uint64, buf *[32]uint64) (int, int) {
+func deltaBitLenAndSignUint64(initoffset uint64, inbuf []uint64) (int, int) {
 	var mask uint64
 
-	{
-		const base = 0
-		d0 := int64(buf[base] - initoffset)
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask = m0 | m1
-	}
-	{
-		const base = 4
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 8
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 12
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 16
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 20
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 24
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
-	}
-	{
-		const base = 28
-		d0 := int64(buf[base] - buf[base-1])
-		d1 := int64(buf[base+1] - buf[base])
-		d2 := int64(buf[base+2] - buf[base+1])
-		d3 := int64(buf[base+3] - buf[base+2])
-		m0 := uint64((d0<<1)^(d0>>31)) | uint64((d1<<1)^(d1>>31))
-		m1 := uint64((d2<<1)^(d2>>31)) | uint64((d3<<1)^(d3>>31))
-		mask |= m0 | m1
+	for _, buf := range []*[32]uint64{(*[32]uint64)(inbuf[:32]), (*[32]uint64)(inbuf[32:64])} {
+		{
+			const base = 0
+			d0 := int64(buf[base] - initoffset)
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 4
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 8
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 12
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 16
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 20
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 24
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+		}
+		{
+			const base = 28
+			d0 := int64(buf[base] - buf[base-1])
+			d1 := int64(buf[base+1] - buf[base])
+			d2 := int64(buf[base+2] - buf[base+1])
+			d3 := int64(buf[base+3] - buf[base+2])
+			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
+			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
+			mask |= m0 | m1
+			initoffset = buf[base+3]
+		}
 	}
 
 	sign := int(mask & 1)
