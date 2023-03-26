@@ -157,19 +157,24 @@ func (dpnb *deltapackNByte) packLines(zigzag bool) []string {
 		}
 		diff := fmt.Sprintf("%s - %s", v1, v2)
 		if zigzag {
+			if dpnb.dpn.dp.Unsigned {
+				// force signed
+				diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.Bits, diff)
+			}
 			// zigzag encoding of v: (v << 1) ^ (v >> 31)
-			diff = fmt.Sprintf("%s((int%d(%s) << 1) ^ (int%d(%s) >> %d))", dpnb.dpn.dp.Typename(), dpnb.dpn.dp.Bits, diff, dpnb.dpn.dp.Bits, diff, dpnb.dpn.dp.Bits-1)
+			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.Bits-1)
+		}
+		if zigzag && dpnb.dpn.dp.Unsigned || !dpnb.dpn.dp.Unsigned {
+			// need to cast to target type
+			diff = fmt.Sprintf("uint%d(%s)", dpnb.dpn.dp.Bits, diff)
 		}
 		var line string
 		switch {
 		case ishift < 0:
 			if dpnb.dpn.dp.WithNtz {
-				line = fmt.Sprintf("int%d(uint%d(%s) >> (%d+ntz))", dpnb.dpn.dp.Bits, dpnb.dpn.dp.Bits, diff, -ishift)
+				line = fmt.Sprintf("(%s) >> (%d+ntz)", diff, -ishift)
 			} else {
-				line = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dpnb.dpn.dp.Bits, dpnb.dpn.dp.Bits, diff, -ishift)
-			}
-			if dpnb.dpn.dp.Unsigned {
-				line = fmt.Sprintf("((%s) >> %d)", diff, -ishift)
+				line = fmt.Sprintf("(%s) >> %d", diff, -ishift)
 			}
 		case ishift > 0:
 			if dpnb.dpn.dp.WithNtz {
@@ -229,10 +234,10 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag bool) string {
 			startMask <<= 1
 			startMask |= 1
 		}
-		val = fmt.Sprintf("(int%d(uint%d(%s) >> %d)) & 0x%X", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit, startMask)
-		if dunb.dpn.dp.Unsigned {
-			val = fmt.Sprintf("(%s >> %d) & 0x%X", in1, startBit, startMask)
-		}
+		// val = fmt.Sprintf("(int%d(uint%d(%s) >> %d)) & 0x%X", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit, startMask)
+		// if dunb.dpn.dp.Unsigned {
+		val = fmt.Sprintf("(%s >> %d) & 0x%X", in1, startBit, startMask)
+		// }
 	} else {
 		for i := startBit; i < dunb.dpn.dp.Bits; i++ {
 			startMask <<= 1
@@ -242,21 +247,25 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag bool) string {
 			endMask <<= 1
 			endMask |= 1
 		}
-		val = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit)
-		if dunb.dpn.dp.Unsigned {
-			val = fmt.Sprintf("(%s >> %d)", in1, startBit)
-		}
+		// val = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit)
+		// if dunb.dpn.dp.Unsigned {
+		val = fmt.Sprintf("(%s >> %d)", in1, startBit)
+		// }
 		if endBit > 0 {
 			val = fmt.Sprintf("(%s | ((%s & 0x%X) << %d))", val, in2, endMask, nbBytes-endBit)
 		}
 	}
 	if zigzag {
-		// zigzag decoding of val: (-(val & 1))^(val>>1))
-		if dunb.dpn.dp.WithNtz {
-			return fmt.Sprintf("((-((%s) & 1))^((%s)>>1)) << ntz + %s", val, val, out)
-		} else {
-			return fmt.Sprintf("((-((%s) & 1))^((%s)>>1)) + %s", val, val, out)
+		if dunb.dpn.dp.Unsigned {
+			// force signed
+			val = fmt.Sprintf("int%d(%s)", dunb.dpn.dp.Bits, val)
 		}
+		// zigzag decoding of val: (-(val & 1))^(val>>1))
+		val = fmt.Sprintf("((-((%s) & 1))^((%s)>>1))", val, val)
+	}
+	if zigzag && dunb.dpn.dp.Unsigned || !dunb.dpn.dp.Unsigned {
+		// need to cast to target type
+		val = fmt.Sprintf("%s(%s)", dunb.dpn.dp.Typename(), val)
 	}
 	if dunb.dpn.dp.WithNtz {
 		return fmt.Sprintf("%s << ntz + %s", val, out)

@@ -7,17 +7,17 @@ package intcomp
 // Compression logic:
 //  1. Difference of consecutive inputs is computed (differential coding)
 //  2. Variable byte encoding is applied
-func CompressDeltaVarByteInt32(in, out []int32) []int32 {
+func CompressDeltaVarByteInt32(in []int32, out []uint32) []uint32 {
 	return compressDeltaVarByteInt32(in, out, -1)
 }
 
-func compressDeltaVarByteInt32(in, out []int32, lastBlockHeaderPos int) []int32 {
+func compressDeltaVarByteInt32(in []int32, out []uint32, lastBlockHeaderPos int) []uint32 {
 	if len(in) == 0 {
 		return out
 	}
 
 	if out == nil {
-		out = make([]int32, 0, 6+len(in)/2)
+		out = make([]uint32, 0, 6+len(in)/2)
 	}
 
 	var (
@@ -47,7 +47,7 @@ func compressDeltaVarByteInt32(in, out []int32, lastBlockHeaderPos int) []int32 
 			if extrasize < 8 {
 				extrasize = 8
 			}
-			tmpout := make([]int32, outpos+extrasize)
+			tmpout := make([]uint32, outpos+extrasize)
 			copy(tmpout, out)
 			out = tmpout
 		}
@@ -63,7 +63,7 @@ func compressDeltaVarByteInt32(in, out []int32, lastBlockHeaderPos int) []int32 
 			inputDelta >>= 7
 			ivout++
 			if ivout%4 == 0 { // vout is full
-				out[outpos] = vout
+				out[outpos] = uint32(vout)
 				outpos++
 				vout = 0
 			}
@@ -72,7 +72,7 @@ func compressDeltaVarByteInt32(in, out []int32, lastBlockHeaderPos int) []int32 
 		vout |= int32(byte(inputDelta))
 		ivout++
 		if ivout%4 == 0 { // vout is full
-			out[outpos] = vout
+			out[outpos] = uint32(vout)
 			outpos++
 			vout = 0
 		}
@@ -86,19 +86,19 @@ func compressDeltaVarByteInt32(in, out []int32, lastBlockHeaderPos int) []int32 
 			vout |= 0x80
 			ivout++
 		}
-		out[outpos] = vout
+		out[outpos] = uint32(vout)
 		outpos++
 	}
 	// write header
 	if lastBlockHeaderPos < 0 {
 		out[headerpos] = 0
 	}
-	out[headerpos] += int32(len(in))
-	out[headerpos+1] = int32(outpos - headerpos)
+	out[headerpos] += uint32(len(in))
+	out[headerpos+1] = uint32(outpos - headerpos)
 	return out[:outpos]
 }
 
-func getEncoderStateInt32(out []int32, lastBlockHeaderPos int) (outpos, ivout int, prevInput, vout int32) {
+func getEncoderStateInt32(out []uint32, lastBlockHeaderPos int) (outpos, ivout int, prevInput int32, vout int32) {
 	outpos = lastBlockHeaderPos + 2
 
 	var (
@@ -109,7 +109,7 @@ func getEncoderStateInt32(out []int32, lastBlockHeaderPos int) (outpos, ivout in
 		i            int
 	)
 	for i < prevBlockLen {
-		vout = out[outpos] >> shiftIn
+		vout = int32(out[outpos]) >> shiftIn
 
 		ivout++
 		shiftIn -= 8
@@ -134,7 +134,7 @@ func getEncoderStateInt32(out []int32, lastBlockHeaderPos int) (outpos, ivout in
 // and append the result to `out`. `out` slice will be resized if necessary.
 //
 // The function returns the values from `in` that were not uncompressed, and the updated `out` slice.
-func UncompressDeltaVarByteInt32(in, out []int32) ([]int32, []int32) {
+func UncompressDeltaVarByteInt32(in []uint32, out []int32) ([]uint32, []int32) {
 	if len(in) == 0 {
 		return in, out
 	}
@@ -163,7 +163,7 @@ func UncompressDeltaVarByteInt32(in, out []int32) ([]int32, []int32) {
 	)
 
 	for inpos < inend {
-		v := in[inpos] >> shiftIn
+		v := int32(in[inpos]) >> shiftIn
 
 		shiftIn -= 8
 		if shiftIn < 0 {
@@ -376,17 +376,17 @@ func UncompressDeltaVarByteUint32(in, out []uint32) ([]uint32, []uint32) {
 // Compression logic:
 //  1. Difference of consecutive inputs is computed (differential coding)
 //  2. Variable byte encoding is applied
-func CompressDeltaVarByteInt64(in, out []int64) []int64 {
+func CompressDeltaVarByteInt64(in []int64, out []uint64) []uint64 {
 	return compressDeltaVarByteInt64(in, out, -1)
 }
 
-func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 {
+func compressDeltaVarByteInt64(in []int64, out []uint64, lastBlockHeaderPos int) []uint64 {
 	if len(in) == 0 {
 		return out
 	}
 
 	if out == nil {
-		out = make([]int64, 0, 6+len(in)/2)
+		out = make([]uint64, 0, 6+len(in)/2)
 	}
 
 	var (
@@ -416,7 +416,7 @@ func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 
 			if extrasize < 8 {
 				extrasize = 8
 			}
-			tmpout := make([]int64, outpos+extrasize)
+			tmpout := make([]uint64, outpos+extrasize)
 			copy(tmpout, out)
 			out = tmpout
 		}
@@ -432,7 +432,7 @@ func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 
 			inputDelta >>= 7
 			ivout++
 			if ivout%8 == 0 { // vout is full
-				out[outpos] = vout
+				out[outpos] = uint64(vout)
 				outpos++
 				vout = 0
 			}
@@ -441,7 +441,7 @@ func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 
 		vout |= int64(byte(inputDelta))
 		ivout++
 		if ivout%8 == 0 { // vout is full
-			out[outpos] = vout
+			out[outpos] = uint64(vout)
 			outpos++
 			vout = 0
 		}
@@ -455,7 +455,7 @@ func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 
 			vout |= 0x80
 			ivout++
 		}
-		out[outpos] = vout
+		out[outpos] = uint64(vout)
 		outpos++
 	}
 	// write header
@@ -463,11 +463,11 @@ func compressDeltaVarByteInt64(in, out []int64, lastBlockHeaderPos int) []int64 
 	if lastBlockHeaderPos >= 0 {
 		prevLen = int(int32(out[headerpos]))
 	}
-	out[headerpos] = int64(len(in)+prevLen) + int64(outpos-headerpos)<<32
+	out[headerpos] = uint64(len(in)+prevLen) + uint64(outpos-headerpos)<<32
 	return out[:outpos]
 }
 
-func getEncoderStateInt64(out []int64, lastBlockHeaderPos int) (outpos, ivout int, prevInput, vout int64) {
+func getEncoderStateInt64(out []uint64, lastBlockHeaderPos int) (outpos, ivout int, prevInput, vout int64) {
 	outpos = lastBlockHeaderPos + 1
 
 	var (
@@ -478,7 +478,7 @@ func getEncoderStateInt64(out []int64, lastBlockHeaderPos int) (outpos, ivout in
 		i            int
 	)
 	for i < prevBlockLen {
-		vout = out[outpos] >> shiftIn
+		vout = int64(out[outpos]) >> shiftIn
 
 		ivout++
 		shiftIn -= 8
@@ -503,7 +503,7 @@ func getEncoderStateInt64(out []int64, lastBlockHeaderPos int) (outpos, ivout in
 // and append the result to `out`. `out` slice will be resized if necessary.
 //
 // The function returns the values from `in` that were not uncompressed, and the updated `out` slice.
-func UncompressDeltaVarByteInt64(in, out []int64) ([]int64, []int64) {
+func UncompressDeltaVarByteInt64(in []uint64, out []int64) ([]uint64, []int64) {
 	if len(in) == 0 {
 		return in, out
 	}
@@ -532,7 +532,7 @@ func UncompressDeltaVarByteInt64(in, out []int64) ([]int64, []int64) {
 	)
 
 	for inpos < inend {
-		c := in[inpos] >> shiftIn
+		c := int64(in[inpos]) >> shiftIn
 
 		shiftIn -= 8
 		if shiftIn < 0 {

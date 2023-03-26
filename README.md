@@ -64,10 +64,17 @@ The result vary depending on the number of bits used to encode integers.
 
 ### Compression
 
-- 32bits: between 2.5 and 4.3 GB/s
-- 64bits: between 3.1 and 6.4 GB/s
+- 32bits: between 2.6 and 3.5 GB/s
+- 64bits: between 5.1 and 8.1 GB/s
 
 ### Decompression
 
-- 32bits: between 3.2 and 5.3 GB/s
-- 64bits: between 7.3 and 19.1 GB/s
+- 32bits: between 3.5 and 9.3 GB/s
+- 64bits: between 12.3 and 23.8 GB/s
+
+## TODO
+
+- [ ] Support float32/64 (using something similar to Gorilla compression)
+- [ ] Force creation of blocks at fixed boundaries to enable arbitrary position decoding and reversed iteration
+- [ ] Implement Block iterators with low memory usage
+- [ ] Add Binary search for sorted arrays
