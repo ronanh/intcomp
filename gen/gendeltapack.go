@@ -172,7 +172,7 @@ func (dpnb *deltapackNByte) packLines(zigzag bool) []string {
 		switch {
 		case ishift < 0:
 			if dpnb.dpn.dp.WithNtz {
-				line = fmt.Sprintf("(%s) >> (%d+ntz)", diff, -ishift)
+				line = fmt.Sprintf("(%s) >> ((%d+ntz)&%d)", diff, -ishift, dpnb.dpn.dp.Bits-1)
 			} else {
 				line = fmt.Sprintf("(%s) >> %d", diff, -ishift)
 			}
