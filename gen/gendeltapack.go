@@ -164,10 +164,6 @@ func (dpnb *deltapackNByte) packLines(zigzag bool) []string {
 			// zigzag encoding of v: (v << 1) ^ (v >> 31)
 			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.Bits-1)
 		}
-		if zigzag && dpnb.dpn.dp.Unsigned || !dpnb.dpn.dp.Unsigned {
-			// need to cast to target type
-			diff = fmt.Sprintf("uint%d(%s)", dpnb.dpn.dp.Bits, diff)
-		}
 		var line string
 		switch {
 		case ishift < 0:

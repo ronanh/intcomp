@@ -44,10 +44,10 @@ func deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$
 	ntz = ntz&({{$dp.Bits}}-1)
 {{- end }}
 {{- range $dpnb := $dpn.Dpnb }}
-	out[{{$dpnb.I}}] = 
+	out[{{$dpnb.I}}] = uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLines }}
 	 {{$line}}
-{{- end }}
+{{- end }})
 {{- end }}
 }
 {{- end }}
@@ -103,10 +103,10 @@ func deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in
 	ntz = ntz&({{$dp.Bits}}-1)
 {{- end }}
 {{- range $dpnb := $dpn.Dpnb }}
-	out[{{$dpnb.I}}] = 
+	out[{{$dpnb.I}}] = uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLinesZigZag }}
 	 {{$line}}
-{{- end }}
+{{- end }})
 {{- end }}
 }
 {{- end }}
