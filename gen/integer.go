@@ -76,14 +76,22 @@ type deltapackNByte struct {
 }
 
 func (dpnb *deltapackNByte) PackLines() []string {
-	return dpnb.packLines(false)
+	return dpnb.packLines(false, false)
 }
 
 func (dpnb *deltapackNByte) PackLinesZigZag() []string {
-	return dpnb.packLines(true)
+	return dpnb.packLines(true, false)
 }
 
-func (dpnb *deltapackNByte) packLines(zigzag bool) []string {
+func (dpnb *deltapackNByte) PackLinesNtz() []string {
+	return dpnb.packLines(false, true)
+}
+
+func (dpnb *deltapackNByte) PackLinesZigZagNtz() []string {
+	return dpnb.packLines(true, true)
+}
+
+func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 	var lines []string
 	nbBytes := dpnb.dpn.NbBytes()
 	if nbBytes == 0 {
@@ -124,19 +132,19 @@ func (dpnb *deltapackNByte) packLines(zigzag bool) []string {
 		var line string
 		switch {
 		case ishift < 0:
-			if dpnb.dpn.dp.WithNtz {
+			if ntz {
 				line = fmt.Sprintf("(%s) >> ((%d+ntz)&%d)", diff, -ishift, dpnb.dpn.dp.Bits-1)
 			} else {
 				line = fmt.Sprintf("(%s) >> %d", diff, -ishift)
 			}
 		case ishift > 0:
-			if dpnb.dpn.dp.WithNtz {
+			if ntz {
 				line = fmt.Sprintf("((%s) >> ntz << %d)", diff, ishift)
 			} else {
 				line = fmt.Sprintf("((%s) << %d)", diff, ishift)
 			}
 		default:
-			if dpnb.dpn.dp.WithNtz {
+			if ntz {
 				line = fmt.Sprintf("(%s) >> ntz", diff)
 			} else {
 				line = diff
@@ -157,14 +165,22 @@ type deltaunpackNByte struct {
 }
 
 func (dunb *deltaunpackNByte) UnpackLine() string {
-	return dunb.unpackLine(false)
+	return dunb.unpackLine(false, false)
 }
 
 func (dunb *deltaunpackNByte) UnpackLineZigZag() string {
-	return dunb.unpackLine(true)
+	return dunb.unpackLine(true, false)
 }
 
-func (dunb *deltaunpackNByte) unpackLine(zigzag bool) string {
+func (dunb *deltaunpackNByte) UnpackLineNtz() string {
+	return dunb.unpackLine(false, true)
+}
+
+func (dunb *deltaunpackNByte) UnpackLineZigZagNtz() string {
+	return dunb.unpackLine(true, true)
+}
+
+func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 	if dunb.dpn.N == 0 {
 		return "initoffset"
 	}
@@ -220,7 +236,7 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag bool) string {
 		// need to cast to target type
 		val = fmt.Sprintf("%s(%s)", dunb.dpn.dp.Typename(), val)
 	}
-	if dunb.dpn.dp.WithNtz {
+	if ntz {
 		return fmt.Sprintf("%s << ntz + %s", val, out)
 	} else {
 		return fmt.Sprintf("%s + %s", val, out)
