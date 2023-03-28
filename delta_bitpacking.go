@@ -1,7 +1,5 @@
 package intcomp
 
-//go:generate go run gen/gendeltapack.go
-
 import "math/bits"
 
 const (
@@ -822,7 +820,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 
 	var ntz int
 	if mask != 0 {
-		ntz = bits.TrailingZeros32(uint32(mask))
+		ntz = bits.TrailingZeros64(mask)
 	}
 
 	return ntz, bits.Len64(uint64(mask)) + sign, sign
