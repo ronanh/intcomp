@@ -1,7 +1,7 @@
 package intcomp
 
-//go:generate go run gen/gendeltapack.go
-//go:generate gofmt -w deltapack.go
+//go:generate go run gen/gendeltapack.go gen/integer.go
+//go:generate gofmt -w deltapackint.go
 
 // CompressInt32 compress integers from `in`
 // and append to `out`. `out` slice will be resized if necessary, the modified
