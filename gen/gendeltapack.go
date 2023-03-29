@@ -2,13 +2,14 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"log"
 	"os"
+	"strings"
 	"text/template"
 )
 
 func main() {
-	var out bytes.Buffer
 	log.Println("gendeltapack start")
 
 	data := []deltapackint{
@@ -30,15 +31,19 @@ func main() {
 		os.Exit(2)
 	}
 
-	err = tmpl.Execute(&out, data)
-	if err != nil {
-		log.Println("failed to execute template", err)
-		os.Exit(3)
-	}
+	for _, v := range data {
+		var out bytes.Buffer
+		err = tmpl.Execute(&out, &v)
+		if err != nil {
+			log.Println("failed to execute template", err)
+			os.Exit(3)
+		}
+		filename := fmt.Sprintf("deltapack%s.go", strings.ToLower(v.Typename()))
 
-	if err := os.WriteFile("deltapackint.go", out.Bytes(), 0600); err != nil {
-		log.Println("failed to write file", err)
-		os.Exit(4)
+		if err := os.WriteFile(filename, out.Bytes(), 0600); err != nil {
+			log.Println("failed to write file", err)
+			os.Exit(4)
+		}
 	}
 
 	log.Println("gen-dbp end")

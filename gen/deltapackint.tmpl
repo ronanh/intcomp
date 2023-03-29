@@ -5,7 +5,7 @@ package intcomp
 
 import "unsafe"
 
-{{- range $dp := .}}
+{{- $dp := .}}
 
 // deltaPack_{{$dp.Typename}} Binary packing of one block of `in`, starting from `initoffset`
 // to out. Differential coding is applied first.
@@ -62,7 +62,7 @@ func deltapack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$
 
 {{- if $dp.WithNtz }}
 func deltapack_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]uint{{$dp.Bits}}, ntz int) {
-	ntz = ntz&({{$dp.Bits}}-1)
+	ntz = ntz&({{$dp.Bits}}-1) //nolint:ineffassign,staticcheck
 {{- range $dpnb := $dpn.Dpnb }}
 	out[{{$dpnb.I}}] = uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLinesNtz }}
@@ -70,6 +70,7 @@ func deltapack_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *
 {{- end }})
 {{- end }}
 }
+
 {{- end }}
 {{- end }}
 
@@ -82,13 +83,14 @@ func deltaunpack_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{
 }
 
 {{- if $dp.WithNtz }}
-{{- end }}
 func deltaunpack_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]uint{{$dp.Bits}}, out *[{{$dp.Bits}}]{{$dp.Typename}}, ntz int) {
-	ntz = ntz&({{$dp.Bits}}-1)
+	ntz = ntz&({{$dp.Bits}}-1)  //nolint:ineffassign,staticcheck
 {{- range $dunb := $dpn.Dunb }}
 	out[{{$dunb.I}}] = {{$dunb.UnpackLineNtz}}
 {{- end }}
 }
+
+{{- end }}
 {{- end }}
 
 // --- zigzag
@@ -149,7 +151,7 @@ func deltapackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in
 {{- if $dp.WithNtz }}
 func deltapackzigzag_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, out *[{{$dpn.N}}]uint{{$dp.Bits}}, ntz int) {
 {{- if $dp.WithNtz }}
-	ntz = ntz&({{$dp.Bits}}-1)
+	ntz = ntz&({{$dp.Bits}}-1) //nolint:ineffassign,staticcheck
 {{- end }}
 {{- range $dpnb := $dpn.Dpnb }}
 	out[{{$dpnb.I}}] = uint{{$dp.Bits}}(
@@ -158,6 +160,7 @@ func deltapackzigzag_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}
 {{- end }})
 {{- end }}
 }
+
 {{- end }}
 {{- end }}
 
@@ -171,12 +174,11 @@ func deltaunpackzigzag_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, 
 
 {{- if $dp.WithNtz }}
 func deltaunpackzigzag_ntz_{{$dp.Typename}}_{{$dpn.N}}(initoffset {{$dp.Typename}}, in *[{{$dpn.N}}]uint{{$dp.Bits}}, out *[{{$dp.Bits}}]{{$dp.Typename}}, ntz int) {
-	ntz = ntz&({{$dp.Bits}}-1)
+	ntz = ntz&({{$dp.Bits}}-1) //nolint:ineffassign,staticcheck
 {{- range $dunb := $dpn.Dunb }}
 	out[{{$dunb.I}}] = {{$dunb.UnpackLineZigZagNtz}}
 {{- end }}
 }
-{{- end }}
-{{- end }}
 
-{{- end}}
+{{- end }}
+{{- end }}
