@@ -64,13 +64,13 @@ The result vary depending on the number of bits used to encode integers.
 
 ### Compression
 
-- 32bits: between 2.6 and 3.5 GB/s
-- 64bits: between 5.1 and 8.1 GB/s
+- 32bits: between 4.0 and 7.2 GB/s
+- 64bits: between 8.0 and 14.8 GB/s
 
 ### Decompression
 
-- 32bits: between 3.5 and 9.3 GB/s
-- 64bits: between 12.3 and 23.8 GB/s
+- 32bits: between 3.6 and 11.5 GB/s
+- 64bits: between 14.9 and 24.0 GB/s
 
 ## TODO
 
