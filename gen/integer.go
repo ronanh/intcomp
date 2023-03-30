@@ -122,10 +122,8 @@ func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 		}
 		diff := fmt.Sprintf("%s - %s", v1, v2)
 		if zigzag {
-			if dpnb.dpn.dp.Unsigned {
-				// force signed
-				diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.Bits, diff)
-			}
+			// force signed
+			diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.Bits, diff)
 			// zigzag encoding of v: (v << 1) ^ (v >> 31)
 			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.Bits-1)
 		}
@@ -232,13 +230,9 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 		// zigzag decoding of val: (-(val & 1))^(val>>1))
 		val = fmt.Sprintf("((-((%s) & 1))^((%s)>>1))", val, val)
 	}
-	if zigzag && dunb.dpn.dp.Unsigned || !dunb.dpn.dp.Unsigned {
-		// need to cast to target type
-		val = fmt.Sprintf("%s(%s)", dunb.dpn.dp.Typename(), val)
-	}
 	if ntz {
-		return fmt.Sprintf("%s << ntz + %s", val, out)
+		return fmt.Sprintf("T(%s) << ntz + %s", val, out)
 	} else {
-		return fmt.Sprintf("%s + %s", val, out)
+		return fmt.Sprintf("T(%s) + %s", val, out)
 	}
 }
