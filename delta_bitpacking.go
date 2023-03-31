@@ -45,15 +45,15 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignInt32(inblock2[31], (*[32]int32)(inblock3))
 		bitlen4, sign4 := deltaBitLenAndSignInt32(inblock3[31], (*[32]int32)(inblock4))
 
-		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4; outpos+outsize+1 >= len(out) {
-			// no more space in out, realloc a bigger slice
-			extrasize := outsize
-			if extrasize < len(out)/4 {
-				extrasize = len(out) / 4
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+			out = out[:outpos+l]
+		} else {
+			if min := len(out) / 4; l < min {
+				l = min
 			}
-			tmpout := make([]uint32, outpos+extrasize+1)
-			copy(tmpout, out)
-			out = tmpout
+			grow := make([]uint32, outpos+l)
+			copy(grow, out)
+			out = grow
 		}
 
 		// write block header
@@ -63,7 +63,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 			(sign4 << 7) | bitlen4)
 		outpos++
 
-		// write block (4 x 32 packed inputs)
+		// write groups (4 x 32 packed inputs)
 		if sign1 == 0 {
 			deltaPack_int32(initoffset, inblock1, out[outpos:], bitlen1)
 		} else {
@@ -302,15 +302,15 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignUint32(inblock2[31], (*[32]uint32)(inblock3))
 		bitlen4, sign4 := deltaBitLenAndSignUint32(inblock3[31], (*[32]uint32)(inblock4))
 
-		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4; outpos+outsize+1 >= len(out) {
-			// no more space in out, realloc a bigger slice
-			extrasize := outsize
-			if extrasize < len(out)/4 {
-				extrasize = len(out) / 4
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+			out = out[:outpos+l]
+		} else {
+			if min := len(out) / 4; l < min {
+				l = min
 			}
-			tmpout := make([]uint32, outpos+extrasize+1)
-			copy(tmpout, out)
-			out = tmpout
+			grow := make([]uint32, outpos+l)
+			copy(grow, out)
+			out = grow
 		}
 
 		// write block header
@@ -320,7 +320,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 			(sign4 << 7) | bitlen4)
 		outpos++
 
-		// write block (4 x 32 packed inputs)
+		// write groups (4 x 32 packed inputs)
 		if sign1 == 0 {
 			deltaPack_uint32(initoffset, inblock1, out[outpos:], bitlen1)
 		} else {
@@ -558,15 +558,15 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		ntz3, bitlen3, sign3 := deltaBitTzAndLenAndSignInt64(inblock2[63], inblock3)
 		ntz4, bitlen4, sign4 := deltaBitTzAndLenAndSignInt64(inblock3[63], inblock4)
 
-		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4 - ntz1 - ntz2 - ntz3 - ntz4; outpos+outsize+1 >= len(out) {
-			// no more space in out, realloc a bigger slice
-			extrasize := outsize
-			if extrasize < len(out)/4 {
-				extrasize = len(out) / 4
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1 - ntz1 - ntz2 - ntz3 - ntz4; outpos+l < cap(out) {
+			out = out[:outpos+l]
+		} else {
+			if min := len(out) / 4; l < min {
+				l = min
 			}
-			tmpout := make([]uint64, outpos+extrasize+1)
-			copy(tmpout, out)
-			out = tmpout
+			grow := make([]uint64, outpos+l)
+			copy(grow, out)
+			out = grow
 		}
 
 		// write block header (min/max bits)
@@ -577,7 +577,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 			(sign4 << 7) | bitlen4)
 		outpos++
 
-		// write block (4 x 64 packed inputs)
+		// write groups (4 x 64 packed inputs)
 		if sign1 == 0 {
 			deltaPack_int64(initoffset, inblock1, out[outpos:], ntz1, bitlen1)
 		} else {
@@ -830,15 +830,15 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		bitlen3, sign3 := deltaBitLenAndSignUint64(inblock2[63], inblock3)
 		bitlen4, sign4 := deltaBitLenAndSignUint64(inblock3[63], inblock4)
 
-		if outsize := bitlen1 + bitlen2 + bitlen3 + bitlen4; outpos+outsize+1 >= len(out) {
-			// no more space in out, realloc a bigger slice
-			extrasize := outsize
-			if extrasize < len(out)/4 {
-				extrasize = len(out) / 4
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+			out = out[:outpos+l]
+		} else {
+			if min := len(out) / 4; l < min {
+				l = min
 			}
-			tmpout := make([]uint64, outpos+extrasize+1)
-			copy(tmpout, out)
-			out = tmpout
+			grow := make([]uint64, outpos+l)
+			copy(grow, out)
+			out = grow
 		}
 
 		// write block header (min/max bits)
@@ -849,7 +849,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 				(sign4 << 7) | bitlen4)
 		outpos++
 
-		// write block (4 x 64 packed inputs)
+		// write groups (4 x 64 packed inputs)
 		if sign1 == 0 {
 			deltaPack_uint64(initoffset, inblock1, out[outpos:], bitlen1)
 		} else {
