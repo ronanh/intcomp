@@ -3,38 +3,8 @@ package main
 import "fmt"
 
 type deltapackint struct {
-	Bits     int
-	Unsigned bool
-	WithNtz  bool
-}
-
-func (dp deltapackint) Typename() string {
-	var sign string
-	if dp.Unsigned {
-		sign = "u"
-	}
-	return fmt.Sprintf("%sint%d", sign, dp.Bits)
-}
-
-func (dp deltapackint) NtzExtraParamWithType() string {
-	if !dp.WithNtz {
-		return ""
-	}
-	return ", ntz int"
-}
-
-func (dp deltapackint) NtzExtraParam() string {
-	if !dp.WithNtz {
-		return ""
-	}
-	return ", ntz"
-}
-
-func (dp deltapackint) BitlenExpr() string {
-	if !dp.WithNtz {
-		return "bitlen"
-	}
-	return "bitlen - ntz"
+	Bits    int
+	WithNtz bool
 }
 
 func (dp *deltapackint) Dpn() []deltapackN {
@@ -202,9 +172,7 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 			startMask |= 1
 		}
 		// val = fmt.Sprintf("(int%d(uint%d(%s) >> %d)) & 0x%X", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit, startMask)
-		// if dunb.dpn.dp.Unsigned {
 		val = fmt.Sprintf("(%s >> %d) & 0x%X", in1, startBit, startMask)
-		// }
 	} else {
 		for i := startBit; i < dunb.dpn.dp.Bits; i++ {
 			startMask <<= 1
@@ -215,18 +183,14 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 			endMask |= 1
 		}
 		// val = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit)
-		// if dunb.dpn.dp.Unsigned {
 		val = fmt.Sprintf("(%s >> %d)", in1, startBit)
-		// }
 		if endBit > 0 {
 			val = fmt.Sprintf("(%s | ((%s & 0x%X) << %d))", val, in2, endMask, nbBytes-endBit)
 		}
 	}
 	if zigzag {
-		if dunb.dpn.dp.Unsigned {
-			// force signed
-			val = fmt.Sprintf("int%d(%s)", dunb.dpn.dp.Bits, val)
-		}
+		// force signed
+		val = fmt.Sprintf("int%d(%s)", dunb.dpn.dp.Bits, val)
 		// zigzag decoding of val: (-(val & 1))^(val>>1))
 		val = fmt.Sprintf("((-((%s) & 1))^((%s)>>1))", val, val)
 	}

@@ -3,53 +3,8 @@
 
 package intcomp
 
-import "unsafe"
-
 {{- $dp := .}}
 
-// deltaPack_{{$dp.Typename}} Binary packing of one block of `in`, starting from `initoffset`
-// to out. Differential coding is applied first.
-// Caller must give the proper `bitlen` of the block
-func deltaPack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in []T, out []uint{{$dp.Bits}}{{$dp.NtzExtraParam}}, bitlen int) {
-	switch {{$dp.BitlenExpr}} {
-{{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
-{{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]T)(in), (*[{{$dpn.N}}]uint{{$dp.Bits}})(out), ntz)
-			break
-		}
-{{- end }}
-		deltapack{{$dp.Bits}}_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]T)(in), (*[{{$dpn.N}}]uint{{$dp.Bits}})(out))
-{{- end }}
-	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer((*[{{$dp.Bits}}]T)(in))))
-	default:
-		panic("unsupported bitlen")
-	}
-}
-
-// deltaUnpack_{{$dp.Typename}} Decoding operation for DeltaPack_{{$dp.Typename}}
-func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in []uint{{$dp.Bits}}, out []T{{$dp.NtzExtraParam}}, bitlen int) {
-	switch {{$dp.BitlenExpr}} {
-{{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
-{{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltaunpack{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), (*[{{$dp.Bits}}]T)(out), ntz)
-			break
-		}
-{{- end }}
-		deltaunpack{{$dp.Bits}}_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), (*[{{$dp.Bits}}]T)(out))
-{{- end }}
-	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]T)(out) = *(*[{{$dp.Bits}}]T)(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
-	default:
-		panic("unsupported bitlen")
-	}
-}
-
-{{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
 func deltapack{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out *[{{$dpn.N}}]uint{{$dp.Bits}}) {
@@ -74,9 +29,7 @@ func deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](in
 
 {{- end }}
 {{- end }}
-{{- end }}
 
-{{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
 func deltaunpack{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dpn.N}}]uint{{$dp.Bits}}, out *[{{$dp.Bits}}]T) {
@@ -95,53 +48,9 @@ func deltaunpack{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](
 
 {{- end }}
 {{- end }}
-{{- end }}
 
 // --- zigzag
 
-// deltaPackZigzag_{{$dp.Typename}} Binary packing of one block of `in`, starting from `initoffset`
-// to out. Differential coding is applied first, the difference is zigzag encoded.
-//  Caller must give the proper `bitlen` of the block
-func deltaPackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in []{{$dp.Typename}}, out []uint{{$dp.Bits}}{{$dp.NtzExtraParam}}, bitlen int) {
-	switch {{$dp.BitlenExpr}} {
-{{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
-{{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]{{$dp.Typename}})(in), (*[{{$dpn.N}}]uint{{$dp.Bits}})(out), ntz)
-			break
-		}
-{{- end }}
-		deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]{{$dp.Typename}})(in), (*[{{$dpn.N}}]uint{{$dp.Bits}})(out))
-{{- end }}
-	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer((*[{{$dp.Bits}}]{{$dp.Typename}})(in))))
-	default:
-		panic("unsupported bitlen")
-	}
-}
-
-// deltaUnpackZigzag_{{$dp.Typename}} Decoding operation for DeltaPackZigzag_{{$dp.Typename}}
-func deltaUnpackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in []uint{{$dp.Bits}}, out []{{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) {
-	switch {{$dp.BitlenExpr}} {
-{{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
-{{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltaunpackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), (*[{{$dp.Bits}}]{{$dp.Typename}})(out), ntz)
-			break
-		}
-{{- end }}
-		deltaunpackzigzag{{$dp.Bits}}_{{$dpn.N}}(initoffset, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), (*[{{$dp.Bits}}]{{$dp.Typename}})(out))
-{{- end }}
-	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]{{$dp.Typename}})(out) = *(*[{{$dp.Bits}}]{{$dp.Typename}})(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
-	default:
-		panic("unsupported bitlen")
-	}
-}
-
-{{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
 func deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out *[{{$dpn.N}}]uint{{$dp.Bits}}) {
@@ -168,9 +77,7 @@ func deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits
 
 {{- end }}
 {{- end }}
-{{- end }}
 
-{{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
 func deltaunpackzigzag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dpn.N}}]uint{{$dp.Bits}}, out *[{{$dp.Bits}}]T) {
@@ -187,6 +94,5 @@ func deltaunpackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bi
 {{- end }}
 }
 
-{{- end }}
 {{- end }}
 {{- end }}

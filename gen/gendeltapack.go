@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 	"text/template"
 )
 
@@ -13,10 +12,8 @@ func main() {
 	log.Println("gendeltapack start")
 
 	data := []deltapackint{
-		{32, false, false},
-		{32, true, false},
-		{64, false, true},
-		{64, true, false},
+		{32, false},
+		{64, true},
 	}
 
 	ftmpl, err := os.ReadFile("gen/deltapackint.tmpl")
@@ -38,7 +35,7 @@ func main() {
 			log.Println("failed to execute template", err)
 			os.Exit(3)
 		}
-		filename := fmt.Sprintf("deltapack%s.go", strings.ToLower(v.Typename()))
+		filename := fmt.Sprintf("deltapack%d.go", v.Bits)
 
 		if err := os.WriteFile(filename, out.Bytes(), 0600); err != nil {
 			log.Println("failed to write file", err)
