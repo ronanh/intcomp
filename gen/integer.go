@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 type deltapackint struct {
-	Bits    int
+	BitLen  int
 	WithNtz bool
 }
 
 func (dp *deltapackint) Dpn() []deltapackN {
-	dpn := make([]deltapackN, dp.Bits)
+	dpn := make([]deltapackN, dp.BitLen)
 	for i := range dpn {
 		dpn[i] = deltapackN{dp, i}
 	}
@@ -16,16 +16,12 @@ func (dp *deltapackint) Dpn() []deltapackN {
 }
 
 type deltapackN struct {
-	dp *deltapackint
-	N  int
-}
-
-func (dpn *deltapackN) NbBytes() int {
-	return dpn.N
+	dp   *deltapackint
+	BitN int
 }
 
 func (dpn *deltapackN) Dpnb() []deltapackNByte {
-	dpnb := make([]deltapackNByte, dpn.N)
+	dpnb := make([]deltapackNByte, dpn.BitN)
 	for i := range dpnb {
 		dpnb[i] = deltapackNByte{dpn, i}
 	}
@@ -33,7 +29,7 @@ func (dpn *deltapackN) Dpnb() []deltapackNByte {
 }
 
 func (dpn *deltapackN) Dunb() []deltaunpackNByte {
-	dunb := make([]deltaunpackNByte, dpn.dp.Bits)
+	dunb := make([]deltaunpackNByte, dpn.dp.BitLen)
 	for i := range dunb {
 		dunb[i] = deltaunpackNByte{dpn, i}
 	}
@@ -41,8 +37,8 @@ func (dpn *deltapackN) Dunb() []deltaunpackNByte {
 }
 
 type deltapackNByte struct {
-	dpn *deltapackN
-	I   int
+	dpn  *deltapackN
+	I int
 }
 
 func (dpnb *deltapackNByte) PackLines() []string {
@@ -63,26 +59,26 @@ func (dpnb *deltapackNByte) PackLinesZigZagNtz() []string {
 
 func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 	var lines []string
-	nbBytes := dpnb.dpn.NbBytes()
-	if nbBytes == 0 {
+	bitN := dpnb.dpn.BitN
+	if bitN == 0 {
 		return nil
 	}
 	var overlapping bool
-	minOffset := dpnb.dpn.dp.Bits * dpnb.I
-	maxOffset := dpnb.dpn.dp.Bits * (dpnb.I + 1)
-	if minOffset%nbBytes != 0 {
-		minOffset -= nbBytes
+	minOffset := dpnb.dpn.dp.BitLen * dpnb.I
+	maxOffset := dpnb.dpn.dp.BitLen * (dpnb.I + 1)
+	if minOffset%bitN != 0 {
+		minOffset -= bitN
 		overlapping = true
 	}
-	for i := 0; i < dpnb.dpn.dp.Bits; i++ {
-		offset := i * nbBytes
+	for i := 0; i < dpnb.dpn.dp.BitLen; i++ {
+		offset := i * bitN
 		if offset < minOffset || offset >= maxOffset {
 			continue
 		}
 
 		ishift := offset - minOffset
 		if overlapping {
-			ishift -= nbBytes
+			ishift -= bitN
 		}
 
 		v1 := fmt.Sprintf("in[%d]", i)
@@ -93,15 +89,15 @@ func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 		diff := fmt.Sprintf("%s - %s", v1, v2)
 		if zigzag {
 			// force signed
-			diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.Bits, diff)
+			diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.BitLen, diff)
 			// zigzag encoding of v: (v << 1) ^ (v >> 31)
-			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.Bits-1)
+			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.BitLen-1)
 		}
 		var line string
 		switch {
 		case ishift < 0:
 			if ntz {
-				line = fmt.Sprintf("(%s) >> ((%d+ntz)&%d)", diff, -ishift, dpnb.dpn.dp.Bits-1)
+				line = fmt.Sprintf("(%s) >> ((%d+ntz)&%d)", diff, -ishift, dpnb.dpn.dp.BitLen-1)
 			} else {
 				line = fmt.Sprintf("(%s) >> %d", diff, -ishift)
 			}
@@ -118,7 +114,7 @@ func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 				line = diff
 			}
 		}
-		if offset+nbBytes < maxOffset {
+		if offset+bitN < maxOffset {
 			line += " | "
 		}
 
@@ -128,8 +124,8 @@ func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 }
 
 type deltaunpackNByte struct {
-	dpn *deltapackN
-	I   int
+	dpn  *deltapackN
+	I int
 }
 
 func (dunb *deltaunpackNByte) UnpackLine() string {
@@ -149,14 +145,14 @@ func (dunb *deltaunpackNByte) UnpackLineZigZagNtz() string {
 }
 
 func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
-	if dunb.dpn.N == 0 {
+	bitN := dunb.dpn.BitN
+	if bitN == 0 {
 		return "initoffset"
 	}
-	nbBytes := dunb.dpn.NbBytes()
-	startByte := dunb.I * nbBytes / dunb.dpn.dp.Bits
-	startBit := dunb.I * nbBytes % dunb.dpn.dp.Bits
-	endByte := (dunb.I + 1) * nbBytes / dunb.dpn.dp.Bits
-	endBit := (dunb.I + 1) * nbBytes % dunb.dpn.dp.Bits
+	startByte := dunb.I * bitN / dunb.dpn.dp.BitLen
+	startBit := dunb.I * bitN % dunb.dpn.dp.BitLen
+	endByte := (dunb.I + 1) * bitN / dunb.dpn.dp.BitLen
+	endBit := (dunb.I + 1) * bitN % dunb.dpn.dp.BitLen
 
 	var startMask, endMask int
 	in1 := fmt.Sprintf("in[%d]", startByte)
@@ -171,10 +167,10 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 			startMask <<= 1
 			startMask |= 1
 		}
-		// val = fmt.Sprintf("(int%d(uint%d(%s) >> %d)) & 0x%X", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit, startMask)
+		// val = fmt.Sprintf("(int%d(uint%d(%s) >> %d)) & 0x%X", dunb.dpn.dp.BitLen, dunb.dpn.dp.BitLen, in1, startBit, startMask)
 		val = fmt.Sprintf("(%s >> %d) & 0x%X", in1, startBit, startMask)
 	} else {
-		for i := startBit; i < dunb.dpn.dp.Bits; i++ {
+		for i := startBit; i < dunb.dpn.dp.BitLen; i++ {
 			startMask <<= 1
 			startMask |= 1
 		}
@@ -182,15 +178,15 @@ func (dunb *deltaunpackNByte) unpackLine(zigzag, ntz bool) string {
 			endMask <<= 1
 			endMask |= 1
 		}
-		// val = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dunb.dpn.dp.Bits, dunb.dpn.dp.Bits, in1, startBit)
+		// val = fmt.Sprintf("int%d(uint%d(%s) >> %d)", dunb.dpn.dp.BitLen, dunb.dpn.dp.BitLen, in1, startBit)
 		val = fmt.Sprintf("(%s >> %d)", in1, startBit)
 		if endBit > 0 {
-			val = fmt.Sprintf("(%s | ((%s & 0x%X) << %d))", val, in2, endMask, nbBytes-endBit)
+			val = fmt.Sprintf("(%s | ((%s & 0x%X) << %d))", val, in2, endMask, bitN-endBit)
 		}
 	}
 	if zigzag {
 		// force signed
-		val = fmt.Sprintf("int%d(%s)", dunb.dpn.dp.Bits, val)
+		val = fmt.Sprintf("int%d(%s)", dunb.dpn.dp.BitLen, val)
 		// zigzag decoding of val: (-(val & 1))^(val>>1))
 		val = fmt.Sprintf("((-((%s) & 1))^((%s)>>1))", val, val)
 	}

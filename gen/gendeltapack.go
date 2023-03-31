@@ -35,7 +35,7 @@ func main() {
 			log.Println("failed to execute template", err)
 			os.Exit(3)
 		}
-		filename := fmt.Sprintf("deltapack%d.go", v.Bits)
+		filename := fmt.Sprintf("deltapack%d.go", v.BitLen)
 
 		if err := os.WriteFile(filename, out.Bytes(), 0600); err != nil {
 			log.Println("failed to write file", err)
