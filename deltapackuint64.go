@@ -11,133 +11,133 @@ import "unsafe"
 func appendGroup_uint64[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, bitlen int) []uint64 {
 	switch bitlen {
 	case 0:
-		return deltapack64_0(initoffset, in, dst)
+		return appendGroup64_0(dst, in, initoffset)
 	case 1:
-		return deltapack64_1(initoffset, in, dst)
+		return appendGroup64_1(dst, in, initoffset)
 	case 2:
-		return deltapack64_2(initoffset, in, dst)
+		return appendGroup64_2(dst, in, initoffset)
 	case 3:
-		return deltapack64_3(initoffset, in, dst)
+		return appendGroup64_3(dst, in, initoffset)
 	case 4:
-		return deltapack64_4(initoffset, in, dst)
+		return appendGroup64_4(dst, in, initoffset)
 	case 5:
-		return deltapack64_5(initoffset, in, dst)
+		return appendGroup64_5(dst, in, initoffset)
 	case 6:
-		return deltapack64_6(initoffset, in, dst)
+		return appendGroup64_6(dst, in, initoffset)
 	case 7:
-		return deltapack64_7(initoffset, in, dst)
+		return appendGroup64_7(dst, in, initoffset)
 	case 8:
-		return deltapack64_8(initoffset, in, dst)
+		return appendGroup64_8(dst, in, initoffset)
 	case 9:
-		return deltapack64_9(initoffset, in, dst)
+		return appendGroup64_9(dst, in, initoffset)
 	case 10:
-		return deltapack64_10(initoffset, in, dst)
+		return appendGroup64_10(dst, in, initoffset)
 	case 11:
-		return deltapack64_11(initoffset, in, dst)
+		return appendGroup64_11(dst, in, initoffset)
 	case 12:
-		return deltapack64_12(initoffset, in, dst)
+		return appendGroup64_12(dst, in, initoffset)
 	case 13:
-		return deltapack64_13(initoffset, in, dst)
+		return appendGroup64_13(dst, in, initoffset)
 	case 14:
-		return deltapack64_14(initoffset, in, dst)
+		return appendGroup64_14(dst, in, initoffset)
 	case 15:
-		return deltapack64_15(initoffset, in, dst)
+		return appendGroup64_15(dst, in, initoffset)
 	case 16:
-		return deltapack64_16(initoffset, in, dst)
+		return appendGroup64_16(dst, in, initoffset)
 	case 17:
-		return deltapack64_17(initoffset, in, dst)
+		return appendGroup64_17(dst, in, initoffset)
 	case 18:
-		return deltapack64_18(initoffset, in, dst)
+		return appendGroup64_18(dst, in, initoffset)
 	case 19:
-		return deltapack64_19(initoffset, in, dst)
+		return appendGroup64_19(dst, in, initoffset)
 	case 20:
-		return deltapack64_20(initoffset, in, dst)
+		return appendGroup64_20(dst, in, initoffset)
 	case 21:
-		return deltapack64_21(initoffset, in, dst)
+		return appendGroup64_21(dst, in, initoffset)
 	case 22:
-		return deltapack64_22(initoffset, in, dst)
+		return appendGroup64_22(dst, in, initoffset)
 	case 23:
-		return deltapack64_23(initoffset, in, dst)
+		return appendGroup64_23(dst, in, initoffset)
 	case 24:
-		return deltapack64_24(initoffset, in, dst)
+		return appendGroup64_24(dst, in, initoffset)
 	case 25:
-		return deltapack64_25(initoffset, in, dst)
+		return appendGroup64_25(dst, in, initoffset)
 	case 26:
-		return deltapack64_26(initoffset, in, dst)
+		return appendGroup64_26(dst, in, initoffset)
 	case 27:
-		return deltapack64_27(initoffset, in, dst)
+		return appendGroup64_27(dst, in, initoffset)
 	case 28:
-		return deltapack64_28(initoffset, in, dst)
+		return appendGroup64_28(dst, in, initoffset)
 	case 29:
-		return deltapack64_29(initoffset, in, dst)
+		return appendGroup64_29(dst, in, initoffset)
 	case 30:
-		return deltapack64_30(initoffset, in, dst)
+		return appendGroup64_30(dst, in, initoffset)
 	case 31:
-		return deltapack64_31(initoffset, in, dst)
+		return appendGroup64_31(dst, in, initoffset)
 	case 32:
-		return deltapack64_32(initoffset, in, dst)
+		return appendGroup64_32(dst, in, initoffset)
 	case 33:
-		return deltapack64_33(initoffset, in, dst)
+		return appendGroup64_33(dst, in, initoffset)
 	case 34:
-		return deltapack64_34(initoffset, in, dst)
+		return appendGroup64_34(dst, in, initoffset)
 	case 35:
-		return deltapack64_35(initoffset, in, dst)
+		return appendGroup64_35(dst, in, initoffset)
 	case 36:
-		return deltapack64_36(initoffset, in, dst)
+		return appendGroup64_36(dst, in, initoffset)
 	case 37:
-		return deltapack64_37(initoffset, in, dst)
+		return appendGroup64_37(dst, in, initoffset)
 	case 38:
-		return deltapack64_38(initoffset, in, dst)
+		return appendGroup64_38(dst, in, initoffset)
 	case 39:
-		return deltapack64_39(initoffset, in, dst)
+		return appendGroup64_39(dst, in, initoffset)
 	case 40:
-		return deltapack64_40(initoffset, in, dst)
+		return appendGroup64_40(dst, in, initoffset)
 	case 41:
-		return deltapack64_41(initoffset, in, dst)
+		return appendGroup64_41(dst, in, initoffset)
 	case 42:
-		return deltapack64_42(initoffset, in, dst)
+		return appendGroup64_42(dst, in, initoffset)
 	case 43:
-		return deltapack64_43(initoffset, in, dst)
+		return appendGroup64_43(dst, in, initoffset)
 	case 44:
-		return deltapack64_44(initoffset, in, dst)
+		return appendGroup64_44(dst, in, initoffset)
 	case 45:
-		return deltapack64_45(initoffset, in, dst)
+		return appendGroup64_45(dst, in, initoffset)
 	case 46:
-		return deltapack64_46(initoffset, in, dst)
+		return appendGroup64_46(dst, in, initoffset)
 	case 47:
-		return deltapack64_47(initoffset, in, dst)
+		return appendGroup64_47(dst, in, initoffset)
 	case 48:
-		return deltapack64_48(initoffset, in, dst)
+		return appendGroup64_48(dst, in, initoffset)
 	case 49:
-		return deltapack64_49(initoffset, in, dst)
+		return appendGroup64_49(dst, in, initoffset)
 	case 50:
-		return deltapack64_50(initoffset, in, dst)
+		return appendGroup64_50(dst, in, initoffset)
 	case 51:
-		return deltapack64_51(initoffset, in, dst)
+		return appendGroup64_51(dst, in, initoffset)
 	case 52:
-		return deltapack64_52(initoffset, in, dst)
+		return appendGroup64_52(dst, in, initoffset)
 	case 53:
-		return deltapack64_53(initoffset, in, dst)
+		return appendGroup64_53(dst, in, initoffset)
 	case 54:
-		return deltapack64_54(initoffset, in, dst)
+		return appendGroup64_54(dst, in, initoffset)
 	case 55:
-		return deltapack64_55(initoffset, in, dst)
+		return appendGroup64_55(dst, in, initoffset)
 	case 56:
-		return deltapack64_56(initoffset, in, dst)
+		return appendGroup64_56(dst, in, initoffset)
 	case 57:
-		return deltapack64_57(initoffset, in, dst)
+		return appendGroup64_57(dst, in, initoffset)
 	case 58:
-		return deltapack64_58(initoffset, in, dst)
+		return appendGroup64_58(dst, in, initoffset)
 	case 59:
-		return deltapack64_59(initoffset, in, dst)
+		return appendGroup64_59(dst, in, initoffset)
 	case 60:
-		return deltapack64_60(initoffset, in, dst)
+		return appendGroup64_60(dst, in, initoffset)
 	case 61:
-		return deltapack64_61(initoffset, in, dst)
+		return appendGroup64_61(dst, in, initoffset)
 	case 62:
-		return deltapack64_62(initoffset, in, dst)
+		return appendGroup64_62(dst, in, initoffset)
 	case 63:
-		return deltapack64_63(initoffset, in, dst)
+		return appendGroup64_63(dst, in, initoffset)
 	case 64:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -293,133 +293,133 @@ func deltaUnpack_uint64[T uint64 | int64](initoffset T, in []uint64, out []T, bi
 func appendGroupZigZag_uint64(dst []uint64, in *[64]uint64, initoffset uint64, bitlen int) []uint64 {
 	switch bitlen {
 	case 0:
-		return deltapackzigzag64_0(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_0(dst, in, initoffset)
 	case 1:
-		return deltapackzigzag64_1(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_1(dst, in, initoffset)
 	case 2:
-		return deltapackzigzag64_2(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_2(dst, in, initoffset)
 	case 3:
-		return deltapackzigzag64_3(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_3(dst, in, initoffset)
 	case 4:
-		return deltapackzigzag64_4(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_4(dst, in, initoffset)
 	case 5:
-		return deltapackzigzag64_5(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_5(dst, in, initoffset)
 	case 6:
-		return deltapackzigzag64_6(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_6(dst, in, initoffset)
 	case 7:
-		return deltapackzigzag64_7(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_7(dst, in, initoffset)
 	case 8:
-		return deltapackzigzag64_8(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_8(dst, in, initoffset)
 	case 9:
-		return deltapackzigzag64_9(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_9(dst, in, initoffset)
 	case 10:
-		return deltapackzigzag64_10(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_10(dst, in, initoffset)
 	case 11:
-		return deltapackzigzag64_11(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_11(dst, in, initoffset)
 	case 12:
-		return deltapackzigzag64_12(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_12(dst, in, initoffset)
 	case 13:
-		return deltapackzigzag64_13(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_13(dst, in, initoffset)
 	case 14:
-		return deltapackzigzag64_14(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_14(dst, in, initoffset)
 	case 15:
-		return deltapackzigzag64_15(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_15(dst, in, initoffset)
 	case 16:
-		return deltapackzigzag64_16(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_16(dst, in, initoffset)
 	case 17:
-		return deltapackzigzag64_17(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_17(dst, in, initoffset)
 	case 18:
-		return deltapackzigzag64_18(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_18(dst, in, initoffset)
 	case 19:
-		return deltapackzigzag64_19(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_19(dst, in, initoffset)
 	case 20:
-		return deltapackzigzag64_20(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_20(dst, in, initoffset)
 	case 21:
-		return deltapackzigzag64_21(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_21(dst, in, initoffset)
 	case 22:
-		return deltapackzigzag64_22(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_22(dst, in, initoffset)
 	case 23:
-		return deltapackzigzag64_23(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_23(dst, in, initoffset)
 	case 24:
-		return deltapackzigzag64_24(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_24(dst, in, initoffset)
 	case 25:
-		return deltapackzigzag64_25(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_25(dst, in, initoffset)
 	case 26:
-		return deltapackzigzag64_26(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_26(dst, in, initoffset)
 	case 27:
-		return deltapackzigzag64_27(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_27(dst, in, initoffset)
 	case 28:
-		return deltapackzigzag64_28(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_28(dst, in, initoffset)
 	case 29:
-		return deltapackzigzag64_29(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_29(dst, in, initoffset)
 	case 30:
-		return deltapackzigzag64_30(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_30(dst, in, initoffset)
 	case 31:
-		return deltapackzigzag64_31(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_31(dst, in, initoffset)
 	case 32:
-		return deltapackzigzag64_32(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_32(dst, in, initoffset)
 	case 33:
-		return deltapackzigzag64_33(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_33(dst, in, initoffset)
 	case 34:
-		return deltapackzigzag64_34(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_34(dst, in, initoffset)
 	case 35:
-		return deltapackzigzag64_35(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_35(dst, in, initoffset)
 	case 36:
-		return deltapackzigzag64_36(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_36(dst, in, initoffset)
 	case 37:
-		return deltapackzigzag64_37(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_37(dst, in, initoffset)
 	case 38:
-		return deltapackzigzag64_38(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_38(dst, in, initoffset)
 	case 39:
-		return deltapackzigzag64_39(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_39(dst, in, initoffset)
 	case 40:
-		return deltapackzigzag64_40(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_40(dst, in, initoffset)
 	case 41:
-		return deltapackzigzag64_41(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_41(dst, in, initoffset)
 	case 42:
-		return deltapackzigzag64_42(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_42(dst, in, initoffset)
 	case 43:
-		return deltapackzigzag64_43(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_43(dst, in, initoffset)
 	case 44:
-		return deltapackzigzag64_44(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_44(dst, in, initoffset)
 	case 45:
-		return deltapackzigzag64_45(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_45(dst, in, initoffset)
 	case 46:
-		return deltapackzigzag64_46(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_46(dst, in, initoffset)
 	case 47:
-		return deltapackzigzag64_47(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_47(dst, in, initoffset)
 	case 48:
-		return deltapackzigzag64_48(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_48(dst, in, initoffset)
 	case 49:
-		return deltapackzigzag64_49(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_49(dst, in, initoffset)
 	case 50:
-		return deltapackzigzag64_50(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_50(dst, in, initoffset)
 	case 51:
-		return deltapackzigzag64_51(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_51(dst, in, initoffset)
 	case 52:
-		return deltapackzigzag64_52(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_52(dst, in, initoffset)
 	case 53:
-		return deltapackzigzag64_53(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_53(dst, in, initoffset)
 	case 54:
-		return deltapackzigzag64_54(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_54(dst, in, initoffset)
 	case 55:
-		return deltapackzigzag64_55(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_55(dst, in, initoffset)
 	case 56:
-		return deltapackzigzag64_56(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_56(dst, in, initoffset)
 	case 57:
-		return deltapackzigzag64_57(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_57(dst, in, initoffset)
 	case 58:
-		return deltapackzigzag64_58(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_58(dst, in, initoffset)
 	case 59:
-		return deltapackzigzag64_59(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_59(dst, in, initoffset)
 	case 60:
-		return deltapackzigzag64_60(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_60(dst, in, initoffset)
 	case 61:
-		return deltapackzigzag64_61(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_61(dst, in, initoffset)
 	case 62:
-		return deltapackzigzag64_62(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_62(dst, in, initoffset)
 	case 63:
-		return deltapackzigzag64_63(initoffset, (*[64]uint64)(in), dst)
+		return appendGroupZigZag64_63(dst, in, initoffset)
 	case 64:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)

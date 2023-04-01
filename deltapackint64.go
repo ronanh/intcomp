@@ -12,324 +12,324 @@ func appendGroup_int64[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, 
 	switch bitlen - ntz {
 	case 0:
 		if ntz > 0 {
-			return deltapack64_ntz_0(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_0(dst, in, initoffset, ntz)
 		}
-		return deltapack64_0(initoffset, in, dst)
+		return appendGroup64_0(dst, in, initoffset)
 	case 1:
 		if ntz > 0 {
-			return deltapack64_ntz_1(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_1(dst, in, initoffset, ntz)
 		}
-		return deltapack64_1(initoffset, in, dst)
+		return appendGroup64_1(dst, in, initoffset)
 	case 2:
 		if ntz > 0 {
-			return deltapack64_ntz_2(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_2(dst, in, initoffset, ntz)
 		}
-		return deltapack64_2(initoffset, in, dst)
+		return appendGroup64_2(dst, in, initoffset)
 	case 3:
 		if ntz > 0 {
-			return deltapack64_ntz_3(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_3(dst, in, initoffset, ntz)
 		}
-		return deltapack64_3(initoffset, in, dst)
+		return appendGroup64_3(dst, in, initoffset)
 	case 4:
 		if ntz > 0 {
-			return deltapack64_ntz_4(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_4(dst, in, initoffset, ntz)
 		}
-		return deltapack64_4(initoffset, in, dst)
+		return appendGroup64_4(dst, in, initoffset)
 	case 5:
 		if ntz > 0 {
-			return deltapack64_ntz_5(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_5(dst, in, initoffset, ntz)
 		}
-		return deltapack64_5(initoffset, in, dst)
+		return appendGroup64_5(dst, in, initoffset)
 	case 6:
 		if ntz > 0 {
-			return deltapack64_ntz_6(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_6(dst, in, initoffset, ntz)
 		}
-		return deltapack64_6(initoffset, in, dst)
+		return appendGroup64_6(dst, in, initoffset)
 	case 7:
 		if ntz > 0 {
-			return deltapack64_ntz_7(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_7(dst, in, initoffset, ntz)
 		}
-		return deltapack64_7(initoffset, in, dst)
+		return appendGroup64_7(dst, in, initoffset)
 	case 8:
 		if ntz > 0 {
-			return deltapack64_ntz_8(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_8(dst, in, initoffset, ntz)
 		}
-		return deltapack64_8(initoffset, in, dst)
+		return appendGroup64_8(dst, in, initoffset)
 	case 9:
 		if ntz > 0 {
-			return deltapack64_ntz_9(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_9(dst, in, initoffset, ntz)
 		}
-		return deltapack64_9(initoffset, in, dst)
+		return appendGroup64_9(dst, in, initoffset)
 	case 10:
 		if ntz > 0 {
-			return deltapack64_ntz_10(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_10(dst, in, initoffset, ntz)
 		}
-		return deltapack64_10(initoffset, in, dst)
+		return appendGroup64_10(dst, in, initoffset)
 	case 11:
 		if ntz > 0 {
-			return deltapack64_ntz_11(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_11(dst, in, initoffset, ntz)
 		}
-		return deltapack64_11(initoffset, in, dst)
+		return appendGroup64_11(dst, in, initoffset)
 	case 12:
 		if ntz > 0 {
-			return deltapack64_ntz_12(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_12(dst, in, initoffset, ntz)
 		}
-		return deltapack64_12(initoffset, in, dst)
+		return appendGroup64_12(dst, in, initoffset)
 	case 13:
 		if ntz > 0 {
-			return deltapack64_ntz_13(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_13(dst, in, initoffset, ntz)
 		}
-		return deltapack64_13(initoffset, in, dst)
+		return appendGroup64_13(dst, in, initoffset)
 	case 14:
 		if ntz > 0 {
-			return deltapack64_ntz_14(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_14(dst, in, initoffset, ntz)
 		}
-		return deltapack64_14(initoffset, in, dst)
+		return appendGroup64_14(dst, in, initoffset)
 	case 15:
 		if ntz > 0 {
-			return deltapack64_ntz_15(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_15(dst, in, initoffset, ntz)
 		}
-		return deltapack64_15(initoffset, in, dst)
+		return appendGroup64_15(dst, in, initoffset)
 	case 16:
 		if ntz > 0 {
-			return deltapack64_ntz_16(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_16(dst, in, initoffset, ntz)
 		}
-		return deltapack64_16(initoffset, in, dst)
+		return appendGroup64_16(dst, in, initoffset)
 	case 17:
 		if ntz > 0 {
-			return deltapack64_ntz_17(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_17(dst, in, initoffset, ntz)
 		}
-		return deltapack64_17(initoffset, in, dst)
+		return appendGroup64_17(dst, in, initoffset)
 	case 18:
 		if ntz > 0 {
-			return deltapack64_ntz_18(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_18(dst, in, initoffset, ntz)
 		}
-		return deltapack64_18(initoffset, in, dst)
+		return appendGroup64_18(dst, in, initoffset)
 	case 19:
 		if ntz > 0 {
-			return deltapack64_ntz_19(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_19(dst, in, initoffset, ntz)
 		}
-		return deltapack64_19(initoffset, in, dst)
+		return appendGroup64_19(dst, in, initoffset)
 	case 20:
 		if ntz > 0 {
-			return deltapack64_ntz_20(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_20(dst, in, initoffset, ntz)
 		}
-		return deltapack64_20(initoffset, in, dst)
+		return appendGroup64_20(dst, in, initoffset)
 	case 21:
 		if ntz > 0 {
-			return deltapack64_ntz_21(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_21(dst, in, initoffset, ntz)
 		}
-		return deltapack64_21(initoffset, in, dst)
+		return appendGroup64_21(dst, in, initoffset)
 	case 22:
 		if ntz > 0 {
-			return deltapack64_ntz_22(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_22(dst, in, initoffset, ntz)
 		}
-		return deltapack64_22(initoffset, in, dst)
+		return appendGroup64_22(dst, in, initoffset)
 	case 23:
 		if ntz > 0 {
-			return deltapack64_ntz_23(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_23(dst, in, initoffset, ntz)
 		}
-		return deltapack64_23(initoffset, in, dst)
+		return appendGroup64_23(dst, in, initoffset)
 	case 24:
 		if ntz > 0 {
-			return deltapack64_ntz_24(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_24(dst, in, initoffset, ntz)
 		}
-		return deltapack64_24(initoffset, in, dst)
+		return appendGroup64_24(dst, in, initoffset)
 	case 25:
 		if ntz > 0 {
-			return deltapack64_ntz_25(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_25(dst, in, initoffset, ntz)
 		}
-		return deltapack64_25(initoffset, in, dst)
+		return appendGroup64_25(dst, in, initoffset)
 	case 26:
 		if ntz > 0 {
-			return deltapack64_ntz_26(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_26(dst, in, initoffset, ntz)
 		}
-		return deltapack64_26(initoffset, in, dst)
+		return appendGroup64_26(dst, in, initoffset)
 	case 27:
 		if ntz > 0 {
-			return deltapack64_ntz_27(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_27(dst, in, initoffset, ntz)
 		}
-		return deltapack64_27(initoffset, in, dst)
+		return appendGroup64_27(dst, in, initoffset)
 	case 28:
 		if ntz > 0 {
-			return deltapack64_ntz_28(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_28(dst, in, initoffset, ntz)
 		}
-		return deltapack64_28(initoffset, in, dst)
+		return appendGroup64_28(dst, in, initoffset)
 	case 29:
 		if ntz > 0 {
-			return deltapack64_ntz_29(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_29(dst, in, initoffset, ntz)
 		}
-		return deltapack64_29(initoffset, in, dst)
+		return appendGroup64_29(dst, in, initoffset)
 	case 30:
 		if ntz > 0 {
-			return deltapack64_ntz_30(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_30(dst, in, initoffset, ntz)
 		}
-		return deltapack64_30(initoffset, in, dst)
+		return appendGroup64_30(dst, in, initoffset)
 	case 31:
 		if ntz > 0 {
-			return deltapack64_ntz_31(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_31(dst, in, initoffset, ntz)
 		}
-		return deltapack64_31(initoffset, in, dst)
+		return appendGroup64_31(dst, in, initoffset)
 	case 32:
 		if ntz > 0 {
-			return deltapack64_ntz_32(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_32(dst, in, initoffset, ntz)
 		}
-		return deltapack64_32(initoffset, in, dst)
+		return appendGroup64_32(dst, in, initoffset)
 	case 33:
 		if ntz > 0 {
-			return deltapack64_ntz_33(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_33(dst, in, initoffset, ntz)
 		}
-		return deltapack64_33(initoffset, in, dst)
+		return appendGroup64_33(dst, in, initoffset)
 	case 34:
 		if ntz > 0 {
-			return deltapack64_ntz_34(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_34(dst, in, initoffset, ntz)
 		}
-		return deltapack64_34(initoffset, in, dst)
+		return appendGroup64_34(dst, in, initoffset)
 	case 35:
 		if ntz > 0 {
-			return deltapack64_ntz_35(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_35(dst, in, initoffset, ntz)
 		}
-		return deltapack64_35(initoffset, in, dst)
+		return appendGroup64_35(dst, in, initoffset)
 	case 36:
 		if ntz > 0 {
-			return deltapack64_ntz_36(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_36(dst, in, initoffset, ntz)
 		}
-		return deltapack64_36(initoffset, in, dst)
+		return appendGroup64_36(dst, in, initoffset)
 	case 37:
 		if ntz > 0 {
-			return deltapack64_ntz_37(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_37(dst, in, initoffset, ntz)
 		}
-		return deltapack64_37(initoffset, in, dst)
+		return appendGroup64_37(dst, in, initoffset)
 	case 38:
 		if ntz > 0 {
-			return deltapack64_ntz_38(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_38(dst, in, initoffset, ntz)
 		}
-		return deltapack64_38(initoffset, in, dst)
+		return appendGroup64_38(dst, in, initoffset)
 	case 39:
 		if ntz > 0 {
-			return deltapack64_ntz_39(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_39(dst, in, initoffset, ntz)
 		}
-		return deltapack64_39(initoffset, in, dst)
+		return appendGroup64_39(dst, in, initoffset)
 	case 40:
 		if ntz > 0 {
-			return deltapack64_ntz_40(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_40(dst, in, initoffset, ntz)
 		}
-		return deltapack64_40(initoffset, in, dst)
+		return appendGroup64_40(dst, in, initoffset)
 	case 41:
 		if ntz > 0 {
-			return deltapack64_ntz_41(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_41(dst, in, initoffset, ntz)
 		}
-		return deltapack64_41(initoffset, in, dst)
+		return appendGroup64_41(dst, in, initoffset)
 	case 42:
 		if ntz > 0 {
-			return deltapack64_ntz_42(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_42(dst, in, initoffset, ntz)
 		}
-		return deltapack64_42(initoffset, in, dst)
+		return appendGroup64_42(dst, in, initoffset)
 	case 43:
 		if ntz > 0 {
-			return deltapack64_ntz_43(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_43(dst, in, initoffset, ntz)
 		}
-		return deltapack64_43(initoffset, in, dst)
+		return appendGroup64_43(dst, in, initoffset)
 	case 44:
 		if ntz > 0 {
-			return deltapack64_ntz_44(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_44(dst, in, initoffset, ntz)
 		}
-		return deltapack64_44(initoffset, in, dst)
+		return appendGroup64_44(dst, in, initoffset)
 	case 45:
 		if ntz > 0 {
-			return deltapack64_ntz_45(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_45(dst, in, initoffset, ntz)
 		}
-		return deltapack64_45(initoffset, in, dst)
+		return appendGroup64_45(dst, in, initoffset)
 	case 46:
 		if ntz > 0 {
-			return deltapack64_ntz_46(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_46(dst, in, initoffset, ntz)
 		}
-		return deltapack64_46(initoffset, in, dst)
+		return appendGroup64_46(dst, in, initoffset)
 	case 47:
 		if ntz > 0 {
-			return deltapack64_ntz_47(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_47(dst, in, initoffset, ntz)
 		}
-		return deltapack64_47(initoffset, in, dst)
+		return appendGroup64_47(dst, in, initoffset)
 	case 48:
 		if ntz > 0 {
-			return deltapack64_ntz_48(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_48(dst, in, initoffset, ntz)
 		}
-		return deltapack64_48(initoffset, in, dst)
+		return appendGroup64_48(dst, in, initoffset)
 	case 49:
 		if ntz > 0 {
-			return deltapack64_ntz_49(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_49(dst, in, initoffset, ntz)
 		}
-		return deltapack64_49(initoffset, in, dst)
+		return appendGroup64_49(dst, in, initoffset)
 	case 50:
 		if ntz > 0 {
-			return deltapack64_ntz_50(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_50(dst, in, initoffset, ntz)
 		}
-		return deltapack64_50(initoffset, in, dst)
+		return appendGroup64_50(dst, in, initoffset)
 	case 51:
 		if ntz > 0 {
-			return deltapack64_ntz_51(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_51(dst, in, initoffset, ntz)
 		}
-		return deltapack64_51(initoffset, in, dst)
+		return appendGroup64_51(dst, in, initoffset)
 	case 52:
 		if ntz > 0 {
-			return deltapack64_ntz_52(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_52(dst, in, initoffset, ntz)
 		}
-		return deltapack64_52(initoffset, in, dst)
+		return appendGroup64_52(dst, in, initoffset)
 	case 53:
 		if ntz > 0 {
-			return deltapack64_ntz_53(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_53(dst, in, initoffset, ntz)
 		}
-		return deltapack64_53(initoffset, in, dst)
+		return appendGroup64_53(dst, in, initoffset)
 	case 54:
 		if ntz > 0 {
-			return deltapack64_ntz_54(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_54(dst, in, initoffset, ntz)
 		}
-		return deltapack64_54(initoffset, in, dst)
+		return appendGroup64_54(dst, in, initoffset)
 	case 55:
 		if ntz > 0 {
-			return deltapack64_ntz_55(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_55(dst, in, initoffset, ntz)
 		}
-		return deltapack64_55(initoffset, in, dst)
+		return appendGroup64_55(dst, in, initoffset)
 	case 56:
 		if ntz > 0 {
-			return deltapack64_ntz_56(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_56(dst, in, initoffset, ntz)
 		}
-		return deltapack64_56(initoffset, in, dst)
+		return appendGroup64_56(dst, in, initoffset)
 	case 57:
 		if ntz > 0 {
-			return deltapack64_ntz_57(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_57(dst, in, initoffset, ntz)
 		}
-		return deltapack64_57(initoffset, in, dst)
+		return appendGroup64_57(dst, in, initoffset)
 	case 58:
 		if ntz > 0 {
-			return deltapack64_ntz_58(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_58(dst, in, initoffset, ntz)
 		}
-		return deltapack64_58(initoffset, in, dst)
+		return appendGroup64_58(dst, in, initoffset)
 	case 59:
 		if ntz > 0 {
-			return deltapack64_ntz_59(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_59(dst, in, initoffset, ntz)
 		}
-		return deltapack64_59(initoffset, in, dst)
+		return appendGroup64_59(dst, in, initoffset)
 	case 60:
 		if ntz > 0 {
-			return deltapack64_ntz_60(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_60(dst, in, initoffset, ntz)
 		}
-		return deltapack64_60(initoffset, in, dst)
+		return appendGroup64_60(dst, in, initoffset)
 	case 61:
 		if ntz > 0 {
-			return deltapack64_ntz_61(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_61(dst, in, initoffset, ntz)
 		}
-		return deltapack64_61(initoffset, in, dst)
+		return appendGroup64_61(dst, in, initoffset)
 	case 62:
 		if ntz > 0 {
-			return deltapack64_ntz_62(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_62(dst, in, initoffset, ntz)
 		}
-		return deltapack64_62(initoffset, in, dst)
+		return appendGroup64_62(dst, in, initoffset)
 	case 63:
 		if ntz > 0 {
-			return deltapack64_ntz_63(initoffset, in, dst, ntz)
+			return appendGroup64_ntz_63(dst, in, initoffset, ntz)
 		}
-		return deltapack64_63(initoffset, in, dst)
+		return appendGroup64_63(dst, in, initoffset)
 	case 64:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -732,77 +732,77 @@ func deltaUnpack_int64[T uint64 | int64](initoffset T, in []uint64, out []T, ntz
 	}
 }
 
-func deltapack64_0[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out)
+func appendGroup64_0[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst)
 }
-func deltapack64_ntz_0[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_0[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out)
+	return append(dst)
 }
 
-func deltapack64_1[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_1[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<1)|((in[2]-in[1])<<2)|((in[3]-in[2])<<3)|((in[4]-in[3])<<4)|((in[5]-in[4])<<5)|((in[6]-in[5])<<6)|((in[7]-in[6])<<7)|((in[8]-in[7])<<8)|((in[9]-in[8])<<9)|((in[10]-in[9])<<10)|((in[11]-in[10])<<11)|((in[12]-in[11])<<12)|((in[13]-in[12])<<13)|((in[14]-in[13])<<14)|((in[15]-in[14])<<15)|((in[16]-in[15])<<16)|((in[17]-in[16])<<17)|((in[18]-in[17])<<18)|((in[19]-in[18])<<19)|((in[20]-in[19])<<20)|((in[21]-in[20])<<21)|((in[22]-in[21])<<22)|((in[23]-in[22])<<23)|((in[24]-in[23])<<24)|((in[25]-in[24])<<25)|((in[26]-in[25])<<26)|((in[27]-in[26])<<27)|((in[28]-in[27])<<28)|((in[29]-in[28])<<29)|((in[30]-in[29])<<30)|((in[31]-in[30])<<31)|((in[32]-in[31])<<32)|((in[33]-in[32])<<33)|((in[34]-in[33])<<34)|((in[35]-in[34])<<35)|((in[36]-in[35])<<36)|((in[37]-in[36])<<37)|((in[38]-in[37])<<38)|((in[39]-in[38])<<39)|((in[40]-in[39])<<40)|((in[41]-in[40])<<41)|((in[42]-in[41])<<42)|((in[43]-in[42])<<43)|((in[44]-in[43])<<44)|((in[45]-in[44])<<45)|((in[46]-in[45])<<46)|((in[47]-in[46])<<47)|((in[48]-in[47])<<48)|((in[49]-in[48])<<49)|((in[50]-in[49])<<50)|((in[51]-in[50])<<51)|((in[52]-in[51])<<52)|((in[53]-in[52])<<53)|((in[54]-in[53])<<54)|((in[55]-in[54])<<55)|((in[56]-in[55])<<56)|((in[57]-in[56])<<57)|((in[58]-in[57])<<58)|((in[59]-in[58])<<59)|((in[60]-in[59])<<60)|((in[61]-in[60])<<61)|((in[62]-in[61])<<62)|((in[63]-in[62])<<63)))
 }
-func deltapack64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_1[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<1)|((in[2]-in[1])>>ntz<<2)|((in[3]-in[2])>>ntz<<3)|((in[4]-in[3])>>ntz<<4)|((in[5]-in[4])>>ntz<<5)|((in[6]-in[5])>>ntz<<6)|((in[7]-in[6])>>ntz<<7)|((in[8]-in[7])>>ntz<<8)|((in[9]-in[8])>>ntz<<9)|((in[10]-in[9])>>ntz<<10)|((in[11]-in[10])>>ntz<<11)|((in[12]-in[11])>>ntz<<12)|((in[13]-in[12])>>ntz<<13)|((in[14]-in[13])>>ntz<<14)|((in[15]-in[14])>>ntz<<15)|((in[16]-in[15])>>ntz<<16)|((in[17]-in[16])>>ntz<<17)|((in[18]-in[17])>>ntz<<18)|((in[19]-in[18])>>ntz<<19)|((in[20]-in[19])>>ntz<<20)|((in[21]-in[20])>>ntz<<21)|((in[22]-in[21])>>ntz<<22)|((in[23]-in[22])>>ntz<<23)|((in[24]-in[23])>>ntz<<24)|((in[25]-in[24])>>ntz<<25)|((in[26]-in[25])>>ntz<<26)|((in[27]-in[26])>>ntz<<27)|((in[28]-in[27])>>ntz<<28)|((in[29]-in[28])>>ntz<<29)|((in[30]-in[29])>>ntz<<30)|((in[31]-in[30])>>ntz<<31)|((in[32]-in[31])>>ntz<<32)|((in[33]-in[32])>>ntz<<33)|((in[34]-in[33])>>ntz<<34)|((in[35]-in[34])>>ntz<<35)|((in[36]-in[35])>>ntz<<36)|((in[37]-in[36])>>ntz<<37)|((in[38]-in[37])>>ntz<<38)|((in[39]-in[38])>>ntz<<39)|((in[40]-in[39])>>ntz<<40)|((in[41]-in[40])>>ntz<<41)|((in[42]-in[41])>>ntz<<42)|((in[43]-in[42])>>ntz<<43)|((in[44]-in[43])>>ntz<<44)|((in[45]-in[44])>>ntz<<45)|((in[46]-in[45])>>ntz<<46)|((in[47]-in[46])>>ntz<<47)|((in[48]-in[47])>>ntz<<48)|((in[49]-in[48])>>ntz<<49)|((in[50]-in[49])>>ntz<<50)|((in[51]-in[50])>>ntz<<51)|((in[52]-in[51])>>ntz<<52)|((in[53]-in[52])>>ntz<<53)|((in[54]-in[53])>>ntz<<54)|((in[55]-in[54])>>ntz<<55)|((in[56]-in[55])>>ntz<<56)|((in[57]-in[56])>>ntz<<57)|((in[58]-in[57])>>ntz<<58)|((in[59]-in[58])>>ntz<<59)|((in[60]-in[59])>>ntz<<60)|((in[61]-in[60])>>ntz<<61)|((in[62]-in[61])>>ntz<<62)|((in[63]-in[62])>>ntz<<63)))
 }
 
-func deltapack64_2[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_2[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<2)|((in[2]-in[1])<<4)|((in[3]-in[2])<<6)|((in[4]-in[3])<<8)|((in[5]-in[4])<<10)|((in[6]-in[5])<<12)|((in[7]-in[6])<<14)|((in[8]-in[7])<<16)|((in[9]-in[8])<<18)|((in[10]-in[9])<<20)|((in[11]-in[10])<<22)|((in[12]-in[11])<<24)|((in[13]-in[12])<<26)|((in[14]-in[13])<<28)|((in[15]-in[14])<<30)|((in[16]-in[15])<<32)|((in[17]-in[16])<<34)|((in[18]-in[17])<<36)|((in[19]-in[18])<<38)|((in[20]-in[19])<<40)|((in[21]-in[20])<<42)|((in[22]-in[21])<<44)|((in[23]-in[22])<<46)|((in[24]-in[23])<<48)|((in[25]-in[24])<<50)|((in[26]-in[25])<<52)|((in[27]-in[26])<<54)|((in[28]-in[27])<<56)|((in[29]-in[28])<<58)|((in[30]-in[29])<<60)|((in[31]-in[30])<<62)),
 		uint64(in[32]-in[31]|((in[33]-in[32])<<2)|((in[34]-in[33])<<4)|((in[35]-in[34])<<6)|((in[36]-in[35])<<8)|((in[37]-in[36])<<10)|((in[38]-in[37])<<12)|((in[39]-in[38])<<14)|((in[40]-in[39])<<16)|((in[41]-in[40])<<18)|((in[42]-in[41])<<20)|((in[43]-in[42])<<22)|((in[44]-in[43])<<24)|((in[45]-in[44])<<26)|((in[46]-in[45])<<28)|((in[47]-in[46])<<30)|((in[48]-in[47])<<32)|((in[49]-in[48])<<34)|((in[50]-in[49])<<36)|((in[51]-in[50])<<38)|((in[52]-in[51])<<40)|((in[53]-in[52])<<42)|((in[54]-in[53])<<44)|((in[55]-in[54])<<46)|((in[56]-in[55])<<48)|((in[57]-in[56])<<50)|((in[58]-in[57])<<52)|((in[59]-in[58])<<54)|((in[60]-in[59])<<56)|((in[61]-in[60])<<58)|((in[62]-in[61])<<60)|((in[63]-in[62])<<62)))
 }
-func deltapack64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_2[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<2)|((in[2]-in[1])>>ntz<<4)|((in[3]-in[2])>>ntz<<6)|((in[4]-in[3])>>ntz<<8)|((in[5]-in[4])>>ntz<<10)|((in[6]-in[5])>>ntz<<12)|((in[7]-in[6])>>ntz<<14)|((in[8]-in[7])>>ntz<<16)|((in[9]-in[8])>>ntz<<18)|((in[10]-in[9])>>ntz<<20)|((in[11]-in[10])>>ntz<<22)|((in[12]-in[11])>>ntz<<24)|((in[13]-in[12])>>ntz<<26)|((in[14]-in[13])>>ntz<<28)|((in[15]-in[14])>>ntz<<30)|((in[16]-in[15])>>ntz<<32)|((in[17]-in[16])>>ntz<<34)|((in[18]-in[17])>>ntz<<36)|((in[19]-in[18])>>ntz<<38)|((in[20]-in[19])>>ntz<<40)|((in[21]-in[20])>>ntz<<42)|((in[22]-in[21])>>ntz<<44)|((in[23]-in[22])>>ntz<<46)|((in[24]-in[23])>>ntz<<48)|((in[25]-in[24])>>ntz<<50)|((in[26]-in[25])>>ntz<<52)|((in[27]-in[26])>>ntz<<54)|((in[28]-in[27])>>ntz<<56)|((in[29]-in[28])>>ntz<<58)|((in[30]-in[29])>>ntz<<60)|((in[31]-in[30])>>ntz<<62)),
 		uint64((in[32]-in[31])>>ntz|((in[33]-in[32])>>ntz<<2)|((in[34]-in[33])>>ntz<<4)|((in[35]-in[34])>>ntz<<6)|((in[36]-in[35])>>ntz<<8)|((in[37]-in[36])>>ntz<<10)|((in[38]-in[37])>>ntz<<12)|((in[39]-in[38])>>ntz<<14)|((in[40]-in[39])>>ntz<<16)|((in[41]-in[40])>>ntz<<18)|((in[42]-in[41])>>ntz<<20)|((in[43]-in[42])>>ntz<<22)|((in[44]-in[43])>>ntz<<24)|((in[45]-in[44])>>ntz<<26)|((in[46]-in[45])>>ntz<<28)|((in[47]-in[46])>>ntz<<30)|((in[48]-in[47])>>ntz<<32)|((in[49]-in[48])>>ntz<<34)|((in[50]-in[49])>>ntz<<36)|((in[51]-in[50])>>ntz<<38)|((in[52]-in[51])>>ntz<<40)|((in[53]-in[52])>>ntz<<42)|((in[54]-in[53])>>ntz<<44)|((in[55]-in[54])>>ntz<<46)|((in[56]-in[55])>>ntz<<48)|((in[57]-in[56])>>ntz<<50)|((in[58]-in[57])>>ntz<<52)|((in[59]-in[58])>>ntz<<54)|((in[60]-in[59])>>ntz<<56)|((in[61]-in[60])>>ntz<<58)|((in[62]-in[61])>>ntz<<60)|((in[63]-in[62])>>ntz<<62)))
 }
 
-func deltapack64_3[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_3[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<3)|((in[2]-in[1])<<6)|((in[3]-in[2])<<9)|((in[4]-in[3])<<12)|((in[5]-in[4])<<15)|((in[6]-in[5])<<18)|((in[7]-in[6])<<21)|((in[8]-in[7])<<24)|((in[9]-in[8])<<27)|((in[10]-in[9])<<30)|((in[11]-in[10])<<33)|((in[12]-in[11])<<36)|((in[13]-in[12])<<39)|((in[14]-in[13])<<42)|((in[15]-in[14])<<45)|((in[16]-in[15])<<48)|((in[17]-in[16])<<51)|((in[18]-in[17])<<54)|((in[19]-in[18])<<57)|((in[20]-in[19])<<60)|((in[21]-in[20])<<63)),
 		uint64((in[21]-in[20])>>1|((in[22]-in[21])<<2)|((in[23]-in[22])<<5)|((in[24]-in[23])<<8)|((in[25]-in[24])<<11)|((in[26]-in[25])<<14)|((in[27]-in[26])<<17)|((in[28]-in[27])<<20)|((in[29]-in[28])<<23)|((in[30]-in[29])<<26)|((in[31]-in[30])<<29)|((in[32]-in[31])<<32)|((in[33]-in[32])<<35)|((in[34]-in[33])<<38)|((in[35]-in[34])<<41)|((in[36]-in[35])<<44)|((in[37]-in[36])<<47)|((in[38]-in[37])<<50)|((in[39]-in[38])<<53)|((in[40]-in[39])<<56)|((in[41]-in[40])<<59)|((in[42]-in[41])<<62)),
 		uint64((in[42]-in[41])>>2|((in[43]-in[42])<<1)|((in[44]-in[43])<<4)|((in[45]-in[44])<<7)|((in[46]-in[45])<<10)|((in[47]-in[46])<<13)|((in[48]-in[47])<<16)|((in[49]-in[48])<<19)|((in[50]-in[49])<<22)|((in[51]-in[50])<<25)|((in[52]-in[51])<<28)|((in[53]-in[52])<<31)|((in[54]-in[53])<<34)|((in[55]-in[54])<<37)|((in[56]-in[55])<<40)|((in[57]-in[56])<<43)|((in[58]-in[57])<<46)|((in[59]-in[58])<<49)|((in[60]-in[59])<<52)|((in[61]-in[60])<<55)|((in[62]-in[61])<<58)|((in[63]-in[62])<<61)))
 }
-func deltapack64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_3[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<3)|((in[2]-in[1])>>ntz<<6)|((in[3]-in[2])>>ntz<<9)|((in[4]-in[3])>>ntz<<12)|((in[5]-in[4])>>ntz<<15)|((in[6]-in[5])>>ntz<<18)|((in[7]-in[6])>>ntz<<21)|((in[8]-in[7])>>ntz<<24)|((in[9]-in[8])>>ntz<<27)|((in[10]-in[9])>>ntz<<30)|((in[11]-in[10])>>ntz<<33)|((in[12]-in[11])>>ntz<<36)|((in[13]-in[12])>>ntz<<39)|((in[14]-in[13])>>ntz<<42)|((in[15]-in[14])>>ntz<<45)|((in[16]-in[15])>>ntz<<48)|((in[17]-in[16])>>ntz<<51)|((in[18]-in[17])>>ntz<<54)|((in[19]-in[18])>>ntz<<57)|((in[20]-in[19])>>ntz<<60)|((in[21]-in[20])>>ntz<<63)),
 		uint64((in[21]-in[20])>>((1+ntz)&63)|((in[22]-in[21])>>ntz<<2)|((in[23]-in[22])>>ntz<<5)|((in[24]-in[23])>>ntz<<8)|((in[25]-in[24])>>ntz<<11)|((in[26]-in[25])>>ntz<<14)|((in[27]-in[26])>>ntz<<17)|((in[28]-in[27])>>ntz<<20)|((in[29]-in[28])>>ntz<<23)|((in[30]-in[29])>>ntz<<26)|((in[31]-in[30])>>ntz<<29)|((in[32]-in[31])>>ntz<<32)|((in[33]-in[32])>>ntz<<35)|((in[34]-in[33])>>ntz<<38)|((in[35]-in[34])>>ntz<<41)|((in[36]-in[35])>>ntz<<44)|((in[37]-in[36])>>ntz<<47)|((in[38]-in[37])>>ntz<<50)|((in[39]-in[38])>>ntz<<53)|((in[40]-in[39])>>ntz<<56)|((in[41]-in[40])>>ntz<<59)|((in[42]-in[41])>>ntz<<62)),
 		uint64((in[42]-in[41])>>((2+ntz)&63)|((in[43]-in[42])>>ntz<<1)|((in[44]-in[43])>>ntz<<4)|((in[45]-in[44])>>ntz<<7)|((in[46]-in[45])>>ntz<<10)|((in[47]-in[46])>>ntz<<13)|((in[48]-in[47])>>ntz<<16)|((in[49]-in[48])>>ntz<<19)|((in[50]-in[49])>>ntz<<22)|((in[51]-in[50])>>ntz<<25)|((in[52]-in[51])>>ntz<<28)|((in[53]-in[52])>>ntz<<31)|((in[54]-in[53])>>ntz<<34)|((in[55]-in[54])>>ntz<<37)|((in[56]-in[55])>>ntz<<40)|((in[57]-in[56])>>ntz<<43)|((in[58]-in[57])>>ntz<<46)|((in[59]-in[58])>>ntz<<49)|((in[60]-in[59])>>ntz<<52)|((in[61]-in[60])>>ntz<<55)|((in[62]-in[61])>>ntz<<58)|((in[63]-in[62])>>ntz<<61)))
 }
 
-func deltapack64_4[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_4[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<4)|((in[2]-in[1])<<8)|((in[3]-in[2])<<12)|((in[4]-in[3])<<16)|((in[5]-in[4])<<20)|((in[6]-in[5])<<24)|((in[7]-in[6])<<28)|((in[8]-in[7])<<32)|((in[9]-in[8])<<36)|((in[10]-in[9])<<40)|((in[11]-in[10])<<44)|((in[12]-in[11])<<48)|((in[13]-in[12])<<52)|((in[14]-in[13])<<56)|((in[15]-in[14])<<60)),
 		uint64(in[16]-in[15]|((in[17]-in[16])<<4)|((in[18]-in[17])<<8)|((in[19]-in[18])<<12)|((in[20]-in[19])<<16)|((in[21]-in[20])<<20)|((in[22]-in[21])<<24)|((in[23]-in[22])<<28)|((in[24]-in[23])<<32)|((in[25]-in[24])<<36)|((in[26]-in[25])<<40)|((in[27]-in[26])<<44)|((in[28]-in[27])<<48)|((in[29]-in[28])<<52)|((in[30]-in[29])<<56)|((in[31]-in[30])<<60)),
 		uint64(in[32]-in[31]|((in[33]-in[32])<<4)|((in[34]-in[33])<<8)|((in[35]-in[34])<<12)|((in[36]-in[35])<<16)|((in[37]-in[36])<<20)|((in[38]-in[37])<<24)|((in[39]-in[38])<<28)|((in[40]-in[39])<<32)|((in[41]-in[40])<<36)|((in[42]-in[41])<<40)|((in[43]-in[42])<<44)|((in[44]-in[43])<<48)|((in[45]-in[44])<<52)|((in[46]-in[45])<<56)|((in[47]-in[46])<<60)),
 		uint64(in[48]-in[47]|((in[49]-in[48])<<4)|((in[50]-in[49])<<8)|((in[51]-in[50])<<12)|((in[52]-in[51])<<16)|((in[53]-in[52])<<20)|((in[54]-in[53])<<24)|((in[55]-in[54])<<28)|((in[56]-in[55])<<32)|((in[57]-in[56])<<36)|((in[58]-in[57])<<40)|((in[59]-in[58])<<44)|((in[60]-in[59])<<48)|((in[61]-in[60])<<52)|((in[62]-in[61])<<56)|((in[63]-in[62])<<60)))
 }
-func deltapack64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_4[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<4)|((in[2]-in[1])>>ntz<<8)|((in[3]-in[2])>>ntz<<12)|((in[4]-in[3])>>ntz<<16)|((in[5]-in[4])>>ntz<<20)|((in[6]-in[5])>>ntz<<24)|((in[7]-in[6])>>ntz<<28)|((in[8]-in[7])>>ntz<<32)|((in[9]-in[8])>>ntz<<36)|((in[10]-in[9])>>ntz<<40)|((in[11]-in[10])>>ntz<<44)|((in[12]-in[11])>>ntz<<48)|((in[13]-in[12])>>ntz<<52)|((in[14]-in[13])>>ntz<<56)|((in[15]-in[14])>>ntz<<60)),
 		uint64((in[16]-in[15])>>ntz|((in[17]-in[16])>>ntz<<4)|((in[18]-in[17])>>ntz<<8)|((in[19]-in[18])>>ntz<<12)|((in[20]-in[19])>>ntz<<16)|((in[21]-in[20])>>ntz<<20)|((in[22]-in[21])>>ntz<<24)|((in[23]-in[22])>>ntz<<28)|((in[24]-in[23])>>ntz<<32)|((in[25]-in[24])>>ntz<<36)|((in[26]-in[25])>>ntz<<40)|((in[27]-in[26])>>ntz<<44)|((in[28]-in[27])>>ntz<<48)|((in[29]-in[28])>>ntz<<52)|((in[30]-in[29])>>ntz<<56)|((in[31]-in[30])>>ntz<<60)),
 		uint64((in[32]-in[31])>>ntz|((in[33]-in[32])>>ntz<<4)|((in[34]-in[33])>>ntz<<8)|((in[35]-in[34])>>ntz<<12)|((in[36]-in[35])>>ntz<<16)|((in[37]-in[36])>>ntz<<20)|((in[38]-in[37])>>ntz<<24)|((in[39]-in[38])>>ntz<<28)|((in[40]-in[39])>>ntz<<32)|((in[41]-in[40])>>ntz<<36)|((in[42]-in[41])>>ntz<<40)|((in[43]-in[42])>>ntz<<44)|((in[44]-in[43])>>ntz<<48)|((in[45]-in[44])>>ntz<<52)|((in[46]-in[45])>>ntz<<56)|((in[47]-in[46])>>ntz<<60)),
 		uint64((in[48]-in[47])>>ntz|((in[49]-in[48])>>ntz<<4)|((in[50]-in[49])>>ntz<<8)|((in[51]-in[50])>>ntz<<12)|((in[52]-in[51])>>ntz<<16)|((in[53]-in[52])>>ntz<<20)|((in[54]-in[53])>>ntz<<24)|((in[55]-in[54])>>ntz<<28)|((in[56]-in[55])>>ntz<<32)|((in[57]-in[56])>>ntz<<36)|((in[58]-in[57])>>ntz<<40)|((in[59]-in[58])>>ntz<<44)|((in[60]-in[59])>>ntz<<48)|((in[61]-in[60])>>ntz<<52)|((in[62]-in[61])>>ntz<<56)|((in[63]-in[62])>>ntz<<60)))
 }
 
-func deltapack64_5[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_5[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<5)|((in[2]-in[1])<<10)|((in[3]-in[2])<<15)|((in[4]-in[3])<<20)|((in[5]-in[4])<<25)|((in[6]-in[5])<<30)|((in[7]-in[6])<<35)|((in[8]-in[7])<<40)|((in[9]-in[8])<<45)|((in[10]-in[9])<<50)|((in[11]-in[10])<<55)|((in[12]-in[11])<<60)),
 		uint64((in[12]-in[11])>>4|((in[13]-in[12])<<1)|((in[14]-in[13])<<6)|((in[15]-in[14])<<11)|((in[16]-in[15])<<16)|((in[17]-in[16])<<21)|((in[18]-in[17])<<26)|((in[19]-in[18])<<31)|((in[20]-in[19])<<36)|((in[21]-in[20])<<41)|((in[22]-in[21])<<46)|((in[23]-in[22])<<51)|((in[24]-in[23])<<56)|((in[25]-in[24])<<61)),
 		uint64((in[25]-in[24])>>3|((in[26]-in[25])<<2)|((in[27]-in[26])<<7)|((in[28]-in[27])<<12)|((in[29]-in[28])<<17)|((in[30]-in[29])<<22)|((in[31]-in[30])<<27)|((in[32]-in[31])<<32)|((in[33]-in[32])<<37)|((in[34]-in[33])<<42)|((in[35]-in[34])<<47)|((in[36]-in[35])<<52)|((in[37]-in[36])<<57)|((in[38]-in[37])<<62)),
 		uint64((in[38]-in[37])>>2|((in[39]-in[38])<<3)|((in[40]-in[39])<<8)|((in[41]-in[40])<<13)|((in[42]-in[41])<<18)|((in[43]-in[42])<<23)|((in[44]-in[43])<<28)|((in[45]-in[44])<<33)|((in[46]-in[45])<<38)|((in[47]-in[46])<<43)|((in[48]-in[47])<<48)|((in[49]-in[48])<<53)|((in[50]-in[49])<<58)|((in[51]-in[50])<<63)),
 		uint64((in[51]-in[50])>>1|((in[52]-in[51])<<4)|((in[53]-in[52])<<9)|((in[54]-in[53])<<14)|((in[55]-in[54])<<19)|((in[56]-in[55])<<24)|((in[57]-in[56])<<29)|((in[58]-in[57])<<34)|((in[59]-in[58])<<39)|((in[60]-in[59])<<44)|((in[61]-in[60])<<49)|((in[62]-in[61])<<54)|((in[63]-in[62])<<59)))
 }
-func deltapack64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_5[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<5)|((in[2]-in[1])>>ntz<<10)|((in[3]-in[2])>>ntz<<15)|((in[4]-in[3])>>ntz<<20)|((in[5]-in[4])>>ntz<<25)|((in[6]-in[5])>>ntz<<30)|((in[7]-in[6])>>ntz<<35)|((in[8]-in[7])>>ntz<<40)|((in[9]-in[8])>>ntz<<45)|((in[10]-in[9])>>ntz<<50)|((in[11]-in[10])>>ntz<<55)|((in[12]-in[11])>>ntz<<60)),
 		uint64((in[12]-in[11])>>((4+ntz)&63)|((in[13]-in[12])>>ntz<<1)|((in[14]-in[13])>>ntz<<6)|((in[15]-in[14])>>ntz<<11)|((in[16]-in[15])>>ntz<<16)|((in[17]-in[16])>>ntz<<21)|((in[18]-in[17])>>ntz<<26)|((in[19]-in[18])>>ntz<<31)|((in[20]-in[19])>>ntz<<36)|((in[21]-in[20])>>ntz<<41)|((in[22]-in[21])>>ntz<<46)|((in[23]-in[22])>>ntz<<51)|((in[24]-in[23])>>ntz<<56)|((in[25]-in[24])>>ntz<<61)),
 		uint64((in[25]-in[24])>>((3+ntz)&63)|((in[26]-in[25])>>ntz<<2)|((in[27]-in[26])>>ntz<<7)|((in[28]-in[27])>>ntz<<12)|((in[29]-in[28])>>ntz<<17)|((in[30]-in[29])>>ntz<<22)|((in[31]-in[30])>>ntz<<27)|((in[32]-in[31])>>ntz<<32)|((in[33]-in[32])>>ntz<<37)|((in[34]-in[33])>>ntz<<42)|((in[35]-in[34])>>ntz<<47)|((in[36]-in[35])>>ntz<<52)|((in[37]-in[36])>>ntz<<57)|((in[38]-in[37])>>ntz<<62)),
@@ -810,8 +810,8 @@ func deltapack64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out []uint64, 
 		uint64((in[51]-in[50])>>((1+ntz)&63)|((in[52]-in[51])>>ntz<<4)|((in[53]-in[52])>>ntz<<9)|((in[54]-in[53])>>ntz<<14)|((in[55]-in[54])>>ntz<<19)|((in[56]-in[55])>>ntz<<24)|((in[57]-in[56])>>ntz<<29)|((in[58]-in[57])>>ntz<<34)|((in[59]-in[58])>>ntz<<39)|((in[60]-in[59])>>ntz<<44)|((in[61]-in[60])>>ntz<<49)|((in[62]-in[61])>>ntz<<54)|((in[63]-in[62])>>ntz<<59)))
 }
 
-func deltapack64_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_6[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<6)|((in[2]-in[1])<<12)|((in[3]-in[2])<<18)|((in[4]-in[3])<<24)|((in[5]-in[4])<<30)|((in[6]-in[5])<<36)|((in[7]-in[6])<<42)|((in[8]-in[7])<<48)|((in[9]-in[8])<<54)|((in[10]-in[9])<<60)),
 		uint64((in[10]-in[9])>>4|((in[11]-in[10])<<2)|((in[12]-in[11])<<8)|((in[13]-in[12])<<14)|((in[14]-in[13])<<20)|((in[15]-in[14])<<26)|((in[16]-in[15])<<32)|((in[17]-in[16])<<38)|((in[18]-in[17])<<44)|((in[19]-in[18])<<50)|((in[20]-in[19])<<56)|((in[21]-in[20])<<62)),
 		uint64((in[21]-in[20])>>2|((in[22]-in[21])<<4)|((in[23]-in[22])<<10)|((in[24]-in[23])<<16)|((in[25]-in[24])<<22)|((in[26]-in[25])<<28)|((in[27]-in[26])<<34)|((in[28]-in[27])<<40)|((in[29]-in[28])<<46)|((in[30]-in[29])<<52)|((in[31]-in[30])<<58)),
@@ -819,9 +819,9 @@ func deltapack64_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []ui
 		uint64((in[42]-in[41])>>4|((in[43]-in[42])<<2)|((in[44]-in[43])<<8)|((in[45]-in[44])<<14)|((in[46]-in[45])<<20)|((in[47]-in[46])<<26)|((in[48]-in[47])<<32)|((in[49]-in[48])<<38)|((in[50]-in[49])<<44)|((in[51]-in[50])<<50)|((in[52]-in[51])<<56)|((in[53]-in[52])<<62)),
 		uint64((in[53]-in[52])>>2|((in[54]-in[53])<<4)|((in[55]-in[54])<<10)|((in[56]-in[55])<<16)|((in[57]-in[56])<<22)|((in[58]-in[57])<<28)|((in[59]-in[58])<<34)|((in[60]-in[59])<<40)|((in[61]-in[60])<<46)|((in[62]-in[61])<<52)|((in[63]-in[62])<<58)))
 }
-func deltapack64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_6[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<6)|((in[2]-in[1])>>ntz<<12)|((in[3]-in[2])>>ntz<<18)|((in[4]-in[3])>>ntz<<24)|((in[5]-in[4])>>ntz<<30)|((in[6]-in[5])>>ntz<<36)|((in[7]-in[6])>>ntz<<42)|((in[8]-in[7])>>ntz<<48)|((in[9]-in[8])>>ntz<<54)|((in[10]-in[9])>>ntz<<60)),
 		uint64((in[10]-in[9])>>((4+ntz)&63)|((in[11]-in[10])>>ntz<<2)|((in[12]-in[11])>>ntz<<8)|((in[13]-in[12])>>ntz<<14)|((in[14]-in[13])>>ntz<<20)|((in[15]-in[14])>>ntz<<26)|((in[16]-in[15])>>ntz<<32)|((in[17]-in[16])>>ntz<<38)|((in[18]-in[17])>>ntz<<44)|((in[19]-in[18])>>ntz<<50)|((in[20]-in[19])>>ntz<<56)|((in[21]-in[20])>>ntz<<62)),
 		uint64((in[21]-in[20])>>((2+ntz)&63)|((in[22]-in[21])>>ntz<<4)|((in[23]-in[22])>>ntz<<10)|((in[24]-in[23])>>ntz<<16)|((in[25]-in[24])>>ntz<<22)|((in[26]-in[25])>>ntz<<28)|((in[27]-in[26])>>ntz<<34)|((in[28]-in[27])>>ntz<<40)|((in[29]-in[28])>>ntz<<46)|((in[30]-in[29])>>ntz<<52)|((in[31]-in[30])>>ntz<<58)),
@@ -830,8 +830,8 @@ func deltapack64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64, 
 		uint64((in[53]-in[52])>>((2+ntz)&63)|((in[54]-in[53])>>ntz<<4)|((in[55]-in[54])>>ntz<<10)|((in[56]-in[55])>>ntz<<16)|((in[57]-in[56])>>ntz<<22)|((in[58]-in[57])>>ntz<<28)|((in[59]-in[58])>>ntz<<34)|((in[60]-in[59])>>ntz<<40)|((in[61]-in[60])>>ntz<<46)|((in[62]-in[61])>>ntz<<52)|((in[63]-in[62])>>ntz<<58)))
 }
 
-func deltapack64_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_7[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<7)|((in[2]-in[1])<<14)|((in[3]-in[2])<<21)|((in[4]-in[3])<<28)|((in[5]-in[4])<<35)|((in[6]-in[5])<<42)|((in[7]-in[6])<<49)|((in[8]-in[7])<<56)|((in[9]-in[8])<<63)),
 		uint64((in[9]-in[8])>>1|((in[10]-in[9])<<6)|((in[11]-in[10])<<13)|((in[12]-in[11])<<20)|((in[13]-in[12])<<27)|((in[14]-in[13])<<34)|((in[15]-in[14])<<41)|((in[16]-in[15])<<48)|((in[17]-in[16])<<55)|((in[18]-in[17])<<62)),
 		uint64((in[18]-in[17])>>2|((in[19]-in[18])<<5)|((in[20]-in[19])<<12)|((in[21]-in[20])<<19)|((in[22]-in[21])<<26)|((in[23]-in[22])<<33)|((in[24]-in[23])<<40)|((in[25]-in[24])<<47)|((in[26]-in[25])<<54)|((in[27]-in[26])<<61)),
@@ -840,9 +840,9 @@ func deltapack64_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []ui
 		uint64((in[45]-in[44])>>5|((in[46]-in[45])<<2)|((in[47]-in[46])<<9)|((in[48]-in[47])<<16)|((in[49]-in[48])<<23)|((in[50]-in[49])<<30)|((in[51]-in[50])<<37)|((in[52]-in[51])<<44)|((in[53]-in[52])<<51)|((in[54]-in[53])<<58)),
 		uint64((in[54]-in[53])>>6|((in[55]-in[54])<<1)|((in[56]-in[55])<<8)|((in[57]-in[56])<<15)|((in[58]-in[57])<<22)|((in[59]-in[58])<<29)|((in[60]-in[59])<<36)|((in[61]-in[60])<<43)|((in[62]-in[61])<<50)|((in[63]-in[62])<<57)))
 }
-func deltapack64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_7[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<7)|((in[2]-in[1])>>ntz<<14)|((in[3]-in[2])>>ntz<<21)|((in[4]-in[3])>>ntz<<28)|((in[5]-in[4])>>ntz<<35)|((in[6]-in[5])>>ntz<<42)|((in[7]-in[6])>>ntz<<49)|((in[8]-in[7])>>ntz<<56)|((in[9]-in[8])>>ntz<<63)),
 		uint64((in[9]-in[8])>>((1+ntz)&63)|((in[10]-in[9])>>ntz<<6)|((in[11]-in[10])>>ntz<<13)|((in[12]-in[11])>>ntz<<20)|((in[13]-in[12])>>ntz<<27)|((in[14]-in[13])>>ntz<<34)|((in[15]-in[14])>>ntz<<41)|((in[16]-in[15])>>ntz<<48)|((in[17]-in[16])>>ntz<<55)|((in[18]-in[17])>>ntz<<62)),
 		uint64((in[18]-in[17])>>((2+ntz)&63)|((in[19]-in[18])>>ntz<<5)|((in[20]-in[19])>>ntz<<12)|((in[21]-in[20])>>ntz<<19)|((in[22]-in[21])>>ntz<<26)|((in[23]-in[22])>>ntz<<33)|((in[24]-in[23])>>ntz<<40)|((in[25]-in[24])>>ntz<<47)|((in[26]-in[25])>>ntz<<54)|((in[27]-in[26])>>ntz<<61)),
@@ -852,8 +852,8 @@ func deltapack64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64, 
 		uint64((in[54]-in[53])>>((6+ntz)&63)|((in[55]-in[54])>>ntz<<1)|((in[56]-in[55])>>ntz<<8)|((in[57]-in[56])>>ntz<<15)|((in[58]-in[57])>>ntz<<22)|((in[59]-in[58])>>ntz<<29)|((in[60]-in[59])>>ntz<<36)|((in[61]-in[60])>>ntz<<43)|((in[62]-in[61])>>ntz<<50)|((in[63]-in[62])>>ntz<<57)))
 }
 
-func deltapack64_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_8[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<8)|((in[2]-in[1])<<16)|((in[3]-in[2])<<24)|((in[4]-in[3])<<32)|((in[5]-in[4])<<40)|((in[6]-in[5])<<48)|((in[7]-in[6])<<56)),
 		uint64(in[8]-in[7]|((in[9]-in[8])<<8)|((in[10]-in[9])<<16)|((in[11]-in[10])<<24)|((in[12]-in[11])<<32)|((in[13]-in[12])<<40)|((in[14]-in[13])<<48)|((in[15]-in[14])<<56)),
 		uint64(in[16]-in[15]|((in[17]-in[16])<<8)|((in[18]-in[17])<<16)|((in[19]-in[18])<<24)|((in[20]-in[19])<<32)|((in[21]-in[20])<<40)|((in[22]-in[21])<<48)|((in[23]-in[22])<<56)),
@@ -863,9 +863,9 @@ func deltapack64_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []ui
 		uint64(in[48]-in[47]|((in[49]-in[48])<<8)|((in[50]-in[49])<<16)|((in[51]-in[50])<<24)|((in[52]-in[51])<<32)|((in[53]-in[52])<<40)|((in[54]-in[53])<<48)|((in[55]-in[54])<<56)),
 		uint64(in[56]-in[55]|((in[57]-in[56])<<8)|((in[58]-in[57])<<16)|((in[59]-in[58])<<24)|((in[60]-in[59])<<32)|((in[61]-in[60])<<40)|((in[62]-in[61])<<48)|((in[63]-in[62])<<56)))
 }
-func deltapack64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_8[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<8)|((in[2]-in[1])>>ntz<<16)|((in[3]-in[2])>>ntz<<24)|((in[4]-in[3])>>ntz<<32)|((in[5]-in[4])>>ntz<<40)|((in[6]-in[5])>>ntz<<48)|((in[7]-in[6])>>ntz<<56)),
 		uint64((in[8]-in[7])>>ntz|((in[9]-in[8])>>ntz<<8)|((in[10]-in[9])>>ntz<<16)|((in[11]-in[10])>>ntz<<24)|((in[12]-in[11])>>ntz<<32)|((in[13]-in[12])>>ntz<<40)|((in[14]-in[13])>>ntz<<48)|((in[15]-in[14])>>ntz<<56)),
 		uint64((in[16]-in[15])>>ntz|((in[17]-in[16])>>ntz<<8)|((in[18]-in[17])>>ntz<<16)|((in[19]-in[18])>>ntz<<24)|((in[20]-in[19])>>ntz<<32)|((in[21]-in[20])>>ntz<<40)|((in[22]-in[21])>>ntz<<48)|((in[23]-in[22])>>ntz<<56)),
@@ -876,8 +876,8 @@ func deltapack64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64, 
 		uint64((in[56]-in[55])>>ntz|((in[57]-in[56])>>ntz<<8)|((in[58]-in[57])>>ntz<<16)|((in[59]-in[58])>>ntz<<24)|((in[60]-in[59])>>ntz<<32)|((in[61]-in[60])>>ntz<<40)|((in[62]-in[61])>>ntz<<48)|((in[63]-in[62])>>ntz<<56)))
 }
 
-func deltapack64_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_9[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<9)|((in[2]-in[1])<<18)|((in[3]-in[2])<<27)|((in[4]-in[3])<<36)|((in[5]-in[4])<<45)|((in[6]-in[5])<<54)|((in[7]-in[6])<<63)),
 		uint64((in[7]-in[6])>>1|((in[8]-in[7])<<8)|((in[9]-in[8])<<17)|((in[10]-in[9])<<26)|((in[11]-in[10])<<35)|((in[12]-in[11])<<44)|((in[13]-in[12])<<53)|((in[14]-in[13])<<62)),
 		uint64((in[14]-in[13])>>2|((in[15]-in[14])<<7)|((in[16]-in[15])<<16)|((in[17]-in[16])<<25)|((in[18]-in[17])<<34)|((in[19]-in[18])<<43)|((in[20]-in[19])<<52)|((in[21]-in[20])<<61)),
@@ -888,9 +888,9 @@ func deltapack64_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []ui
 		uint64((in[49]-in[48])>>7|((in[50]-in[49])<<2)|((in[51]-in[50])<<11)|((in[52]-in[51])<<20)|((in[53]-in[52])<<29)|((in[54]-in[53])<<38)|((in[55]-in[54])<<47)|((in[56]-in[55])<<56)),
 		uint64((in[56]-in[55])>>8|((in[57]-in[56])<<1)|((in[58]-in[57])<<10)|((in[59]-in[58])<<19)|((in[60]-in[59])<<28)|((in[61]-in[60])<<37)|((in[62]-in[61])<<46)|((in[63]-in[62])<<55)))
 }
-func deltapack64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_9[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<9)|((in[2]-in[1])>>ntz<<18)|((in[3]-in[2])>>ntz<<27)|((in[4]-in[3])>>ntz<<36)|((in[5]-in[4])>>ntz<<45)|((in[6]-in[5])>>ntz<<54)|((in[7]-in[6])>>ntz<<63)),
 		uint64((in[7]-in[6])>>((1+ntz)&63)|((in[8]-in[7])>>ntz<<8)|((in[9]-in[8])>>ntz<<17)|((in[10]-in[9])>>ntz<<26)|((in[11]-in[10])>>ntz<<35)|((in[12]-in[11])>>ntz<<44)|((in[13]-in[12])>>ntz<<53)|((in[14]-in[13])>>ntz<<62)),
 		uint64((in[14]-in[13])>>((2+ntz)&63)|((in[15]-in[14])>>ntz<<7)|((in[16]-in[15])>>ntz<<16)|((in[17]-in[16])>>ntz<<25)|((in[18]-in[17])>>ntz<<34)|((in[19]-in[18])>>ntz<<43)|((in[20]-in[19])>>ntz<<52)|((in[21]-in[20])>>ntz<<61)),
@@ -902,8 +902,8 @@ func deltapack64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64, 
 		uint64((in[56]-in[55])>>((8+ntz)&63)|((in[57]-in[56])>>ntz<<1)|((in[58]-in[57])>>ntz<<10)|((in[59]-in[58])>>ntz<<19)|((in[60]-in[59])>>ntz<<28)|((in[61]-in[60])>>ntz<<37)|((in[62]-in[61])>>ntz<<46)|((in[63]-in[62])>>ntz<<55)))
 }
 
-func deltapack64_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_10[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<10)|((in[2]-in[1])<<20)|((in[3]-in[2])<<30)|((in[4]-in[3])<<40)|((in[5]-in[4])<<50)|((in[6]-in[5])<<60)),
 		uint64((in[6]-in[5])>>4|((in[7]-in[6])<<6)|((in[8]-in[7])<<16)|((in[9]-in[8])<<26)|((in[10]-in[9])<<36)|((in[11]-in[10])<<46)|((in[12]-in[11])<<56)),
 		uint64((in[12]-in[11])>>8|((in[13]-in[12])<<2)|((in[14]-in[13])<<12)|((in[15]-in[14])<<22)|((in[16]-in[15])<<32)|((in[17]-in[16])<<42)|((in[18]-in[17])<<52)|((in[19]-in[18])<<62)),
@@ -915,9 +915,9 @@ func deltapack64_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[51]-in[50])>>2|((in[52]-in[51])<<8)|((in[53]-in[52])<<18)|((in[54]-in[53])<<28)|((in[55]-in[54])<<38)|((in[56]-in[55])<<48)|((in[57]-in[56])<<58)),
 		uint64((in[57]-in[56])>>6|((in[58]-in[57])<<4)|((in[59]-in[58])<<14)|((in[60]-in[59])<<24)|((in[61]-in[60])<<34)|((in[62]-in[61])<<44)|((in[63]-in[62])<<54)))
 }
-func deltapack64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_10[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<10)|((in[2]-in[1])>>ntz<<20)|((in[3]-in[2])>>ntz<<30)|((in[4]-in[3])>>ntz<<40)|((in[5]-in[4])>>ntz<<50)|((in[6]-in[5])>>ntz<<60)),
 		uint64((in[6]-in[5])>>((4+ntz)&63)|((in[7]-in[6])>>ntz<<6)|((in[8]-in[7])>>ntz<<16)|((in[9]-in[8])>>ntz<<26)|((in[10]-in[9])>>ntz<<36)|((in[11]-in[10])>>ntz<<46)|((in[12]-in[11])>>ntz<<56)),
 		uint64((in[12]-in[11])>>((8+ntz)&63)|((in[13]-in[12])>>ntz<<2)|((in[14]-in[13])>>ntz<<12)|((in[15]-in[14])>>ntz<<22)|((in[16]-in[15])>>ntz<<32)|((in[17]-in[16])>>ntz<<42)|((in[18]-in[17])>>ntz<<52)|((in[19]-in[18])>>ntz<<62)),
@@ -930,8 +930,8 @@ func deltapack64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[57]-in[56])>>((6+ntz)&63)|((in[58]-in[57])>>ntz<<4)|((in[59]-in[58])>>ntz<<14)|((in[60]-in[59])>>ntz<<24)|((in[61]-in[60])>>ntz<<34)|((in[62]-in[61])>>ntz<<44)|((in[63]-in[62])>>ntz<<54)))
 }
 
-func deltapack64_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_11[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<11)|((in[2]-in[1])<<22)|((in[3]-in[2])<<33)|((in[4]-in[3])<<44)|((in[5]-in[4])<<55)),
 		uint64((in[5]-in[4])>>9|((in[6]-in[5])<<2)|((in[7]-in[6])<<13)|((in[8]-in[7])<<24)|((in[9]-in[8])<<35)|((in[10]-in[9])<<46)|((in[11]-in[10])<<57)),
 		uint64((in[11]-in[10])>>7|((in[12]-in[11])<<4)|((in[13]-in[12])<<15)|((in[14]-in[13])<<26)|((in[15]-in[14])<<37)|((in[16]-in[15])<<48)|((in[17]-in[16])<<59)),
@@ -944,9 +944,9 @@ func deltapack64_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[52]-in[51])>>4|((in[53]-in[52])<<7)|((in[54]-in[53])<<18)|((in[55]-in[54])<<29)|((in[56]-in[55])<<40)|((in[57]-in[56])<<51)|((in[58]-in[57])<<62)),
 		uint64((in[58]-in[57])>>2|((in[59]-in[58])<<9)|((in[60]-in[59])<<20)|((in[61]-in[60])<<31)|((in[62]-in[61])<<42)|((in[63]-in[62])<<53)))
 }
-func deltapack64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_11[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<11)|((in[2]-in[1])>>ntz<<22)|((in[3]-in[2])>>ntz<<33)|((in[4]-in[3])>>ntz<<44)|((in[5]-in[4])>>ntz<<55)),
 		uint64((in[5]-in[4])>>((9+ntz)&63)|((in[6]-in[5])>>ntz<<2)|((in[7]-in[6])>>ntz<<13)|((in[8]-in[7])>>ntz<<24)|((in[9]-in[8])>>ntz<<35)|((in[10]-in[9])>>ntz<<46)|((in[11]-in[10])>>ntz<<57)),
 		uint64((in[11]-in[10])>>((7+ntz)&63)|((in[12]-in[11])>>ntz<<4)|((in[13]-in[12])>>ntz<<15)|((in[14]-in[13])>>ntz<<26)|((in[15]-in[14])>>ntz<<37)|((in[16]-in[15])>>ntz<<48)|((in[17]-in[16])>>ntz<<59)),
@@ -960,8 +960,8 @@ func deltapack64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[58]-in[57])>>((2+ntz)&63)|((in[59]-in[58])>>ntz<<9)|((in[60]-in[59])>>ntz<<20)|((in[61]-in[60])>>ntz<<31)|((in[62]-in[61])>>ntz<<42)|((in[63]-in[62])>>ntz<<53)))
 }
 
-func deltapack64_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_12[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<12)|((in[2]-in[1])<<24)|((in[3]-in[2])<<36)|((in[4]-in[3])<<48)|((in[5]-in[4])<<60)),
 		uint64((in[5]-in[4])>>4|((in[6]-in[5])<<8)|((in[7]-in[6])<<20)|((in[8]-in[7])<<32)|((in[9]-in[8])<<44)|((in[10]-in[9])<<56)),
 		uint64((in[10]-in[9])>>8|((in[11]-in[10])<<4)|((in[12]-in[11])<<16)|((in[13]-in[12])<<28)|((in[14]-in[13])<<40)|((in[15]-in[14])<<52)),
@@ -975,9 +975,9 @@ func deltapack64_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[53]-in[52])>>4|((in[54]-in[53])<<8)|((in[55]-in[54])<<20)|((in[56]-in[55])<<32)|((in[57]-in[56])<<44)|((in[58]-in[57])<<56)),
 		uint64((in[58]-in[57])>>8|((in[59]-in[58])<<4)|((in[60]-in[59])<<16)|((in[61]-in[60])<<28)|((in[62]-in[61])<<40)|((in[63]-in[62])<<52)))
 }
-func deltapack64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_12[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<12)|((in[2]-in[1])>>ntz<<24)|((in[3]-in[2])>>ntz<<36)|((in[4]-in[3])>>ntz<<48)|((in[5]-in[4])>>ntz<<60)),
 		uint64((in[5]-in[4])>>((4+ntz)&63)|((in[6]-in[5])>>ntz<<8)|((in[7]-in[6])>>ntz<<20)|((in[8]-in[7])>>ntz<<32)|((in[9]-in[8])>>ntz<<44)|((in[10]-in[9])>>ntz<<56)),
 		uint64((in[10]-in[9])>>((8+ntz)&63)|((in[11]-in[10])>>ntz<<4)|((in[12]-in[11])>>ntz<<16)|((in[13]-in[12])>>ntz<<28)|((in[14]-in[13])>>ntz<<40)|((in[15]-in[14])>>ntz<<52)),
@@ -992,8 +992,8 @@ func deltapack64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[58]-in[57])>>((8+ntz)&63)|((in[59]-in[58])>>ntz<<4)|((in[60]-in[59])>>ntz<<16)|((in[61]-in[60])>>ntz<<28)|((in[62]-in[61])>>ntz<<40)|((in[63]-in[62])>>ntz<<52)))
 }
 
-func deltapack64_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_13[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<13)|((in[2]-in[1])<<26)|((in[3]-in[2])<<39)|((in[4]-in[3])<<52)),
 		uint64((in[4]-in[3])>>12|((in[5]-in[4])<<1)|((in[6]-in[5])<<14)|((in[7]-in[6])<<27)|((in[8]-in[7])<<40)|((in[9]-in[8])<<53)),
 		uint64((in[9]-in[8])>>11|((in[10]-in[9])<<2)|((in[11]-in[10])<<15)|((in[12]-in[11])<<28)|((in[13]-in[12])<<41)|((in[14]-in[13])<<54)),
@@ -1008,9 +1008,9 @@ func deltapack64_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[54]-in[53])>>2|((in[55]-in[54])<<11)|((in[56]-in[55])<<24)|((in[57]-in[56])<<37)|((in[58]-in[57])<<50)|((in[59]-in[58])<<63)),
 		uint64((in[59]-in[58])>>1|((in[60]-in[59])<<12)|((in[61]-in[60])<<25)|((in[62]-in[61])<<38)|((in[63]-in[62])<<51)))
 }
-func deltapack64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_13[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<13)|((in[2]-in[1])>>ntz<<26)|((in[3]-in[2])>>ntz<<39)|((in[4]-in[3])>>ntz<<52)),
 		uint64((in[4]-in[3])>>((12+ntz)&63)|((in[5]-in[4])>>ntz<<1)|((in[6]-in[5])>>ntz<<14)|((in[7]-in[6])>>ntz<<27)|((in[8]-in[7])>>ntz<<40)|((in[9]-in[8])>>ntz<<53)),
 		uint64((in[9]-in[8])>>((11+ntz)&63)|((in[10]-in[9])>>ntz<<2)|((in[11]-in[10])>>ntz<<15)|((in[12]-in[11])>>ntz<<28)|((in[13]-in[12])>>ntz<<41)|((in[14]-in[13])>>ntz<<54)),
@@ -1026,8 +1026,8 @@ func deltapack64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[59]-in[58])>>((1+ntz)&63)|((in[60]-in[59])>>ntz<<12)|((in[61]-in[60])>>ntz<<25)|((in[62]-in[61])>>ntz<<38)|((in[63]-in[62])>>ntz<<51)))
 }
 
-func deltapack64_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_14[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<14)|((in[2]-in[1])<<28)|((in[3]-in[2])<<42)|((in[4]-in[3])<<56)),
 		uint64((in[4]-in[3])>>8|((in[5]-in[4])<<6)|((in[6]-in[5])<<20)|((in[7]-in[6])<<34)|((in[8]-in[7])<<48)|((in[9]-in[8])<<62)),
 		uint64((in[9]-in[8])>>2|((in[10]-in[9])<<12)|((in[11]-in[10])<<26)|((in[12]-in[11])<<40)|((in[13]-in[12])<<54)),
@@ -1043,9 +1043,9 @@ func deltapack64_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[54]-in[53])>>12|((in[55]-in[54])<<2)|((in[56]-in[55])<<16)|((in[57]-in[56])<<30)|((in[58]-in[57])<<44)|((in[59]-in[58])<<58)),
 		uint64((in[59]-in[58])>>6|((in[60]-in[59])<<8)|((in[61]-in[60])<<22)|((in[62]-in[61])<<36)|((in[63]-in[62])<<50)))
 }
-func deltapack64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_14[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<14)|((in[2]-in[1])>>ntz<<28)|((in[3]-in[2])>>ntz<<42)|((in[4]-in[3])>>ntz<<56)),
 		uint64((in[4]-in[3])>>((8+ntz)&63)|((in[5]-in[4])>>ntz<<6)|((in[6]-in[5])>>ntz<<20)|((in[7]-in[6])>>ntz<<34)|((in[8]-in[7])>>ntz<<48)|((in[9]-in[8])>>ntz<<62)),
 		uint64((in[9]-in[8])>>((2+ntz)&63)|((in[10]-in[9])>>ntz<<12)|((in[11]-in[10])>>ntz<<26)|((in[12]-in[11])>>ntz<<40)|((in[13]-in[12])>>ntz<<54)),
@@ -1062,8 +1062,8 @@ func deltapack64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[59]-in[58])>>((6+ntz)&63)|((in[60]-in[59])>>ntz<<8)|((in[61]-in[60])>>ntz<<22)|((in[62]-in[61])>>ntz<<36)|((in[63]-in[62])>>ntz<<50)))
 }
 
-func deltapack64_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_15[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<15)|((in[2]-in[1])<<30)|((in[3]-in[2])<<45)|((in[4]-in[3])<<60)),
 		uint64((in[4]-in[3])>>4|((in[5]-in[4])<<11)|((in[6]-in[5])<<26)|((in[7]-in[6])<<41)|((in[8]-in[7])<<56)),
 		uint64((in[8]-in[7])>>8|((in[9]-in[8])<<7)|((in[10]-in[9])<<22)|((in[11]-in[10])<<37)|((in[12]-in[11])<<52)),
@@ -1080,9 +1080,9 @@ func deltapack64_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[55]-in[54])>>7|((in[56]-in[55])<<8)|((in[57]-in[56])<<23)|((in[58]-in[57])<<38)|((in[59]-in[58])<<53)),
 		uint64((in[59]-in[58])>>11|((in[60]-in[59])<<4)|((in[61]-in[60])<<19)|((in[62]-in[61])<<34)|((in[63]-in[62])<<49)))
 }
-func deltapack64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_15[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<15)|((in[2]-in[1])>>ntz<<30)|((in[3]-in[2])>>ntz<<45)|((in[4]-in[3])>>ntz<<60)),
 		uint64((in[4]-in[3])>>((4+ntz)&63)|((in[5]-in[4])>>ntz<<11)|((in[6]-in[5])>>ntz<<26)|((in[7]-in[6])>>ntz<<41)|((in[8]-in[7])>>ntz<<56)),
 		uint64((in[8]-in[7])>>((8+ntz)&63)|((in[9]-in[8])>>ntz<<7)|((in[10]-in[9])>>ntz<<22)|((in[11]-in[10])>>ntz<<37)|((in[12]-in[11])>>ntz<<52)),
@@ -1100,8 +1100,8 @@ func deltapack64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[59]-in[58])>>((11+ntz)&63)|((in[60]-in[59])>>ntz<<4)|((in[61]-in[60])>>ntz<<19)|((in[62]-in[61])>>ntz<<34)|((in[63]-in[62])>>ntz<<49)))
 }
 
-func deltapack64_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_16[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<16)|((in[2]-in[1])<<32)|((in[3]-in[2])<<48)),
 		uint64(in[4]-in[3]|((in[5]-in[4])<<16)|((in[6]-in[5])<<32)|((in[7]-in[6])<<48)),
 		uint64(in[8]-in[7]|((in[9]-in[8])<<16)|((in[10]-in[9])<<32)|((in[11]-in[10])<<48)),
@@ -1119,9 +1119,9 @@ func deltapack64_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64(in[56]-in[55]|((in[57]-in[56])<<16)|((in[58]-in[57])<<32)|((in[59]-in[58])<<48)),
 		uint64(in[60]-in[59]|((in[61]-in[60])<<16)|((in[62]-in[61])<<32)|((in[63]-in[62])<<48)))
 }
-func deltapack64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_16[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<16)|((in[2]-in[1])>>ntz<<32)|((in[3]-in[2])>>ntz<<48)),
 		uint64((in[4]-in[3])>>ntz|((in[5]-in[4])>>ntz<<16)|((in[6]-in[5])>>ntz<<32)|((in[7]-in[6])>>ntz<<48)),
 		uint64((in[8]-in[7])>>ntz|((in[9]-in[8])>>ntz<<16)|((in[10]-in[9])>>ntz<<32)|((in[11]-in[10])>>ntz<<48)),
@@ -1140,8 +1140,8 @@ func deltapack64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>ntz|((in[61]-in[60])>>ntz<<16)|((in[62]-in[61])>>ntz<<32)|((in[63]-in[62])>>ntz<<48)))
 }
 
-func deltapack64_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_17[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<17)|((in[2]-in[1])<<34)|((in[3]-in[2])<<51)),
 		uint64((in[3]-in[2])>>13|((in[4]-in[3])<<4)|((in[5]-in[4])<<21)|((in[6]-in[5])<<38)|((in[7]-in[6])<<55)),
 		uint64((in[7]-in[6])>>9|((in[8]-in[7])<<8)|((in[9]-in[8])<<25)|((in[10]-in[9])<<42)|((in[11]-in[10])<<59)),
@@ -1160,9 +1160,9 @@ func deltapack64_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[56]-in[55])>>8|((in[57]-in[56])<<9)|((in[58]-in[57])<<26)|((in[59]-in[58])<<43)|((in[60]-in[59])<<60)),
 		uint64((in[60]-in[59])>>4|((in[61]-in[60])<<13)|((in[62]-in[61])<<30)|((in[63]-in[62])<<47)))
 }
-func deltapack64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_17[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<17)|((in[2]-in[1])>>ntz<<34)|((in[3]-in[2])>>ntz<<51)),
 		uint64((in[3]-in[2])>>((13+ntz)&63)|((in[4]-in[3])>>ntz<<4)|((in[5]-in[4])>>ntz<<21)|((in[6]-in[5])>>ntz<<38)|((in[7]-in[6])>>ntz<<55)),
 		uint64((in[7]-in[6])>>((9+ntz)&63)|((in[8]-in[7])>>ntz<<8)|((in[9]-in[8])>>ntz<<25)|((in[10]-in[9])>>ntz<<42)|((in[11]-in[10])>>ntz<<59)),
@@ -1182,8 +1182,8 @@ func deltapack64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>((4+ntz)&63)|((in[61]-in[60])>>ntz<<13)|((in[62]-in[61])>>ntz<<30)|((in[63]-in[62])>>ntz<<47)))
 }
 
-func deltapack64_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_18[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<18)|((in[2]-in[1])<<36)|((in[3]-in[2])<<54)),
 		uint64((in[3]-in[2])>>10|((in[4]-in[3])<<8)|((in[5]-in[4])<<26)|((in[6]-in[5])<<44)|((in[7]-in[6])<<62)),
 		uint64((in[7]-in[6])>>2|((in[8]-in[7])<<16)|((in[9]-in[8])<<34)|((in[10]-in[9])<<52)),
@@ -1203,9 +1203,9 @@ func deltapack64_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[56]-in[55])>>16|((in[57]-in[56])<<2)|((in[58]-in[57])<<20)|((in[59]-in[58])<<38)|((in[60]-in[59])<<56)),
 		uint64((in[60]-in[59])>>8|((in[61]-in[60])<<10)|((in[62]-in[61])<<28)|((in[63]-in[62])<<46)))
 }
-func deltapack64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_18[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<18)|((in[2]-in[1])>>ntz<<36)|((in[3]-in[2])>>ntz<<54)),
 		uint64((in[3]-in[2])>>((10+ntz)&63)|((in[4]-in[3])>>ntz<<8)|((in[5]-in[4])>>ntz<<26)|((in[6]-in[5])>>ntz<<44)|((in[7]-in[6])>>ntz<<62)),
 		uint64((in[7]-in[6])>>((2+ntz)&63)|((in[8]-in[7])>>ntz<<16)|((in[9]-in[8])>>ntz<<34)|((in[10]-in[9])>>ntz<<52)),
@@ -1226,8 +1226,8 @@ func deltapack64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>((8+ntz)&63)|((in[61]-in[60])>>ntz<<10)|((in[62]-in[61])>>ntz<<28)|((in[63]-in[62])>>ntz<<46)))
 }
 
-func deltapack64_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_19[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<19)|((in[2]-in[1])<<38)|((in[3]-in[2])<<57)),
 		uint64((in[3]-in[2])>>7|((in[4]-in[3])<<12)|((in[5]-in[4])<<31)|((in[6]-in[5])<<50)),
 		uint64((in[6]-in[5])>>14|((in[7]-in[6])<<5)|((in[8]-in[7])<<24)|((in[9]-in[8])<<43)|((in[10]-in[9])<<62)),
@@ -1248,9 +1248,9 @@ func deltapack64_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[57]-in[56])>>5|((in[58]-in[57])<<14)|((in[59]-in[58])<<33)|((in[60]-in[59])<<52)),
 		uint64((in[60]-in[59])>>12|((in[61]-in[60])<<7)|((in[62]-in[61])<<26)|((in[63]-in[62])<<45)))
 }
-func deltapack64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_19[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<19)|((in[2]-in[1])>>ntz<<38)|((in[3]-in[2])>>ntz<<57)),
 		uint64((in[3]-in[2])>>((7+ntz)&63)|((in[4]-in[3])>>ntz<<12)|((in[5]-in[4])>>ntz<<31)|((in[6]-in[5])>>ntz<<50)),
 		uint64((in[6]-in[5])>>((14+ntz)&63)|((in[7]-in[6])>>ntz<<5)|((in[8]-in[7])>>ntz<<24)|((in[9]-in[8])>>ntz<<43)|((in[10]-in[9])>>ntz<<62)),
@@ -1272,8 +1272,8 @@ func deltapack64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>((12+ntz)&63)|((in[61]-in[60])>>ntz<<7)|((in[62]-in[61])>>ntz<<26)|((in[63]-in[62])>>ntz<<45)))
 }
 
-func deltapack64_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_20[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<20)|((in[2]-in[1])<<40)|((in[3]-in[2])<<60)),
 		uint64((in[3]-in[2])>>4|((in[4]-in[3])<<16)|((in[5]-in[4])<<36)|((in[6]-in[5])<<56)),
 		uint64((in[6]-in[5])>>8|((in[7]-in[6])<<12)|((in[8]-in[7])<<32)|((in[9]-in[8])<<52)),
@@ -1295,9 +1295,9 @@ func deltapack64_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[57]-in[56])>>12|((in[58]-in[57])<<8)|((in[59]-in[58])<<28)|((in[60]-in[59])<<48)),
 		uint64((in[60]-in[59])>>16|((in[61]-in[60])<<4)|((in[62]-in[61])<<24)|((in[63]-in[62])<<44)))
 }
-func deltapack64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_20[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<20)|((in[2]-in[1])>>ntz<<40)|((in[3]-in[2])>>ntz<<60)),
 		uint64((in[3]-in[2])>>((4+ntz)&63)|((in[4]-in[3])>>ntz<<16)|((in[5]-in[4])>>ntz<<36)|((in[6]-in[5])>>ntz<<56)),
 		uint64((in[6]-in[5])>>((8+ntz)&63)|((in[7]-in[6])>>ntz<<12)|((in[8]-in[7])>>ntz<<32)|((in[9]-in[8])>>ntz<<52)),
@@ -1320,8 +1320,8 @@ func deltapack64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>((16+ntz)&63)|((in[61]-in[60])>>ntz<<4)|((in[62]-in[61])>>ntz<<24)|((in[63]-in[62])>>ntz<<44)))
 }
 
-func deltapack64_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_21[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<21)|((in[2]-in[1])<<42)|((in[3]-in[2])<<63)),
 		uint64((in[3]-in[2])>>1|((in[4]-in[3])<<20)|((in[5]-in[4])<<41)|((in[6]-in[5])<<62)),
 		uint64((in[6]-in[5])>>2|((in[7]-in[6])<<19)|((in[8]-in[7])<<40)|((in[9]-in[8])<<61)),
@@ -1344,9 +1344,9 @@ func deltapack64_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[57]-in[56])>>19|((in[58]-in[57])<<2)|((in[59]-in[58])<<23)|((in[60]-in[59])<<44)),
 		uint64((in[60]-in[59])>>20|((in[61]-in[60])<<1)|((in[62]-in[61])<<22)|((in[63]-in[62])<<43)))
 }
-func deltapack64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_21[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<21)|((in[2]-in[1])>>ntz<<42)|((in[3]-in[2])>>ntz<<63)),
 		uint64((in[3]-in[2])>>((1+ntz)&63)|((in[4]-in[3])>>ntz<<20)|((in[5]-in[4])>>ntz<<41)|((in[6]-in[5])>>ntz<<62)),
 		uint64((in[6]-in[5])>>((2+ntz)&63)|((in[7]-in[6])>>ntz<<19)|((in[8]-in[7])>>ntz<<40)|((in[9]-in[8])>>ntz<<61)),
@@ -1370,8 +1370,8 @@ func deltapack64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[60]-in[59])>>((20+ntz)&63)|((in[61]-in[60])>>ntz<<1)|((in[62]-in[61])>>ntz<<22)|((in[63]-in[62])>>ntz<<43)))
 }
 
-func deltapack64_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_22[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<22)|((in[2]-in[1])<<44)),
 		uint64((in[2]-in[1])>>20|((in[3]-in[2])<<2)|((in[4]-in[3])<<24)|((in[5]-in[4])<<46)),
 		uint64((in[5]-in[4])>>18|((in[6]-in[5])<<4)|((in[7]-in[6])<<26)|((in[8]-in[7])<<48)),
@@ -1395,9 +1395,9 @@ func deltapack64_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[58]-in[57])>>4|((in[59]-in[58])<<18)|((in[60]-in[59])<<40)|((in[61]-in[60])<<62)),
 		uint64((in[61]-in[60])>>2|((in[62]-in[61])<<20)|((in[63]-in[62])<<42)))
 }
-func deltapack64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_22[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<22)|((in[2]-in[1])>>ntz<<44)),
 		uint64((in[2]-in[1])>>((20+ntz)&63)|((in[3]-in[2])>>ntz<<2)|((in[4]-in[3])>>ntz<<24)|((in[5]-in[4])>>ntz<<46)),
 		uint64((in[5]-in[4])>>((18+ntz)&63)|((in[6]-in[5])>>ntz<<4)|((in[7]-in[6])>>ntz<<26)|((in[8]-in[7])>>ntz<<48)),
@@ -1422,8 +1422,8 @@ func deltapack64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((2+ntz)&63)|((in[62]-in[61])>>ntz<<20)|((in[63]-in[62])>>ntz<<42)))
 }
 
-func deltapack64_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_23[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<23)|((in[2]-in[1])<<46)),
 		uint64((in[2]-in[1])>>18|((in[3]-in[2])<<5)|((in[4]-in[3])<<28)|((in[5]-in[4])<<51)),
 		uint64((in[5]-in[4])>>13|((in[6]-in[5])<<10)|((in[7]-in[6])<<33)|((in[8]-in[7])<<56)),
@@ -1448,9 +1448,9 @@ func deltapack64_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[58]-in[57])>>10|((in[59]-in[58])<<13)|((in[60]-in[59])<<36)|((in[61]-in[60])<<59)),
 		uint64((in[61]-in[60])>>5|((in[62]-in[61])<<18)|((in[63]-in[62])<<41)))
 }
-func deltapack64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_23[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<23)|((in[2]-in[1])>>ntz<<46)),
 		uint64((in[2]-in[1])>>((18+ntz)&63)|((in[3]-in[2])>>ntz<<5)|((in[4]-in[3])>>ntz<<28)|((in[5]-in[4])>>ntz<<51)),
 		uint64((in[5]-in[4])>>((13+ntz)&63)|((in[6]-in[5])>>ntz<<10)|((in[7]-in[6])>>ntz<<33)|((in[8]-in[7])>>ntz<<56)),
@@ -1476,8 +1476,8 @@ func deltapack64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((5+ntz)&63)|((in[62]-in[61])>>ntz<<18)|((in[63]-in[62])>>ntz<<41)))
 }
 
-func deltapack64_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_24[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<24)|((in[2]-in[1])<<48)),
 		uint64((in[2]-in[1])>>16|((in[3]-in[2])<<8)|((in[4]-in[3])<<32)|((in[5]-in[4])<<56)),
 		uint64((in[5]-in[4])>>8|((in[6]-in[5])<<16)|((in[7]-in[6])<<40)),
@@ -1503,9 +1503,9 @@ func deltapack64_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[58]-in[57])>>16|((in[59]-in[58])<<8)|((in[60]-in[59])<<32)|((in[61]-in[60])<<56)),
 		uint64((in[61]-in[60])>>8|((in[62]-in[61])<<16)|((in[63]-in[62])<<40)))
 }
-func deltapack64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_24[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<24)|((in[2]-in[1])>>ntz<<48)),
 		uint64((in[2]-in[1])>>((16+ntz)&63)|((in[3]-in[2])>>ntz<<8)|((in[4]-in[3])>>ntz<<32)|((in[5]-in[4])>>ntz<<56)),
 		uint64((in[5]-in[4])>>((8+ntz)&63)|((in[6]-in[5])>>ntz<<16)|((in[7]-in[6])>>ntz<<40)),
@@ -1532,8 +1532,8 @@ func deltapack64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((8+ntz)&63)|((in[62]-in[61])>>ntz<<16)|((in[63]-in[62])>>ntz<<40)))
 }
 
-func deltapack64_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_25[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<25)|((in[2]-in[1])<<50)),
 		uint64((in[2]-in[1])>>14|((in[3]-in[2])<<11)|((in[4]-in[3])<<36)|((in[5]-in[4])<<61)),
 		uint64((in[5]-in[4])>>3|((in[6]-in[5])<<22)|((in[7]-in[6])<<47)),
@@ -1560,9 +1560,9 @@ func deltapack64_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[58]-in[57])>>22|((in[59]-in[58])<<3)|((in[60]-in[59])<<28)|((in[61]-in[60])<<53)),
 		uint64((in[61]-in[60])>>11|((in[62]-in[61])<<14)|((in[63]-in[62])<<39)))
 }
-func deltapack64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_25[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<25)|((in[2]-in[1])>>ntz<<50)),
 		uint64((in[2]-in[1])>>((14+ntz)&63)|((in[3]-in[2])>>ntz<<11)|((in[4]-in[3])>>ntz<<36)|((in[5]-in[4])>>ntz<<61)),
 		uint64((in[5]-in[4])>>((3+ntz)&63)|((in[6]-in[5])>>ntz<<22)|((in[7]-in[6])>>ntz<<47)),
@@ -1590,8 +1590,8 @@ func deltapack64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((11+ntz)&63)|((in[62]-in[61])>>ntz<<14)|((in[63]-in[62])>>ntz<<39)))
 }
 
-func deltapack64_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_26[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<26)|((in[2]-in[1])<<52)),
 		uint64((in[2]-in[1])>>12|((in[3]-in[2])<<14)|((in[4]-in[3])<<40)),
 		uint64((in[4]-in[3])>>24|((in[5]-in[4])<<2)|((in[6]-in[5])<<28)|((in[7]-in[6])<<54)),
@@ -1619,9 +1619,9 @@ func deltapack64_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>2|((in[60]-in[59])<<24)|((in[61]-in[60])<<50)),
 		uint64((in[61]-in[60])>>14|((in[62]-in[61])<<12)|((in[63]-in[62])<<38)))
 }
-func deltapack64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_26[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<26)|((in[2]-in[1])>>ntz<<52)),
 		uint64((in[2]-in[1])>>((12+ntz)&63)|((in[3]-in[2])>>ntz<<14)|((in[4]-in[3])>>ntz<<40)),
 		uint64((in[4]-in[3])>>((24+ntz)&63)|((in[5]-in[4])>>ntz<<2)|((in[6]-in[5])>>ntz<<28)|((in[7]-in[6])>>ntz<<54)),
@@ -1650,8 +1650,8 @@ func deltapack64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((14+ntz)&63)|((in[62]-in[61])>>ntz<<12)|((in[63]-in[62])>>ntz<<38)))
 }
 
-func deltapack64_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_27[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<27)|((in[2]-in[1])<<54)),
 		uint64((in[2]-in[1])>>10|((in[3]-in[2])<<17)|((in[4]-in[3])<<44)),
 		uint64((in[4]-in[3])>>20|((in[5]-in[4])<<7)|((in[6]-in[5])<<34)|((in[7]-in[6])<<61)),
@@ -1680,9 +1680,9 @@ func deltapack64_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>7|((in[60]-in[59])<<20)|((in[61]-in[60])<<47)),
 		uint64((in[61]-in[60])>>17|((in[62]-in[61])<<10)|((in[63]-in[62])<<37)))
 }
-func deltapack64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_27[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<27)|((in[2]-in[1])>>ntz<<54)),
 		uint64((in[2]-in[1])>>((10+ntz)&63)|((in[3]-in[2])>>ntz<<17)|((in[4]-in[3])>>ntz<<44)),
 		uint64((in[4]-in[3])>>((20+ntz)&63)|((in[5]-in[4])>>ntz<<7)|((in[6]-in[5])>>ntz<<34)|((in[7]-in[6])>>ntz<<61)),
@@ -1712,8 +1712,8 @@ func deltapack64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((17+ntz)&63)|((in[62]-in[61])>>ntz<<10)|((in[63]-in[62])>>ntz<<37)))
 }
 
-func deltapack64_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_28[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<28)|((in[2]-in[1])<<56)),
 		uint64((in[2]-in[1])>>8|((in[3]-in[2])<<20)|((in[4]-in[3])<<48)),
 		uint64((in[4]-in[3])>>16|((in[5]-in[4])<<12)|((in[6]-in[5])<<40)),
@@ -1743,9 +1743,9 @@ func deltapack64_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>12|((in[60]-in[59])<<16)|((in[61]-in[60])<<44)),
 		uint64((in[61]-in[60])>>20|((in[62]-in[61])<<8)|((in[63]-in[62])<<36)))
 }
-func deltapack64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_28[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<28)|((in[2]-in[1])>>ntz<<56)),
 		uint64((in[2]-in[1])>>((8+ntz)&63)|((in[3]-in[2])>>ntz<<20)|((in[4]-in[3])>>ntz<<48)),
 		uint64((in[4]-in[3])>>((16+ntz)&63)|((in[5]-in[4])>>ntz<<12)|((in[6]-in[5])>>ntz<<40)),
@@ -1776,8 +1776,8 @@ func deltapack64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((20+ntz)&63)|((in[62]-in[61])>>ntz<<8)|((in[63]-in[62])>>ntz<<36)))
 }
 
-func deltapack64_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_29[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<29)|((in[2]-in[1])<<58)),
 		uint64((in[2]-in[1])>>6|((in[3]-in[2])<<23)|((in[4]-in[3])<<52)),
 		uint64((in[4]-in[3])>>12|((in[5]-in[4])<<17)|((in[6]-in[5])<<46)),
@@ -1808,9 +1808,9 @@ func deltapack64_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>17|((in[60]-in[59])<<12)|((in[61]-in[60])<<41)),
 		uint64((in[61]-in[60])>>23|((in[62]-in[61])<<6)|((in[63]-in[62])<<35)))
 }
-func deltapack64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_29[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<29)|((in[2]-in[1])>>ntz<<58)),
 		uint64((in[2]-in[1])>>((6+ntz)&63)|((in[3]-in[2])>>ntz<<23)|((in[4]-in[3])>>ntz<<52)),
 		uint64((in[4]-in[3])>>((12+ntz)&63)|((in[5]-in[4])>>ntz<<17)|((in[6]-in[5])>>ntz<<46)),
@@ -1842,8 +1842,8 @@ func deltapack64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((23+ntz)&63)|((in[62]-in[61])>>ntz<<6)|((in[63]-in[62])>>ntz<<35)))
 }
 
-func deltapack64_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_30[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<30)|((in[2]-in[1])<<60)),
 		uint64((in[2]-in[1])>>4|((in[3]-in[2])<<26)|((in[4]-in[3])<<56)),
 		uint64((in[4]-in[3])>>8|((in[5]-in[4])<<22)|((in[6]-in[5])<<52)),
@@ -1875,9 +1875,9 @@ func deltapack64_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>22|((in[60]-in[59])<<8)|((in[61]-in[60])<<38)),
 		uint64((in[61]-in[60])>>26|((in[62]-in[61])<<4)|((in[63]-in[62])<<34)))
 }
-func deltapack64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_30[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<30)|((in[2]-in[1])>>ntz<<60)),
 		uint64((in[2]-in[1])>>((4+ntz)&63)|((in[3]-in[2])>>ntz<<26)|((in[4]-in[3])>>ntz<<56)),
 		uint64((in[4]-in[3])>>((8+ntz)&63)|((in[5]-in[4])>>ntz<<22)|((in[6]-in[5])>>ntz<<52)),
@@ -1910,8 +1910,8 @@ func deltapack64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((26+ntz)&63)|((in[62]-in[61])>>ntz<<4)|((in[63]-in[62])>>ntz<<34)))
 }
 
-func deltapack64_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_31[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<31)|((in[2]-in[1])<<62)),
 		uint64((in[2]-in[1])>>2|((in[3]-in[2])<<29)|((in[4]-in[3])<<60)),
 		uint64((in[4]-in[3])>>4|((in[5]-in[4])<<27)|((in[6]-in[5])<<58)),
@@ -1944,9 +1944,9 @@ func deltapack64_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[59]-in[58])>>27|((in[60]-in[59])<<4)|((in[61]-in[60])<<35)),
 		uint64((in[61]-in[60])>>29|((in[62]-in[61])<<2)|((in[63]-in[62])<<33)))
 }
-func deltapack64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_31[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<31)|((in[2]-in[1])>>ntz<<62)),
 		uint64((in[2]-in[1])>>((2+ntz)&63)|((in[3]-in[2])>>ntz<<29)|((in[4]-in[3])>>ntz<<60)),
 		uint64((in[4]-in[3])>>((4+ntz)&63)|((in[5]-in[4])>>ntz<<27)|((in[6]-in[5])>>ntz<<58)),
@@ -1980,8 +1980,8 @@ func deltapack64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[61]-in[60])>>((29+ntz)&63)|((in[62]-in[61])>>ntz<<2)|((in[63]-in[62])>>ntz<<33)))
 }
 
-func deltapack64_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_32[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<32)),
 		uint64(in[2]-in[1]|((in[3]-in[2])<<32)),
 		uint64(in[4]-in[3]|((in[5]-in[4])<<32)),
@@ -2015,9 +2015,9 @@ func deltapack64_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64(in[60]-in[59]|((in[61]-in[60])<<32)),
 		uint64(in[62]-in[61]|((in[63]-in[62])<<32)))
 }
-func deltapack64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_32[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<32)),
 		uint64((in[2]-in[1])>>ntz|((in[3]-in[2])>>ntz<<32)),
 		uint64((in[4]-in[3])>>ntz|((in[5]-in[4])>>ntz<<32)),
@@ -2052,8 +2052,8 @@ func deltapack64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>ntz|((in[63]-in[62])>>ntz<<32)))
 }
 
-func deltapack64_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_33[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<33)),
 		uint64((in[1]-in[0])>>31|((in[2]-in[1])<<2)|((in[3]-in[2])<<35)),
 		uint64((in[3]-in[2])>>29|((in[4]-in[3])<<4)|((in[5]-in[4])<<37)),
@@ -2088,9 +2088,9 @@ func deltapack64_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>4|((in[61]-in[60])<<29)|((in[62]-in[61])<<62)),
 		uint64((in[62]-in[61])>>2|((in[63]-in[62])<<31)))
 }
-func deltapack64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_33[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<33)),
 		uint64((in[1]-in[0])>>((31+ntz)&63)|((in[2]-in[1])>>ntz<<2)|((in[3]-in[2])>>ntz<<35)),
 		uint64((in[3]-in[2])>>((29+ntz)&63)|((in[4]-in[3])>>ntz<<4)|((in[5]-in[4])>>ntz<<37)),
@@ -2126,8 +2126,8 @@ func deltapack64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((2+ntz)&63)|((in[63]-in[62])>>ntz<<31)))
 }
 
-func deltapack64_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_34[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<34)),
 		uint64((in[1]-in[0])>>30|((in[2]-in[1])<<4)|((in[3]-in[2])<<38)),
 		uint64((in[3]-in[2])>>26|((in[4]-in[3])<<8)|((in[5]-in[4])<<42)),
@@ -2163,9 +2163,9 @@ func deltapack64_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>8|((in[61]-in[60])<<26)|((in[62]-in[61])<<60)),
 		uint64((in[62]-in[61])>>4|((in[63]-in[62])<<30)))
 }
-func deltapack64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_34[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<34)),
 		uint64((in[1]-in[0])>>((30+ntz)&63)|((in[2]-in[1])>>ntz<<4)|((in[3]-in[2])>>ntz<<38)),
 		uint64((in[3]-in[2])>>((26+ntz)&63)|((in[4]-in[3])>>ntz<<8)|((in[5]-in[4])>>ntz<<42)),
@@ -2202,8 +2202,8 @@ func deltapack64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((4+ntz)&63)|((in[63]-in[62])>>ntz<<30)))
 }
 
-func deltapack64_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_35[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<35)),
 		uint64((in[1]-in[0])>>29|((in[2]-in[1])<<6)|((in[3]-in[2])<<41)),
 		uint64((in[3]-in[2])>>23|((in[4]-in[3])<<12)|((in[5]-in[4])<<47)),
@@ -2240,9 +2240,9 @@ func deltapack64_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>12|((in[61]-in[60])<<23)|((in[62]-in[61])<<58)),
 		uint64((in[62]-in[61])>>6|((in[63]-in[62])<<29)))
 }
-func deltapack64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_35[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<35)),
 		uint64((in[1]-in[0])>>((29+ntz)&63)|((in[2]-in[1])>>ntz<<6)|((in[3]-in[2])>>ntz<<41)),
 		uint64((in[3]-in[2])>>((23+ntz)&63)|((in[4]-in[3])>>ntz<<12)|((in[5]-in[4])>>ntz<<47)),
@@ -2280,8 +2280,8 @@ func deltapack64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((6+ntz)&63)|((in[63]-in[62])>>ntz<<29)))
 }
 
-func deltapack64_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_36[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<36)),
 		uint64((in[1]-in[0])>>28|((in[2]-in[1])<<8)|((in[3]-in[2])<<44)),
 		uint64((in[3]-in[2])>>20|((in[4]-in[3])<<16)|((in[5]-in[4])<<52)),
@@ -2319,9 +2319,9 @@ func deltapack64_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>16|((in[61]-in[60])<<20)|((in[62]-in[61])<<56)),
 		uint64((in[62]-in[61])>>8|((in[63]-in[62])<<28)))
 }
-func deltapack64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_36[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<36)),
 		uint64((in[1]-in[0])>>((28+ntz)&63)|((in[2]-in[1])>>ntz<<8)|((in[3]-in[2])>>ntz<<44)),
 		uint64((in[3]-in[2])>>((20+ntz)&63)|((in[4]-in[3])>>ntz<<16)|((in[5]-in[4])>>ntz<<52)),
@@ -2360,8 +2360,8 @@ func deltapack64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((8+ntz)&63)|((in[63]-in[62])>>ntz<<28)))
 }
 
-func deltapack64_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_37[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<37)),
 		uint64((in[1]-in[0])>>27|((in[2]-in[1])<<10)|((in[3]-in[2])<<47)),
 		uint64((in[3]-in[2])>>17|((in[4]-in[3])<<20)|((in[5]-in[4])<<57)),
@@ -2400,9 +2400,9 @@ func deltapack64_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>20|((in[61]-in[60])<<17)|((in[62]-in[61])<<54)),
 		uint64((in[62]-in[61])>>10|((in[63]-in[62])<<27)))
 }
-func deltapack64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_37[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<37)),
 		uint64((in[1]-in[0])>>((27+ntz)&63)|((in[2]-in[1])>>ntz<<10)|((in[3]-in[2])>>ntz<<47)),
 		uint64((in[3]-in[2])>>((17+ntz)&63)|((in[4]-in[3])>>ntz<<20)|((in[5]-in[4])>>ntz<<57)),
@@ -2442,8 +2442,8 @@ func deltapack64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((10+ntz)&63)|((in[63]-in[62])>>ntz<<27)))
 }
 
-func deltapack64_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_38[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<38)),
 		uint64((in[1]-in[0])>>26|((in[2]-in[1])<<12)|((in[3]-in[2])<<50)),
 		uint64((in[3]-in[2])>>14|((in[4]-in[3])<<24)|((in[5]-in[4])<<62)),
@@ -2483,9 +2483,9 @@ func deltapack64_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>24|((in[61]-in[60])<<14)|((in[62]-in[61])<<52)),
 		uint64((in[62]-in[61])>>12|((in[63]-in[62])<<26)))
 }
-func deltapack64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_38[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<38)),
 		uint64((in[1]-in[0])>>((26+ntz)&63)|((in[2]-in[1])>>ntz<<12)|((in[3]-in[2])>>ntz<<50)),
 		uint64((in[3]-in[2])>>((14+ntz)&63)|((in[4]-in[3])>>ntz<<24)|((in[5]-in[4])>>ntz<<62)),
@@ -2526,8 +2526,8 @@ func deltapack64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((12+ntz)&63)|((in[63]-in[62])>>ntz<<26)))
 }
 
-func deltapack64_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_39[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<39)),
 		uint64((in[1]-in[0])>>25|((in[2]-in[1])<<14)|((in[3]-in[2])<<53)),
 		uint64((in[3]-in[2])>>11|((in[4]-in[3])<<28)),
@@ -2568,9 +2568,9 @@ func deltapack64_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>28|((in[61]-in[60])<<11)|((in[62]-in[61])<<50)),
 		uint64((in[62]-in[61])>>14|((in[63]-in[62])<<25)))
 }
-func deltapack64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_39[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<39)),
 		uint64((in[1]-in[0])>>((25+ntz)&63)|((in[2]-in[1])>>ntz<<14)|((in[3]-in[2])>>ntz<<53)),
 		uint64((in[3]-in[2])>>((11+ntz)&63)|((in[4]-in[3])>>ntz<<28)),
@@ -2612,8 +2612,8 @@ func deltapack64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((14+ntz)&63)|((in[63]-in[62])>>ntz<<25)))
 }
 
-func deltapack64_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_40[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<40)),
 		uint64((in[1]-in[0])>>24|((in[2]-in[1])<<16)|((in[3]-in[2])<<56)),
 		uint64((in[3]-in[2])>>8|((in[4]-in[3])<<32)),
@@ -2655,9 +2655,9 @@ func deltapack64_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>32|((in[61]-in[60])<<8)|((in[62]-in[61])<<48)),
 		uint64((in[62]-in[61])>>16|((in[63]-in[62])<<24)))
 }
-func deltapack64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_40[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<40)),
 		uint64((in[1]-in[0])>>((24+ntz)&63)|((in[2]-in[1])>>ntz<<16)|((in[3]-in[2])>>ntz<<56)),
 		uint64((in[3]-in[2])>>((8+ntz)&63)|((in[4]-in[3])>>ntz<<32)),
@@ -2700,8 +2700,8 @@ func deltapack64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((16+ntz)&63)|((in[63]-in[62])>>ntz<<24)))
 }
 
-func deltapack64_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_41[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<41)),
 		uint64((in[1]-in[0])>>23|((in[2]-in[1])<<18)|((in[3]-in[2])<<59)),
 		uint64((in[3]-in[2])>>5|((in[4]-in[3])<<36)),
@@ -2744,9 +2744,9 @@ func deltapack64_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>36|((in[61]-in[60])<<5)|((in[62]-in[61])<<46)),
 		uint64((in[62]-in[61])>>18|((in[63]-in[62])<<23)))
 }
-func deltapack64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_41[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<41)),
 		uint64((in[1]-in[0])>>((23+ntz)&63)|((in[2]-in[1])>>ntz<<18)|((in[3]-in[2])>>ntz<<59)),
 		uint64((in[3]-in[2])>>((5+ntz)&63)|((in[4]-in[3])>>ntz<<36)),
@@ -2790,8 +2790,8 @@ func deltapack64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((18+ntz)&63)|((in[63]-in[62])>>ntz<<23)))
 }
 
-func deltapack64_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_42[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<42)),
 		uint64((in[1]-in[0])>>22|((in[2]-in[1])<<20)|((in[3]-in[2])<<62)),
 		uint64((in[3]-in[2])>>2|((in[4]-in[3])<<40)),
@@ -2835,9 +2835,9 @@ func deltapack64_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[60]-in[59])>>40|((in[61]-in[60])<<2)|((in[62]-in[61])<<44)),
 		uint64((in[62]-in[61])>>20|((in[63]-in[62])<<22)))
 }
-func deltapack64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_42[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<42)),
 		uint64((in[1]-in[0])>>((22+ntz)&63)|((in[2]-in[1])>>ntz<<20)|((in[3]-in[2])>>ntz<<62)),
 		uint64((in[3]-in[2])>>((2+ntz)&63)|((in[4]-in[3])>>ntz<<40)),
@@ -2882,8 +2882,8 @@ func deltapack64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((20+ntz)&63)|((in[63]-in[62])>>ntz<<22)))
 }
 
-func deltapack64_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_43[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<43)),
 		uint64((in[1]-in[0])>>21|((in[2]-in[1])<<22)),
 		uint64((in[2]-in[1])>>42|((in[3]-in[2])<<1)|((in[4]-in[3])<<44)),
@@ -2928,9 +2928,9 @@ func deltapack64_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>1|((in[62]-in[61])<<42)),
 		uint64((in[62]-in[61])>>22|((in[63]-in[62])<<21)))
 }
-func deltapack64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_43[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<43)),
 		uint64((in[1]-in[0])>>((21+ntz)&63)|((in[2]-in[1])>>ntz<<22)),
 		uint64((in[2]-in[1])>>((42+ntz)&63)|((in[3]-in[2])>>ntz<<1)|((in[4]-in[3])>>ntz<<44)),
@@ -2976,8 +2976,8 @@ func deltapack64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((22+ntz)&63)|((in[63]-in[62])>>ntz<<21)))
 }
 
-func deltapack64_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_44[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<44)),
 		uint64((in[1]-in[0])>>20|((in[2]-in[1])<<24)),
 		uint64((in[2]-in[1])>>40|((in[3]-in[2])<<4)|((in[4]-in[3])<<48)),
@@ -3023,9 +3023,9 @@ func deltapack64_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>4|((in[62]-in[61])<<40)),
 		uint64((in[62]-in[61])>>24|((in[63]-in[62])<<20)))
 }
-func deltapack64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_44[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<44)),
 		uint64((in[1]-in[0])>>((20+ntz)&63)|((in[2]-in[1])>>ntz<<24)),
 		uint64((in[2]-in[1])>>((40+ntz)&63)|((in[3]-in[2])>>ntz<<4)|((in[4]-in[3])>>ntz<<48)),
@@ -3072,8 +3072,8 @@ func deltapack64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((24+ntz)&63)|((in[63]-in[62])>>ntz<<20)))
 }
 
-func deltapack64_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_45[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<45)),
 		uint64((in[1]-in[0])>>19|((in[2]-in[1])<<26)),
 		uint64((in[2]-in[1])>>38|((in[3]-in[2])<<7)|((in[4]-in[3])<<52)),
@@ -3120,9 +3120,9 @@ func deltapack64_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>7|((in[62]-in[61])<<38)),
 		uint64((in[62]-in[61])>>26|((in[63]-in[62])<<19)))
 }
-func deltapack64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_45[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<45)),
 		uint64((in[1]-in[0])>>((19+ntz)&63)|((in[2]-in[1])>>ntz<<26)),
 		uint64((in[2]-in[1])>>((38+ntz)&63)|((in[3]-in[2])>>ntz<<7)|((in[4]-in[3])>>ntz<<52)),
@@ -3170,8 +3170,8 @@ func deltapack64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((26+ntz)&63)|((in[63]-in[62])>>ntz<<19)))
 }
 
-func deltapack64_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_46[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<46)),
 		uint64((in[1]-in[0])>>18|((in[2]-in[1])<<28)),
 		uint64((in[2]-in[1])>>36|((in[3]-in[2])<<10)|((in[4]-in[3])<<56)),
@@ -3219,9 +3219,9 @@ func deltapack64_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>10|((in[62]-in[61])<<36)),
 		uint64((in[62]-in[61])>>28|((in[63]-in[62])<<18)))
 }
-func deltapack64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_46[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<46)),
 		uint64((in[1]-in[0])>>((18+ntz)&63)|((in[2]-in[1])>>ntz<<28)),
 		uint64((in[2]-in[1])>>((36+ntz)&63)|((in[3]-in[2])>>ntz<<10)|((in[4]-in[3])>>ntz<<56)),
@@ -3270,8 +3270,8 @@ func deltapack64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((28+ntz)&63)|((in[63]-in[62])>>ntz<<18)))
 }
 
-func deltapack64_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_47[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<47)),
 		uint64((in[1]-in[0])>>17|((in[2]-in[1])<<30)),
 		uint64((in[2]-in[1])>>34|((in[3]-in[2])<<13)|((in[4]-in[3])<<60)),
@@ -3320,9 +3320,9 @@ func deltapack64_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>13|((in[62]-in[61])<<34)),
 		uint64((in[62]-in[61])>>30|((in[63]-in[62])<<17)))
 }
-func deltapack64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_47[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<47)),
 		uint64((in[1]-in[0])>>((17+ntz)&63)|((in[2]-in[1])>>ntz<<30)),
 		uint64((in[2]-in[1])>>((34+ntz)&63)|((in[3]-in[2])>>ntz<<13)|((in[4]-in[3])>>ntz<<60)),
@@ -3372,8 +3372,8 @@ func deltapack64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((30+ntz)&63)|((in[63]-in[62])>>ntz<<17)))
 }
 
-func deltapack64_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_48[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<48)),
 		uint64((in[1]-in[0])>>16|((in[2]-in[1])<<32)),
 		uint64((in[2]-in[1])>>32|((in[3]-in[2])<<16)),
@@ -3423,9 +3423,9 @@ func deltapack64_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>16|((in[62]-in[61])<<32)),
 		uint64((in[62]-in[61])>>32|((in[63]-in[62])<<16)))
 }
-func deltapack64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_48[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<48)),
 		uint64((in[1]-in[0])>>((16+ntz)&63)|((in[2]-in[1])>>ntz<<32)),
 		uint64((in[2]-in[1])>>((32+ntz)&63)|((in[3]-in[2])>>ntz<<16)),
@@ -3476,8 +3476,8 @@ func deltapack64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((32+ntz)&63)|((in[63]-in[62])>>ntz<<16)))
 }
 
-func deltapack64_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_49[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<49)),
 		uint64((in[1]-in[0])>>15|((in[2]-in[1])<<34)),
 		uint64((in[2]-in[1])>>30|((in[3]-in[2])<<19)),
@@ -3528,9 +3528,9 @@ func deltapack64_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>19|((in[62]-in[61])<<30)),
 		uint64((in[62]-in[61])>>34|((in[63]-in[62])<<15)))
 }
-func deltapack64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_49[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<49)),
 		uint64((in[1]-in[0])>>((15+ntz)&63)|((in[2]-in[1])>>ntz<<34)),
 		uint64((in[2]-in[1])>>((30+ntz)&63)|((in[3]-in[2])>>ntz<<19)),
@@ -3582,8 +3582,8 @@ func deltapack64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((34+ntz)&63)|((in[63]-in[62])>>ntz<<15)))
 }
 
-func deltapack64_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_50[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<50)),
 		uint64((in[1]-in[0])>>14|((in[2]-in[1])<<36)),
 		uint64((in[2]-in[1])>>28|((in[3]-in[2])<<22)),
@@ -3635,9 +3635,9 @@ func deltapack64_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>22|((in[62]-in[61])<<28)),
 		uint64((in[62]-in[61])>>36|((in[63]-in[62])<<14)))
 }
-func deltapack64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_50[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<50)),
 		uint64((in[1]-in[0])>>((14+ntz)&63)|((in[2]-in[1])>>ntz<<36)),
 		uint64((in[2]-in[1])>>((28+ntz)&63)|((in[3]-in[2])>>ntz<<22)),
@@ -3690,8 +3690,8 @@ func deltapack64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((36+ntz)&63)|((in[63]-in[62])>>ntz<<14)))
 }
 
-func deltapack64_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_51[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<51)),
 		uint64((in[1]-in[0])>>13|((in[2]-in[1])<<38)),
 		uint64((in[2]-in[1])>>26|((in[3]-in[2])<<25)),
@@ -3744,9 +3744,9 @@ func deltapack64_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>25|((in[62]-in[61])<<26)),
 		uint64((in[62]-in[61])>>38|((in[63]-in[62])<<13)))
 }
-func deltapack64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_51[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<51)),
 		uint64((in[1]-in[0])>>((13+ntz)&63)|((in[2]-in[1])>>ntz<<38)),
 		uint64((in[2]-in[1])>>((26+ntz)&63)|((in[3]-in[2])>>ntz<<25)),
@@ -3800,8 +3800,8 @@ func deltapack64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((38+ntz)&63)|((in[63]-in[62])>>ntz<<13)))
 }
 
-func deltapack64_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_52[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<52)),
 		uint64((in[1]-in[0])>>12|((in[2]-in[1])<<40)),
 		uint64((in[2]-in[1])>>24|((in[3]-in[2])<<28)),
@@ -3855,9 +3855,9 @@ func deltapack64_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>28|((in[62]-in[61])<<24)),
 		uint64((in[62]-in[61])>>40|((in[63]-in[62])<<12)))
 }
-func deltapack64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_52[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<52)),
 		uint64((in[1]-in[0])>>((12+ntz)&63)|((in[2]-in[1])>>ntz<<40)),
 		uint64((in[2]-in[1])>>((24+ntz)&63)|((in[3]-in[2])>>ntz<<28)),
@@ -3912,8 +3912,8 @@ func deltapack64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((40+ntz)&63)|((in[63]-in[62])>>ntz<<12)))
 }
 
-func deltapack64_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_53[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<53)),
 		uint64((in[1]-in[0])>>11|((in[2]-in[1])<<42)),
 		uint64((in[2]-in[1])>>22|((in[3]-in[2])<<31)),
@@ -3968,9 +3968,9 @@ func deltapack64_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>31|((in[62]-in[61])<<22)),
 		uint64((in[62]-in[61])>>42|((in[63]-in[62])<<11)))
 }
-func deltapack64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_53[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<53)),
 		uint64((in[1]-in[0])>>((11+ntz)&63)|((in[2]-in[1])>>ntz<<42)),
 		uint64((in[2]-in[1])>>((22+ntz)&63)|((in[3]-in[2])>>ntz<<31)),
@@ -4026,8 +4026,8 @@ func deltapack64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((42+ntz)&63)|((in[63]-in[62])>>ntz<<11)))
 }
 
-func deltapack64_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_54[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<54)),
 		uint64((in[1]-in[0])>>10|((in[2]-in[1])<<44)),
 		uint64((in[2]-in[1])>>20|((in[3]-in[2])<<34)),
@@ -4083,9 +4083,9 @@ func deltapack64_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>34|((in[62]-in[61])<<20)),
 		uint64((in[62]-in[61])>>44|((in[63]-in[62])<<10)))
 }
-func deltapack64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_54[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<54)),
 		uint64((in[1]-in[0])>>((10+ntz)&63)|((in[2]-in[1])>>ntz<<44)),
 		uint64((in[2]-in[1])>>((20+ntz)&63)|((in[3]-in[2])>>ntz<<34)),
@@ -4142,8 +4142,8 @@ func deltapack64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((44+ntz)&63)|((in[63]-in[62])>>ntz<<10)))
 }
 
-func deltapack64_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_55[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<55)),
 		uint64((in[1]-in[0])>>9|((in[2]-in[1])<<46)),
 		uint64((in[2]-in[1])>>18|((in[3]-in[2])<<37)),
@@ -4200,9 +4200,9 @@ func deltapack64_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>37|((in[62]-in[61])<<18)),
 		uint64((in[62]-in[61])>>46|((in[63]-in[62])<<9)))
 }
-func deltapack64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_55[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<55)),
 		uint64((in[1]-in[0])>>((9+ntz)&63)|((in[2]-in[1])>>ntz<<46)),
 		uint64((in[2]-in[1])>>((18+ntz)&63)|((in[3]-in[2])>>ntz<<37)),
@@ -4260,8 +4260,8 @@ func deltapack64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((46+ntz)&63)|((in[63]-in[62])>>ntz<<9)))
 }
 
-func deltapack64_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_56[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<56)),
 		uint64((in[1]-in[0])>>8|((in[2]-in[1])<<48)),
 		uint64((in[2]-in[1])>>16|((in[3]-in[2])<<40)),
@@ -4319,9 +4319,9 @@ func deltapack64_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>40|((in[62]-in[61])<<16)),
 		uint64((in[62]-in[61])>>48|((in[63]-in[62])<<8)))
 }
-func deltapack64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_56[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<56)),
 		uint64((in[1]-in[0])>>((8+ntz)&63)|((in[2]-in[1])>>ntz<<48)),
 		uint64((in[2]-in[1])>>((16+ntz)&63)|((in[3]-in[2])>>ntz<<40)),
@@ -4380,8 +4380,8 @@ func deltapack64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((48+ntz)&63)|((in[63]-in[62])>>ntz<<8)))
 }
 
-func deltapack64_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_57[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<57)),
 		uint64((in[1]-in[0])>>7|((in[2]-in[1])<<50)),
 		uint64((in[2]-in[1])>>14|((in[3]-in[2])<<43)),
@@ -4440,9 +4440,9 @@ func deltapack64_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>43|((in[62]-in[61])<<14)),
 		uint64((in[62]-in[61])>>50|((in[63]-in[62])<<7)))
 }
-func deltapack64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_57[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<57)),
 		uint64((in[1]-in[0])>>((7+ntz)&63)|((in[2]-in[1])>>ntz<<50)),
 		uint64((in[2]-in[1])>>((14+ntz)&63)|((in[3]-in[2])>>ntz<<43)),
@@ -4502,8 +4502,8 @@ func deltapack64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((50+ntz)&63)|((in[63]-in[62])>>ntz<<7)))
 }
 
-func deltapack64_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_58[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<58)),
 		uint64((in[1]-in[0])>>6|((in[2]-in[1])<<52)),
 		uint64((in[2]-in[1])>>12|((in[3]-in[2])<<46)),
@@ -4563,9 +4563,9 @@ func deltapack64_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>46|((in[62]-in[61])<<12)),
 		uint64((in[62]-in[61])>>52|((in[63]-in[62])<<6)))
 }
-func deltapack64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_58[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<58)),
 		uint64((in[1]-in[0])>>((6+ntz)&63)|((in[2]-in[1])>>ntz<<52)),
 		uint64((in[2]-in[1])>>((12+ntz)&63)|((in[3]-in[2])>>ntz<<46)),
@@ -4626,8 +4626,8 @@ func deltapack64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((52+ntz)&63)|((in[63]-in[62])>>ntz<<6)))
 }
 
-func deltapack64_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_59[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<59)),
 		uint64((in[1]-in[0])>>5|((in[2]-in[1])<<54)),
 		uint64((in[2]-in[1])>>10|((in[3]-in[2])<<49)),
@@ -4688,9 +4688,9 @@ func deltapack64_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>49|((in[62]-in[61])<<10)),
 		uint64((in[62]-in[61])>>54|((in[63]-in[62])<<5)))
 }
-func deltapack64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_59[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<59)),
 		uint64((in[1]-in[0])>>((5+ntz)&63)|((in[2]-in[1])>>ntz<<54)),
 		uint64((in[2]-in[1])>>((10+ntz)&63)|((in[3]-in[2])>>ntz<<49)),
@@ -4752,8 +4752,8 @@ func deltapack64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((54+ntz)&63)|((in[63]-in[62])>>ntz<<5)))
 }
 
-func deltapack64_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_60[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<60)),
 		uint64((in[1]-in[0])>>4|((in[2]-in[1])<<56)),
 		uint64((in[2]-in[1])>>8|((in[3]-in[2])<<52)),
@@ -4815,9 +4815,9 @@ func deltapack64_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>52|((in[62]-in[61])<<8)),
 		uint64((in[62]-in[61])>>56|((in[63]-in[62])<<4)))
 }
-func deltapack64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_60[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<60)),
 		uint64((in[1]-in[0])>>((4+ntz)&63)|((in[2]-in[1])>>ntz<<56)),
 		uint64((in[2]-in[1])>>((8+ntz)&63)|((in[3]-in[2])>>ntz<<52)),
@@ -4880,8 +4880,8 @@ func deltapack64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((56+ntz)&63)|((in[63]-in[62])>>ntz<<4)))
 }
 
-func deltapack64_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_61[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<61)),
 		uint64((in[1]-in[0])>>3|((in[2]-in[1])<<58)),
 		uint64((in[2]-in[1])>>6|((in[3]-in[2])<<55)),
@@ -4944,9 +4944,9 @@ func deltapack64_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>55|((in[62]-in[61])<<6)),
 		uint64((in[62]-in[61])>>58|((in[63]-in[62])<<3)))
 }
-func deltapack64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_61[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<61)),
 		uint64((in[1]-in[0])>>((3+ntz)&63)|((in[2]-in[1])>>ntz<<58)),
 		uint64((in[2]-in[1])>>((6+ntz)&63)|((in[3]-in[2])>>ntz<<55)),
@@ -5010,8 +5010,8 @@ func deltapack64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((58+ntz)&63)|((in[63]-in[62])>>ntz<<3)))
 }
 
-func deltapack64_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_62[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<62)),
 		uint64((in[1]-in[0])>>2|((in[2]-in[1])<<60)),
 		uint64((in[2]-in[1])>>4|((in[3]-in[2])<<58)),
@@ -5075,9 +5075,9 @@ func deltapack64_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>58|((in[62]-in[61])<<4)),
 		uint64((in[62]-in[61])>>60|((in[63]-in[62])<<2)))
 }
-func deltapack64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_62[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<62)),
 		uint64((in[1]-in[0])>>((2+ntz)&63)|((in[2]-in[1])>>ntz<<60)),
 		uint64((in[2]-in[1])>>((4+ntz)&63)|((in[3]-in[2])>>ntz<<58)),
@@ -5142,8 +5142,8 @@ func deltapack64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64,
 		uint64((in[62]-in[61])>>((60+ntz)&63)|((in[63]-in[62])>>ntz<<2)))
 }
 
-func deltapack64_63[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroup64_63[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(in[0]-initoffset|((in[1]-in[0])<<63)),
 		uint64((in[1]-in[0])>>1|((in[2]-in[1])<<62)),
 		uint64((in[2]-in[1])>>2|((in[3]-in[2])<<61)),
@@ -5208,9 +5208,9 @@ func deltapack64_63[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []u
 		uint64((in[61]-in[60])>>61|((in[62]-in[61])<<2)),
 		uint64((in[62]-in[61])>>62|((in[63]-in[62])<<1)))
 }
-func deltapack64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroup64_ntz_63[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((in[0]-initoffset)>>ntz|((in[1]-in[0])>>ntz<<63)),
 		uint64((in[1]-in[0])>>((1+ntz)&63)|((in[2]-in[1])>>ntz<<62)),
 		uint64((in[2]-in[1])>>((2+ntz)&63)|((in[3]-in[2])>>ntz<<61)),
@@ -13862,324 +13862,324 @@ func appendGroupZigZag_int64(dst []uint64, in *[64]int64, initoffset int64, ntz,
 	switch bitlen - ntz {
 	case 0:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_0(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_0(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_0(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_0(dst, in, initoffset)
 	case 1:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_1(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_1(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_1(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_1(dst, in, initoffset)
 	case 2:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_2(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_2(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_2(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_2(dst, in, initoffset)
 	case 3:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_3(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_3(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_3(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_3(dst, in, initoffset)
 	case 4:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_4(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_4(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_4(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_4(dst, in, initoffset)
 	case 5:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_5(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_5(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_5(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_5(dst, in, initoffset)
 	case 6:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_6(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_6(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_6(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_6(dst, in, initoffset)
 	case 7:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_7(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_7(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_7(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_7(dst, in, initoffset)
 	case 8:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_8(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_8(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_8(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_8(dst, in, initoffset)
 	case 9:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_9(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_9(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_9(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_9(dst, in, initoffset)
 	case 10:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_10(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_10(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_10(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_10(dst, in, initoffset)
 	case 11:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_11(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_11(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_11(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_11(dst, in, initoffset)
 	case 12:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_12(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_12(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_12(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_12(dst, in, initoffset)
 	case 13:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_13(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_13(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_13(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_13(dst, in, initoffset)
 	case 14:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_14(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_14(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_14(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_14(dst, in, initoffset)
 	case 15:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_15(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_15(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_15(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_15(dst, in, initoffset)
 	case 16:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_16(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_16(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_16(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_16(dst, in, initoffset)
 	case 17:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_17(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_17(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_17(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_17(dst, in, initoffset)
 	case 18:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_18(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_18(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_18(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_18(dst, in, initoffset)
 	case 19:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_19(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_19(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_19(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_19(dst, in, initoffset)
 	case 20:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_20(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_20(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_20(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_20(dst, in, initoffset)
 	case 21:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_21(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_21(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_21(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_21(dst, in, initoffset)
 	case 22:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_22(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_22(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_22(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_22(dst, in, initoffset)
 	case 23:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_23(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_23(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_23(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_23(dst, in, initoffset)
 	case 24:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_24(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_24(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_24(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_24(dst, in, initoffset)
 	case 25:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_25(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_25(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_25(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_25(dst, in, initoffset)
 	case 26:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_26(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_26(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_26(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_26(dst, in, initoffset)
 	case 27:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_27(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_27(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_27(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_27(dst, in, initoffset)
 	case 28:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_28(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_28(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_28(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_28(dst, in, initoffset)
 	case 29:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_29(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_29(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_29(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_29(dst, in, initoffset)
 	case 30:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_30(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_30(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_30(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_30(dst, in, initoffset)
 	case 31:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_31(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_31(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_31(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_31(dst, in, initoffset)
 	case 32:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_32(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_32(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_32(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_32(dst, in, initoffset)
 	case 33:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_33(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_33(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_33(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_33(dst, in, initoffset)
 	case 34:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_34(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_34(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_34(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_34(dst, in, initoffset)
 	case 35:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_35(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_35(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_35(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_35(dst, in, initoffset)
 	case 36:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_36(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_36(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_36(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_36(dst, in, initoffset)
 	case 37:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_37(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_37(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_37(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_37(dst, in, initoffset)
 	case 38:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_38(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_38(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_38(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_38(dst, in, initoffset)
 	case 39:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_39(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_39(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_39(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_39(dst, in, initoffset)
 	case 40:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_40(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_40(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_40(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_40(dst, in, initoffset)
 	case 41:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_41(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_41(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_41(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_41(dst, in, initoffset)
 	case 42:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_42(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_42(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_42(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_42(dst, in, initoffset)
 	case 43:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_43(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_43(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_43(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_43(dst, in, initoffset)
 	case 44:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_44(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_44(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_44(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_44(dst, in, initoffset)
 	case 45:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_45(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_45(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_45(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_45(dst, in, initoffset)
 	case 46:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_46(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_46(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_46(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_46(dst, in, initoffset)
 	case 47:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_47(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_47(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_47(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_47(dst, in, initoffset)
 	case 48:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_48(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_48(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_48(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_48(dst, in, initoffset)
 	case 49:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_49(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_49(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_49(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_49(dst, in, initoffset)
 	case 50:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_50(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_50(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_50(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_50(dst, in, initoffset)
 	case 51:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_51(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_51(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_51(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_51(dst, in, initoffset)
 	case 52:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_52(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_52(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_52(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_52(dst, in, initoffset)
 	case 53:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_53(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_53(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_53(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_53(dst, in, initoffset)
 	case 54:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_54(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_54(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_54(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_54(dst, in, initoffset)
 	case 55:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_55(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_55(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_55(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_55(dst, in, initoffset)
 	case 56:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_56(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_56(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_56(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_56(dst, in, initoffset)
 	case 57:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_57(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_57(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_57(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_57(dst, in, initoffset)
 	case 58:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_58(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_58(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_58(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_58(dst, in, initoffset)
 	case 59:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_59(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_59(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_59(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_59(dst, in, initoffset)
 	case 60:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_60(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_60(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_60(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_60(dst, in, initoffset)
 	case 61:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_61(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_61(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_61(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_61(dst, in, initoffset)
 	case 62:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_62(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_62(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_62(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_62(dst, in, initoffset)
 	case 63:
 		if ntz > 0 {
-			return deltapackzigzag64_ntz_63(initoffset, in, dst, ntz)
+			return appendGroupZigZag64_ntz_63(dst, in, initoffset, ntz)
 		}
-		return deltapackzigzag64_63(initoffset, (*[64]int64)(in), dst)
+		return appendGroupZigZag64_63(dst, in, initoffset)
 	case 64:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -14582,77 +14582,77 @@ func deltaUnpackZigzag_int64(initoffset int64, in []uint64, out []int64, ntz, bi
 	}
 }
 
-func deltapackzigzag64_0[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out)
+func appendGroupZigZag64_0[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst)
 }
-func deltapackzigzag64_ntz_0[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_0[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out)
+	return append(dst)
 }
 
-func deltapackzigzag64_1[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_1[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<1)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<2)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<3)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<5)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<6)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<7)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<9)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<10)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<11)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<12)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<13)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<14)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<15)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<17)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<18)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<19)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<20)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<21)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<22)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<23)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<24)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<25)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<26)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<27)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<28)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<29)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<30)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<31)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))<<33)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))<<34)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))<<35)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))<<36)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))<<37)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))<<38)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))<<39)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))<<40)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))<<41)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))<<42)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<43)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<44)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<45)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<46)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<47)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<48)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<49)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<50)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<51)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<52)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<53)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<54)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<55)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<56)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<57)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<58)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<59)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<60)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<61)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<62)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<63)))
 }
-func deltapackzigzag64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_1[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<1)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<2)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<3)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<5)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<6)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<7)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<9)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<10)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<11)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<12)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<13)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<14)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<15)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<17)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<18)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<19)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<20)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<21)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<22)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<23)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<24)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<25)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<26)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<27)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<28)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<29)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<30)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<31)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))>>ntz<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))>>ntz<<33)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))>>ntz<<34)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))>>ntz<<35)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))>>ntz<<36)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))>>ntz<<37)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>ntz<<38)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))>>ntz<<39)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))>>ntz<<40)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))>>ntz<<41)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>ntz<<42)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))>>ntz<<43)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))>>ntz<<44)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))>>ntz<<45)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))>>ntz<<46)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))>>ntz<<47)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))>>ntz<<48)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))>>ntz<<49)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))>>ntz<<50)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>ntz<<51)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>ntz<<52)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>ntz<<53)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<54)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<55)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<56)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<57)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<58)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<59)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<60)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<61)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<62)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<63)))
 }
 
-func deltapackzigzag64_2[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_2[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<2)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<4)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<6)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<10)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<12)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<14)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<18)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<20)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<22)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<24)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<26)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<28)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<30)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<34)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<36)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<38)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<40)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<42)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<44)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<46)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<48)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<50)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<52)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<54)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<56)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<58)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<60)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<62)),
 		uint64(((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))<<2)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))<<4)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))<<6)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))<<8)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))<<10)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))<<12)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))<<14)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))<<16)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))<<18)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))<<20)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<22)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<24)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<26)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<28)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<30)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<32)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<34)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<36)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<38)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<40)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<42)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<44)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<46)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<48)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<50)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<52)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<54)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<56)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<58)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<60)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<62)))
 }
-func deltapackzigzag64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_2[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<2)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<4)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<6)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<10)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<12)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<14)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<18)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<20)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<22)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<24)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<26)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<28)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<30)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<34)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<36)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<38)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<40)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<42)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<44)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<46)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<48)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<50)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<52)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<54)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<56)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<58)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<60)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<62)),
 		uint64((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))>>ntz|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))>>ntz<<2)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))>>ntz<<4)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))>>ntz<<6)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))>>ntz<<8)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))>>ntz<<10)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>ntz<<12)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))>>ntz<<14)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))>>ntz<<16)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))>>ntz<<18)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>ntz<<20)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))>>ntz<<22)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))>>ntz<<24)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))>>ntz<<26)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))>>ntz<<28)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))>>ntz<<30)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))>>ntz<<32)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))>>ntz<<34)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))>>ntz<<36)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>ntz<<38)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>ntz<<40)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>ntz<<42)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<44)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<46)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<48)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<50)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<52)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<54)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<56)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<58)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<60)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<62)))
 }
 
-func deltapackzigzag64_3[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_3[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<3)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<6)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<9)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<15)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<18)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<21)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<27)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<30)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<33)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<36)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<39)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<42)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<45)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<51)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<54)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<57)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<60)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<63)),
 		uint64((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>1|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<2)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<5)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<8)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<11)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<14)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<17)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<20)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<23)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<26)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<29)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))<<35)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))<<38)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))<<41)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))<<44)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))<<47)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))<<50)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))<<53)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))<<56)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))<<59)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))<<62)),
 		uint64((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>2|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<1)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<4)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<7)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<10)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<13)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<16)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<19)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<22)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<25)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<28)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<31)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<34)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<37)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<40)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<43)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<46)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<49)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<52)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<55)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<58)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<61)))
 }
-func deltapackzigzag64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_3[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<3)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<6)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<9)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<15)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<18)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<21)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<27)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<30)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<33)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<36)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<39)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<42)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<45)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<51)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<54)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<57)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<60)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<63)),
 		uint64((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>((1+ntz)&63)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<2)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<5)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<8)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<11)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<14)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<17)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<20)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<23)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<26)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<29)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))>>ntz<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))>>ntz<<35)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))>>ntz<<38)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))>>ntz<<41)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))>>ntz<<44)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))>>ntz<<47)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>ntz<<50)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))>>ntz<<53)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))>>ntz<<56)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))>>ntz<<59)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>ntz<<62)),
 		uint64((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>((2+ntz)&63)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))>>ntz<<1)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))>>ntz<<4)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))>>ntz<<7)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))>>ntz<<10)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))>>ntz<<13)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))>>ntz<<16)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))>>ntz<<19)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))>>ntz<<22)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>ntz<<25)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>ntz<<28)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>ntz<<31)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<34)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<37)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<40)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<43)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<46)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<49)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<52)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<55)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<58)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<61)))
 }
 
-func deltapackzigzag64_4[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_4[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<4)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<8)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<12)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<20)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<24)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<28)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<36)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<40)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<44)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<48)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<52)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<56)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<60)),
 		uint64(((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<4)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<8)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<12)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<16)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<20)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<24)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<28)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<32)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<36)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<40)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<44)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<48)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<52)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<56)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<60)),
 		uint64(((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))<<4)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))<<8)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))<<12)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))<<16)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))<<20)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))<<24)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))<<28)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))<<32)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))<<36)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))<<40)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<44)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<48)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<52)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<56)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<60)),
 		uint64(((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<4)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<8)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<12)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<16)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<20)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<24)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<28)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<32)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<36)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<40)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<44)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<48)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<52)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<56)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<60)))
 }
-func deltapackzigzag64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_4[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<4)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<8)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<12)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<20)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<24)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<28)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<36)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<40)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<44)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<48)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<52)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<56)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<60)),
 		uint64((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<4)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<8)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<12)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<16)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<20)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<24)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<28)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<32)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<36)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<40)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<44)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<48)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<52)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<56)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<60)),
 		uint64((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))>>ntz|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))>>ntz<<4)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))>>ntz<<8)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))>>ntz<<12)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))>>ntz<<16)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))>>ntz<<20)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>ntz<<24)|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))>>ntz<<28)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))>>ntz<<32)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))>>ntz<<36)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>ntz<<40)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))>>ntz<<44)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))>>ntz<<48)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))>>ntz<<52)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))>>ntz<<56)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))>>ntz<<60)),
 		uint64((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))>>ntz|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))>>ntz<<4)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))>>ntz<<8)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>ntz<<12)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>ntz<<16)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>ntz<<20)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<24)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<28)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<32)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<36)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<40)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<44)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<48)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<52)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<56)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<60)))
 }
 
-func deltapackzigzag64_5[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_5[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<5)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<10)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<15)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<25)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<30)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<35)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<45)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<50)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<55)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<60)),
 		uint64((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>4|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<1)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<6)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<11)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<21)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<26)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<31)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<36)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<41)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<46)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<51)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<56)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<61)),
 		uint64((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>3|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<2)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<7)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<12)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<17)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<22)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<27)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))<<37)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))<<42)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))<<47)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))<<52)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))<<57)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))<<62)),
 		uint64((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>2|((((int64(in[39]-in[38]))<<1)^((int64(in[39]-in[38]))>>63))<<3)|((((int64(in[40]-in[39]))<<1)^((int64(in[40]-in[39]))>>63))<<8)|((((int64(in[41]-in[40]))<<1)^((int64(in[41]-in[40]))>>63))<<13)|((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))<<18)|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<23)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<28)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<33)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<38)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<43)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<48)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<53)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<58)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<63)),
 		uint64((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>1|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<4)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<9)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<14)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<19)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<24)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<29)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<34)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<39)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<44)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<49)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<54)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<59)))
 }
-func deltapackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_5[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<5)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<10)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<15)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<25)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<30)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<35)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<45)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<50)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<55)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<60)),
 		uint64((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>((4+ntz)&63)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<1)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<6)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<11)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<21)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<26)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<31)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<36)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<41)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<46)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<51)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<56)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<61)),
 		uint64((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>((3+ntz)&63)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<2)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<7)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<12)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<17)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<22)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<27)|((((int64(in[32]-in[31]))<<1)^((int64(in[32]-in[31]))>>63))>>ntz<<32)|((((int64(in[33]-in[32]))<<1)^((int64(in[33]-in[32]))>>63))>>ntz<<37)|((((int64(in[34]-in[33]))<<1)^((int64(in[34]-in[33]))>>63))>>ntz<<42)|((((int64(in[35]-in[34]))<<1)^((int64(in[35]-in[34]))>>63))>>ntz<<47)|((((int64(in[36]-in[35]))<<1)^((int64(in[36]-in[35]))>>63))>>ntz<<52)|((((int64(in[37]-in[36]))<<1)^((int64(in[37]-in[36]))>>63))>>ntz<<57)|((((int64(in[38]-in[37]))<<1)^((int64(in[38]-in[37]))>>63))>>ntz<<62)),
@@ -14660,8 +14660,8 @@ func deltapackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out []ui
 		uint64((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>((1+ntz)&63)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>ntz<<4)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>ntz<<9)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<14)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<19)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<24)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<29)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<34)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<39)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<44)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<49)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<54)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<59)))
 }
 
-func deltapackzigzag64_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_6[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<6)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<12)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<18)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<30)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<36)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<42)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<48)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<54)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<60)),
 		uint64((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>4|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<2)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<8)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<14)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<20)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<26)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<38)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<44)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<50)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<56)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<62)),
 		uint64((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>2|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<4)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<10)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<16)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<22)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<28)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<34)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))<<40)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))<<46)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))<<52)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))<<58)),
@@ -14669,9 +14669,9 @@ func deltapackzigzag64_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64
 		uint64((((int64(in[42]-in[41]))<<1)^((int64(in[42]-in[41]))>>63))>>4|((((int64(in[43]-in[42]))<<1)^((int64(in[43]-in[42]))>>63))<<2)|((((int64(in[44]-in[43]))<<1)^((int64(in[44]-in[43]))>>63))<<8)|((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))<<14)|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<20)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<26)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<32)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<38)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<44)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<50)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<56)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<62)),
 		uint64((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>2|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<4)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<10)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<16)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<22)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<28)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<34)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<40)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<46)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<52)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<58)))
 }
-func deltapackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_6[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<6)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<12)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<18)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<30)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<36)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<42)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<48)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<54)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<60)),
 		uint64((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>((4+ntz)&63)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<2)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<8)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<14)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<20)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<26)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<38)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<44)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<50)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<56)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<62)),
 		uint64((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>((2+ntz)&63)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<4)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<10)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<16)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<22)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<28)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<34)|((((int64(in[28]-in[27]))<<1)^((int64(in[28]-in[27]))>>63))>>ntz<<40)|((((int64(in[29]-in[28]))<<1)^((int64(in[29]-in[28]))>>63))>>ntz<<46)|((((int64(in[30]-in[29]))<<1)^((int64(in[30]-in[29]))>>63))>>ntz<<52)|((((int64(in[31]-in[30]))<<1)^((int64(in[31]-in[30]))>>63))>>ntz<<58)),
@@ -14680,8 +14680,8 @@ func deltapackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out []ui
 		uint64((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>((2+ntz)&63)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>ntz<<4)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<10)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<16)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<22)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<28)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<34)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<40)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<46)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<52)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<58)))
 }
 
-func deltapackzigzag64_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_7[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<7)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<14)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<21)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<28)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<35)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<42)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<49)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<56)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<63)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>1|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<6)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<13)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<20)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<27)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<34)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<41)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<55)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<62)),
 		uint64((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>2|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<5)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<12)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<19)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<26)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<33)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))<<40)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))<<47)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))<<54)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))<<61)),
@@ -14690,9 +14690,9 @@ func deltapackzigzag64_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64
 		uint64((((int64(in[45]-in[44]))<<1)^((int64(in[45]-in[44]))>>63))>>5|((((int64(in[46]-in[45]))<<1)^((int64(in[46]-in[45]))>>63))<<2)|((((int64(in[47]-in[46]))<<1)^((int64(in[47]-in[46]))>>63))<<9)|((((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63))<<16)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<23)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<30)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<37)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<44)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<51)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<58)),
 		uint64((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>6|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<1)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<8)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<15)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<22)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<29)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<36)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<43)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<50)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<57)))
 }
-func deltapackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_7[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<7)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<14)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<21)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<28)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<35)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<42)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<49)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<56)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<63)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>((1+ntz)&63)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<6)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<13)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<20)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<27)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<34)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<41)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<55)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<62)),
 		uint64((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>((2+ntz)&63)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<5)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<12)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<19)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<26)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<33)|((((int64(in[24]-in[23]))<<1)^((int64(in[24]-in[23]))>>63))>>ntz<<40)|((((int64(in[25]-in[24]))<<1)^((int64(in[25]-in[24]))>>63))>>ntz<<47)|((((int64(in[26]-in[25]))<<1)^((int64(in[26]-in[25]))>>63))>>ntz<<54)|((((int64(in[27]-in[26]))<<1)^((int64(in[27]-in[26]))>>63))>>ntz<<61)),
@@ -14702,8 +14702,8 @@ func deltapackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out []ui
 		uint64((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>((6+ntz)&63)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>ntz<<1)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz<<8)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<15)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<22)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<29)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<36)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<43)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<50)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<57)))
 }
 
-func deltapackzigzag64_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_8[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<8)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<16)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<24)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<32)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<40)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<48)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<56)),
 		uint64(((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<8)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<16)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<24)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<32)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<40)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<48)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<56)),
 		uint64(((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<8)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<16)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<24)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<32)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<40)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))<<48)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))<<56)),
@@ -14713,9 +14713,9 @@ func deltapackzigzag64_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64
 		uint64(((int64(in[48]-in[47]))<<1)^((int64(in[48]-in[47]))>>63)|((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))<<8)|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<16)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<24)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<32)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<40)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<48)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<56)),
 		uint64(((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<8)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<16)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<24)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<32)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<40)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<48)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<56)))
 }
-func deltapackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_8[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<8)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<16)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<24)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<32)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<40)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<48)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<56)),
 		uint64((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<8)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<16)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<24)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<32)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<40)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<48)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<56)),
 		uint64((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<8)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<16)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<24)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<32)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<40)|((((int64(in[22]-in[21]))<<1)^((int64(in[22]-in[21]))>>63))>>ntz<<48)|((((int64(in[23]-in[22]))<<1)^((int64(in[23]-in[22]))>>63))>>ntz<<56)),
@@ -14726,8 +14726,8 @@ func deltapackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out []ui
 		uint64((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>ntz|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<8)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<16)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<24)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<32)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<40)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<48)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<56)))
 }
 
-func deltapackzigzag64_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_9[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<9)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<18)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<27)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<36)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<45)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<54)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<63)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>1|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<17)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<26)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<35)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<44)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<53)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<62)),
 		uint64((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>2|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<7)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<25)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<34)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<43)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))<<52)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))<<61)),
@@ -14738,9 +14738,9 @@ func deltapackzigzag64_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64
 		uint64((((int64(in[49]-in[48]))<<1)^((int64(in[49]-in[48]))>>63))>>7|((((int64(in[50]-in[49]))<<1)^((int64(in[50]-in[49]))>>63))<<2)|((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))<<11)|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<20)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<29)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<38)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<47)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<56)),
 		uint64((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>8|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<1)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<10)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<19)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<28)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<37)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<46)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<55)))
 }
-func deltapackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_9[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<9)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<18)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<27)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<36)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<45)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<54)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<63)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>((1+ntz)&63)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<17)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<26)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<35)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<44)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<53)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<62)),
 		uint64((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>((2+ntz)&63)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<7)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<16)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<25)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<34)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<43)|((((int64(in[20]-in[19]))<<1)^((int64(in[20]-in[19]))>>63))>>ntz<<52)|((((int64(in[21]-in[20]))<<1)^((int64(in[21]-in[20]))>>63))>>ntz<<61)),
@@ -14752,8 +14752,8 @@ func deltapackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out []ui
 		uint64((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>((8+ntz)&63)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>ntz<<1)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<10)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<19)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<28)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<37)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<46)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<55)))
 }
 
-func deltapackzigzag64_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_10[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<10)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<20)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<30)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<40)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<50)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<60)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>4|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<6)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<26)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<36)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<46)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<56)),
 		uint64((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>8|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<2)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<12)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<22)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<42)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))<<52)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))<<62)),
@@ -14765,9 +14765,9 @@ func deltapackzigzag64_10[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[51]-in[50]))<<1)^((int64(in[51]-in[50]))>>63))>>2|((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))<<8)|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<18)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<28)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<38)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<48)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<58)),
 		uint64((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>6|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<4)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<14)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<24)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<34)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<44)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<54)))
 }
-func deltapackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_10[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<10)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<20)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<30)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<40)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<50)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<60)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>((4+ntz)&63)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<6)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<26)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<36)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<46)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<56)),
 		uint64((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>((8+ntz)&63)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<2)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<12)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<22)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<32)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<42)|((((int64(in[18]-in[17]))<<1)^((int64(in[18]-in[17]))>>63))>>ntz<<52)|((((int64(in[19]-in[18]))<<1)^((int64(in[19]-in[18]))>>63))>>ntz<<62)),
@@ -14780,8 +14780,8 @@ func deltapackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>((6+ntz)&63)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>ntz<<4)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<14)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<24)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<34)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<44)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<54)))
 }
 
-func deltapackzigzag64_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_11[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<11)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<22)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<33)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<44)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<55)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>9|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<2)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<13)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<35)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<46)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<57)),
 		uint64((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>7|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<4)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<15)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<26)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<37)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))<<59)),
@@ -14794,9 +14794,9 @@ func deltapackzigzag64_11[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[52]-in[51]))<<1)^((int64(in[52]-in[51]))>>63))>>4|((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))<<7)|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<18)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<29)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<40)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<51)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<62)),
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>2|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<9)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<20)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<31)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<42)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<53)))
 }
-func deltapackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_11[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<11)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<22)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<33)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<44)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<55)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((9+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<2)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<13)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<35)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<46)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<57)),
 		uint64((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>((7+ntz)&63)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<4)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<15)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<26)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<37)|((((int64(in[16]-in[15]))<<1)^((int64(in[16]-in[15]))>>63))>>ntz<<48)|((((int64(in[17]-in[16]))<<1)^((int64(in[17]-in[16]))>>63))>>ntz<<59)),
@@ -14810,8 +14810,8 @@ func deltapackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>((2+ntz)&63)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<9)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<20)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<31)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<42)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<53)))
 }
 
-func deltapackzigzag64_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_12[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<12)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<24)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<36)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<48)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<60)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>4|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<8)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<20)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<44)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<56)),
 		uint64((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>8|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<4)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<16)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<28)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<40)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))<<52)),
@@ -14825,9 +14825,9 @@ func deltapackzigzag64_12[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[53]-in[52]))<<1)^((int64(in[53]-in[52]))>>63))>>4|((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))<<8)|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<20)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<32)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<44)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<56)),
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>8|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<4)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<16)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<28)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<40)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<52)))
 }
-func deltapackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_12[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<12)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<24)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<36)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<48)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<60)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((4+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<8)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<20)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<44)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<56)),
 		uint64((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>((8+ntz)&63)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<4)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<16)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<28)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<40)|((((int64(in[15]-in[14]))<<1)^((int64(in[15]-in[14]))>>63))>>ntz<<52)),
@@ -14842,8 +14842,8 @@ func deltapackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>((8+ntz)&63)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>ntz<<4)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<16)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<28)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<40)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<52)))
 }
 
-func deltapackzigzag64_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_13[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<13)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<26)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<39)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<52)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>12|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<1)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<14)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<27)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<53)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>11|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<2)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<15)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<28)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<41)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))<<54)),
@@ -14858,9 +14858,9 @@ func deltapackzigzag64_13[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>2|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<11)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<24)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<37)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<50)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<63)),
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>1|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<12)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<25)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<38)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<51)))
 }
-func deltapackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_13[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<13)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<26)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<39)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<52)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((12+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<1)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<14)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<27)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<53)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>((11+ntz)&63)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<2)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<15)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<28)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<41)|((((int64(in[14]-in[13]))<<1)^((int64(in[14]-in[13]))>>63))>>ntz<<54)),
@@ -14876,8 +14876,8 @@ func deltapackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>((1+ntz)&63)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<12)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<25)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<38)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<51)))
 }
 
-func deltapackzigzag64_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_14[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<14)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<28)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<42)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<56)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>8|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<6)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<20)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<34)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<48)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<62)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>2|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<12)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<26)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<40)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))<<54)),
@@ -14893,9 +14893,9 @@ func deltapackzigzag64_14[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[54]-in[53]))<<1)^((int64(in[54]-in[53]))>>63))>>12|((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))<<2)|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<16)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<30)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<44)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<58)),
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>6|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<8)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<22)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<36)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<50)))
 }
-func deltapackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_14[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<14)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<28)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<42)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<56)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((8+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<6)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<20)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<34)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<48)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<62)),
 		uint64((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>((2+ntz)&63)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<12)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<26)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<40)|((((int64(in[13]-in[12]))<<1)^((int64(in[13]-in[12]))>>63))>>ntz<<54)),
@@ -14912,8 +14912,8 @@ func deltapackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>((6+ntz)&63)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<8)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<22)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<36)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<50)))
 }
 
-func deltapackzigzag64_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_15[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<15)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<30)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<45)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<60)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>4|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<11)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<26)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<41)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<56)),
 		uint64((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>8|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<7)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<22)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<37)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))<<52)),
@@ -14930,9 +14930,9 @@ func deltapackzigzag64_15[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[55]-in[54]))<<1)^((int64(in[55]-in[54]))>>63))>>7|((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))<<8)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<23)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<38)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<53)),
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>11|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<4)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<19)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<34)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<49)))
 }
-func deltapackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_15[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<15)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<30)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<45)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<60)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((4+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<11)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<26)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<41)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<56)),
 		uint64((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>((8+ntz)&63)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<7)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<22)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<37)|((((int64(in[12]-in[11]))<<1)^((int64(in[12]-in[11]))>>63))>>ntz<<52)),
@@ -14950,8 +14950,8 @@ func deltapackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>((11+ntz)&63)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz<<4)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<19)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<34)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<49)))
 }
 
-func deltapackzigzag64_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_16[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<16)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<32)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<48)),
 		uint64(((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<16)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<32)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<48)),
 		uint64(((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<16)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<32)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<48)),
@@ -14969,9 +14969,9 @@ func deltapackzigzag64_16[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64(((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63)|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<16)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<32)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<48)),
 		uint64(((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<16)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<32)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<48)))
 }
-func deltapackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_16[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<16)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<32)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<48)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<16)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<32)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<48)),
 		uint64((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<16)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<32)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<48)),
@@ -14990,8 +14990,8 @@ func deltapackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>ntz|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<16)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<32)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<48)))
 }
 
-func deltapackzigzag64_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_17[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<17)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<34)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<51)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>13|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<21)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<38)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<55)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>9|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<25)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<42)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))<<59)),
@@ -15010,9 +15010,9 @@ func deltapackzigzag64_17[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>8|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<9)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<26)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<43)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<60)),
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>4|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<13)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<30)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<47)))
 }
-func deltapackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_17[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<17)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<34)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<51)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((13+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<21)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<38)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<55)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>((9+ntz)&63)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<8)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<25)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<42)|((((int64(in[11]-in[10]))<<1)^((int64(in[11]-in[10]))>>63))>>ntz<<59)),
@@ -15032,8 +15032,8 @@ func deltapackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>((4+ntz)&63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<13)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<30)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<47)))
 }
 
-func deltapackzigzag64_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_18[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<18)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<36)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<54)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>10|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<26)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<44)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<62)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>2|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<34)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<52)),
@@ -15053,9 +15053,9 @@ func deltapackzigzag64_18[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[56]-in[55]))<<1)^((int64(in[56]-in[55]))>>63))>>16|((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))<<2)|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<20)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<38)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<56)),
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>8|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<10)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<28)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<46)))
 }
-func deltapackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_18[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<18)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<36)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<54)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((10+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<26)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<44)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<62)),
 		uint64((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>((2+ntz)&63)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<16)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<34)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<52)),
@@ -15076,8 +15076,8 @@ func deltapackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>((8+ntz)&63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<10)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<28)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<46)))
 }
 
-func deltapackzigzag64_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_19[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<19)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<38)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<57)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>7|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<31)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<50)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>14|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<5)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<43)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))<<62)),
@@ -15098,9 +15098,9 @@ func deltapackzigzag64_19[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>5|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<14)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<33)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<52)),
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>12|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<7)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<26)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<45)))
 }
-func deltapackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_19[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<19)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<38)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<57)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((7+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<31)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<50)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>((14+ntz)&63)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<5)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<24)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<43)|((((int64(in[10]-in[9]))<<1)^((int64(in[10]-in[9]))>>63))>>ntz<<62)),
@@ -15122,8 +15122,8 @@ func deltapackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>((12+ntz)&63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<7)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<26)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<45)))
 }
 
-func deltapackzigzag64_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_20[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<20)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<40)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<60)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>4|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<36)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<56)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>8|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<12)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<52)),
@@ -15145,9 +15145,9 @@ func deltapackzigzag64_20[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>12|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<8)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<28)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<48)),
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>16|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<4)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<24)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<44)))
 }
-func deltapackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_20[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<20)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<40)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<60)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((4+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<36)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<56)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>((8+ntz)&63)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<12)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<32)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<52)),
@@ -15170,8 +15170,8 @@ func deltapackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>((16+ntz)&63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<4)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<24)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<44)))
 }
 
-func deltapackzigzag64_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_21[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<21)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<42)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<63)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>1|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<41)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<62)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>2|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<19)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))<<61)),
@@ -15194,9 +15194,9 @@ func deltapackzigzag64_21[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[57]-in[56]))<<1)^((int64(in[57]-in[56]))>>63))>>19|((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))<<2)|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<23)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<44)),
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>20|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<1)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<22)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<43)))
 }
-func deltapackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_21[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<21)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<42)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<63)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((1+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<41)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<62)),
 		uint64((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>((2+ntz)&63)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<19)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<40)|((((int64(in[9]-in[8]))<<1)^((int64(in[9]-in[8]))>>63))>>ntz<<61)),
@@ -15220,8 +15220,8 @@ func deltapackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>((20+ntz)&63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>ntz<<1)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<22)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<43)))
 }
 
-func deltapackzigzag64_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_22[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<22)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<44)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>20|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<2)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<46)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>18|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<4)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<26)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<48)),
@@ -15245,9 +15245,9 @@ func deltapackzigzag64_22[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>4|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<18)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<40)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<62)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>2|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<20)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<42)))
 }
-func deltapackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_22[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<22)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<44)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((20+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<2)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<46)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((18+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<4)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<26)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<48)),
@@ -15272,8 +15272,8 @@ func deltapackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((2+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<20)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<42)))
 }
 
-func deltapackzigzag64_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_23[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<23)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<46)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>18|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<5)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<28)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<51)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>13|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<10)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<33)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))<<56)),
@@ -15298,9 +15298,9 @@ func deltapackzigzag64_23[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>10|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<13)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<36)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<59)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>5|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<18)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<41)))
 }
-func deltapackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_23[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<23)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<46)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((18+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<5)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<28)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<51)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((13+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<10)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<33)|((((int64(in[8]-in[7]))<<1)^((int64(in[8]-in[7]))>>63))>>ntz<<56)),
@@ -15326,8 +15326,8 @@ func deltapackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((5+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<18)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<41)))
 }
 
-func deltapackzigzag64_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_24[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<24)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<48)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>16|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<8)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<32)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<56)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>8|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<16)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<40)),
@@ -15353,9 +15353,9 @@ func deltapackzigzag64_24[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>16|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<8)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<32)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<56)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>8|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<16)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<40)))
 }
-func deltapackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_24[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<24)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<48)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((16+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<8)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<32)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<56)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((8+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<16)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<40)),
@@ -15382,8 +15382,8 @@ func deltapackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((8+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<16)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<40)))
 }
 
-func deltapackzigzag64_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_25[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<25)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<50)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>14|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<11)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<36)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<61)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>3|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<22)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<47)),
@@ -15410,9 +15410,9 @@ func deltapackzigzag64_25[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[58]-in[57]))<<1)^((int64(in[58]-in[57]))>>63))>>22|((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))<<3)|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<28)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<53)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>11|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<14)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<39)))
 }
-func deltapackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_25[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<25)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<50)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((14+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<11)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<36)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<61)),
 		uint64((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>((3+ntz)&63)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<22)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<47)),
@@ -15440,8 +15440,8 @@ func deltapackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((11+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<14)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<39)))
 }
 
-func deltapackzigzag64_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_26[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<26)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<52)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>12|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<14)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<40)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>24|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<2)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<28)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<54)),
@@ -15469,9 +15469,9 @@ func deltapackzigzag64_26[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>2|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<24)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<50)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>14|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<12)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<38)))
 }
-func deltapackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_26[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<26)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<52)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((12+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<14)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<40)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((24+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<2)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<28)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<54)),
@@ -15500,8 +15500,8 @@ func deltapackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((14+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<12)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<38)))
 }
 
-func deltapackzigzag64_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_27[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<27)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<54)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>10|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<17)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<44)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>20|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<7)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<34)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))<<61)),
@@ -15530,9 +15530,9 @@ func deltapackzigzag64_27[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>7|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<20)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<47)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>17|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<10)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<37)))
 }
-func deltapackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_27[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<27)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<54)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((10+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<17)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<44)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((20+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<7)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<34)|((((int64(in[7]-in[6]))<<1)^((int64(in[7]-in[6]))>>63))>>ntz<<61)),
@@ -15562,8 +15562,8 @@ func deltapackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((17+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<10)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<37)))
 }
 
-func deltapackzigzag64_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_28[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<28)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<56)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>8|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<20)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<48)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>16|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<12)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<40)),
@@ -15593,9 +15593,9 @@ func deltapackzigzag64_28[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>12|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<16)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<44)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>20|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<8)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<36)))
 }
-func deltapackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_28[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<28)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<56)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((8+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<20)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<48)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((16+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<12)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<40)),
@@ -15626,8 +15626,8 @@ func deltapackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((20+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<8)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<36)))
 }
 
-func deltapackzigzag64_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_29[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<29)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<58)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>6|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<23)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<52)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>12|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<17)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<46)),
@@ -15658,9 +15658,9 @@ func deltapackzigzag64_29[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>17|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<12)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<41)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>23|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<6)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<35)))
 }
-func deltapackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_29[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<29)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<58)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((6+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<23)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<52)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((12+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<17)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<46)),
@@ -15692,8 +15692,8 @@ func deltapackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((23+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<6)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<35)))
 }
 
-func deltapackzigzag64_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_30[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<30)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<60)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>4|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<26)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<56)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>8|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<22)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<52)),
@@ -15725,9 +15725,9 @@ func deltapackzigzag64_30[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>22|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<8)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<38)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>26|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<4)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<34)))
 }
-func deltapackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_30[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<30)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<60)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((4+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<26)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<56)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((8+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<22)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<52)),
@@ -15760,8 +15760,8 @@ func deltapackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((26+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<4)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<34)))
 }
 
-func deltapackzigzag64_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_31[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<31)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<62)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>2|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<29)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<60)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>4|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<27)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))<<58)),
@@ -15794,9 +15794,9 @@ func deltapackzigzag64_31[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[59]-in[58]))<<1)^((int64(in[59]-in[58]))>>63))>>27|((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))<<4)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<35)),
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>29|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<2)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<33)))
 }
-func deltapackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_31[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<31)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<62)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((2+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<29)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<60)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>((4+ntz)&63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<27)|((((int64(in[6]-in[5]))<<1)^((int64(in[6]-in[5]))>>63))>>ntz<<58)),
@@ -15830,8 +15830,8 @@ func deltapackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>((29+ntz)&63)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz<<2)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<33)))
 }
 
-func deltapackzigzag64_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_32[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<32)),
 		uint64(((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<32)),
 		uint64(((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<32)),
@@ -15865,9 +15865,9 @@ func deltapackzigzag64_32[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64(((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63)|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<32)),
 		uint64(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<32)))
 }
-func deltapackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_32[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<32)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<32)),
 		uint64((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<32)),
@@ -15902,8 +15902,8 @@ func deltapackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>ntz|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<32)))
 }
 
-func deltapackzigzag64_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_33[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<33)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>31|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<2)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<35)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>29|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<37)),
@@ -15938,9 +15938,9 @@ func deltapackzigzag64_33[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>4|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<29)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<62)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>2|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<31)))
 }
-func deltapackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_33[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<33)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((31+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<2)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<35)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((29+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<4)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<37)),
@@ -15976,8 +15976,8 @@ func deltapackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((2+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<31)))
 }
 
-func deltapackzigzag64_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_34[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<34)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>30|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<4)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<38)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>26|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<42)),
@@ -16013,9 +16013,9 @@ func deltapackzigzag64_34[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>8|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<26)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<60)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>4|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<30)))
 }
-func deltapackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_34[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<34)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((30+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<4)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<38)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((26+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<8)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<42)),
@@ -16052,8 +16052,8 @@ func deltapackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((4+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<30)))
 }
 
-func deltapackzigzag64_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_35[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<35)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>29|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<6)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<41)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>23|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<47)),
@@ -16090,9 +16090,9 @@ func deltapackzigzag64_35[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>12|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<23)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<58)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>6|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<29)))
 }
-func deltapackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_35[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<35)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((29+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<6)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<41)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((23+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<12)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<47)),
@@ -16130,8 +16130,8 @@ func deltapackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((6+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<29)))
 }
 
-func deltapackzigzag64_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_36[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<36)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>28|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<8)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<44)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>20|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<52)),
@@ -16169,9 +16169,9 @@ func deltapackzigzag64_36[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>16|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<20)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<56)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>8|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<28)))
 }
-func deltapackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_36[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<36)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((28+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<8)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<44)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((20+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<16)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<52)),
@@ -16210,8 +16210,8 @@ func deltapackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((8+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<28)))
 }
 
-func deltapackzigzag64_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_37[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<37)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>27|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<10)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<47)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>17|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<57)),
@@ -16250,9 +16250,9 @@ func deltapackzigzag64_37[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>20|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<17)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<54)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>10|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<27)))
 }
-func deltapackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_37[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<37)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((27+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<10)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<47)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((17+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<20)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<57)),
@@ -16292,8 +16292,8 @@ func deltapackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((10+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<27)))
 }
 
-func deltapackzigzag64_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_38[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<38)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>26|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<12)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<50)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>14|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))<<62)),
@@ -16333,9 +16333,9 @@ func deltapackzigzag64_38[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>24|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<14)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<52)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>12|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<26)))
 }
-func deltapackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_38[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<38)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((26+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<12)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<50)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((14+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<24)|((((int64(in[5]-in[4]))<<1)^((int64(in[5]-in[4]))>>63))>>ntz<<62)),
@@ -16376,8 +16376,8 @@ func deltapackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((12+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<26)))
 }
 
-func deltapackzigzag64_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_39[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<39)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>25|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<14)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<53)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>11|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<28)),
@@ -16418,9 +16418,9 @@ func deltapackzigzag64_39[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>28|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<11)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<50)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>14|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<25)))
 }
-func deltapackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_39[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<39)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((25+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<14)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<53)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((11+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<28)),
@@ -16462,8 +16462,8 @@ func deltapackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((14+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<25)))
 }
 
-func deltapackzigzag64_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_40[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<40)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>24|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<16)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<56)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>8|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<32)),
@@ -16505,9 +16505,9 @@ func deltapackzigzag64_40[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>32|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<8)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<48)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>16|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<24)))
 }
-func deltapackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_40[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<40)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((24+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<16)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<56)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((8+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<32)),
@@ -16550,8 +16550,8 @@ func deltapackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((16+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<24)))
 }
 
-func deltapackzigzag64_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_41[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<41)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>23|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<18)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<59)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>5|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<36)),
@@ -16594,9 +16594,9 @@ func deltapackzigzag64_41[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>36|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<5)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<46)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>18|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<23)))
 }
-func deltapackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_41[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<41)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((23+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<18)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<59)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((5+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<36)),
@@ -16640,8 +16640,8 @@ func deltapackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((18+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<23)))
 }
 
-func deltapackzigzag64_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_42[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<42)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>22|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<20)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<62)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>2|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<40)),
@@ -16685,9 +16685,9 @@ func deltapackzigzag64_42[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[60]-in[59]))<<1)^((int64(in[60]-in[59]))>>63))>>40|((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))<<2)|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<44)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>20|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<22)))
 }
-func deltapackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_42[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<42)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((22+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<20)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<62)),
 		uint64((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>((2+ntz)&63)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<40)),
@@ -16732,8 +16732,8 @@ func deltapackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((20+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<22)))
 }
 
-func deltapackzigzag64_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_43[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<43)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>21|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<22)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>42|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<1)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<44)),
@@ -16778,9 +16778,9 @@ func deltapackzigzag64_43[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>1|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<42)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>22|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<21)))
 }
-func deltapackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_43[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<43)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((21+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<22)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((42+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<1)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<44)),
@@ -16826,8 +16826,8 @@ func deltapackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((22+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<21)))
 }
 
-func deltapackzigzag64_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_44[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<44)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>20|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<24)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>40|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<4)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<48)),
@@ -16873,9 +16873,9 @@ func deltapackzigzag64_44[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>4|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<40)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>24|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<20)))
 }
-func deltapackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_44[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<44)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((20+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<24)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((40+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<4)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<48)),
@@ -16922,8 +16922,8 @@ func deltapackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((24+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<20)))
 }
 
-func deltapackzigzag64_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_45[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<45)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>19|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<26)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>38|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<7)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<52)),
@@ -16970,9 +16970,9 @@ func deltapackzigzag64_45[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>7|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<38)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>26|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<19)))
 }
-func deltapackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_45[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<45)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((19+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<26)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((38+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<7)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<52)),
@@ -17020,8 +17020,8 @@ func deltapackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((26+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<19)))
 }
 
-func deltapackzigzag64_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_46[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<46)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>18|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<28)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>36|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<10)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<56)),
@@ -17069,9 +17069,9 @@ func deltapackzigzag64_46[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>10|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<36)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>28|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<18)))
 }
-func deltapackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_46[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<46)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((18+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<28)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((36+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<10)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<56)),
@@ -17120,8 +17120,8 @@ func deltapackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((28+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<18)))
 }
 
-func deltapackzigzag64_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_47[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<47)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>17|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<30)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>34|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<13)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))<<60)),
@@ -17170,9 +17170,9 @@ func deltapackzigzag64_47[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>13|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<34)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>30|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<17)))
 }
-func deltapackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_47[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<47)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((17+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<30)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((34+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<13)|((((int64(in[4]-in[3]))<<1)^((int64(in[4]-in[3]))>>63))>>ntz<<60)),
@@ -17222,8 +17222,8 @@ func deltapackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((30+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<17)))
 }
 
-func deltapackzigzag64_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_48[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<48)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>16|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<32)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>32|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<16)),
@@ -17273,9 +17273,9 @@ func deltapackzigzag64_48[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>16|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<32)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>32|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<16)))
 }
-func deltapackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_48[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<48)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((16+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<32)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((32+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<16)),
@@ -17326,8 +17326,8 @@ func deltapackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((32+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<16)))
 }
 
-func deltapackzigzag64_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_49[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<49)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>15|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<34)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>30|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<19)),
@@ -17378,9 +17378,9 @@ func deltapackzigzag64_49[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>19|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<30)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>34|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<15)))
 }
-func deltapackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_49[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<49)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((15+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<34)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((30+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<19)),
@@ -17432,8 +17432,8 @@ func deltapackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((34+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<15)))
 }
 
-func deltapackzigzag64_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_50[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<50)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>14|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<36)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>28|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<22)),
@@ -17485,9 +17485,9 @@ func deltapackzigzag64_50[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>22|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<28)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>36|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<14)))
 }
-func deltapackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_50[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<50)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((14+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<36)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((28+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<22)),
@@ -17540,8 +17540,8 @@ func deltapackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((36+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<14)))
 }
 
-func deltapackzigzag64_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_51[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<51)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>13|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<38)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>26|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<25)),
@@ -17594,9 +17594,9 @@ func deltapackzigzag64_51[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>25|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<26)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>38|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<13)))
 }
-func deltapackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_51[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<51)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((13+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<38)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((26+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<25)),
@@ -17650,8 +17650,8 @@ func deltapackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((38+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<13)))
 }
 
-func deltapackzigzag64_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_52[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<52)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>12|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<40)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>24|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<28)),
@@ -17705,9 +17705,9 @@ func deltapackzigzag64_52[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>28|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<24)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>40|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<12)))
 }
-func deltapackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_52[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<52)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((12+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<40)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((24+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<28)),
@@ -17762,8 +17762,8 @@ func deltapackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((40+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<12)))
 }
 
-func deltapackzigzag64_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_53[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<53)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>11|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<42)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>22|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<31)),
@@ -17818,9 +17818,9 @@ func deltapackzigzag64_53[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>31|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<22)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>42|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<11)))
 }
-func deltapackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_53[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<53)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((11+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<42)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((22+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<31)),
@@ -17876,8 +17876,8 @@ func deltapackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((42+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<11)))
 }
 
-func deltapackzigzag64_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_54[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<54)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>10|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<44)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>20|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<34)),
@@ -17933,9 +17933,9 @@ func deltapackzigzag64_54[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>34|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<20)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>44|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<10)))
 }
-func deltapackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_54[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<54)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((10+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<44)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((20+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<34)),
@@ -17992,8 +17992,8 @@ func deltapackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((44+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<10)))
 }
 
-func deltapackzigzag64_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_55[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<55)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>9|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<46)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>18|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<37)),
@@ -18050,9 +18050,9 @@ func deltapackzigzag64_55[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>37|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<18)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>46|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<9)))
 }
-func deltapackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_55[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<55)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((9+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<46)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((18+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<37)),
@@ -18110,8 +18110,8 @@ func deltapackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((46+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<9)))
 }
 
-func deltapackzigzag64_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_56[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<56)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>8|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<48)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>16|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<40)),
@@ -18169,9 +18169,9 @@ func deltapackzigzag64_56[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>40|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<16)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>48|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<8)))
 }
-func deltapackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_56[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<56)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((8+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<48)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((16+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<40)),
@@ -18230,8 +18230,8 @@ func deltapackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((48+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<8)))
 }
 
-func deltapackzigzag64_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_57[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<57)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>7|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<50)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>14|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<43)),
@@ -18290,9 +18290,9 @@ func deltapackzigzag64_57[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>43|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<14)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>50|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<7)))
 }
-func deltapackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_57[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<57)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((7+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<50)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((14+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<43)),
@@ -18352,8 +18352,8 @@ func deltapackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((50+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<7)))
 }
 
-func deltapackzigzag64_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_58[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<58)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>6|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<52)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>12|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<46)),
@@ -18413,9 +18413,9 @@ func deltapackzigzag64_58[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>46|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<12)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>52|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<6)))
 }
-func deltapackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_58[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<58)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((6+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<52)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((12+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<46)),
@@ -18476,8 +18476,8 @@ func deltapackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((52+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<6)))
 }
 
-func deltapackzigzag64_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_59[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<59)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>5|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<54)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>10|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<49)),
@@ -18538,9 +18538,9 @@ func deltapackzigzag64_59[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>49|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<10)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>54|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<5)))
 }
-func deltapackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_59[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<59)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((5+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<54)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((10+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<49)),
@@ -18602,8 +18602,8 @@ func deltapackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((54+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<5)))
 }
 
-func deltapackzigzag64_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_60[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<60)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>4|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<56)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>8|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<52)),
@@ -18665,9 +18665,9 @@ func deltapackzigzag64_60[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>52|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<8)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>56|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<4)))
 }
-func deltapackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_60[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<60)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((4+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<56)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((8+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<52)),
@@ -18730,8 +18730,8 @@ func deltapackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((56+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<4)))
 }
 
-func deltapackzigzag64_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_61[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<61)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>3|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<58)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>6|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<55)),
@@ -18794,9 +18794,9 @@ func deltapackzigzag64_61[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>55|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<6)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>58|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<3)))
 }
-func deltapackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_61[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<61)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((3+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<58)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((6+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<55)),
@@ -18860,8 +18860,8 @@ func deltapackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((58+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<3)))
 }
 
-func deltapackzigzag64_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_62[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<62)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>2|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<60)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>4|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<58)),
@@ -18925,9 +18925,9 @@ func deltapackzigzag64_62[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>58|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<4)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>60|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<2)))
 }
-func deltapackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_62[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<62)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((2+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<60)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((4+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<58)),
@@ -18992,8 +18992,8 @@ func deltapackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out []u
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>((60+ntz)&63)|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))>>ntz<<2)))
 }
 
-func deltapackzigzag64_63[T uint64 | int64](initoffset T, in *[64]T, out []uint64) []uint64 {
-	return append(out,
+func appendGroupZigZag64_63[T uint64 | int64](dst []uint64, in *[64]T, initoffset T) []uint64 {
+	return append(dst,
 		uint64(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63)|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))<<63)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>1|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))<<62)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>2|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))<<61)),
@@ -19058,9 +19058,9 @@ func deltapackzigzag64_63[T uint64 | int64](initoffset T, in *[64]T, out []uint6
 		uint64((((int64(in[61]-in[60]))<<1)^((int64(in[61]-in[60]))>>63))>>61|((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))<<2)),
 		uint64((((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>62|((((int64(in[63]-in[62]))<<1)^((int64(in[63]-in[62]))>>63))<<1)))
 }
-func deltapackzigzag64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz int) []uint64 {
+func appendGroupZigZag64_ntz_63[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, ntz int) []uint64 {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
-	return append(out,
+	return append(dst,
 		uint64((((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz|((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>ntz<<63)),
 		uint64((((int64(in[1]-in[0]))<<1)^((int64(in[1]-in[0]))>>63))>>((1+ntz)&63)|((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>ntz<<62)),
 		uint64((((int64(in[2]-in[1]))<<1)^((int64(in[2]-in[1]))>>63))>>((2+ntz)&63)|((((int64(in[3]-in[2]))<<1)^((int64(in[3]-in[2]))>>63))>>ntz<<61)),

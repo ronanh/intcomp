@@ -11,69 +11,69 @@ import "unsafe"
 func appendGroup_int32[T uint32 | int32](dst []uint32, in *[32]T, initoffset T, bitlen int) []uint32 {
 	switch bitlen {
 	case 0:
-		return deltapack32_0(initoffset, in, dst)
+		return appendGroup32_0(dst, in, initoffset)
 	case 1:
-		return deltapack32_1(initoffset, in, dst)
+		return appendGroup32_1(dst, in, initoffset)
 	case 2:
-		return deltapack32_2(initoffset, in, dst)
+		return appendGroup32_2(dst, in, initoffset)
 	case 3:
-		return deltapack32_3(initoffset, in, dst)
+		return appendGroup32_3(dst, in, initoffset)
 	case 4:
-		return deltapack32_4(initoffset, in, dst)
+		return appendGroup32_4(dst, in, initoffset)
 	case 5:
-		return deltapack32_5(initoffset, in, dst)
+		return appendGroup32_5(dst, in, initoffset)
 	case 6:
-		return deltapack32_6(initoffset, in, dst)
+		return appendGroup32_6(dst, in, initoffset)
 	case 7:
-		return deltapack32_7(initoffset, in, dst)
+		return appendGroup32_7(dst, in, initoffset)
 	case 8:
-		return deltapack32_8(initoffset, in, dst)
+		return appendGroup32_8(dst, in, initoffset)
 	case 9:
-		return deltapack32_9(initoffset, in, dst)
+		return appendGroup32_9(dst, in, initoffset)
 	case 10:
-		return deltapack32_10(initoffset, in, dst)
+		return appendGroup32_10(dst, in, initoffset)
 	case 11:
-		return deltapack32_11(initoffset, in, dst)
+		return appendGroup32_11(dst, in, initoffset)
 	case 12:
-		return deltapack32_12(initoffset, in, dst)
+		return appendGroup32_12(dst, in, initoffset)
 	case 13:
-		return deltapack32_13(initoffset, in, dst)
+		return appendGroup32_13(dst, in, initoffset)
 	case 14:
-		return deltapack32_14(initoffset, in, dst)
+		return appendGroup32_14(dst, in, initoffset)
 	case 15:
-		return deltapack32_15(initoffset, in, dst)
+		return appendGroup32_15(dst, in, initoffset)
 	case 16:
-		return deltapack32_16(initoffset, in, dst)
+		return appendGroup32_16(dst, in, initoffset)
 	case 17:
-		return deltapack32_17(initoffset, in, dst)
+		return appendGroup32_17(dst, in, initoffset)
 	case 18:
-		return deltapack32_18(initoffset, in, dst)
+		return appendGroup32_18(dst, in, initoffset)
 	case 19:
-		return deltapack32_19(initoffset, in, dst)
+		return appendGroup32_19(dst, in, initoffset)
 	case 20:
-		return deltapack32_20(initoffset, in, dst)
+		return appendGroup32_20(dst, in, initoffset)
 	case 21:
-		return deltapack32_21(initoffset, in, dst)
+		return appendGroup32_21(dst, in, initoffset)
 	case 22:
-		return deltapack32_22(initoffset, in, dst)
+		return appendGroup32_22(dst, in, initoffset)
 	case 23:
-		return deltapack32_23(initoffset, in, dst)
+		return appendGroup32_23(dst, in, initoffset)
 	case 24:
-		return deltapack32_24(initoffset, in, dst)
+		return appendGroup32_24(dst, in, initoffset)
 	case 25:
-		return deltapack32_25(initoffset, in, dst)
+		return appendGroup32_25(dst, in, initoffset)
 	case 26:
-		return deltapack32_26(initoffset, in, dst)
+		return appendGroup32_26(dst, in, initoffset)
 	case 27:
-		return deltapack32_27(initoffset, in, dst)
+		return appendGroup32_27(dst, in, initoffset)
 	case 28:
-		return deltapack32_28(initoffset, in, dst)
+		return appendGroup32_28(dst, in, initoffset)
 	case 29:
-		return deltapack32_29(initoffset, in, dst)
+		return appendGroup32_29(dst, in, initoffset)
 	case 30:
-		return deltapack32_30(initoffset, in, dst)
+		return appendGroup32_30(dst, in, initoffset)
 	case 31:
-		return deltapack32_31(initoffset, in, dst)
+		return appendGroup32_31(dst, in, initoffset)
 	case 32:
 		same := (*[32]uint32)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -156,38 +156,38 @@ func deltaUnpack_int32[T uint32 | int32](initoffset T, in []uint32, out []T, bit
 	}
 }
 
-func deltapack32_0[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out)
+func appendGroup32_0[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst)
 }
 
-func deltapack32_1[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_1[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<1)|((in[2]-in[1])<<2)|((in[3]-in[2])<<3)|((in[4]-in[3])<<4)|((in[5]-in[4])<<5)|((in[6]-in[5])<<6)|((in[7]-in[6])<<7)|((in[8]-in[7])<<8)|((in[9]-in[8])<<9)|((in[10]-in[9])<<10)|((in[11]-in[10])<<11)|((in[12]-in[11])<<12)|((in[13]-in[12])<<13)|((in[14]-in[13])<<14)|((in[15]-in[14])<<15)|((in[16]-in[15])<<16)|((in[17]-in[16])<<17)|((in[18]-in[17])<<18)|((in[19]-in[18])<<19)|((in[20]-in[19])<<20)|((in[21]-in[20])<<21)|((in[22]-in[21])<<22)|((in[23]-in[22])<<23)|((in[24]-in[23])<<24)|((in[25]-in[24])<<25)|((in[26]-in[25])<<26)|((in[27]-in[26])<<27)|((in[28]-in[27])<<28)|((in[29]-in[28])<<29)|((in[30]-in[29])<<30)|((in[31]-in[30])<<31)))
 }
 
-func deltapack32_2[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_2[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<2)|((in[2]-in[1])<<4)|((in[3]-in[2])<<6)|((in[4]-in[3])<<8)|((in[5]-in[4])<<10)|((in[6]-in[5])<<12)|((in[7]-in[6])<<14)|((in[8]-in[7])<<16)|((in[9]-in[8])<<18)|((in[10]-in[9])<<20)|((in[11]-in[10])<<22)|((in[12]-in[11])<<24)|((in[13]-in[12])<<26)|((in[14]-in[13])<<28)|((in[15]-in[14])<<30)),
 		uint32(in[16]-in[15]|((in[17]-in[16])<<2)|((in[18]-in[17])<<4)|((in[19]-in[18])<<6)|((in[20]-in[19])<<8)|((in[21]-in[20])<<10)|((in[22]-in[21])<<12)|((in[23]-in[22])<<14)|((in[24]-in[23])<<16)|((in[25]-in[24])<<18)|((in[26]-in[25])<<20)|((in[27]-in[26])<<22)|((in[28]-in[27])<<24)|((in[29]-in[28])<<26)|((in[30]-in[29])<<28)|((in[31]-in[30])<<30)))
 }
 
-func deltapack32_3[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_3[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<3)|((in[2]-in[1])<<6)|((in[3]-in[2])<<9)|((in[4]-in[3])<<12)|((in[5]-in[4])<<15)|((in[6]-in[5])<<18)|((in[7]-in[6])<<21)|((in[8]-in[7])<<24)|((in[9]-in[8])<<27)|((in[10]-in[9])<<30)),
 		uint32((in[10]-in[9])>>2|((in[11]-in[10])<<1)|((in[12]-in[11])<<4)|((in[13]-in[12])<<7)|((in[14]-in[13])<<10)|((in[15]-in[14])<<13)|((in[16]-in[15])<<16)|((in[17]-in[16])<<19)|((in[18]-in[17])<<22)|((in[19]-in[18])<<25)|((in[20]-in[19])<<28)|((in[21]-in[20])<<31)),
 		uint32((in[21]-in[20])>>1|((in[22]-in[21])<<2)|((in[23]-in[22])<<5)|((in[24]-in[23])<<8)|((in[25]-in[24])<<11)|((in[26]-in[25])<<14)|((in[27]-in[26])<<17)|((in[28]-in[27])<<20)|((in[29]-in[28])<<23)|((in[30]-in[29])<<26)|((in[31]-in[30])<<29)))
 }
 
-func deltapack32_4[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_4[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<4)|((in[2]-in[1])<<8)|((in[3]-in[2])<<12)|((in[4]-in[3])<<16)|((in[5]-in[4])<<20)|((in[6]-in[5])<<24)|((in[7]-in[6])<<28)),
 		uint32(in[8]-in[7]|((in[9]-in[8])<<4)|((in[10]-in[9])<<8)|((in[11]-in[10])<<12)|((in[12]-in[11])<<16)|((in[13]-in[12])<<20)|((in[14]-in[13])<<24)|((in[15]-in[14])<<28)),
 		uint32(in[16]-in[15]|((in[17]-in[16])<<4)|((in[18]-in[17])<<8)|((in[19]-in[18])<<12)|((in[20]-in[19])<<16)|((in[21]-in[20])<<20)|((in[22]-in[21])<<24)|((in[23]-in[22])<<28)),
 		uint32(in[24]-in[23]|((in[25]-in[24])<<4)|((in[26]-in[25])<<8)|((in[27]-in[26])<<12)|((in[28]-in[27])<<16)|((in[29]-in[28])<<20)|((in[30]-in[29])<<24)|((in[31]-in[30])<<28)))
 }
 
-func deltapack32_5[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_5[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<5)|((in[2]-in[1])<<10)|((in[3]-in[2])<<15)|((in[4]-in[3])<<20)|((in[5]-in[4])<<25)|((in[6]-in[5])<<30)),
 		uint32((in[6]-in[5])>>2|((in[7]-in[6])<<3)|((in[8]-in[7])<<8)|((in[9]-in[8])<<13)|((in[10]-in[9])<<18)|((in[11]-in[10])<<23)|((in[12]-in[11])<<28)),
 		uint32((in[12]-in[11])>>4|((in[13]-in[12])<<1)|((in[14]-in[13])<<6)|((in[15]-in[14])<<11)|((in[16]-in[15])<<16)|((in[17]-in[16])<<21)|((in[18]-in[17])<<26)|((in[19]-in[18])<<31)),
@@ -195,8 +195,8 @@ func deltapack32_5[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []ui
 		uint32((in[25]-in[24])>>3|((in[26]-in[25])<<2)|((in[27]-in[26])<<7)|((in[28]-in[27])<<12)|((in[29]-in[28])<<17)|((in[30]-in[29])<<22)|((in[31]-in[30])<<27)))
 }
 
-func deltapack32_6[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_6[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<6)|((in[2]-in[1])<<12)|((in[3]-in[2])<<18)|((in[4]-in[3])<<24)|((in[5]-in[4])<<30)),
 		uint32((in[5]-in[4])>>2|((in[6]-in[5])<<4)|((in[7]-in[6])<<10)|((in[8]-in[7])<<16)|((in[9]-in[8])<<22)|((in[10]-in[9])<<28)),
 		uint32((in[10]-in[9])>>4|((in[11]-in[10])<<2)|((in[12]-in[11])<<8)|((in[13]-in[12])<<14)|((in[14]-in[13])<<20)|((in[15]-in[14])<<26)),
@@ -205,8 +205,8 @@ func deltapack32_6[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []ui
 		uint32((in[26]-in[25])>>4|((in[27]-in[26])<<2)|((in[28]-in[27])<<8)|((in[29]-in[28])<<14)|((in[30]-in[29])<<20)|((in[31]-in[30])<<26)))
 }
 
-func deltapack32_7[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_7[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<7)|((in[2]-in[1])<<14)|((in[3]-in[2])<<21)|((in[4]-in[3])<<28)),
 		uint32((in[4]-in[3])>>4|((in[5]-in[4])<<3)|((in[6]-in[5])<<10)|((in[7]-in[6])<<17)|((in[8]-in[7])<<24)|((in[9]-in[8])<<31)),
 		uint32((in[9]-in[8])>>1|((in[10]-in[9])<<6)|((in[11]-in[10])<<13)|((in[12]-in[11])<<20)|((in[13]-in[12])<<27)),
@@ -216,8 +216,8 @@ func deltapack32_7[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []ui
 		uint32((in[27]-in[26])>>3|((in[28]-in[27])<<4)|((in[29]-in[28])<<11)|((in[30]-in[29])<<18)|((in[31]-in[30])<<25)))
 }
 
-func deltapack32_8[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_8[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<8)|((in[2]-in[1])<<16)|((in[3]-in[2])<<24)),
 		uint32(in[4]-in[3]|((in[5]-in[4])<<8)|((in[6]-in[5])<<16)|((in[7]-in[6])<<24)),
 		uint32(in[8]-in[7]|((in[9]-in[8])<<8)|((in[10]-in[9])<<16)|((in[11]-in[10])<<24)),
@@ -228,8 +228,8 @@ func deltapack32_8[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []ui
 		uint32(in[28]-in[27]|((in[29]-in[28])<<8)|((in[30]-in[29])<<16)|((in[31]-in[30])<<24)))
 }
 
-func deltapack32_9[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_9[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<9)|((in[2]-in[1])<<18)|((in[3]-in[2])<<27)),
 		uint32((in[3]-in[2])>>5|((in[4]-in[3])<<4)|((in[5]-in[4])<<13)|((in[6]-in[5])<<22)|((in[7]-in[6])<<31)),
 		uint32((in[7]-in[6])>>1|((in[8]-in[7])<<8)|((in[9]-in[8])<<17)|((in[10]-in[9])<<26)),
@@ -241,8 +241,8 @@ func deltapack32_9[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []ui
 		uint32((in[28]-in[27])>>4|((in[29]-in[28])<<5)|((in[30]-in[29])<<14)|((in[31]-in[30])<<23)))
 }
 
-func deltapack32_10[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_10[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<10)|((in[2]-in[1])<<20)|((in[3]-in[2])<<30)),
 		uint32((in[3]-in[2])>>2|((in[4]-in[3])<<8)|((in[5]-in[4])<<18)|((in[6]-in[5])<<28)),
 		uint32((in[6]-in[5])>>4|((in[7]-in[6])<<6)|((in[8]-in[7])<<16)|((in[9]-in[8])<<26)),
@@ -255,8 +255,8 @@ func deltapack32_10[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[28]-in[27])>>8|((in[29]-in[28])<<2)|((in[30]-in[29])<<12)|((in[31]-in[30])<<22)))
 }
 
-func deltapack32_11[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_11[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<11)|((in[2]-in[1])<<22)),
 		uint32((in[2]-in[1])>>10|((in[3]-in[2])<<1)|((in[4]-in[3])<<12)|((in[5]-in[4])<<23)),
 		uint32((in[5]-in[4])>>9|((in[6]-in[5])<<2)|((in[7]-in[6])<<13)|((in[8]-in[7])<<24)),
@@ -270,8 +270,8 @@ func deltapack32_11[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[29]-in[28])>>1|((in[30]-in[29])<<10)|((in[31]-in[30])<<21)))
 }
 
-func deltapack32_12[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_12[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<12)|((in[2]-in[1])<<24)),
 		uint32((in[2]-in[1])>>8|((in[3]-in[2])<<4)|((in[4]-in[3])<<16)|((in[5]-in[4])<<28)),
 		uint32((in[5]-in[4])>>4|((in[6]-in[5])<<8)|((in[7]-in[6])<<20)),
@@ -286,8 +286,8 @@ func deltapack32_12[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[29]-in[28])>>4|((in[30]-in[29])<<8)|((in[31]-in[30])<<20)))
 }
 
-func deltapack32_13[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_13[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<13)|((in[2]-in[1])<<26)),
 		uint32((in[2]-in[1])>>6|((in[3]-in[2])<<7)|((in[4]-in[3])<<20)),
 		uint32((in[4]-in[3])>>12|((in[5]-in[4])<<1)|((in[6]-in[5])<<14)|((in[7]-in[6])<<27)),
@@ -303,8 +303,8 @@ func deltapack32_13[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[29]-in[28])>>7|((in[30]-in[29])<<6)|((in[31]-in[30])<<19)))
 }
 
-func deltapack32_14[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_14[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<14)|((in[2]-in[1])<<28)),
 		uint32((in[2]-in[1])>>4|((in[3]-in[2])<<10)|((in[4]-in[3])<<24)),
 		uint32((in[4]-in[3])>>8|((in[5]-in[4])<<6)|((in[6]-in[5])<<20)),
@@ -321,8 +321,8 @@ func deltapack32_14[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[29]-in[28])>>10|((in[30]-in[29])<<4)|((in[31]-in[30])<<18)))
 }
 
-func deltapack32_15[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_15[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<15)|((in[2]-in[1])<<30)),
 		uint32((in[2]-in[1])>>2|((in[3]-in[2])<<13)|((in[4]-in[3])<<28)),
 		uint32((in[4]-in[3])>>4|((in[5]-in[4])<<11)|((in[6]-in[5])<<26)),
@@ -340,8 +340,8 @@ func deltapack32_15[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[29]-in[28])>>13|((in[30]-in[29])<<2)|((in[31]-in[30])<<17)))
 }
 
-func deltapack32_16[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_16[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<16)),
 		uint32(in[2]-in[1]|((in[3]-in[2])<<16)),
 		uint32(in[4]-in[3]|((in[5]-in[4])<<16)),
@@ -360,8 +360,8 @@ func deltapack32_16[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32(in[30]-in[29]|((in[31]-in[30])<<16)))
 }
 
-func deltapack32_17[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_17[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<17)),
 		uint32((in[1]-in[0])>>15|((in[2]-in[1])<<2)|((in[3]-in[2])<<19)),
 		uint32((in[3]-in[2])>>13|((in[4]-in[3])<<4)|((in[5]-in[4])<<21)),
@@ -381,8 +381,8 @@ func deltapack32_17[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>2|((in[31]-in[30])<<15)))
 }
 
-func deltapack32_18[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_18[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<18)),
 		uint32((in[1]-in[0])>>14|((in[2]-in[1])<<4)|((in[3]-in[2])<<22)),
 		uint32((in[3]-in[2])>>10|((in[4]-in[3])<<8)|((in[5]-in[4])<<26)),
@@ -403,8 +403,8 @@ func deltapack32_18[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>4|((in[31]-in[30])<<14)))
 }
 
-func deltapack32_19[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_19[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<19)),
 		uint32((in[1]-in[0])>>13|((in[2]-in[1])<<6)|((in[3]-in[2])<<25)),
 		uint32((in[3]-in[2])>>7|((in[4]-in[3])<<12)|((in[5]-in[4])<<31)),
@@ -426,8 +426,8 @@ func deltapack32_19[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>6|((in[31]-in[30])<<13)))
 }
 
-func deltapack32_20[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_20[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<20)),
 		uint32((in[1]-in[0])>>12|((in[2]-in[1])<<8)|((in[3]-in[2])<<28)),
 		uint32((in[3]-in[2])>>4|((in[4]-in[3])<<16)),
@@ -450,8 +450,8 @@ func deltapack32_20[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>8|((in[31]-in[30])<<12)))
 }
 
-func deltapack32_21[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_21[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<21)),
 		uint32((in[1]-in[0])>>11|((in[2]-in[1])<<10)|((in[3]-in[2])<<31)),
 		uint32((in[3]-in[2])>>1|((in[4]-in[3])<<20)),
@@ -475,8 +475,8 @@ func deltapack32_21[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>10|((in[31]-in[30])<<11)))
 }
 
-func deltapack32_22[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_22[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<22)),
 		uint32((in[1]-in[0])>>10|((in[2]-in[1])<<12)),
 		uint32((in[2]-in[1])>>20|((in[3]-in[2])<<2)|((in[4]-in[3])<<24)),
@@ -501,8 +501,8 @@ func deltapack32_22[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>12|((in[31]-in[30])<<10)))
 }
 
-func deltapack32_23[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_23[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<23)),
 		uint32((in[1]-in[0])>>9|((in[2]-in[1])<<14)),
 		uint32((in[2]-in[1])>>18|((in[3]-in[2])<<5)|((in[4]-in[3])<<28)),
@@ -528,8 +528,8 @@ func deltapack32_23[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>14|((in[31]-in[30])<<9)))
 }
 
-func deltapack32_24[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_24[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<24)),
 		uint32((in[1]-in[0])>>8|((in[2]-in[1])<<16)),
 		uint32((in[2]-in[1])>>16|((in[3]-in[2])<<8)),
@@ -556,8 +556,8 @@ func deltapack32_24[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>16|((in[31]-in[30])<<8)))
 }
 
-func deltapack32_25[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_25[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<25)),
 		uint32((in[1]-in[0])>>7|((in[2]-in[1])<<18)),
 		uint32((in[2]-in[1])>>14|((in[3]-in[2])<<11)),
@@ -585,8 +585,8 @@ func deltapack32_25[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>18|((in[31]-in[30])<<7)))
 }
 
-func deltapack32_26[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_26[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<26)),
 		uint32((in[1]-in[0])>>6|((in[2]-in[1])<<20)),
 		uint32((in[2]-in[1])>>12|((in[3]-in[2])<<14)),
@@ -615,8 +615,8 @@ func deltapack32_26[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>20|((in[31]-in[30])<<6)))
 }
 
-func deltapack32_27[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_27[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<27)),
 		uint32((in[1]-in[0])>>5|((in[2]-in[1])<<22)),
 		uint32((in[2]-in[1])>>10|((in[3]-in[2])<<17)),
@@ -646,8 +646,8 @@ func deltapack32_27[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>22|((in[31]-in[30])<<5)))
 }
 
-func deltapack32_28[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_28[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<28)),
 		uint32((in[1]-in[0])>>4|((in[2]-in[1])<<24)),
 		uint32((in[2]-in[1])>>8|((in[3]-in[2])<<20)),
@@ -678,8 +678,8 @@ func deltapack32_28[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>24|((in[31]-in[30])<<4)))
 }
 
-func deltapack32_29[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_29[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<29)),
 		uint32((in[1]-in[0])>>3|((in[2]-in[1])<<26)),
 		uint32((in[2]-in[1])>>6|((in[3]-in[2])<<23)),
@@ -711,8 +711,8 @@ func deltapack32_29[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>26|((in[31]-in[30])<<3)))
 }
 
-func deltapack32_30[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_30[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<30)),
 		uint32((in[1]-in[0])>>2|((in[2]-in[1])<<28)),
 		uint32((in[2]-in[1])>>4|((in[3]-in[2])<<26)),
@@ -745,8 +745,8 @@ func deltapack32_30[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []u
 		uint32((in[30]-in[29])>>28|((in[31]-in[30])<<2)))
 }
 
-func deltapack32_31[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroup32_31[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(in[0]-initoffset|((in[1]-in[0])<<31)),
 		uint32((in[1]-in[0])>>1|((in[2]-in[1])<<30)),
 		uint32((in[2]-in[1])>>2|((in[3]-in[2])<<29)),
@@ -1909,69 +1909,69 @@ func deltaunpack32_31[T uint32 | int32](initoffset T, in *[31]uint32, out *[32]T
 func appendGroupZigZag_int32(dst []uint32, in *[32]int32, initoffset int32, bitlen int) []uint32 {
 	switch bitlen {
 	case 0:
-		return deltapackzigzag32_0(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_0(dst, in, initoffset)
 	case 1:
-		return deltapackzigzag32_1(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_1(dst, in, initoffset)
 	case 2:
-		return deltapackzigzag32_2(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_2(dst, in, initoffset)
 	case 3:
-		return deltapackzigzag32_3(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_3(dst, in, initoffset)
 	case 4:
-		return deltapackzigzag32_4(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_4(dst, in, initoffset)
 	case 5:
-		return deltapackzigzag32_5(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_5(dst, in, initoffset)
 	case 6:
-		return deltapackzigzag32_6(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_6(dst, in, initoffset)
 	case 7:
-		return deltapackzigzag32_7(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_7(dst, in, initoffset)
 	case 8:
-		return deltapackzigzag32_8(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_8(dst, in, initoffset)
 	case 9:
-		return deltapackzigzag32_9(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_9(dst, in, initoffset)
 	case 10:
-		return deltapackzigzag32_10(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_10(dst, in, initoffset)
 	case 11:
-		return deltapackzigzag32_11(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_11(dst, in, initoffset)
 	case 12:
-		return deltapackzigzag32_12(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_12(dst, in, initoffset)
 	case 13:
-		return deltapackzigzag32_13(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_13(dst, in, initoffset)
 	case 14:
-		return deltapackzigzag32_14(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_14(dst, in, initoffset)
 	case 15:
-		return deltapackzigzag32_15(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_15(dst, in, initoffset)
 	case 16:
-		return deltapackzigzag32_16(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_16(dst, in, initoffset)
 	case 17:
-		return deltapackzigzag32_17(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_17(dst, in, initoffset)
 	case 18:
-		return deltapackzigzag32_18(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_18(dst, in, initoffset)
 	case 19:
-		return deltapackzigzag32_19(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_19(dst, in, initoffset)
 	case 20:
-		return deltapackzigzag32_20(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_20(dst, in, initoffset)
 	case 21:
-		return deltapackzigzag32_21(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_21(dst, in, initoffset)
 	case 22:
-		return deltapackzigzag32_22(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_22(dst, in, initoffset)
 	case 23:
-		return deltapackzigzag32_23(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_23(dst, in, initoffset)
 	case 24:
-		return deltapackzigzag32_24(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_24(dst, in, initoffset)
 	case 25:
-		return deltapackzigzag32_25(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_25(dst, in, initoffset)
 	case 26:
-		return deltapackzigzag32_26(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_26(dst, in, initoffset)
 	case 27:
-		return deltapackzigzag32_27(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_27(dst, in, initoffset)
 	case 28:
-		return deltapackzigzag32_28(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_28(dst, in, initoffset)
 	case 29:
-		return deltapackzigzag32_29(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_29(dst, in, initoffset)
 	case 30:
-		return deltapackzigzag32_30(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_30(dst, in, initoffset)
 	case 31:
-		return deltapackzigzag32_31(initoffset, (*[32]int32)(in), dst)
+		return appendGroupZigZag32_31(dst, in, initoffset)
 	case 32:
 		same := (*[32]uint32)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -2054,38 +2054,38 @@ func deltaUnpackZigzag_int32(initoffset int32, in []uint32, out []int32, bitlen 
 	}
 }
 
-func deltapackzigzag32_0[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out)
+func appendGroupZigZag32_0[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst)
 }
 
-func deltapackzigzag32_1[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_1[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<1)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<2)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<3)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<4)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<5)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<6)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<7)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<8)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<9)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<10)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<11)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<12)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<13)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<14)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<15)|((((int32(in[16]-in[15]))<<1)^((int32(in[16]-in[15]))>>31))<<16)|((((int32(in[17]-in[16]))<<1)^((int32(in[17]-in[16]))>>31))<<17)|((((int32(in[18]-in[17]))<<1)^((int32(in[18]-in[17]))>>31))<<18)|((((int32(in[19]-in[18]))<<1)^((int32(in[19]-in[18]))>>31))<<19)|((((int32(in[20]-in[19]))<<1)^((int32(in[20]-in[19]))>>31))<<20)|((((int32(in[21]-in[20]))<<1)^((int32(in[21]-in[20]))>>31))<<21)|((((int32(in[22]-in[21]))<<1)^((int32(in[22]-in[21]))>>31))<<22)|((((int32(in[23]-in[22]))<<1)^((int32(in[23]-in[22]))>>31))<<23)|((((int32(in[24]-in[23]))<<1)^((int32(in[24]-in[23]))>>31))<<24)|((((int32(in[25]-in[24]))<<1)^((int32(in[25]-in[24]))>>31))<<25)|((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))<<26)|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<27)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<28)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<29)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<30)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<31)))
 }
 
-func deltapackzigzag32_2[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_2[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<2)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<4)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<6)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<8)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<10)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<12)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<14)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<16)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<18)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<20)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<22)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<24)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<26)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<28)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<30)),
 		uint32(((int32(in[16]-in[15]))<<1)^((int32(in[16]-in[15]))>>31)|((((int32(in[17]-in[16]))<<1)^((int32(in[17]-in[16]))>>31))<<2)|((((int32(in[18]-in[17]))<<1)^((int32(in[18]-in[17]))>>31))<<4)|((((int32(in[19]-in[18]))<<1)^((int32(in[19]-in[18]))>>31))<<6)|((((int32(in[20]-in[19]))<<1)^((int32(in[20]-in[19]))>>31))<<8)|((((int32(in[21]-in[20]))<<1)^((int32(in[21]-in[20]))>>31))<<10)|((((int32(in[22]-in[21]))<<1)^((int32(in[22]-in[21]))>>31))<<12)|((((int32(in[23]-in[22]))<<1)^((int32(in[23]-in[22]))>>31))<<14)|((((int32(in[24]-in[23]))<<1)^((int32(in[24]-in[23]))>>31))<<16)|((((int32(in[25]-in[24]))<<1)^((int32(in[25]-in[24]))>>31))<<18)|((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))<<20)|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<22)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<24)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<26)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<28)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<30)))
 }
 
-func deltapackzigzag32_3[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_3[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<3)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<6)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<9)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<12)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<15)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<18)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<21)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<24)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<27)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<30)),
 		uint32((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))>>2|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<1)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<4)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<7)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<10)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<13)|((((int32(in[16]-in[15]))<<1)^((int32(in[16]-in[15]))>>31))<<16)|((((int32(in[17]-in[16]))<<1)^((int32(in[17]-in[16]))>>31))<<19)|((((int32(in[18]-in[17]))<<1)^((int32(in[18]-in[17]))>>31))<<22)|((((int32(in[19]-in[18]))<<1)^((int32(in[19]-in[18]))>>31))<<25)|((((int32(in[20]-in[19]))<<1)^((int32(in[20]-in[19]))>>31))<<28)|((((int32(in[21]-in[20]))<<1)^((int32(in[21]-in[20]))>>31))<<31)),
 		uint32((((int32(in[21]-in[20]))<<1)^((int32(in[21]-in[20]))>>31))>>1|((((int32(in[22]-in[21]))<<1)^((int32(in[22]-in[21]))>>31))<<2)|((((int32(in[23]-in[22]))<<1)^((int32(in[23]-in[22]))>>31))<<5)|((((int32(in[24]-in[23]))<<1)^((int32(in[24]-in[23]))>>31))<<8)|((((int32(in[25]-in[24]))<<1)^((int32(in[25]-in[24]))>>31))<<11)|((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))<<14)|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<17)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<20)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<23)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<26)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<29)))
 }
 
-func deltapackzigzag32_4[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_4[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<4)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<8)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<12)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<16)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<20)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<24)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<28)),
 		uint32(((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<4)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<8)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<12)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<16)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<20)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<24)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<28)),
 		uint32(((int32(in[16]-in[15]))<<1)^((int32(in[16]-in[15]))>>31)|((((int32(in[17]-in[16]))<<1)^((int32(in[17]-in[16]))>>31))<<4)|((((int32(in[18]-in[17]))<<1)^((int32(in[18]-in[17]))>>31))<<8)|((((int32(in[19]-in[18]))<<1)^((int32(in[19]-in[18]))>>31))<<12)|((((int32(in[20]-in[19]))<<1)^((int32(in[20]-in[19]))>>31))<<16)|((((int32(in[21]-in[20]))<<1)^((int32(in[21]-in[20]))>>31))<<20)|((((int32(in[22]-in[21]))<<1)^((int32(in[22]-in[21]))>>31))<<24)|((((int32(in[23]-in[22]))<<1)^((int32(in[23]-in[22]))>>31))<<28)),
 		uint32(((int32(in[24]-in[23]))<<1)^((int32(in[24]-in[23]))>>31)|((((int32(in[25]-in[24]))<<1)^((int32(in[25]-in[24]))>>31))<<4)|((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))<<8)|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<12)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<16)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<20)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<24)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<28)))
 }
 
-func deltapackzigzag32_5[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_5[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<5)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<10)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<15)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<20)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<25)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<30)),
 		uint32((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))>>2|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<3)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<8)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<13)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<18)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<23)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<28)),
 		uint32((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))>>4|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<1)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<6)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<11)|((((int32(in[16]-in[15]))<<1)^((int32(in[16]-in[15]))>>31))<<16)|((((int32(in[17]-in[16]))<<1)^((int32(in[17]-in[16]))>>31))<<21)|((((int32(in[18]-in[17]))<<1)^((int32(in[18]-in[17]))>>31))<<26)|((((int32(in[19]-in[18]))<<1)^((int32(in[19]-in[18]))>>31))<<31)),
@@ -2093,8 +2093,8 @@ func deltapackzigzag32_5[T uint32 | int32](initoffset T, in *[32]T, out []uint32
 		uint32((((int32(in[25]-in[24]))<<1)^((int32(in[25]-in[24]))>>31))>>3|((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))<<2)|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<7)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<12)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<17)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<22)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<27)))
 }
 
-func deltapackzigzag32_6[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_6[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<6)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<12)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<18)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<24)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<30)),
 		uint32((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))>>2|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<4)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<10)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<16)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<22)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<28)),
 		uint32((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))>>4|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<2)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<8)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<14)|((((int32(in[14]-in[13]))<<1)^((int32(in[14]-in[13]))>>31))<<20)|((((int32(in[15]-in[14]))<<1)^((int32(in[15]-in[14]))>>31))<<26)),
@@ -2103,8 +2103,8 @@ func deltapackzigzag32_6[T uint32 | int32](initoffset T, in *[32]T, out []uint32
 		uint32((((int32(in[26]-in[25]))<<1)^((int32(in[26]-in[25]))>>31))>>4|((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))<<2)|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<8)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<14)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<20)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<26)))
 }
 
-func deltapackzigzag32_7[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_7[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<7)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<14)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<21)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<28)),
 		uint32((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))>>4|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<3)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<10)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<17)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<24)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<31)),
 		uint32((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))>>1|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<6)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<13)|((((int32(in[12]-in[11]))<<1)^((int32(in[12]-in[11]))>>31))<<20)|((((int32(in[13]-in[12]))<<1)^((int32(in[13]-in[12]))>>31))<<27)),
@@ -2114,8 +2114,8 @@ func deltapackzigzag32_7[T uint32 | int32](initoffset T, in *[32]T, out []uint32
 		uint32((((int32(in[27]-in[26]))<<1)^((int32(in[27]-in[26]))>>31))>>3|((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))<<4)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<11)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<18)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<25)))
 }
 
-func deltapackzigzag32_8[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_8[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<8)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<16)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<24)),
 		uint32(((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<8)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<16)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<24)),
 		uint32(((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<8)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<16)|((((int32(in[11]-in[10]))<<1)^((int32(in[11]-in[10]))>>31))<<24)),
@@ -2126,8 +2126,8 @@ func deltapackzigzag32_8[T uint32 | int32](initoffset T, in *[32]T, out []uint32
 		uint32(((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31)|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<8)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<16)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<24)))
 }
 
-func deltapackzigzag32_9[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_9[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<9)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<18)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<27)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>5|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<4)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<13)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<22)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<31)),
 		uint32((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))>>1|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<8)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<17)|((((int32(in[10]-in[9]))<<1)^((int32(in[10]-in[9]))>>31))<<26)),
@@ -2139,8 +2139,8 @@ func deltapackzigzag32_9[T uint32 | int32](initoffset T, in *[32]T, out []uint32
 		uint32((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))>>4|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<5)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<14)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<23)))
 }
 
-func deltapackzigzag32_10[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_10[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<10)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<20)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<30)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>2|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<8)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<18)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<28)),
 		uint32((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))>>4|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<6)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<16)|((((int32(in[9]-in[8]))<<1)^((int32(in[9]-in[8]))>>31))<<26)),
@@ -2153,8 +2153,8 @@ func deltapackzigzag32_10[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[28]-in[27]))<<1)^((int32(in[28]-in[27]))>>31))>>8|((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))<<2)|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<12)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<22)))
 }
 
-func deltapackzigzag32_11[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_11[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<11)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<22)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>10|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<1)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<12)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<23)),
 		uint32((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))>>9|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<2)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<13)|((((int32(in[8]-in[7]))<<1)^((int32(in[8]-in[7]))>>31))<<24)),
@@ -2168,8 +2168,8 @@ func deltapackzigzag32_11[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))>>1|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<10)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<21)))
 }
 
-func deltapackzigzag32_12[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_12[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<12)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<24)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>8|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<4)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<16)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<28)),
 		uint32((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))>>4|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<8)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<20)),
@@ -2184,8 +2184,8 @@ func deltapackzigzag32_12[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))>>4|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<8)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<20)))
 }
 
-func deltapackzigzag32_13[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_13[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<13)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<26)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>6|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<7)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<20)),
 		uint32((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))>>12|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<1)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<14)|((((int32(in[7]-in[6]))<<1)^((int32(in[7]-in[6]))>>31))<<27)),
@@ -2201,8 +2201,8 @@ func deltapackzigzag32_13[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))>>7|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<6)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<19)))
 }
 
-func deltapackzigzag32_14[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_14[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<14)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<28)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>4|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<10)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<24)),
 		uint32((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))>>8|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<6)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<20)),
@@ -2219,8 +2219,8 @@ func deltapackzigzag32_14[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))>>10|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<4)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<18)))
 }
 
-func deltapackzigzag32_15[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_15[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<15)|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<30)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>2|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<13)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<28)),
 		uint32((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))>>4|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<11)|((((int32(in[6]-in[5]))<<1)^((int32(in[6]-in[5]))>>31))<<26)),
@@ -2238,8 +2238,8 @@ func deltapackzigzag32_15[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[29]-in[28]))<<1)^((int32(in[29]-in[28]))>>31))>>13|((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))<<2)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<17)))
 }
 
-func deltapackzigzag32_16[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_16[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<16)),
 		uint32(((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<16)),
 		uint32(((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<16)),
@@ -2258,8 +2258,8 @@ func deltapackzigzag32_16[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32(((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31)|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<16)))
 }
 
-func deltapackzigzag32_17[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_17[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<17)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>15|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<2)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<19)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>13|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<4)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<21)),
@@ -2279,8 +2279,8 @@ func deltapackzigzag32_17[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>2|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<15)))
 }
 
-func deltapackzigzag32_18[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_18[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<18)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>14|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<4)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<22)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>10|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<8)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<26)),
@@ -2301,8 +2301,8 @@ func deltapackzigzag32_18[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>4|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<14)))
 }
 
-func deltapackzigzag32_19[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_19[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<19)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>13|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<6)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<25)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>7|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<12)|((((int32(in[5]-in[4]))<<1)^((int32(in[5]-in[4]))>>31))<<31)),
@@ -2324,8 +2324,8 @@ func deltapackzigzag32_19[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>6|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<13)))
 }
 
-func deltapackzigzag32_20[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_20[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<20)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>12|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<8)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<28)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>4|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<16)),
@@ -2348,8 +2348,8 @@ func deltapackzigzag32_20[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>8|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<12)))
 }
 
-func deltapackzigzag32_21[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_21[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<21)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>11|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<10)|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<31)),
 		uint32((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))>>1|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<20)),
@@ -2373,8 +2373,8 @@ func deltapackzigzag32_21[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>10|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<11)))
 }
 
-func deltapackzigzag32_22[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_22[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<22)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>10|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<12)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>20|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<2)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<24)),
@@ -2399,8 +2399,8 @@ func deltapackzigzag32_22[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>12|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<10)))
 }
 
-func deltapackzigzag32_23[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_23[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<23)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>9|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<14)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>18|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<5)|((((int32(in[4]-in[3]))<<1)^((int32(in[4]-in[3]))>>31))<<28)),
@@ -2426,8 +2426,8 @@ func deltapackzigzag32_23[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>14|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<9)))
 }
 
-func deltapackzigzag32_24[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_24[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<24)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>8|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<16)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>16|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<8)),
@@ -2454,8 +2454,8 @@ func deltapackzigzag32_24[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>16|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<8)))
 }
 
-func deltapackzigzag32_25[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_25[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<25)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>7|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<18)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>14|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<11)),
@@ -2483,8 +2483,8 @@ func deltapackzigzag32_25[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>18|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<7)))
 }
 
-func deltapackzigzag32_26[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_26[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<26)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>6|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<20)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>12|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<14)),
@@ -2513,8 +2513,8 @@ func deltapackzigzag32_26[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>20|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<6)))
 }
 
-func deltapackzigzag32_27[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_27[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<27)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>5|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<22)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>10|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<17)),
@@ -2544,8 +2544,8 @@ func deltapackzigzag32_27[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>22|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<5)))
 }
 
-func deltapackzigzag32_28[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_28[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<28)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>4|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<24)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>8|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<20)),
@@ -2576,8 +2576,8 @@ func deltapackzigzag32_28[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>24|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<4)))
 }
 
-func deltapackzigzag32_29[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_29[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<29)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>3|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<26)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>6|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<23)),
@@ -2609,8 +2609,8 @@ func deltapackzigzag32_29[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>26|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<3)))
 }
 
-func deltapackzigzag32_30[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_30[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<30)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>2|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<28)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>4|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<26)),
@@ -2643,8 +2643,8 @@ func deltapackzigzag32_30[T uint32 | int32](initoffset T, in *[32]T, out []uint3
 		uint32((((int32(in[30]-in[29]))<<1)^((int32(in[30]-in[29]))>>31))>>28|((((int32(in[31]-in[30]))<<1)^((int32(in[31]-in[30]))>>31))<<2)))
 }
 
-func deltapackzigzag32_31[T uint32 | int32](initoffset T, in *[32]T, out []uint32) []uint32 {
-	return append(out,
+func appendGroupZigZag32_31[T uint32 | int32](dst []uint32, in *[32]T, initoffset T) []uint32 {
+	return append(dst,
 		uint32(((int32(in[0]-initoffset))<<1)^((int32(in[0]-initoffset))>>31)|((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))<<31)),
 		uint32((((int32(in[1]-in[0]))<<1)^((int32(in[1]-in[0]))>>31))>>1|((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))<<30)),
 		uint32((((int32(in[2]-in[1]))<<1)^((int32(in[2]-in[1]))>>31))>>2|((((int32(in[3]-in[2]))<<1)^((int32(in[3]-in[2]))>>31))<<29)),

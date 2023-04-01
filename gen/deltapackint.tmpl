@@ -16,10 +16,10 @@ func appendGroup_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint
 	case {{$dpn.N}}:
 {{- if $dp.WithNtz }}
 		if ntz > 0 {
-			return deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, in, dst, ntz)
+			return appendGroup{{$dp.Bits}}_ntz_{{$dpn.N}}(dst, in, initoffset, ntz)
 		}
 {{- end }}
-		return deltapack{{$dp.Bits}}_{{$dpn.N}}(initoffset, in, dst)
+		return appendGroup{{$dp.Bits}}_{{$dpn.N}}(dst, in, initoffset)
 {{- end }}
 	case {{$dp.Bits}}:
 		same := (*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in))
@@ -52,8 +52,8 @@ func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset
 {{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
-func deltapack{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out []uint{{$dp.Bits}}) []uint{{$dp.Bits}} {
-	return append(out
+func appendGroup{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T) []uint{{$dp.Bits}} {
+	return append(dst
 {{- range $dpnb := $dpn.Dpnb }},
 		uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLines }}
@@ -63,9 +63,9 @@ func deltapack{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initof
 }
 
 {{- if $dp.WithNtz }}
-func deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out []uint{{$dp.Bits}}, ntz int) []uint{{$dp.Bits}} {
+func appendGroup{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T, ntz int) []uint{{$dp.Bits}} {
 	ntz = ntz&({{$dp.Bits}}-1) //nolint:ineffassign,staticcheck
-	return append(out
+	return append(dst
 {{- range $dpnb := $dpn.Dpnb }},
 		uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLinesNtz }}
@@ -110,10 +110,10 @@ func appendGroupZigZag_{{$dp.Typename}}(dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}
 	case {{$dpn.N}}:
 {{- if $dp.WithNtz }}
 		if ntz > 0 {
-			return deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}(initoffset, in, dst, ntz)
+			return appendGroupZigZag{{$dp.Bits}}_ntz_{{$dpn.N}}(dst, in, initoffset, ntz)
 		}
 {{- end }}
-		return deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}(initoffset, (*[{{$dp.Bits}}]{{$dp.Typename}})(in), dst)
+		return appendGroupZigZag{{$dp.Bits}}_{{$dpn.N}}(dst, in, initoffset)
 {{- end }}
 	case {{$dp.Bits}}:
 		same := (*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in))
@@ -146,8 +146,8 @@ func deltaUnpackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in []uint{{
 {{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
 
-func deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out []uint{{$dp.Bits}}) []uint{{$dp.Bits}} {
-	return append(out
+func appendGroupZigZag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T) []uint{{$dp.Bits}} {
+	return append(dst
 {{- range $dpnb := $dpn.Dpnb }},
 		uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLinesZigZag }}
@@ -157,11 +157,11 @@ func deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](
 }
 
 {{- if $dp.WithNtz }}
-func deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset T, in *[{{$dp.Bits}}]T, out []uint{{$dp.Bits}}, ntz int) []uint{{$dp.Bits}} {
+func appendGroupZigZag{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T, ntz int) []uint{{$dp.Bits}} {
 {{- if $dp.WithNtz }}
 	ntz = ntz&({{$dp.Bits}}-1) //nolint:ineffassign,staticcheck
 {{- end }}
-	return append(out
+	return append(dst
 {{- range $dpnb := $dpn.Dpnb }},
 		uint{{$dp.Bits}}(
 {{- range $line := $dpnb.PackLinesZigZagNtz }}

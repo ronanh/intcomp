@@ -11,69 +11,69 @@ import "unsafe"
 func appendGroup_uint32[T uint32 | int32](dst []uint32, in *[32]T, initoffset T, bitlen int) []uint32 {
 	switch bitlen {
 	case 0:
-		return deltapack32_0(initoffset, in, dst)
+		return appendGroup32_0(dst, in, initoffset)
 	case 1:
-		return deltapack32_1(initoffset, in, dst)
+		return appendGroup32_1(dst, in, initoffset)
 	case 2:
-		return deltapack32_2(initoffset, in, dst)
+		return appendGroup32_2(dst, in, initoffset)
 	case 3:
-		return deltapack32_3(initoffset, in, dst)
+		return appendGroup32_3(dst, in, initoffset)
 	case 4:
-		return deltapack32_4(initoffset, in, dst)
+		return appendGroup32_4(dst, in, initoffset)
 	case 5:
-		return deltapack32_5(initoffset, in, dst)
+		return appendGroup32_5(dst, in, initoffset)
 	case 6:
-		return deltapack32_6(initoffset, in, dst)
+		return appendGroup32_6(dst, in, initoffset)
 	case 7:
-		return deltapack32_7(initoffset, in, dst)
+		return appendGroup32_7(dst, in, initoffset)
 	case 8:
-		return deltapack32_8(initoffset, in, dst)
+		return appendGroup32_8(dst, in, initoffset)
 	case 9:
-		return deltapack32_9(initoffset, in, dst)
+		return appendGroup32_9(dst, in, initoffset)
 	case 10:
-		return deltapack32_10(initoffset, in, dst)
+		return appendGroup32_10(dst, in, initoffset)
 	case 11:
-		return deltapack32_11(initoffset, in, dst)
+		return appendGroup32_11(dst, in, initoffset)
 	case 12:
-		return deltapack32_12(initoffset, in, dst)
+		return appendGroup32_12(dst, in, initoffset)
 	case 13:
-		return deltapack32_13(initoffset, in, dst)
+		return appendGroup32_13(dst, in, initoffset)
 	case 14:
-		return deltapack32_14(initoffset, in, dst)
+		return appendGroup32_14(dst, in, initoffset)
 	case 15:
-		return deltapack32_15(initoffset, in, dst)
+		return appendGroup32_15(dst, in, initoffset)
 	case 16:
-		return deltapack32_16(initoffset, in, dst)
+		return appendGroup32_16(dst, in, initoffset)
 	case 17:
-		return deltapack32_17(initoffset, in, dst)
+		return appendGroup32_17(dst, in, initoffset)
 	case 18:
-		return deltapack32_18(initoffset, in, dst)
+		return appendGroup32_18(dst, in, initoffset)
 	case 19:
-		return deltapack32_19(initoffset, in, dst)
+		return appendGroup32_19(dst, in, initoffset)
 	case 20:
-		return deltapack32_20(initoffset, in, dst)
+		return appendGroup32_20(dst, in, initoffset)
 	case 21:
-		return deltapack32_21(initoffset, in, dst)
+		return appendGroup32_21(dst, in, initoffset)
 	case 22:
-		return deltapack32_22(initoffset, in, dst)
+		return appendGroup32_22(dst, in, initoffset)
 	case 23:
-		return deltapack32_23(initoffset, in, dst)
+		return appendGroup32_23(dst, in, initoffset)
 	case 24:
-		return deltapack32_24(initoffset, in, dst)
+		return appendGroup32_24(dst, in, initoffset)
 	case 25:
-		return deltapack32_25(initoffset, in, dst)
+		return appendGroup32_25(dst, in, initoffset)
 	case 26:
-		return deltapack32_26(initoffset, in, dst)
+		return appendGroup32_26(dst, in, initoffset)
 	case 27:
-		return deltapack32_27(initoffset, in, dst)
+		return appendGroup32_27(dst, in, initoffset)
 	case 28:
-		return deltapack32_28(initoffset, in, dst)
+		return appendGroup32_28(dst, in, initoffset)
 	case 29:
-		return deltapack32_29(initoffset, in, dst)
+		return appendGroup32_29(dst, in, initoffset)
 	case 30:
-		return deltapack32_30(initoffset, in, dst)
+		return appendGroup32_30(dst, in, initoffset)
 	case 31:
-		return deltapack32_31(initoffset, in, dst)
+		return appendGroup32_31(dst, in, initoffset)
 	case 32:
 		same := (*[32]uint32)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
@@ -165,69 +165,69 @@ func deltaUnpack_uint32[T uint32 | int32](initoffset T, in []uint32, out []T, bi
 func appendGroupZigZag_uint32(dst []uint32, in *[32]uint32, initoffset uint32, bitlen int) []uint32 {
 	switch bitlen {
 	case 0:
-		return deltapackzigzag32_0(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_0(dst, in, initoffset)
 	case 1:
-		return deltapackzigzag32_1(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_1(dst, in, initoffset)
 	case 2:
-		return deltapackzigzag32_2(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_2(dst, in, initoffset)
 	case 3:
-		return deltapackzigzag32_3(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_3(dst, in, initoffset)
 	case 4:
-		return deltapackzigzag32_4(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_4(dst, in, initoffset)
 	case 5:
-		return deltapackzigzag32_5(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_5(dst, in, initoffset)
 	case 6:
-		return deltapackzigzag32_6(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_6(dst, in, initoffset)
 	case 7:
-		return deltapackzigzag32_7(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_7(dst, in, initoffset)
 	case 8:
-		return deltapackzigzag32_8(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_8(dst, in, initoffset)
 	case 9:
-		return deltapackzigzag32_9(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_9(dst, in, initoffset)
 	case 10:
-		return deltapackzigzag32_10(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_10(dst, in, initoffset)
 	case 11:
-		return deltapackzigzag32_11(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_11(dst, in, initoffset)
 	case 12:
-		return deltapackzigzag32_12(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_12(dst, in, initoffset)
 	case 13:
-		return deltapackzigzag32_13(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_13(dst, in, initoffset)
 	case 14:
-		return deltapackzigzag32_14(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_14(dst, in, initoffset)
 	case 15:
-		return deltapackzigzag32_15(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_15(dst, in, initoffset)
 	case 16:
-		return deltapackzigzag32_16(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_16(dst, in, initoffset)
 	case 17:
-		return deltapackzigzag32_17(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_17(dst, in, initoffset)
 	case 18:
-		return deltapackzigzag32_18(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_18(dst, in, initoffset)
 	case 19:
-		return deltapackzigzag32_19(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_19(dst, in, initoffset)
 	case 20:
-		return deltapackzigzag32_20(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_20(dst, in, initoffset)
 	case 21:
-		return deltapackzigzag32_21(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_21(dst, in, initoffset)
 	case 22:
-		return deltapackzigzag32_22(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_22(dst, in, initoffset)
 	case 23:
-		return deltapackzigzag32_23(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_23(dst, in, initoffset)
 	case 24:
-		return deltapackzigzag32_24(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_24(dst, in, initoffset)
 	case 25:
-		return deltapackzigzag32_25(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_25(dst, in, initoffset)
 	case 26:
-		return deltapackzigzag32_26(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_26(dst, in, initoffset)
 	case 27:
-		return deltapackzigzag32_27(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_27(dst, in, initoffset)
 	case 28:
-		return deltapackzigzag32_28(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_28(dst, in, initoffset)
 	case 29:
-		return deltapackzigzag32_29(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_29(dst, in, initoffset)
 	case 30:
-		return deltapackzigzag32_30(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_30(dst, in, initoffset)
 	case 31:
-		return deltapackzigzag32_31(initoffset, (*[32]uint32)(in), dst)
+		return appendGroupZigZag32_31(dst, in, initoffset)
 	case 32:
 		same := (*[32]uint32)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
