@@ -8,7 +8,7 @@ import "unsafe"
 // deltaPack_uint32 Binary packing of one block of `in`, starting from `initoffset`
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
-func deltaPack_uint32[T uint32 | int32](initoffset T, in []T, out []uint32, bitlen int) {
+func deltaPack_uint32[T uint32 | int32](initoffset T, in *[32]T, out []uint32, bitlen int) {
 	switch bitlen {
 	case 0:
 		deltapack32_0(initoffset, (*[32]T)(in), (*[0]uint32)(out))
@@ -161,7 +161,7 @@ func deltaUnpack_uint32[T uint32 | int32](initoffset T, in []uint32, out []T, bi
 // to out. Differential coding is applied first, the difference is zigzag encoded.
 //
 //	Caller must give the proper `bitlen` of the block
-func deltaPackZigzag_uint32(initoffset uint32, in []uint32, out []uint32, bitlen int) {
+func deltaPackZigzag_uint32(initoffset uint32, in *[32]uint32, out []uint32, bitlen int) {
 	switch bitlen {
 	case 0:
 		deltapackzigzag32_0(initoffset, (*[32]uint32)(in), (*[0]uint32)(out))

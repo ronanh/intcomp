@@ -8,389 +8,389 @@ import "unsafe"
 // deltaPack_int64 Binary packing of one block of `in`, starting from `initoffset`
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
-func deltaPack_int64[T uint64 | int64](initoffset T, in []T, out []uint64, ntz, bitlen int) {
+func deltaPack_int64[T uint64 | int64](initoffset T, in *[64]T, out []uint64, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
 		if ntz > 0 {
-			deltapack64_ntz_0(initoffset, (*[64]T)(in), (*[0]uint64)(out), ntz)
+			deltapack64_ntz_0(initoffset, in, (*[0]uint64)(out), ntz)
 			break
 		}
 		deltapack64_0(initoffset, (*[64]T)(in), (*[0]uint64)(out))
 	case 1:
 		if ntz > 0 {
-			deltapack64_ntz_1(initoffset, (*[64]T)(in), (*[1]uint64)(out), ntz)
+			deltapack64_ntz_1(initoffset, in, (*[1]uint64)(out), ntz)
 			break
 		}
 		deltapack64_1(initoffset, (*[64]T)(in), (*[1]uint64)(out))
 	case 2:
 		if ntz > 0 {
-			deltapack64_ntz_2(initoffset, (*[64]T)(in), (*[2]uint64)(out), ntz)
+			deltapack64_ntz_2(initoffset, in, (*[2]uint64)(out), ntz)
 			break
 		}
 		deltapack64_2(initoffset, (*[64]T)(in), (*[2]uint64)(out))
 	case 3:
 		if ntz > 0 {
-			deltapack64_ntz_3(initoffset, (*[64]T)(in), (*[3]uint64)(out), ntz)
+			deltapack64_ntz_3(initoffset, in, (*[3]uint64)(out), ntz)
 			break
 		}
 		deltapack64_3(initoffset, (*[64]T)(in), (*[3]uint64)(out))
 	case 4:
 		if ntz > 0 {
-			deltapack64_ntz_4(initoffset, (*[64]T)(in), (*[4]uint64)(out), ntz)
+			deltapack64_ntz_4(initoffset, in, (*[4]uint64)(out), ntz)
 			break
 		}
 		deltapack64_4(initoffset, (*[64]T)(in), (*[4]uint64)(out))
 	case 5:
 		if ntz > 0 {
-			deltapack64_ntz_5(initoffset, (*[64]T)(in), (*[5]uint64)(out), ntz)
+			deltapack64_ntz_5(initoffset, in, (*[5]uint64)(out), ntz)
 			break
 		}
 		deltapack64_5(initoffset, (*[64]T)(in), (*[5]uint64)(out))
 	case 6:
 		if ntz > 0 {
-			deltapack64_ntz_6(initoffset, (*[64]T)(in), (*[6]uint64)(out), ntz)
+			deltapack64_ntz_6(initoffset, in, (*[6]uint64)(out), ntz)
 			break
 		}
 		deltapack64_6(initoffset, (*[64]T)(in), (*[6]uint64)(out))
 	case 7:
 		if ntz > 0 {
-			deltapack64_ntz_7(initoffset, (*[64]T)(in), (*[7]uint64)(out), ntz)
+			deltapack64_ntz_7(initoffset, in, (*[7]uint64)(out), ntz)
 			break
 		}
 		deltapack64_7(initoffset, (*[64]T)(in), (*[7]uint64)(out))
 	case 8:
 		if ntz > 0 {
-			deltapack64_ntz_8(initoffset, (*[64]T)(in), (*[8]uint64)(out), ntz)
+			deltapack64_ntz_8(initoffset, in, (*[8]uint64)(out), ntz)
 			break
 		}
 		deltapack64_8(initoffset, (*[64]T)(in), (*[8]uint64)(out))
 	case 9:
 		if ntz > 0 {
-			deltapack64_ntz_9(initoffset, (*[64]T)(in), (*[9]uint64)(out), ntz)
+			deltapack64_ntz_9(initoffset, in, (*[9]uint64)(out), ntz)
 			break
 		}
 		deltapack64_9(initoffset, (*[64]T)(in), (*[9]uint64)(out))
 	case 10:
 		if ntz > 0 {
-			deltapack64_ntz_10(initoffset, (*[64]T)(in), (*[10]uint64)(out), ntz)
+			deltapack64_ntz_10(initoffset, in, (*[10]uint64)(out), ntz)
 			break
 		}
 		deltapack64_10(initoffset, (*[64]T)(in), (*[10]uint64)(out))
 	case 11:
 		if ntz > 0 {
-			deltapack64_ntz_11(initoffset, (*[64]T)(in), (*[11]uint64)(out), ntz)
+			deltapack64_ntz_11(initoffset, in, (*[11]uint64)(out), ntz)
 			break
 		}
 		deltapack64_11(initoffset, (*[64]T)(in), (*[11]uint64)(out))
 	case 12:
 		if ntz > 0 {
-			deltapack64_ntz_12(initoffset, (*[64]T)(in), (*[12]uint64)(out), ntz)
+			deltapack64_ntz_12(initoffset, in, (*[12]uint64)(out), ntz)
 			break
 		}
 		deltapack64_12(initoffset, (*[64]T)(in), (*[12]uint64)(out))
 	case 13:
 		if ntz > 0 {
-			deltapack64_ntz_13(initoffset, (*[64]T)(in), (*[13]uint64)(out), ntz)
+			deltapack64_ntz_13(initoffset, in, (*[13]uint64)(out), ntz)
 			break
 		}
 		deltapack64_13(initoffset, (*[64]T)(in), (*[13]uint64)(out))
 	case 14:
 		if ntz > 0 {
-			deltapack64_ntz_14(initoffset, (*[64]T)(in), (*[14]uint64)(out), ntz)
+			deltapack64_ntz_14(initoffset, in, (*[14]uint64)(out), ntz)
 			break
 		}
 		deltapack64_14(initoffset, (*[64]T)(in), (*[14]uint64)(out))
 	case 15:
 		if ntz > 0 {
-			deltapack64_ntz_15(initoffset, (*[64]T)(in), (*[15]uint64)(out), ntz)
+			deltapack64_ntz_15(initoffset, in, (*[15]uint64)(out), ntz)
 			break
 		}
 		deltapack64_15(initoffset, (*[64]T)(in), (*[15]uint64)(out))
 	case 16:
 		if ntz > 0 {
-			deltapack64_ntz_16(initoffset, (*[64]T)(in), (*[16]uint64)(out), ntz)
+			deltapack64_ntz_16(initoffset, in, (*[16]uint64)(out), ntz)
 			break
 		}
 		deltapack64_16(initoffset, (*[64]T)(in), (*[16]uint64)(out))
 	case 17:
 		if ntz > 0 {
-			deltapack64_ntz_17(initoffset, (*[64]T)(in), (*[17]uint64)(out), ntz)
+			deltapack64_ntz_17(initoffset, in, (*[17]uint64)(out), ntz)
 			break
 		}
 		deltapack64_17(initoffset, (*[64]T)(in), (*[17]uint64)(out))
 	case 18:
 		if ntz > 0 {
-			deltapack64_ntz_18(initoffset, (*[64]T)(in), (*[18]uint64)(out), ntz)
+			deltapack64_ntz_18(initoffset, in, (*[18]uint64)(out), ntz)
 			break
 		}
 		deltapack64_18(initoffset, (*[64]T)(in), (*[18]uint64)(out))
 	case 19:
 		if ntz > 0 {
-			deltapack64_ntz_19(initoffset, (*[64]T)(in), (*[19]uint64)(out), ntz)
+			deltapack64_ntz_19(initoffset, in, (*[19]uint64)(out), ntz)
 			break
 		}
 		deltapack64_19(initoffset, (*[64]T)(in), (*[19]uint64)(out))
 	case 20:
 		if ntz > 0 {
-			deltapack64_ntz_20(initoffset, (*[64]T)(in), (*[20]uint64)(out), ntz)
+			deltapack64_ntz_20(initoffset, in, (*[20]uint64)(out), ntz)
 			break
 		}
 		deltapack64_20(initoffset, (*[64]T)(in), (*[20]uint64)(out))
 	case 21:
 		if ntz > 0 {
-			deltapack64_ntz_21(initoffset, (*[64]T)(in), (*[21]uint64)(out), ntz)
+			deltapack64_ntz_21(initoffset, in, (*[21]uint64)(out), ntz)
 			break
 		}
 		deltapack64_21(initoffset, (*[64]T)(in), (*[21]uint64)(out))
 	case 22:
 		if ntz > 0 {
-			deltapack64_ntz_22(initoffset, (*[64]T)(in), (*[22]uint64)(out), ntz)
+			deltapack64_ntz_22(initoffset, in, (*[22]uint64)(out), ntz)
 			break
 		}
 		deltapack64_22(initoffset, (*[64]T)(in), (*[22]uint64)(out))
 	case 23:
 		if ntz > 0 {
-			deltapack64_ntz_23(initoffset, (*[64]T)(in), (*[23]uint64)(out), ntz)
+			deltapack64_ntz_23(initoffset, in, (*[23]uint64)(out), ntz)
 			break
 		}
 		deltapack64_23(initoffset, (*[64]T)(in), (*[23]uint64)(out))
 	case 24:
 		if ntz > 0 {
-			deltapack64_ntz_24(initoffset, (*[64]T)(in), (*[24]uint64)(out), ntz)
+			deltapack64_ntz_24(initoffset, in, (*[24]uint64)(out), ntz)
 			break
 		}
 		deltapack64_24(initoffset, (*[64]T)(in), (*[24]uint64)(out))
 	case 25:
 		if ntz > 0 {
-			deltapack64_ntz_25(initoffset, (*[64]T)(in), (*[25]uint64)(out), ntz)
+			deltapack64_ntz_25(initoffset, in, (*[25]uint64)(out), ntz)
 			break
 		}
 		deltapack64_25(initoffset, (*[64]T)(in), (*[25]uint64)(out))
 	case 26:
 		if ntz > 0 {
-			deltapack64_ntz_26(initoffset, (*[64]T)(in), (*[26]uint64)(out), ntz)
+			deltapack64_ntz_26(initoffset, in, (*[26]uint64)(out), ntz)
 			break
 		}
 		deltapack64_26(initoffset, (*[64]T)(in), (*[26]uint64)(out))
 	case 27:
 		if ntz > 0 {
-			deltapack64_ntz_27(initoffset, (*[64]T)(in), (*[27]uint64)(out), ntz)
+			deltapack64_ntz_27(initoffset, in, (*[27]uint64)(out), ntz)
 			break
 		}
 		deltapack64_27(initoffset, (*[64]T)(in), (*[27]uint64)(out))
 	case 28:
 		if ntz > 0 {
-			deltapack64_ntz_28(initoffset, (*[64]T)(in), (*[28]uint64)(out), ntz)
+			deltapack64_ntz_28(initoffset, in, (*[28]uint64)(out), ntz)
 			break
 		}
 		deltapack64_28(initoffset, (*[64]T)(in), (*[28]uint64)(out))
 	case 29:
 		if ntz > 0 {
-			deltapack64_ntz_29(initoffset, (*[64]T)(in), (*[29]uint64)(out), ntz)
+			deltapack64_ntz_29(initoffset, in, (*[29]uint64)(out), ntz)
 			break
 		}
 		deltapack64_29(initoffset, (*[64]T)(in), (*[29]uint64)(out))
 	case 30:
 		if ntz > 0 {
-			deltapack64_ntz_30(initoffset, (*[64]T)(in), (*[30]uint64)(out), ntz)
+			deltapack64_ntz_30(initoffset, in, (*[30]uint64)(out), ntz)
 			break
 		}
 		deltapack64_30(initoffset, (*[64]T)(in), (*[30]uint64)(out))
 	case 31:
 		if ntz > 0 {
-			deltapack64_ntz_31(initoffset, (*[64]T)(in), (*[31]uint64)(out), ntz)
+			deltapack64_ntz_31(initoffset, in, (*[31]uint64)(out), ntz)
 			break
 		}
 		deltapack64_31(initoffset, (*[64]T)(in), (*[31]uint64)(out))
 	case 32:
 		if ntz > 0 {
-			deltapack64_ntz_32(initoffset, (*[64]T)(in), (*[32]uint64)(out), ntz)
+			deltapack64_ntz_32(initoffset, in, (*[32]uint64)(out), ntz)
 			break
 		}
 		deltapack64_32(initoffset, (*[64]T)(in), (*[32]uint64)(out))
 	case 33:
 		if ntz > 0 {
-			deltapack64_ntz_33(initoffset, (*[64]T)(in), (*[33]uint64)(out), ntz)
+			deltapack64_ntz_33(initoffset, in, (*[33]uint64)(out), ntz)
 			break
 		}
 		deltapack64_33(initoffset, (*[64]T)(in), (*[33]uint64)(out))
 	case 34:
 		if ntz > 0 {
-			deltapack64_ntz_34(initoffset, (*[64]T)(in), (*[34]uint64)(out), ntz)
+			deltapack64_ntz_34(initoffset, in, (*[34]uint64)(out), ntz)
 			break
 		}
 		deltapack64_34(initoffset, (*[64]T)(in), (*[34]uint64)(out))
 	case 35:
 		if ntz > 0 {
-			deltapack64_ntz_35(initoffset, (*[64]T)(in), (*[35]uint64)(out), ntz)
+			deltapack64_ntz_35(initoffset, in, (*[35]uint64)(out), ntz)
 			break
 		}
 		deltapack64_35(initoffset, (*[64]T)(in), (*[35]uint64)(out))
 	case 36:
 		if ntz > 0 {
-			deltapack64_ntz_36(initoffset, (*[64]T)(in), (*[36]uint64)(out), ntz)
+			deltapack64_ntz_36(initoffset, in, (*[36]uint64)(out), ntz)
 			break
 		}
 		deltapack64_36(initoffset, (*[64]T)(in), (*[36]uint64)(out))
 	case 37:
 		if ntz > 0 {
-			deltapack64_ntz_37(initoffset, (*[64]T)(in), (*[37]uint64)(out), ntz)
+			deltapack64_ntz_37(initoffset, in, (*[37]uint64)(out), ntz)
 			break
 		}
 		deltapack64_37(initoffset, (*[64]T)(in), (*[37]uint64)(out))
 	case 38:
 		if ntz > 0 {
-			deltapack64_ntz_38(initoffset, (*[64]T)(in), (*[38]uint64)(out), ntz)
+			deltapack64_ntz_38(initoffset, in, (*[38]uint64)(out), ntz)
 			break
 		}
 		deltapack64_38(initoffset, (*[64]T)(in), (*[38]uint64)(out))
 	case 39:
 		if ntz > 0 {
-			deltapack64_ntz_39(initoffset, (*[64]T)(in), (*[39]uint64)(out), ntz)
+			deltapack64_ntz_39(initoffset, in, (*[39]uint64)(out), ntz)
 			break
 		}
 		deltapack64_39(initoffset, (*[64]T)(in), (*[39]uint64)(out))
 	case 40:
 		if ntz > 0 {
-			deltapack64_ntz_40(initoffset, (*[64]T)(in), (*[40]uint64)(out), ntz)
+			deltapack64_ntz_40(initoffset, in, (*[40]uint64)(out), ntz)
 			break
 		}
 		deltapack64_40(initoffset, (*[64]T)(in), (*[40]uint64)(out))
 	case 41:
 		if ntz > 0 {
-			deltapack64_ntz_41(initoffset, (*[64]T)(in), (*[41]uint64)(out), ntz)
+			deltapack64_ntz_41(initoffset, in, (*[41]uint64)(out), ntz)
 			break
 		}
 		deltapack64_41(initoffset, (*[64]T)(in), (*[41]uint64)(out))
 	case 42:
 		if ntz > 0 {
-			deltapack64_ntz_42(initoffset, (*[64]T)(in), (*[42]uint64)(out), ntz)
+			deltapack64_ntz_42(initoffset, in, (*[42]uint64)(out), ntz)
 			break
 		}
 		deltapack64_42(initoffset, (*[64]T)(in), (*[42]uint64)(out))
 	case 43:
 		if ntz > 0 {
-			deltapack64_ntz_43(initoffset, (*[64]T)(in), (*[43]uint64)(out), ntz)
+			deltapack64_ntz_43(initoffset, in, (*[43]uint64)(out), ntz)
 			break
 		}
 		deltapack64_43(initoffset, (*[64]T)(in), (*[43]uint64)(out))
 	case 44:
 		if ntz > 0 {
-			deltapack64_ntz_44(initoffset, (*[64]T)(in), (*[44]uint64)(out), ntz)
+			deltapack64_ntz_44(initoffset, in, (*[44]uint64)(out), ntz)
 			break
 		}
 		deltapack64_44(initoffset, (*[64]T)(in), (*[44]uint64)(out))
 	case 45:
 		if ntz > 0 {
-			deltapack64_ntz_45(initoffset, (*[64]T)(in), (*[45]uint64)(out), ntz)
+			deltapack64_ntz_45(initoffset, in, (*[45]uint64)(out), ntz)
 			break
 		}
 		deltapack64_45(initoffset, (*[64]T)(in), (*[45]uint64)(out))
 	case 46:
 		if ntz > 0 {
-			deltapack64_ntz_46(initoffset, (*[64]T)(in), (*[46]uint64)(out), ntz)
+			deltapack64_ntz_46(initoffset, in, (*[46]uint64)(out), ntz)
 			break
 		}
 		deltapack64_46(initoffset, (*[64]T)(in), (*[46]uint64)(out))
 	case 47:
 		if ntz > 0 {
-			deltapack64_ntz_47(initoffset, (*[64]T)(in), (*[47]uint64)(out), ntz)
+			deltapack64_ntz_47(initoffset, in, (*[47]uint64)(out), ntz)
 			break
 		}
 		deltapack64_47(initoffset, (*[64]T)(in), (*[47]uint64)(out))
 	case 48:
 		if ntz > 0 {
-			deltapack64_ntz_48(initoffset, (*[64]T)(in), (*[48]uint64)(out), ntz)
+			deltapack64_ntz_48(initoffset, in, (*[48]uint64)(out), ntz)
 			break
 		}
 		deltapack64_48(initoffset, (*[64]T)(in), (*[48]uint64)(out))
 	case 49:
 		if ntz > 0 {
-			deltapack64_ntz_49(initoffset, (*[64]T)(in), (*[49]uint64)(out), ntz)
+			deltapack64_ntz_49(initoffset, in, (*[49]uint64)(out), ntz)
 			break
 		}
 		deltapack64_49(initoffset, (*[64]T)(in), (*[49]uint64)(out))
 	case 50:
 		if ntz > 0 {
-			deltapack64_ntz_50(initoffset, (*[64]T)(in), (*[50]uint64)(out), ntz)
+			deltapack64_ntz_50(initoffset, in, (*[50]uint64)(out), ntz)
 			break
 		}
 		deltapack64_50(initoffset, (*[64]T)(in), (*[50]uint64)(out))
 	case 51:
 		if ntz > 0 {
-			deltapack64_ntz_51(initoffset, (*[64]T)(in), (*[51]uint64)(out), ntz)
+			deltapack64_ntz_51(initoffset, in, (*[51]uint64)(out), ntz)
 			break
 		}
 		deltapack64_51(initoffset, (*[64]T)(in), (*[51]uint64)(out))
 	case 52:
 		if ntz > 0 {
-			deltapack64_ntz_52(initoffset, (*[64]T)(in), (*[52]uint64)(out), ntz)
+			deltapack64_ntz_52(initoffset, in, (*[52]uint64)(out), ntz)
 			break
 		}
 		deltapack64_52(initoffset, (*[64]T)(in), (*[52]uint64)(out))
 	case 53:
 		if ntz > 0 {
-			deltapack64_ntz_53(initoffset, (*[64]T)(in), (*[53]uint64)(out), ntz)
+			deltapack64_ntz_53(initoffset, in, (*[53]uint64)(out), ntz)
 			break
 		}
 		deltapack64_53(initoffset, (*[64]T)(in), (*[53]uint64)(out))
 	case 54:
 		if ntz > 0 {
-			deltapack64_ntz_54(initoffset, (*[64]T)(in), (*[54]uint64)(out), ntz)
+			deltapack64_ntz_54(initoffset, in, (*[54]uint64)(out), ntz)
 			break
 		}
 		deltapack64_54(initoffset, (*[64]T)(in), (*[54]uint64)(out))
 	case 55:
 		if ntz > 0 {
-			deltapack64_ntz_55(initoffset, (*[64]T)(in), (*[55]uint64)(out), ntz)
+			deltapack64_ntz_55(initoffset, in, (*[55]uint64)(out), ntz)
 			break
 		}
 		deltapack64_55(initoffset, (*[64]T)(in), (*[55]uint64)(out))
 	case 56:
 		if ntz > 0 {
-			deltapack64_ntz_56(initoffset, (*[64]T)(in), (*[56]uint64)(out), ntz)
+			deltapack64_ntz_56(initoffset, in, (*[56]uint64)(out), ntz)
 			break
 		}
 		deltapack64_56(initoffset, (*[64]T)(in), (*[56]uint64)(out))
 	case 57:
 		if ntz > 0 {
-			deltapack64_ntz_57(initoffset, (*[64]T)(in), (*[57]uint64)(out), ntz)
+			deltapack64_ntz_57(initoffset, in, (*[57]uint64)(out), ntz)
 			break
 		}
 		deltapack64_57(initoffset, (*[64]T)(in), (*[57]uint64)(out))
 	case 58:
 		if ntz > 0 {
-			deltapack64_ntz_58(initoffset, (*[64]T)(in), (*[58]uint64)(out), ntz)
+			deltapack64_ntz_58(initoffset, in, (*[58]uint64)(out), ntz)
 			break
 		}
 		deltapack64_58(initoffset, (*[64]T)(in), (*[58]uint64)(out))
 	case 59:
 		if ntz > 0 {
-			deltapack64_ntz_59(initoffset, (*[64]T)(in), (*[59]uint64)(out), ntz)
+			deltapack64_ntz_59(initoffset, in, (*[59]uint64)(out), ntz)
 			break
 		}
 		deltapack64_59(initoffset, (*[64]T)(in), (*[59]uint64)(out))
 	case 60:
 		if ntz > 0 {
-			deltapack64_ntz_60(initoffset, (*[64]T)(in), (*[60]uint64)(out), ntz)
+			deltapack64_ntz_60(initoffset, in, (*[60]uint64)(out), ntz)
 			break
 		}
 		deltapack64_60(initoffset, (*[64]T)(in), (*[60]uint64)(out))
 	case 61:
 		if ntz > 0 {
-			deltapack64_ntz_61(initoffset, (*[64]T)(in), (*[61]uint64)(out), ntz)
+			deltapack64_ntz_61(initoffset, in, (*[61]uint64)(out), ntz)
 			break
 		}
 		deltapack64_61(initoffset, (*[64]T)(in), (*[61]uint64)(out))
 	case 62:
 		if ntz > 0 {
-			deltapack64_ntz_62(initoffset, (*[64]T)(in), (*[62]uint64)(out), ntz)
+			deltapack64_ntz_62(initoffset, in, (*[62]uint64)(out), ntz)
 			break
 		}
 		deltapack64_62(initoffset, (*[64]T)(in), (*[62]uint64)(out))
 	case 63:
 		if ntz > 0 {
-			deltapack64_ntz_63(initoffset, (*[64]T)(in), (*[63]uint64)(out), ntz)
+			deltapack64_ntz_63(initoffset, in, (*[63]uint64)(out), ntz)
 			break
 		}
 		deltapack64_63(initoffset, (*[64]T)(in), (*[63]uint64)(out))
@@ -25505,389 +25505,389 @@ func deltaunpack64_ntz_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[
 // to out. Differential coding is applied first, the difference is zigzag encoded.
 //
 //	Caller must give the proper `bitlen` of the block
-func deltaPackZigzag_int64(initoffset int64, in []int64, out []uint64, ntz, bitlen int) {
+func deltaPackZigzag_int64(initoffset int64, in *[64]int64, out []uint64, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_0(initoffset, (*[64]int64)(in), (*[0]uint64)(out), ntz)
+			deltapackzigzag64_ntz_0(initoffset, in, (*[0]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_0(initoffset, (*[64]int64)(in), (*[0]uint64)(out))
 	case 1:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_1(initoffset, (*[64]int64)(in), (*[1]uint64)(out), ntz)
+			deltapackzigzag64_ntz_1(initoffset, in, (*[1]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_1(initoffset, (*[64]int64)(in), (*[1]uint64)(out))
 	case 2:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_2(initoffset, (*[64]int64)(in), (*[2]uint64)(out), ntz)
+			deltapackzigzag64_ntz_2(initoffset, in, (*[2]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_2(initoffset, (*[64]int64)(in), (*[2]uint64)(out))
 	case 3:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_3(initoffset, (*[64]int64)(in), (*[3]uint64)(out), ntz)
+			deltapackzigzag64_ntz_3(initoffset, in, (*[3]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_3(initoffset, (*[64]int64)(in), (*[3]uint64)(out))
 	case 4:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_4(initoffset, (*[64]int64)(in), (*[4]uint64)(out), ntz)
+			deltapackzigzag64_ntz_4(initoffset, in, (*[4]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_4(initoffset, (*[64]int64)(in), (*[4]uint64)(out))
 	case 5:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_5(initoffset, (*[64]int64)(in), (*[5]uint64)(out), ntz)
+			deltapackzigzag64_ntz_5(initoffset, in, (*[5]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_5(initoffset, (*[64]int64)(in), (*[5]uint64)(out))
 	case 6:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_6(initoffset, (*[64]int64)(in), (*[6]uint64)(out), ntz)
+			deltapackzigzag64_ntz_6(initoffset, in, (*[6]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_6(initoffset, (*[64]int64)(in), (*[6]uint64)(out))
 	case 7:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_7(initoffset, (*[64]int64)(in), (*[7]uint64)(out), ntz)
+			deltapackzigzag64_ntz_7(initoffset, in, (*[7]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_7(initoffset, (*[64]int64)(in), (*[7]uint64)(out))
 	case 8:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_8(initoffset, (*[64]int64)(in), (*[8]uint64)(out), ntz)
+			deltapackzigzag64_ntz_8(initoffset, in, (*[8]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_8(initoffset, (*[64]int64)(in), (*[8]uint64)(out))
 	case 9:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_9(initoffset, (*[64]int64)(in), (*[9]uint64)(out), ntz)
+			deltapackzigzag64_ntz_9(initoffset, in, (*[9]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_9(initoffset, (*[64]int64)(in), (*[9]uint64)(out))
 	case 10:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_10(initoffset, (*[64]int64)(in), (*[10]uint64)(out), ntz)
+			deltapackzigzag64_ntz_10(initoffset, in, (*[10]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_10(initoffset, (*[64]int64)(in), (*[10]uint64)(out))
 	case 11:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_11(initoffset, (*[64]int64)(in), (*[11]uint64)(out), ntz)
+			deltapackzigzag64_ntz_11(initoffset, in, (*[11]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_11(initoffset, (*[64]int64)(in), (*[11]uint64)(out))
 	case 12:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_12(initoffset, (*[64]int64)(in), (*[12]uint64)(out), ntz)
+			deltapackzigzag64_ntz_12(initoffset, in, (*[12]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_12(initoffset, (*[64]int64)(in), (*[12]uint64)(out))
 	case 13:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_13(initoffset, (*[64]int64)(in), (*[13]uint64)(out), ntz)
+			deltapackzigzag64_ntz_13(initoffset, in, (*[13]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_13(initoffset, (*[64]int64)(in), (*[13]uint64)(out))
 	case 14:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_14(initoffset, (*[64]int64)(in), (*[14]uint64)(out), ntz)
+			deltapackzigzag64_ntz_14(initoffset, in, (*[14]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_14(initoffset, (*[64]int64)(in), (*[14]uint64)(out))
 	case 15:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_15(initoffset, (*[64]int64)(in), (*[15]uint64)(out), ntz)
+			deltapackzigzag64_ntz_15(initoffset, in, (*[15]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_15(initoffset, (*[64]int64)(in), (*[15]uint64)(out))
 	case 16:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_16(initoffset, (*[64]int64)(in), (*[16]uint64)(out), ntz)
+			deltapackzigzag64_ntz_16(initoffset, in, (*[16]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_16(initoffset, (*[64]int64)(in), (*[16]uint64)(out))
 	case 17:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_17(initoffset, (*[64]int64)(in), (*[17]uint64)(out), ntz)
+			deltapackzigzag64_ntz_17(initoffset, in, (*[17]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_17(initoffset, (*[64]int64)(in), (*[17]uint64)(out))
 	case 18:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_18(initoffset, (*[64]int64)(in), (*[18]uint64)(out), ntz)
+			deltapackzigzag64_ntz_18(initoffset, in, (*[18]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_18(initoffset, (*[64]int64)(in), (*[18]uint64)(out))
 	case 19:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_19(initoffset, (*[64]int64)(in), (*[19]uint64)(out), ntz)
+			deltapackzigzag64_ntz_19(initoffset, in, (*[19]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_19(initoffset, (*[64]int64)(in), (*[19]uint64)(out))
 	case 20:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_20(initoffset, (*[64]int64)(in), (*[20]uint64)(out), ntz)
+			deltapackzigzag64_ntz_20(initoffset, in, (*[20]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_20(initoffset, (*[64]int64)(in), (*[20]uint64)(out))
 	case 21:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_21(initoffset, (*[64]int64)(in), (*[21]uint64)(out), ntz)
+			deltapackzigzag64_ntz_21(initoffset, in, (*[21]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_21(initoffset, (*[64]int64)(in), (*[21]uint64)(out))
 	case 22:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_22(initoffset, (*[64]int64)(in), (*[22]uint64)(out), ntz)
+			deltapackzigzag64_ntz_22(initoffset, in, (*[22]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_22(initoffset, (*[64]int64)(in), (*[22]uint64)(out))
 	case 23:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_23(initoffset, (*[64]int64)(in), (*[23]uint64)(out), ntz)
+			deltapackzigzag64_ntz_23(initoffset, in, (*[23]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_23(initoffset, (*[64]int64)(in), (*[23]uint64)(out))
 	case 24:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_24(initoffset, (*[64]int64)(in), (*[24]uint64)(out), ntz)
+			deltapackzigzag64_ntz_24(initoffset, in, (*[24]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_24(initoffset, (*[64]int64)(in), (*[24]uint64)(out))
 	case 25:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_25(initoffset, (*[64]int64)(in), (*[25]uint64)(out), ntz)
+			deltapackzigzag64_ntz_25(initoffset, in, (*[25]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_25(initoffset, (*[64]int64)(in), (*[25]uint64)(out))
 	case 26:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_26(initoffset, (*[64]int64)(in), (*[26]uint64)(out), ntz)
+			deltapackzigzag64_ntz_26(initoffset, in, (*[26]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_26(initoffset, (*[64]int64)(in), (*[26]uint64)(out))
 	case 27:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_27(initoffset, (*[64]int64)(in), (*[27]uint64)(out), ntz)
+			deltapackzigzag64_ntz_27(initoffset, in, (*[27]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_27(initoffset, (*[64]int64)(in), (*[27]uint64)(out))
 	case 28:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_28(initoffset, (*[64]int64)(in), (*[28]uint64)(out), ntz)
+			deltapackzigzag64_ntz_28(initoffset, in, (*[28]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_28(initoffset, (*[64]int64)(in), (*[28]uint64)(out))
 	case 29:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_29(initoffset, (*[64]int64)(in), (*[29]uint64)(out), ntz)
+			deltapackzigzag64_ntz_29(initoffset, in, (*[29]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_29(initoffset, (*[64]int64)(in), (*[29]uint64)(out))
 	case 30:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_30(initoffset, (*[64]int64)(in), (*[30]uint64)(out), ntz)
+			deltapackzigzag64_ntz_30(initoffset, in, (*[30]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_30(initoffset, (*[64]int64)(in), (*[30]uint64)(out))
 	case 31:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_31(initoffset, (*[64]int64)(in), (*[31]uint64)(out), ntz)
+			deltapackzigzag64_ntz_31(initoffset, in, (*[31]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_31(initoffset, (*[64]int64)(in), (*[31]uint64)(out))
 	case 32:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_32(initoffset, (*[64]int64)(in), (*[32]uint64)(out), ntz)
+			deltapackzigzag64_ntz_32(initoffset, in, (*[32]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_32(initoffset, (*[64]int64)(in), (*[32]uint64)(out))
 	case 33:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_33(initoffset, (*[64]int64)(in), (*[33]uint64)(out), ntz)
+			deltapackzigzag64_ntz_33(initoffset, in, (*[33]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_33(initoffset, (*[64]int64)(in), (*[33]uint64)(out))
 	case 34:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_34(initoffset, (*[64]int64)(in), (*[34]uint64)(out), ntz)
+			deltapackzigzag64_ntz_34(initoffset, in, (*[34]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_34(initoffset, (*[64]int64)(in), (*[34]uint64)(out))
 	case 35:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_35(initoffset, (*[64]int64)(in), (*[35]uint64)(out), ntz)
+			deltapackzigzag64_ntz_35(initoffset, in, (*[35]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_35(initoffset, (*[64]int64)(in), (*[35]uint64)(out))
 	case 36:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_36(initoffset, (*[64]int64)(in), (*[36]uint64)(out), ntz)
+			deltapackzigzag64_ntz_36(initoffset, in, (*[36]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_36(initoffset, (*[64]int64)(in), (*[36]uint64)(out))
 	case 37:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_37(initoffset, (*[64]int64)(in), (*[37]uint64)(out), ntz)
+			deltapackzigzag64_ntz_37(initoffset, in, (*[37]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_37(initoffset, (*[64]int64)(in), (*[37]uint64)(out))
 	case 38:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_38(initoffset, (*[64]int64)(in), (*[38]uint64)(out), ntz)
+			deltapackzigzag64_ntz_38(initoffset, in, (*[38]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_38(initoffset, (*[64]int64)(in), (*[38]uint64)(out))
 	case 39:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_39(initoffset, (*[64]int64)(in), (*[39]uint64)(out), ntz)
+			deltapackzigzag64_ntz_39(initoffset, in, (*[39]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_39(initoffset, (*[64]int64)(in), (*[39]uint64)(out))
 	case 40:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_40(initoffset, (*[64]int64)(in), (*[40]uint64)(out), ntz)
+			deltapackzigzag64_ntz_40(initoffset, in, (*[40]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_40(initoffset, (*[64]int64)(in), (*[40]uint64)(out))
 	case 41:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_41(initoffset, (*[64]int64)(in), (*[41]uint64)(out), ntz)
+			deltapackzigzag64_ntz_41(initoffset, in, (*[41]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_41(initoffset, (*[64]int64)(in), (*[41]uint64)(out))
 	case 42:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_42(initoffset, (*[64]int64)(in), (*[42]uint64)(out), ntz)
+			deltapackzigzag64_ntz_42(initoffset, in, (*[42]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_42(initoffset, (*[64]int64)(in), (*[42]uint64)(out))
 	case 43:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_43(initoffset, (*[64]int64)(in), (*[43]uint64)(out), ntz)
+			deltapackzigzag64_ntz_43(initoffset, in, (*[43]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_43(initoffset, (*[64]int64)(in), (*[43]uint64)(out))
 	case 44:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_44(initoffset, (*[64]int64)(in), (*[44]uint64)(out), ntz)
+			deltapackzigzag64_ntz_44(initoffset, in, (*[44]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_44(initoffset, (*[64]int64)(in), (*[44]uint64)(out))
 	case 45:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_45(initoffset, (*[64]int64)(in), (*[45]uint64)(out), ntz)
+			deltapackzigzag64_ntz_45(initoffset, in, (*[45]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_45(initoffset, (*[64]int64)(in), (*[45]uint64)(out))
 	case 46:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_46(initoffset, (*[64]int64)(in), (*[46]uint64)(out), ntz)
+			deltapackzigzag64_ntz_46(initoffset, in, (*[46]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_46(initoffset, (*[64]int64)(in), (*[46]uint64)(out))
 	case 47:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_47(initoffset, (*[64]int64)(in), (*[47]uint64)(out), ntz)
+			deltapackzigzag64_ntz_47(initoffset, in, (*[47]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_47(initoffset, (*[64]int64)(in), (*[47]uint64)(out))
 	case 48:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_48(initoffset, (*[64]int64)(in), (*[48]uint64)(out), ntz)
+			deltapackzigzag64_ntz_48(initoffset, in, (*[48]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_48(initoffset, (*[64]int64)(in), (*[48]uint64)(out))
 	case 49:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_49(initoffset, (*[64]int64)(in), (*[49]uint64)(out), ntz)
+			deltapackzigzag64_ntz_49(initoffset, in, (*[49]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_49(initoffset, (*[64]int64)(in), (*[49]uint64)(out))
 	case 50:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_50(initoffset, (*[64]int64)(in), (*[50]uint64)(out), ntz)
+			deltapackzigzag64_ntz_50(initoffset, in, (*[50]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_50(initoffset, (*[64]int64)(in), (*[50]uint64)(out))
 	case 51:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_51(initoffset, (*[64]int64)(in), (*[51]uint64)(out), ntz)
+			deltapackzigzag64_ntz_51(initoffset, in, (*[51]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_51(initoffset, (*[64]int64)(in), (*[51]uint64)(out))
 	case 52:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_52(initoffset, (*[64]int64)(in), (*[52]uint64)(out), ntz)
+			deltapackzigzag64_ntz_52(initoffset, in, (*[52]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_52(initoffset, (*[64]int64)(in), (*[52]uint64)(out))
 	case 53:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_53(initoffset, (*[64]int64)(in), (*[53]uint64)(out), ntz)
+			deltapackzigzag64_ntz_53(initoffset, in, (*[53]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_53(initoffset, (*[64]int64)(in), (*[53]uint64)(out))
 	case 54:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_54(initoffset, (*[64]int64)(in), (*[54]uint64)(out), ntz)
+			deltapackzigzag64_ntz_54(initoffset, in, (*[54]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_54(initoffset, (*[64]int64)(in), (*[54]uint64)(out))
 	case 55:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_55(initoffset, (*[64]int64)(in), (*[55]uint64)(out), ntz)
+			deltapackzigzag64_ntz_55(initoffset, in, (*[55]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_55(initoffset, (*[64]int64)(in), (*[55]uint64)(out))
 	case 56:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_56(initoffset, (*[64]int64)(in), (*[56]uint64)(out), ntz)
+			deltapackzigzag64_ntz_56(initoffset, in, (*[56]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_56(initoffset, (*[64]int64)(in), (*[56]uint64)(out))
 	case 57:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_57(initoffset, (*[64]int64)(in), (*[57]uint64)(out), ntz)
+			deltapackzigzag64_ntz_57(initoffset, in, (*[57]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_57(initoffset, (*[64]int64)(in), (*[57]uint64)(out))
 	case 58:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_58(initoffset, (*[64]int64)(in), (*[58]uint64)(out), ntz)
+			deltapackzigzag64_ntz_58(initoffset, in, (*[58]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_58(initoffset, (*[64]int64)(in), (*[58]uint64)(out))
 	case 59:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_59(initoffset, (*[64]int64)(in), (*[59]uint64)(out), ntz)
+			deltapackzigzag64_ntz_59(initoffset, in, (*[59]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_59(initoffset, (*[64]int64)(in), (*[59]uint64)(out))
 	case 60:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_60(initoffset, (*[64]int64)(in), (*[60]uint64)(out), ntz)
+			deltapackzigzag64_ntz_60(initoffset, in, (*[60]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_60(initoffset, (*[64]int64)(in), (*[60]uint64)(out))
 	case 61:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_61(initoffset, (*[64]int64)(in), (*[61]uint64)(out), ntz)
+			deltapackzigzag64_ntz_61(initoffset, in, (*[61]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_61(initoffset, (*[64]int64)(in), (*[61]uint64)(out))
 	case 62:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_62(initoffset, (*[64]int64)(in), (*[62]uint64)(out), ntz)
+			deltapackzigzag64_ntz_62(initoffset, in, (*[62]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_62(initoffset, (*[64]int64)(in), (*[62]uint64)(out))
 	case 63:
 		if ntz > 0 {
-			deltapackzigzag64_ntz_63(initoffset, (*[64]int64)(in), (*[63]uint64)(out), ntz)
+			deltapackzigzag64_ntz_63(initoffset, in, (*[63]uint64)(out), ntz)
 			break
 		}
 		deltapackzigzag64_63(initoffset, (*[64]int64)(in), (*[63]uint64)(out))
