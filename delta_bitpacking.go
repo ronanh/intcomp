@@ -17,28 +17,34 @@ const (
 //  2. ZigZag encoding is applied if a block contains at least one negative delta value
 //  3. The result is bit packed into the optimal number of bits for the block
 func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
-	blockN := len(in) / BitPackingBlockSize32
-	if blockN == 0 {
-		// input less than block size
+	if len(in) < BitPackingBlockSize32 {
 		return in, out
 	}
+	initoffset := in[0]
 
 	if out == nil {
 		out = make([]uint32, 0, len(in)/2)
 	}
-	// header written at the end
 	headerpos := len(out)
-	out = append(out, 0, 0, 0)
+	// header completed at end
+	out = append(out, 0, 0, uint32(initoffset))
 
-	initoffset := in[0]
+	var inpos int
+	for ; ; inpos += BitPackingBlockSize32 {
+		// babysit Go bounds check
+		if inpos < 0 || inpos >= len(in) {
+			break
+		}
+		block := in[inpos:]
+		if len(block) < BitPackingBlockSize32 {
+			break
+		}
 
-	for blockI := 0; blockI < blockN; blockI++ {
 		const groupSize = BitPackingBlockSize32 / 4
-		i := blockI * BitPackingBlockSize32
-		group1 := (*[groupSize]int32)(in[i+0*groupSize : i+1*groupSize])
-		group2 := (*[groupSize]int32)(in[i+1*groupSize : i+2*groupSize])
-		group3 := (*[groupSize]int32)(in[i+2*groupSize : i+3*groupSize])
-		group4 := (*[groupSize]int32)(in[i+3*groupSize : i+4*groupSize])
+		group1 := (*[groupSize]int32)(block[0*groupSize : 1*groupSize])
+		group2 := (*[groupSize]int32)(block[1*groupSize : 2*groupSize])
+		group3 := (*[groupSize]int32)(block[2*groupSize : 3*groupSize])
+		group4 := (*[groupSize]int32)(block[3*groupSize : 4*groupSize])
 
 		bitlen1, sign1 := deltaBitLenAndSignInt32(group1, initoffset)
 		bitlen2, sign2 := deltaBitLenAndSignInt32(group2, group1[31])
@@ -80,10 +86,22 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 	}
 
 	// write header
-	out[headerpos] = uint32(blockN * BitPackingBlockSize32)
-	out[headerpos+1] = uint32(len(out) - headerpos)
-	out[headerpos+2] = uint32(in[0])
-	return in[blockN*BitPackingBlockSize32:], out
+	var header []uint32
+	// babysit Go bounds check
+	if headerpos >= 0 && headerpos <= len(out) {
+		header = out[headerpos:]
+	}
+	if len(header) > 1 {
+		header[0] = uint32(inpos)
+		header[1] = uint32(len(out) - headerpos)
+	}
+
+	var remain []int32
+	// babysit Go bounds check
+	if inpos >= 0 && inpos < len(in) {
+		remain = in[inpos:]
+	}
+	return remain, out
 }
 
 func deltaBitLenAndSignInt32(in *[32]int32, pass int32) (int, int) {
@@ -175,28 +193,34 @@ func UncompressDeltaBinPackInt32(in []uint32, out []int32) ([]uint32, []int32) {
 //  2. ZigZag encoding is applied if a block contains at least one negative delta value
 //  3. The result is bit packed into the optimal number of bits for the block
 func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
-	blockN := len(in) / BitPackingBlockSize32
-	if blockN == 0 {
-		// input less than block size
+	if len(in) < BitPackingBlockSize32 {
 		return in, out
 	}
+	initoffset := in[0]
 
 	if out == nil {
 		out = make([]uint32, 0, len(in)/2)
 	}
-	// header written at the end
 	headerpos := len(out)
-	out = append(out, 0, 0, 0)
+	// header completed at end
+	out = append(out, 0, 0, initoffset)
 
-	initoffset := in[0]
+	var inpos int
+	for ; ; inpos += BitPackingBlockSize32 {
+		// babysit Go bounds check
+		if inpos < 0 || inpos >= len(in) {
+			break
+		}
+		block := in[inpos:]
+		if len(block) < BitPackingBlockSize32 {
+			break
+		}
 
-	for blockI := 0; blockI < blockN; blockI++ {
 		const groupSize = BitPackingBlockSize32 / 4
-		i := blockI * BitPackingBlockSize32
-		group1 := (*[groupSize]uint32)(in[i+0*groupSize : i+1*groupSize])
-		group2 := (*[groupSize]uint32)(in[i+1*groupSize : i+2*groupSize])
-		group3 := (*[groupSize]uint32)(in[i+2*groupSize : i+3*groupSize])
-		group4 := (*[groupSize]uint32)(in[i+3*groupSize : i+4*groupSize])
+		group1 := (*[groupSize]uint32)(block[0*groupSize : 1*groupSize])
+		group2 := (*[groupSize]uint32)(block[1*groupSize : 2*groupSize])
+		group3 := (*[groupSize]uint32)(block[2*groupSize : 3*groupSize])
+		group4 := (*[groupSize]uint32)(block[3*groupSize : 4*groupSize])
 
 		bitlen1, sign1 := deltaBitLenAndSignUint32(group1, initoffset)
 		bitlen2, sign2 := deltaBitLenAndSignUint32(group2, group1[31])
@@ -238,10 +262,22 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 	}
 
 	// write header
-	out[headerpos] = uint32(blockN * BitPackingBlockSize32)
-	out[headerpos+1] = uint32(len(out) - headerpos)
-	out[headerpos+2] = in[0]
-	return in[blockN*BitPackingBlockSize32:], out
+	var header []uint32
+	// babysit Go bounds check
+	if headerpos >= 0 && headerpos <= len(out) {
+		header = out[headerpos:]
+	}
+	if len(header) > 1 {
+		header[0] = uint32(inpos)
+		header[1] = uint32(len(out) - headerpos)
+	}
+
+	var remain []uint32
+	// babysit Go bounds check
+	if inpos >= 0 && inpos < len(in) {
+		remain = in[inpos:]
+	}
+	return remain, out
 }
 
 func deltaBitLenAndSignUint32(in *[32]uint32, pass uint32) (int, int) {
@@ -333,28 +369,34 @@ func UncompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 //  2. ZigZag encoding is applied if a block contains at least one negative delta value
 //  3. The result is bit packed into the optimal number of bits for the block
 func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
-	blockN := len(in) / BitPackingBlockSize64
-	if blockN == 0 {
-		// input less than block size
+	if len(in) < BitPackingBlockSize64 {
 		return in, out
 	}
+	initoffset := in[0]
 
 	if out == nil {
 		out = make([]uint64, 0, len(in)/2)
 	}
-	// header written at the end
 	headerpos := len(out)
-	out = append(out, 0, 0)
+	// header completed at end
+	out = append(out, 0, uint64(initoffset))
 
-	initoffset := in[0]
+	var inpos int
+	for ; ; inpos += BitPackingBlockSize64 {
+		// babysit Go bounds check
+		if inpos < 0 || inpos >= len(in) {
+			break
+		}
+		block := in[inpos:]
+		if len(block) < BitPackingBlockSize64 {
+			break
+		}
 
-	for blockI := 0; blockI < blockN; blockI++ {
 		const groupSize = BitPackingBlockSize64 / 4
-		i := blockI * BitPackingBlockSize64
-		group1 := (*[groupSize]int64)(in[i+0*groupSize : i+1*groupSize])
-		group2 := (*[groupSize]int64)(in[i+1*groupSize : i+2*groupSize])
-		group3 := (*[groupSize]int64)(in[i+2*groupSize : i+3*groupSize])
-		group4 := (*[groupSize]int64)(in[i+3*groupSize : i+4*groupSize])
+		group1 := (*[groupSize]int64)(block[0*groupSize : 1*groupSize])
+		group2 := (*[groupSize]int64)(block[1*groupSize : 2*groupSize])
+		group3 := (*[groupSize]int64)(block[2*groupSize : 3*groupSize])
+		group4 := (*[groupSize]int64)(block[3*groupSize : 4*groupSize])
 
 		ntz1, bitlen1, sign1 := deltaBitTzAndLenAndSignInt64(group1, initoffset)
 		ntz2, bitlen2, sign2 := deltaBitTzAndLenAndSignInt64(group2, group1[63])
@@ -397,9 +439,17 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 	}
 
 	// write header
-	out[headerpos] = uint64(blockN*BitPackingBlockSize64) | uint64(len(out)-headerpos)<<32
-	out[headerpos+1] = uint64(in[0])
-	return in[blockN*BitPackingBlockSize64:], out
+	// babysit Go bounds check
+	if headerpos >= 0 && headerpos < len(out) {
+		out[headerpos] = uint64(inpos) | uint64(len(out)-headerpos)<<32
+	}
+
+	var remain []int64
+	// babysit Go bounds check
+	if inpos >= 0 && inpos < len(in) {
+		remain = in[inpos:]
+	}
+	return remain, out
 }
 
 func deltaBitTzAndLenAndSignInt64(in *[64]int64, pass int64) (int, int, int) {
@@ -502,28 +552,34 @@ func UncompressDeltaBinPackInt64(in []uint64, out []int64) ([]uint64, []int64) {
 //  2. ZigZag encoding is applied if a block contains at least one negative delta value
 //  3. The result is bit packed into the optimal number of bits for the block
 func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
-	blockN := len(in) / BitPackingBlockSize64
-	if blockN == 0 {
-		// input less than block size
+	if len(in) < BitPackingBlockSize64 {
 		return in, out
 	}
+	initoffset := in[0]
 
 	if out == nil {
 		out = make([]uint64, 0, len(in)/2)
 	}
-	// header written at the end
 	headerpos := len(out)
-	out = append(out, 0, 0)
+	// header completed at end
+	out = append(out, 0, uint64(initoffset))
 
-	initoffset := in[0]
+	var inpos int
+	for ; ; inpos += BitPackingBlockSize64 {
+		// babysit Go bounds check
+		if inpos < 0 || inpos >= len(in) {
+			break
+		}
+		block := in[inpos:]
+		if len(block) < BitPackingBlockSize64 {
+			break
+		}
 
-	for blockI := 0; blockI < blockN; blockI++ {
 		const groupSize = BitPackingBlockSize64 / 4
-		i := blockI * BitPackingBlockSize64
-		group1 := (*[groupSize]uint64)(in[i+0*groupSize : i+1*groupSize])
-		group2 := (*[groupSize]uint64)(in[i+1*groupSize : i+2*groupSize])
-		group3 := (*[groupSize]uint64)(in[i+2*groupSize : i+3*groupSize])
-		group4 := (*[groupSize]uint64)(in[i+3*groupSize : i+4*groupSize])
+		group1 := (*[groupSize]uint64)(block[0*groupSize : 1*groupSize])
+		group2 := (*[groupSize]uint64)(block[1*groupSize : 2*groupSize])
+		group3 := (*[groupSize]uint64)(block[2*groupSize : 3*groupSize])
+		group4 := (*[groupSize]uint64)(block[3*groupSize : 4*groupSize])
 
 		bitlen1, sign1 := deltaBitLenAndSignUint64(group1, initoffset)
 		bitlen2, sign2 := deltaBitLenAndSignUint64(group2, group1[63])
@@ -566,9 +622,17 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 	}
 
 	// write header
-	out[headerpos] = uint64(blockN*BitPackingBlockSize64) + uint64(len(out)-headerpos)<<32
-	out[headerpos+1] = in[0]
-	return in[blockN*BitPackingBlockSize64:], out
+	// babysit Go bounds check
+	if headerpos >= 0 && headerpos < len(out) {
+		out[headerpos] = uint64(inpos) | uint64(len(out)-headerpos)<<32
+	}
+
+	var remain []uint64
+	// babysit Go bounds check
+	if inpos >= 0 && inpos < len(in) {
+		remain = in[inpos:]
+	}
+	return remain, out
 }
 
 func deltaBitLenAndSignUint64(in *[64]uint64, pass uint64) (int, int) {
