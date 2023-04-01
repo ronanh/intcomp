@@ -26,9 +26,9 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 	if out == nil {
 		out = make([]uint32, 0, len(in)/2)
 	}
-	// skip header (written at the end)
+	// header written at the end
 	headerpos := len(out)
-	outpos := headerpos + 3
+	out = append(out, 0, 0, 0)
 
 	initoffset := in[0]
 
@@ -45,61 +45,45 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignInt32(group3, group2[31])
 		bitlen4, sign4 := deltaBitLenAndSignInt32(group4, group3[31])
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
-			out = out[:outpos+l]
-		} else {
-			if min := len(out) / 4; l < min {
-				l = min
-			}
-			grow := make([]uint32, outpos+l)
-			copy(grow, out)
-			out = grow
-		}
-
 		// write block header
-		out[outpos] = uint32((sign1 << 31) | (bitlen1 << 24) |
-			(sign2 << 23) | (bitlen2 << 16) |
-			(sign3 << 15) | (bitlen3 << 8) |
-			(sign4 << 7) | bitlen4)
-		outpos++
+		out = append(out, uint32((sign1<<31)|(bitlen1<<24)|
+			(sign2<<23)|(bitlen2<<16)|
+			(sign3<<15)|(bitlen3<<8)|
+			(sign4<<7)|bitlen4))
 
 		// write groups (4 x 32 packed inputs)
 		if sign1 == 0 {
-			deltaPack_int32(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroup_int32(out, group1, initoffset, bitlen1)
 		} else {
-			deltaPackZigzag_int32(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroupZigZag_int32(out, group1, initoffset, bitlen1)
 		}
-		outpos += bitlen1
 
 		if sign2 == 0 {
-			deltaPack_int32(group1[31], group2, out[outpos:], bitlen2)
+			out = appendGroup_int32(out, group2, group1[31], bitlen2)
 		} else {
-			deltaPackZigzag_int32(group1[31], group2, out[outpos:], bitlen2)
+			out = appendGroupZigZag_int32(out, group2, group1[31], bitlen2)
 		}
-		outpos += bitlen2
 
 		if sign3 == 0 {
-			deltaPack_int32(group2[31], group3, out[outpos:], bitlen3)
+			out = appendGroup_int32(out, group3, group2[31], bitlen3)
 		} else {
-			deltaPackZigzag_int32(group2[31], group3, out[outpos:], bitlen3)
+			out = appendGroupZigZag_int32(out, group3, group2[31], bitlen3)
 		}
-		outpos += bitlen3
 
 		if sign4 == 0 {
-			deltaPack_int32(group3[31], group4, out[outpos:], bitlen4)
+			out = appendGroup_int32(out, group4, group3[31], bitlen4)
 		} else {
-			deltaPackZigzag_int32(group3[31], group4, out[outpos:], bitlen4)
+			out = appendGroupZigZag_int32(out, group4, group3[31], bitlen4)
 		}
-		outpos += bitlen4
 
 		initoffset = group4[31]
 	}
 
 	// write header
 	out[headerpos] = uint32(blockN * BitPackingBlockSize32)
-	out[headerpos+1] = uint32(outpos - headerpos)
+	out[headerpos+1] = uint32(len(out) - headerpos)
 	out[headerpos+2] = uint32(in[0])
-	return in[blockN*BitPackingBlockSize32:], out[:outpos]
+	return in[blockN*BitPackingBlockSize32:], out
 }
 
 func deltaBitLenAndSignInt32(in *[32]int32, pass int32) (int, int) {
@@ -200,9 +184,9 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 	if out == nil {
 		out = make([]uint32, 0, len(in)/2)
 	}
-	// skip header (written at the end)
+	// header written at the end
 	headerpos := len(out)
-	outpos := headerpos + 3
+	out = append(out, 0, 0, 0)
 
 	initoffset := in[0]
 
@@ -219,61 +203,45 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignUint32(group3, group2[31])
 		bitlen4, sign4 := deltaBitLenAndSignUint32(group4, group3[31])
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
-			out = out[:outpos+l]
-		} else {
-			if min := len(out) / 4; l < min {
-				l = min
-			}
-			grow := make([]uint32, outpos+l)
-			copy(grow, out)
-			out = grow
-		}
-
 		// write block header
-		out[outpos] = uint32((sign1 << 31) | (bitlen1 << 24) |
-			(sign2 << 23) | (bitlen2 << 16) |
-			(sign3 << 15) | (bitlen3 << 8) |
-			(sign4 << 7) | bitlen4)
-		outpos++
+		out = append(out, uint32((sign1<<31)|(bitlen1<<24)|
+			(sign2<<23)|(bitlen2<<16)|
+			(sign3<<15)|(bitlen3<<8)|
+			(sign4<<7)|bitlen4))
 
 		// write groups (4 x 32 packed inputs)
 		if sign1 == 0 {
-			deltaPack_uint32(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroup_uint32(out, group1, initoffset, bitlen1)
 		} else {
-			deltaPackZigzag_uint32(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroupZigZag_uint32(out, group1, initoffset, bitlen1)
 		}
-		outpos += bitlen1
 
 		if sign2 == 0 {
-			deltaPack_uint32(group1[31], group2, out[outpos:], bitlen2)
+			out = appendGroup_uint32(out, group2, group1[31], bitlen2)
 		} else {
-			deltaPackZigzag_uint32(group1[31], group2, out[outpos:], bitlen2)
+			out = appendGroupZigZag_uint32(out, group2, group1[31], bitlen2)
 		}
-		outpos += bitlen2
 
 		if sign3 == 0 {
-			deltaPack_uint32(group2[31], group3, out[outpos:], bitlen3)
+			out = appendGroup_uint32(out, group3, group2[31], bitlen3)
 		} else {
-			deltaPackZigzag_uint32(group2[31], group3, out[outpos:], bitlen3)
+			out = appendGroupZigZag_uint32(out, group3, group2[31], bitlen3)
 		}
-		outpos += bitlen3
 
 		if sign4 == 0 {
-			deltaPack_uint32(group3[31], group4, out[outpos:], bitlen4)
+			out = appendGroup_uint32(out, group4, group3[31], bitlen4)
 		} else {
-			deltaPackZigzag_uint32(group3[31], group4, out[outpos:], bitlen4)
+			out = appendGroupZigZag_uint32(out, group4, group3[31], bitlen4)
 		}
-		outpos += bitlen4
 
 		initoffset = group4[31]
 	}
 
 	// write header
 	out[headerpos] = uint32(blockN * BitPackingBlockSize32)
-	out[headerpos+1] = uint32(outpos - headerpos)
+	out[headerpos+1] = uint32(len(out) - headerpos)
 	out[headerpos+2] = in[0]
-	return in[blockN*BitPackingBlockSize32:], out[:outpos]
+	return in[blockN*BitPackingBlockSize32:], out
 }
 
 func deltaBitLenAndSignUint32(in *[32]uint32, pass uint32) (int, int) {
@@ -374,9 +342,9 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 	if out == nil {
 		out = make([]uint64, 0, len(in)/2)
 	}
-	// skip header (written at the end)
+	// header written at the end
 	headerpos := len(out)
-	outpos := headerpos + 2
+	out = append(out, 0, 0)
 
 	initoffset := in[0]
 
@@ -393,61 +361,45 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		ntz3, bitlen3, sign3 := deltaBitTzAndLenAndSignInt64(group3, group2[63])
 		ntz4, bitlen4, sign4 := deltaBitTzAndLenAndSignInt64(group4, group3[63])
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1 - ntz1 - ntz2 - ntz3 - ntz4; outpos+l < cap(out) {
-			out = out[:outpos+l]
-		} else {
-			if min := len(out) / 4; l < min {
-				l = min
-			}
-			grow := make([]uint64, outpos+l)
-			copy(grow, out)
-			out = grow
-		}
-
 		// write block header (min/max bits)
-		out[outpos] = uint64((ntz1 << 56) | (ntz2 << 48) | (ntz3 << 40) | (ntz4 << 32) |
-			(sign1 << 31) | (bitlen1 << 24) |
-			(sign2 << 23) | (bitlen2 << 16) |
-			(sign3 << 15) | (bitlen3 << 8) |
-			(sign4 << 7) | bitlen4)
-		outpos++
+		out = append(out, uint64((ntz1<<56)|(ntz2<<48)|(ntz3<<40)|(ntz4<<32)|
+			(sign1<<31)|(bitlen1<<24)|
+			(sign2<<23)|(bitlen2<<16)|
+			(sign3<<15)|(bitlen3<<8)|
+			(sign4<<7)|bitlen4))
 
 		// write groups (4 x 64 packed inputs)
 		if sign1 == 0 {
-			deltaPack_int64(initoffset, group1, out[outpos:], ntz1, bitlen1)
+			out = appendGroup_int64(out, group1, initoffset, ntz1, bitlen1)
 		} else {
-			deltaPackZigzag_int64(initoffset, group1, out[outpos:], ntz1, bitlen1)
+			out = appendGroupZigZag_int64(out, group1, initoffset, ntz1, bitlen1)
 		}
-		outpos += int(bitlen1 - ntz1)
 
 		if sign2 == 0 {
-			deltaPack_int64(group1[63], group2, out[outpos:], ntz2, bitlen2)
+			out = appendGroup_int64(out, group2, group1[63], ntz2, bitlen2)
 		} else {
-			deltaPackZigzag_int64(group1[63], group2, out[outpos:], ntz2, bitlen2)
+			out = appendGroupZigZag_int64(out, group2, group1[63], ntz2, bitlen2)
 		}
-		outpos += int(bitlen2 - ntz2)
 
 		if sign3 == 0 {
-			deltaPack_int64(group2[63], group3, out[outpos:], ntz3, bitlen3)
+			out = appendGroup_int64(out, group3, group2[63], ntz3, bitlen3)
 		} else {
-			deltaPackZigzag_int64(group2[63], group3, out[outpos:], ntz3, bitlen3)
+			out = appendGroupZigZag_int64(out, group3, group2[63], ntz3, bitlen3)
 		}
-		outpos += int(bitlen3 - ntz3)
 
 		if sign4 == 0 {
-			deltaPack_int64(group3[63], group4, out[outpos:], ntz4, bitlen4)
+			out = appendGroup_int64(out, group4, group3[63], ntz4, bitlen4)
 		} else {
-			deltaPackZigzag_int64(group3[63], group4, out[outpos:], ntz4, bitlen4)
+			out = appendGroupZigZag_int64(out, group4, group3[63], ntz4, bitlen4)
 		}
-		outpos += int(bitlen4 - ntz4)
 
 		initoffset = group4[63]
 	}
 
 	// write header
-	out[headerpos] = uint64(blockN*BitPackingBlockSize64) | uint64(outpos-headerpos)<<32
+	out[headerpos] = uint64(blockN*BitPackingBlockSize64) | uint64(len(out)-headerpos)<<32
 	out[headerpos+1] = uint64(in[0])
-	return in[blockN*BitPackingBlockSize64:], out[:outpos]
+	return in[blockN*BitPackingBlockSize64:], out
 }
 
 func deltaBitTzAndLenAndSignInt64(in *[64]int64, pass int64) (int, int, int) {
@@ -559,9 +511,9 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 	if out == nil {
 		out = make([]uint64, 0, len(in)/2)
 	}
-	// skip header (written at the end)
+	// header written at the end
 	headerpos := len(out)
-	outpos := headerpos + 2
+	out = append(out, 0, 0)
 
 	initoffset := in[0]
 
@@ -578,61 +530,45 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		bitlen3, sign3 := deltaBitLenAndSignUint64(group2, group2[63])
 		bitlen4, sign4 := deltaBitLenAndSignUint64(group4, group3[63])
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
-			out = out[:outpos+l]
-		} else {
-			if min := len(out) / 4; l < min {
-				l = min
-			}
-			grow := make([]uint64, outpos+l)
-			copy(grow, out)
-			out = grow
-		}
-
 		// write block header (min/max bits)
-		out[outpos] = uint64(
-			(sign1 << 31) | (bitlen1 << 24) |
-				(sign2 << 23) | (bitlen2 << 16) |
-				(sign3 << 15) | (bitlen3 << 8) |
-				(sign4 << 7) | bitlen4)
-		outpos++
+		out = append(out, uint64(
+			(sign1<<31)|(bitlen1<<24)|
+				(sign2<<23)|(bitlen2<<16)|
+				(sign3<<15)|(bitlen3<<8)|
+				(sign4<<7)|bitlen4))
 
 		// write groups (4 x 64 packed inputs)
 		if sign1 == 0 {
-			deltaPack_uint64(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroup_uint64(out, group1, initoffset, bitlen1)
 		} else {
-			deltaPackZigzag_uint64(initoffset, group1, out[outpos:], bitlen1)
+			out = appendGroupZigZag_uint64(out, group1, initoffset, bitlen1)
 		}
-		outpos += bitlen1
 
 		if sign2 == 0 {
-			deltaPack_uint64(group1[63], group2, out[outpos:], bitlen2)
+			out = appendGroup_uint64(out, group2, group1[63], bitlen2)
 		} else {
-			deltaPackZigzag_uint64(group1[63], group2, out[outpos:], bitlen2)
+			out = appendGroupZigZag_uint64(out, group2, group1[63], bitlen2)
 		}
-		outpos += bitlen2
 
 		if sign3 == 0 {
-			deltaPack_uint64(group2[63], group3, out[outpos:], bitlen3)
+			out = appendGroup_uint64(out, group3, group2[63], bitlen3)
 		} else {
-			deltaPackZigzag_uint64(group2[63], group3, out[outpos:], bitlen3)
+			out = appendGroupZigZag_uint64(out, group3, group2[63], bitlen3)
 		}
-		outpos += bitlen3
 
 		if sign4 == 0 {
-			deltaPack_uint64(group3[63], group4, out[outpos:], bitlen4)
+			out = appendGroup_uint64(out, group4, group3[63], bitlen4)
 		} else {
-			deltaPackZigzag_uint64(group3[63], group4, out[outpos:], bitlen4)
+			out = appendGroupZigZag_uint64(out, group4, group3[63], bitlen4)
 		}
-		outpos += bitlen4
 
 		initoffset = group4[63]
 	}
 
 	// write header
-	out[headerpos] = uint64(blockN*BitPackingBlockSize64) + uint64(outpos-headerpos)<<32
+	out[headerpos] = uint64(blockN*BitPackingBlockSize64) + uint64(len(out)-headerpos)<<32
 	out[headerpos+1] = in[0]
-	return in[blockN*BitPackingBlockSize64:], out[:outpos]
+	return in[blockN*BitPackingBlockSize64:], out
 }
 
 func deltaBitLenAndSignUint64(in *[64]uint64, pass uint64) (int, int) {
