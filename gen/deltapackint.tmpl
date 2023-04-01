@@ -11,9 +11,10 @@ import "unsafe"
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
 func appendGroup_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T{{$dp.NtzExtraParam}}, bitlen int) []uint{{$dp.Bits}} {
-	switch {{$dp.BitlenExpr}} {
+	switch {{$dp.BitlenExpr}} - 1 {
 {{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
+{{- if ne $dpn.N 0 }}
+	case {{$dpn.N}} - 1:
 {{- if $dp.WithNtz }}
 		if ntz > 0 {
 			return appendGroup{{$dp.Bits}}_ntz_{{$dpn.N}}(dst, in, initoffset, ntz)
@@ -21,12 +22,12 @@ func appendGroup_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint
 {{- end }}
 		return appendGroup{{$dp.Bits}}_{{$dpn.N}}(dst, in, initoffset)
 {{- end }}
-	case {{$dp.Bits}}:
+{{- end }}
+	case {{$dp.Bits}} - 1:
 		same := (*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in))
 		return append(dst, same[:]...)
-	default:
-		panic("unsupported bitlen")
 	}
+	return dst
 }
 
 // deltaUnpack_{{$dp.Typename}} Decoding operation for DeltaPack_{{$dp.Typename}}
@@ -51,6 +52,7 @@ func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](initoffset
 
 {{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
+{{- if ne $dpn.N 0 }}
 
 func appendGroup{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T) []uint{{$dp.Bits}} {
 	return append(dst
@@ -74,6 +76,7 @@ func appendGroup{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](
 {{- end }})
 }
 
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -105,9 +108,10 @@ func deltaunpack{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](
 // to out. Differential coding is applied first, the difference is zigzag encoded.
 //  Caller must give the proper `bitlen` of the block
 func appendGroupZigZag_{{$dp.Typename}}(dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]{{$dp.Typename}}, initoffset {{$dp.Typename}}{{$dp.NtzExtraParam}}, bitlen int) []uint{{$dp.Bits}} {
-	switch {{$dp.BitlenExpr}} {
+	switch {{$dp.BitlenExpr}} - 1 {
 {{- range $dpn := $dp.Dpn }}
-	case {{$dpn.N}}:
+{{- if ne $dpn.N 0 }}
+	case {{$dpn.N}} - 1:
 {{- if $dp.WithNtz }}
 		if ntz > 0 {
 			return appendGroupZigZag{{$dp.Bits}}_ntz_{{$dpn.N}}(dst, in, initoffset, ntz)
@@ -115,12 +119,12 @@ func appendGroupZigZag_{{$dp.Typename}}(dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}
 {{- end }}
 		return appendGroupZigZag{{$dp.Bits}}_{{$dpn.N}}(dst, in, initoffset)
 {{- end }}
-	case {{$dp.Bits}}:
+{{- end }}
+	case {{$dp.Bits}} - 1:
 		same := (*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in))
 		return append(dst, same[:]...)
-	default:
-		panic("unsupported bitlen")
 	}
+	return dst
 }
 
 // deltaUnpackZigzag_{{$dp.Typename}} Decoding operation for DeltaPackZigzag_{{$dp.Typename}}
@@ -145,6 +149,7 @@ func deltaUnpackZigzag_{{$dp.Typename}}(initoffset {{$dp.Typename}}, in []uint{{
 
 {{- if not $dp.Unsigned }}
 {{- range $dpn := $dp.Dpn }}
+{{- if ne $dpn.N 0 }}
 
 func appendGroupZigZag{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](dst []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T) []uint{{$dp.Bits}} {
 	return append(dst
@@ -170,6 +175,7 @@ func appendGroupZigZag{{$dp.Bits}}_ntz_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bi
 {{- end }})
 }
 
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}

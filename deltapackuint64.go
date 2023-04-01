@@ -9,141 +9,138 @@ import "unsafe"
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
 func appendGroup_uint64[T uint64 | int64](dst []uint64, in *[64]T, initoffset T, bitlen int) []uint64 {
-	switch bitlen {
-	case 0:
-		return appendGroup64_0(dst, in, initoffset)
-	case 1:
+	switch bitlen - 1 {
+	case 1 - 1:
 		return appendGroup64_1(dst, in, initoffset)
-	case 2:
+	case 2 - 1:
 		return appendGroup64_2(dst, in, initoffset)
-	case 3:
+	case 3 - 1:
 		return appendGroup64_3(dst, in, initoffset)
-	case 4:
+	case 4 - 1:
 		return appendGroup64_4(dst, in, initoffset)
-	case 5:
+	case 5 - 1:
 		return appendGroup64_5(dst, in, initoffset)
-	case 6:
+	case 6 - 1:
 		return appendGroup64_6(dst, in, initoffset)
-	case 7:
+	case 7 - 1:
 		return appendGroup64_7(dst, in, initoffset)
-	case 8:
+	case 8 - 1:
 		return appendGroup64_8(dst, in, initoffset)
-	case 9:
+	case 9 - 1:
 		return appendGroup64_9(dst, in, initoffset)
-	case 10:
+	case 10 - 1:
 		return appendGroup64_10(dst, in, initoffset)
-	case 11:
+	case 11 - 1:
 		return appendGroup64_11(dst, in, initoffset)
-	case 12:
+	case 12 - 1:
 		return appendGroup64_12(dst, in, initoffset)
-	case 13:
+	case 13 - 1:
 		return appendGroup64_13(dst, in, initoffset)
-	case 14:
+	case 14 - 1:
 		return appendGroup64_14(dst, in, initoffset)
-	case 15:
+	case 15 - 1:
 		return appendGroup64_15(dst, in, initoffset)
-	case 16:
+	case 16 - 1:
 		return appendGroup64_16(dst, in, initoffset)
-	case 17:
+	case 17 - 1:
 		return appendGroup64_17(dst, in, initoffset)
-	case 18:
+	case 18 - 1:
 		return appendGroup64_18(dst, in, initoffset)
-	case 19:
+	case 19 - 1:
 		return appendGroup64_19(dst, in, initoffset)
-	case 20:
+	case 20 - 1:
 		return appendGroup64_20(dst, in, initoffset)
-	case 21:
+	case 21 - 1:
 		return appendGroup64_21(dst, in, initoffset)
-	case 22:
+	case 22 - 1:
 		return appendGroup64_22(dst, in, initoffset)
-	case 23:
+	case 23 - 1:
 		return appendGroup64_23(dst, in, initoffset)
-	case 24:
+	case 24 - 1:
 		return appendGroup64_24(dst, in, initoffset)
-	case 25:
+	case 25 - 1:
 		return appendGroup64_25(dst, in, initoffset)
-	case 26:
+	case 26 - 1:
 		return appendGroup64_26(dst, in, initoffset)
-	case 27:
+	case 27 - 1:
 		return appendGroup64_27(dst, in, initoffset)
-	case 28:
+	case 28 - 1:
 		return appendGroup64_28(dst, in, initoffset)
-	case 29:
+	case 29 - 1:
 		return appendGroup64_29(dst, in, initoffset)
-	case 30:
+	case 30 - 1:
 		return appendGroup64_30(dst, in, initoffset)
-	case 31:
+	case 31 - 1:
 		return appendGroup64_31(dst, in, initoffset)
-	case 32:
+	case 32 - 1:
 		return appendGroup64_32(dst, in, initoffset)
-	case 33:
+	case 33 - 1:
 		return appendGroup64_33(dst, in, initoffset)
-	case 34:
+	case 34 - 1:
 		return appendGroup64_34(dst, in, initoffset)
-	case 35:
+	case 35 - 1:
 		return appendGroup64_35(dst, in, initoffset)
-	case 36:
+	case 36 - 1:
 		return appendGroup64_36(dst, in, initoffset)
-	case 37:
+	case 37 - 1:
 		return appendGroup64_37(dst, in, initoffset)
-	case 38:
+	case 38 - 1:
 		return appendGroup64_38(dst, in, initoffset)
-	case 39:
+	case 39 - 1:
 		return appendGroup64_39(dst, in, initoffset)
-	case 40:
+	case 40 - 1:
 		return appendGroup64_40(dst, in, initoffset)
-	case 41:
+	case 41 - 1:
 		return appendGroup64_41(dst, in, initoffset)
-	case 42:
+	case 42 - 1:
 		return appendGroup64_42(dst, in, initoffset)
-	case 43:
+	case 43 - 1:
 		return appendGroup64_43(dst, in, initoffset)
-	case 44:
+	case 44 - 1:
 		return appendGroup64_44(dst, in, initoffset)
-	case 45:
+	case 45 - 1:
 		return appendGroup64_45(dst, in, initoffset)
-	case 46:
+	case 46 - 1:
 		return appendGroup64_46(dst, in, initoffset)
-	case 47:
+	case 47 - 1:
 		return appendGroup64_47(dst, in, initoffset)
-	case 48:
+	case 48 - 1:
 		return appendGroup64_48(dst, in, initoffset)
-	case 49:
+	case 49 - 1:
 		return appendGroup64_49(dst, in, initoffset)
-	case 50:
+	case 50 - 1:
 		return appendGroup64_50(dst, in, initoffset)
-	case 51:
+	case 51 - 1:
 		return appendGroup64_51(dst, in, initoffset)
-	case 52:
+	case 52 - 1:
 		return appendGroup64_52(dst, in, initoffset)
-	case 53:
+	case 53 - 1:
 		return appendGroup64_53(dst, in, initoffset)
-	case 54:
+	case 54 - 1:
 		return appendGroup64_54(dst, in, initoffset)
-	case 55:
+	case 55 - 1:
 		return appendGroup64_55(dst, in, initoffset)
-	case 56:
+	case 56 - 1:
 		return appendGroup64_56(dst, in, initoffset)
-	case 57:
+	case 57 - 1:
 		return appendGroup64_57(dst, in, initoffset)
-	case 58:
+	case 58 - 1:
 		return appendGroup64_58(dst, in, initoffset)
-	case 59:
+	case 59 - 1:
 		return appendGroup64_59(dst, in, initoffset)
-	case 60:
+	case 60 - 1:
 		return appendGroup64_60(dst, in, initoffset)
-	case 61:
+	case 61 - 1:
 		return appendGroup64_61(dst, in, initoffset)
-	case 62:
+	case 62 - 1:
 		return appendGroup64_62(dst, in, initoffset)
-	case 63:
+	case 63 - 1:
 		return appendGroup64_63(dst, in, initoffset)
-	case 64:
+	case 64 - 1:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
-	default:
-		panic("unsupported bitlen")
 	}
+	return dst
 }
 
 // deltaUnpack_uint64 Decoding operation for DeltaPack_uint64
@@ -291,141 +288,138 @@ func deltaUnpack_uint64[T uint64 | int64](initoffset T, in []uint64, out []T, bi
 //
 //	Caller must give the proper `bitlen` of the block
 func appendGroupZigZag_uint64(dst []uint64, in *[64]uint64, initoffset uint64, bitlen int) []uint64 {
-	switch bitlen {
-	case 0:
-		return appendGroupZigZag64_0(dst, in, initoffset)
-	case 1:
+	switch bitlen - 1 {
+	case 1 - 1:
 		return appendGroupZigZag64_1(dst, in, initoffset)
-	case 2:
+	case 2 - 1:
 		return appendGroupZigZag64_2(dst, in, initoffset)
-	case 3:
+	case 3 - 1:
 		return appendGroupZigZag64_3(dst, in, initoffset)
-	case 4:
+	case 4 - 1:
 		return appendGroupZigZag64_4(dst, in, initoffset)
-	case 5:
+	case 5 - 1:
 		return appendGroupZigZag64_5(dst, in, initoffset)
-	case 6:
+	case 6 - 1:
 		return appendGroupZigZag64_6(dst, in, initoffset)
-	case 7:
+	case 7 - 1:
 		return appendGroupZigZag64_7(dst, in, initoffset)
-	case 8:
+	case 8 - 1:
 		return appendGroupZigZag64_8(dst, in, initoffset)
-	case 9:
+	case 9 - 1:
 		return appendGroupZigZag64_9(dst, in, initoffset)
-	case 10:
+	case 10 - 1:
 		return appendGroupZigZag64_10(dst, in, initoffset)
-	case 11:
+	case 11 - 1:
 		return appendGroupZigZag64_11(dst, in, initoffset)
-	case 12:
+	case 12 - 1:
 		return appendGroupZigZag64_12(dst, in, initoffset)
-	case 13:
+	case 13 - 1:
 		return appendGroupZigZag64_13(dst, in, initoffset)
-	case 14:
+	case 14 - 1:
 		return appendGroupZigZag64_14(dst, in, initoffset)
-	case 15:
+	case 15 - 1:
 		return appendGroupZigZag64_15(dst, in, initoffset)
-	case 16:
+	case 16 - 1:
 		return appendGroupZigZag64_16(dst, in, initoffset)
-	case 17:
+	case 17 - 1:
 		return appendGroupZigZag64_17(dst, in, initoffset)
-	case 18:
+	case 18 - 1:
 		return appendGroupZigZag64_18(dst, in, initoffset)
-	case 19:
+	case 19 - 1:
 		return appendGroupZigZag64_19(dst, in, initoffset)
-	case 20:
+	case 20 - 1:
 		return appendGroupZigZag64_20(dst, in, initoffset)
-	case 21:
+	case 21 - 1:
 		return appendGroupZigZag64_21(dst, in, initoffset)
-	case 22:
+	case 22 - 1:
 		return appendGroupZigZag64_22(dst, in, initoffset)
-	case 23:
+	case 23 - 1:
 		return appendGroupZigZag64_23(dst, in, initoffset)
-	case 24:
+	case 24 - 1:
 		return appendGroupZigZag64_24(dst, in, initoffset)
-	case 25:
+	case 25 - 1:
 		return appendGroupZigZag64_25(dst, in, initoffset)
-	case 26:
+	case 26 - 1:
 		return appendGroupZigZag64_26(dst, in, initoffset)
-	case 27:
+	case 27 - 1:
 		return appendGroupZigZag64_27(dst, in, initoffset)
-	case 28:
+	case 28 - 1:
 		return appendGroupZigZag64_28(dst, in, initoffset)
-	case 29:
+	case 29 - 1:
 		return appendGroupZigZag64_29(dst, in, initoffset)
-	case 30:
+	case 30 - 1:
 		return appendGroupZigZag64_30(dst, in, initoffset)
-	case 31:
+	case 31 - 1:
 		return appendGroupZigZag64_31(dst, in, initoffset)
-	case 32:
+	case 32 - 1:
 		return appendGroupZigZag64_32(dst, in, initoffset)
-	case 33:
+	case 33 - 1:
 		return appendGroupZigZag64_33(dst, in, initoffset)
-	case 34:
+	case 34 - 1:
 		return appendGroupZigZag64_34(dst, in, initoffset)
-	case 35:
+	case 35 - 1:
 		return appendGroupZigZag64_35(dst, in, initoffset)
-	case 36:
+	case 36 - 1:
 		return appendGroupZigZag64_36(dst, in, initoffset)
-	case 37:
+	case 37 - 1:
 		return appendGroupZigZag64_37(dst, in, initoffset)
-	case 38:
+	case 38 - 1:
 		return appendGroupZigZag64_38(dst, in, initoffset)
-	case 39:
+	case 39 - 1:
 		return appendGroupZigZag64_39(dst, in, initoffset)
-	case 40:
+	case 40 - 1:
 		return appendGroupZigZag64_40(dst, in, initoffset)
-	case 41:
+	case 41 - 1:
 		return appendGroupZigZag64_41(dst, in, initoffset)
-	case 42:
+	case 42 - 1:
 		return appendGroupZigZag64_42(dst, in, initoffset)
-	case 43:
+	case 43 - 1:
 		return appendGroupZigZag64_43(dst, in, initoffset)
-	case 44:
+	case 44 - 1:
 		return appendGroupZigZag64_44(dst, in, initoffset)
-	case 45:
+	case 45 - 1:
 		return appendGroupZigZag64_45(dst, in, initoffset)
-	case 46:
+	case 46 - 1:
 		return appendGroupZigZag64_46(dst, in, initoffset)
-	case 47:
+	case 47 - 1:
 		return appendGroupZigZag64_47(dst, in, initoffset)
-	case 48:
+	case 48 - 1:
 		return appendGroupZigZag64_48(dst, in, initoffset)
-	case 49:
+	case 49 - 1:
 		return appendGroupZigZag64_49(dst, in, initoffset)
-	case 50:
+	case 50 - 1:
 		return appendGroupZigZag64_50(dst, in, initoffset)
-	case 51:
+	case 51 - 1:
 		return appendGroupZigZag64_51(dst, in, initoffset)
-	case 52:
+	case 52 - 1:
 		return appendGroupZigZag64_52(dst, in, initoffset)
-	case 53:
+	case 53 - 1:
 		return appendGroupZigZag64_53(dst, in, initoffset)
-	case 54:
+	case 54 - 1:
 		return appendGroupZigZag64_54(dst, in, initoffset)
-	case 55:
+	case 55 - 1:
 		return appendGroupZigZag64_55(dst, in, initoffset)
-	case 56:
+	case 56 - 1:
 		return appendGroupZigZag64_56(dst, in, initoffset)
-	case 57:
+	case 57 - 1:
 		return appendGroupZigZag64_57(dst, in, initoffset)
-	case 58:
+	case 58 - 1:
 		return appendGroupZigZag64_58(dst, in, initoffset)
-	case 59:
+	case 59 - 1:
 		return appendGroupZigZag64_59(dst, in, initoffset)
-	case 60:
+	case 60 - 1:
 		return appendGroupZigZag64_60(dst, in, initoffset)
-	case 61:
+	case 61 - 1:
 		return appendGroupZigZag64_61(dst, in, initoffset)
-	case 62:
+	case 62 - 1:
 		return appendGroupZigZag64_62(dst, in, initoffset)
-	case 63:
+	case 63 - 1:
 		return appendGroupZigZag64_63(dst, in, initoffset)
-	case 64:
+	case 64 - 1:
 		same := (*[64]uint64)(unsafe.Pointer(in))
 		return append(dst, same[:]...)
-	default:
-		panic("unsupported bitlen")
 	}
+	return dst
 }
 
 // deltaUnpackZigzag_uint64 Decoding operation for DeltaPackZigzag_uint64
