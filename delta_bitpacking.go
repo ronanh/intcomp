@@ -28,7 +28,8 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 	}
 	// skip header (written at the end)
 	headerpos := len(out)
-	outpos := headerpos + 3
+	const headerSize = 3
+	outpos := headerpos + headerSize
 
 	initoffset := in[0]
 
@@ -45,7 +46,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignInt32(group2[31], (*[32]int32)(group3))
 		bitlen4, sign4 := deltaBitLenAndSignInt32(group3[31], (*[32]int32)(group4))
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + headerSize; outpos+l < cap(out) {
 			out = out[:outpos+l]
 		} else {
 			if min := len(out) / 4; l < min {
@@ -285,7 +286,8 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 	}
 	// skip header (written at the end)
 	headerpos := len(out)
-	outpos := headerpos + 3
+	const headerSize = 3
+	outpos := headerpos + headerSize
 
 	initoffset := in[0]
 
@@ -302,7 +304,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		bitlen3, sign3 := deltaBitLenAndSignUint32(group2[31], (*[32]uint32)(group3))
 		bitlen4, sign4 := deltaBitLenAndSignUint32(group3[31], (*[32]uint32)(group4))
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + headerSize; outpos+l < cap(out) {
 			out = out[:outpos+l]
 		} else {
 			if min := len(out) / 4; l < min {
@@ -541,7 +543,8 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 	}
 	// skip header (written at the end)
 	headerpos := len(out)
-	outpos := headerpos + 2
+	const headerSize = 2
+	outpos := headerpos + headerSize
 
 	initoffset := in[0]
 
@@ -558,7 +561,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		ntz3, bitlen3, sign3 := deltaBitTzAndLenAndSignInt64(group2[63], group3)
 		ntz4, bitlen4, sign4 := deltaBitTzAndLenAndSignInt64(group3[63], group4)
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1 - ntz1 - ntz2 - ntz3 - ntz4; outpos+l < cap(out) {
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + headerSize - ntz1 - ntz2 - ntz3 - ntz4; outpos+l < cap(out) {
 			out = out[:outpos+l]
 		} else {
 			if min := len(out) / 4; l < min {
@@ -813,7 +816,8 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 	}
 	// skip header (written at the end)
 	headerpos := len(out)
-	outpos := headerpos + 2
+	const headerSize = 2
+	outpos := headerpos + headerSize
 
 	initoffset := in[0]
 
@@ -830,7 +834,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		bitlen3, sign3 := deltaBitLenAndSignUint64(group2[63], group3)
 		bitlen4, sign4 := deltaBitLenAndSignUint64(group3[63], group4)
 
-		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + 1; outpos+l < cap(out) {
+		if l := bitlen1 + bitlen2 + bitlen3 + bitlen4 + headerSize; outpos+l < cap(out) {
 			out = out[:outpos+l]
 		} else {
 			if min := len(out) / 4; l < min {
