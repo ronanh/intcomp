@@ -8,157 +8,157 @@ import "unsafe"
 // deltaPack_int32 Binary packing of one block of `in`, starting from `initoffset`
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
-func deltaPack_int32[T uint32 | int32](initoffset T, in []T, out []uint32, bitlen int) {
+func deltaPack_int32[T uint32 | int32](out []uint32, in *[32]T, initoffset T, bitlen int) {
 	switch bitlen {
 	case 0:
-		deltapack32_0(initoffset, (*[32]T)(in), (*[0]uint32)(out))
+		deltapack32_0((*[0]uint32)(out), in, initoffset)
 	case 1:
-		deltapack32_1(initoffset, (*[32]T)(in), (*[1]uint32)(out))
+		deltapack32_1((*[1]uint32)(out), in, initoffset)
 	case 2:
-		deltapack32_2(initoffset, (*[32]T)(in), (*[2]uint32)(out))
+		deltapack32_2((*[2]uint32)(out), in, initoffset)
 	case 3:
-		deltapack32_3(initoffset, (*[32]T)(in), (*[3]uint32)(out))
+		deltapack32_3((*[3]uint32)(out), in, initoffset)
 	case 4:
-		deltapack32_4(initoffset, (*[32]T)(in), (*[4]uint32)(out))
+		deltapack32_4((*[4]uint32)(out), in, initoffset)
 	case 5:
-		deltapack32_5(initoffset, (*[32]T)(in), (*[5]uint32)(out))
+		deltapack32_5((*[5]uint32)(out), in, initoffset)
 	case 6:
-		deltapack32_6(initoffset, (*[32]T)(in), (*[6]uint32)(out))
+		deltapack32_6((*[6]uint32)(out), in, initoffset)
 	case 7:
-		deltapack32_7(initoffset, (*[32]T)(in), (*[7]uint32)(out))
+		deltapack32_7((*[7]uint32)(out), in, initoffset)
 	case 8:
-		deltapack32_8(initoffset, (*[32]T)(in), (*[8]uint32)(out))
+		deltapack32_8((*[8]uint32)(out), in, initoffset)
 	case 9:
-		deltapack32_9(initoffset, (*[32]T)(in), (*[9]uint32)(out))
+		deltapack32_9((*[9]uint32)(out), in, initoffset)
 	case 10:
-		deltapack32_10(initoffset, (*[32]T)(in), (*[10]uint32)(out))
+		deltapack32_10((*[10]uint32)(out), in, initoffset)
 	case 11:
-		deltapack32_11(initoffset, (*[32]T)(in), (*[11]uint32)(out))
+		deltapack32_11((*[11]uint32)(out), in, initoffset)
 	case 12:
-		deltapack32_12(initoffset, (*[32]T)(in), (*[12]uint32)(out))
+		deltapack32_12((*[12]uint32)(out), in, initoffset)
 	case 13:
-		deltapack32_13(initoffset, (*[32]T)(in), (*[13]uint32)(out))
+		deltapack32_13((*[13]uint32)(out), in, initoffset)
 	case 14:
-		deltapack32_14(initoffset, (*[32]T)(in), (*[14]uint32)(out))
+		deltapack32_14((*[14]uint32)(out), in, initoffset)
 	case 15:
-		deltapack32_15(initoffset, (*[32]T)(in), (*[15]uint32)(out))
+		deltapack32_15((*[15]uint32)(out), in, initoffset)
 	case 16:
-		deltapack32_16(initoffset, (*[32]T)(in), (*[16]uint32)(out))
+		deltapack32_16((*[16]uint32)(out), in, initoffset)
 	case 17:
-		deltapack32_17(initoffset, (*[32]T)(in), (*[17]uint32)(out))
+		deltapack32_17((*[17]uint32)(out), in, initoffset)
 	case 18:
-		deltapack32_18(initoffset, (*[32]T)(in), (*[18]uint32)(out))
+		deltapack32_18((*[18]uint32)(out), in, initoffset)
 	case 19:
-		deltapack32_19(initoffset, (*[32]T)(in), (*[19]uint32)(out))
+		deltapack32_19((*[19]uint32)(out), in, initoffset)
 	case 20:
-		deltapack32_20(initoffset, (*[32]T)(in), (*[20]uint32)(out))
+		deltapack32_20((*[20]uint32)(out), in, initoffset)
 	case 21:
-		deltapack32_21(initoffset, (*[32]T)(in), (*[21]uint32)(out))
+		deltapack32_21((*[21]uint32)(out), in, initoffset)
 	case 22:
-		deltapack32_22(initoffset, (*[32]T)(in), (*[22]uint32)(out))
+		deltapack32_22((*[22]uint32)(out), in, initoffset)
 	case 23:
-		deltapack32_23(initoffset, (*[32]T)(in), (*[23]uint32)(out))
+		deltapack32_23((*[23]uint32)(out), in, initoffset)
 	case 24:
-		deltapack32_24(initoffset, (*[32]T)(in), (*[24]uint32)(out))
+		deltapack32_24((*[24]uint32)(out), in, initoffset)
 	case 25:
-		deltapack32_25(initoffset, (*[32]T)(in), (*[25]uint32)(out))
+		deltapack32_25((*[25]uint32)(out), in, initoffset)
 	case 26:
-		deltapack32_26(initoffset, (*[32]T)(in), (*[26]uint32)(out))
+		deltapack32_26((*[26]uint32)(out), in, initoffset)
 	case 27:
-		deltapack32_27(initoffset, (*[32]T)(in), (*[27]uint32)(out))
+		deltapack32_27((*[27]uint32)(out), in, initoffset)
 	case 28:
-		deltapack32_28(initoffset, (*[32]T)(in), (*[28]uint32)(out))
+		deltapack32_28((*[28]uint32)(out), in, initoffset)
 	case 29:
-		deltapack32_29(initoffset, (*[32]T)(in), (*[29]uint32)(out))
+		deltapack32_29((*[29]uint32)(out), in, initoffset)
 	case 30:
-		deltapack32_30(initoffset, (*[32]T)(in), (*[30]uint32)(out))
+		deltapack32_30((*[30]uint32)(out), in, initoffset)
 	case 31:
-		deltapack32_31(initoffset, (*[32]T)(in), (*[31]uint32)(out))
+		deltapack32_31((*[31]uint32)(out), in, initoffset)
 	case 32:
-		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer((*[32]T)(in))))
+		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer(in)))
 	default:
 		panic("unsupported bitlen")
 	}
 }
 
 // deltaUnpack_int32 Decoding operation for DeltaPack_int32
-func deltaUnpack_int32[T uint32 | int32](initoffset T, in []uint32, out []T, bitlen int) {
+func deltaUnpack_int32[T uint32 | int32](out *[32]T, in []uint32, initoffset T, bitlen int) {
 	switch bitlen {
 	case 0:
-		deltaunpack32_0(initoffset, (*[0]uint32)(in), (*[32]T)(out))
+		deltaunpack32_0(out, (*[0]uint32)(in), initoffset)
 	case 1:
-		deltaunpack32_1(initoffset, (*[1]uint32)(in), (*[32]T)(out))
+		deltaunpack32_1(out, (*[1]uint32)(in), initoffset)
 	case 2:
-		deltaunpack32_2(initoffset, (*[2]uint32)(in), (*[32]T)(out))
+		deltaunpack32_2(out, (*[2]uint32)(in), initoffset)
 	case 3:
-		deltaunpack32_3(initoffset, (*[3]uint32)(in), (*[32]T)(out))
+		deltaunpack32_3(out, (*[3]uint32)(in), initoffset)
 	case 4:
-		deltaunpack32_4(initoffset, (*[4]uint32)(in), (*[32]T)(out))
+		deltaunpack32_4(out, (*[4]uint32)(in), initoffset)
 	case 5:
-		deltaunpack32_5(initoffset, (*[5]uint32)(in), (*[32]T)(out))
+		deltaunpack32_5(out, (*[5]uint32)(in), initoffset)
 	case 6:
-		deltaunpack32_6(initoffset, (*[6]uint32)(in), (*[32]T)(out))
+		deltaunpack32_6(out, (*[6]uint32)(in), initoffset)
 	case 7:
-		deltaunpack32_7(initoffset, (*[7]uint32)(in), (*[32]T)(out))
+		deltaunpack32_7(out, (*[7]uint32)(in), initoffset)
 	case 8:
-		deltaunpack32_8(initoffset, (*[8]uint32)(in), (*[32]T)(out))
+		deltaunpack32_8(out, (*[8]uint32)(in), initoffset)
 	case 9:
-		deltaunpack32_9(initoffset, (*[9]uint32)(in), (*[32]T)(out))
+		deltaunpack32_9(out, (*[9]uint32)(in), initoffset)
 	case 10:
-		deltaunpack32_10(initoffset, (*[10]uint32)(in), (*[32]T)(out))
+		deltaunpack32_10(out, (*[10]uint32)(in), initoffset)
 	case 11:
-		deltaunpack32_11(initoffset, (*[11]uint32)(in), (*[32]T)(out))
+		deltaunpack32_11(out, (*[11]uint32)(in), initoffset)
 	case 12:
-		deltaunpack32_12(initoffset, (*[12]uint32)(in), (*[32]T)(out))
+		deltaunpack32_12(out, (*[12]uint32)(in), initoffset)
 	case 13:
-		deltaunpack32_13(initoffset, (*[13]uint32)(in), (*[32]T)(out))
+		deltaunpack32_13(out, (*[13]uint32)(in), initoffset)
 	case 14:
-		deltaunpack32_14(initoffset, (*[14]uint32)(in), (*[32]T)(out))
+		deltaunpack32_14(out, (*[14]uint32)(in), initoffset)
 	case 15:
-		deltaunpack32_15(initoffset, (*[15]uint32)(in), (*[32]T)(out))
+		deltaunpack32_15(out, (*[15]uint32)(in), initoffset)
 	case 16:
-		deltaunpack32_16(initoffset, (*[16]uint32)(in), (*[32]T)(out))
+		deltaunpack32_16(out, (*[16]uint32)(in), initoffset)
 	case 17:
-		deltaunpack32_17(initoffset, (*[17]uint32)(in), (*[32]T)(out))
+		deltaunpack32_17(out, (*[17]uint32)(in), initoffset)
 	case 18:
-		deltaunpack32_18(initoffset, (*[18]uint32)(in), (*[32]T)(out))
+		deltaunpack32_18(out, (*[18]uint32)(in), initoffset)
 	case 19:
-		deltaunpack32_19(initoffset, (*[19]uint32)(in), (*[32]T)(out))
+		deltaunpack32_19(out, (*[19]uint32)(in), initoffset)
 	case 20:
-		deltaunpack32_20(initoffset, (*[20]uint32)(in), (*[32]T)(out))
+		deltaunpack32_20(out, (*[20]uint32)(in), initoffset)
 	case 21:
-		deltaunpack32_21(initoffset, (*[21]uint32)(in), (*[32]T)(out))
+		deltaunpack32_21(out, (*[21]uint32)(in), initoffset)
 	case 22:
-		deltaunpack32_22(initoffset, (*[22]uint32)(in), (*[32]T)(out))
+		deltaunpack32_22(out, (*[22]uint32)(in), initoffset)
 	case 23:
-		deltaunpack32_23(initoffset, (*[23]uint32)(in), (*[32]T)(out))
+		deltaunpack32_23(out, (*[23]uint32)(in), initoffset)
 	case 24:
-		deltaunpack32_24(initoffset, (*[24]uint32)(in), (*[32]T)(out))
+		deltaunpack32_24(out, (*[24]uint32)(in), initoffset)
 	case 25:
-		deltaunpack32_25(initoffset, (*[25]uint32)(in), (*[32]T)(out))
+		deltaunpack32_25(out, (*[25]uint32)(in), initoffset)
 	case 26:
-		deltaunpack32_26(initoffset, (*[26]uint32)(in), (*[32]T)(out))
+		deltaunpack32_26(out, (*[26]uint32)(in), initoffset)
 	case 27:
-		deltaunpack32_27(initoffset, (*[27]uint32)(in), (*[32]T)(out))
+		deltaunpack32_27(out, (*[27]uint32)(in), initoffset)
 	case 28:
-		deltaunpack32_28(initoffset, (*[28]uint32)(in), (*[32]T)(out))
+		deltaunpack32_28(out, (*[28]uint32)(in), initoffset)
 	case 29:
-		deltaunpack32_29(initoffset, (*[29]uint32)(in), (*[32]T)(out))
+		deltaunpack32_29(out, (*[29]uint32)(in), initoffset)
 	case 30:
-		deltaunpack32_30(initoffset, (*[30]uint32)(in), (*[32]T)(out))
+		deltaunpack32_30(out, (*[30]uint32)(in), initoffset)
 	case 31:
-		deltaunpack32_31(initoffset, (*[31]uint32)(in), (*[32]T)(out))
+		deltaunpack32_31(out, (*[31]uint32)(in), initoffset)
 	case 32:
-		*(*[32]T)(out) = *(*[32]T)(unsafe.Pointer((*[32]uint32)(in)))
+		*out = *(*[32]T)(unsafe.Pointer((*[32]uint32)(in)))
 	default:
 		panic("unsupported bitlen")
 	}
 }
 
-func deltapack32_0[T uint32 | int32](initoffset T, in *[32]T, out *[0]uint32) {
+func deltapack32_0[T uint32 | int32](out *[0]uint32, in *[32]T, initoffset T) {
 }
 
-func deltapack32_1[T uint32 | int32](initoffset T, in *[32]T, out *[1]uint32) {
+func deltapack32_1[T uint32 | int32](out *[1]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 1) |
@@ -194,7 +194,7 @@ func deltapack32_1[T uint32 | int32](initoffset T, in *[32]T, out *[1]uint32) {
 			((in[31] - in[30]) << 31))
 }
 
-func deltapack32_2[T uint32 | int32](initoffset T, in *[32]T, out *[2]uint32) {
+func deltapack32_2[T uint32 | int32](out *[2]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 2) |
@@ -231,7 +231,7 @@ func deltapack32_2[T uint32 | int32](initoffset T, in *[32]T, out *[2]uint32) {
 			((in[31] - in[30]) << 30))
 }
 
-func deltapack32_3[T uint32 | int32](initoffset T, in *[32]T, out *[3]uint32) {
+func deltapack32_3[T uint32 | int32](out *[3]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 3) |
@@ -271,7 +271,7 @@ func deltapack32_3[T uint32 | int32](initoffset T, in *[32]T, out *[3]uint32) {
 			((in[31] - in[30]) << 29))
 }
 
-func deltapack32_4[T uint32 | int32](initoffset T, in *[32]T, out *[4]uint32) {
+func deltapack32_4[T uint32 | int32](out *[4]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 4) |
@@ -310,7 +310,7 @@ func deltapack32_4[T uint32 | int32](initoffset T, in *[32]T, out *[4]uint32) {
 			((in[31] - in[30]) << 28))
 }
 
-func deltapack32_5[T uint32 | int32](initoffset T, in *[32]T, out *[5]uint32) {
+func deltapack32_5[T uint32 | int32](out *[5]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 5) |
@@ -354,7 +354,7 @@ func deltapack32_5[T uint32 | int32](initoffset T, in *[32]T, out *[5]uint32) {
 			((in[31] - in[30]) << 27))
 }
 
-func deltapack32_6[T uint32 | int32](initoffset T, in *[32]T, out *[6]uint32) {
+func deltapack32_6[T uint32 | int32](out *[6]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 6) |
@@ -399,7 +399,7 @@ func deltapack32_6[T uint32 | int32](initoffset T, in *[32]T, out *[6]uint32) {
 			((in[31] - in[30]) << 26))
 }
 
-func deltapack32_7[T uint32 | int32](initoffset T, in *[32]T, out *[7]uint32) {
+func deltapack32_7[T uint32 | int32](out *[7]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 7) |
@@ -447,7 +447,7 @@ func deltapack32_7[T uint32 | int32](initoffset T, in *[32]T, out *[7]uint32) {
 			((in[31] - in[30]) << 25))
 }
 
-func deltapack32_8[T uint32 | int32](initoffset T, in *[32]T, out *[8]uint32) {
+func deltapack32_8[T uint32 | int32](out *[8]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 8) |
@@ -490,7 +490,7 @@ func deltapack32_8[T uint32 | int32](initoffset T, in *[32]T, out *[8]uint32) {
 			((in[31] - in[30]) << 24))
 }
 
-func deltapack32_9[T uint32 | int32](initoffset T, in *[32]T, out *[9]uint32) {
+func deltapack32_9[T uint32 | int32](out *[9]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 9) |
@@ -542,7 +542,7 @@ func deltapack32_9[T uint32 | int32](initoffset T, in *[32]T, out *[9]uint32) {
 			((in[31] - in[30]) << 23))
 }
 
-func deltapack32_10[T uint32 | int32](initoffset T, in *[32]T, out *[10]uint32) {
+func deltapack32_10[T uint32 | int32](out *[10]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 10) |
@@ -595,7 +595,7 @@ func deltapack32_10[T uint32 | int32](initoffset T, in *[32]T, out *[10]uint32) 
 			((in[31] - in[30]) << 22))
 }
 
-func deltapack32_11[T uint32 | int32](initoffset T, in *[32]T, out *[11]uint32) {
+func deltapack32_11[T uint32 | int32](out *[11]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 11) |
@@ -651,7 +651,7 @@ func deltapack32_11[T uint32 | int32](initoffset T, in *[32]T, out *[11]uint32) 
 			((in[31] - in[30]) << 21))
 }
 
-func deltapack32_12[T uint32 | int32](initoffset T, in *[32]T, out *[12]uint32) {
+func deltapack32_12[T uint32 | int32](out *[12]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 12) |
@@ -706,7 +706,7 @@ func deltapack32_12[T uint32 | int32](initoffset T, in *[32]T, out *[12]uint32) 
 			((in[31] - in[30]) << 20))
 }
 
-func deltapack32_13[T uint32 | int32](initoffset T, in *[32]T, out *[13]uint32) {
+func deltapack32_13[T uint32 | int32](out *[13]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 13) |
@@ -766,7 +766,7 @@ func deltapack32_13[T uint32 | int32](initoffset T, in *[32]T, out *[13]uint32) 
 			((in[31] - in[30]) << 19))
 }
 
-func deltapack32_14[T uint32 | int32](initoffset T, in *[32]T, out *[14]uint32) {
+func deltapack32_14[T uint32 | int32](out *[14]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 14) |
@@ -827,7 +827,7 @@ func deltapack32_14[T uint32 | int32](initoffset T, in *[32]T, out *[14]uint32) 
 			((in[31] - in[30]) << 18))
 }
 
-func deltapack32_15[T uint32 | int32](initoffset T, in *[32]T, out *[15]uint32) {
+func deltapack32_15[T uint32 | int32](out *[15]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 15) |
@@ -891,7 +891,7 @@ func deltapack32_15[T uint32 | int32](initoffset T, in *[32]T, out *[15]uint32) 
 			((in[31] - in[30]) << 17))
 }
 
-func deltapack32_16[T uint32 | int32](initoffset T, in *[32]T, out *[16]uint32) {
+func deltapack32_16[T uint32 | int32](out *[16]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 16))
@@ -942,7 +942,7 @@ func deltapack32_16[T uint32 | int32](initoffset T, in *[32]T, out *[16]uint32) 
 			((in[31] - in[30]) << 16))
 }
 
-func deltapack32_17[T uint32 | int32](initoffset T, in *[32]T, out *[17]uint32) {
+func deltapack32_17[T uint32 | int32](out *[17]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 17))
@@ -1010,7 +1010,7 @@ func deltapack32_17[T uint32 | int32](initoffset T, in *[32]T, out *[17]uint32) 
 			((in[31] - in[30]) << 15))
 }
 
-func deltapack32_18[T uint32 | int32](initoffset T, in *[32]T, out *[18]uint32) {
+func deltapack32_18[T uint32 | int32](out *[18]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 18))
@@ -1079,7 +1079,7 @@ func deltapack32_18[T uint32 | int32](initoffset T, in *[32]T, out *[18]uint32) 
 			((in[31] - in[30]) << 14))
 }
 
-func deltapack32_19[T uint32 | int32](initoffset T, in *[32]T, out *[19]uint32) {
+func deltapack32_19[T uint32 | int32](out *[19]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 19))
@@ -1151,7 +1151,7 @@ func deltapack32_19[T uint32 | int32](initoffset T, in *[32]T, out *[19]uint32) 
 			((in[31] - in[30]) << 13))
 }
 
-func deltapack32_20[T uint32 | int32](initoffset T, in *[32]T, out *[20]uint32) {
+func deltapack32_20[T uint32 | int32](out *[20]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 20))
@@ -1222,7 +1222,7 @@ func deltapack32_20[T uint32 | int32](initoffset T, in *[32]T, out *[20]uint32) 
 			((in[31] - in[30]) << 12))
 }
 
-func deltapack32_21[T uint32 | int32](initoffset T, in *[32]T, out *[21]uint32) {
+func deltapack32_21[T uint32 | int32](out *[21]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 21))
@@ -1298,7 +1298,7 @@ func deltapack32_21[T uint32 | int32](initoffset T, in *[32]T, out *[21]uint32) 
 			((in[31] - in[30]) << 11))
 }
 
-func deltapack32_22[T uint32 | int32](initoffset T, in *[32]T, out *[22]uint32) {
+func deltapack32_22[T uint32 | int32](out *[22]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 22))
@@ -1375,7 +1375,7 @@ func deltapack32_22[T uint32 | int32](initoffset T, in *[32]T, out *[22]uint32) 
 			((in[31] - in[30]) << 10))
 }
 
-func deltapack32_23[T uint32 | int32](initoffset T, in *[32]T, out *[23]uint32) {
+func deltapack32_23[T uint32 | int32](out *[23]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 23))
@@ -1455,7 +1455,7 @@ func deltapack32_23[T uint32 | int32](initoffset T, in *[32]T, out *[23]uint32) 
 			((in[31] - in[30]) << 9))
 }
 
-func deltapack32_24[T uint32 | int32](initoffset T, in *[32]T, out *[24]uint32) {
+func deltapack32_24[T uint32 | int32](out *[24]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 24))
@@ -1530,7 +1530,7 @@ func deltapack32_24[T uint32 | int32](initoffset T, in *[32]T, out *[24]uint32) 
 			((in[31] - in[30]) << 8))
 }
 
-func deltapack32_25[T uint32 | int32](initoffset T, in *[32]T, out *[25]uint32) {
+func deltapack32_25[T uint32 | int32](out *[25]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 25))
@@ -1614,7 +1614,7 @@ func deltapack32_25[T uint32 | int32](initoffset T, in *[32]T, out *[25]uint32) 
 			((in[31] - in[30]) << 7))
 }
 
-func deltapack32_26[T uint32 | int32](initoffset T, in *[32]T, out *[26]uint32) {
+func deltapack32_26[T uint32 | int32](out *[26]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 26))
@@ -1699,7 +1699,7 @@ func deltapack32_26[T uint32 | int32](initoffset T, in *[32]T, out *[26]uint32) 
 			((in[31] - in[30]) << 6))
 }
 
-func deltapack32_27[T uint32 | int32](initoffset T, in *[32]T, out *[27]uint32) {
+func deltapack32_27[T uint32 | int32](out *[27]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 27))
@@ -1787,7 +1787,7 @@ func deltapack32_27[T uint32 | int32](initoffset T, in *[32]T, out *[27]uint32) 
 			((in[31] - in[30]) << 5))
 }
 
-func deltapack32_28[T uint32 | int32](initoffset T, in *[32]T, out *[28]uint32) {
+func deltapack32_28[T uint32 | int32](out *[28]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 28))
@@ -1874,7 +1874,7 @@ func deltapack32_28[T uint32 | int32](initoffset T, in *[32]T, out *[28]uint32) 
 			((in[31] - in[30]) << 4))
 }
 
-func deltapack32_29[T uint32 | int32](initoffset T, in *[32]T, out *[29]uint32) {
+func deltapack32_29[T uint32 | int32](out *[29]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 29))
@@ -1966,7 +1966,7 @@ func deltapack32_29[T uint32 | int32](initoffset T, in *[32]T, out *[29]uint32) 
 			((in[31] - in[30]) << 3))
 }
 
-func deltapack32_30[T uint32 | int32](initoffset T, in *[32]T, out *[30]uint32) {
+func deltapack32_30[T uint32 | int32](out *[30]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 30))
@@ -2059,7 +2059,7 @@ func deltapack32_30[T uint32 | int32](initoffset T, in *[32]T, out *[30]uint32) 
 			((in[31] - in[30]) << 2))
 }
 
-func deltapack32_31[T uint32 | int32](initoffset T, in *[32]T, out *[31]uint32) {
+func deltapack32_31[T uint32 | int32](out *[31]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		in[0] - initoffset |
 			((in[1] - in[0]) << 31))
@@ -2155,7 +2155,7 @@ func deltapack32_31[T uint32 | int32](initoffset T, in *[32]T, out *[31]uint32) 
 			((in[31] - in[30]) << 1))
 }
 
-func deltaunpack32_0[T uint32 | int32](initoffset T, in *[0]uint32, out *[32]T) {
+func deltaunpack32_0[T uint32 | int32](out *[32]T, in *[0]uint32, initoffset T) {
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -2190,7 +2190,7 @@ func deltaunpack32_0[T uint32 | int32](initoffset T, in *[0]uint32, out *[32]T) 
 	out[31] = initoffset
 }
 
-func deltaunpack32_1[T uint32 | int32](initoffset T, in *[1]uint32, out *[32]T) {
+func deltaunpack32_1[T uint32 | int32](out *[32]T, in *[1]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1) + initoffset
 	out[1] = T((in[0]>>1)&0x1) + out[0]
 	out[2] = T((in[0]>>2)&0x1) + out[1]
@@ -2225,7 +2225,7 @@ func deltaunpack32_1[T uint32 | int32](initoffset T, in *[1]uint32, out *[32]T) 
 	out[31] = T((in[0] >> 31)) + out[30]
 }
 
-func deltaunpack32_2[T uint32 | int32](initoffset T, in *[2]uint32, out *[32]T) {
+func deltaunpack32_2[T uint32 | int32](out *[32]T, in *[2]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3) + initoffset
 	out[1] = T((in[0]>>2)&0x3) + out[0]
 	out[2] = T((in[0]>>4)&0x3) + out[1]
@@ -2260,7 +2260,7 @@ func deltaunpack32_2[T uint32 | int32](initoffset T, in *[2]uint32, out *[32]T) 
 	out[31] = T((in[1] >> 30)) + out[30]
 }
 
-func deltaunpack32_3[T uint32 | int32](initoffset T, in *[3]uint32, out *[32]T) {
+func deltaunpack32_3[T uint32 | int32](out *[32]T, in *[3]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7) + initoffset
 	out[1] = T((in[0]>>3)&0x7) + out[0]
 	out[2] = T((in[0]>>6)&0x7) + out[1]
@@ -2295,7 +2295,7 @@ func deltaunpack32_3[T uint32 | int32](initoffset T, in *[3]uint32, out *[32]T) 
 	out[31] = T((in[2] >> 29)) + out[30]
 }
 
-func deltaunpack32_4[T uint32 | int32](initoffset T, in *[4]uint32, out *[32]T) {
+func deltaunpack32_4[T uint32 | int32](out *[32]T, in *[4]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xF) + initoffset
 	out[1] = T((in[0]>>4)&0xF) + out[0]
 	out[2] = T((in[0]>>8)&0xF) + out[1]
@@ -2330,7 +2330,7 @@ func deltaunpack32_4[T uint32 | int32](initoffset T, in *[4]uint32, out *[32]T) 
 	out[31] = T((in[3] >> 28)) + out[30]
 }
 
-func deltaunpack32_5[T uint32 | int32](initoffset T, in *[5]uint32, out *[32]T) {
+func deltaunpack32_5[T uint32 | int32](out *[32]T, in *[5]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1F) + initoffset
 	out[1] = T((in[0]>>5)&0x1F) + out[0]
 	out[2] = T((in[0]>>10)&0x1F) + out[1]
@@ -2365,7 +2365,7 @@ func deltaunpack32_5[T uint32 | int32](initoffset T, in *[5]uint32, out *[32]T) 
 	out[31] = T((in[4] >> 27)) + out[30]
 }
 
-func deltaunpack32_6[T uint32 | int32](initoffset T, in *[6]uint32, out *[32]T) {
+func deltaunpack32_6[T uint32 | int32](out *[32]T, in *[6]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3F) + initoffset
 	out[1] = T((in[0]>>6)&0x3F) + out[0]
 	out[2] = T((in[0]>>12)&0x3F) + out[1]
@@ -2400,7 +2400,7 @@ func deltaunpack32_6[T uint32 | int32](initoffset T, in *[6]uint32, out *[32]T) 
 	out[31] = T((in[5] >> 26)) + out[30]
 }
 
-func deltaunpack32_7[T uint32 | int32](initoffset T, in *[7]uint32, out *[32]T) {
+func deltaunpack32_7[T uint32 | int32](out *[32]T, in *[7]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7F) + initoffset
 	out[1] = T((in[0]>>7)&0x7F) + out[0]
 	out[2] = T((in[0]>>14)&0x7F) + out[1]
@@ -2435,7 +2435,7 @@ func deltaunpack32_7[T uint32 | int32](initoffset T, in *[7]uint32, out *[32]T) 
 	out[31] = T((in[6] >> 25)) + out[30]
 }
 
-func deltaunpack32_8[T uint32 | int32](initoffset T, in *[8]uint32, out *[32]T) {
+func deltaunpack32_8[T uint32 | int32](out *[32]T, in *[8]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFF) + initoffset
 	out[1] = T((in[0]>>8)&0xFF) + out[0]
 	out[2] = T((in[0]>>16)&0xFF) + out[1]
@@ -2470,7 +2470,7 @@ func deltaunpack32_8[T uint32 | int32](initoffset T, in *[8]uint32, out *[32]T) 
 	out[31] = T((in[7] >> 24)) + out[30]
 }
 
-func deltaunpack32_9[T uint32 | int32](initoffset T, in *[9]uint32, out *[32]T) {
+func deltaunpack32_9[T uint32 | int32](out *[32]T, in *[9]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FF) + initoffset
 	out[1] = T((in[0]>>9)&0x1FF) + out[0]
 	out[2] = T((in[0]>>18)&0x1FF) + out[1]
@@ -2505,7 +2505,7 @@ func deltaunpack32_9[T uint32 | int32](initoffset T, in *[9]uint32, out *[32]T) 
 	out[31] = T((in[8] >> 23)) + out[30]
 }
 
-func deltaunpack32_10[T uint32 | int32](initoffset T, in *[10]uint32, out *[32]T) {
+func deltaunpack32_10[T uint32 | int32](out *[32]T, in *[10]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FF) + initoffset
 	out[1] = T((in[0]>>10)&0x3FF) + out[0]
 	out[2] = T((in[0]>>20)&0x3FF) + out[1]
@@ -2540,7 +2540,7 @@ func deltaunpack32_10[T uint32 | int32](initoffset T, in *[10]uint32, out *[32]T
 	out[31] = T((in[9] >> 22)) + out[30]
 }
 
-func deltaunpack32_11[T uint32 | int32](initoffset T, in *[11]uint32, out *[32]T) {
+func deltaunpack32_11[T uint32 | int32](out *[32]T, in *[11]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FF) + initoffset
 	out[1] = T((in[0]>>11)&0x7FF) + out[0]
 	out[2] = T(((in[0] >> 22) | ((in[1] & 0x1) << 10))) + out[1]
@@ -2575,7 +2575,7 @@ func deltaunpack32_11[T uint32 | int32](initoffset T, in *[11]uint32, out *[32]T
 	out[31] = T((in[10] >> 21)) + out[30]
 }
 
-func deltaunpack32_12[T uint32 | int32](initoffset T, in *[12]uint32, out *[32]T) {
+func deltaunpack32_12[T uint32 | int32](out *[32]T, in *[12]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFF) + initoffset
 	out[1] = T((in[0]>>12)&0xFFF) + out[0]
 	out[2] = T(((in[0] >> 24) | ((in[1] & 0xF) << 8))) + out[1]
@@ -2610,7 +2610,7 @@ func deltaunpack32_12[T uint32 | int32](initoffset T, in *[12]uint32, out *[32]T
 	out[31] = T((in[11] >> 20)) + out[30]
 }
 
-func deltaunpack32_13[T uint32 | int32](initoffset T, in *[13]uint32, out *[32]T) {
+func deltaunpack32_13[T uint32 | int32](out *[32]T, in *[13]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFF) + initoffset
 	out[1] = T((in[0]>>13)&0x1FFF) + out[0]
 	out[2] = T(((in[0] >> 26) | ((in[1] & 0x7F) << 6))) + out[1]
@@ -2645,7 +2645,7 @@ func deltaunpack32_13[T uint32 | int32](initoffset T, in *[13]uint32, out *[32]T
 	out[31] = T((in[12] >> 19)) + out[30]
 }
 
-func deltaunpack32_14[T uint32 | int32](initoffset T, in *[14]uint32, out *[32]T) {
+func deltaunpack32_14[T uint32 | int32](out *[32]T, in *[14]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFF) + initoffset
 	out[1] = T((in[0]>>14)&0x3FFF) + out[0]
 	out[2] = T(((in[0] >> 28) | ((in[1] & 0x3FF) << 4))) + out[1]
@@ -2680,7 +2680,7 @@ func deltaunpack32_14[T uint32 | int32](initoffset T, in *[14]uint32, out *[32]T
 	out[31] = T((in[13] >> 18)) + out[30]
 }
 
-func deltaunpack32_15[T uint32 | int32](initoffset T, in *[15]uint32, out *[32]T) {
+func deltaunpack32_15[T uint32 | int32](out *[32]T, in *[15]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFF) + initoffset
 	out[1] = T((in[0]>>15)&0x7FFF) + out[0]
 	out[2] = T(((in[0] >> 30) | ((in[1] & 0x1FFF) << 2))) + out[1]
@@ -2715,7 +2715,7 @@ func deltaunpack32_15[T uint32 | int32](initoffset T, in *[15]uint32, out *[32]T
 	out[31] = T((in[14] >> 17)) + out[30]
 }
 
-func deltaunpack32_16[T uint32 | int32](initoffset T, in *[16]uint32, out *[32]T) {
+func deltaunpack32_16[T uint32 | int32](out *[32]T, in *[16]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFF) + initoffset
 	out[1] = T((in[0] >> 16)) + out[0]
 	out[2] = T((in[1]>>0)&0xFFFF) + out[1]
@@ -2750,7 +2750,7 @@ func deltaunpack32_16[T uint32 | int32](initoffset T, in *[16]uint32, out *[32]T
 	out[31] = T((in[15] >> 16)) + out[30]
 }
 
-func deltaunpack32_17[T uint32 | int32](initoffset T, in *[17]uint32, out *[32]T) {
+func deltaunpack32_17[T uint32 | int32](out *[32]T, in *[17]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFF) + initoffset
 	out[1] = T(((in[0] >> 17) | ((in[1] & 0x3) << 15))) + out[0]
 	out[2] = T((in[1]>>2)&0x1FFFF) + out[1]
@@ -2785,7 +2785,7 @@ func deltaunpack32_17[T uint32 | int32](initoffset T, in *[17]uint32, out *[32]T
 	out[31] = T((in[16] >> 15)) + out[30]
 }
 
-func deltaunpack32_18[T uint32 | int32](initoffset T, in *[18]uint32, out *[32]T) {
+func deltaunpack32_18[T uint32 | int32](out *[32]T, in *[18]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFF) + initoffset
 	out[1] = T(((in[0] >> 18) | ((in[1] & 0xF) << 14))) + out[0]
 	out[2] = T((in[1]>>4)&0x3FFFF) + out[1]
@@ -2820,7 +2820,7 @@ func deltaunpack32_18[T uint32 | int32](initoffset T, in *[18]uint32, out *[32]T
 	out[31] = T((in[17] >> 14)) + out[30]
 }
 
-func deltaunpack32_19[T uint32 | int32](initoffset T, in *[19]uint32, out *[32]T) {
+func deltaunpack32_19[T uint32 | int32](out *[32]T, in *[19]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFF) + initoffset
 	out[1] = T(((in[0] >> 19) | ((in[1] & 0x3F) << 13))) + out[0]
 	out[2] = T((in[1]>>6)&0x7FFFF) + out[1]
@@ -2855,7 +2855,7 @@ func deltaunpack32_19[T uint32 | int32](initoffset T, in *[19]uint32, out *[32]T
 	out[31] = T((in[18] >> 13)) + out[30]
 }
 
-func deltaunpack32_20[T uint32 | int32](initoffset T, in *[20]uint32, out *[32]T) {
+func deltaunpack32_20[T uint32 | int32](out *[32]T, in *[20]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFF) + initoffset
 	out[1] = T(((in[0] >> 20) | ((in[1] & 0xFF) << 12))) + out[0]
 	out[2] = T((in[1]>>8)&0xFFFFF) + out[1]
@@ -2890,7 +2890,7 @@ func deltaunpack32_20[T uint32 | int32](initoffset T, in *[20]uint32, out *[32]T
 	out[31] = T((in[19] >> 12)) + out[30]
 }
 
-func deltaunpack32_21[T uint32 | int32](initoffset T, in *[21]uint32, out *[32]T) {
+func deltaunpack32_21[T uint32 | int32](out *[32]T, in *[21]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFF) + initoffset
 	out[1] = T(((in[0] >> 21) | ((in[1] & 0x3FF) << 11))) + out[0]
 	out[2] = T((in[1]>>10)&0x1FFFFF) + out[1]
@@ -2925,7 +2925,7 @@ func deltaunpack32_21[T uint32 | int32](initoffset T, in *[21]uint32, out *[32]T
 	out[31] = T((in[20] >> 11)) + out[30]
 }
 
-func deltaunpack32_22[T uint32 | int32](initoffset T, in *[22]uint32, out *[32]T) {
+func deltaunpack32_22[T uint32 | int32](out *[32]T, in *[22]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFF) + initoffset
 	out[1] = T(((in[0] >> 22) | ((in[1] & 0xFFF) << 10))) + out[0]
 	out[2] = T(((in[1] >> 12) | ((in[2] & 0x3) << 20))) + out[1]
@@ -2960,7 +2960,7 @@ func deltaunpack32_22[T uint32 | int32](initoffset T, in *[22]uint32, out *[32]T
 	out[31] = T((in[21] >> 10)) + out[30]
 }
 
-func deltaunpack32_23[T uint32 | int32](initoffset T, in *[23]uint32, out *[32]T) {
+func deltaunpack32_23[T uint32 | int32](out *[32]T, in *[23]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFF) + initoffset
 	out[1] = T(((in[0] >> 23) | ((in[1] & 0x3FFF) << 9))) + out[0]
 	out[2] = T(((in[1] >> 14) | ((in[2] & 0x1F) << 18))) + out[1]
@@ -2995,7 +2995,7 @@ func deltaunpack32_23[T uint32 | int32](initoffset T, in *[23]uint32, out *[32]T
 	out[31] = T((in[22] >> 9)) + out[30]
 }
 
-func deltaunpack32_24[T uint32 | int32](initoffset T, in *[24]uint32, out *[32]T) {
+func deltaunpack32_24[T uint32 | int32](out *[32]T, in *[24]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 24) | ((in[1] & 0xFFFF) << 8))) + out[0]
 	out[2] = T(((in[1] >> 16) | ((in[2] & 0xFF) << 16))) + out[1]
@@ -3030,7 +3030,7 @@ func deltaunpack32_24[T uint32 | int32](initoffset T, in *[24]uint32, out *[32]T
 	out[31] = T((in[23] >> 8)) + out[30]
 }
 
-func deltaunpack32_25[T uint32 | int32](initoffset T, in *[25]uint32, out *[32]T) {
+func deltaunpack32_25[T uint32 | int32](out *[32]T, in *[25]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFF) + initoffset
 	out[1] = T(((in[0] >> 25) | ((in[1] & 0x3FFFF) << 7))) + out[0]
 	out[2] = T(((in[1] >> 18) | ((in[2] & 0x7FF) << 14))) + out[1]
@@ -3065,7 +3065,7 @@ func deltaunpack32_25[T uint32 | int32](initoffset T, in *[25]uint32, out *[32]T
 	out[31] = T((in[24] >> 7)) + out[30]
 }
 
-func deltaunpack32_26[T uint32 | int32](initoffset T, in *[26]uint32, out *[32]T) {
+func deltaunpack32_26[T uint32 | int32](out *[32]T, in *[26]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFF) + initoffset
 	out[1] = T(((in[0] >> 26) | ((in[1] & 0xFFFFF) << 6))) + out[0]
 	out[2] = T(((in[1] >> 20) | ((in[2] & 0x3FFF) << 12))) + out[1]
@@ -3100,7 +3100,7 @@ func deltaunpack32_26[T uint32 | int32](initoffset T, in *[26]uint32, out *[32]T
 	out[31] = T((in[25] >> 6)) + out[30]
 }
 
-func deltaunpack32_27[T uint32 | int32](initoffset T, in *[27]uint32, out *[32]T) {
+func deltaunpack32_27[T uint32 | int32](out *[32]T, in *[27]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFF) + initoffset
 	out[1] = T(((in[0] >> 27) | ((in[1] & 0x3FFFFF) << 5))) + out[0]
 	out[2] = T(((in[1] >> 22) | ((in[2] & 0x1FFFF) << 10))) + out[1]
@@ -3135,7 +3135,7 @@ func deltaunpack32_27[T uint32 | int32](initoffset T, in *[27]uint32, out *[32]T
 	out[31] = T((in[26] >> 5)) + out[30]
 }
 
-func deltaunpack32_28[T uint32 | int32](initoffset T, in *[28]uint32, out *[32]T) {
+func deltaunpack32_28[T uint32 | int32](out *[32]T, in *[28]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 28) | ((in[1] & 0xFFFFFF) << 4))) + out[0]
 	out[2] = T(((in[1] >> 24) | ((in[2] & 0xFFFFF) << 8))) + out[1]
@@ -3170,7 +3170,7 @@ func deltaunpack32_28[T uint32 | int32](initoffset T, in *[28]uint32, out *[32]T
 	out[31] = T((in[27] >> 4)) + out[30]
 }
 
-func deltaunpack32_29[T uint32 | int32](initoffset T, in *[29]uint32, out *[32]T) {
+func deltaunpack32_29[T uint32 | int32](out *[32]T, in *[29]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 29) | ((in[1] & 0x3FFFFFF) << 3))) + out[0]
 	out[2] = T(((in[1] >> 26) | ((in[2] & 0x7FFFFF) << 6))) + out[1]
@@ -3205,7 +3205,7 @@ func deltaunpack32_29[T uint32 | int32](initoffset T, in *[29]uint32, out *[32]T
 	out[31] = T((in[28] >> 3)) + out[30]
 }
 
-func deltaunpack32_30[T uint32 | int32](initoffset T, in *[30]uint32, out *[32]T) {
+func deltaunpack32_30[T uint32 | int32](out *[32]T, in *[30]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 30) | ((in[1] & 0xFFFFFFF) << 2))) + out[0]
 	out[2] = T(((in[1] >> 28) | ((in[2] & 0x3FFFFFF) << 4))) + out[1]
@@ -3240,7 +3240,7 @@ func deltaunpack32_30[T uint32 | int32](initoffset T, in *[30]uint32, out *[32]T
 	out[31] = T((in[29] >> 2)) + out[30]
 }
 
-func deltaunpack32_31[T uint32 | int32](initoffset T, in *[31]uint32, out *[32]T) {
+func deltaunpack32_31[T uint32 | int32](out *[32]T, in *[31]uint32, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 31) | ((in[1] & 0x3FFFFFFF) << 1))) + out[0]
 	out[2] = T(((in[1] >> 30) | ((in[2] & 0x1FFFFFFF) << 2))) + out[1]
@@ -3281,157 +3281,157 @@ func deltaunpack32_31[T uint32 | int32](initoffset T, in *[31]uint32, out *[32]T
 // to out. Differential coding is applied first, the difference is zigzag encoded.
 //
 //	Caller must give the proper `bitlen` of the block
-func deltaPackZigzag_int32(initoffset int32, in []int32, out []uint32, bitlen int) {
+func deltaPackZigzag_int32(out []uint32, in *[32]int32, initoffset int32, bitlen int) {
 	switch bitlen {
 	case 0:
-		deltapackzigzag32_0(initoffset, (*[32]int32)(in), (*[0]uint32)(out))
+		deltapackzigzag32_0((*[0]uint32)(out), in, initoffset)
 	case 1:
-		deltapackzigzag32_1(initoffset, (*[32]int32)(in), (*[1]uint32)(out))
+		deltapackzigzag32_1((*[1]uint32)(out), in, initoffset)
 	case 2:
-		deltapackzigzag32_2(initoffset, (*[32]int32)(in), (*[2]uint32)(out))
+		deltapackzigzag32_2((*[2]uint32)(out), in, initoffset)
 	case 3:
-		deltapackzigzag32_3(initoffset, (*[32]int32)(in), (*[3]uint32)(out))
+		deltapackzigzag32_3((*[3]uint32)(out), in, initoffset)
 	case 4:
-		deltapackzigzag32_4(initoffset, (*[32]int32)(in), (*[4]uint32)(out))
+		deltapackzigzag32_4((*[4]uint32)(out), in, initoffset)
 	case 5:
-		deltapackzigzag32_5(initoffset, (*[32]int32)(in), (*[5]uint32)(out))
+		deltapackzigzag32_5((*[5]uint32)(out), in, initoffset)
 	case 6:
-		deltapackzigzag32_6(initoffset, (*[32]int32)(in), (*[6]uint32)(out))
+		deltapackzigzag32_6((*[6]uint32)(out), in, initoffset)
 	case 7:
-		deltapackzigzag32_7(initoffset, (*[32]int32)(in), (*[7]uint32)(out))
+		deltapackzigzag32_7((*[7]uint32)(out), in, initoffset)
 	case 8:
-		deltapackzigzag32_8(initoffset, (*[32]int32)(in), (*[8]uint32)(out))
+		deltapackzigzag32_8((*[8]uint32)(out), in, initoffset)
 	case 9:
-		deltapackzigzag32_9(initoffset, (*[32]int32)(in), (*[9]uint32)(out))
+		deltapackzigzag32_9((*[9]uint32)(out), in, initoffset)
 	case 10:
-		deltapackzigzag32_10(initoffset, (*[32]int32)(in), (*[10]uint32)(out))
+		deltapackzigzag32_10((*[10]uint32)(out), in, initoffset)
 	case 11:
-		deltapackzigzag32_11(initoffset, (*[32]int32)(in), (*[11]uint32)(out))
+		deltapackzigzag32_11((*[11]uint32)(out), in, initoffset)
 	case 12:
-		deltapackzigzag32_12(initoffset, (*[32]int32)(in), (*[12]uint32)(out))
+		deltapackzigzag32_12((*[12]uint32)(out), in, initoffset)
 	case 13:
-		deltapackzigzag32_13(initoffset, (*[32]int32)(in), (*[13]uint32)(out))
+		deltapackzigzag32_13((*[13]uint32)(out), in, initoffset)
 	case 14:
-		deltapackzigzag32_14(initoffset, (*[32]int32)(in), (*[14]uint32)(out))
+		deltapackzigzag32_14((*[14]uint32)(out), in, initoffset)
 	case 15:
-		deltapackzigzag32_15(initoffset, (*[32]int32)(in), (*[15]uint32)(out))
+		deltapackzigzag32_15((*[15]uint32)(out), in, initoffset)
 	case 16:
-		deltapackzigzag32_16(initoffset, (*[32]int32)(in), (*[16]uint32)(out))
+		deltapackzigzag32_16((*[16]uint32)(out), in, initoffset)
 	case 17:
-		deltapackzigzag32_17(initoffset, (*[32]int32)(in), (*[17]uint32)(out))
+		deltapackzigzag32_17((*[17]uint32)(out), in, initoffset)
 	case 18:
-		deltapackzigzag32_18(initoffset, (*[32]int32)(in), (*[18]uint32)(out))
+		deltapackzigzag32_18((*[18]uint32)(out), in, initoffset)
 	case 19:
-		deltapackzigzag32_19(initoffset, (*[32]int32)(in), (*[19]uint32)(out))
+		deltapackzigzag32_19((*[19]uint32)(out), in, initoffset)
 	case 20:
-		deltapackzigzag32_20(initoffset, (*[32]int32)(in), (*[20]uint32)(out))
+		deltapackzigzag32_20((*[20]uint32)(out), in, initoffset)
 	case 21:
-		deltapackzigzag32_21(initoffset, (*[32]int32)(in), (*[21]uint32)(out))
+		deltapackzigzag32_21((*[21]uint32)(out), in, initoffset)
 	case 22:
-		deltapackzigzag32_22(initoffset, (*[32]int32)(in), (*[22]uint32)(out))
+		deltapackzigzag32_22((*[22]uint32)(out), in, initoffset)
 	case 23:
-		deltapackzigzag32_23(initoffset, (*[32]int32)(in), (*[23]uint32)(out))
+		deltapackzigzag32_23((*[23]uint32)(out), in, initoffset)
 	case 24:
-		deltapackzigzag32_24(initoffset, (*[32]int32)(in), (*[24]uint32)(out))
+		deltapackzigzag32_24((*[24]uint32)(out), in, initoffset)
 	case 25:
-		deltapackzigzag32_25(initoffset, (*[32]int32)(in), (*[25]uint32)(out))
+		deltapackzigzag32_25((*[25]uint32)(out), in, initoffset)
 	case 26:
-		deltapackzigzag32_26(initoffset, (*[32]int32)(in), (*[26]uint32)(out))
+		deltapackzigzag32_26((*[26]uint32)(out), in, initoffset)
 	case 27:
-		deltapackzigzag32_27(initoffset, (*[32]int32)(in), (*[27]uint32)(out))
+		deltapackzigzag32_27((*[27]uint32)(out), in, initoffset)
 	case 28:
-		deltapackzigzag32_28(initoffset, (*[32]int32)(in), (*[28]uint32)(out))
+		deltapackzigzag32_28((*[28]uint32)(out), in, initoffset)
 	case 29:
-		deltapackzigzag32_29(initoffset, (*[32]int32)(in), (*[29]uint32)(out))
+		deltapackzigzag32_29((*[29]uint32)(out), in, initoffset)
 	case 30:
-		deltapackzigzag32_30(initoffset, (*[32]int32)(in), (*[30]uint32)(out))
+		deltapackzigzag32_30((*[30]uint32)(out), in, initoffset)
 	case 31:
-		deltapackzigzag32_31(initoffset, (*[32]int32)(in), (*[31]uint32)(out))
+		deltapackzigzag32_31((*[31]uint32)(out), in, initoffset)
 	case 32:
-		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer((*[32]int32)(in))))
+		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer(in)))
 	default:
 		panic("unsupported bitlen")
 	}
 }
 
 // deltaUnpackZigzag_int32 Decoding operation for DeltaPackZigzag_int32
-func deltaUnpackZigzag_int32(initoffset int32, in []uint32, out []int32, bitlen int) {
+func deltaUnpackZigzag_int32(out *[32]int32, in []uint32, initoffset int32, bitlen int) {
 	switch bitlen {
 	case 0:
-		deltaunpackzigzag32_0(initoffset, (*[0]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_0(out, (*[0]uint32)(in), initoffset)
 	case 1:
-		deltaunpackzigzag32_1(initoffset, (*[1]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_1(out, (*[1]uint32)(in), initoffset)
 	case 2:
-		deltaunpackzigzag32_2(initoffset, (*[2]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_2(out, (*[2]uint32)(in), initoffset)
 	case 3:
-		deltaunpackzigzag32_3(initoffset, (*[3]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_3(out, (*[3]uint32)(in), initoffset)
 	case 4:
-		deltaunpackzigzag32_4(initoffset, (*[4]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_4(out, (*[4]uint32)(in), initoffset)
 	case 5:
-		deltaunpackzigzag32_5(initoffset, (*[5]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_5(out, (*[5]uint32)(in), initoffset)
 	case 6:
-		deltaunpackzigzag32_6(initoffset, (*[6]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_6(out, (*[6]uint32)(in), initoffset)
 	case 7:
-		deltaunpackzigzag32_7(initoffset, (*[7]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_7(out, (*[7]uint32)(in), initoffset)
 	case 8:
-		deltaunpackzigzag32_8(initoffset, (*[8]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_8(out, (*[8]uint32)(in), initoffset)
 	case 9:
-		deltaunpackzigzag32_9(initoffset, (*[9]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_9(out, (*[9]uint32)(in), initoffset)
 	case 10:
-		deltaunpackzigzag32_10(initoffset, (*[10]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_10(out, (*[10]uint32)(in), initoffset)
 	case 11:
-		deltaunpackzigzag32_11(initoffset, (*[11]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_11(out, (*[11]uint32)(in), initoffset)
 	case 12:
-		deltaunpackzigzag32_12(initoffset, (*[12]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_12(out, (*[12]uint32)(in), initoffset)
 	case 13:
-		deltaunpackzigzag32_13(initoffset, (*[13]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_13(out, (*[13]uint32)(in), initoffset)
 	case 14:
-		deltaunpackzigzag32_14(initoffset, (*[14]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_14(out, (*[14]uint32)(in), initoffset)
 	case 15:
-		deltaunpackzigzag32_15(initoffset, (*[15]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_15(out, (*[15]uint32)(in), initoffset)
 	case 16:
-		deltaunpackzigzag32_16(initoffset, (*[16]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_16(out, (*[16]uint32)(in), initoffset)
 	case 17:
-		deltaunpackzigzag32_17(initoffset, (*[17]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_17(out, (*[17]uint32)(in), initoffset)
 	case 18:
-		deltaunpackzigzag32_18(initoffset, (*[18]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_18(out, (*[18]uint32)(in), initoffset)
 	case 19:
-		deltaunpackzigzag32_19(initoffset, (*[19]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_19(out, (*[19]uint32)(in), initoffset)
 	case 20:
-		deltaunpackzigzag32_20(initoffset, (*[20]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_20(out, (*[20]uint32)(in), initoffset)
 	case 21:
-		deltaunpackzigzag32_21(initoffset, (*[21]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_21(out, (*[21]uint32)(in), initoffset)
 	case 22:
-		deltaunpackzigzag32_22(initoffset, (*[22]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_22(out, (*[22]uint32)(in), initoffset)
 	case 23:
-		deltaunpackzigzag32_23(initoffset, (*[23]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_23(out, (*[23]uint32)(in), initoffset)
 	case 24:
-		deltaunpackzigzag32_24(initoffset, (*[24]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_24(out, (*[24]uint32)(in), initoffset)
 	case 25:
-		deltaunpackzigzag32_25(initoffset, (*[25]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_25(out, (*[25]uint32)(in), initoffset)
 	case 26:
-		deltaunpackzigzag32_26(initoffset, (*[26]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_26(out, (*[26]uint32)(in), initoffset)
 	case 27:
-		deltaunpackzigzag32_27(initoffset, (*[27]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_27(out, (*[27]uint32)(in), initoffset)
 	case 28:
-		deltaunpackzigzag32_28(initoffset, (*[28]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_28(out, (*[28]uint32)(in), initoffset)
 	case 29:
-		deltaunpackzigzag32_29(initoffset, (*[29]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_29(out, (*[29]uint32)(in), initoffset)
 	case 30:
-		deltaunpackzigzag32_30(initoffset, (*[30]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_30(out, (*[30]uint32)(in), initoffset)
 	case 31:
-		deltaunpackzigzag32_31(initoffset, (*[31]uint32)(in), (*[32]int32)(out))
+		deltaunpackzigzag32_31(out, (*[31]uint32)(in), initoffset)
 	case 32:
-		*(*[32]int32)(out) = *(*[32]int32)(unsafe.Pointer((*[32]uint32)(in)))
+		*out = *(*[32]int32)(unsafe.Pointer((*[32]uint32)(in)))
 	default:
 		panic("unsupported bitlen")
 	}
 }
 
-func deltapackzigzag32_0[T uint32 | int32](initoffset T, in *[32]T, out *[0]uint32) {
+func deltapackzigzag32_0[T uint32 | int32](out *[0]uint32, in *[32]T, initoffset T) {
 }
 
-func deltapackzigzag32_1[T uint32 | int32](initoffset T, in *[32]T, out *[1]uint32) {
+func deltapackzigzag32_1[T uint32 | int32](out *[1]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 1) |
@@ -3467,7 +3467,7 @@ func deltapackzigzag32_1[T uint32 | int32](initoffset T, in *[32]T, out *[1]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 31))
 }
 
-func deltapackzigzag32_2[T uint32 | int32](initoffset T, in *[32]T, out *[2]uint32) {
+func deltapackzigzag32_2[T uint32 | int32](out *[2]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 2) |
@@ -3504,7 +3504,7 @@ func deltapackzigzag32_2[T uint32 | int32](initoffset T, in *[32]T, out *[2]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 30))
 }
 
-func deltapackzigzag32_3[T uint32 | int32](initoffset T, in *[32]T, out *[3]uint32) {
+func deltapackzigzag32_3[T uint32 | int32](out *[3]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 3) |
@@ -3544,7 +3544,7 @@ func deltapackzigzag32_3[T uint32 | int32](initoffset T, in *[32]T, out *[3]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 29))
 }
 
-func deltapackzigzag32_4[T uint32 | int32](initoffset T, in *[32]T, out *[4]uint32) {
+func deltapackzigzag32_4[T uint32 | int32](out *[4]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 4) |
@@ -3583,7 +3583,7 @@ func deltapackzigzag32_4[T uint32 | int32](initoffset T, in *[32]T, out *[4]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 28))
 }
 
-func deltapackzigzag32_5[T uint32 | int32](initoffset T, in *[32]T, out *[5]uint32) {
+func deltapackzigzag32_5[T uint32 | int32](out *[5]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 5) |
@@ -3627,7 +3627,7 @@ func deltapackzigzag32_5[T uint32 | int32](initoffset T, in *[32]T, out *[5]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 27))
 }
 
-func deltapackzigzag32_6[T uint32 | int32](initoffset T, in *[32]T, out *[6]uint32) {
+func deltapackzigzag32_6[T uint32 | int32](out *[6]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 6) |
@@ -3672,7 +3672,7 @@ func deltapackzigzag32_6[T uint32 | int32](initoffset T, in *[32]T, out *[6]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 26))
 }
 
-func deltapackzigzag32_7[T uint32 | int32](initoffset T, in *[32]T, out *[7]uint32) {
+func deltapackzigzag32_7[T uint32 | int32](out *[7]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 7) |
@@ -3720,7 +3720,7 @@ func deltapackzigzag32_7[T uint32 | int32](initoffset T, in *[32]T, out *[7]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 25))
 }
 
-func deltapackzigzag32_8[T uint32 | int32](initoffset T, in *[32]T, out *[8]uint32) {
+func deltapackzigzag32_8[T uint32 | int32](out *[8]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 8) |
@@ -3763,7 +3763,7 @@ func deltapackzigzag32_8[T uint32 | int32](initoffset T, in *[32]T, out *[8]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 24))
 }
 
-func deltapackzigzag32_9[T uint32 | int32](initoffset T, in *[32]T, out *[9]uint32) {
+func deltapackzigzag32_9[T uint32 | int32](out *[9]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 9) |
@@ -3815,7 +3815,7 @@ func deltapackzigzag32_9[T uint32 | int32](initoffset T, in *[32]T, out *[9]uint
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 23))
 }
 
-func deltapackzigzag32_10[T uint32 | int32](initoffset T, in *[32]T, out *[10]uint32) {
+func deltapackzigzag32_10[T uint32 | int32](out *[10]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 10) |
@@ -3868,7 +3868,7 @@ func deltapackzigzag32_10[T uint32 | int32](initoffset T, in *[32]T, out *[10]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 22))
 }
 
-func deltapackzigzag32_11[T uint32 | int32](initoffset T, in *[32]T, out *[11]uint32) {
+func deltapackzigzag32_11[T uint32 | int32](out *[11]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 11) |
@@ -3924,7 +3924,7 @@ func deltapackzigzag32_11[T uint32 | int32](initoffset T, in *[32]T, out *[11]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 21))
 }
 
-func deltapackzigzag32_12[T uint32 | int32](initoffset T, in *[32]T, out *[12]uint32) {
+func deltapackzigzag32_12[T uint32 | int32](out *[12]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 12) |
@@ -3979,7 +3979,7 @@ func deltapackzigzag32_12[T uint32 | int32](initoffset T, in *[32]T, out *[12]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 20))
 }
 
-func deltapackzigzag32_13[T uint32 | int32](initoffset T, in *[32]T, out *[13]uint32) {
+func deltapackzigzag32_13[T uint32 | int32](out *[13]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 13) |
@@ -4039,7 +4039,7 @@ func deltapackzigzag32_13[T uint32 | int32](initoffset T, in *[32]T, out *[13]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 19))
 }
 
-func deltapackzigzag32_14[T uint32 | int32](initoffset T, in *[32]T, out *[14]uint32) {
+func deltapackzigzag32_14[T uint32 | int32](out *[14]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 14) |
@@ -4100,7 +4100,7 @@ func deltapackzigzag32_14[T uint32 | int32](initoffset T, in *[32]T, out *[14]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 18))
 }
 
-func deltapackzigzag32_15[T uint32 | int32](initoffset T, in *[32]T, out *[15]uint32) {
+func deltapackzigzag32_15[T uint32 | int32](out *[15]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 15) |
@@ -4164,7 +4164,7 @@ func deltapackzigzag32_15[T uint32 | int32](initoffset T, in *[32]T, out *[15]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 17))
 }
 
-func deltapackzigzag32_16[T uint32 | int32](initoffset T, in *[32]T, out *[16]uint32) {
+func deltapackzigzag32_16[T uint32 | int32](out *[16]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 16))
@@ -4215,7 +4215,7 @@ func deltapackzigzag32_16[T uint32 | int32](initoffset T, in *[32]T, out *[16]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 16))
 }
 
-func deltapackzigzag32_17[T uint32 | int32](initoffset T, in *[32]T, out *[17]uint32) {
+func deltapackzigzag32_17[T uint32 | int32](out *[17]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 17))
@@ -4283,7 +4283,7 @@ func deltapackzigzag32_17[T uint32 | int32](initoffset T, in *[32]T, out *[17]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 15))
 }
 
-func deltapackzigzag32_18[T uint32 | int32](initoffset T, in *[32]T, out *[18]uint32) {
+func deltapackzigzag32_18[T uint32 | int32](out *[18]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 18))
@@ -4352,7 +4352,7 @@ func deltapackzigzag32_18[T uint32 | int32](initoffset T, in *[32]T, out *[18]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 14))
 }
 
-func deltapackzigzag32_19[T uint32 | int32](initoffset T, in *[32]T, out *[19]uint32) {
+func deltapackzigzag32_19[T uint32 | int32](out *[19]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 19))
@@ -4424,7 +4424,7 @@ func deltapackzigzag32_19[T uint32 | int32](initoffset T, in *[32]T, out *[19]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 13))
 }
 
-func deltapackzigzag32_20[T uint32 | int32](initoffset T, in *[32]T, out *[20]uint32) {
+func deltapackzigzag32_20[T uint32 | int32](out *[20]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 20))
@@ -4495,7 +4495,7 @@ func deltapackzigzag32_20[T uint32 | int32](initoffset T, in *[32]T, out *[20]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 12))
 }
 
-func deltapackzigzag32_21[T uint32 | int32](initoffset T, in *[32]T, out *[21]uint32) {
+func deltapackzigzag32_21[T uint32 | int32](out *[21]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 21))
@@ -4571,7 +4571,7 @@ func deltapackzigzag32_21[T uint32 | int32](initoffset T, in *[32]T, out *[21]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 11))
 }
 
-func deltapackzigzag32_22[T uint32 | int32](initoffset T, in *[32]T, out *[22]uint32) {
+func deltapackzigzag32_22[T uint32 | int32](out *[22]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 22))
@@ -4648,7 +4648,7 @@ func deltapackzigzag32_22[T uint32 | int32](initoffset T, in *[32]T, out *[22]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 10))
 }
 
-func deltapackzigzag32_23[T uint32 | int32](initoffset T, in *[32]T, out *[23]uint32) {
+func deltapackzigzag32_23[T uint32 | int32](out *[23]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 23))
@@ -4728,7 +4728,7 @@ func deltapackzigzag32_23[T uint32 | int32](initoffset T, in *[32]T, out *[23]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 9))
 }
 
-func deltapackzigzag32_24[T uint32 | int32](initoffset T, in *[32]T, out *[24]uint32) {
+func deltapackzigzag32_24[T uint32 | int32](out *[24]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 24))
@@ -4803,7 +4803,7 @@ func deltapackzigzag32_24[T uint32 | int32](initoffset T, in *[32]T, out *[24]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 8))
 }
 
-func deltapackzigzag32_25[T uint32 | int32](initoffset T, in *[32]T, out *[25]uint32) {
+func deltapackzigzag32_25[T uint32 | int32](out *[25]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 25))
@@ -4887,7 +4887,7 @@ func deltapackzigzag32_25[T uint32 | int32](initoffset T, in *[32]T, out *[25]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 7))
 }
 
-func deltapackzigzag32_26[T uint32 | int32](initoffset T, in *[32]T, out *[26]uint32) {
+func deltapackzigzag32_26[T uint32 | int32](out *[26]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 26))
@@ -4972,7 +4972,7 @@ func deltapackzigzag32_26[T uint32 | int32](initoffset T, in *[32]T, out *[26]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 6))
 }
 
-func deltapackzigzag32_27[T uint32 | int32](initoffset T, in *[32]T, out *[27]uint32) {
+func deltapackzigzag32_27[T uint32 | int32](out *[27]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 27))
@@ -5060,7 +5060,7 @@ func deltapackzigzag32_27[T uint32 | int32](initoffset T, in *[32]T, out *[27]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 5))
 }
 
-func deltapackzigzag32_28[T uint32 | int32](initoffset T, in *[32]T, out *[28]uint32) {
+func deltapackzigzag32_28[T uint32 | int32](out *[28]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 28))
@@ -5147,7 +5147,7 @@ func deltapackzigzag32_28[T uint32 | int32](initoffset T, in *[32]T, out *[28]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 4))
 }
 
-func deltapackzigzag32_29[T uint32 | int32](initoffset T, in *[32]T, out *[29]uint32) {
+func deltapackzigzag32_29[T uint32 | int32](out *[29]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 29))
@@ -5239,7 +5239,7 @@ func deltapackzigzag32_29[T uint32 | int32](initoffset T, in *[32]T, out *[29]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 3))
 }
 
-func deltapackzigzag32_30[T uint32 | int32](initoffset T, in *[32]T, out *[30]uint32) {
+func deltapackzigzag32_30[T uint32 | int32](out *[30]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 30))
@@ -5332,7 +5332,7 @@ func deltapackzigzag32_30[T uint32 | int32](initoffset T, in *[32]T, out *[30]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 2))
 }
 
-func deltapackzigzag32_31[T uint32 | int32](initoffset T, in *[32]T, out *[31]uint32) {
+func deltapackzigzag32_31[T uint32 | int32](out *[31]uint32, in *[32]T, initoffset T) {
 	out[0] = uint32(
 		((int32(in[0] - initoffset)) << 1) ^ ((int32(in[0] - initoffset)) >> 31) |
 			((((int32(in[1] - in[0])) << 1) ^ ((int32(in[1] - in[0])) >> 31)) << 31))
@@ -5428,7 +5428,7 @@ func deltapackzigzag32_31[T uint32 | int32](initoffset T, in *[32]T, out *[31]ui
 			((((int32(in[31] - in[30])) << 1) ^ ((int32(in[31] - in[30])) >> 31)) << 1))
 }
 
-func deltaunpackzigzag32_0[T uint32 | int32](initoffset T, in *[0]uint32, out *[32]T) {
+func deltaunpackzigzag32_0[T uint32 | int32](out *[32]T, in *[0]uint32, initoffset T) {
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -5463,7 +5463,7 @@ func deltaunpackzigzag32_0[T uint32 | int32](initoffset T, in *[0]uint32, out *[
 	out[31] = initoffset
 }
 
-func deltaunpackzigzag32_1[T uint32 | int32](initoffset T, in *[1]uint32, out *[32]T) {
+func deltaunpackzigzag32_1[T uint32 | int32](out *[32]T, in *[1]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1) & 1)) ^ (((in[0] >> 0) & 0x1) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 1) & 0x1) & 1)) ^ (((in[0] >> 1) & 0x1) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 2) & 0x1) & 1)) ^ (((in[0] >> 2) & 0x1) >> 1))) + out[1]
@@ -5498,7 +5498,7 @@ func deltaunpackzigzag32_1[T uint32 | int32](initoffset T, in *[1]uint32, out *[
 	out[31] = T(((-((in[0] >> 31) & 1)) ^ ((in[0] >> 31) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_2[T uint32 | int32](initoffset T, in *[2]uint32, out *[32]T) {
+func deltaunpackzigzag32_2[T uint32 | int32](out *[32]T, in *[2]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3) & 1)) ^ (((in[0] >> 0) & 0x3) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 2) & 0x3) & 1)) ^ (((in[0] >> 2) & 0x3) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 4) & 0x3) & 1)) ^ (((in[0] >> 4) & 0x3) >> 1))) + out[1]
@@ -5533,7 +5533,7 @@ func deltaunpackzigzag32_2[T uint32 | int32](initoffset T, in *[2]uint32, out *[
 	out[31] = T(((-((in[1] >> 30) & 1)) ^ ((in[1] >> 30) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_3[T uint32 | int32](initoffset T, in *[3]uint32, out *[32]T) {
+func deltaunpackzigzag32_3[T uint32 | int32](out *[32]T, in *[3]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7) & 1)) ^ (((in[0] >> 0) & 0x7) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 3) & 0x7) & 1)) ^ (((in[0] >> 3) & 0x7) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 6) & 0x7) & 1)) ^ (((in[0] >> 6) & 0x7) >> 1))) + out[1]
@@ -5568,7 +5568,7 @@ func deltaunpackzigzag32_3[T uint32 | int32](initoffset T, in *[3]uint32, out *[
 	out[31] = T(((-((in[2] >> 29) & 1)) ^ ((in[2] >> 29) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_4[T uint32 | int32](initoffset T, in *[4]uint32, out *[32]T) {
+func deltaunpackzigzag32_4[T uint32 | int32](out *[32]T, in *[4]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xF) & 1)) ^ (((in[0] >> 0) & 0xF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 4) & 0xF) & 1)) ^ (((in[0] >> 4) & 0xF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 8) & 0xF) & 1)) ^ (((in[0] >> 8) & 0xF) >> 1))) + out[1]
@@ -5603,7 +5603,7 @@ func deltaunpackzigzag32_4[T uint32 | int32](initoffset T, in *[4]uint32, out *[
 	out[31] = T(((-((in[3] >> 28) & 1)) ^ ((in[3] >> 28) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_5[T uint32 | int32](initoffset T, in *[5]uint32, out *[32]T) {
+func deltaunpackzigzag32_5[T uint32 | int32](out *[32]T, in *[5]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1F) & 1)) ^ (((in[0] >> 0) & 0x1F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 5) & 0x1F) & 1)) ^ (((in[0] >> 5) & 0x1F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 10) & 0x1F) & 1)) ^ (((in[0] >> 10) & 0x1F) >> 1))) + out[1]
@@ -5638,7 +5638,7 @@ func deltaunpackzigzag32_5[T uint32 | int32](initoffset T, in *[5]uint32, out *[
 	out[31] = T(((-((in[4] >> 27) & 1)) ^ ((in[4] >> 27) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_6[T uint32 | int32](initoffset T, in *[6]uint32, out *[32]T) {
+func deltaunpackzigzag32_6[T uint32 | int32](out *[32]T, in *[6]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3F) & 1)) ^ (((in[0] >> 0) & 0x3F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 6) & 0x3F) & 1)) ^ (((in[0] >> 6) & 0x3F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 12) & 0x3F) & 1)) ^ (((in[0] >> 12) & 0x3F) >> 1))) + out[1]
@@ -5673,7 +5673,7 @@ func deltaunpackzigzag32_6[T uint32 | int32](initoffset T, in *[6]uint32, out *[
 	out[31] = T(((-((in[5] >> 26) & 1)) ^ ((in[5] >> 26) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_7[T uint32 | int32](initoffset T, in *[7]uint32, out *[32]T) {
+func deltaunpackzigzag32_7[T uint32 | int32](out *[32]T, in *[7]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7F) & 1)) ^ (((in[0] >> 0) & 0x7F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 7) & 0x7F) & 1)) ^ (((in[0] >> 7) & 0x7F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 14) & 0x7F) & 1)) ^ (((in[0] >> 14) & 0x7F) >> 1))) + out[1]
@@ -5708,7 +5708,7 @@ func deltaunpackzigzag32_7[T uint32 | int32](initoffset T, in *[7]uint32, out *[
 	out[31] = T(((-((in[6] >> 25) & 1)) ^ ((in[6] >> 25) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_8[T uint32 | int32](initoffset T, in *[8]uint32, out *[32]T) {
+func deltaunpackzigzag32_8[T uint32 | int32](out *[32]T, in *[8]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFF) & 1)) ^ (((in[0] >> 0) & 0xFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 8) & 0xFF) & 1)) ^ (((in[0] >> 8) & 0xFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 16) & 0xFF) & 1)) ^ (((in[0] >> 16) & 0xFF) >> 1))) + out[1]
@@ -5743,7 +5743,7 @@ func deltaunpackzigzag32_8[T uint32 | int32](initoffset T, in *[8]uint32, out *[
 	out[31] = T(((-((in[7] >> 24) & 1)) ^ ((in[7] >> 24) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_9[T uint32 | int32](initoffset T, in *[9]uint32, out *[32]T) {
+func deltaunpackzigzag32_9[T uint32 | int32](out *[32]T, in *[9]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FF) & 1)) ^ (((in[0] >> 0) & 0x1FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 9) & 0x1FF) & 1)) ^ (((in[0] >> 9) & 0x1FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 18) & 0x1FF) & 1)) ^ (((in[0] >> 18) & 0x1FF) >> 1))) + out[1]
@@ -5778,7 +5778,7 @@ func deltaunpackzigzag32_9[T uint32 | int32](initoffset T, in *[9]uint32, out *[
 	out[31] = T(((-((in[8] >> 23) & 1)) ^ ((in[8] >> 23) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_10[T uint32 | int32](initoffset T, in *[10]uint32, out *[32]T) {
+func deltaunpackzigzag32_10[T uint32 | int32](out *[32]T, in *[10]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FF) & 1)) ^ (((in[0] >> 0) & 0x3FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 10) & 0x3FF) & 1)) ^ (((in[0] >> 10) & 0x3FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 20) & 0x3FF) & 1)) ^ (((in[0] >> 20) & 0x3FF) >> 1))) + out[1]
@@ -5813,7 +5813,7 @@ func deltaunpackzigzag32_10[T uint32 | int32](initoffset T, in *[10]uint32, out 
 	out[31] = T(((-((in[9] >> 22) & 1)) ^ ((in[9] >> 22) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_11[T uint32 | int32](initoffset T, in *[11]uint32, out *[32]T) {
+func deltaunpackzigzag32_11[T uint32 | int32](out *[32]T, in *[11]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FF) & 1)) ^ (((in[0] >> 0) & 0x7FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 11) & 0x7FF) & 1)) ^ (((in[0] >> 11) & 0x7FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 22) | ((in[1] & 0x1) << 10)) & 1)) ^ (((in[0] >> 22) | ((in[1] & 0x1) << 10)) >> 1))) + out[1]
@@ -5848,7 +5848,7 @@ func deltaunpackzigzag32_11[T uint32 | int32](initoffset T, in *[11]uint32, out 
 	out[31] = T(((-((in[10] >> 21) & 1)) ^ ((in[10] >> 21) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_12[T uint32 | int32](initoffset T, in *[12]uint32, out *[32]T) {
+func deltaunpackzigzag32_12[T uint32 | int32](out *[32]T, in *[12]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFF) & 1)) ^ (((in[0] >> 0) & 0xFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 12) & 0xFFF) & 1)) ^ (((in[0] >> 12) & 0xFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 24) | ((in[1] & 0xF) << 8)) & 1)) ^ (((in[0] >> 24) | ((in[1] & 0xF) << 8)) >> 1))) + out[1]
@@ -5883,7 +5883,7 @@ func deltaunpackzigzag32_12[T uint32 | int32](initoffset T, in *[12]uint32, out 
 	out[31] = T(((-((in[11] >> 20) & 1)) ^ ((in[11] >> 20) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_13[T uint32 | int32](initoffset T, in *[13]uint32, out *[32]T) {
+func deltaunpackzigzag32_13[T uint32 | int32](out *[32]T, in *[13]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFF) & 1)) ^ (((in[0] >> 0) & 0x1FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 13) & 0x1FFF) & 1)) ^ (((in[0] >> 13) & 0x1FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 26) | ((in[1] & 0x7F) << 6)) & 1)) ^ (((in[0] >> 26) | ((in[1] & 0x7F) << 6)) >> 1))) + out[1]
@@ -5918,7 +5918,7 @@ func deltaunpackzigzag32_13[T uint32 | int32](initoffset T, in *[13]uint32, out 
 	out[31] = T(((-((in[12] >> 19) & 1)) ^ ((in[12] >> 19) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_14[T uint32 | int32](initoffset T, in *[14]uint32, out *[32]T) {
+func deltaunpackzigzag32_14[T uint32 | int32](out *[32]T, in *[14]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFF) & 1)) ^ (((in[0] >> 0) & 0x3FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 14) & 0x3FFF) & 1)) ^ (((in[0] >> 14) & 0x3FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 28) | ((in[1] & 0x3FF) << 4)) & 1)) ^ (((in[0] >> 28) | ((in[1] & 0x3FF) << 4)) >> 1))) + out[1]
@@ -5953,7 +5953,7 @@ func deltaunpackzigzag32_14[T uint32 | int32](initoffset T, in *[14]uint32, out 
 	out[31] = T(((-((in[13] >> 18) & 1)) ^ ((in[13] >> 18) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_15[T uint32 | int32](initoffset T, in *[15]uint32, out *[32]T) {
+func deltaunpackzigzag32_15[T uint32 | int32](out *[32]T, in *[15]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFF) & 1)) ^ (((in[0] >> 0) & 0x7FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 15) & 0x7FFF) & 1)) ^ (((in[0] >> 15) & 0x7FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 30) | ((in[1] & 0x1FFF) << 2)) & 1)) ^ (((in[0] >> 30) | ((in[1] & 0x1FFF) << 2)) >> 1))) + out[1]
@@ -5988,7 +5988,7 @@ func deltaunpackzigzag32_15[T uint32 | int32](initoffset T, in *[15]uint32, out 
 	out[31] = T(((-((in[14] >> 17) & 1)) ^ ((in[14] >> 17) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_16[T uint32 | int32](initoffset T, in *[16]uint32, out *[32]T) {
+func deltaunpackzigzag32_16[T uint32 | int32](out *[32]T, in *[16]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFF) >> 1))) + initoffset
 	out[1] = T(((-((in[0] >> 16) & 1)) ^ ((in[0] >> 16) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 0) & 0xFFFF) & 1)) ^ (((in[1] >> 0) & 0xFFFF) >> 1))) + out[1]
@@ -6023,7 +6023,7 @@ func deltaunpackzigzag32_16[T uint32 | int32](initoffset T, in *[16]uint32, out 
 	out[31] = T(((-((in[15] >> 16) & 1)) ^ ((in[15] >> 16) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_17[T uint32 | int32](initoffset T, in *[17]uint32, out *[32]T) {
+func deltaunpackzigzag32_17[T uint32 | int32](out *[32]T, in *[17]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 17) | ((in[1] & 0x3) << 15)) & 1)) ^ (((in[0] >> 17) | ((in[1] & 0x3) << 15)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 2) & 0x1FFFF) & 1)) ^ (((in[1] >> 2) & 0x1FFFF) >> 1))) + out[1]
@@ -6058,7 +6058,7 @@ func deltaunpackzigzag32_17[T uint32 | int32](initoffset T, in *[17]uint32, out 
 	out[31] = T(((-((in[16] >> 15) & 1)) ^ ((in[16] >> 15) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_18[T uint32 | int32](initoffset T, in *[18]uint32, out *[32]T) {
+func deltaunpackzigzag32_18[T uint32 | int32](out *[32]T, in *[18]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 18) | ((in[1] & 0xF) << 14)) & 1)) ^ (((in[0] >> 18) | ((in[1] & 0xF) << 14)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 4) & 0x3FFFF) & 1)) ^ (((in[1] >> 4) & 0x3FFFF) >> 1))) + out[1]
@@ -6093,7 +6093,7 @@ func deltaunpackzigzag32_18[T uint32 | int32](initoffset T, in *[18]uint32, out 
 	out[31] = T(((-((in[17] >> 14) & 1)) ^ ((in[17] >> 14) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_19[T uint32 | int32](initoffset T, in *[19]uint32, out *[32]T) {
+func deltaunpackzigzag32_19[T uint32 | int32](out *[32]T, in *[19]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 19) | ((in[1] & 0x3F) << 13)) & 1)) ^ (((in[0] >> 19) | ((in[1] & 0x3F) << 13)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 6) & 0x7FFFF) & 1)) ^ (((in[1] >> 6) & 0x7FFFF) >> 1))) + out[1]
@@ -6128,7 +6128,7 @@ func deltaunpackzigzag32_19[T uint32 | int32](initoffset T, in *[19]uint32, out 
 	out[31] = T(((-((in[18] >> 13) & 1)) ^ ((in[18] >> 13) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_20[T uint32 | int32](initoffset T, in *[20]uint32, out *[32]T) {
+func deltaunpackzigzag32_20[T uint32 | int32](out *[32]T, in *[20]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 20) | ((in[1] & 0xFF) << 12)) & 1)) ^ (((in[0] >> 20) | ((in[1] & 0xFF) << 12)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 8) & 0xFFFFF) & 1)) ^ (((in[1] >> 8) & 0xFFFFF) >> 1))) + out[1]
@@ -6163,7 +6163,7 @@ func deltaunpackzigzag32_20[T uint32 | int32](initoffset T, in *[20]uint32, out 
 	out[31] = T(((-((in[19] >> 12) & 1)) ^ ((in[19] >> 12) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_21[T uint32 | int32](initoffset T, in *[21]uint32, out *[32]T) {
+func deltaunpackzigzag32_21[T uint32 | int32](out *[32]T, in *[21]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 21) | ((in[1] & 0x3FF) << 11)) & 1)) ^ (((in[0] >> 21) | ((in[1] & 0x3FF) << 11)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 10) & 0x1FFFFF) & 1)) ^ (((in[1] >> 10) & 0x1FFFFF) >> 1))) + out[1]
@@ -6198,7 +6198,7 @@ func deltaunpackzigzag32_21[T uint32 | int32](initoffset T, in *[21]uint32, out 
 	out[31] = T(((-((in[20] >> 11) & 1)) ^ ((in[20] >> 11) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_22[T uint32 | int32](initoffset T, in *[22]uint32, out *[32]T) {
+func deltaunpackzigzag32_22[T uint32 | int32](out *[32]T, in *[22]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 22) | ((in[1] & 0xFFF) << 10)) & 1)) ^ (((in[0] >> 22) | ((in[1] & 0xFFF) << 10)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 12) | ((in[2] & 0x3) << 20)) & 1)) ^ (((in[1] >> 12) | ((in[2] & 0x3) << 20)) >> 1))) + out[1]
@@ -6233,7 +6233,7 @@ func deltaunpackzigzag32_22[T uint32 | int32](initoffset T, in *[22]uint32, out 
 	out[31] = T(((-((in[21] >> 10) & 1)) ^ ((in[21] >> 10) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_23[T uint32 | int32](initoffset T, in *[23]uint32, out *[32]T) {
+func deltaunpackzigzag32_23[T uint32 | int32](out *[32]T, in *[23]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 23) | ((in[1] & 0x3FFF) << 9)) & 1)) ^ (((in[0] >> 23) | ((in[1] & 0x3FFF) << 9)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 14) | ((in[2] & 0x1F) << 18)) & 1)) ^ (((in[1] >> 14) | ((in[2] & 0x1F) << 18)) >> 1))) + out[1]
@@ -6268,7 +6268,7 @@ func deltaunpackzigzag32_23[T uint32 | int32](initoffset T, in *[23]uint32, out 
 	out[31] = T(((-((in[22] >> 9) & 1)) ^ ((in[22] >> 9) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_24[T uint32 | int32](initoffset T, in *[24]uint32, out *[32]T) {
+func deltaunpackzigzag32_24[T uint32 | int32](out *[32]T, in *[24]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 24) | ((in[1] & 0xFFFF) << 8)) & 1)) ^ (((in[0] >> 24) | ((in[1] & 0xFFFF) << 8)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 16) | ((in[2] & 0xFF) << 16)) & 1)) ^ (((in[1] >> 16) | ((in[2] & 0xFF) << 16)) >> 1))) + out[1]
@@ -6303,7 +6303,7 @@ func deltaunpackzigzag32_24[T uint32 | int32](initoffset T, in *[24]uint32, out 
 	out[31] = T(((-((in[23] >> 8) & 1)) ^ ((in[23] >> 8) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_25[T uint32 | int32](initoffset T, in *[25]uint32, out *[32]T) {
+func deltaunpackzigzag32_25[T uint32 | int32](out *[32]T, in *[25]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 25) | ((in[1] & 0x3FFFF) << 7)) & 1)) ^ (((in[0] >> 25) | ((in[1] & 0x3FFFF) << 7)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 18) | ((in[2] & 0x7FF) << 14)) & 1)) ^ (((in[1] >> 18) | ((in[2] & 0x7FF) << 14)) >> 1))) + out[1]
@@ -6338,7 +6338,7 @@ func deltaunpackzigzag32_25[T uint32 | int32](initoffset T, in *[25]uint32, out 
 	out[31] = T(((-((in[24] >> 7) & 1)) ^ ((in[24] >> 7) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_26[T uint32 | int32](initoffset T, in *[26]uint32, out *[32]T) {
+func deltaunpackzigzag32_26[T uint32 | int32](out *[32]T, in *[26]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 26) | ((in[1] & 0xFFFFF) << 6)) & 1)) ^ (((in[0] >> 26) | ((in[1] & 0xFFFFF) << 6)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 20) | ((in[2] & 0x3FFF) << 12)) & 1)) ^ (((in[1] >> 20) | ((in[2] & 0x3FFF) << 12)) >> 1))) + out[1]
@@ -6373,7 +6373,7 @@ func deltaunpackzigzag32_26[T uint32 | int32](initoffset T, in *[26]uint32, out 
 	out[31] = T(((-((in[25] >> 6) & 1)) ^ ((in[25] >> 6) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_27[T uint32 | int32](initoffset T, in *[27]uint32, out *[32]T) {
+func deltaunpackzigzag32_27[T uint32 | int32](out *[32]T, in *[27]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 27) | ((in[1] & 0x3FFFFF) << 5)) & 1)) ^ (((in[0] >> 27) | ((in[1] & 0x3FFFFF) << 5)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 22) | ((in[2] & 0x1FFFF) << 10)) & 1)) ^ (((in[1] >> 22) | ((in[2] & 0x1FFFF) << 10)) >> 1))) + out[1]
@@ -6408,7 +6408,7 @@ func deltaunpackzigzag32_27[T uint32 | int32](initoffset T, in *[27]uint32, out 
 	out[31] = T(((-((in[26] >> 5) & 1)) ^ ((in[26] >> 5) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_28[T uint32 | int32](initoffset T, in *[28]uint32, out *[32]T) {
+func deltaunpackzigzag32_28[T uint32 | int32](out *[32]T, in *[28]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 28) | ((in[1] & 0xFFFFFF) << 4)) & 1)) ^ (((in[0] >> 28) | ((in[1] & 0xFFFFFF) << 4)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 24) | ((in[2] & 0xFFFFF) << 8)) & 1)) ^ (((in[1] >> 24) | ((in[2] & 0xFFFFF) << 8)) >> 1))) + out[1]
@@ -6443,7 +6443,7 @@ func deltaunpackzigzag32_28[T uint32 | int32](initoffset T, in *[28]uint32, out 
 	out[31] = T(((-((in[27] >> 4) & 1)) ^ ((in[27] >> 4) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_29[T uint32 | int32](initoffset T, in *[29]uint32, out *[32]T) {
+func deltaunpackzigzag32_29[T uint32 | int32](out *[32]T, in *[29]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 29) | ((in[1] & 0x3FFFFFF) << 3)) & 1)) ^ (((in[0] >> 29) | ((in[1] & 0x3FFFFFF) << 3)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 26) | ((in[2] & 0x7FFFFF) << 6)) & 1)) ^ (((in[1] >> 26) | ((in[2] & 0x7FFFFF) << 6)) >> 1))) + out[1]
@@ -6478,7 +6478,7 @@ func deltaunpackzigzag32_29[T uint32 | int32](initoffset T, in *[29]uint32, out 
 	out[31] = T(((-((in[28] >> 3) & 1)) ^ ((in[28] >> 3) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_30[T uint32 | int32](initoffset T, in *[30]uint32, out *[32]T) {
+func deltaunpackzigzag32_30[T uint32 | int32](out *[32]T, in *[30]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 30) | ((in[1] & 0xFFFFFFF) << 2)) & 1)) ^ (((in[0] >> 30) | ((in[1] & 0xFFFFFFF) << 2)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 28) | ((in[2] & 0x3FFFFFF) << 4)) & 1)) ^ (((in[1] >> 28) | ((in[2] & 0x3FFFFFF) << 4)) >> 1))) + out[1]
@@ -6513,7 +6513,7 @@ func deltaunpackzigzag32_30[T uint32 | int32](initoffset T, in *[30]uint32, out 
 	out[31] = T(((-((in[29] >> 2) & 1)) ^ ((in[29] >> 2) >> 1))) + out[30]
 }
 
-func deltaunpackzigzag32_31[T uint32 | int32](initoffset T, in *[31]uint32, out *[32]T) {
+func deltaunpackzigzag32_31[T uint32 | int32](out *[32]T, in *[31]uint32, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 31) | ((in[1] & 0x3FFFFFFF) << 1)) & 1)) ^ (((in[0] >> 31) | ((in[1] & 0x3FFFFFFF) << 1)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 30) | ((in[2] & 0x1FFFFFFF) << 2)) & 1)) ^ (((in[1] >> 30) | ((in[2] & 0x1FFFFFFF) << 2)) >> 1))) + out[1]
