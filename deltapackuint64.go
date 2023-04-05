@@ -140,8 +140,6 @@ func deltaPack_uint64[T uint64 | int64](out []uint64, in *[64]T, initoffset T, b
 		deltapack64_63((*[63]uint64)(out), in, initoffset)
 	case 64:
 		*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -278,8 +276,6 @@ func deltaUnpack_uint64[T uint64 | int64](out *[64]T, in []uint64, initoffset T,
 		deltaunpack64_63(out, (*[63]uint64)(in), initoffset)
 	case 64:
 		*out = *(*[64]T)(unsafe.Pointer((*[64]uint64)(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -421,8 +417,6 @@ func deltaPackZigzag_uint64(out []uint64, in *[64]uint64, initoffset uint64, bit
 		deltapackzigzag64_63((*[63]uint64)(out), in, initoffset)
 	case 64:
 		*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -559,7 +553,5 @@ func deltaUnpackZigzag_uint64(out *[64]uint64, in []uint64, initoffset uint64, b
 		deltaunpackzigzag64_63(out, (*[63]uint64)(in), initoffset)
 	case 64:
 		*out = *(*[64]uint64)(unsafe.Pointer((*[64]uint64)(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }

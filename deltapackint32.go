@@ -76,8 +76,6 @@ func deltaPack_int32[T uint32 | int32](out []uint32, in *[32]T, initoffset T, bi
 		deltapack32_31((*[31]uint32)(out), in, initoffset)
 	case 32:
 		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -150,8 +148,6 @@ func deltaUnpack_int32[T uint32 | int32](out *[32]T, in []uint32, initoffset T, 
 		deltaunpack32_31(out, (*[31]uint32)(in), initoffset)
 	case 32:
 		*out = *(*[32]T)(unsafe.Pointer((*[32]uint32)(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -3349,8 +3345,6 @@ func deltaPackZigzag_int32(out []uint32, in *[32]int32, initoffset int32, bitlen
 		deltapackzigzag32_31((*[31]uint32)(out), in, initoffset)
 	case 32:
 		*(*[32]uint32)(out) = *((*[32]uint32)(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -3423,8 +3417,6 @@ func deltaUnpackZigzag_int32(out *[32]int32, in []uint32, initoffset int32, bitl
 		deltaunpackzigzag32_31(out, (*[31]uint32)(in), initoffset)
 	case 32:
 		*out = *(*[32]int32)(unsafe.Pointer((*[32]uint32)(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 

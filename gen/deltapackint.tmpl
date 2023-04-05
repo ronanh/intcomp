@@ -24,8 +24,6 @@ func deltaPack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out []uint{{
 {{- end }}
 	case {{$dp.Bits}}:
 		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -44,8 +42,6 @@ func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out *[{{$d
 {{- end }}
 	case {{$dp.Bits}}:
 		*out = *(*[{{$dp.Bits}}]T)(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -116,8 +112,6 @@ func deltaPackZigzag_{{$dp.Typename}}(out []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]
 {{- end }}
 	case {{$dp.Bits}}:
 		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
@@ -136,8 +130,6 @@ func deltaUnpackZigzag_{{$dp.Typename}}(out *[{{$dp.Bits}}]{{$dp.Typename}}, in 
 {{- end }}
 	case {{$dp.Bits}}:
 		*out = *(*[{{$dp.Bits}}]{{$dp.Typename}})(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
-	default:
-		panic("unsupported bitlen")
 	}
 }
 
