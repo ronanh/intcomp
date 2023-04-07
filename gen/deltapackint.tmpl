@@ -14,16 +14,20 @@ func deltaPack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out []uint{{
 	switch {{$dp.BitlenExpr}} {
 {{- range $dpn := $dp.Dpn }}
 	case {{$dpn.N}}:
+		if len(out) >= {{$dpn.N}} { // eliminate bounds check
 {{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset, ntz)
-			break
+			if ntz > 0 {
+				deltapack{{$dp.Bits}}_ntz_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset, ntz)
+				break
+			}
+{{- end }}
+			deltapack{{$dp.Bits}}_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset)
 		}
 {{- end }}
-		deltapack{{$dp.Bits}}_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset)
-{{- end }}
 	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
+		if len(out) >= {{$dp.Bits}} { // eliminate bounds check
+			*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
+		}
 	}
 }
 
@@ -32,16 +36,20 @@ func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out *[{{$d
 	switch {{$dp.BitlenExpr}} {
 {{- range $dpn := $dp.Dpn }}
 	case {{$dpn.N}}:
+		if len(in) >= {{$dpn.N}} { // eliminate bounds check
 {{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltaunpack{{$dp.Bits}}_ntz_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset, ntz)
-			break
+			if ntz > 0 {
+				deltaunpack{{$dp.Bits}}_ntz_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset, ntz)
+				break
+			}
+{{- end }}
+			deltaunpack{{$dp.Bits}}_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset)
 		}
 {{- end }}
-		deltaunpack{{$dp.Bits}}_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset)
-{{- end }}
 	case {{$dp.Bits}}:
-		*out = *(*[{{$dp.Bits}}]T)(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
+		if len(in) >= {{$dp.Bits}} { // eliminate bounds check
+			*out = *(*[{{$dp.Bits}}]T)(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
+		}
 	}
 }
 
@@ -102,16 +110,20 @@ func deltaPackZigzag_{{$dp.Typename}}(out []uint{{$dp.Bits}}, in *[{{$dp.Bits}}]
 	switch {{$dp.BitlenExpr}} {
 {{- range $dpn := $dp.Dpn }}
 	case {{$dpn.N}}:
+		if len(out) >= {{$dpn.N}} { // eliminate bounds check
 {{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset, ntz)
-			break
+			if ntz > 0 {
+				deltapackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset, ntz)
+				break
+			}
+{{- end }}
+			deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset)
 		}
 {{- end }}
-		deltapackzigzag{{$dp.Bits}}_{{$dpn.N}}((*[{{$dpn.N}}]uint{{$dp.Bits}})(out), in, initoffset)
-{{- end }}
 	case {{$dp.Bits}}:
-		*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
+		if len(out) >= {{$dp.Bits}} { // eliminate bounds check
+			*(*[{{$dp.Bits}}]uint{{$dp.Bits}})(out) = *((*[{{$dp.Bits}}]uint{{$dp.Bits}})(unsafe.Pointer(in)))
+		}
 	}
 }
 
@@ -120,16 +132,20 @@ func deltaUnpackZigzag_{{$dp.Typename}}(out *[{{$dp.Bits}}]{{$dp.Typename}}, in 
 	switch {{$dp.BitlenExpr}} {
 {{- range $dpn := $dp.Dpn }}
 	case {{$dpn.N}}:
+		if len(in) >= {{$dpn.N}} { // eliminate bounds check
 {{- if $dp.WithNtz }}
-		if ntz > 0 {
-			deltaunpackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset, ntz)
-			break
+			if ntz > 0 {
+				deltaunpackzigzag{{$dp.Bits}}_ntz_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset, ntz)
+				break
+			}
+{{- end }}
+			deltaunpackzigzag{{$dp.Bits}}_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset)
 		}
 {{- end }}
-		deltaunpackzigzag{{$dp.Bits}}_{{$dpn.N}}(out, (*[{{$dpn.N}}]uint{{$dp.Bits}})(in), initoffset)
-{{- end }}
 	case {{$dp.Bits}}:
-		*out = *(*[{{$dp.Bits}}]{{$dp.Typename}})(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
+		if len(in) >= {{$dp.Bits}} { // eliminate bounds check
+			*out = *(*[{{$dp.Bits}}]{{$dp.Typename}})(unsafe.Pointer((*[{{$dp.Bits}}]uint{{$dp.Bits}})(in)))
+		}
 	}
 }
 
