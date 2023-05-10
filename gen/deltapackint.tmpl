@@ -57,11 +57,11 @@ func deltaUnpack_{{$dp.Typename}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out *[{{$d
 {{- range $dpn := $dp.Dpn }}
 
 func deltapack{{$dp.Bits}}_{{$dpn.N}}[T uint{{$dp.Bits}}|int{{$dp.Bits}}](out *[{{$dpn.N}}]uint{{$dp.Bits}}, in *[{{$dp.Bits}}]T, initoffset T) {
-{{- range $dpnb := $dpn.Dpnb }}
-	out[{{$dpnb.I}}] = uint{{$dp.Bits}}(
-{{- range $line := $dpnb.PackLines }}
-	 {{$line}}
-{{- end }})
+{{- if gt $dpn.N 0 }}
+{{ range $dpnb := $dpn.Dpnb }} {{$dpnb.Coma}}out[{{$dpnb.I}}]{{- end }} = 
+{{ range $dpnb := $dpn.Dpnb }}	{{$dpnb.Coma}}uint{{$dp.Bits}}(
+{{- range $line := $dpnb.PackLines }} {{$line}} {{- end }})
+{{- end }}
 {{- end }}
 }
 
