@@ -65,7 +65,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 			out = grow
 		}
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write block header
 			out[outpos] = uint32((sign1 << 31) | (bitlen1 << 24) |
 				(sign2 << 23) | (bitlen2 << 16) |
@@ -74,7 +74,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		}
 		outpos++
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write groups (4 x 32 packed inputs)
 			if sign1 == 0 {
 				deltaPack_int32(out[outpos:], group1, initoffset, bitlen1)
@@ -84,7 +84,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		}
 		outpos += bitlen1
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign2 == 0 {
 				deltaPack_int32(out[outpos:], group2, group1[31], bitlen2)
 			} else {
@@ -93,7 +93,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		}
 		outpos += bitlen2
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign3 == 0 {
 				deltaPack_int32(out[outpos:], group3, group2[31], bitlen3)
 			} else {
@@ -102,7 +102,7 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 		}
 		outpos += bitlen3
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign4 == 0 {
 				deltaPack_int32(out[outpos:], group4, group3[31], bitlen4)
 			} else {
@@ -116,10 +116,10 @@ func CompressDeltaBinPackInt32(in []int32, out []uint32) ([]int32, []uint32) {
 
 	// write header
 	var header []uint32
-	if headerpos >= 0 && headerpos <= len(out) { // elliminates bounds check
+	if headerpos >= 0 && headerpos <= len(out) { // eliminates bounds check
 		header = out[headerpos:]
 	}
-	if len(header) > 2 { // elliminates bounds check
+	if len(header) > 2 { // eliminates bounds check
 		header[0] = uint32(blockN * BitPackingBlockSize32)
 		header[1] = uint32(outpos - headerpos)
 		header[2] = uint32(in[0])
@@ -352,7 +352,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 			out = grow
 		}
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write block header
 			out[outpos] = uint32((sign1 << 31) | (bitlen1 << 24) |
 				(sign2 << 23) | (bitlen2 << 16) |
@@ -361,7 +361,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		}
 		outpos++
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write groups (4 x 32 packed inputs)
 			if sign1 == 0 {
 				deltaPack_uint32(out[outpos:], group1, initoffset, bitlen1)
@@ -371,7 +371,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		}
 		outpos += bitlen1
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign2 == 0 {
 				deltaPack_uint32(out[outpos:], group2, group1[31], bitlen2)
 			} else {
@@ -380,7 +380,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		}
 		outpos += bitlen2
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign3 == 0 {
 				deltaPack_uint32(out[outpos:], group3, group2[31], bitlen3)
 			} else {
@@ -389,7 +389,7 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 		}
 		outpos += bitlen3
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign4 == 0 {
 				deltaPack_uint32(out[outpos:], group4, group3[31], bitlen4)
 			} else {
@@ -403,10 +403,10 @@ func CompressDeltaBinPackUint32(in, out []uint32) ([]uint32, []uint32) {
 
 	// write header
 	var header []uint32
-	if headerpos >= 0 && headerpos <= len(out) { // elliminates bounds check
+	if headerpos >= 0 && headerpos <= len(out) { // eliminates bounds check
 		header = out[headerpos:]
 	}
-	if len(header) > 2 { // elliminates bounds check
+	if len(header) > 2 { // eliminates bounds check
 		header[0] = uint32(blockN * BitPackingBlockSize32)
 		header[1] = uint32(outpos - headerpos)
 		header[2] = in[0]
@@ -638,7 +638,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 			out = grow
 		}
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write block header (min/max bits)
 			out[outpos] = uint64((ntz1 << 56) | (ntz2 << 48) | (ntz3 << 40) | (ntz4 << 32) |
 				(sign1 << 31) | (bitlen1 << 24) |
@@ -648,7 +648,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		}
 		outpos++
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write groups (4 x 64 packed inputs)
 			if sign1 == 0 {
 				deltaPack_int64(out[outpos:], group1, initoffset, ntz1, bitlen1)
@@ -658,7 +658,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		}
 		outpos += int(bitlen1 - ntz1)
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign2 == 0 {
 				deltaPack_int64(out[outpos:], group2, group1[63], ntz2, bitlen2)
 			} else {
@@ -667,7 +667,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		}
 		outpos += int(bitlen2 - ntz2)
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign3 == 0 {
 				deltaPack_int64(out[outpos:], group3, group2[63], ntz3, bitlen3)
 			} else {
@@ -676,7 +676,7 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 		}
 		outpos += int(bitlen3 - ntz3)
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign4 == 0 {
 				deltaPack_int64(out[outpos:], group4, group3[63], ntz4, bitlen4)
 			} else {
@@ -690,10 +690,10 @@ func CompressDeltaBinPackInt64(in []int64, out []uint64) ([]int64, []uint64) {
 
 	// write header
 	var header []uint64
-	if headerpos >= 0 && headerpos <= len(out) { // elliminates bounds check
+	if headerpos >= 0 && headerpos <= len(out) { // eliminates bounds check
 		header = out[headerpos:]
 	}
-	if len(header) > 1 { // elliminates bounds check
+	if len(header) > 1 { // eliminates bounds check
 		header[0] = uint64(blockN*BitPackingBlockSize64) | uint64(outpos-headerpos)<<32
 		header[1] = uint64(in[0])
 	}
@@ -1026,7 +1026,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 			out = grow
 		}
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write block header (min/max bits)
 			out[outpos] = uint64(
 				(sign1 << 31) | (bitlen1 << 24) |
@@ -1036,7 +1036,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		}
 		outpos++
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			// write groups (4 x 64 packed inputs)
 			if sign1 == 0 {
 				deltaPack_uint64(out[outpos:], group1, initoffset, bitlen1)
@@ -1046,7 +1046,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		}
 		outpos += bitlen1
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign2 == 0 {
 				deltaPack_uint64(out[outpos:], group2, group1[63], bitlen2)
 			} else {
@@ -1055,7 +1055,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		}
 		outpos += bitlen2
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign3 == 0 {
 				deltaPack_uint64(out[outpos:], group3, group2[63], bitlen3)
 			} else {
@@ -1064,7 +1064,7 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 		}
 		outpos += bitlen3
 
-		if outpos >= 0 && outpos < len(out) { // elliminates bounds check
+		if outpos >= 0 && outpos < len(out) { // eliminates bounds check
 			if sign4 == 0 {
 				deltaPack_uint64(out[outpos:], group4, group3[63], bitlen4)
 			} else {
@@ -1078,10 +1078,10 @@ func CompressDeltaBinPackUint64(in, out []uint64) ([]uint64, []uint64) {
 
 	// write header
 	var header []uint64
-	if headerpos >= 0 && headerpos <= len(out) { // elliminates bounds check
+	if headerpos >= 0 && headerpos <= len(out) { // eliminates bounds check
 		header = out[headerpos:]
 	}
-	if len(header) > 1 { // elliminates bounds check
+	if len(header) > 1 { // eliminates bounds check
 		header[0] = uint64(blockN*BitPackingBlockSize64) | uint64(outpos-headerpos)<<32
 		header[1] = in[0]
 	}
