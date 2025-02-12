@@ -1,0 +1,235 @@
+// This file is generated, do not modify directly
+// Use 'go generate' to regenerate.
+
+package intcomp
+
+import (
+	"math/bits"
+	"unsafe"
+)
+
+type PackType interface {
+	~int | ~int32 | ~uint32 | ~int64 | ~uint64 | ~float32 | ~float64
+}
+
+{{- $dp := .}}
+
+func compressGroupDeltaAppend[T PackType](out []uint64, in *[64]T, initvalue T) ([]uint64, int, int, int) {
+	var mask uint64
+	var {{ range $dpn := $dp.Dpn }}{{$dpn.Comma}}{{$dpn.ZZDVar}}{{end}} uint64
+	if unsafe.Sizeof(in[0]) == 8 {
+		{{- range $dpn := $dp.Dpn }}
+		{{$dpn.ZZDVar}} = {{$dpn.ZZDVal64}}
+		mask |= {{$dpn.ZZDVar}}
+		{{- end}}
+	} else {
+		{{- range $dpn := $dp.Dpn }}
+		{{$dpn.ZZDVar}} = {{$dpn.ZZDVal32}}
+		mask |= {{$dpn.ZZDVar}}
+		{{- end}}
+	}
+
+	bitlen, ntz := bits.Len64(mask), bits.TrailingZeros64(mask)&63
+	if mask == 0 {
+		ntz = 0
+	}
+	if bitlen<ntz {
+		panic("unexpected bitlen/ntz")
+	}
+
+	switch bitlen-ntz {
+	case 0:
+		return out, bitlen, ntz, 1
+	{{- range $dpn := $dp.Dpn }}
+		{{- if and (ne $dpn.N 0) (lt $dpn.N 56) }}
+	case {{$dpn.N}}:
+		if ntz == 0 {
+			return append(out{{- range $dpnb := $dpn.Dpnb }},
+				{{ range $line := $dpnb.PackLinesZigZag }}{{ $line}}{{ end }}{{- end }}), bitlen, ntz, 1
+		}
+		return append(out{{- range $dpnb := $dpn.Dpnb }},
+			{{ range $line := $dpnb.PackLinesZigZagNtz }}{{ $line}}{{ end }}{{- end }}), bitlen, ntz, 1
+		{{- end }}
+	{{- end }}
+	default:
+		// no compression, always 64 bits input
+		return append(out,{{ range $dpn := $dp.Dpn }}{{$dpn.Comma}} *(*uint64)(unsafe.Pointer(&in[{{$dpn.N}}])){{end}}), 64, 0, 0
+	}
+}
+
+func decompressGroupDeltaAppend[T PackType](out []T, in []uint64, initvalue T, bitlen, ntz int) []T {
+	from := len(out)
+	if cap(out) - len(out) < 64 {
+		out = append(out, make([]T, 64)...)
+	} else {
+		out = out[:len(out)+64]
+	}
+
+	if unsafe.Sizeof(initvalue) == 8 {
+		if ntz > 0 {
+			decompressGroupDeltaNtz[T, int64]((*[64]T)(out[from:]), in, initvalue, bitlen, ntz)
+		} else {
+			decompressGroupDelta[T, int64]((*[64]T)(out[from:]), in, initvalue, bitlen)
+		}
+	} else {
+		if ntz > 0 {
+			decompressGroupDeltaNtz[T, int32]((*[64]T)(out[from:]), in, initvalue, bitlen, ntz)
+		} else {
+			decompressGroupDelta[T, int32]((*[64]T)(out[from:]), in, initvalue, bitlen)
+		}
+	}
+	return out
+}
+
+func decompressGroupDelta[T PackType, IT int32|int64](out *[64]T, in []uint64, initvalue T, bitlen int) {
+	vout := *(*IT)(unsafe.Pointer(&initvalue))
+	switch bitlen {
+	case 0:
+		{{- range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = initvalue
+		{{- end }}
+	{{- range $dpn := $dp.Dpn }}
+	{{- if and (ne $dpn.N 0) (lt $dpn.N 56) }}
+	case {{$dpn.N}}:
+		in2 := (*[{{$dpn.N}}]uint64)(in)
+		{{- range $dunb := $dpn.Dunb }}
+		vout += {{$dunb.UnpackLineZigZag}}
+		out[{{$dunb.I}}] = *(*T)(unsafe.Pointer(&vout))
+		{{- end }}
+	{{- end }}
+	{{- end }}
+	default:
+		// not compressed, always a 64 bit type
+		if bitlen != 64 {
+			panic("unexpected bitlen/ntz")
+		}
+		in2 := (*[64]uint64)(in)
+		{{ range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = *(*T)(unsafe.Pointer(&in2[{{$dpn.N}}]))
+		{{- end }}
+	}
+}
+
+func decompressGroupDeltaNtz[T PackType, IT int32|int64](out *[64]T, in []uint64, initvalue T, bitlen, ntz int) {
+	if ntz < 0 || ntz > 63 {
+		panic("invalid ntz")
+	}
+
+	vout := *(*IT)(unsafe.Pointer(&initvalue))
+	switch bitlen - ntz {
+	case 0:
+		{{- range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = initvalue
+		{{- end }}
+	{{- range $dpn := $dp.Dpn }}
+	{{- if and (ne $dpn.N 0) (lt $dpn.N 56) }}
+	case {{$dpn.N}}:
+		in2 := (*[{{$dpn.N}}]uint64)(in)
+		{{- range $dunb := $dpn.Dunb }}
+		vout += {{$dunb.UnpackLineZigZagNtz}}
+		out[{{$dunb.I}}] = *(*T)(unsafe.Pointer(&vout))
+		{{- end }}
+	{{- end }}
+	{{- end }}
+	default:
+		// not compressed, always a 64 bit type
+		if bitlen-ntz != 64 {
+			panic("unexpected bitlen/ntz")
+		}
+		in2 := (*[64]uint64)(in)
+		{{ range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = *(*T)(unsafe.Pointer(&in2[{{$dpn.N}}]))
+		{{- end }}
+	}
+}
+
+func compressGroupXorAppend[T PackType](out []uint64, in *[64]T, initvalue T, minNtz int) ([]uint64, int, int, int) {
+	var mask uint64
+	var {{ range $dpn := $dp.Dpn }}{{$dpn.Comma}}{{$dpn.XORVar}}{{end}} uint64
+	if unsafe.Sizeof(in[0]) == 8 {
+		{{- range $dpn := $dp.Dpn }}
+		{{$dpn.XORVar}} = {{$dpn.XORVal64}}
+		mask |= {{$dpn.XORVar}}
+		{{- end}}
+	} else {
+		{{- range $dpn := $dp.Dpn }}
+		{{$dpn.XORVar}} = {{$dpn.XORVal32}}
+		mask |= {{$dpn.XORVar}}
+		{{- end}}
+	}
+
+	bitlen, ntz := bits.Len64(mask), bits.TrailingZeros64(mask)&63
+	if mask == 0 {
+		ntz = 0
+	}
+	if ntz < minNtz {
+		ntz = minNtz
+	}
+	if bitlen<ntz {
+		panic("unexpected bitlen/ntz")
+	}
+
+	switch bitlen-ntz {
+	case 0:
+		return out, bitlen, ntz, 1
+	{{- range $dpn := $dp.Dpn }}
+		{{- if and (ne $dpn.N 0) (lt $dpn.N 56) }}
+	case {{$dpn.N}}:
+		return append(out{{- range $dpnb := $dpn.Dpnb }},
+			{{ range $line := $dpnb.PackLinesXor }}{{ $line}}{{ end }}{{- end }}), bitlen, ntz, 1
+		{{- end }}
+	{{- end }}
+	default:
+		// no compression, always 64 bits input
+		return append(out,{{ range $dpn := $dp.Dpn }}{{$dpn.Comma}} *(*uint64)(unsafe.Pointer(&in[{{$dpn.N}}])){{end}}), 64, 0, 0
+	}
+}
+
+func decompressGroupXorAppend[T PackType](out []T, in []uint64, initvalue T, bitlen, ntz int) []T {
+	from := len(out)
+	if cap(out) - len(out) < 64 {
+		out = append(out, make([]T, 64)...)
+	} else {
+		out = out[:len(out)+64]
+	}
+
+	if unsafe.Sizeof(initvalue) == 8 {
+		decompressGroupXor[T, int64]((*[64]T)(out[from:]), in, initvalue, bitlen, ntz)
+	} else {
+		decompressGroupXor[T, int32]((*[64]T)(out[from:]), in, initvalue, bitlen, ntz)
+	}
+	return out
+}
+
+func decompressGroupXor[T PackType, IT int32|int64](out *[64]T, in []uint64, initvalue T, bitlen, ntz int) {
+	if ntz < 0 || ntz > 63 {
+		panic("invalid ntz")
+	}
+
+	vout := *(*IT)(unsafe.Pointer(&initvalue))
+	switch bitlen - ntz {
+	case 0:
+		{{- range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = initvalue
+		{{- end }}
+	{{- range $dpn := $dp.Dpn }}
+	{{- if and (ne $dpn.N 0) (lt $dpn.N 56) }}
+	case {{$dpn.N}}:
+		in2 := (*[{{$dpn.N}}]uint64)(in)
+		{{- range $dunb := $dpn.Dunb }}
+		vout ^= {{$dunb.UnpackLineXor}}
+		out[{{$dunb.I}}] = *(*T)(unsafe.Pointer(&vout))
+		{{- end }}
+	{{- end }}
+	{{- end }}
+	default:
+		// not compressed, always a 64 bit type
+		if bitlen-ntz != 64 {
+			panic("unexpected bitlen/ntz")
+		}
+		in2 := (*[64]uint64)(in)
+		{{ range $dpn := $dp.Dpn }}
+		out[{{$dpn.N}}] = *(*T)(unsafe.Pointer(&in2[{{$dpn.N}}]))
+		{{- end }}
+	}
+}

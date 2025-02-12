@@ -15,3 +15,6 @@ bench/
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+test_intcomp
+main/main.go
+main/intcomp

@@ -114,6 +114,69 @@ func TestCompressDeltaBinPackUint32(t *testing.T) {
 
 }
 
+func TestCompressDeltaBinPackInt64Constant(t *testing.T) {
+	var testInput []int64
+	for i := 0; i < 256; i++ {
+		testInput = append(testInput, 123456789)
+	}
+
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+
+	if len(resinput) != 0 {
+		t.Fatalf("expected all input consumed")
+	}
+	if len(input2) != 3 {
+		t.Fatalf("input2 only headers expected")
+	}
+}
+
+func TestCompressDeltaBinPackInt64OneBit(t *testing.T) {
+	var testInput []int64
+	for i := 0; i < 256; i++ {
+		testInput = append(testInput, 123456789+int64(i))
+	}
+
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+
+	if len(resinput) != 0 {
+		t.Fatalf("expected all input consumed")
+	}
+	if len(input2) != 3+4 {
+		t.Fatalf("input2 only headers and 4 words expected")
+	}
+}
+
+func TestCompressDeltaBinPackInt64TwoBit(t *testing.T) {
+	var testInput []int64
+	for i := 0; i < 256; i++ {
+		testInput = append(testInput, 123456789+2*int64(i))
+	}
+
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+
+	if len(resinput) != 0 {
+		t.Fatalf("expected all input consumed")
+	}
+	if len(input2) != 3+4 {
+		t.Fatalf("input2 only headers and 4 words expected")
+	}
+}
+
+func TestCompressDeltaBinPackInt64TwoBitNegativ(t *testing.T) {
+	var testInput []int64
+	for i := 0; i < 256; i++ {
+		testInput = append(testInput, 123456789-int64(i))
+	}
+
+	resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+
+	if len(resinput) != 0 {
+		t.Fatalf("expected all input consumed")
+	}
+	if len(input2) != 3+4 {
+		t.Fatalf("input2 only headers and 4 words expected")
+	}
+}
 func TestCompressDeltaBinPackInt64(t *testing.T) {
 	var testInput = []int64{0, 202, math.MaxInt64, math.MinInt64, 320, 529, 638, 838, 949, 1151, 1257, 1454, 1561, 1759, 1994, 2105, 2307, 2413, 2610, 2716, 2913, 3146, 3253, 3360, 3558, 3665, 3863, 4061, 4168, 4366, 4472, 4578, 4775, 4972, 5079, 5277, 5386,
 		5586, 5694, 5801, 6000, 6106, 6304, 6501, 6627, 6844, 6950, 7059, 7256, 7456, 7563, 7672, 7870, 8070, 8309, 8418, 8618, 8857, 8961, 9156, 9269, 9473, 9579, 9776, 9883, 10081, 10187, 10384, 10491, 10689, 10826, 11054, 11180, 11287, 11504,
@@ -247,52 +310,55 @@ func TestCompressDeltaBinPackFullInt64(t *testing.T) {
 	rand.Seed(1) // nolint
 	maxBits := 64
 	for nBits := 0; nBits <= maxBits; nBits++ {
-		for ntz := 0; ntz < maxBits; ntz++ {
-			if ntz+nBits > maxBits {
+		for ntz := 0; ntz < nBits; ntz++ {
+			if nBits > maxBits {
 				continue
 			}
-			for sign := 0; sign < 2; sign++ {
-				var testInput []int64
-				prev := int64(rand.Uint64())
-				testInput = append(testInput, prev)
-				for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
-					var udiff uint64
-					if nBits+ntz == maxBits {
-						udiff = rand.Uint64()
-					} else if nBits+ntz > 0 {
-						udiff = rand.Uint64()
-						udiff %= 1 << (nBits + ntz)
-					}
-					udiff &= ^((1 << ntz) - 1)
-					if sign == 1 {
-						prev = int64(uint64(prev) + udiff)
-					} else {
-						// consider udiff as zigzag encoded diff
-						prev += (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
-					}
-					testInput = append(testInput, prev)
-				}
-
-				t.Run(fmt.Sprintf("nBits=%d, ntz=%d, sign=%d", nBits, ntz, sign), func(t *testing.T) {
-					resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
-					resinput2, resoutput2 := intcomp.UncompressDeltaBinPackInt64(input2, nil)
-
-					if len(resinput) != 0 {
-						t.Fatalf("expected all input consumed")
-					}
-					if len(resoutput2) != len(testInput) {
-						t.Fatalf("expected same len")
-					}
-					if len(resinput2) != 0 {
-						t.Fatalf("resinput2 should be empty")
-					}
-					for i, v := range testInput {
-						if resoutput2[i] != v {
-							t.Fatalf("resoutput2(%d) != input(%d)", resoutput2[i], v)
-						}
-					}
-				})
+			if nBits > 0 && ntz >= nBits {
+				continue
 			}
+			var testInput []int64
+			prev := int64(rand.Uint64())
+			testInput = append(testInput, prev)
+			for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
+				var udiff uint64
+				if nBits-ntz == maxBits {
+					udiff = rand.Uint64()
+				} else if nBits-ntz > 0 {
+					udiff = rand.Uint64()
+					udiff %= 1 << (nBits - ntz)
+					udiff <<= ntz
+				}
+				// udiff &= ^((1 << ntz) - 1)
+				// consider udiff as zigzag encoded diff
+				//prev += (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
+				prev -= (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
+
+				testInput = append(testInput, prev)
+			}
+
+			t.Run(fmt.Sprintf("nBits=%d, ntz=%d", nBits, ntz), func(t *testing.T) {
+				resinput, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+				resinput2, resoutput2 := intcomp.UncompressDeltaBinPackInt64(input2, nil)
+
+				if len(resinput) != 0 {
+					t.Fatalf("expected all input consumed")
+				}
+				if len(resoutput2) != len(testInput) {
+					t.Fatalf("expected same len")
+				}
+				if len(resinput2) != 0 {
+					t.Fatalf("resinput2 should be empty")
+				}
+				for i, v := range testInput {
+					if resoutput2[i] != v {
+						intcomp.CompressDeltaBinPackInt64(testInput, nil)
+						intcomp.UncompressDeltaBinPackInt64(input2, nil)
+
+						t.Fatalf("resoutput2(%d) != input(%d)", resoutput2[i], v)
+					}
+				}
+			})
 		}
 	}
 }
@@ -526,43 +592,41 @@ func BenchmarkCompressDeltaBinPackInt64(b *testing.B) {
 	rand.Seed(1) // nolint
 	maxBits := 64
 	for nBits := 0; nBits <= maxBits; nBits++ {
-		for ntz := 0; ntz < maxBits; ntz += 31 {
-			if ntz+nBits > maxBits {
+		for _, ntz := range []int{0, 1, 31, 62} {
+			if ntz >= maxBits {
 				continue
 			}
-			for sign := 0; sign < 2; sign++ {
-				var testInput []int64
-				prev := int64(rand.Uint64())
-				testInput = append(testInput, prev)
-				for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
-					var udiff uint64
-					if nBits+ntz == maxBits {
-						udiff = rand.Uint64()
-					} else if nBits+ntz > 0 {
-						udiff = rand.Uint64()
-						udiff %= 1 << (nBits + ntz)
-					}
-					udiff &= ^((1 << ntz) - 1)
-					if sign == 1 {
-						prev = int64(uint64(prev) + udiff)
-					} else {
-						// consider udiff as zigzag encoded diff
-						prev += (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
-					}
-					testInput = append(testInput, prev)
-				}
-
-				output := make([]uint64, 0, 1024)
-
-				b.Run(fmt.Sprintf("nBits=%d, ntz=%d, sign=%d", nBits, ntz, sign), func(b *testing.B) {
-					b.SetBytes(int64(len(testInput) * 8))
-					b.ReportAllocs()
-					b.ResetTimer()
-					for n := 0; n < b.N; n++ {
-						intcomp.CompressDeltaBinPackInt64(testInput, output)
-					}
-				})
+			if nBits > 0 && ntz >= nBits {
+				continue
 			}
+			var testInput []int64
+			prev := int64(rand.Uint64())
+			testInput = append(testInput, prev)
+			for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
+				var udiff uint64
+				if nBits-ntz == maxBits {
+					udiff = rand.Uint64()
+				} else if nBits-ntz > 0 {
+					udiff = rand.Uint64()
+					udiff %= 1 << (nBits - ntz)
+					udiff <<= ntz
+				}
+				// udiff as zigzag encoded diff
+				prev -= (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
+				testInput = append(testInput, prev)
+			}
+
+			output := make([]uint64, 0, 1024)
+
+			b.Run(fmt.Sprintf("nBits=%d, ntz=%d", nBits, ntz), func(b *testing.B) {
+				b.SetBytes(int64(len(testInput) * 8))
+				b.ReportAllocs()
+				b.ResetTimer()
+				for n := 0; n < b.N; n++ {
+					intcomp.CompressDeltaBinPackInt64(testInput, output)
+				}
+			})
+
 		}
 	}
 }
@@ -571,44 +635,42 @@ func BenchmarkDecompressDeltaBinPackInt64(b *testing.B) {
 	rand.Seed(1) // nolint
 	maxBits := 64
 	for nBits := 0; nBits <= maxBits; nBits++ {
-		for ntz := 0; ntz < maxBits; ntz += 31 {
-			if ntz+nBits > maxBits {
+		for _, ntz := range []int{0, 1, 31, 62} {
+			if ntz >= maxBits {
 				continue
 			}
-			for sign := 0; sign < 2; sign++ {
-				var testInput []int64
-				prev := int64(rand.Uint64())
-				testInput = append(testInput, prev)
-				for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
-					var udiff uint64
-					if nBits+ntz == maxBits {
-						udiff = rand.Uint64()
-					} else if nBits+ntz > 0 {
-						udiff = rand.Uint64()
-						udiff %= 1 << (nBits + ntz)
-					}
-					udiff &= ^((1 << ntz) - 1)
-					if sign == 1 {
-						prev = int64(uint64(prev) + udiff)
-					} else {
-						// consider udiff as zigzag encoded diff
-						prev += (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
-					}
-					testInput = append(testInput, prev)
-				}
-
-				_, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
-				output := make([]int64, 0, 1024)
-
-				b.Run(fmt.Sprintf("nBits=%d, ntz=%d, sign=%d", nBits, ntz, sign), func(b *testing.B) {
-					b.SetBytes(intcomp.BitPackingBlockSize64 * 8)
-					b.ReportAllocs()
-					b.ResetTimer()
-					for n := 0; n < b.N; n++ {
-						intcomp.UncompressDeltaBinPackInt64(input2, output)
-					}
-				})
+			if nBits > 0 && ntz >= nBits {
+				continue
 			}
+			var testInput []int64
+			prev := int64(rand.Uint64())
+			testInput = append(testInput, prev)
+			for i := 1; i < intcomp.BitPackingBlockSize64; i++ {
+				var udiff uint64
+				if nBits-ntz == maxBits {
+					udiff = rand.Uint64()
+				} else if nBits-ntz > 0 {
+					udiff = rand.Uint64()
+					udiff %= 1 << (nBits - ntz)
+					udiff <<= ntz
+				}
+				// udiff as zigzag encoded diff
+				prev -= (-(int64(udiff) & 1)) ^ (int64(udiff) >> 1)
+				testInput = append(testInput, prev)
+			}
+
+			_, input2 := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+			output := make([]int64, 0, 1024)
+
+			b.Run(fmt.Sprintf("nBits=%d, ntz=%d", nBits, ntz), func(b *testing.B) {
+				b.SetBytes(intcomp.BitPackingBlockSize64 * 8)
+				b.ReportAllocs()
+				b.ResetTimer()
+				for n := 0; n < b.N; n++ {
+					intcomp.UncompressDeltaBinPackInt64(input2, output)
+				}
+			})
+
 		}
 	}
 }
@@ -689,6 +751,24 @@ func BenchmarkDecompressDeltaBinPackUint64(b *testing.B) {
 					intcomp.UncompressDeltaBinPackUint64(input2, output)
 				}
 			})
+		}
+	}
+}
+
+func TestCompressDeltaNtz1(t *testing.T) {
+	var testInput = []int64{16985, 17312, 17639, 17966, 18293, 18620, 18947, 19274, 19601, 19928, 20255, 20582, 20785, 21012, 21339, 21666, 21993, 22320, 22647, 22974, 23301, 23628, 23955, 24282, 24609, 24936, 25263, 25590, 25917, 26244, 26571, 26898, 27225, 27552, 27879, 28206, 28533, 28860, 29187, 29514, 29841, 30168, 30495, 30822, 31149, 31476, 31803, 32130, 32457, 32784, 33111, 33438, 33765, 34092, 34419, 34746, 35073, 35400, 35727, 36054, 36381, 36708, 37035, 37362, 16985, 17312, 17639, 17966, 18293, 18620, 18947, 19274, 19601, 19928, 20255, 20582, 20785, 21012, 21339, 21666, 21993, 22320, 22647, 22974, 23301, 23628, 23955, 24282, 24609, 24936, 25263, 25590, 25917, 26244, 26571, 26898, 27225, 27552, 27879, 28206, 28533, 28860, 29187, 29514, 29841, 30168, 30495, 30822, 31149, 31476, 31803, 32130, 32457, 32784, 33111, 33438, 33765, 34092, 34419, 34746, 35073, 35400, 35727, 36054, 36381, 36708, 37035, 37362, 16985, 17312, 17639, 17966, 18293, 18620, 18947, 19274, 19601, 19928, 20255, 20582, 20785, 21012, 21339, 21666, 21993, 22320, 22647, 22974, 23301, 23628, 23955, 24282, 24609, 24936, 25263, 25590, 25917, 26244, 26571, 26898, 27225, 27552, 27879, 28206, 28533, 28860, 29187, 29514, 29841, 30168, 30495, 30822, 31149, 31476, 31803, 32130, 32457, 32784, 33111, 33438, 33765, 34092, 34419, 34746, 35073, 35400, 35727, 36054, 36381, 36708, 37035, 37362, 16985, 17312, 17639, 17966, 18293, 18620, 18947, 19274, 19601, 19928, 20255, 20582, 20785, 21012, 21339, 21666, 21993, 22320, 22647, 22974, 23301, 23628, 23955, 24282, 24609, 24936, 25263, 25590, 25917, 26244, 26571, 26898, 27225, 27552, 27879, 28206, 28533, 28860, 29187, 29514, 29841, 30168, 30495, 30822, 31149, 31476, 31803, 32130, 32457, 32784, 33111, 33438, 33765, 34092, 34419, 34746, 35073, 35400, 35727, 36054, 36381, 36708, 37035, 37362}
+	resinput, input2 := intcomp.CompressDeltaBinPack(testInput, make([]uint64, 0, 100))
+	resinput2, resoutput2 := intcomp.UncompressDeltaBinPack[int64](input2, nil)
+
+	if len(resoutput2) != len(testInput)-len(resinput) {
+		t.Fatalf("expected same len")
+	}
+	if len(resinput2) != 0 {
+		t.Fatalf("resinput2 should be empty")
+	}
+	for i, v := range testInput {
+		if resoutput2[i] != v {
+			t.Fatalf("expected %d, got %d", v, resoutput2[i])
 		}
 	}
 }
