@@ -785,7 +785,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 	mask >>= 1
 
 	var ntz int
-	if mask != 0 {
+	if mask != 0 && sign == 0 {
 		ntz = bits.TrailingZeros64(mask)
 	}
 

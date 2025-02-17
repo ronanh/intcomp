@@ -345,6 +345,43 @@ func TestCompressDeltaBinPackFullUint64(t *testing.T) {
 	}
 }
 
+func TestCompressIssue18(t *testing.T) {
+	testInput := []int64{
+		0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	}
+	notCompressed, c := intcomp.CompressDeltaBinPackInt64(testInput, nil)
+	if len(notCompressed) > 0 {
+		t.Fatal("notCompressed", notCompressed)
+	}
+	notUncompressed, out := intcomp.UncompressDeltaBinPackInt64(c, nil)
+	if len(notUncompressed) > 0 {
+		t.Fatal("notUncompressed", notUncompressed)
+	}
+	if len(testInput) != len(out) {
+		t.Fatalf("expected same len")
+	}
+	for i, v := range testInput {
+		if out[i] != v {
+			t.Fatalf("expected %d, got %d for index %d", v, out[i], i)
+		}
+	}
+}
+
 // BenchmarkCompressDeltaBinPackInt32 Benchmark compress one block: 128 x int32
 func BenchmarkCompressDeltaBinPackInt32(b *testing.B) {
 	rand.Seed(1) // nolint
