@@ -8,867 +8,1060 @@ import "unsafe"
 // deltaPack_int64 Binary packing of one block of `in`, starting from `initoffset`
 // to out. Differential coding is applied first.
 // Caller must give the proper `bitlen` of the block
-func deltaPack_int64[T uint64 | int64](initoffset T, in []T, out []uint64, ntz, bitlen int) {
+func deltaPack_int64[T uint64 | int64](out []uint64, in *[64]T, initoffset T, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
-		if ntz > 0 {
-			deltapack64_ntz_0(initoffset, (*[64]T)(in), (*[0]uint64)(out), ntz)
-			break
+		if len(out) >= 0 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_0((*[0]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_0((*[0]uint64)(out), in, initoffset)
 		}
-		deltapack64_0(initoffset, (*[64]T)(in), (*[0]uint64)(out))
 	case 1:
-		if ntz > 0 {
-			deltapack64_ntz_1(initoffset, (*[64]T)(in), (*[1]uint64)(out), ntz)
-			break
+		if len(out) >= 1 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_1((*[1]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_1((*[1]uint64)(out), in, initoffset)
 		}
-		deltapack64_1(initoffset, (*[64]T)(in), (*[1]uint64)(out))
 	case 2:
-		if ntz > 0 {
-			deltapack64_ntz_2(initoffset, (*[64]T)(in), (*[2]uint64)(out), ntz)
-			break
+		if len(out) >= 2 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_2((*[2]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_2((*[2]uint64)(out), in, initoffset)
 		}
-		deltapack64_2(initoffset, (*[64]T)(in), (*[2]uint64)(out))
 	case 3:
-		if ntz > 0 {
-			deltapack64_ntz_3(initoffset, (*[64]T)(in), (*[3]uint64)(out), ntz)
-			break
+		if len(out) >= 3 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_3((*[3]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_3((*[3]uint64)(out), in, initoffset)
 		}
-		deltapack64_3(initoffset, (*[64]T)(in), (*[3]uint64)(out))
 	case 4:
-		if ntz > 0 {
-			deltapack64_ntz_4(initoffset, (*[64]T)(in), (*[4]uint64)(out), ntz)
-			break
+		if len(out) >= 4 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_4((*[4]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_4((*[4]uint64)(out), in, initoffset)
 		}
-		deltapack64_4(initoffset, (*[64]T)(in), (*[4]uint64)(out))
 	case 5:
-		if ntz > 0 {
-			deltapack64_ntz_5(initoffset, (*[64]T)(in), (*[5]uint64)(out), ntz)
-			break
+		if len(out) >= 5 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_5((*[5]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_5((*[5]uint64)(out), in, initoffset)
 		}
-		deltapack64_5(initoffset, (*[64]T)(in), (*[5]uint64)(out))
 	case 6:
-		if ntz > 0 {
-			deltapack64_ntz_6(initoffset, (*[64]T)(in), (*[6]uint64)(out), ntz)
-			break
+		if len(out) >= 6 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_6((*[6]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_6((*[6]uint64)(out), in, initoffset)
 		}
-		deltapack64_6(initoffset, (*[64]T)(in), (*[6]uint64)(out))
 	case 7:
-		if ntz > 0 {
-			deltapack64_ntz_7(initoffset, (*[64]T)(in), (*[7]uint64)(out), ntz)
-			break
+		if len(out) >= 7 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_7((*[7]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_7((*[7]uint64)(out), in, initoffset)
 		}
-		deltapack64_7(initoffset, (*[64]T)(in), (*[7]uint64)(out))
 	case 8:
-		if ntz > 0 {
-			deltapack64_ntz_8(initoffset, (*[64]T)(in), (*[8]uint64)(out), ntz)
-			break
+		if len(out) >= 8 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_8((*[8]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_8((*[8]uint64)(out), in, initoffset)
 		}
-		deltapack64_8(initoffset, (*[64]T)(in), (*[8]uint64)(out))
 	case 9:
-		if ntz > 0 {
-			deltapack64_ntz_9(initoffset, (*[64]T)(in), (*[9]uint64)(out), ntz)
-			break
+		if len(out) >= 9 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_9((*[9]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_9((*[9]uint64)(out), in, initoffset)
 		}
-		deltapack64_9(initoffset, (*[64]T)(in), (*[9]uint64)(out))
 	case 10:
-		if ntz > 0 {
-			deltapack64_ntz_10(initoffset, (*[64]T)(in), (*[10]uint64)(out), ntz)
-			break
+		if len(out) >= 10 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_10((*[10]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_10((*[10]uint64)(out), in, initoffset)
 		}
-		deltapack64_10(initoffset, (*[64]T)(in), (*[10]uint64)(out))
 	case 11:
-		if ntz > 0 {
-			deltapack64_ntz_11(initoffset, (*[64]T)(in), (*[11]uint64)(out), ntz)
-			break
+		if len(out) >= 11 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_11((*[11]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_11((*[11]uint64)(out), in, initoffset)
 		}
-		deltapack64_11(initoffset, (*[64]T)(in), (*[11]uint64)(out))
 	case 12:
-		if ntz > 0 {
-			deltapack64_ntz_12(initoffset, (*[64]T)(in), (*[12]uint64)(out), ntz)
-			break
+		if len(out) >= 12 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_12((*[12]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_12((*[12]uint64)(out), in, initoffset)
 		}
-		deltapack64_12(initoffset, (*[64]T)(in), (*[12]uint64)(out))
 	case 13:
-		if ntz > 0 {
-			deltapack64_ntz_13(initoffset, (*[64]T)(in), (*[13]uint64)(out), ntz)
-			break
+		if len(out) >= 13 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_13((*[13]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_13((*[13]uint64)(out), in, initoffset)
 		}
-		deltapack64_13(initoffset, (*[64]T)(in), (*[13]uint64)(out))
 	case 14:
-		if ntz > 0 {
-			deltapack64_ntz_14(initoffset, (*[64]T)(in), (*[14]uint64)(out), ntz)
-			break
+		if len(out) >= 14 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_14((*[14]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_14((*[14]uint64)(out), in, initoffset)
 		}
-		deltapack64_14(initoffset, (*[64]T)(in), (*[14]uint64)(out))
 	case 15:
-		if ntz > 0 {
-			deltapack64_ntz_15(initoffset, (*[64]T)(in), (*[15]uint64)(out), ntz)
-			break
+		if len(out) >= 15 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_15((*[15]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_15((*[15]uint64)(out), in, initoffset)
 		}
-		deltapack64_15(initoffset, (*[64]T)(in), (*[15]uint64)(out))
 	case 16:
-		if ntz > 0 {
-			deltapack64_ntz_16(initoffset, (*[64]T)(in), (*[16]uint64)(out), ntz)
-			break
+		if len(out) >= 16 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_16((*[16]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_16((*[16]uint64)(out), in, initoffset)
 		}
-		deltapack64_16(initoffset, (*[64]T)(in), (*[16]uint64)(out))
 	case 17:
-		if ntz > 0 {
-			deltapack64_ntz_17(initoffset, (*[64]T)(in), (*[17]uint64)(out), ntz)
-			break
+		if len(out) >= 17 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_17((*[17]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_17((*[17]uint64)(out), in, initoffset)
 		}
-		deltapack64_17(initoffset, (*[64]T)(in), (*[17]uint64)(out))
 	case 18:
-		if ntz > 0 {
-			deltapack64_ntz_18(initoffset, (*[64]T)(in), (*[18]uint64)(out), ntz)
-			break
+		if len(out) >= 18 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_18((*[18]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_18((*[18]uint64)(out), in, initoffset)
 		}
-		deltapack64_18(initoffset, (*[64]T)(in), (*[18]uint64)(out))
 	case 19:
-		if ntz > 0 {
-			deltapack64_ntz_19(initoffset, (*[64]T)(in), (*[19]uint64)(out), ntz)
-			break
+		if len(out) >= 19 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_19((*[19]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_19((*[19]uint64)(out), in, initoffset)
 		}
-		deltapack64_19(initoffset, (*[64]T)(in), (*[19]uint64)(out))
 	case 20:
-		if ntz > 0 {
-			deltapack64_ntz_20(initoffset, (*[64]T)(in), (*[20]uint64)(out), ntz)
-			break
+		if len(out) >= 20 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_20((*[20]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_20((*[20]uint64)(out), in, initoffset)
 		}
-		deltapack64_20(initoffset, (*[64]T)(in), (*[20]uint64)(out))
 	case 21:
-		if ntz > 0 {
-			deltapack64_ntz_21(initoffset, (*[64]T)(in), (*[21]uint64)(out), ntz)
-			break
+		if len(out) >= 21 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_21((*[21]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_21((*[21]uint64)(out), in, initoffset)
 		}
-		deltapack64_21(initoffset, (*[64]T)(in), (*[21]uint64)(out))
 	case 22:
-		if ntz > 0 {
-			deltapack64_ntz_22(initoffset, (*[64]T)(in), (*[22]uint64)(out), ntz)
-			break
+		if len(out) >= 22 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_22((*[22]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_22((*[22]uint64)(out), in, initoffset)
 		}
-		deltapack64_22(initoffset, (*[64]T)(in), (*[22]uint64)(out))
 	case 23:
-		if ntz > 0 {
-			deltapack64_ntz_23(initoffset, (*[64]T)(in), (*[23]uint64)(out), ntz)
-			break
+		if len(out) >= 23 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_23((*[23]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_23((*[23]uint64)(out), in, initoffset)
 		}
-		deltapack64_23(initoffset, (*[64]T)(in), (*[23]uint64)(out))
 	case 24:
-		if ntz > 0 {
-			deltapack64_ntz_24(initoffset, (*[64]T)(in), (*[24]uint64)(out), ntz)
-			break
+		if len(out) >= 24 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_24((*[24]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_24((*[24]uint64)(out), in, initoffset)
 		}
-		deltapack64_24(initoffset, (*[64]T)(in), (*[24]uint64)(out))
 	case 25:
-		if ntz > 0 {
-			deltapack64_ntz_25(initoffset, (*[64]T)(in), (*[25]uint64)(out), ntz)
-			break
+		if len(out) >= 25 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_25((*[25]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_25((*[25]uint64)(out), in, initoffset)
 		}
-		deltapack64_25(initoffset, (*[64]T)(in), (*[25]uint64)(out))
 	case 26:
-		if ntz > 0 {
-			deltapack64_ntz_26(initoffset, (*[64]T)(in), (*[26]uint64)(out), ntz)
-			break
+		if len(out) >= 26 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_26((*[26]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_26((*[26]uint64)(out), in, initoffset)
 		}
-		deltapack64_26(initoffset, (*[64]T)(in), (*[26]uint64)(out))
 	case 27:
-		if ntz > 0 {
-			deltapack64_ntz_27(initoffset, (*[64]T)(in), (*[27]uint64)(out), ntz)
-			break
+		if len(out) >= 27 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_27((*[27]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_27((*[27]uint64)(out), in, initoffset)
 		}
-		deltapack64_27(initoffset, (*[64]T)(in), (*[27]uint64)(out))
 	case 28:
-		if ntz > 0 {
-			deltapack64_ntz_28(initoffset, (*[64]T)(in), (*[28]uint64)(out), ntz)
-			break
+		if len(out) >= 28 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_28((*[28]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_28((*[28]uint64)(out), in, initoffset)
 		}
-		deltapack64_28(initoffset, (*[64]T)(in), (*[28]uint64)(out))
 	case 29:
-		if ntz > 0 {
-			deltapack64_ntz_29(initoffset, (*[64]T)(in), (*[29]uint64)(out), ntz)
-			break
+		if len(out) >= 29 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_29((*[29]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_29((*[29]uint64)(out), in, initoffset)
 		}
-		deltapack64_29(initoffset, (*[64]T)(in), (*[29]uint64)(out))
 	case 30:
-		if ntz > 0 {
-			deltapack64_ntz_30(initoffset, (*[64]T)(in), (*[30]uint64)(out), ntz)
-			break
+		if len(out) >= 30 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_30((*[30]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_30((*[30]uint64)(out), in, initoffset)
 		}
-		deltapack64_30(initoffset, (*[64]T)(in), (*[30]uint64)(out))
 	case 31:
-		if ntz > 0 {
-			deltapack64_ntz_31(initoffset, (*[64]T)(in), (*[31]uint64)(out), ntz)
-			break
+		if len(out) >= 31 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_31((*[31]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_31((*[31]uint64)(out), in, initoffset)
 		}
-		deltapack64_31(initoffset, (*[64]T)(in), (*[31]uint64)(out))
 	case 32:
-		if ntz > 0 {
-			deltapack64_ntz_32(initoffset, (*[64]T)(in), (*[32]uint64)(out), ntz)
-			break
+		if len(out) >= 32 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_32((*[32]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_32((*[32]uint64)(out), in, initoffset)
 		}
-		deltapack64_32(initoffset, (*[64]T)(in), (*[32]uint64)(out))
 	case 33:
-		if ntz > 0 {
-			deltapack64_ntz_33(initoffset, (*[64]T)(in), (*[33]uint64)(out), ntz)
-			break
+		if len(out) >= 33 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_33((*[33]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_33((*[33]uint64)(out), in, initoffset)
 		}
-		deltapack64_33(initoffset, (*[64]T)(in), (*[33]uint64)(out))
 	case 34:
-		if ntz > 0 {
-			deltapack64_ntz_34(initoffset, (*[64]T)(in), (*[34]uint64)(out), ntz)
-			break
+		if len(out) >= 34 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_34((*[34]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_34((*[34]uint64)(out), in, initoffset)
 		}
-		deltapack64_34(initoffset, (*[64]T)(in), (*[34]uint64)(out))
 	case 35:
-		if ntz > 0 {
-			deltapack64_ntz_35(initoffset, (*[64]T)(in), (*[35]uint64)(out), ntz)
-			break
+		if len(out) >= 35 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_35((*[35]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_35((*[35]uint64)(out), in, initoffset)
 		}
-		deltapack64_35(initoffset, (*[64]T)(in), (*[35]uint64)(out))
 	case 36:
-		if ntz > 0 {
-			deltapack64_ntz_36(initoffset, (*[64]T)(in), (*[36]uint64)(out), ntz)
-			break
+		if len(out) >= 36 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_36((*[36]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_36((*[36]uint64)(out), in, initoffset)
 		}
-		deltapack64_36(initoffset, (*[64]T)(in), (*[36]uint64)(out))
 	case 37:
-		if ntz > 0 {
-			deltapack64_ntz_37(initoffset, (*[64]T)(in), (*[37]uint64)(out), ntz)
-			break
+		if len(out) >= 37 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_37((*[37]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_37((*[37]uint64)(out), in, initoffset)
 		}
-		deltapack64_37(initoffset, (*[64]T)(in), (*[37]uint64)(out))
 	case 38:
-		if ntz > 0 {
-			deltapack64_ntz_38(initoffset, (*[64]T)(in), (*[38]uint64)(out), ntz)
-			break
+		if len(out) >= 38 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_38((*[38]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_38((*[38]uint64)(out), in, initoffset)
 		}
-		deltapack64_38(initoffset, (*[64]T)(in), (*[38]uint64)(out))
 	case 39:
-		if ntz > 0 {
-			deltapack64_ntz_39(initoffset, (*[64]T)(in), (*[39]uint64)(out), ntz)
-			break
+		if len(out) >= 39 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_39((*[39]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_39((*[39]uint64)(out), in, initoffset)
 		}
-		deltapack64_39(initoffset, (*[64]T)(in), (*[39]uint64)(out))
 	case 40:
-		if ntz > 0 {
-			deltapack64_ntz_40(initoffset, (*[64]T)(in), (*[40]uint64)(out), ntz)
-			break
+		if len(out) >= 40 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_40((*[40]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_40((*[40]uint64)(out), in, initoffset)
 		}
-		deltapack64_40(initoffset, (*[64]T)(in), (*[40]uint64)(out))
 	case 41:
-		if ntz > 0 {
-			deltapack64_ntz_41(initoffset, (*[64]T)(in), (*[41]uint64)(out), ntz)
-			break
+		if len(out) >= 41 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_41((*[41]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_41((*[41]uint64)(out), in, initoffset)
 		}
-		deltapack64_41(initoffset, (*[64]T)(in), (*[41]uint64)(out))
 	case 42:
-		if ntz > 0 {
-			deltapack64_ntz_42(initoffset, (*[64]T)(in), (*[42]uint64)(out), ntz)
-			break
+		if len(out) >= 42 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_42((*[42]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_42((*[42]uint64)(out), in, initoffset)
 		}
-		deltapack64_42(initoffset, (*[64]T)(in), (*[42]uint64)(out))
 	case 43:
-		if ntz > 0 {
-			deltapack64_ntz_43(initoffset, (*[64]T)(in), (*[43]uint64)(out), ntz)
-			break
+		if len(out) >= 43 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_43((*[43]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_43((*[43]uint64)(out), in, initoffset)
 		}
-		deltapack64_43(initoffset, (*[64]T)(in), (*[43]uint64)(out))
 	case 44:
-		if ntz > 0 {
-			deltapack64_ntz_44(initoffset, (*[64]T)(in), (*[44]uint64)(out), ntz)
-			break
+		if len(out) >= 44 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_44((*[44]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_44((*[44]uint64)(out), in, initoffset)
 		}
-		deltapack64_44(initoffset, (*[64]T)(in), (*[44]uint64)(out))
 	case 45:
-		if ntz > 0 {
-			deltapack64_ntz_45(initoffset, (*[64]T)(in), (*[45]uint64)(out), ntz)
-			break
+		if len(out) >= 45 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_45((*[45]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_45((*[45]uint64)(out), in, initoffset)
 		}
-		deltapack64_45(initoffset, (*[64]T)(in), (*[45]uint64)(out))
 	case 46:
-		if ntz > 0 {
-			deltapack64_ntz_46(initoffset, (*[64]T)(in), (*[46]uint64)(out), ntz)
-			break
+		if len(out) >= 46 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_46((*[46]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_46((*[46]uint64)(out), in, initoffset)
 		}
-		deltapack64_46(initoffset, (*[64]T)(in), (*[46]uint64)(out))
 	case 47:
-		if ntz > 0 {
-			deltapack64_ntz_47(initoffset, (*[64]T)(in), (*[47]uint64)(out), ntz)
-			break
+		if len(out) >= 47 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_47((*[47]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_47((*[47]uint64)(out), in, initoffset)
 		}
-		deltapack64_47(initoffset, (*[64]T)(in), (*[47]uint64)(out))
 	case 48:
-		if ntz > 0 {
-			deltapack64_ntz_48(initoffset, (*[64]T)(in), (*[48]uint64)(out), ntz)
-			break
+		if len(out) >= 48 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_48((*[48]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_48((*[48]uint64)(out), in, initoffset)
 		}
-		deltapack64_48(initoffset, (*[64]T)(in), (*[48]uint64)(out))
 	case 49:
-		if ntz > 0 {
-			deltapack64_ntz_49(initoffset, (*[64]T)(in), (*[49]uint64)(out), ntz)
-			break
+		if len(out) >= 49 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_49((*[49]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_49((*[49]uint64)(out), in, initoffset)
 		}
-		deltapack64_49(initoffset, (*[64]T)(in), (*[49]uint64)(out))
 	case 50:
-		if ntz > 0 {
-			deltapack64_ntz_50(initoffset, (*[64]T)(in), (*[50]uint64)(out), ntz)
-			break
+		if len(out) >= 50 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_50((*[50]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_50((*[50]uint64)(out), in, initoffset)
 		}
-		deltapack64_50(initoffset, (*[64]T)(in), (*[50]uint64)(out))
 	case 51:
-		if ntz > 0 {
-			deltapack64_ntz_51(initoffset, (*[64]T)(in), (*[51]uint64)(out), ntz)
-			break
+		if len(out) >= 51 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_51((*[51]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_51((*[51]uint64)(out), in, initoffset)
 		}
-		deltapack64_51(initoffset, (*[64]T)(in), (*[51]uint64)(out))
 	case 52:
-		if ntz > 0 {
-			deltapack64_ntz_52(initoffset, (*[64]T)(in), (*[52]uint64)(out), ntz)
-			break
+		if len(out) >= 52 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_52((*[52]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_52((*[52]uint64)(out), in, initoffset)
 		}
-		deltapack64_52(initoffset, (*[64]T)(in), (*[52]uint64)(out))
 	case 53:
-		if ntz > 0 {
-			deltapack64_ntz_53(initoffset, (*[64]T)(in), (*[53]uint64)(out), ntz)
-			break
+		if len(out) >= 53 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_53((*[53]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_53((*[53]uint64)(out), in, initoffset)
 		}
-		deltapack64_53(initoffset, (*[64]T)(in), (*[53]uint64)(out))
 	case 54:
-		if ntz > 0 {
-			deltapack64_ntz_54(initoffset, (*[64]T)(in), (*[54]uint64)(out), ntz)
-			break
+		if len(out) >= 54 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_54((*[54]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_54((*[54]uint64)(out), in, initoffset)
 		}
-		deltapack64_54(initoffset, (*[64]T)(in), (*[54]uint64)(out))
 	case 55:
-		if ntz > 0 {
-			deltapack64_ntz_55(initoffset, (*[64]T)(in), (*[55]uint64)(out), ntz)
-			break
+		if len(out) >= 55 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_55((*[55]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_55((*[55]uint64)(out), in, initoffset)
 		}
-		deltapack64_55(initoffset, (*[64]T)(in), (*[55]uint64)(out))
 	case 56:
-		if ntz > 0 {
-			deltapack64_ntz_56(initoffset, (*[64]T)(in), (*[56]uint64)(out), ntz)
-			break
+		if len(out) >= 56 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_56((*[56]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_56((*[56]uint64)(out), in, initoffset)
 		}
-		deltapack64_56(initoffset, (*[64]T)(in), (*[56]uint64)(out))
 	case 57:
-		if ntz > 0 {
-			deltapack64_ntz_57(initoffset, (*[64]T)(in), (*[57]uint64)(out), ntz)
-			break
+		if len(out) >= 57 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_57((*[57]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_57((*[57]uint64)(out), in, initoffset)
 		}
-		deltapack64_57(initoffset, (*[64]T)(in), (*[57]uint64)(out))
 	case 58:
-		if ntz > 0 {
-			deltapack64_ntz_58(initoffset, (*[64]T)(in), (*[58]uint64)(out), ntz)
-			break
+		if len(out) >= 58 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_58((*[58]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_58((*[58]uint64)(out), in, initoffset)
 		}
-		deltapack64_58(initoffset, (*[64]T)(in), (*[58]uint64)(out))
 	case 59:
-		if ntz > 0 {
-			deltapack64_ntz_59(initoffset, (*[64]T)(in), (*[59]uint64)(out), ntz)
-			break
+		if len(out) >= 59 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_59((*[59]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_59((*[59]uint64)(out), in, initoffset)
 		}
-		deltapack64_59(initoffset, (*[64]T)(in), (*[59]uint64)(out))
 	case 60:
-		if ntz > 0 {
-			deltapack64_ntz_60(initoffset, (*[64]T)(in), (*[60]uint64)(out), ntz)
-			break
+		if len(out) >= 60 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_60((*[60]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_60((*[60]uint64)(out), in, initoffset)
 		}
-		deltapack64_60(initoffset, (*[64]T)(in), (*[60]uint64)(out))
 	case 61:
-		if ntz > 0 {
-			deltapack64_ntz_61(initoffset, (*[64]T)(in), (*[61]uint64)(out), ntz)
-			break
+		if len(out) >= 61 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_61((*[61]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_61((*[61]uint64)(out), in, initoffset)
 		}
-		deltapack64_61(initoffset, (*[64]T)(in), (*[61]uint64)(out))
 	case 62:
-		if ntz > 0 {
-			deltapack64_ntz_62(initoffset, (*[64]T)(in), (*[62]uint64)(out), ntz)
-			break
+		if len(out) >= 62 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_62((*[62]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_62((*[62]uint64)(out), in, initoffset)
 		}
-		deltapack64_62(initoffset, (*[64]T)(in), (*[62]uint64)(out))
 	case 63:
-		if ntz > 0 {
-			deltapack64_ntz_63(initoffset, (*[64]T)(in), (*[63]uint64)(out), ntz)
-			break
+		if len(out) >= 63 { // eliminate bounds check
+			if ntz > 0 {
+				deltapack64_ntz_63((*[63]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapack64_63((*[63]uint64)(out), in, initoffset)
 		}
-		deltapack64_63(initoffset, (*[64]T)(in), (*[63]uint64)(out))
 	case 64:
-		*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer((*[64]T)(in))))
-	default:
-		panic("unsupported bitlen")
+		if len(out) >= 64 { // eliminate bounds check
+			*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer(in)))
+		}
 	}
 }
 
 // deltaUnpack_int64 Decoding operation for DeltaPack_int64
-func deltaUnpack_int64[T uint64 | int64](initoffset T, in []uint64, out []T, ntz, bitlen int) {
+func deltaUnpack_int64[T uint64 | int64](out *[64]T, in []uint64, initoffset T, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
-		if ntz > 0 {
-			deltaunpack64_ntz_0(initoffset, (*[0]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 0 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_0(out, (*[0]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_0(out, (*[0]uint64)(in), initoffset)
 		}
-		deltaunpack64_0(initoffset, (*[0]uint64)(in), (*[64]T)(out))
 	case 1:
-		if ntz > 0 {
-			deltaunpack64_ntz_1(initoffset, (*[1]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 1 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_1(out, (*[1]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_1(out, (*[1]uint64)(in), initoffset)
 		}
-		deltaunpack64_1(initoffset, (*[1]uint64)(in), (*[64]T)(out))
 	case 2:
-		if ntz > 0 {
-			deltaunpack64_ntz_2(initoffset, (*[2]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 2 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_2(out, (*[2]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_2(out, (*[2]uint64)(in), initoffset)
 		}
-		deltaunpack64_2(initoffset, (*[2]uint64)(in), (*[64]T)(out))
 	case 3:
-		if ntz > 0 {
-			deltaunpack64_ntz_3(initoffset, (*[3]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 3 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_3(out, (*[3]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_3(out, (*[3]uint64)(in), initoffset)
 		}
-		deltaunpack64_3(initoffset, (*[3]uint64)(in), (*[64]T)(out))
 	case 4:
-		if ntz > 0 {
-			deltaunpack64_ntz_4(initoffset, (*[4]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 4 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_4(out, (*[4]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_4(out, (*[4]uint64)(in), initoffset)
 		}
-		deltaunpack64_4(initoffset, (*[4]uint64)(in), (*[64]T)(out))
 	case 5:
-		if ntz > 0 {
-			deltaunpack64_ntz_5(initoffset, (*[5]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 5 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_5(out, (*[5]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_5(out, (*[5]uint64)(in), initoffset)
 		}
-		deltaunpack64_5(initoffset, (*[5]uint64)(in), (*[64]T)(out))
 	case 6:
-		if ntz > 0 {
-			deltaunpack64_ntz_6(initoffset, (*[6]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 6 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_6(out, (*[6]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_6(out, (*[6]uint64)(in), initoffset)
 		}
-		deltaunpack64_6(initoffset, (*[6]uint64)(in), (*[64]T)(out))
 	case 7:
-		if ntz > 0 {
-			deltaunpack64_ntz_7(initoffset, (*[7]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 7 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_7(out, (*[7]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_7(out, (*[7]uint64)(in), initoffset)
 		}
-		deltaunpack64_7(initoffset, (*[7]uint64)(in), (*[64]T)(out))
 	case 8:
-		if ntz > 0 {
-			deltaunpack64_ntz_8(initoffset, (*[8]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 8 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_8(out, (*[8]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_8(out, (*[8]uint64)(in), initoffset)
 		}
-		deltaunpack64_8(initoffset, (*[8]uint64)(in), (*[64]T)(out))
 	case 9:
-		if ntz > 0 {
-			deltaunpack64_ntz_9(initoffset, (*[9]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 9 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_9(out, (*[9]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_9(out, (*[9]uint64)(in), initoffset)
 		}
-		deltaunpack64_9(initoffset, (*[9]uint64)(in), (*[64]T)(out))
 	case 10:
-		if ntz > 0 {
-			deltaunpack64_ntz_10(initoffset, (*[10]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 10 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_10(out, (*[10]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_10(out, (*[10]uint64)(in), initoffset)
 		}
-		deltaunpack64_10(initoffset, (*[10]uint64)(in), (*[64]T)(out))
 	case 11:
-		if ntz > 0 {
-			deltaunpack64_ntz_11(initoffset, (*[11]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 11 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_11(out, (*[11]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_11(out, (*[11]uint64)(in), initoffset)
 		}
-		deltaunpack64_11(initoffset, (*[11]uint64)(in), (*[64]T)(out))
 	case 12:
-		if ntz > 0 {
-			deltaunpack64_ntz_12(initoffset, (*[12]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 12 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_12(out, (*[12]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_12(out, (*[12]uint64)(in), initoffset)
 		}
-		deltaunpack64_12(initoffset, (*[12]uint64)(in), (*[64]T)(out))
 	case 13:
-		if ntz > 0 {
-			deltaunpack64_ntz_13(initoffset, (*[13]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 13 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_13(out, (*[13]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_13(out, (*[13]uint64)(in), initoffset)
 		}
-		deltaunpack64_13(initoffset, (*[13]uint64)(in), (*[64]T)(out))
 	case 14:
-		if ntz > 0 {
-			deltaunpack64_ntz_14(initoffset, (*[14]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 14 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_14(out, (*[14]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_14(out, (*[14]uint64)(in), initoffset)
 		}
-		deltaunpack64_14(initoffset, (*[14]uint64)(in), (*[64]T)(out))
 	case 15:
-		if ntz > 0 {
-			deltaunpack64_ntz_15(initoffset, (*[15]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 15 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_15(out, (*[15]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_15(out, (*[15]uint64)(in), initoffset)
 		}
-		deltaunpack64_15(initoffset, (*[15]uint64)(in), (*[64]T)(out))
 	case 16:
-		if ntz > 0 {
-			deltaunpack64_ntz_16(initoffset, (*[16]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 16 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_16(out, (*[16]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_16(out, (*[16]uint64)(in), initoffset)
 		}
-		deltaunpack64_16(initoffset, (*[16]uint64)(in), (*[64]T)(out))
 	case 17:
-		if ntz > 0 {
-			deltaunpack64_ntz_17(initoffset, (*[17]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 17 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_17(out, (*[17]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_17(out, (*[17]uint64)(in), initoffset)
 		}
-		deltaunpack64_17(initoffset, (*[17]uint64)(in), (*[64]T)(out))
 	case 18:
-		if ntz > 0 {
-			deltaunpack64_ntz_18(initoffset, (*[18]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 18 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_18(out, (*[18]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_18(out, (*[18]uint64)(in), initoffset)
 		}
-		deltaunpack64_18(initoffset, (*[18]uint64)(in), (*[64]T)(out))
 	case 19:
-		if ntz > 0 {
-			deltaunpack64_ntz_19(initoffset, (*[19]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 19 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_19(out, (*[19]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_19(out, (*[19]uint64)(in), initoffset)
 		}
-		deltaunpack64_19(initoffset, (*[19]uint64)(in), (*[64]T)(out))
 	case 20:
-		if ntz > 0 {
-			deltaunpack64_ntz_20(initoffset, (*[20]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 20 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_20(out, (*[20]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_20(out, (*[20]uint64)(in), initoffset)
 		}
-		deltaunpack64_20(initoffset, (*[20]uint64)(in), (*[64]T)(out))
 	case 21:
-		if ntz > 0 {
-			deltaunpack64_ntz_21(initoffset, (*[21]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 21 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_21(out, (*[21]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_21(out, (*[21]uint64)(in), initoffset)
 		}
-		deltaunpack64_21(initoffset, (*[21]uint64)(in), (*[64]T)(out))
 	case 22:
-		if ntz > 0 {
-			deltaunpack64_ntz_22(initoffset, (*[22]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 22 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_22(out, (*[22]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_22(out, (*[22]uint64)(in), initoffset)
 		}
-		deltaunpack64_22(initoffset, (*[22]uint64)(in), (*[64]T)(out))
 	case 23:
-		if ntz > 0 {
-			deltaunpack64_ntz_23(initoffset, (*[23]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 23 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_23(out, (*[23]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_23(out, (*[23]uint64)(in), initoffset)
 		}
-		deltaunpack64_23(initoffset, (*[23]uint64)(in), (*[64]T)(out))
 	case 24:
-		if ntz > 0 {
-			deltaunpack64_ntz_24(initoffset, (*[24]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 24 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_24(out, (*[24]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_24(out, (*[24]uint64)(in), initoffset)
 		}
-		deltaunpack64_24(initoffset, (*[24]uint64)(in), (*[64]T)(out))
 	case 25:
-		if ntz > 0 {
-			deltaunpack64_ntz_25(initoffset, (*[25]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 25 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_25(out, (*[25]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_25(out, (*[25]uint64)(in), initoffset)
 		}
-		deltaunpack64_25(initoffset, (*[25]uint64)(in), (*[64]T)(out))
 	case 26:
-		if ntz > 0 {
-			deltaunpack64_ntz_26(initoffset, (*[26]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 26 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_26(out, (*[26]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_26(out, (*[26]uint64)(in), initoffset)
 		}
-		deltaunpack64_26(initoffset, (*[26]uint64)(in), (*[64]T)(out))
 	case 27:
-		if ntz > 0 {
-			deltaunpack64_ntz_27(initoffset, (*[27]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 27 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_27(out, (*[27]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_27(out, (*[27]uint64)(in), initoffset)
 		}
-		deltaunpack64_27(initoffset, (*[27]uint64)(in), (*[64]T)(out))
 	case 28:
-		if ntz > 0 {
-			deltaunpack64_ntz_28(initoffset, (*[28]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 28 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_28(out, (*[28]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_28(out, (*[28]uint64)(in), initoffset)
 		}
-		deltaunpack64_28(initoffset, (*[28]uint64)(in), (*[64]T)(out))
 	case 29:
-		if ntz > 0 {
-			deltaunpack64_ntz_29(initoffset, (*[29]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 29 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_29(out, (*[29]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_29(out, (*[29]uint64)(in), initoffset)
 		}
-		deltaunpack64_29(initoffset, (*[29]uint64)(in), (*[64]T)(out))
 	case 30:
-		if ntz > 0 {
-			deltaunpack64_ntz_30(initoffset, (*[30]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 30 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_30(out, (*[30]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_30(out, (*[30]uint64)(in), initoffset)
 		}
-		deltaunpack64_30(initoffset, (*[30]uint64)(in), (*[64]T)(out))
 	case 31:
-		if ntz > 0 {
-			deltaunpack64_ntz_31(initoffset, (*[31]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 31 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_31(out, (*[31]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_31(out, (*[31]uint64)(in), initoffset)
 		}
-		deltaunpack64_31(initoffset, (*[31]uint64)(in), (*[64]T)(out))
 	case 32:
-		if ntz > 0 {
-			deltaunpack64_ntz_32(initoffset, (*[32]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 32 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_32(out, (*[32]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_32(out, (*[32]uint64)(in), initoffset)
 		}
-		deltaunpack64_32(initoffset, (*[32]uint64)(in), (*[64]T)(out))
 	case 33:
-		if ntz > 0 {
-			deltaunpack64_ntz_33(initoffset, (*[33]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 33 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_33(out, (*[33]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_33(out, (*[33]uint64)(in), initoffset)
 		}
-		deltaunpack64_33(initoffset, (*[33]uint64)(in), (*[64]T)(out))
 	case 34:
-		if ntz > 0 {
-			deltaunpack64_ntz_34(initoffset, (*[34]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 34 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_34(out, (*[34]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_34(out, (*[34]uint64)(in), initoffset)
 		}
-		deltaunpack64_34(initoffset, (*[34]uint64)(in), (*[64]T)(out))
 	case 35:
-		if ntz > 0 {
-			deltaunpack64_ntz_35(initoffset, (*[35]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 35 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_35(out, (*[35]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_35(out, (*[35]uint64)(in), initoffset)
 		}
-		deltaunpack64_35(initoffset, (*[35]uint64)(in), (*[64]T)(out))
 	case 36:
-		if ntz > 0 {
-			deltaunpack64_ntz_36(initoffset, (*[36]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 36 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_36(out, (*[36]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_36(out, (*[36]uint64)(in), initoffset)
 		}
-		deltaunpack64_36(initoffset, (*[36]uint64)(in), (*[64]T)(out))
 	case 37:
-		if ntz > 0 {
-			deltaunpack64_ntz_37(initoffset, (*[37]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 37 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_37(out, (*[37]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_37(out, (*[37]uint64)(in), initoffset)
 		}
-		deltaunpack64_37(initoffset, (*[37]uint64)(in), (*[64]T)(out))
 	case 38:
-		if ntz > 0 {
-			deltaunpack64_ntz_38(initoffset, (*[38]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 38 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_38(out, (*[38]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_38(out, (*[38]uint64)(in), initoffset)
 		}
-		deltaunpack64_38(initoffset, (*[38]uint64)(in), (*[64]T)(out))
 	case 39:
-		if ntz > 0 {
-			deltaunpack64_ntz_39(initoffset, (*[39]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 39 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_39(out, (*[39]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_39(out, (*[39]uint64)(in), initoffset)
 		}
-		deltaunpack64_39(initoffset, (*[39]uint64)(in), (*[64]T)(out))
 	case 40:
-		if ntz > 0 {
-			deltaunpack64_ntz_40(initoffset, (*[40]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 40 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_40(out, (*[40]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_40(out, (*[40]uint64)(in), initoffset)
 		}
-		deltaunpack64_40(initoffset, (*[40]uint64)(in), (*[64]T)(out))
 	case 41:
-		if ntz > 0 {
-			deltaunpack64_ntz_41(initoffset, (*[41]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 41 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_41(out, (*[41]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_41(out, (*[41]uint64)(in), initoffset)
 		}
-		deltaunpack64_41(initoffset, (*[41]uint64)(in), (*[64]T)(out))
 	case 42:
-		if ntz > 0 {
-			deltaunpack64_ntz_42(initoffset, (*[42]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 42 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_42(out, (*[42]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_42(out, (*[42]uint64)(in), initoffset)
 		}
-		deltaunpack64_42(initoffset, (*[42]uint64)(in), (*[64]T)(out))
 	case 43:
-		if ntz > 0 {
-			deltaunpack64_ntz_43(initoffset, (*[43]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 43 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_43(out, (*[43]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_43(out, (*[43]uint64)(in), initoffset)
 		}
-		deltaunpack64_43(initoffset, (*[43]uint64)(in), (*[64]T)(out))
 	case 44:
-		if ntz > 0 {
-			deltaunpack64_ntz_44(initoffset, (*[44]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 44 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_44(out, (*[44]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_44(out, (*[44]uint64)(in), initoffset)
 		}
-		deltaunpack64_44(initoffset, (*[44]uint64)(in), (*[64]T)(out))
 	case 45:
-		if ntz > 0 {
-			deltaunpack64_ntz_45(initoffset, (*[45]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 45 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_45(out, (*[45]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_45(out, (*[45]uint64)(in), initoffset)
 		}
-		deltaunpack64_45(initoffset, (*[45]uint64)(in), (*[64]T)(out))
 	case 46:
-		if ntz > 0 {
-			deltaunpack64_ntz_46(initoffset, (*[46]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 46 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_46(out, (*[46]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_46(out, (*[46]uint64)(in), initoffset)
 		}
-		deltaunpack64_46(initoffset, (*[46]uint64)(in), (*[64]T)(out))
 	case 47:
-		if ntz > 0 {
-			deltaunpack64_ntz_47(initoffset, (*[47]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 47 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_47(out, (*[47]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_47(out, (*[47]uint64)(in), initoffset)
 		}
-		deltaunpack64_47(initoffset, (*[47]uint64)(in), (*[64]T)(out))
 	case 48:
-		if ntz > 0 {
-			deltaunpack64_ntz_48(initoffset, (*[48]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 48 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_48(out, (*[48]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_48(out, (*[48]uint64)(in), initoffset)
 		}
-		deltaunpack64_48(initoffset, (*[48]uint64)(in), (*[64]T)(out))
 	case 49:
-		if ntz > 0 {
-			deltaunpack64_ntz_49(initoffset, (*[49]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 49 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_49(out, (*[49]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_49(out, (*[49]uint64)(in), initoffset)
 		}
-		deltaunpack64_49(initoffset, (*[49]uint64)(in), (*[64]T)(out))
 	case 50:
-		if ntz > 0 {
-			deltaunpack64_ntz_50(initoffset, (*[50]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 50 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_50(out, (*[50]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_50(out, (*[50]uint64)(in), initoffset)
 		}
-		deltaunpack64_50(initoffset, (*[50]uint64)(in), (*[64]T)(out))
 	case 51:
-		if ntz > 0 {
-			deltaunpack64_ntz_51(initoffset, (*[51]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 51 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_51(out, (*[51]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_51(out, (*[51]uint64)(in), initoffset)
 		}
-		deltaunpack64_51(initoffset, (*[51]uint64)(in), (*[64]T)(out))
 	case 52:
-		if ntz > 0 {
-			deltaunpack64_ntz_52(initoffset, (*[52]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 52 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_52(out, (*[52]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_52(out, (*[52]uint64)(in), initoffset)
 		}
-		deltaunpack64_52(initoffset, (*[52]uint64)(in), (*[64]T)(out))
 	case 53:
-		if ntz > 0 {
-			deltaunpack64_ntz_53(initoffset, (*[53]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 53 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_53(out, (*[53]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_53(out, (*[53]uint64)(in), initoffset)
 		}
-		deltaunpack64_53(initoffset, (*[53]uint64)(in), (*[64]T)(out))
 	case 54:
-		if ntz > 0 {
-			deltaunpack64_ntz_54(initoffset, (*[54]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 54 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_54(out, (*[54]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_54(out, (*[54]uint64)(in), initoffset)
 		}
-		deltaunpack64_54(initoffset, (*[54]uint64)(in), (*[64]T)(out))
 	case 55:
-		if ntz > 0 {
-			deltaunpack64_ntz_55(initoffset, (*[55]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 55 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_55(out, (*[55]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_55(out, (*[55]uint64)(in), initoffset)
 		}
-		deltaunpack64_55(initoffset, (*[55]uint64)(in), (*[64]T)(out))
 	case 56:
-		if ntz > 0 {
-			deltaunpack64_ntz_56(initoffset, (*[56]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 56 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_56(out, (*[56]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_56(out, (*[56]uint64)(in), initoffset)
 		}
-		deltaunpack64_56(initoffset, (*[56]uint64)(in), (*[64]T)(out))
 	case 57:
-		if ntz > 0 {
-			deltaunpack64_ntz_57(initoffset, (*[57]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 57 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_57(out, (*[57]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_57(out, (*[57]uint64)(in), initoffset)
 		}
-		deltaunpack64_57(initoffset, (*[57]uint64)(in), (*[64]T)(out))
 	case 58:
-		if ntz > 0 {
-			deltaunpack64_ntz_58(initoffset, (*[58]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 58 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_58(out, (*[58]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_58(out, (*[58]uint64)(in), initoffset)
 		}
-		deltaunpack64_58(initoffset, (*[58]uint64)(in), (*[64]T)(out))
 	case 59:
-		if ntz > 0 {
-			deltaunpack64_ntz_59(initoffset, (*[59]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 59 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_59(out, (*[59]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_59(out, (*[59]uint64)(in), initoffset)
 		}
-		deltaunpack64_59(initoffset, (*[59]uint64)(in), (*[64]T)(out))
 	case 60:
-		if ntz > 0 {
-			deltaunpack64_ntz_60(initoffset, (*[60]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 60 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_60(out, (*[60]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_60(out, (*[60]uint64)(in), initoffset)
 		}
-		deltaunpack64_60(initoffset, (*[60]uint64)(in), (*[64]T)(out))
 	case 61:
-		if ntz > 0 {
-			deltaunpack64_ntz_61(initoffset, (*[61]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 61 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_61(out, (*[61]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_61(out, (*[61]uint64)(in), initoffset)
 		}
-		deltaunpack64_61(initoffset, (*[61]uint64)(in), (*[64]T)(out))
 	case 62:
-		if ntz > 0 {
-			deltaunpack64_ntz_62(initoffset, (*[62]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 62 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_62(out, (*[62]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_62(out, (*[62]uint64)(in), initoffset)
 		}
-		deltaunpack64_62(initoffset, (*[62]uint64)(in), (*[64]T)(out))
 	case 63:
-		if ntz > 0 {
-			deltaunpack64_ntz_63(initoffset, (*[63]uint64)(in), (*[64]T)(out), ntz)
-			break
+		if len(in) >= 63 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpack64_ntz_63(out, (*[63]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpack64_63(out, (*[63]uint64)(in), initoffset)
 		}
-		deltaunpack64_63(initoffset, (*[63]uint64)(in), (*[64]T)(out))
 	case 64:
-		*(*[64]T)(out) = *(*[64]T)(unsafe.Pointer((*[64]uint64)(in)))
-	default:
-		panic("unsupported bitlen")
+		if len(in) >= 64 { // eliminate bounds check
+			*out = *(*[64]T)(unsafe.Pointer((*[64]uint64)(in)))
+		}
 	}
 }
 
-func deltapack64_0[T uint64 | int64](initoffset T, in *[64]T, out *[0]uint64) {
+func deltapack64_0[T uint64 | int64](out *[0]uint64, in *[64]T, initoffset T) {
 }
-func deltapack64_ntz_0[T uint64 | int64](initoffset T, in *[64]T, out *[0]uint64, ntz int) {
+func deltapack64_ntz_0[T uint64 | int64](out *[0]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 }
 
-func deltapack64_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 1) |
-			((in[2] - in[1]) << 2) |
-			((in[3] - in[2]) << 3) |
-			((in[4] - in[3]) << 4) |
-			((in[5] - in[4]) << 5) |
-			((in[6] - in[5]) << 6) |
-			((in[7] - in[6]) << 7) |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 9) |
-			((in[10] - in[9]) << 10) |
-			((in[11] - in[10]) << 11) |
-			((in[12] - in[11]) << 12) |
-			((in[13] - in[12]) << 13) |
-			((in[14] - in[13]) << 14) |
-			((in[15] - in[14]) << 15) |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 17) |
-			((in[18] - in[17]) << 18) |
-			((in[19] - in[18]) << 19) |
-			((in[20] - in[19]) << 20) |
-			((in[21] - in[20]) << 21) |
-			((in[22] - in[21]) << 22) |
-			((in[23] - in[22]) << 23) |
-			((in[24] - in[23]) << 24) |
-			((in[25] - in[24]) << 25) |
-			((in[26] - in[25]) << 26) |
-			((in[27] - in[26]) << 27) |
-			((in[28] - in[27]) << 28) |
-			((in[29] - in[28]) << 29) |
-			((in[30] - in[29]) << 30) |
-			((in[31] - in[30]) << 31) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 33) |
-			((in[34] - in[33]) << 34) |
-			((in[35] - in[34]) << 35) |
-			((in[36] - in[35]) << 36) |
-			((in[37] - in[36]) << 37) |
-			((in[38] - in[37]) << 38) |
-			((in[39] - in[38]) << 39) |
-			((in[40] - in[39]) << 40) |
-			((in[41] - in[40]) << 41) |
-			((in[42] - in[41]) << 42) |
-			((in[43] - in[42]) << 43) |
-			((in[44] - in[43]) << 44) |
-			((in[45] - in[44]) << 45) |
-			((in[46] - in[45]) << 46) |
-			((in[47] - in[46]) << 47) |
-			((in[48] - in[47]) << 48) |
-			((in[49] - in[48]) << 49) |
-			((in[50] - in[49]) << 50) |
-			((in[51] - in[50]) << 51) |
-			((in[52] - in[51]) << 52) |
-			((in[53] - in[52]) << 53) |
-			((in[54] - in[53]) << 54) |
-			((in[55] - in[54]) << 55) |
-			((in[56] - in[55]) << 56) |
-			((in[57] - in[56]) << 57) |
-			((in[58] - in[57]) << 58) |
-			((in[59] - in[58]) << 59) |
-			((in[60] - in[59]) << 60) |
-			((in[61] - in[60]) << 61) |
-			((in[62] - in[61]) << 62) |
-			((in[63] - in[62]) << 63))
+func deltapack64_1[T uint64 | int64](out *[1]uint64, in *[64]T, initoffset T) {
+	out[0] =
+		uint64(in[0] - initoffset | ((in[1] - in[0]) << 1) | ((in[2] - in[1]) << 2) | ((in[3] - in[2]) << 3) | ((in[4] - in[3]) << 4) | ((in[5] - in[4]) << 5) | ((in[6] - in[5]) << 6) | ((in[7] - in[6]) << 7) | ((in[8] - in[7]) << 8) | ((in[9] - in[8]) << 9) | ((in[10] - in[9]) << 10) | ((in[11] - in[10]) << 11) | ((in[12] - in[11]) << 12) | ((in[13] - in[12]) << 13) | ((in[14] - in[13]) << 14) | ((in[15] - in[14]) << 15) | ((in[16] - in[15]) << 16) | ((in[17] - in[16]) << 17) | ((in[18] - in[17]) << 18) | ((in[19] - in[18]) << 19) | ((in[20] - in[19]) << 20) | ((in[21] - in[20]) << 21) | ((in[22] - in[21]) << 22) | ((in[23] - in[22]) << 23) | ((in[24] - in[23]) << 24) | ((in[25] - in[24]) << 25) | ((in[26] - in[25]) << 26) | ((in[27] - in[26]) << 27) | ((in[28] - in[27]) << 28) | ((in[29] - in[28]) << 29) | ((in[30] - in[29]) << 30) | ((in[31] - in[30]) << 31) | ((in[32] - in[31]) << 32) | ((in[33] - in[32]) << 33) | ((in[34] - in[33]) << 34) | ((in[35] - in[34]) << 35) | ((in[36] - in[35]) << 36) | ((in[37] - in[36]) << 37) | ((in[38] - in[37]) << 38) | ((in[39] - in[38]) << 39) | ((in[40] - in[39]) << 40) | ((in[41] - in[40]) << 41) | ((in[42] - in[41]) << 42) | ((in[43] - in[42]) << 43) | ((in[44] - in[43]) << 44) | ((in[45] - in[44]) << 45) | ((in[46] - in[45]) << 46) | ((in[47] - in[46]) << 47) | ((in[48] - in[47]) << 48) | ((in[49] - in[48]) << 49) | ((in[50] - in[49]) << 50) | ((in[51] - in[50]) << 51) | ((in[52] - in[51]) << 52) | ((in[53] - in[52]) << 53) | ((in[54] - in[53]) << 54) | ((in[55] - in[54]) << 55) | ((in[56] - in[55]) << 56) | ((in[57] - in[56]) << 57) | ((in[58] - in[57]) << 58) | ((in[59] - in[58]) << 59) | ((in[60] - in[59]) << 60) | ((in[61] - in[60]) << 61) | ((in[62] - in[61]) << 62) | ((in[63] - in[62]) << 63))
 }
-func deltapack64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint64, ntz int) {
+func deltapack64_ntz_1[T uint64 | int64](out *[1]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -937,75 +1130,11 @@ func deltapack64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint64
 			((in[63] - in[62]) >> ntz << 63))
 }
 
-func deltapack64_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 2) |
-			((in[2] - in[1]) << 4) |
-			((in[3] - in[2]) << 6) |
-			((in[4] - in[3]) << 8) |
-			((in[5] - in[4]) << 10) |
-			((in[6] - in[5]) << 12) |
-			((in[7] - in[6]) << 14) |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 18) |
-			((in[10] - in[9]) << 20) |
-			((in[11] - in[10]) << 22) |
-			((in[12] - in[11]) << 24) |
-			((in[13] - in[12]) << 26) |
-			((in[14] - in[13]) << 28) |
-			((in[15] - in[14]) << 30) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 34) |
-			((in[18] - in[17]) << 36) |
-			((in[19] - in[18]) << 38) |
-			((in[20] - in[19]) << 40) |
-			((in[21] - in[20]) << 42) |
-			((in[22] - in[21]) << 44) |
-			((in[23] - in[22]) << 46) |
-			((in[24] - in[23]) << 48) |
-			((in[25] - in[24]) << 50) |
-			((in[26] - in[25]) << 52) |
-			((in[27] - in[26]) << 54) |
-			((in[28] - in[27]) << 56) |
-			((in[29] - in[28]) << 58) |
-			((in[30] - in[29]) << 60) |
-			((in[31] - in[30]) << 62))
-	out[1] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 2) |
-			((in[34] - in[33]) << 4) |
-			((in[35] - in[34]) << 6) |
-			((in[36] - in[35]) << 8) |
-			((in[37] - in[36]) << 10) |
-			((in[38] - in[37]) << 12) |
-			((in[39] - in[38]) << 14) |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 18) |
-			((in[42] - in[41]) << 20) |
-			((in[43] - in[42]) << 22) |
-			((in[44] - in[43]) << 24) |
-			((in[45] - in[44]) << 26) |
-			((in[46] - in[45]) << 28) |
-			((in[47] - in[46]) << 30) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 34) |
-			((in[50] - in[49]) << 36) |
-			((in[51] - in[50]) << 38) |
-			((in[52] - in[51]) << 40) |
-			((in[53] - in[52]) << 42) |
-			((in[54] - in[53]) << 44) |
-			((in[55] - in[54]) << 46) |
-			((in[56] - in[55]) << 48) |
-			((in[57] - in[56]) << 50) |
-			((in[58] - in[57]) << 52) |
-			((in[59] - in[58]) << 54) |
-			((in[60] - in[59]) << 56) |
-			((in[61] - in[60]) << 58) |
-			((in[62] - in[61]) << 60) |
-			((in[63] - in[62]) << 62))
+func deltapack64_2[T uint64 | int64](out *[2]uint64, in *[64]T, initoffset T) {
+	out[0], out[1] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<2)|((in[2]-in[1])<<4)|((in[3]-in[2])<<6)|((in[4]-in[3])<<8)|((in[5]-in[4])<<10)|((in[6]-in[5])<<12)|((in[7]-in[6])<<14)|((in[8]-in[7])<<16)|((in[9]-in[8])<<18)|((in[10]-in[9])<<20)|((in[11]-in[10])<<22)|((in[12]-in[11])<<24)|((in[13]-in[12])<<26)|((in[14]-in[13])<<28)|((in[15]-in[14])<<30)|((in[16]-in[15])<<32)|((in[17]-in[16])<<34)|((in[18]-in[17])<<36)|((in[19]-in[18])<<38)|((in[20]-in[19])<<40)|((in[21]-in[20])<<42)|((in[22]-in[21])<<44)|((in[23]-in[22])<<46)|((in[24]-in[23])<<48)|((in[25]-in[24])<<50)|((in[26]-in[25])<<52)|((in[27]-in[26])<<54)|((in[28]-in[27])<<56)|((in[29]-in[28])<<58)|((in[30]-in[29])<<60)|((in[31]-in[30])<<62)), uint64(in[32]-in[31]|((in[33]-in[32])<<2)|((in[34]-in[33])<<4)|((in[35]-in[34])<<6)|((in[36]-in[35])<<8)|((in[37]-in[36])<<10)|((in[38]-in[37])<<12)|((in[39]-in[38])<<14)|((in[40]-in[39])<<16)|((in[41]-in[40])<<18)|((in[42]-in[41])<<20)|((in[43]-in[42])<<22)|((in[44]-in[43])<<24)|((in[45]-in[44])<<26)|((in[46]-in[45])<<28)|((in[47]-in[46])<<30)|((in[48]-in[47])<<32)|((in[49]-in[48])<<34)|((in[50]-in[49])<<36)|((in[51]-in[50])<<38)|((in[52]-in[51])<<40)|((in[53]-in[52])<<42)|((in[54]-in[53])<<44)|((in[55]-in[54])<<46)|((in[56]-in[55])<<48)|((in[57]-in[56])<<50)|((in[58]-in[57])<<52)|((in[59]-in[58])<<54)|((in[60]-in[59])<<56)|((in[61]-in[60])<<58)|((in[62]-in[61])<<60)|((in[63]-in[62])<<62))
 }
-func deltapack64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint64, ntz int) {
+func deltapack64_ntz_2[T uint64 | int64](out *[2]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1075,78 +1204,11 @@ func deltapack64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint64
 			((in[63] - in[62]) >> ntz << 62))
 }
 
-func deltapack64_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 3) |
-			((in[2] - in[1]) << 6) |
-			((in[3] - in[2]) << 9) |
-			((in[4] - in[3]) << 12) |
-			((in[5] - in[4]) << 15) |
-			((in[6] - in[5]) << 18) |
-			((in[7] - in[6]) << 21) |
-			((in[8] - in[7]) << 24) |
-			((in[9] - in[8]) << 27) |
-			((in[10] - in[9]) << 30) |
-			((in[11] - in[10]) << 33) |
-			((in[12] - in[11]) << 36) |
-			((in[13] - in[12]) << 39) |
-			((in[14] - in[13]) << 42) |
-			((in[15] - in[14]) << 45) |
-			((in[16] - in[15]) << 48) |
-			((in[17] - in[16]) << 51) |
-			((in[18] - in[17]) << 54) |
-			((in[19] - in[18]) << 57) |
-			((in[20] - in[19]) << 60) |
-			((in[21] - in[20]) << 63))
-	out[1] = uint64(
-		(in[21]-in[20])>>1 |
-			((in[22] - in[21]) << 2) |
-			((in[23] - in[22]) << 5) |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 11) |
-			((in[26] - in[25]) << 14) |
-			((in[27] - in[26]) << 17) |
-			((in[28] - in[27]) << 20) |
-			((in[29] - in[28]) << 23) |
-			((in[30] - in[29]) << 26) |
-			((in[31] - in[30]) << 29) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 35) |
-			((in[34] - in[33]) << 38) |
-			((in[35] - in[34]) << 41) |
-			((in[36] - in[35]) << 44) |
-			((in[37] - in[36]) << 47) |
-			((in[38] - in[37]) << 50) |
-			((in[39] - in[38]) << 53) |
-			((in[40] - in[39]) << 56) |
-			((in[41] - in[40]) << 59) |
-			((in[42] - in[41]) << 62))
-	out[2] = uint64(
-		(in[42]-in[41])>>2 |
-			((in[43] - in[42]) << 1) |
-			((in[44] - in[43]) << 4) |
-			((in[45] - in[44]) << 7) |
-			((in[46] - in[45]) << 10) |
-			((in[47] - in[46]) << 13) |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 19) |
-			((in[50] - in[49]) << 22) |
-			((in[51] - in[50]) << 25) |
-			((in[52] - in[51]) << 28) |
-			((in[53] - in[52]) << 31) |
-			((in[54] - in[53]) << 34) |
-			((in[55] - in[54]) << 37) |
-			((in[56] - in[55]) << 40) |
-			((in[57] - in[56]) << 43) |
-			((in[58] - in[57]) << 46) |
-			((in[59] - in[58]) << 49) |
-			((in[60] - in[59]) << 52) |
-			((in[61] - in[60]) << 55) |
-			((in[62] - in[61]) << 58) |
-			((in[63] - in[62]) << 61))
+func deltapack64_3[T uint64 | int64](out *[3]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<3)|((in[2]-in[1])<<6)|((in[3]-in[2])<<9)|((in[4]-in[3])<<12)|((in[5]-in[4])<<15)|((in[6]-in[5])<<18)|((in[7]-in[6])<<21)|((in[8]-in[7])<<24)|((in[9]-in[8])<<27)|((in[10]-in[9])<<30)|((in[11]-in[10])<<33)|((in[12]-in[11])<<36)|((in[13]-in[12])<<39)|((in[14]-in[13])<<42)|((in[15]-in[14])<<45)|((in[16]-in[15])<<48)|((in[17]-in[16])<<51)|((in[18]-in[17])<<54)|((in[19]-in[18])<<57)|((in[20]-in[19])<<60)|((in[21]-in[20])<<63)), uint64((in[21]-in[20])>>1|((in[22]-in[21])<<2)|((in[23]-in[22])<<5)|((in[24]-in[23])<<8)|((in[25]-in[24])<<11)|((in[26]-in[25])<<14)|((in[27]-in[26])<<17)|((in[28]-in[27])<<20)|((in[29]-in[28])<<23)|((in[30]-in[29])<<26)|((in[31]-in[30])<<29)|((in[32]-in[31])<<32)|((in[33]-in[32])<<35)|((in[34]-in[33])<<38)|((in[35]-in[34])<<41)|((in[36]-in[35])<<44)|((in[37]-in[36])<<47)|((in[38]-in[37])<<50)|((in[39]-in[38])<<53)|((in[40]-in[39])<<56)|((in[41]-in[40])<<59)|((in[42]-in[41])<<62)), uint64((in[42]-in[41])>>2|((in[43]-in[42])<<1)|((in[44]-in[43])<<4)|((in[45]-in[44])<<7)|((in[46]-in[45])<<10)|((in[47]-in[46])<<13)|((in[48]-in[47])<<16)|((in[49]-in[48])<<19)|((in[50]-in[49])<<22)|((in[51]-in[50])<<25)|((in[52]-in[51])<<28)|((in[53]-in[52])<<31)|((in[54]-in[53])<<34)|((in[55]-in[54])<<37)|((in[56]-in[55])<<40)|((in[57]-in[56])<<43)|((in[58]-in[57])<<46)|((in[59]-in[58])<<49)|((in[60]-in[59])<<52)|((in[61]-in[60])<<55)|((in[62]-in[61])<<58)|((in[63]-in[62])<<61))
 }
-func deltapack64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint64, ntz int) {
+func deltapack64_ntz_3[T uint64 | int64](out *[3]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1219,77 +1281,11 @@ func deltapack64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint64
 			((in[63] - in[62]) >> ntz << 61))
 }
 
-func deltapack64_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 4) |
-			((in[2] - in[1]) << 8) |
-			((in[3] - in[2]) << 12) |
-			((in[4] - in[3]) << 16) |
-			((in[5] - in[4]) << 20) |
-			((in[6] - in[5]) << 24) |
-			((in[7] - in[6]) << 28) |
-			((in[8] - in[7]) << 32) |
-			((in[9] - in[8]) << 36) |
-			((in[10] - in[9]) << 40) |
-			((in[11] - in[10]) << 44) |
-			((in[12] - in[11]) << 48) |
-			((in[13] - in[12]) << 52) |
-			((in[14] - in[13]) << 56) |
-			((in[15] - in[14]) << 60))
-	out[1] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 4) |
-			((in[18] - in[17]) << 8) |
-			((in[19] - in[18]) << 12) |
-			((in[20] - in[19]) << 16) |
-			((in[21] - in[20]) << 20) |
-			((in[22] - in[21]) << 24) |
-			((in[23] - in[22]) << 28) |
-			((in[24] - in[23]) << 32) |
-			((in[25] - in[24]) << 36) |
-			((in[26] - in[25]) << 40) |
-			((in[27] - in[26]) << 44) |
-			((in[28] - in[27]) << 48) |
-			((in[29] - in[28]) << 52) |
-			((in[30] - in[29]) << 56) |
-			((in[31] - in[30]) << 60))
-	out[2] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 4) |
-			((in[34] - in[33]) << 8) |
-			((in[35] - in[34]) << 12) |
-			((in[36] - in[35]) << 16) |
-			((in[37] - in[36]) << 20) |
-			((in[38] - in[37]) << 24) |
-			((in[39] - in[38]) << 28) |
-			((in[40] - in[39]) << 32) |
-			((in[41] - in[40]) << 36) |
-			((in[42] - in[41]) << 40) |
-			((in[43] - in[42]) << 44) |
-			((in[44] - in[43]) << 48) |
-			((in[45] - in[44]) << 52) |
-			((in[46] - in[45]) << 56) |
-			((in[47] - in[46]) << 60))
-	out[3] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 4) |
-			((in[50] - in[49]) << 8) |
-			((in[51] - in[50]) << 12) |
-			((in[52] - in[51]) << 16) |
-			((in[53] - in[52]) << 20) |
-			((in[54] - in[53]) << 24) |
-			((in[55] - in[54]) << 28) |
-			((in[56] - in[55]) << 32) |
-			((in[57] - in[56]) << 36) |
-			((in[58] - in[57]) << 40) |
-			((in[59] - in[58]) << 44) |
-			((in[60] - in[59]) << 48) |
-			((in[61] - in[60]) << 52) |
-			((in[62] - in[61]) << 56) |
-			((in[63] - in[62]) << 60))
+func deltapack64_4[T uint64 | int64](out *[4]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<4)|((in[2]-in[1])<<8)|((in[3]-in[2])<<12)|((in[4]-in[3])<<16)|((in[5]-in[4])<<20)|((in[6]-in[5])<<24)|((in[7]-in[6])<<28)|((in[8]-in[7])<<32)|((in[9]-in[8])<<36)|((in[10]-in[9])<<40)|((in[11]-in[10])<<44)|((in[12]-in[11])<<48)|((in[13]-in[12])<<52)|((in[14]-in[13])<<56)|((in[15]-in[14])<<60)), uint64(in[16]-in[15]|((in[17]-in[16])<<4)|((in[18]-in[17])<<8)|((in[19]-in[18])<<12)|((in[20]-in[19])<<16)|((in[21]-in[20])<<20)|((in[22]-in[21])<<24)|((in[23]-in[22])<<28)|((in[24]-in[23])<<32)|((in[25]-in[24])<<36)|((in[26]-in[25])<<40)|((in[27]-in[26])<<44)|((in[28]-in[27])<<48)|((in[29]-in[28])<<52)|((in[30]-in[29])<<56)|((in[31]-in[30])<<60)), uint64(in[32]-in[31]|((in[33]-in[32])<<4)|((in[34]-in[33])<<8)|((in[35]-in[34])<<12)|((in[36]-in[35])<<16)|((in[37]-in[36])<<20)|((in[38]-in[37])<<24)|((in[39]-in[38])<<28)|((in[40]-in[39])<<32)|((in[41]-in[40])<<36)|((in[42]-in[41])<<40)|((in[43]-in[42])<<44)|((in[44]-in[43])<<48)|((in[45]-in[44])<<52)|((in[46]-in[45])<<56)|((in[47]-in[46])<<60)), uint64(in[48]-in[47]|((in[49]-in[48])<<4)|((in[50]-in[49])<<8)|((in[51]-in[50])<<12)|((in[52]-in[51])<<16)|((in[53]-in[52])<<20)|((in[54]-in[53])<<24)|((in[55]-in[54])<<28)|((in[56]-in[55])<<32)|((in[57]-in[56])<<36)|((in[58]-in[57])<<40)|((in[59]-in[58])<<44)|((in[60]-in[59])<<48)|((in[61]-in[60])<<52)|((in[62]-in[61])<<56)|((in[63]-in[62])<<60))
 }
-func deltapack64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint64, ntz int) {
+func deltapack64_ntz_4[T uint64 | int64](out *[4]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1361,82 +1357,11 @@ func deltapack64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint64
 			((in[63] - in[62]) >> ntz << 60))
 }
 
-func deltapack64_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 5) |
-			((in[2] - in[1]) << 10) |
-			((in[3] - in[2]) << 15) |
-			((in[4] - in[3]) << 20) |
-			((in[5] - in[4]) << 25) |
-			((in[6] - in[5]) << 30) |
-			((in[7] - in[6]) << 35) |
-			((in[8] - in[7]) << 40) |
-			((in[9] - in[8]) << 45) |
-			((in[10] - in[9]) << 50) |
-			((in[11] - in[10]) << 55) |
-			((in[12] - in[11]) << 60))
-	out[1] = uint64(
-		(in[12]-in[11])>>4 |
-			((in[13] - in[12]) << 1) |
-			((in[14] - in[13]) << 6) |
-			((in[15] - in[14]) << 11) |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 21) |
-			((in[18] - in[17]) << 26) |
-			((in[19] - in[18]) << 31) |
-			((in[20] - in[19]) << 36) |
-			((in[21] - in[20]) << 41) |
-			((in[22] - in[21]) << 46) |
-			((in[23] - in[22]) << 51) |
-			((in[24] - in[23]) << 56) |
-			((in[25] - in[24]) << 61))
-	out[2] = uint64(
-		(in[25]-in[24])>>3 |
-			((in[26] - in[25]) << 2) |
-			((in[27] - in[26]) << 7) |
-			((in[28] - in[27]) << 12) |
-			((in[29] - in[28]) << 17) |
-			((in[30] - in[29]) << 22) |
-			((in[31] - in[30]) << 27) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 37) |
-			((in[34] - in[33]) << 42) |
-			((in[35] - in[34]) << 47) |
-			((in[36] - in[35]) << 52) |
-			((in[37] - in[36]) << 57) |
-			((in[38] - in[37]) << 62))
-	out[3] = uint64(
-		(in[38]-in[37])>>2 |
-			((in[39] - in[38]) << 3) |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 13) |
-			((in[42] - in[41]) << 18) |
-			((in[43] - in[42]) << 23) |
-			((in[44] - in[43]) << 28) |
-			((in[45] - in[44]) << 33) |
-			((in[46] - in[45]) << 38) |
-			((in[47] - in[46]) << 43) |
-			((in[48] - in[47]) << 48) |
-			((in[49] - in[48]) << 53) |
-			((in[50] - in[49]) << 58) |
-			((in[51] - in[50]) << 63))
-	out[4] = uint64(
-		(in[51]-in[50])>>1 |
-			((in[52] - in[51]) << 4) |
-			((in[53] - in[52]) << 9) |
-			((in[54] - in[53]) << 14) |
-			((in[55] - in[54]) << 19) |
-			((in[56] - in[55]) << 24) |
-			((in[57] - in[56]) << 29) |
-			((in[58] - in[57]) << 34) |
-			((in[59] - in[58]) << 39) |
-			((in[60] - in[59]) << 44) |
-			((in[61] - in[60]) << 49) |
-			((in[62] - in[61]) << 54) |
-			((in[63] - in[62]) << 59))
+func deltapack64_5[T uint64 | int64](out *[5]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<5)|((in[2]-in[1])<<10)|((in[3]-in[2])<<15)|((in[4]-in[3])<<20)|((in[5]-in[4])<<25)|((in[6]-in[5])<<30)|((in[7]-in[6])<<35)|((in[8]-in[7])<<40)|((in[9]-in[8])<<45)|((in[10]-in[9])<<50)|((in[11]-in[10])<<55)|((in[12]-in[11])<<60)), uint64((in[12]-in[11])>>4|((in[13]-in[12])<<1)|((in[14]-in[13])<<6)|((in[15]-in[14])<<11)|((in[16]-in[15])<<16)|((in[17]-in[16])<<21)|((in[18]-in[17])<<26)|((in[19]-in[18])<<31)|((in[20]-in[19])<<36)|((in[21]-in[20])<<41)|((in[22]-in[21])<<46)|((in[23]-in[22])<<51)|((in[24]-in[23])<<56)|((in[25]-in[24])<<61)), uint64((in[25]-in[24])>>3|((in[26]-in[25])<<2)|((in[27]-in[26])<<7)|((in[28]-in[27])<<12)|((in[29]-in[28])<<17)|((in[30]-in[29])<<22)|((in[31]-in[30])<<27)|((in[32]-in[31])<<32)|((in[33]-in[32])<<37)|((in[34]-in[33])<<42)|((in[35]-in[34])<<47)|((in[36]-in[35])<<52)|((in[37]-in[36])<<57)|((in[38]-in[37])<<62)), uint64((in[38]-in[37])>>2|((in[39]-in[38])<<3)|((in[40]-in[39])<<8)|((in[41]-in[40])<<13)|((in[42]-in[41])<<18)|((in[43]-in[42])<<23)|((in[44]-in[43])<<28)|((in[45]-in[44])<<33)|((in[46]-in[45])<<38)|((in[47]-in[46])<<43)|((in[48]-in[47])<<48)|((in[49]-in[48])<<53)|((in[50]-in[49])<<58)|((in[51]-in[50])<<63)), uint64((in[51]-in[50])>>1|((in[52]-in[51])<<4)|((in[53]-in[52])<<9)|((in[54]-in[53])<<14)|((in[55]-in[54])<<19)|((in[56]-in[55])<<24)|((in[57]-in[56])<<29)|((in[58]-in[57])<<34)|((in[59]-in[58])<<39)|((in[60]-in[59])<<44)|((in[61]-in[60])<<49)|((in[62]-in[61])<<54)|((in[63]-in[62])<<59))
 }
-func deltapack64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint64, ntz int) {
+func deltapack64_ntz_5[T uint64 | int64](out *[5]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1513,83 +1438,11 @@ func deltapack64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint64
 			((in[63] - in[62]) >> ntz << 59))
 }
 
-func deltapack64_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 6) |
-			((in[2] - in[1]) << 12) |
-			((in[3] - in[2]) << 18) |
-			((in[4] - in[3]) << 24) |
-			((in[5] - in[4]) << 30) |
-			((in[6] - in[5]) << 36) |
-			((in[7] - in[6]) << 42) |
-			((in[8] - in[7]) << 48) |
-			((in[9] - in[8]) << 54) |
-			((in[10] - in[9]) << 60))
-	out[1] = uint64(
-		(in[10]-in[9])>>4 |
-			((in[11] - in[10]) << 2) |
-			((in[12] - in[11]) << 8) |
-			((in[13] - in[12]) << 14) |
-			((in[14] - in[13]) << 20) |
-			((in[15] - in[14]) << 26) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 38) |
-			((in[18] - in[17]) << 44) |
-			((in[19] - in[18]) << 50) |
-			((in[20] - in[19]) << 56) |
-			((in[21] - in[20]) << 62))
-	out[2] = uint64(
-		(in[21]-in[20])>>2 |
-			((in[22] - in[21]) << 4) |
-			((in[23] - in[22]) << 10) |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 22) |
-			((in[26] - in[25]) << 28) |
-			((in[27] - in[26]) << 34) |
-			((in[28] - in[27]) << 40) |
-			((in[29] - in[28]) << 46) |
-			((in[30] - in[29]) << 52) |
-			((in[31] - in[30]) << 58))
-	out[3] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 6) |
-			((in[34] - in[33]) << 12) |
-			((in[35] - in[34]) << 18) |
-			((in[36] - in[35]) << 24) |
-			((in[37] - in[36]) << 30) |
-			((in[38] - in[37]) << 36) |
-			((in[39] - in[38]) << 42) |
-			((in[40] - in[39]) << 48) |
-			((in[41] - in[40]) << 54) |
-			((in[42] - in[41]) << 60))
-	out[4] = uint64(
-		(in[42]-in[41])>>4 |
-			((in[43] - in[42]) << 2) |
-			((in[44] - in[43]) << 8) |
-			((in[45] - in[44]) << 14) |
-			((in[46] - in[45]) << 20) |
-			((in[47] - in[46]) << 26) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 38) |
-			((in[50] - in[49]) << 44) |
-			((in[51] - in[50]) << 50) |
-			((in[52] - in[51]) << 56) |
-			((in[53] - in[52]) << 62))
-	out[5] = uint64(
-		(in[53]-in[52])>>2 |
-			((in[54] - in[53]) << 4) |
-			((in[55] - in[54]) << 10) |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 22) |
-			((in[58] - in[57]) << 28) |
-			((in[59] - in[58]) << 34) |
-			((in[60] - in[59]) << 40) |
-			((in[61] - in[60]) << 46) |
-			((in[62] - in[61]) << 52) |
-			((in[63] - in[62]) << 58))
+func deltapack64_6[T uint64 | int64](out *[6]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<6)|((in[2]-in[1])<<12)|((in[3]-in[2])<<18)|((in[4]-in[3])<<24)|((in[5]-in[4])<<30)|((in[6]-in[5])<<36)|((in[7]-in[6])<<42)|((in[8]-in[7])<<48)|((in[9]-in[8])<<54)|((in[10]-in[9])<<60)), uint64((in[10]-in[9])>>4|((in[11]-in[10])<<2)|((in[12]-in[11])<<8)|((in[13]-in[12])<<14)|((in[14]-in[13])<<20)|((in[15]-in[14])<<26)|((in[16]-in[15])<<32)|((in[17]-in[16])<<38)|((in[18]-in[17])<<44)|((in[19]-in[18])<<50)|((in[20]-in[19])<<56)|((in[21]-in[20])<<62)), uint64((in[21]-in[20])>>2|((in[22]-in[21])<<4)|((in[23]-in[22])<<10)|((in[24]-in[23])<<16)|((in[25]-in[24])<<22)|((in[26]-in[25])<<28)|((in[27]-in[26])<<34)|((in[28]-in[27])<<40)|((in[29]-in[28])<<46)|((in[30]-in[29])<<52)|((in[31]-in[30])<<58)), uint64(in[32]-in[31]|((in[33]-in[32])<<6)|((in[34]-in[33])<<12)|((in[35]-in[34])<<18)|((in[36]-in[35])<<24)|((in[37]-in[36])<<30)|((in[38]-in[37])<<36)|((in[39]-in[38])<<42)|((in[40]-in[39])<<48)|((in[41]-in[40])<<54)|((in[42]-in[41])<<60)), uint64((in[42]-in[41])>>4|((in[43]-in[42])<<2)|((in[44]-in[43])<<8)|((in[45]-in[44])<<14)|((in[46]-in[45])<<20)|((in[47]-in[46])<<26)|((in[48]-in[47])<<32)|((in[49]-in[48])<<38)|((in[50]-in[49])<<44)|((in[51]-in[50])<<50)|((in[52]-in[51])<<56)|((in[53]-in[52])<<62)), uint64((in[53]-in[52])>>2|((in[54]-in[53])<<4)|((in[55]-in[54])<<10)|((in[56]-in[55])<<16)|((in[57]-in[56])<<22)|((in[58]-in[57])<<28)|((in[59]-in[58])<<34)|((in[60]-in[59])<<40)|((in[61]-in[60])<<46)|((in[62]-in[61])<<52)|((in[63]-in[62])<<58))
 }
-func deltapack64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint64, ntz int) {
+func deltapack64_ntz_6[T uint64 | int64](out *[6]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1667,86 +1520,11 @@ func deltapack64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint64
 			((in[63] - in[62]) >> ntz << 58))
 }
 
-func deltapack64_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 7) |
-			((in[2] - in[1]) << 14) |
-			((in[3] - in[2]) << 21) |
-			((in[4] - in[3]) << 28) |
-			((in[5] - in[4]) << 35) |
-			((in[6] - in[5]) << 42) |
-			((in[7] - in[6]) << 49) |
-			((in[8] - in[7]) << 56) |
-			((in[9] - in[8]) << 63))
-	out[1] = uint64(
-		(in[9]-in[8])>>1 |
-			((in[10] - in[9]) << 6) |
-			((in[11] - in[10]) << 13) |
-			((in[12] - in[11]) << 20) |
-			((in[13] - in[12]) << 27) |
-			((in[14] - in[13]) << 34) |
-			((in[15] - in[14]) << 41) |
-			((in[16] - in[15]) << 48) |
-			((in[17] - in[16]) << 55) |
-			((in[18] - in[17]) << 62))
-	out[2] = uint64(
-		(in[18]-in[17])>>2 |
-			((in[19] - in[18]) << 5) |
-			((in[20] - in[19]) << 12) |
-			((in[21] - in[20]) << 19) |
-			((in[22] - in[21]) << 26) |
-			((in[23] - in[22]) << 33) |
-			((in[24] - in[23]) << 40) |
-			((in[25] - in[24]) << 47) |
-			((in[26] - in[25]) << 54) |
-			((in[27] - in[26]) << 61))
-	out[3] = uint64(
-		(in[27]-in[26])>>3 |
-			((in[28] - in[27]) << 4) |
-			((in[29] - in[28]) << 11) |
-			((in[30] - in[29]) << 18) |
-			((in[31] - in[30]) << 25) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 39) |
-			((in[34] - in[33]) << 46) |
-			((in[35] - in[34]) << 53) |
-			((in[36] - in[35]) << 60))
-	out[4] = uint64(
-		(in[36]-in[35])>>4 |
-			((in[37] - in[36]) << 3) |
-			((in[38] - in[37]) << 10) |
-			((in[39] - in[38]) << 17) |
-			((in[40] - in[39]) << 24) |
-			((in[41] - in[40]) << 31) |
-			((in[42] - in[41]) << 38) |
-			((in[43] - in[42]) << 45) |
-			((in[44] - in[43]) << 52) |
-			((in[45] - in[44]) << 59))
-	out[5] = uint64(
-		(in[45]-in[44])>>5 |
-			((in[46] - in[45]) << 2) |
-			((in[47] - in[46]) << 9) |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 23) |
-			((in[50] - in[49]) << 30) |
-			((in[51] - in[50]) << 37) |
-			((in[52] - in[51]) << 44) |
-			((in[53] - in[52]) << 51) |
-			((in[54] - in[53]) << 58))
-	out[6] = uint64(
-		(in[54]-in[53])>>6 |
-			((in[55] - in[54]) << 1) |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 15) |
-			((in[58] - in[57]) << 22) |
-			((in[59] - in[58]) << 29) |
-			((in[60] - in[59]) << 36) |
-			((in[61] - in[60]) << 43) |
-			((in[62] - in[61]) << 50) |
-			((in[63] - in[62]) << 57))
+func deltapack64_7[T uint64 | int64](out *[7]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<7)|((in[2]-in[1])<<14)|((in[3]-in[2])<<21)|((in[4]-in[3])<<28)|((in[5]-in[4])<<35)|((in[6]-in[5])<<42)|((in[7]-in[6])<<49)|((in[8]-in[7])<<56)|((in[9]-in[8])<<63)), uint64((in[9]-in[8])>>1|((in[10]-in[9])<<6)|((in[11]-in[10])<<13)|((in[12]-in[11])<<20)|((in[13]-in[12])<<27)|((in[14]-in[13])<<34)|((in[15]-in[14])<<41)|((in[16]-in[15])<<48)|((in[17]-in[16])<<55)|((in[18]-in[17])<<62)), uint64((in[18]-in[17])>>2|((in[19]-in[18])<<5)|((in[20]-in[19])<<12)|((in[21]-in[20])<<19)|((in[22]-in[21])<<26)|((in[23]-in[22])<<33)|((in[24]-in[23])<<40)|((in[25]-in[24])<<47)|((in[26]-in[25])<<54)|((in[27]-in[26])<<61)), uint64((in[27]-in[26])>>3|((in[28]-in[27])<<4)|((in[29]-in[28])<<11)|((in[30]-in[29])<<18)|((in[31]-in[30])<<25)|((in[32]-in[31])<<32)|((in[33]-in[32])<<39)|((in[34]-in[33])<<46)|((in[35]-in[34])<<53)|((in[36]-in[35])<<60)), uint64((in[36]-in[35])>>4|((in[37]-in[36])<<3)|((in[38]-in[37])<<10)|((in[39]-in[38])<<17)|((in[40]-in[39])<<24)|((in[41]-in[40])<<31)|((in[42]-in[41])<<38)|((in[43]-in[42])<<45)|((in[44]-in[43])<<52)|((in[45]-in[44])<<59)), uint64((in[45]-in[44])>>5|((in[46]-in[45])<<2)|((in[47]-in[46])<<9)|((in[48]-in[47])<<16)|((in[49]-in[48])<<23)|((in[50]-in[49])<<30)|((in[51]-in[50])<<37)|((in[52]-in[51])<<44)|((in[53]-in[52])<<51)|((in[54]-in[53])<<58)), uint64((in[54]-in[53])>>6|((in[55]-in[54])<<1)|((in[56]-in[55])<<8)|((in[57]-in[56])<<15)|((in[58]-in[57])<<22)|((in[59]-in[58])<<29)|((in[60]-in[59])<<36)|((in[61]-in[60])<<43)|((in[62]-in[61])<<50)|((in[63]-in[62])<<57))
 }
-func deltapack64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint64, ntz int) {
+func deltapack64_ntz_7[T uint64 | int64](out *[7]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1827,81 +1605,11 @@ func deltapack64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint64
 			((in[63] - in[62]) >> ntz << 57))
 }
 
-func deltapack64_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 8) |
-			((in[2] - in[1]) << 16) |
-			((in[3] - in[2]) << 24) |
-			((in[4] - in[3]) << 32) |
-			((in[5] - in[4]) << 40) |
-			((in[6] - in[5]) << 48) |
-			((in[7] - in[6]) << 56))
-	out[1] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 8) |
-			((in[10] - in[9]) << 16) |
-			((in[11] - in[10]) << 24) |
-			((in[12] - in[11]) << 32) |
-			((in[13] - in[12]) << 40) |
-			((in[14] - in[13]) << 48) |
-			((in[15] - in[14]) << 56))
-	out[2] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 8) |
-			((in[18] - in[17]) << 16) |
-			((in[19] - in[18]) << 24) |
-			((in[20] - in[19]) << 32) |
-			((in[21] - in[20]) << 40) |
-			((in[22] - in[21]) << 48) |
-			((in[23] - in[22]) << 56))
-	out[3] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 8) |
-			((in[26] - in[25]) << 16) |
-			((in[27] - in[26]) << 24) |
-			((in[28] - in[27]) << 32) |
-			((in[29] - in[28]) << 40) |
-			((in[30] - in[29]) << 48) |
-			((in[31] - in[30]) << 56))
-	out[4] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 8) |
-			((in[34] - in[33]) << 16) |
-			((in[35] - in[34]) << 24) |
-			((in[36] - in[35]) << 32) |
-			((in[37] - in[36]) << 40) |
-			((in[38] - in[37]) << 48) |
-			((in[39] - in[38]) << 56))
-	out[5] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 8) |
-			((in[42] - in[41]) << 16) |
-			((in[43] - in[42]) << 24) |
-			((in[44] - in[43]) << 32) |
-			((in[45] - in[44]) << 40) |
-			((in[46] - in[45]) << 48) |
-			((in[47] - in[46]) << 56))
-	out[6] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 8) |
-			((in[50] - in[49]) << 16) |
-			((in[51] - in[50]) << 24) |
-			((in[52] - in[51]) << 32) |
-			((in[53] - in[52]) << 40) |
-			((in[54] - in[53]) << 48) |
-			((in[55] - in[54]) << 56))
-	out[7] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 8) |
-			((in[58] - in[57]) << 16) |
-			((in[59] - in[58]) << 24) |
-			((in[60] - in[59]) << 32) |
-			((in[61] - in[60]) << 40) |
-			((in[62] - in[61]) << 48) |
-			((in[63] - in[62]) << 56))
+func deltapack64_8[T uint64 | int64](out *[8]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<8)|((in[2]-in[1])<<16)|((in[3]-in[2])<<24)|((in[4]-in[3])<<32)|((in[5]-in[4])<<40)|((in[6]-in[5])<<48)|((in[7]-in[6])<<56)), uint64(in[8]-in[7]|((in[9]-in[8])<<8)|((in[10]-in[9])<<16)|((in[11]-in[10])<<24)|((in[12]-in[11])<<32)|((in[13]-in[12])<<40)|((in[14]-in[13])<<48)|((in[15]-in[14])<<56)), uint64(in[16]-in[15]|((in[17]-in[16])<<8)|((in[18]-in[17])<<16)|((in[19]-in[18])<<24)|((in[20]-in[19])<<32)|((in[21]-in[20])<<40)|((in[22]-in[21])<<48)|((in[23]-in[22])<<56)), uint64(in[24]-in[23]|((in[25]-in[24])<<8)|((in[26]-in[25])<<16)|((in[27]-in[26])<<24)|((in[28]-in[27])<<32)|((in[29]-in[28])<<40)|((in[30]-in[29])<<48)|((in[31]-in[30])<<56)), uint64(in[32]-in[31]|((in[33]-in[32])<<8)|((in[34]-in[33])<<16)|((in[35]-in[34])<<24)|((in[36]-in[35])<<32)|((in[37]-in[36])<<40)|((in[38]-in[37])<<48)|((in[39]-in[38])<<56)), uint64(in[40]-in[39]|((in[41]-in[40])<<8)|((in[42]-in[41])<<16)|((in[43]-in[42])<<24)|((in[44]-in[43])<<32)|((in[45]-in[44])<<40)|((in[46]-in[45])<<48)|((in[47]-in[46])<<56)), uint64(in[48]-in[47]|((in[49]-in[48])<<8)|((in[50]-in[49])<<16)|((in[51]-in[50])<<24)|((in[52]-in[51])<<32)|((in[53]-in[52])<<40)|((in[54]-in[53])<<48)|((in[55]-in[54])<<56)), uint64(in[56]-in[55]|((in[57]-in[56])<<8)|((in[58]-in[57])<<16)|((in[59]-in[58])<<24)|((in[60]-in[59])<<32)|((in[61]-in[60])<<40)|((in[62]-in[61])<<48)|((in[63]-in[62])<<56))
 }
-func deltapack64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint64, ntz int) {
+func deltapack64_ntz_8[T uint64 | int64](out *[8]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -1977,90 +1685,11 @@ func deltapack64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint64
 			((in[63] - in[62]) >> ntz << 56))
 }
 
-func deltapack64_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 9) |
-			((in[2] - in[1]) << 18) |
-			((in[3] - in[2]) << 27) |
-			((in[4] - in[3]) << 36) |
-			((in[5] - in[4]) << 45) |
-			((in[6] - in[5]) << 54) |
-			((in[7] - in[6]) << 63))
-	out[1] = uint64(
-		(in[7]-in[6])>>1 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 17) |
-			((in[10] - in[9]) << 26) |
-			((in[11] - in[10]) << 35) |
-			((in[12] - in[11]) << 44) |
-			((in[13] - in[12]) << 53) |
-			((in[14] - in[13]) << 62))
-	out[2] = uint64(
-		(in[14]-in[13])>>2 |
-			((in[15] - in[14]) << 7) |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 25) |
-			((in[18] - in[17]) << 34) |
-			((in[19] - in[18]) << 43) |
-			((in[20] - in[19]) << 52) |
-			((in[21] - in[20]) << 61))
-	out[3] = uint64(
-		(in[21]-in[20])>>3 |
-			((in[22] - in[21]) << 6) |
-			((in[23] - in[22]) << 15) |
-			((in[24] - in[23]) << 24) |
-			((in[25] - in[24]) << 33) |
-			((in[26] - in[25]) << 42) |
-			((in[27] - in[26]) << 51) |
-			((in[28] - in[27]) << 60))
-	out[4] = uint64(
-		(in[28]-in[27])>>4 |
-			((in[29] - in[28]) << 5) |
-			((in[30] - in[29]) << 14) |
-			((in[31] - in[30]) << 23) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 41) |
-			((in[34] - in[33]) << 50) |
-			((in[35] - in[34]) << 59))
-	out[5] = uint64(
-		(in[35]-in[34])>>5 |
-			((in[36] - in[35]) << 4) |
-			((in[37] - in[36]) << 13) |
-			((in[38] - in[37]) << 22) |
-			((in[39] - in[38]) << 31) |
-			((in[40] - in[39]) << 40) |
-			((in[41] - in[40]) << 49) |
-			((in[42] - in[41]) << 58))
-	out[6] = uint64(
-		(in[42]-in[41])>>6 |
-			((in[43] - in[42]) << 3) |
-			((in[44] - in[43]) << 12) |
-			((in[45] - in[44]) << 21) |
-			((in[46] - in[45]) << 30) |
-			((in[47] - in[46]) << 39) |
-			((in[48] - in[47]) << 48) |
-			((in[49] - in[48]) << 57))
-	out[7] = uint64(
-		(in[49]-in[48])>>7 |
-			((in[50] - in[49]) << 2) |
-			((in[51] - in[50]) << 11) |
-			((in[52] - in[51]) << 20) |
-			((in[53] - in[52]) << 29) |
-			((in[54] - in[53]) << 38) |
-			((in[55] - in[54]) << 47) |
-			((in[56] - in[55]) << 56))
-	out[8] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 1) |
-			((in[58] - in[57]) << 10) |
-			((in[59] - in[58]) << 19) |
-			((in[60] - in[59]) << 28) |
-			((in[61] - in[60]) << 37) |
-			((in[62] - in[61]) << 46) |
-			((in[63] - in[62]) << 55))
+func deltapack64_9[T uint64 | int64](out *[9]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<9)|((in[2]-in[1])<<18)|((in[3]-in[2])<<27)|((in[4]-in[3])<<36)|((in[5]-in[4])<<45)|((in[6]-in[5])<<54)|((in[7]-in[6])<<63)), uint64((in[7]-in[6])>>1|((in[8]-in[7])<<8)|((in[9]-in[8])<<17)|((in[10]-in[9])<<26)|((in[11]-in[10])<<35)|((in[12]-in[11])<<44)|((in[13]-in[12])<<53)|((in[14]-in[13])<<62)), uint64((in[14]-in[13])>>2|((in[15]-in[14])<<7)|((in[16]-in[15])<<16)|((in[17]-in[16])<<25)|((in[18]-in[17])<<34)|((in[19]-in[18])<<43)|((in[20]-in[19])<<52)|((in[21]-in[20])<<61)), uint64((in[21]-in[20])>>3|((in[22]-in[21])<<6)|((in[23]-in[22])<<15)|((in[24]-in[23])<<24)|((in[25]-in[24])<<33)|((in[26]-in[25])<<42)|((in[27]-in[26])<<51)|((in[28]-in[27])<<60)), uint64((in[28]-in[27])>>4|((in[29]-in[28])<<5)|((in[30]-in[29])<<14)|((in[31]-in[30])<<23)|((in[32]-in[31])<<32)|((in[33]-in[32])<<41)|((in[34]-in[33])<<50)|((in[35]-in[34])<<59)), uint64((in[35]-in[34])>>5|((in[36]-in[35])<<4)|((in[37]-in[36])<<13)|((in[38]-in[37])<<22)|((in[39]-in[38])<<31)|((in[40]-in[39])<<40)|((in[41]-in[40])<<49)|((in[42]-in[41])<<58)), uint64((in[42]-in[41])>>6|((in[43]-in[42])<<3)|((in[44]-in[43])<<12)|((in[45]-in[44])<<21)|((in[46]-in[45])<<30)|((in[47]-in[46])<<39)|((in[48]-in[47])<<48)|((in[49]-in[48])<<57)), uint64((in[49]-in[48])>>7|((in[50]-in[49])<<2)|((in[51]-in[50])<<11)|((in[52]-in[51])<<20)|((in[53]-in[52])<<29)|((in[54]-in[53])<<38)|((in[55]-in[54])<<47)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<1)|((in[58]-in[57])<<10)|((in[59]-in[58])<<19)|((in[60]-in[59])<<28)|((in[61]-in[60])<<37)|((in[62]-in[61])<<46)|((in[63]-in[62])<<55))
 }
-func deltapack64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint64, ntz int) {
+func deltapack64_ntz_9[T uint64 | int64](out *[9]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -2145,91 +1774,11 @@ func deltapack64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint64
 			((in[63] - in[62]) >> ntz << 55))
 }
 
-func deltapack64_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 10) |
-			((in[2] - in[1]) << 20) |
-			((in[3] - in[2]) << 30) |
-			((in[4] - in[3]) << 40) |
-			((in[5] - in[4]) << 50) |
-			((in[6] - in[5]) << 60))
-	out[1] = uint64(
-		(in[6]-in[5])>>4 |
-			((in[7] - in[6]) << 6) |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 26) |
-			((in[10] - in[9]) << 36) |
-			((in[11] - in[10]) << 46) |
-			((in[12] - in[11]) << 56))
-	out[2] = uint64(
-		(in[12]-in[11])>>8 |
-			((in[13] - in[12]) << 2) |
-			((in[14] - in[13]) << 12) |
-			((in[15] - in[14]) << 22) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 42) |
-			((in[18] - in[17]) << 52) |
-			((in[19] - in[18]) << 62))
-	out[3] = uint64(
-		(in[19]-in[18])>>2 |
-			((in[20] - in[19]) << 8) |
-			((in[21] - in[20]) << 18) |
-			((in[22] - in[21]) << 28) |
-			((in[23] - in[22]) << 38) |
-			((in[24] - in[23]) << 48) |
-			((in[25] - in[24]) << 58))
-	out[4] = uint64(
-		(in[25]-in[24])>>6 |
-			((in[26] - in[25]) << 4) |
-			((in[27] - in[26]) << 14) |
-			((in[28] - in[27]) << 24) |
-			((in[29] - in[28]) << 34) |
-			((in[30] - in[29]) << 44) |
-			((in[31] - in[30]) << 54))
-	out[5] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 10) |
-			((in[34] - in[33]) << 20) |
-			((in[35] - in[34]) << 30) |
-			((in[36] - in[35]) << 40) |
-			((in[37] - in[36]) << 50) |
-			((in[38] - in[37]) << 60))
-	out[6] = uint64(
-		(in[38]-in[37])>>4 |
-			((in[39] - in[38]) << 6) |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 26) |
-			((in[42] - in[41]) << 36) |
-			((in[43] - in[42]) << 46) |
-			((in[44] - in[43]) << 56))
-	out[7] = uint64(
-		(in[44]-in[43])>>8 |
-			((in[45] - in[44]) << 2) |
-			((in[46] - in[45]) << 12) |
-			((in[47] - in[46]) << 22) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 42) |
-			((in[50] - in[49]) << 52) |
-			((in[51] - in[50]) << 62))
-	out[8] = uint64(
-		(in[51]-in[50])>>2 |
-			((in[52] - in[51]) << 8) |
-			((in[53] - in[52]) << 18) |
-			((in[54] - in[53]) << 28) |
-			((in[55] - in[54]) << 38) |
-			((in[56] - in[55]) << 48) |
-			((in[57] - in[56]) << 58))
-	out[9] = uint64(
-		(in[57]-in[56])>>6 |
-			((in[58] - in[57]) << 4) |
-			((in[59] - in[58]) << 14) |
-			((in[60] - in[59]) << 24) |
-			((in[61] - in[60]) << 34) |
-			((in[62] - in[61]) << 44) |
-			((in[63] - in[62]) << 54))
+func deltapack64_10[T uint64 | int64](out *[10]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<10)|((in[2]-in[1])<<20)|((in[3]-in[2])<<30)|((in[4]-in[3])<<40)|((in[5]-in[4])<<50)|((in[6]-in[5])<<60)), uint64((in[6]-in[5])>>4|((in[7]-in[6])<<6)|((in[8]-in[7])<<16)|((in[9]-in[8])<<26)|((in[10]-in[9])<<36)|((in[11]-in[10])<<46)|((in[12]-in[11])<<56)), uint64((in[12]-in[11])>>8|((in[13]-in[12])<<2)|((in[14]-in[13])<<12)|((in[15]-in[14])<<22)|((in[16]-in[15])<<32)|((in[17]-in[16])<<42)|((in[18]-in[17])<<52)|((in[19]-in[18])<<62)), uint64((in[19]-in[18])>>2|((in[20]-in[19])<<8)|((in[21]-in[20])<<18)|((in[22]-in[21])<<28)|((in[23]-in[22])<<38)|((in[24]-in[23])<<48)|((in[25]-in[24])<<58)), uint64((in[25]-in[24])>>6|((in[26]-in[25])<<4)|((in[27]-in[26])<<14)|((in[28]-in[27])<<24)|((in[29]-in[28])<<34)|((in[30]-in[29])<<44)|((in[31]-in[30])<<54)), uint64(in[32]-in[31]|((in[33]-in[32])<<10)|((in[34]-in[33])<<20)|((in[35]-in[34])<<30)|((in[36]-in[35])<<40)|((in[37]-in[36])<<50)|((in[38]-in[37])<<60)), uint64((in[38]-in[37])>>4|((in[39]-in[38])<<6)|((in[40]-in[39])<<16)|((in[41]-in[40])<<26)|((in[42]-in[41])<<36)|((in[43]-in[42])<<46)|((in[44]-in[43])<<56)), uint64((in[44]-in[43])>>8|((in[45]-in[44])<<2)|((in[46]-in[45])<<12)|((in[47]-in[46])<<22)|((in[48]-in[47])<<32)|((in[49]-in[48])<<42)|((in[50]-in[49])<<52)|((in[51]-in[50])<<62)), uint64((in[51]-in[50])>>2|((in[52]-in[51])<<8)|((in[53]-in[52])<<18)|((in[54]-in[53])<<28)|((in[55]-in[54])<<38)|((in[56]-in[55])<<48)|((in[57]-in[56])<<58)), uint64((in[57]-in[56])>>6|((in[58]-in[57])<<4)|((in[59]-in[58])<<14)|((in[60]-in[59])<<24)|((in[61]-in[60])<<34)|((in[62]-in[61])<<44)|((in[63]-in[62])<<54))
 }
-func deltapack64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]uint64, ntz int) {
+func deltapack64_ntz_10[T uint64 | int64](out *[10]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -2315,94 +1864,11 @@ func deltapack64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]uint
 			((in[63] - in[62]) >> ntz << 54))
 }
 
-func deltapack64_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 11) |
-			((in[2] - in[1]) << 22) |
-			((in[3] - in[2]) << 33) |
-			((in[4] - in[3]) << 44) |
-			((in[5] - in[4]) << 55))
-	out[1] = uint64(
-		(in[5]-in[4])>>9 |
-			((in[6] - in[5]) << 2) |
-			((in[7] - in[6]) << 13) |
-			((in[8] - in[7]) << 24) |
-			((in[9] - in[8]) << 35) |
-			((in[10] - in[9]) << 46) |
-			((in[11] - in[10]) << 57))
-	out[2] = uint64(
-		(in[11]-in[10])>>7 |
-			((in[12] - in[11]) << 4) |
-			((in[13] - in[12]) << 15) |
-			((in[14] - in[13]) << 26) |
-			((in[15] - in[14]) << 37) |
-			((in[16] - in[15]) << 48) |
-			((in[17] - in[16]) << 59))
-	out[3] = uint64(
-		(in[17]-in[16])>>5 |
-			((in[18] - in[17]) << 6) |
-			((in[19] - in[18]) << 17) |
-			((in[20] - in[19]) << 28) |
-			((in[21] - in[20]) << 39) |
-			((in[22] - in[21]) << 50) |
-			((in[23] - in[22]) << 61))
-	out[4] = uint64(
-		(in[23]-in[22])>>3 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 19) |
-			((in[26] - in[25]) << 30) |
-			((in[27] - in[26]) << 41) |
-			((in[28] - in[27]) << 52) |
-			((in[29] - in[28]) << 63))
-	out[5] = uint64(
-		(in[29]-in[28])>>1 |
-			((in[30] - in[29]) << 10) |
-			((in[31] - in[30]) << 21) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 43) |
-			((in[34] - in[33]) << 54))
-	out[6] = uint64(
-		(in[34]-in[33])>>10 |
-			((in[35] - in[34]) << 1) |
-			((in[36] - in[35]) << 12) |
-			((in[37] - in[36]) << 23) |
-			((in[38] - in[37]) << 34) |
-			((in[39] - in[38]) << 45) |
-			((in[40] - in[39]) << 56))
-	out[7] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 3) |
-			((in[42] - in[41]) << 14) |
-			((in[43] - in[42]) << 25) |
-			((in[44] - in[43]) << 36) |
-			((in[45] - in[44]) << 47) |
-			((in[46] - in[45]) << 58))
-	out[8] = uint64(
-		(in[46]-in[45])>>6 |
-			((in[47] - in[46]) << 5) |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 27) |
-			((in[50] - in[49]) << 38) |
-			((in[51] - in[50]) << 49) |
-			((in[52] - in[51]) << 60))
-	out[9] = uint64(
-		(in[52]-in[51])>>4 |
-			((in[53] - in[52]) << 7) |
-			((in[54] - in[53]) << 18) |
-			((in[55] - in[54]) << 29) |
-			((in[56] - in[55]) << 40) |
-			((in[57] - in[56]) << 51) |
-			((in[58] - in[57]) << 62))
-	out[10] = uint64(
-		(in[58]-in[57])>>2 |
-			((in[59] - in[58]) << 9) |
-			((in[60] - in[59]) << 20) |
-			((in[61] - in[60]) << 31) |
-			((in[62] - in[61]) << 42) |
-			((in[63] - in[62]) << 53))
+func deltapack64_11[T uint64 | int64](out *[11]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<11)|((in[2]-in[1])<<22)|((in[3]-in[2])<<33)|((in[4]-in[3])<<44)|((in[5]-in[4])<<55)), uint64((in[5]-in[4])>>9|((in[6]-in[5])<<2)|((in[7]-in[6])<<13)|((in[8]-in[7])<<24)|((in[9]-in[8])<<35)|((in[10]-in[9])<<46)|((in[11]-in[10])<<57)), uint64((in[11]-in[10])>>7|((in[12]-in[11])<<4)|((in[13]-in[12])<<15)|((in[14]-in[13])<<26)|((in[15]-in[14])<<37)|((in[16]-in[15])<<48)|((in[17]-in[16])<<59)), uint64((in[17]-in[16])>>5|((in[18]-in[17])<<6)|((in[19]-in[18])<<17)|((in[20]-in[19])<<28)|((in[21]-in[20])<<39)|((in[22]-in[21])<<50)|((in[23]-in[22])<<61)), uint64((in[23]-in[22])>>3|((in[24]-in[23])<<8)|((in[25]-in[24])<<19)|((in[26]-in[25])<<30)|((in[27]-in[26])<<41)|((in[28]-in[27])<<52)|((in[29]-in[28])<<63)), uint64((in[29]-in[28])>>1|((in[30]-in[29])<<10)|((in[31]-in[30])<<21)|((in[32]-in[31])<<32)|((in[33]-in[32])<<43)|((in[34]-in[33])<<54)), uint64((in[34]-in[33])>>10|((in[35]-in[34])<<1)|((in[36]-in[35])<<12)|((in[37]-in[36])<<23)|((in[38]-in[37])<<34)|((in[39]-in[38])<<45)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<3)|((in[42]-in[41])<<14)|((in[43]-in[42])<<25)|((in[44]-in[43])<<36)|((in[45]-in[44])<<47)|((in[46]-in[45])<<58)), uint64((in[46]-in[45])>>6|((in[47]-in[46])<<5)|((in[48]-in[47])<<16)|((in[49]-in[48])<<27)|((in[50]-in[49])<<38)|((in[51]-in[50])<<49)|((in[52]-in[51])<<60)), uint64((in[52]-in[51])>>4|((in[53]-in[52])<<7)|((in[54]-in[53])<<18)|((in[55]-in[54])<<29)|((in[56]-in[55])<<40)|((in[57]-in[56])<<51)|((in[58]-in[57])<<62)), uint64((in[58]-in[57])>>2|((in[59]-in[58])<<9)|((in[60]-in[59])<<20)|((in[61]-in[60])<<31)|((in[62]-in[61])<<42)|((in[63]-in[62])<<53))
 }
-func deltapack64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]uint64, ntz int) {
+func deltapack64_ntz_11[T uint64 | int64](out *[11]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -2491,93 +1957,11 @@ func deltapack64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]uint
 			((in[63] - in[62]) >> ntz << 53))
 }
 
-func deltapack64_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 12) |
-			((in[2] - in[1]) << 24) |
-			((in[3] - in[2]) << 36) |
-			((in[4] - in[3]) << 48) |
-			((in[5] - in[4]) << 60))
-	out[1] = uint64(
-		(in[5]-in[4])>>4 |
-			((in[6] - in[5]) << 8) |
-			((in[7] - in[6]) << 20) |
-			((in[8] - in[7]) << 32) |
-			((in[9] - in[8]) << 44) |
-			((in[10] - in[9]) << 56))
-	out[2] = uint64(
-		(in[10]-in[9])>>8 |
-			((in[11] - in[10]) << 4) |
-			((in[12] - in[11]) << 16) |
-			((in[13] - in[12]) << 28) |
-			((in[14] - in[13]) << 40) |
-			((in[15] - in[14]) << 52))
-	out[3] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 12) |
-			((in[18] - in[17]) << 24) |
-			((in[19] - in[18]) << 36) |
-			((in[20] - in[19]) << 48) |
-			((in[21] - in[20]) << 60))
-	out[4] = uint64(
-		(in[21]-in[20])>>4 |
-			((in[22] - in[21]) << 8) |
-			((in[23] - in[22]) << 20) |
-			((in[24] - in[23]) << 32) |
-			((in[25] - in[24]) << 44) |
-			((in[26] - in[25]) << 56))
-	out[5] = uint64(
-		(in[26]-in[25])>>8 |
-			((in[27] - in[26]) << 4) |
-			((in[28] - in[27]) << 16) |
-			((in[29] - in[28]) << 28) |
-			((in[30] - in[29]) << 40) |
-			((in[31] - in[30]) << 52))
-	out[6] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 12) |
-			((in[34] - in[33]) << 24) |
-			((in[35] - in[34]) << 36) |
-			((in[36] - in[35]) << 48) |
-			((in[37] - in[36]) << 60))
-	out[7] = uint64(
-		(in[37]-in[36])>>4 |
-			((in[38] - in[37]) << 8) |
-			((in[39] - in[38]) << 20) |
-			((in[40] - in[39]) << 32) |
-			((in[41] - in[40]) << 44) |
-			((in[42] - in[41]) << 56))
-	out[8] = uint64(
-		(in[42]-in[41])>>8 |
-			((in[43] - in[42]) << 4) |
-			((in[44] - in[43]) << 16) |
-			((in[45] - in[44]) << 28) |
-			((in[46] - in[45]) << 40) |
-			((in[47] - in[46]) << 52))
-	out[9] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 12) |
-			((in[50] - in[49]) << 24) |
-			((in[51] - in[50]) << 36) |
-			((in[52] - in[51]) << 48) |
-			((in[53] - in[52]) << 60))
-	out[10] = uint64(
-		(in[53]-in[52])>>4 |
-			((in[54] - in[53]) << 8) |
-			((in[55] - in[54]) << 20) |
-			((in[56] - in[55]) << 32) |
-			((in[57] - in[56]) << 44) |
-			((in[58] - in[57]) << 56))
-	out[11] = uint64(
-		(in[58]-in[57])>>8 |
-			((in[59] - in[58]) << 4) |
-			((in[60] - in[59]) << 16) |
-			((in[61] - in[60]) << 28) |
-			((in[62] - in[61]) << 40) |
-			((in[63] - in[62]) << 52))
+func deltapack64_12[T uint64 | int64](out *[12]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<12)|((in[2]-in[1])<<24)|((in[3]-in[2])<<36)|((in[4]-in[3])<<48)|((in[5]-in[4])<<60)), uint64((in[5]-in[4])>>4|((in[6]-in[5])<<8)|((in[7]-in[6])<<20)|((in[8]-in[7])<<32)|((in[9]-in[8])<<44)|((in[10]-in[9])<<56)), uint64((in[10]-in[9])>>8|((in[11]-in[10])<<4)|((in[12]-in[11])<<16)|((in[13]-in[12])<<28)|((in[14]-in[13])<<40)|((in[15]-in[14])<<52)), uint64(in[16]-in[15]|((in[17]-in[16])<<12)|((in[18]-in[17])<<24)|((in[19]-in[18])<<36)|((in[20]-in[19])<<48)|((in[21]-in[20])<<60)), uint64((in[21]-in[20])>>4|((in[22]-in[21])<<8)|((in[23]-in[22])<<20)|((in[24]-in[23])<<32)|((in[25]-in[24])<<44)|((in[26]-in[25])<<56)), uint64((in[26]-in[25])>>8|((in[27]-in[26])<<4)|((in[28]-in[27])<<16)|((in[29]-in[28])<<28)|((in[30]-in[29])<<40)|((in[31]-in[30])<<52)), uint64(in[32]-in[31]|((in[33]-in[32])<<12)|((in[34]-in[33])<<24)|((in[35]-in[34])<<36)|((in[36]-in[35])<<48)|((in[37]-in[36])<<60)), uint64((in[37]-in[36])>>4|((in[38]-in[37])<<8)|((in[39]-in[38])<<20)|((in[40]-in[39])<<32)|((in[41]-in[40])<<44)|((in[42]-in[41])<<56)), uint64((in[42]-in[41])>>8|((in[43]-in[42])<<4)|((in[44]-in[43])<<16)|((in[45]-in[44])<<28)|((in[46]-in[45])<<40)|((in[47]-in[46])<<52)), uint64(in[48]-in[47]|((in[49]-in[48])<<12)|((in[50]-in[49])<<24)|((in[51]-in[50])<<36)|((in[52]-in[51])<<48)|((in[53]-in[52])<<60)), uint64((in[53]-in[52])>>4|((in[54]-in[53])<<8)|((in[55]-in[54])<<20)|((in[56]-in[55])<<32)|((in[57]-in[56])<<44)|((in[58]-in[57])<<56)), uint64((in[58]-in[57])>>8|((in[59]-in[58])<<4)|((in[60]-in[59])<<16)|((in[61]-in[60])<<28)|((in[62]-in[61])<<40)|((in[63]-in[62])<<52))
 }
-func deltapack64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]uint64, ntz int) {
+func deltapack64_ntz_12[T uint64 | int64](out *[12]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -2665,98 +2049,11 @@ func deltapack64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]uint
 			((in[63] - in[62]) >> ntz << 52))
 }
 
-func deltapack64_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 13) |
-			((in[2] - in[1]) << 26) |
-			((in[3] - in[2]) << 39) |
-			((in[4] - in[3]) << 52))
-	out[1] = uint64(
-		(in[4]-in[3])>>12 |
-			((in[5] - in[4]) << 1) |
-			((in[6] - in[5]) << 14) |
-			((in[7] - in[6]) << 27) |
-			((in[8] - in[7]) << 40) |
-			((in[9] - in[8]) << 53))
-	out[2] = uint64(
-		(in[9]-in[8])>>11 |
-			((in[10] - in[9]) << 2) |
-			((in[11] - in[10]) << 15) |
-			((in[12] - in[11]) << 28) |
-			((in[13] - in[12]) << 41) |
-			((in[14] - in[13]) << 54))
-	out[3] = uint64(
-		(in[14]-in[13])>>10 |
-			((in[15] - in[14]) << 3) |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 29) |
-			((in[18] - in[17]) << 42) |
-			((in[19] - in[18]) << 55))
-	out[4] = uint64(
-		(in[19]-in[18])>>9 |
-			((in[20] - in[19]) << 4) |
-			((in[21] - in[20]) << 17) |
-			((in[22] - in[21]) << 30) |
-			((in[23] - in[22]) << 43) |
-			((in[24] - in[23]) << 56))
-	out[5] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 5) |
-			((in[26] - in[25]) << 18) |
-			((in[27] - in[26]) << 31) |
-			((in[28] - in[27]) << 44) |
-			((in[29] - in[28]) << 57))
-	out[6] = uint64(
-		(in[29]-in[28])>>7 |
-			((in[30] - in[29]) << 6) |
-			((in[31] - in[30]) << 19) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 45) |
-			((in[34] - in[33]) << 58))
-	out[7] = uint64(
-		(in[34]-in[33])>>6 |
-			((in[35] - in[34]) << 7) |
-			((in[36] - in[35]) << 20) |
-			((in[37] - in[36]) << 33) |
-			((in[38] - in[37]) << 46) |
-			((in[39] - in[38]) << 59))
-	out[8] = uint64(
-		(in[39]-in[38])>>5 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 21) |
-			((in[42] - in[41]) << 34) |
-			((in[43] - in[42]) << 47) |
-			((in[44] - in[43]) << 60))
-	out[9] = uint64(
-		(in[44]-in[43])>>4 |
-			((in[45] - in[44]) << 9) |
-			((in[46] - in[45]) << 22) |
-			((in[47] - in[46]) << 35) |
-			((in[48] - in[47]) << 48) |
-			((in[49] - in[48]) << 61))
-	out[10] = uint64(
-		(in[49]-in[48])>>3 |
-			((in[50] - in[49]) << 10) |
-			((in[51] - in[50]) << 23) |
-			((in[52] - in[51]) << 36) |
-			((in[53] - in[52]) << 49) |
-			((in[54] - in[53]) << 62))
-	out[11] = uint64(
-		(in[54]-in[53])>>2 |
-			((in[55] - in[54]) << 11) |
-			((in[56] - in[55]) << 24) |
-			((in[57] - in[56]) << 37) |
-			((in[58] - in[57]) << 50) |
-			((in[59] - in[58]) << 63))
-	out[12] = uint64(
-		(in[59]-in[58])>>1 |
-			((in[60] - in[59]) << 12) |
-			((in[61] - in[60]) << 25) |
-			((in[62] - in[61]) << 38) |
-			((in[63] - in[62]) << 51))
+func deltapack64_13[T uint64 | int64](out *[13]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<13)|((in[2]-in[1])<<26)|((in[3]-in[2])<<39)|((in[4]-in[3])<<52)), uint64((in[4]-in[3])>>12|((in[5]-in[4])<<1)|((in[6]-in[5])<<14)|((in[7]-in[6])<<27)|((in[8]-in[7])<<40)|((in[9]-in[8])<<53)), uint64((in[9]-in[8])>>11|((in[10]-in[9])<<2)|((in[11]-in[10])<<15)|((in[12]-in[11])<<28)|((in[13]-in[12])<<41)|((in[14]-in[13])<<54)), uint64((in[14]-in[13])>>10|((in[15]-in[14])<<3)|((in[16]-in[15])<<16)|((in[17]-in[16])<<29)|((in[18]-in[17])<<42)|((in[19]-in[18])<<55)), uint64((in[19]-in[18])>>9|((in[20]-in[19])<<4)|((in[21]-in[20])<<17)|((in[22]-in[21])<<30)|((in[23]-in[22])<<43)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<5)|((in[26]-in[25])<<18)|((in[27]-in[26])<<31)|((in[28]-in[27])<<44)|((in[29]-in[28])<<57)), uint64((in[29]-in[28])>>7|((in[30]-in[29])<<6)|((in[31]-in[30])<<19)|((in[32]-in[31])<<32)|((in[33]-in[32])<<45)|((in[34]-in[33])<<58)), uint64((in[34]-in[33])>>6|((in[35]-in[34])<<7)|((in[36]-in[35])<<20)|((in[37]-in[36])<<33)|((in[38]-in[37])<<46)|((in[39]-in[38])<<59)), uint64((in[39]-in[38])>>5|((in[40]-in[39])<<8)|((in[41]-in[40])<<21)|((in[42]-in[41])<<34)|((in[43]-in[42])<<47)|((in[44]-in[43])<<60)), uint64((in[44]-in[43])>>4|((in[45]-in[44])<<9)|((in[46]-in[45])<<22)|((in[47]-in[46])<<35)|((in[48]-in[47])<<48)|((in[49]-in[48])<<61)), uint64((in[49]-in[48])>>3|((in[50]-in[49])<<10)|((in[51]-in[50])<<23)|((in[52]-in[51])<<36)|((in[53]-in[52])<<49)|((in[54]-in[53])<<62)), uint64((in[54]-in[53])>>2|((in[55]-in[54])<<11)|((in[56]-in[55])<<24)|((in[57]-in[56])<<37)|((in[58]-in[57])<<50)|((in[59]-in[58])<<63)), uint64((in[59]-in[58])>>1|((in[60]-in[59])<<12)|((in[61]-in[60])<<25)|((in[62]-in[61])<<38)|((in[63]-in[62])<<51))
 }
-func deltapack64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]uint64, ntz int) {
+func deltapack64_ntz_13[T uint64 | int64](out *[13]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -2849,99 +2146,11 @@ func deltapack64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]uint
 			((in[63] - in[62]) >> ntz << 51))
 }
 
-func deltapack64_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 14) |
-			((in[2] - in[1]) << 28) |
-			((in[3] - in[2]) << 42) |
-			((in[4] - in[3]) << 56))
-	out[1] = uint64(
-		(in[4]-in[3])>>8 |
-			((in[5] - in[4]) << 6) |
-			((in[6] - in[5]) << 20) |
-			((in[7] - in[6]) << 34) |
-			((in[8] - in[7]) << 48) |
-			((in[9] - in[8]) << 62))
-	out[2] = uint64(
-		(in[9]-in[8])>>2 |
-			((in[10] - in[9]) << 12) |
-			((in[11] - in[10]) << 26) |
-			((in[12] - in[11]) << 40) |
-			((in[13] - in[12]) << 54))
-	out[3] = uint64(
-		(in[13]-in[12])>>10 |
-			((in[14] - in[13]) << 4) |
-			((in[15] - in[14]) << 18) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 46) |
-			((in[18] - in[17]) << 60))
-	out[4] = uint64(
-		(in[18]-in[17])>>4 |
-			((in[19] - in[18]) << 10) |
-			((in[20] - in[19]) << 24) |
-			((in[21] - in[20]) << 38) |
-			((in[22] - in[21]) << 52))
-	out[5] = uint64(
-		(in[22]-in[21])>>12 |
-			((in[23] - in[22]) << 2) |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 30) |
-			((in[26] - in[25]) << 44) |
-			((in[27] - in[26]) << 58))
-	out[6] = uint64(
-		(in[27]-in[26])>>6 |
-			((in[28] - in[27]) << 8) |
-			((in[29] - in[28]) << 22) |
-			((in[30] - in[29]) << 36) |
-			((in[31] - in[30]) << 50))
-	out[7] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 14) |
-			((in[34] - in[33]) << 28) |
-			((in[35] - in[34]) << 42) |
-			((in[36] - in[35]) << 56))
-	out[8] = uint64(
-		(in[36]-in[35])>>8 |
-			((in[37] - in[36]) << 6) |
-			((in[38] - in[37]) << 20) |
-			((in[39] - in[38]) << 34) |
-			((in[40] - in[39]) << 48) |
-			((in[41] - in[40]) << 62))
-	out[9] = uint64(
-		(in[41]-in[40])>>2 |
-			((in[42] - in[41]) << 12) |
-			((in[43] - in[42]) << 26) |
-			((in[44] - in[43]) << 40) |
-			((in[45] - in[44]) << 54))
-	out[10] = uint64(
-		(in[45]-in[44])>>10 |
-			((in[46] - in[45]) << 4) |
-			((in[47] - in[46]) << 18) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 46) |
-			((in[50] - in[49]) << 60))
-	out[11] = uint64(
-		(in[50]-in[49])>>4 |
-			((in[51] - in[50]) << 10) |
-			((in[52] - in[51]) << 24) |
-			((in[53] - in[52]) << 38) |
-			((in[54] - in[53]) << 52))
-	out[12] = uint64(
-		(in[54]-in[53])>>12 |
-			((in[55] - in[54]) << 2) |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 30) |
-			((in[58] - in[57]) << 44) |
-			((in[59] - in[58]) << 58))
-	out[13] = uint64(
-		(in[59]-in[58])>>6 |
-			((in[60] - in[59]) << 8) |
-			((in[61] - in[60]) << 22) |
-			((in[62] - in[61]) << 36) |
-			((in[63] - in[62]) << 50))
+func deltapack64_14[T uint64 | int64](out *[14]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<14)|((in[2]-in[1])<<28)|((in[3]-in[2])<<42)|((in[4]-in[3])<<56)), uint64((in[4]-in[3])>>8|((in[5]-in[4])<<6)|((in[6]-in[5])<<20)|((in[7]-in[6])<<34)|((in[8]-in[7])<<48)|((in[9]-in[8])<<62)), uint64((in[9]-in[8])>>2|((in[10]-in[9])<<12)|((in[11]-in[10])<<26)|((in[12]-in[11])<<40)|((in[13]-in[12])<<54)), uint64((in[13]-in[12])>>10|((in[14]-in[13])<<4)|((in[15]-in[14])<<18)|((in[16]-in[15])<<32)|((in[17]-in[16])<<46)|((in[18]-in[17])<<60)), uint64((in[18]-in[17])>>4|((in[19]-in[18])<<10)|((in[20]-in[19])<<24)|((in[21]-in[20])<<38)|((in[22]-in[21])<<52)), uint64((in[22]-in[21])>>12|((in[23]-in[22])<<2)|((in[24]-in[23])<<16)|((in[25]-in[24])<<30)|((in[26]-in[25])<<44)|((in[27]-in[26])<<58)), uint64((in[27]-in[26])>>6|((in[28]-in[27])<<8)|((in[29]-in[28])<<22)|((in[30]-in[29])<<36)|((in[31]-in[30])<<50)), uint64(in[32]-in[31]|((in[33]-in[32])<<14)|((in[34]-in[33])<<28)|((in[35]-in[34])<<42)|((in[36]-in[35])<<56)), uint64((in[36]-in[35])>>8|((in[37]-in[36])<<6)|((in[38]-in[37])<<20)|((in[39]-in[38])<<34)|((in[40]-in[39])<<48)|((in[41]-in[40])<<62)), uint64((in[41]-in[40])>>2|((in[42]-in[41])<<12)|((in[43]-in[42])<<26)|((in[44]-in[43])<<40)|((in[45]-in[44])<<54)), uint64((in[45]-in[44])>>10|((in[46]-in[45])<<4)|((in[47]-in[46])<<18)|((in[48]-in[47])<<32)|((in[49]-in[48])<<46)|((in[50]-in[49])<<60)), uint64((in[50]-in[49])>>4|((in[51]-in[50])<<10)|((in[52]-in[51])<<24)|((in[53]-in[52])<<38)|((in[54]-in[53])<<52)), uint64((in[54]-in[53])>>12|((in[55]-in[54])<<2)|((in[56]-in[55])<<16)|((in[57]-in[56])<<30)|((in[58]-in[57])<<44)|((in[59]-in[58])<<58)), uint64((in[59]-in[58])>>6|((in[60]-in[59])<<8)|((in[61]-in[60])<<22)|((in[62]-in[61])<<36)|((in[63]-in[62])<<50))
 }
-func deltapack64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]uint64, ntz int) {
+func deltapack64_ntz_14[T uint64 | int64](out *[14]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -3035,102 +2244,11 @@ func deltapack64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]uint
 			((in[63] - in[62]) >> ntz << 50))
 }
 
-func deltapack64_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 15) |
-			((in[2] - in[1]) << 30) |
-			((in[3] - in[2]) << 45) |
-			((in[4] - in[3]) << 60))
-	out[1] = uint64(
-		(in[4]-in[3])>>4 |
-			((in[5] - in[4]) << 11) |
-			((in[6] - in[5]) << 26) |
-			((in[7] - in[6]) << 41) |
-			((in[8] - in[7]) << 56))
-	out[2] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 7) |
-			((in[10] - in[9]) << 22) |
-			((in[11] - in[10]) << 37) |
-			((in[12] - in[11]) << 52))
-	out[3] = uint64(
-		(in[12]-in[11])>>12 |
-			((in[13] - in[12]) << 3) |
-			((in[14] - in[13]) << 18) |
-			((in[15] - in[14]) << 33) |
-			((in[16] - in[15]) << 48) |
-			((in[17] - in[16]) << 63))
-	out[4] = uint64(
-		(in[17]-in[16])>>1 |
-			((in[18] - in[17]) << 14) |
-			((in[19] - in[18]) << 29) |
-			((in[20] - in[19]) << 44) |
-			((in[21] - in[20]) << 59))
-	out[5] = uint64(
-		(in[21]-in[20])>>5 |
-			((in[22] - in[21]) << 10) |
-			((in[23] - in[22]) << 25) |
-			((in[24] - in[23]) << 40) |
-			((in[25] - in[24]) << 55))
-	out[6] = uint64(
-		(in[25]-in[24])>>9 |
-			((in[26] - in[25]) << 6) |
-			((in[27] - in[26]) << 21) |
-			((in[28] - in[27]) << 36) |
-			((in[29] - in[28]) << 51))
-	out[7] = uint64(
-		(in[29]-in[28])>>13 |
-			((in[30] - in[29]) << 2) |
-			((in[31] - in[30]) << 17) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 47) |
-			((in[34] - in[33]) << 62))
-	out[8] = uint64(
-		(in[34]-in[33])>>2 |
-			((in[35] - in[34]) << 13) |
-			((in[36] - in[35]) << 28) |
-			((in[37] - in[36]) << 43) |
-			((in[38] - in[37]) << 58))
-	out[9] = uint64(
-		(in[38]-in[37])>>6 |
-			((in[39] - in[38]) << 9) |
-			((in[40] - in[39]) << 24) |
-			((in[41] - in[40]) << 39) |
-			((in[42] - in[41]) << 54))
-	out[10] = uint64(
-		(in[42]-in[41])>>10 |
-			((in[43] - in[42]) << 5) |
-			((in[44] - in[43]) << 20) |
-			((in[45] - in[44]) << 35) |
-			((in[46] - in[45]) << 50))
-	out[11] = uint64(
-		(in[46]-in[45])>>14 |
-			((in[47] - in[46]) << 1) |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 31) |
-			((in[50] - in[49]) << 46) |
-			((in[51] - in[50]) << 61))
-	out[12] = uint64(
-		(in[51]-in[50])>>3 |
-			((in[52] - in[51]) << 12) |
-			((in[53] - in[52]) << 27) |
-			((in[54] - in[53]) << 42) |
-			((in[55] - in[54]) << 57))
-	out[13] = uint64(
-		(in[55]-in[54])>>7 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 23) |
-			((in[58] - in[57]) << 38) |
-			((in[59] - in[58]) << 53))
-	out[14] = uint64(
-		(in[59]-in[58])>>11 |
-			((in[60] - in[59]) << 4) |
-			((in[61] - in[60]) << 19) |
-			((in[62] - in[61]) << 34) |
-			((in[63] - in[62]) << 49))
+func deltapack64_15[T uint64 | int64](out *[15]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<15)|((in[2]-in[1])<<30)|((in[3]-in[2])<<45)|((in[4]-in[3])<<60)), uint64((in[4]-in[3])>>4|((in[5]-in[4])<<11)|((in[6]-in[5])<<26)|((in[7]-in[6])<<41)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<7)|((in[10]-in[9])<<22)|((in[11]-in[10])<<37)|((in[12]-in[11])<<52)), uint64((in[12]-in[11])>>12|((in[13]-in[12])<<3)|((in[14]-in[13])<<18)|((in[15]-in[14])<<33)|((in[16]-in[15])<<48)|((in[17]-in[16])<<63)), uint64((in[17]-in[16])>>1|((in[18]-in[17])<<14)|((in[19]-in[18])<<29)|((in[20]-in[19])<<44)|((in[21]-in[20])<<59)), uint64((in[21]-in[20])>>5|((in[22]-in[21])<<10)|((in[23]-in[22])<<25)|((in[24]-in[23])<<40)|((in[25]-in[24])<<55)), uint64((in[25]-in[24])>>9|((in[26]-in[25])<<6)|((in[27]-in[26])<<21)|((in[28]-in[27])<<36)|((in[29]-in[28])<<51)), uint64((in[29]-in[28])>>13|((in[30]-in[29])<<2)|((in[31]-in[30])<<17)|((in[32]-in[31])<<32)|((in[33]-in[32])<<47)|((in[34]-in[33])<<62)), uint64((in[34]-in[33])>>2|((in[35]-in[34])<<13)|((in[36]-in[35])<<28)|((in[37]-in[36])<<43)|((in[38]-in[37])<<58)), uint64((in[38]-in[37])>>6|((in[39]-in[38])<<9)|((in[40]-in[39])<<24)|((in[41]-in[40])<<39)|((in[42]-in[41])<<54)), uint64((in[42]-in[41])>>10|((in[43]-in[42])<<5)|((in[44]-in[43])<<20)|((in[45]-in[44])<<35)|((in[46]-in[45])<<50)), uint64((in[46]-in[45])>>14|((in[47]-in[46])<<1)|((in[48]-in[47])<<16)|((in[49]-in[48])<<31)|((in[50]-in[49])<<46)|((in[51]-in[50])<<61)), uint64((in[51]-in[50])>>3|((in[52]-in[51])<<12)|((in[53]-in[52])<<27)|((in[54]-in[53])<<42)|((in[55]-in[54])<<57)), uint64((in[55]-in[54])>>7|((in[56]-in[55])<<8)|((in[57]-in[56])<<23)|((in[58]-in[57])<<38)|((in[59]-in[58])<<53)), uint64((in[59]-in[58])>>11|((in[60]-in[59])<<4)|((in[61]-in[60])<<19)|((in[62]-in[61])<<34)|((in[63]-in[62])<<49))
 }
-func deltapack64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]uint64, ntz int) {
+func deltapack64_ntz_15[T uint64 | int64](out *[15]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -3227,89 +2345,11 @@ func deltapack64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]uint
 			((in[63] - in[62]) >> ntz << 49))
 }
 
-func deltapack64_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 16) |
-			((in[2] - in[1]) << 32) |
-			((in[3] - in[2]) << 48))
-	out[1] = uint64(
-		in[4] - in[3] |
-			((in[5] - in[4]) << 16) |
-			((in[6] - in[5]) << 32) |
-			((in[7] - in[6]) << 48))
-	out[2] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 16) |
-			((in[10] - in[9]) << 32) |
-			((in[11] - in[10]) << 48))
-	out[3] = uint64(
-		in[12] - in[11] |
-			((in[13] - in[12]) << 16) |
-			((in[14] - in[13]) << 32) |
-			((in[15] - in[14]) << 48))
-	out[4] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 16) |
-			((in[18] - in[17]) << 32) |
-			((in[19] - in[18]) << 48))
-	out[5] = uint64(
-		in[20] - in[19] |
-			((in[21] - in[20]) << 16) |
-			((in[22] - in[21]) << 32) |
-			((in[23] - in[22]) << 48))
-	out[6] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 16) |
-			((in[26] - in[25]) << 32) |
-			((in[27] - in[26]) << 48))
-	out[7] = uint64(
-		in[28] - in[27] |
-			((in[29] - in[28]) << 16) |
-			((in[30] - in[29]) << 32) |
-			((in[31] - in[30]) << 48))
-	out[8] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 16) |
-			((in[34] - in[33]) << 32) |
-			((in[35] - in[34]) << 48))
-	out[9] = uint64(
-		in[36] - in[35] |
-			((in[37] - in[36]) << 16) |
-			((in[38] - in[37]) << 32) |
-			((in[39] - in[38]) << 48))
-	out[10] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 16) |
-			((in[42] - in[41]) << 32) |
-			((in[43] - in[42]) << 48))
-	out[11] = uint64(
-		in[44] - in[43] |
-			((in[45] - in[44]) << 16) |
-			((in[46] - in[45]) << 32) |
-			((in[47] - in[46]) << 48))
-	out[12] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 16) |
-			((in[50] - in[49]) << 32) |
-			((in[51] - in[50]) << 48))
-	out[13] = uint64(
-		in[52] - in[51] |
-			((in[53] - in[52]) << 16) |
-			((in[54] - in[53]) << 32) |
-			((in[55] - in[54]) << 48))
-	out[14] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 16) |
-			((in[58] - in[57]) << 32) |
-			((in[59] - in[58]) << 48))
-	out[15] = uint64(
-		in[60] - in[59] |
-			((in[61] - in[60]) << 16) |
-			((in[62] - in[61]) << 32) |
-			((in[63] - in[62]) << 48))
+func deltapack64_16[T uint64 | int64](out *[16]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<16)|((in[2]-in[1])<<32)|((in[3]-in[2])<<48)), uint64(in[4]-in[3]|((in[5]-in[4])<<16)|((in[6]-in[5])<<32)|((in[7]-in[6])<<48)), uint64(in[8]-in[7]|((in[9]-in[8])<<16)|((in[10]-in[9])<<32)|((in[11]-in[10])<<48)), uint64(in[12]-in[11]|((in[13]-in[12])<<16)|((in[14]-in[13])<<32)|((in[15]-in[14])<<48)), uint64(in[16]-in[15]|((in[17]-in[16])<<16)|((in[18]-in[17])<<32)|((in[19]-in[18])<<48)), uint64(in[20]-in[19]|((in[21]-in[20])<<16)|((in[22]-in[21])<<32)|((in[23]-in[22])<<48)), uint64(in[24]-in[23]|((in[25]-in[24])<<16)|((in[26]-in[25])<<32)|((in[27]-in[26])<<48)), uint64(in[28]-in[27]|((in[29]-in[28])<<16)|((in[30]-in[29])<<32)|((in[31]-in[30])<<48)), uint64(in[32]-in[31]|((in[33]-in[32])<<16)|((in[34]-in[33])<<32)|((in[35]-in[34])<<48)), uint64(in[36]-in[35]|((in[37]-in[36])<<16)|((in[38]-in[37])<<32)|((in[39]-in[38])<<48)), uint64(in[40]-in[39]|((in[41]-in[40])<<16)|((in[42]-in[41])<<32)|((in[43]-in[42])<<48)), uint64(in[44]-in[43]|((in[45]-in[44])<<16)|((in[46]-in[45])<<32)|((in[47]-in[46])<<48)), uint64(in[48]-in[47]|((in[49]-in[48])<<16)|((in[50]-in[49])<<32)|((in[51]-in[50])<<48)), uint64(in[52]-in[51]|((in[53]-in[52])<<16)|((in[54]-in[53])<<32)|((in[55]-in[54])<<48)), uint64(in[56]-in[55]|((in[57]-in[56])<<16)|((in[58]-in[57])<<32)|((in[59]-in[58])<<48)), uint64(in[60]-in[59]|((in[61]-in[60])<<16)|((in[62]-in[61])<<32)|((in[63]-in[62])<<48))
 }
-func deltapack64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]uint64, ntz int) {
+func deltapack64_ntz_16[T uint64 | int64](out *[16]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -3393,106 +2433,11 @@ func deltapack64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]uint
 			((in[63] - in[62]) >> ntz << 48))
 }
 
-func deltapack64_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 17) |
-			((in[2] - in[1]) << 34) |
-			((in[3] - in[2]) << 51))
-	out[1] = uint64(
-		(in[3]-in[2])>>13 |
-			((in[4] - in[3]) << 4) |
-			((in[5] - in[4]) << 21) |
-			((in[6] - in[5]) << 38) |
-			((in[7] - in[6]) << 55))
-	out[2] = uint64(
-		(in[7]-in[6])>>9 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 25) |
-			((in[10] - in[9]) << 42) |
-			((in[11] - in[10]) << 59))
-	out[3] = uint64(
-		(in[11]-in[10])>>5 |
-			((in[12] - in[11]) << 12) |
-			((in[13] - in[12]) << 29) |
-			((in[14] - in[13]) << 46) |
-			((in[15] - in[14]) << 63))
-	out[4] = uint64(
-		(in[15]-in[14])>>1 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 33) |
-			((in[18] - in[17]) << 50))
-	out[5] = uint64(
-		(in[18]-in[17])>>14 |
-			((in[19] - in[18]) << 3) |
-			((in[20] - in[19]) << 20) |
-			((in[21] - in[20]) << 37) |
-			((in[22] - in[21]) << 54))
-	out[6] = uint64(
-		(in[22]-in[21])>>10 |
-			((in[23] - in[22]) << 7) |
-			((in[24] - in[23]) << 24) |
-			((in[25] - in[24]) << 41) |
-			((in[26] - in[25]) << 58))
-	out[7] = uint64(
-		(in[26]-in[25])>>6 |
-			((in[27] - in[26]) << 11) |
-			((in[28] - in[27]) << 28) |
-			((in[29] - in[28]) << 45) |
-			((in[30] - in[29]) << 62))
-	out[8] = uint64(
-		(in[30]-in[29])>>2 |
-			((in[31] - in[30]) << 15) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 49))
-	out[9] = uint64(
-		(in[33]-in[32])>>15 |
-			((in[34] - in[33]) << 2) |
-			((in[35] - in[34]) << 19) |
-			((in[36] - in[35]) << 36) |
-			((in[37] - in[36]) << 53))
-	out[10] = uint64(
-		(in[37]-in[36])>>11 |
-			((in[38] - in[37]) << 6) |
-			((in[39] - in[38]) << 23) |
-			((in[40] - in[39]) << 40) |
-			((in[41] - in[40]) << 57))
-	out[11] = uint64(
-		(in[41]-in[40])>>7 |
-			((in[42] - in[41]) << 10) |
-			((in[43] - in[42]) << 27) |
-			((in[44] - in[43]) << 44) |
-			((in[45] - in[44]) << 61))
-	out[12] = uint64(
-		(in[45]-in[44])>>3 |
-			((in[46] - in[45]) << 14) |
-			((in[47] - in[46]) << 31) |
-			((in[48] - in[47]) << 48))
-	out[13] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 1) |
-			((in[50] - in[49]) << 18) |
-			((in[51] - in[50]) << 35) |
-			((in[52] - in[51]) << 52))
-	out[14] = uint64(
-		(in[52]-in[51])>>12 |
-			((in[53] - in[52]) << 5) |
-			((in[54] - in[53]) << 22) |
-			((in[55] - in[54]) << 39) |
-			((in[56] - in[55]) << 56))
-	out[15] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 9) |
-			((in[58] - in[57]) << 26) |
-			((in[59] - in[58]) << 43) |
-			((in[60] - in[59]) << 60))
-	out[16] = uint64(
-		(in[60]-in[59])>>4 |
-			((in[61] - in[60]) << 13) |
-			((in[62] - in[61]) << 30) |
-			((in[63] - in[62]) << 47))
+func deltapack64_17[T uint64 | int64](out *[17]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<17)|((in[2]-in[1])<<34)|((in[3]-in[2])<<51)), uint64((in[3]-in[2])>>13|((in[4]-in[3])<<4)|((in[5]-in[4])<<21)|((in[6]-in[5])<<38)|((in[7]-in[6])<<55)), uint64((in[7]-in[6])>>9|((in[8]-in[7])<<8)|((in[9]-in[8])<<25)|((in[10]-in[9])<<42)|((in[11]-in[10])<<59)), uint64((in[11]-in[10])>>5|((in[12]-in[11])<<12)|((in[13]-in[12])<<29)|((in[14]-in[13])<<46)|((in[15]-in[14])<<63)), uint64((in[15]-in[14])>>1|((in[16]-in[15])<<16)|((in[17]-in[16])<<33)|((in[18]-in[17])<<50)), uint64((in[18]-in[17])>>14|((in[19]-in[18])<<3)|((in[20]-in[19])<<20)|((in[21]-in[20])<<37)|((in[22]-in[21])<<54)), uint64((in[22]-in[21])>>10|((in[23]-in[22])<<7)|((in[24]-in[23])<<24)|((in[25]-in[24])<<41)|((in[26]-in[25])<<58)), uint64((in[26]-in[25])>>6|((in[27]-in[26])<<11)|((in[28]-in[27])<<28)|((in[29]-in[28])<<45)|((in[30]-in[29])<<62)), uint64((in[30]-in[29])>>2|((in[31]-in[30])<<15)|((in[32]-in[31])<<32)|((in[33]-in[32])<<49)), uint64((in[33]-in[32])>>15|((in[34]-in[33])<<2)|((in[35]-in[34])<<19)|((in[36]-in[35])<<36)|((in[37]-in[36])<<53)), uint64((in[37]-in[36])>>11|((in[38]-in[37])<<6)|((in[39]-in[38])<<23)|((in[40]-in[39])<<40)|((in[41]-in[40])<<57)), uint64((in[41]-in[40])>>7|((in[42]-in[41])<<10)|((in[43]-in[42])<<27)|((in[44]-in[43])<<44)|((in[45]-in[44])<<61)), uint64((in[45]-in[44])>>3|((in[46]-in[45])<<14)|((in[47]-in[46])<<31)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<1)|((in[50]-in[49])<<18)|((in[51]-in[50])<<35)|((in[52]-in[51])<<52)), uint64((in[52]-in[51])>>12|((in[53]-in[52])<<5)|((in[54]-in[53])<<22)|((in[55]-in[54])<<39)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<9)|((in[58]-in[57])<<26)|((in[59]-in[58])<<43)|((in[60]-in[59])<<60)), uint64((in[60]-in[59])>>4|((in[61]-in[60])<<13)|((in[62]-in[61])<<30)|((in[63]-in[62])<<47))
 }
-func deltapack64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]uint64, ntz int) {
+func deltapack64_ntz_17[T uint64 | int64](out *[17]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -3593,107 +2538,11 @@ func deltapack64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]uint
 			((in[63] - in[62]) >> ntz << 47))
 }
 
-func deltapack64_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 18) |
-			((in[2] - in[1]) << 36) |
-			((in[3] - in[2]) << 54))
-	out[1] = uint64(
-		(in[3]-in[2])>>10 |
-			((in[4] - in[3]) << 8) |
-			((in[5] - in[4]) << 26) |
-			((in[6] - in[5]) << 44) |
-			((in[7] - in[6]) << 62))
-	out[2] = uint64(
-		(in[7]-in[6])>>2 |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 34) |
-			((in[10] - in[9]) << 52))
-	out[3] = uint64(
-		(in[10]-in[9])>>12 |
-			((in[11] - in[10]) << 6) |
-			((in[12] - in[11]) << 24) |
-			((in[13] - in[12]) << 42) |
-			((in[14] - in[13]) << 60))
-	out[4] = uint64(
-		(in[14]-in[13])>>4 |
-			((in[15] - in[14]) << 14) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 50))
-	out[5] = uint64(
-		(in[17]-in[16])>>14 |
-			((in[18] - in[17]) << 4) |
-			((in[19] - in[18]) << 22) |
-			((in[20] - in[19]) << 40) |
-			((in[21] - in[20]) << 58))
-	out[6] = uint64(
-		(in[21]-in[20])>>6 |
-			((in[22] - in[21]) << 12) |
-			((in[23] - in[22]) << 30) |
-			((in[24] - in[23]) << 48))
-	out[7] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 2) |
-			((in[26] - in[25]) << 20) |
-			((in[27] - in[26]) << 38) |
-			((in[28] - in[27]) << 56))
-	out[8] = uint64(
-		(in[28]-in[27])>>8 |
-			((in[29] - in[28]) << 10) |
-			((in[30] - in[29]) << 28) |
-			((in[31] - in[30]) << 46))
-	out[9] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 18) |
-			((in[34] - in[33]) << 36) |
-			((in[35] - in[34]) << 54))
-	out[10] = uint64(
-		(in[35]-in[34])>>10 |
-			((in[36] - in[35]) << 8) |
-			((in[37] - in[36]) << 26) |
-			((in[38] - in[37]) << 44) |
-			((in[39] - in[38]) << 62))
-	out[11] = uint64(
-		(in[39]-in[38])>>2 |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 34) |
-			((in[42] - in[41]) << 52))
-	out[12] = uint64(
-		(in[42]-in[41])>>12 |
-			((in[43] - in[42]) << 6) |
-			((in[44] - in[43]) << 24) |
-			((in[45] - in[44]) << 42) |
-			((in[46] - in[45]) << 60))
-	out[13] = uint64(
-		(in[46]-in[45])>>4 |
-			((in[47] - in[46]) << 14) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 50))
-	out[14] = uint64(
-		(in[49]-in[48])>>14 |
-			((in[50] - in[49]) << 4) |
-			((in[51] - in[50]) << 22) |
-			((in[52] - in[51]) << 40) |
-			((in[53] - in[52]) << 58))
-	out[15] = uint64(
-		(in[53]-in[52])>>6 |
-			((in[54] - in[53]) << 12) |
-			((in[55] - in[54]) << 30) |
-			((in[56] - in[55]) << 48))
-	out[16] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 2) |
-			((in[58] - in[57]) << 20) |
-			((in[59] - in[58]) << 38) |
-			((in[60] - in[59]) << 56))
-	out[17] = uint64(
-		(in[60]-in[59])>>8 |
-			((in[61] - in[60]) << 10) |
-			((in[62] - in[61]) << 28) |
-			((in[63] - in[62]) << 46))
+func deltapack64_18[T uint64 | int64](out *[18]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<18)|((in[2]-in[1])<<36)|((in[3]-in[2])<<54)), uint64((in[3]-in[2])>>10|((in[4]-in[3])<<8)|((in[5]-in[4])<<26)|((in[6]-in[5])<<44)|((in[7]-in[6])<<62)), uint64((in[7]-in[6])>>2|((in[8]-in[7])<<16)|((in[9]-in[8])<<34)|((in[10]-in[9])<<52)), uint64((in[10]-in[9])>>12|((in[11]-in[10])<<6)|((in[12]-in[11])<<24)|((in[13]-in[12])<<42)|((in[14]-in[13])<<60)), uint64((in[14]-in[13])>>4|((in[15]-in[14])<<14)|((in[16]-in[15])<<32)|((in[17]-in[16])<<50)), uint64((in[17]-in[16])>>14|((in[18]-in[17])<<4)|((in[19]-in[18])<<22)|((in[20]-in[19])<<40)|((in[21]-in[20])<<58)), uint64((in[21]-in[20])>>6|((in[22]-in[21])<<12)|((in[23]-in[22])<<30)|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<2)|((in[26]-in[25])<<20)|((in[27]-in[26])<<38)|((in[28]-in[27])<<56)), uint64((in[28]-in[27])>>8|((in[29]-in[28])<<10)|((in[30]-in[29])<<28)|((in[31]-in[30])<<46)), uint64(in[32]-in[31]|((in[33]-in[32])<<18)|((in[34]-in[33])<<36)|((in[35]-in[34])<<54)), uint64((in[35]-in[34])>>10|((in[36]-in[35])<<8)|((in[37]-in[36])<<26)|((in[38]-in[37])<<44)|((in[39]-in[38])<<62)), uint64((in[39]-in[38])>>2|((in[40]-in[39])<<16)|((in[41]-in[40])<<34)|((in[42]-in[41])<<52)), uint64((in[42]-in[41])>>12|((in[43]-in[42])<<6)|((in[44]-in[43])<<24)|((in[45]-in[44])<<42)|((in[46]-in[45])<<60)), uint64((in[46]-in[45])>>4|((in[47]-in[46])<<14)|((in[48]-in[47])<<32)|((in[49]-in[48])<<50)), uint64((in[49]-in[48])>>14|((in[50]-in[49])<<4)|((in[51]-in[50])<<22)|((in[52]-in[51])<<40)|((in[53]-in[52])<<58)), uint64((in[53]-in[52])>>6|((in[54]-in[53])<<12)|((in[55]-in[54])<<30)|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<2)|((in[58]-in[57])<<20)|((in[59]-in[58])<<38)|((in[60]-in[59])<<56)), uint64((in[60]-in[59])>>8|((in[61]-in[60])<<10)|((in[62]-in[61])<<28)|((in[63]-in[62])<<46))
 }
-func deltapack64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]uint64, ntz int) {
+func deltapack64_ntz_18[T uint64 | int64](out *[18]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -3795,110 +2644,11 @@ func deltapack64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]uint
 			((in[63] - in[62]) >> ntz << 46))
 }
 
-func deltapack64_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 19) |
-			((in[2] - in[1]) << 38) |
-			((in[3] - in[2]) << 57))
-	out[1] = uint64(
-		(in[3]-in[2])>>7 |
-			((in[4] - in[3]) << 12) |
-			((in[5] - in[4]) << 31) |
-			((in[6] - in[5]) << 50))
-	out[2] = uint64(
-		(in[6]-in[5])>>14 |
-			((in[7] - in[6]) << 5) |
-			((in[8] - in[7]) << 24) |
-			((in[9] - in[8]) << 43) |
-			((in[10] - in[9]) << 62))
-	out[3] = uint64(
-		(in[10]-in[9])>>2 |
-			((in[11] - in[10]) << 17) |
-			((in[12] - in[11]) << 36) |
-			((in[13] - in[12]) << 55))
-	out[4] = uint64(
-		(in[13]-in[12])>>9 |
-			((in[14] - in[13]) << 10) |
-			((in[15] - in[14]) << 29) |
-			((in[16] - in[15]) << 48))
-	out[5] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 3) |
-			((in[18] - in[17]) << 22) |
-			((in[19] - in[18]) << 41) |
-			((in[20] - in[19]) << 60))
-	out[6] = uint64(
-		(in[20]-in[19])>>4 |
-			((in[21] - in[20]) << 15) |
-			((in[22] - in[21]) << 34) |
-			((in[23] - in[22]) << 53))
-	out[7] = uint64(
-		(in[23]-in[22])>>11 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 27) |
-			((in[26] - in[25]) << 46))
-	out[8] = uint64(
-		(in[26]-in[25])>>18 |
-			((in[27] - in[26]) << 1) |
-			((in[28] - in[27]) << 20) |
-			((in[29] - in[28]) << 39) |
-			((in[30] - in[29]) << 58))
-	out[9] = uint64(
-		(in[30]-in[29])>>6 |
-			((in[31] - in[30]) << 13) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 51))
-	out[10] = uint64(
-		(in[33]-in[32])>>13 |
-			((in[34] - in[33]) << 6) |
-			((in[35] - in[34]) << 25) |
-			((in[36] - in[35]) << 44) |
-			((in[37] - in[36]) << 63))
-	out[11] = uint64(
-		(in[37]-in[36])>>1 |
-			((in[38] - in[37]) << 18) |
-			((in[39] - in[38]) << 37) |
-			((in[40] - in[39]) << 56))
-	out[12] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 11) |
-			((in[42] - in[41]) << 30) |
-			((in[43] - in[42]) << 49))
-	out[13] = uint64(
-		(in[43]-in[42])>>15 |
-			((in[44] - in[43]) << 4) |
-			((in[45] - in[44]) << 23) |
-			((in[46] - in[45]) << 42) |
-			((in[47] - in[46]) << 61))
-	out[14] = uint64(
-		(in[47]-in[46])>>3 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 35) |
-			((in[50] - in[49]) << 54))
-	out[15] = uint64(
-		(in[50]-in[49])>>10 |
-			((in[51] - in[50]) << 9) |
-			((in[52] - in[51]) << 28) |
-			((in[53] - in[52]) << 47))
-	out[16] = uint64(
-		(in[53]-in[52])>>17 |
-			((in[54] - in[53]) << 2) |
-			((in[55] - in[54]) << 21) |
-			((in[56] - in[55]) << 40) |
-			((in[57] - in[56]) << 59))
-	out[17] = uint64(
-		(in[57]-in[56])>>5 |
-			((in[58] - in[57]) << 14) |
-			((in[59] - in[58]) << 33) |
-			((in[60] - in[59]) << 52))
-	out[18] = uint64(
-		(in[60]-in[59])>>12 |
-			((in[61] - in[60]) << 7) |
-			((in[62] - in[61]) << 26) |
-			((in[63] - in[62]) << 45))
+func deltapack64_19[T uint64 | int64](out *[19]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<19)|((in[2]-in[1])<<38)|((in[3]-in[2])<<57)), uint64((in[3]-in[2])>>7|((in[4]-in[3])<<12)|((in[5]-in[4])<<31)|((in[6]-in[5])<<50)), uint64((in[6]-in[5])>>14|((in[7]-in[6])<<5)|((in[8]-in[7])<<24)|((in[9]-in[8])<<43)|((in[10]-in[9])<<62)), uint64((in[10]-in[9])>>2|((in[11]-in[10])<<17)|((in[12]-in[11])<<36)|((in[13]-in[12])<<55)), uint64((in[13]-in[12])>>9|((in[14]-in[13])<<10)|((in[15]-in[14])<<29)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<3)|((in[18]-in[17])<<22)|((in[19]-in[18])<<41)|((in[20]-in[19])<<60)), uint64((in[20]-in[19])>>4|((in[21]-in[20])<<15)|((in[22]-in[21])<<34)|((in[23]-in[22])<<53)), uint64((in[23]-in[22])>>11|((in[24]-in[23])<<8)|((in[25]-in[24])<<27)|((in[26]-in[25])<<46)), uint64((in[26]-in[25])>>18|((in[27]-in[26])<<1)|((in[28]-in[27])<<20)|((in[29]-in[28])<<39)|((in[30]-in[29])<<58)), uint64((in[30]-in[29])>>6|((in[31]-in[30])<<13)|((in[32]-in[31])<<32)|((in[33]-in[32])<<51)), uint64((in[33]-in[32])>>13|((in[34]-in[33])<<6)|((in[35]-in[34])<<25)|((in[36]-in[35])<<44)|((in[37]-in[36])<<63)), uint64((in[37]-in[36])>>1|((in[38]-in[37])<<18)|((in[39]-in[38])<<37)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<11)|((in[42]-in[41])<<30)|((in[43]-in[42])<<49)), uint64((in[43]-in[42])>>15|((in[44]-in[43])<<4)|((in[45]-in[44])<<23)|((in[46]-in[45])<<42)|((in[47]-in[46])<<61)), uint64((in[47]-in[46])>>3|((in[48]-in[47])<<16)|((in[49]-in[48])<<35)|((in[50]-in[49])<<54)), uint64((in[50]-in[49])>>10|((in[51]-in[50])<<9)|((in[52]-in[51])<<28)|((in[53]-in[52])<<47)), uint64((in[53]-in[52])>>17|((in[54]-in[53])<<2)|((in[55]-in[54])<<21)|((in[56]-in[55])<<40)|((in[57]-in[56])<<59)), uint64((in[57]-in[56])>>5|((in[58]-in[57])<<14)|((in[59]-in[58])<<33)|((in[60]-in[59])<<52)), uint64((in[60]-in[59])>>12|((in[61]-in[60])<<7)|((in[62]-in[61])<<26)|((in[63]-in[62])<<45))
 }
-func deltapack64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]uint64, ntz int) {
+func deltapack64_ntz_19[T uint64 | int64](out *[19]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -4003,109 +2753,11 @@ func deltapack64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]uint
 			((in[63] - in[62]) >> ntz << 45))
 }
 
-func deltapack64_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 20) |
-			((in[2] - in[1]) << 40) |
-			((in[3] - in[2]) << 60))
-	out[1] = uint64(
-		(in[3]-in[2])>>4 |
-			((in[4] - in[3]) << 16) |
-			((in[5] - in[4]) << 36) |
-			((in[6] - in[5]) << 56))
-	out[2] = uint64(
-		(in[6]-in[5])>>8 |
-			((in[7] - in[6]) << 12) |
-			((in[8] - in[7]) << 32) |
-			((in[9] - in[8]) << 52))
-	out[3] = uint64(
-		(in[9]-in[8])>>12 |
-			((in[10] - in[9]) << 8) |
-			((in[11] - in[10]) << 28) |
-			((in[12] - in[11]) << 48))
-	out[4] = uint64(
-		(in[12]-in[11])>>16 |
-			((in[13] - in[12]) << 4) |
-			((in[14] - in[13]) << 24) |
-			((in[15] - in[14]) << 44))
-	out[5] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 20) |
-			((in[18] - in[17]) << 40) |
-			((in[19] - in[18]) << 60))
-	out[6] = uint64(
-		(in[19]-in[18])>>4 |
-			((in[20] - in[19]) << 16) |
-			((in[21] - in[20]) << 36) |
-			((in[22] - in[21]) << 56))
-	out[7] = uint64(
-		(in[22]-in[21])>>8 |
-			((in[23] - in[22]) << 12) |
-			((in[24] - in[23]) << 32) |
-			((in[25] - in[24]) << 52))
-	out[8] = uint64(
-		(in[25]-in[24])>>12 |
-			((in[26] - in[25]) << 8) |
-			((in[27] - in[26]) << 28) |
-			((in[28] - in[27]) << 48))
-	out[9] = uint64(
-		(in[28]-in[27])>>16 |
-			((in[29] - in[28]) << 4) |
-			((in[30] - in[29]) << 24) |
-			((in[31] - in[30]) << 44))
-	out[10] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 20) |
-			((in[34] - in[33]) << 40) |
-			((in[35] - in[34]) << 60))
-	out[11] = uint64(
-		(in[35]-in[34])>>4 |
-			((in[36] - in[35]) << 16) |
-			((in[37] - in[36]) << 36) |
-			((in[38] - in[37]) << 56))
-	out[12] = uint64(
-		(in[38]-in[37])>>8 |
-			((in[39] - in[38]) << 12) |
-			((in[40] - in[39]) << 32) |
-			((in[41] - in[40]) << 52))
-	out[13] = uint64(
-		(in[41]-in[40])>>12 |
-			((in[42] - in[41]) << 8) |
-			((in[43] - in[42]) << 28) |
-			((in[44] - in[43]) << 48))
-	out[14] = uint64(
-		(in[44]-in[43])>>16 |
-			((in[45] - in[44]) << 4) |
-			((in[46] - in[45]) << 24) |
-			((in[47] - in[46]) << 44))
-	out[15] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 20) |
-			((in[50] - in[49]) << 40) |
-			((in[51] - in[50]) << 60))
-	out[16] = uint64(
-		(in[51]-in[50])>>4 |
-			((in[52] - in[51]) << 16) |
-			((in[53] - in[52]) << 36) |
-			((in[54] - in[53]) << 56))
-	out[17] = uint64(
-		(in[54]-in[53])>>8 |
-			((in[55] - in[54]) << 12) |
-			((in[56] - in[55]) << 32) |
-			((in[57] - in[56]) << 52))
-	out[18] = uint64(
-		(in[57]-in[56])>>12 |
-			((in[58] - in[57]) << 8) |
-			((in[59] - in[58]) << 28) |
-			((in[60] - in[59]) << 48))
-	out[19] = uint64(
-		(in[60]-in[59])>>16 |
-			((in[61] - in[60]) << 4) |
-			((in[62] - in[61]) << 24) |
-			((in[63] - in[62]) << 44))
+func deltapack64_20[T uint64 | int64](out *[20]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<20)|((in[2]-in[1])<<40)|((in[3]-in[2])<<60)), uint64((in[3]-in[2])>>4|((in[4]-in[3])<<16)|((in[5]-in[4])<<36)|((in[6]-in[5])<<56)), uint64((in[6]-in[5])>>8|((in[7]-in[6])<<12)|((in[8]-in[7])<<32)|((in[9]-in[8])<<52)), uint64((in[9]-in[8])>>12|((in[10]-in[9])<<8)|((in[11]-in[10])<<28)|((in[12]-in[11])<<48)), uint64((in[12]-in[11])>>16|((in[13]-in[12])<<4)|((in[14]-in[13])<<24)|((in[15]-in[14])<<44)), uint64(in[16]-in[15]|((in[17]-in[16])<<20)|((in[18]-in[17])<<40)|((in[19]-in[18])<<60)), uint64((in[19]-in[18])>>4|((in[20]-in[19])<<16)|((in[21]-in[20])<<36)|((in[22]-in[21])<<56)), uint64((in[22]-in[21])>>8|((in[23]-in[22])<<12)|((in[24]-in[23])<<32)|((in[25]-in[24])<<52)), uint64((in[25]-in[24])>>12|((in[26]-in[25])<<8)|((in[27]-in[26])<<28)|((in[28]-in[27])<<48)), uint64((in[28]-in[27])>>16|((in[29]-in[28])<<4)|((in[30]-in[29])<<24)|((in[31]-in[30])<<44)), uint64(in[32]-in[31]|((in[33]-in[32])<<20)|((in[34]-in[33])<<40)|((in[35]-in[34])<<60)), uint64((in[35]-in[34])>>4|((in[36]-in[35])<<16)|((in[37]-in[36])<<36)|((in[38]-in[37])<<56)), uint64((in[38]-in[37])>>8|((in[39]-in[38])<<12)|((in[40]-in[39])<<32)|((in[41]-in[40])<<52)), uint64((in[41]-in[40])>>12|((in[42]-in[41])<<8)|((in[43]-in[42])<<28)|((in[44]-in[43])<<48)), uint64((in[44]-in[43])>>16|((in[45]-in[44])<<4)|((in[46]-in[45])<<24)|((in[47]-in[46])<<44)), uint64(in[48]-in[47]|((in[49]-in[48])<<20)|((in[50]-in[49])<<40)|((in[51]-in[50])<<60)), uint64((in[51]-in[50])>>4|((in[52]-in[51])<<16)|((in[53]-in[52])<<36)|((in[54]-in[53])<<56)), uint64((in[54]-in[53])>>8|((in[55]-in[54])<<12)|((in[56]-in[55])<<32)|((in[57]-in[56])<<52)), uint64((in[57]-in[56])>>12|((in[58]-in[57])<<8)|((in[59]-in[58])<<28)|((in[60]-in[59])<<48)), uint64((in[60]-in[59])>>16|((in[61]-in[60])<<4)|((in[62]-in[61])<<24)|((in[63]-in[62])<<44))
 }
-func deltapack64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]uint64, ntz int) {
+func deltapack64_ntz_20[T uint64 | int64](out *[20]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -4209,114 +2861,11 @@ func deltapack64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]uint
 			((in[63] - in[62]) >> ntz << 44))
 }
 
-func deltapack64_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 21) |
-			((in[2] - in[1]) << 42) |
-			((in[3] - in[2]) << 63))
-	out[1] = uint64(
-		(in[3]-in[2])>>1 |
-			((in[4] - in[3]) << 20) |
-			((in[5] - in[4]) << 41) |
-			((in[6] - in[5]) << 62))
-	out[2] = uint64(
-		(in[6]-in[5])>>2 |
-			((in[7] - in[6]) << 19) |
-			((in[8] - in[7]) << 40) |
-			((in[9] - in[8]) << 61))
-	out[3] = uint64(
-		(in[9]-in[8])>>3 |
-			((in[10] - in[9]) << 18) |
-			((in[11] - in[10]) << 39) |
-			((in[12] - in[11]) << 60))
-	out[4] = uint64(
-		(in[12]-in[11])>>4 |
-			((in[13] - in[12]) << 17) |
-			((in[14] - in[13]) << 38) |
-			((in[15] - in[14]) << 59))
-	out[5] = uint64(
-		(in[15]-in[14])>>5 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 37) |
-			((in[18] - in[17]) << 58))
-	out[6] = uint64(
-		(in[18]-in[17])>>6 |
-			((in[19] - in[18]) << 15) |
-			((in[20] - in[19]) << 36) |
-			((in[21] - in[20]) << 57))
-	out[7] = uint64(
-		(in[21]-in[20])>>7 |
-			((in[22] - in[21]) << 14) |
-			((in[23] - in[22]) << 35) |
-			((in[24] - in[23]) << 56))
-	out[8] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 13) |
-			((in[26] - in[25]) << 34) |
-			((in[27] - in[26]) << 55))
-	out[9] = uint64(
-		(in[27]-in[26])>>9 |
-			((in[28] - in[27]) << 12) |
-			((in[29] - in[28]) << 33) |
-			((in[30] - in[29]) << 54))
-	out[10] = uint64(
-		(in[30]-in[29])>>10 |
-			((in[31] - in[30]) << 11) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 53))
-	out[11] = uint64(
-		(in[33]-in[32])>>11 |
-			((in[34] - in[33]) << 10) |
-			((in[35] - in[34]) << 31) |
-			((in[36] - in[35]) << 52))
-	out[12] = uint64(
-		(in[36]-in[35])>>12 |
-			((in[37] - in[36]) << 9) |
-			((in[38] - in[37]) << 30) |
-			((in[39] - in[38]) << 51))
-	out[13] = uint64(
-		(in[39]-in[38])>>13 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 29) |
-			((in[42] - in[41]) << 50))
-	out[14] = uint64(
-		(in[42]-in[41])>>14 |
-			((in[43] - in[42]) << 7) |
-			((in[44] - in[43]) << 28) |
-			((in[45] - in[44]) << 49))
-	out[15] = uint64(
-		(in[45]-in[44])>>15 |
-			((in[46] - in[45]) << 6) |
-			((in[47] - in[46]) << 27) |
-			((in[48] - in[47]) << 48))
-	out[16] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 5) |
-			((in[50] - in[49]) << 26) |
-			((in[51] - in[50]) << 47))
-	out[17] = uint64(
-		(in[51]-in[50])>>17 |
-			((in[52] - in[51]) << 4) |
-			((in[53] - in[52]) << 25) |
-			((in[54] - in[53]) << 46))
-	out[18] = uint64(
-		(in[54]-in[53])>>18 |
-			((in[55] - in[54]) << 3) |
-			((in[56] - in[55]) << 24) |
-			((in[57] - in[56]) << 45))
-	out[19] = uint64(
-		(in[57]-in[56])>>19 |
-			((in[58] - in[57]) << 2) |
-			((in[59] - in[58]) << 23) |
-			((in[60] - in[59]) << 44))
-	out[20] = uint64(
-		(in[60]-in[59])>>20 |
-			((in[61] - in[60]) << 1) |
-			((in[62] - in[61]) << 22) |
-			((in[63] - in[62]) << 43))
+func deltapack64_21[T uint64 | int64](out *[21]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<21)|((in[2]-in[1])<<42)|((in[3]-in[2])<<63)), uint64((in[3]-in[2])>>1|((in[4]-in[3])<<20)|((in[5]-in[4])<<41)|((in[6]-in[5])<<62)), uint64((in[6]-in[5])>>2|((in[7]-in[6])<<19)|((in[8]-in[7])<<40)|((in[9]-in[8])<<61)), uint64((in[9]-in[8])>>3|((in[10]-in[9])<<18)|((in[11]-in[10])<<39)|((in[12]-in[11])<<60)), uint64((in[12]-in[11])>>4|((in[13]-in[12])<<17)|((in[14]-in[13])<<38)|((in[15]-in[14])<<59)), uint64((in[15]-in[14])>>5|((in[16]-in[15])<<16)|((in[17]-in[16])<<37)|((in[18]-in[17])<<58)), uint64((in[18]-in[17])>>6|((in[19]-in[18])<<15)|((in[20]-in[19])<<36)|((in[21]-in[20])<<57)), uint64((in[21]-in[20])>>7|((in[22]-in[21])<<14)|((in[23]-in[22])<<35)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<13)|((in[26]-in[25])<<34)|((in[27]-in[26])<<55)), uint64((in[27]-in[26])>>9|((in[28]-in[27])<<12)|((in[29]-in[28])<<33)|((in[30]-in[29])<<54)), uint64((in[30]-in[29])>>10|((in[31]-in[30])<<11)|((in[32]-in[31])<<32)|((in[33]-in[32])<<53)), uint64((in[33]-in[32])>>11|((in[34]-in[33])<<10)|((in[35]-in[34])<<31)|((in[36]-in[35])<<52)), uint64((in[36]-in[35])>>12|((in[37]-in[36])<<9)|((in[38]-in[37])<<30)|((in[39]-in[38])<<51)), uint64((in[39]-in[38])>>13|((in[40]-in[39])<<8)|((in[41]-in[40])<<29)|((in[42]-in[41])<<50)), uint64((in[42]-in[41])>>14|((in[43]-in[42])<<7)|((in[44]-in[43])<<28)|((in[45]-in[44])<<49)), uint64((in[45]-in[44])>>15|((in[46]-in[45])<<6)|((in[47]-in[46])<<27)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<5)|((in[50]-in[49])<<26)|((in[51]-in[50])<<47)), uint64((in[51]-in[50])>>17|((in[52]-in[51])<<4)|((in[53]-in[52])<<25)|((in[54]-in[53])<<46)), uint64((in[54]-in[53])>>18|((in[55]-in[54])<<3)|((in[56]-in[55])<<24)|((in[57]-in[56])<<45)), uint64((in[57]-in[56])>>19|((in[58]-in[57])<<2)|((in[59]-in[58])<<23)|((in[60]-in[59])<<44)), uint64((in[60]-in[59])>>20|((in[61]-in[60])<<1)|((in[62]-in[61])<<22)|((in[63]-in[62])<<43))
 }
-func deltapack64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]uint64, ntz int) {
+func deltapack64_ntz_21[T uint64 | int64](out *[21]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -4425,115 +2974,11 @@ func deltapack64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]uint
 			((in[63] - in[62]) >> ntz << 43))
 }
 
-func deltapack64_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 22) |
-			((in[2] - in[1]) << 44))
-	out[1] = uint64(
-		(in[2]-in[1])>>20 |
-			((in[3] - in[2]) << 2) |
-			((in[4] - in[3]) << 24) |
-			((in[5] - in[4]) << 46))
-	out[2] = uint64(
-		(in[5]-in[4])>>18 |
-			((in[6] - in[5]) << 4) |
-			((in[7] - in[6]) << 26) |
-			((in[8] - in[7]) << 48))
-	out[3] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 6) |
-			((in[10] - in[9]) << 28) |
-			((in[11] - in[10]) << 50))
-	out[4] = uint64(
-		(in[11]-in[10])>>14 |
-			((in[12] - in[11]) << 8) |
-			((in[13] - in[12]) << 30) |
-			((in[14] - in[13]) << 52))
-	out[5] = uint64(
-		(in[14]-in[13])>>12 |
-			((in[15] - in[14]) << 10) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 54))
-	out[6] = uint64(
-		(in[17]-in[16])>>10 |
-			((in[18] - in[17]) << 12) |
-			((in[19] - in[18]) << 34) |
-			((in[20] - in[19]) << 56))
-	out[7] = uint64(
-		(in[20]-in[19])>>8 |
-			((in[21] - in[20]) << 14) |
-			((in[22] - in[21]) << 36) |
-			((in[23] - in[22]) << 58))
-	out[8] = uint64(
-		(in[23]-in[22])>>6 |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 38) |
-			((in[26] - in[25]) << 60))
-	out[9] = uint64(
-		(in[26]-in[25])>>4 |
-			((in[27] - in[26]) << 18) |
-			((in[28] - in[27]) << 40) |
-			((in[29] - in[28]) << 62))
-	out[10] = uint64(
-		(in[29]-in[28])>>2 |
-			((in[30] - in[29]) << 20) |
-			((in[31] - in[30]) << 42))
-	out[11] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 22) |
-			((in[34] - in[33]) << 44))
-	out[12] = uint64(
-		(in[34]-in[33])>>20 |
-			((in[35] - in[34]) << 2) |
-			((in[36] - in[35]) << 24) |
-			((in[37] - in[36]) << 46))
-	out[13] = uint64(
-		(in[37]-in[36])>>18 |
-			((in[38] - in[37]) << 4) |
-			((in[39] - in[38]) << 26) |
-			((in[40] - in[39]) << 48))
-	out[14] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 6) |
-			((in[42] - in[41]) << 28) |
-			((in[43] - in[42]) << 50))
-	out[15] = uint64(
-		(in[43]-in[42])>>14 |
-			((in[44] - in[43]) << 8) |
-			((in[45] - in[44]) << 30) |
-			((in[46] - in[45]) << 52))
-	out[16] = uint64(
-		(in[46]-in[45])>>12 |
-			((in[47] - in[46]) << 10) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 54))
-	out[17] = uint64(
-		(in[49]-in[48])>>10 |
-			((in[50] - in[49]) << 12) |
-			((in[51] - in[50]) << 34) |
-			((in[52] - in[51]) << 56))
-	out[18] = uint64(
-		(in[52]-in[51])>>8 |
-			((in[53] - in[52]) << 14) |
-			((in[54] - in[53]) << 36) |
-			((in[55] - in[54]) << 58))
-	out[19] = uint64(
-		(in[55]-in[54])>>6 |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 38) |
-			((in[58] - in[57]) << 60))
-	out[20] = uint64(
-		(in[58]-in[57])>>4 |
-			((in[59] - in[58]) << 18) |
-			((in[60] - in[59]) << 40) |
-			((in[61] - in[60]) << 62))
-	out[21] = uint64(
-		(in[61]-in[60])>>2 |
-			((in[62] - in[61]) << 20) |
-			((in[63] - in[62]) << 42))
+func deltapack64_22[T uint64 | int64](out *[22]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<22)|((in[2]-in[1])<<44)), uint64((in[2]-in[1])>>20|((in[3]-in[2])<<2)|((in[4]-in[3])<<24)|((in[5]-in[4])<<46)), uint64((in[5]-in[4])>>18|((in[6]-in[5])<<4)|((in[7]-in[6])<<26)|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<6)|((in[10]-in[9])<<28)|((in[11]-in[10])<<50)), uint64((in[11]-in[10])>>14|((in[12]-in[11])<<8)|((in[13]-in[12])<<30)|((in[14]-in[13])<<52)), uint64((in[14]-in[13])>>12|((in[15]-in[14])<<10)|((in[16]-in[15])<<32)|((in[17]-in[16])<<54)), uint64((in[17]-in[16])>>10|((in[18]-in[17])<<12)|((in[19]-in[18])<<34)|((in[20]-in[19])<<56)), uint64((in[20]-in[19])>>8|((in[21]-in[20])<<14)|((in[22]-in[21])<<36)|((in[23]-in[22])<<58)), uint64((in[23]-in[22])>>6|((in[24]-in[23])<<16)|((in[25]-in[24])<<38)|((in[26]-in[25])<<60)), uint64((in[26]-in[25])>>4|((in[27]-in[26])<<18)|((in[28]-in[27])<<40)|((in[29]-in[28])<<62)), uint64((in[29]-in[28])>>2|((in[30]-in[29])<<20)|((in[31]-in[30])<<42)), uint64(in[32]-in[31]|((in[33]-in[32])<<22)|((in[34]-in[33])<<44)), uint64((in[34]-in[33])>>20|((in[35]-in[34])<<2)|((in[36]-in[35])<<24)|((in[37]-in[36])<<46)), uint64((in[37]-in[36])>>18|((in[38]-in[37])<<4)|((in[39]-in[38])<<26)|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<6)|((in[42]-in[41])<<28)|((in[43]-in[42])<<50)), uint64((in[43]-in[42])>>14|((in[44]-in[43])<<8)|((in[45]-in[44])<<30)|((in[46]-in[45])<<52)), uint64((in[46]-in[45])>>12|((in[47]-in[46])<<10)|((in[48]-in[47])<<32)|((in[49]-in[48])<<54)), uint64((in[49]-in[48])>>10|((in[50]-in[49])<<12)|((in[51]-in[50])<<34)|((in[52]-in[51])<<56)), uint64((in[52]-in[51])>>8|((in[53]-in[52])<<14)|((in[54]-in[53])<<36)|((in[55]-in[54])<<58)), uint64((in[55]-in[54])>>6|((in[56]-in[55])<<16)|((in[57]-in[56])<<38)|((in[58]-in[57])<<60)), uint64((in[58]-in[57])>>4|((in[59]-in[58])<<18)|((in[60]-in[59])<<40)|((in[61]-in[60])<<62)), uint64((in[61]-in[60])>>2|((in[62]-in[61])<<20)|((in[63]-in[62])<<42))
 }
-func deltapack64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]uint64, ntz int) {
+func deltapack64_ntz_22[T uint64 | int64](out *[22]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -4643,118 +3088,11 @@ func deltapack64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]uint
 			((in[63] - in[62]) >> ntz << 42))
 }
 
-func deltapack64_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 23) |
-			((in[2] - in[1]) << 46))
-	out[1] = uint64(
-		(in[2]-in[1])>>18 |
-			((in[3] - in[2]) << 5) |
-			((in[4] - in[3]) << 28) |
-			((in[5] - in[4]) << 51))
-	out[2] = uint64(
-		(in[5]-in[4])>>13 |
-			((in[6] - in[5]) << 10) |
-			((in[7] - in[6]) << 33) |
-			((in[8] - in[7]) << 56))
-	out[3] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 15) |
-			((in[10] - in[9]) << 38) |
-			((in[11] - in[10]) << 61))
-	out[4] = uint64(
-		(in[11]-in[10])>>3 |
-			((in[12] - in[11]) << 20) |
-			((in[13] - in[12]) << 43))
-	out[5] = uint64(
-		(in[13]-in[12])>>21 |
-			((in[14] - in[13]) << 2) |
-			((in[15] - in[14]) << 25) |
-			((in[16] - in[15]) << 48))
-	out[6] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 7) |
-			((in[18] - in[17]) << 30) |
-			((in[19] - in[18]) << 53))
-	out[7] = uint64(
-		(in[19]-in[18])>>11 |
-			((in[20] - in[19]) << 12) |
-			((in[21] - in[20]) << 35) |
-			((in[22] - in[21]) << 58))
-	out[8] = uint64(
-		(in[22]-in[21])>>6 |
-			((in[23] - in[22]) << 17) |
-			((in[24] - in[23]) << 40) |
-			((in[25] - in[24]) << 63))
-	out[9] = uint64(
-		(in[25]-in[24])>>1 |
-			((in[26] - in[25]) << 22) |
-			((in[27] - in[26]) << 45))
-	out[10] = uint64(
-		(in[27]-in[26])>>19 |
-			((in[28] - in[27]) << 4) |
-			((in[29] - in[28]) << 27) |
-			((in[30] - in[29]) << 50))
-	out[11] = uint64(
-		(in[30]-in[29])>>14 |
-			((in[31] - in[30]) << 9) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 55))
-	out[12] = uint64(
-		(in[33]-in[32])>>9 |
-			((in[34] - in[33]) << 14) |
-			((in[35] - in[34]) << 37) |
-			((in[36] - in[35]) << 60))
-	out[13] = uint64(
-		(in[36]-in[35])>>4 |
-			((in[37] - in[36]) << 19) |
-			((in[38] - in[37]) << 42))
-	out[14] = uint64(
-		(in[38]-in[37])>>22 |
-			((in[39] - in[38]) << 1) |
-			((in[40] - in[39]) << 24) |
-			((in[41] - in[40]) << 47))
-	out[15] = uint64(
-		(in[41]-in[40])>>17 |
-			((in[42] - in[41]) << 6) |
-			((in[43] - in[42]) << 29) |
-			((in[44] - in[43]) << 52))
-	out[16] = uint64(
-		(in[44]-in[43])>>12 |
-			((in[45] - in[44]) << 11) |
-			((in[46] - in[45]) << 34) |
-			((in[47] - in[46]) << 57))
-	out[17] = uint64(
-		(in[47]-in[46])>>7 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 39) |
-			((in[50] - in[49]) << 62))
-	out[18] = uint64(
-		(in[50]-in[49])>>2 |
-			((in[51] - in[50]) << 21) |
-			((in[52] - in[51]) << 44))
-	out[19] = uint64(
-		(in[52]-in[51])>>20 |
-			((in[53] - in[52]) << 3) |
-			((in[54] - in[53]) << 26) |
-			((in[55] - in[54]) << 49))
-	out[20] = uint64(
-		(in[55]-in[54])>>15 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 31) |
-			((in[58] - in[57]) << 54))
-	out[21] = uint64(
-		(in[58]-in[57])>>10 |
-			((in[59] - in[58]) << 13) |
-			((in[60] - in[59]) << 36) |
-			((in[61] - in[60]) << 59))
-	out[22] = uint64(
-		(in[61]-in[60])>>5 |
-			((in[62] - in[61]) << 18) |
-			((in[63] - in[62]) << 41))
+func deltapack64_23[T uint64 | int64](out *[23]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<23)|((in[2]-in[1])<<46)), uint64((in[2]-in[1])>>18|((in[3]-in[2])<<5)|((in[4]-in[3])<<28)|((in[5]-in[4])<<51)), uint64((in[5]-in[4])>>13|((in[6]-in[5])<<10)|((in[7]-in[6])<<33)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<15)|((in[10]-in[9])<<38)|((in[11]-in[10])<<61)), uint64((in[11]-in[10])>>3|((in[12]-in[11])<<20)|((in[13]-in[12])<<43)), uint64((in[13]-in[12])>>21|((in[14]-in[13])<<2)|((in[15]-in[14])<<25)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<7)|((in[18]-in[17])<<30)|((in[19]-in[18])<<53)), uint64((in[19]-in[18])>>11|((in[20]-in[19])<<12)|((in[21]-in[20])<<35)|((in[22]-in[21])<<58)), uint64((in[22]-in[21])>>6|((in[23]-in[22])<<17)|((in[24]-in[23])<<40)|((in[25]-in[24])<<63)), uint64((in[25]-in[24])>>1|((in[26]-in[25])<<22)|((in[27]-in[26])<<45)), uint64((in[27]-in[26])>>19|((in[28]-in[27])<<4)|((in[29]-in[28])<<27)|((in[30]-in[29])<<50)), uint64((in[30]-in[29])>>14|((in[31]-in[30])<<9)|((in[32]-in[31])<<32)|((in[33]-in[32])<<55)), uint64((in[33]-in[32])>>9|((in[34]-in[33])<<14)|((in[35]-in[34])<<37)|((in[36]-in[35])<<60)), uint64((in[36]-in[35])>>4|((in[37]-in[36])<<19)|((in[38]-in[37])<<42)), uint64((in[38]-in[37])>>22|((in[39]-in[38])<<1)|((in[40]-in[39])<<24)|((in[41]-in[40])<<47)), uint64((in[41]-in[40])>>17|((in[42]-in[41])<<6)|((in[43]-in[42])<<29)|((in[44]-in[43])<<52)), uint64((in[44]-in[43])>>12|((in[45]-in[44])<<11)|((in[46]-in[45])<<34)|((in[47]-in[46])<<57)), uint64((in[47]-in[46])>>7|((in[48]-in[47])<<16)|((in[49]-in[48])<<39)|((in[50]-in[49])<<62)), uint64((in[50]-in[49])>>2|((in[51]-in[50])<<21)|((in[52]-in[51])<<44)), uint64((in[52]-in[51])>>20|((in[53]-in[52])<<3)|((in[54]-in[53])<<26)|((in[55]-in[54])<<49)), uint64((in[55]-in[54])>>15|((in[56]-in[55])<<8)|((in[57]-in[56])<<31)|((in[58]-in[57])<<54)), uint64((in[58]-in[57])>>10|((in[59]-in[58])<<13)|((in[60]-in[59])<<36)|((in[61]-in[60])<<59)), uint64((in[61]-in[60])>>5|((in[62]-in[61])<<18)|((in[63]-in[62])<<41))
 }
-func deltapack64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]uint64, ntz int) {
+func deltapack64_ntz_23[T uint64 | int64](out *[23]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -4867,113 +3205,11 @@ func deltapack64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]uint
 			((in[63] - in[62]) >> ntz << 41))
 }
 
-func deltapack64_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 24) |
-			((in[2] - in[1]) << 48))
-	out[1] = uint64(
-		(in[2]-in[1])>>16 |
-			((in[3] - in[2]) << 8) |
-			((in[4] - in[3]) << 32) |
-			((in[5] - in[4]) << 56))
-	out[2] = uint64(
-		(in[5]-in[4])>>8 |
-			((in[6] - in[5]) << 16) |
-			((in[7] - in[6]) << 40))
-	out[3] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 24) |
-			((in[10] - in[9]) << 48))
-	out[4] = uint64(
-		(in[10]-in[9])>>16 |
-			((in[11] - in[10]) << 8) |
-			((in[12] - in[11]) << 32) |
-			((in[13] - in[12]) << 56))
-	out[5] = uint64(
-		(in[13]-in[12])>>8 |
-			((in[14] - in[13]) << 16) |
-			((in[15] - in[14]) << 40))
-	out[6] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 24) |
-			((in[18] - in[17]) << 48))
-	out[7] = uint64(
-		(in[18]-in[17])>>16 |
-			((in[19] - in[18]) << 8) |
-			((in[20] - in[19]) << 32) |
-			((in[21] - in[20]) << 56))
-	out[8] = uint64(
-		(in[21]-in[20])>>8 |
-			((in[22] - in[21]) << 16) |
-			((in[23] - in[22]) << 40))
-	out[9] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 24) |
-			((in[26] - in[25]) << 48))
-	out[10] = uint64(
-		(in[26]-in[25])>>16 |
-			((in[27] - in[26]) << 8) |
-			((in[28] - in[27]) << 32) |
-			((in[29] - in[28]) << 56))
-	out[11] = uint64(
-		(in[29]-in[28])>>8 |
-			((in[30] - in[29]) << 16) |
-			((in[31] - in[30]) << 40))
-	out[12] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 24) |
-			((in[34] - in[33]) << 48))
-	out[13] = uint64(
-		(in[34]-in[33])>>16 |
-			((in[35] - in[34]) << 8) |
-			((in[36] - in[35]) << 32) |
-			((in[37] - in[36]) << 56))
-	out[14] = uint64(
-		(in[37]-in[36])>>8 |
-			((in[38] - in[37]) << 16) |
-			((in[39] - in[38]) << 40))
-	out[15] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 24) |
-			((in[42] - in[41]) << 48))
-	out[16] = uint64(
-		(in[42]-in[41])>>16 |
-			((in[43] - in[42]) << 8) |
-			((in[44] - in[43]) << 32) |
-			((in[45] - in[44]) << 56))
-	out[17] = uint64(
-		(in[45]-in[44])>>8 |
-			((in[46] - in[45]) << 16) |
-			((in[47] - in[46]) << 40))
-	out[18] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 24) |
-			((in[50] - in[49]) << 48))
-	out[19] = uint64(
-		(in[50]-in[49])>>16 |
-			((in[51] - in[50]) << 8) |
-			((in[52] - in[51]) << 32) |
-			((in[53] - in[52]) << 56))
-	out[20] = uint64(
-		(in[53]-in[52])>>8 |
-			((in[54] - in[53]) << 16) |
-			((in[55] - in[54]) << 40))
-	out[21] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 24) |
-			((in[58] - in[57]) << 48))
-	out[22] = uint64(
-		(in[58]-in[57])>>16 |
-			((in[59] - in[58]) << 8) |
-			((in[60] - in[59]) << 32) |
-			((in[61] - in[60]) << 56))
-	out[23] = uint64(
-		(in[61]-in[60])>>8 |
-			((in[62] - in[61]) << 16) |
-			((in[63] - in[62]) << 40))
+func deltapack64_24[T uint64 | int64](out *[24]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<24)|((in[2]-in[1])<<48)), uint64((in[2]-in[1])>>16|((in[3]-in[2])<<8)|((in[4]-in[3])<<32)|((in[5]-in[4])<<56)), uint64((in[5]-in[4])>>8|((in[6]-in[5])<<16)|((in[7]-in[6])<<40)), uint64(in[8]-in[7]|((in[9]-in[8])<<24)|((in[10]-in[9])<<48)), uint64((in[10]-in[9])>>16|((in[11]-in[10])<<8)|((in[12]-in[11])<<32)|((in[13]-in[12])<<56)), uint64((in[13]-in[12])>>8|((in[14]-in[13])<<16)|((in[15]-in[14])<<40)), uint64(in[16]-in[15]|((in[17]-in[16])<<24)|((in[18]-in[17])<<48)), uint64((in[18]-in[17])>>16|((in[19]-in[18])<<8)|((in[20]-in[19])<<32)|((in[21]-in[20])<<56)), uint64((in[21]-in[20])>>8|((in[22]-in[21])<<16)|((in[23]-in[22])<<40)), uint64(in[24]-in[23]|((in[25]-in[24])<<24)|((in[26]-in[25])<<48)), uint64((in[26]-in[25])>>16|((in[27]-in[26])<<8)|((in[28]-in[27])<<32)|((in[29]-in[28])<<56)), uint64((in[29]-in[28])>>8|((in[30]-in[29])<<16)|((in[31]-in[30])<<40)), uint64(in[32]-in[31]|((in[33]-in[32])<<24)|((in[34]-in[33])<<48)), uint64((in[34]-in[33])>>16|((in[35]-in[34])<<8)|((in[36]-in[35])<<32)|((in[37]-in[36])<<56)), uint64((in[37]-in[36])>>8|((in[38]-in[37])<<16)|((in[39]-in[38])<<40)), uint64(in[40]-in[39]|((in[41]-in[40])<<24)|((in[42]-in[41])<<48)), uint64((in[42]-in[41])>>16|((in[43]-in[42])<<8)|((in[44]-in[43])<<32)|((in[45]-in[44])<<56)), uint64((in[45]-in[44])>>8|((in[46]-in[45])<<16)|((in[47]-in[46])<<40)), uint64(in[48]-in[47]|((in[49]-in[48])<<24)|((in[50]-in[49])<<48)), uint64((in[50]-in[49])>>16|((in[51]-in[50])<<8)|((in[52]-in[51])<<32)|((in[53]-in[52])<<56)), uint64((in[53]-in[52])>>8|((in[54]-in[53])<<16)|((in[55]-in[54])<<40)), uint64(in[56]-in[55]|((in[57]-in[56])<<24)|((in[58]-in[57])<<48)), uint64((in[58]-in[57])>>16|((in[59]-in[58])<<8)|((in[60]-in[59])<<32)|((in[61]-in[60])<<56)), uint64((in[61]-in[60])>>8|((in[62]-in[61])<<16)|((in[63]-in[62])<<40))
 }
-func deltapack64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]uint64, ntz int) {
+func deltapack64_ntz_24[T uint64 | int64](out *[24]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -5081,122 +3317,11 @@ func deltapack64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]uint
 			((in[63] - in[62]) >> ntz << 40))
 }
 
-func deltapack64_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 25) |
-			((in[2] - in[1]) << 50))
-	out[1] = uint64(
-		(in[2]-in[1])>>14 |
-			((in[3] - in[2]) << 11) |
-			((in[4] - in[3]) << 36) |
-			((in[5] - in[4]) << 61))
-	out[2] = uint64(
-		(in[5]-in[4])>>3 |
-			((in[6] - in[5]) << 22) |
-			((in[7] - in[6]) << 47))
-	out[3] = uint64(
-		(in[7]-in[6])>>17 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 33) |
-			((in[10] - in[9]) << 58))
-	out[4] = uint64(
-		(in[10]-in[9])>>6 |
-			((in[11] - in[10]) << 19) |
-			((in[12] - in[11]) << 44))
-	out[5] = uint64(
-		(in[12]-in[11])>>20 |
-			((in[13] - in[12]) << 5) |
-			((in[14] - in[13]) << 30) |
-			((in[15] - in[14]) << 55))
-	out[6] = uint64(
-		(in[15]-in[14])>>9 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 41))
-	out[7] = uint64(
-		(in[17]-in[16])>>23 |
-			((in[18] - in[17]) << 2) |
-			((in[19] - in[18]) << 27) |
-			((in[20] - in[19]) << 52))
-	out[8] = uint64(
-		(in[20]-in[19])>>12 |
-			((in[21] - in[20]) << 13) |
-			((in[22] - in[21]) << 38) |
-			((in[23] - in[22]) << 63))
-	out[9] = uint64(
-		(in[23]-in[22])>>1 |
-			((in[24] - in[23]) << 24) |
-			((in[25] - in[24]) << 49))
-	out[10] = uint64(
-		(in[25]-in[24])>>15 |
-			((in[26] - in[25]) << 10) |
-			((in[27] - in[26]) << 35) |
-			((in[28] - in[27]) << 60))
-	out[11] = uint64(
-		(in[28]-in[27])>>4 |
-			((in[29] - in[28]) << 21) |
-			((in[30] - in[29]) << 46))
-	out[12] = uint64(
-		(in[30]-in[29])>>18 |
-			((in[31] - in[30]) << 7) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 57))
-	out[13] = uint64(
-		(in[33]-in[32])>>7 |
-			((in[34] - in[33]) << 18) |
-			((in[35] - in[34]) << 43))
-	out[14] = uint64(
-		(in[35]-in[34])>>21 |
-			((in[36] - in[35]) << 4) |
-			((in[37] - in[36]) << 29) |
-			((in[38] - in[37]) << 54))
-	out[15] = uint64(
-		(in[38]-in[37])>>10 |
-			((in[39] - in[38]) << 15) |
-			((in[40] - in[39]) << 40))
-	out[16] = uint64(
-		(in[40]-in[39])>>24 |
-			((in[41] - in[40]) << 1) |
-			((in[42] - in[41]) << 26) |
-			((in[43] - in[42]) << 51))
-	out[17] = uint64(
-		(in[43]-in[42])>>13 |
-			((in[44] - in[43]) << 12) |
-			((in[45] - in[44]) << 37) |
-			((in[46] - in[45]) << 62))
-	out[18] = uint64(
-		(in[46]-in[45])>>2 |
-			((in[47] - in[46]) << 23) |
-			((in[48] - in[47]) << 48))
-	out[19] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 9) |
-			((in[50] - in[49]) << 34) |
-			((in[51] - in[50]) << 59))
-	out[20] = uint64(
-		(in[51]-in[50])>>5 |
-			((in[52] - in[51]) << 20) |
-			((in[53] - in[52]) << 45))
-	out[21] = uint64(
-		(in[53]-in[52])>>19 |
-			((in[54] - in[53]) << 6) |
-			((in[55] - in[54]) << 31) |
-			((in[56] - in[55]) << 56))
-	out[22] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 17) |
-			((in[58] - in[57]) << 42))
-	out[23] = uint64(
-		(in[58]-in[57])>>22 |
-			((in[59] - in[58]) << 3) |
-			((in[60] - in[59]) << 28) |
-			((in[61] - in[60]) << 53))
-	out[24] = uint64(
-		(in[61]-in[60])>>11 |
-			((in[62] - in[61]) << 14) |
-			((in[63] - in[62]) << 39))
+func deltapack64_25[T uint64 | int64](out *[25]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<25)|((in[2]-in[1])<<50)), uint64((in[2]-in[1])>>14|((in[3]-in[2])<<11)|((in[4]-in[3])<<36)|((in[5]-in[4])<<61)), uint64((in[5]-in[4])>>3|((in[6]-in[5])<<22)|((in[7]-in[6])<<47)), uint64((in[7]-in[6])>>17|((in[8]-in[7])<<8)|((in[9]-in[8])<<33)|((in[10]-in[9])<<58)), uint64((in[10]-in[9])>>6|((in[11]-in[10])<<19)|((in[12]-in[11])<<44)), uint64((in[12]-in[11])>>20|((in[13]-in[12])<<5)|((in[14]-in[13])<<30)|((in[15]-in[14])<<55)), uint64((in[15]-in[14])>>9|((in[16]-in[15])<<16)|((in[17]-in[16])<<41)), uint64((in[17]-in[16])>>23|((in[18]-in[17])<<2)|((in[19]-in[18])<<27)|((in[20]-in[19])<<52)), uint64((in[20]-in[19])>>12|((in[21]-in[20])<<13)|((in[22]-in[21])<<38)|((in[23]-in[22])<<63)), uint64((in[23]-in[22])>>1|((in[24]-in[23])<<24)|((in[25]-in[24])<<49)), uint64((in[25]-in[24])>>15|((in[26]-in[25])<<10)|((in[27]-in[26])<<35)|((in[28]-in[27])<<60)), uint64((in[28]-in[27])>>4|((in[29]-in[28])<<21)|((in[30]-in[29])<<46)), uint64((in[30]-in[29])>>18|((in[31]-in[30])<<7)|((in[32]-in[31])<<32)|((in[33]-in[32])<<57)), uint64((in[33]-in[32])>>7|((in[34]-in[33])<<18)|((in[35]-in[34])<<43)), uint64((in[35]-in[34])>>21|((in[36]-in[35])<<4)|((in[37]-in[36])<<29)|((in[38]-in[37])<<54)), uint64((in[38]-in[37])>>10|((in[39]-in[38])<<15)|((in[40]-in[39])<<40)), uint64((in[40]-in[39])>>24|((in[41]-in[40])<<1)|((in[42]-in[41])<<26)|((in[43]-in[42])<<51)), uint64((in[43]-in[42])>>13|((in[44]-in[43])<<12)|((in[45]-in[44])<<37)|((in[46]-in[45])<<62)), uint64((in[46]-in[45])>>2|((in[47]-in[46])<<23)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<9)|((in[50]-in[49])<<34)|((in[51]-in[50])<<59)), uint64((in[51]-in[50])>>5|((in[52]-in[51])<<20)|((in[53]-in[52])<<45)), uint64((in[53]-in[52])>>19|((in[54]-in[53])<<6)|((in[55]-in[54])<<31)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<17)|((in[58]-in[57])<<42)), uint64((in[58]-in[57])>>22|((in[59]-in[58])<<3)|((in[60]-in[59])<<28)|((in[61]-in[60])<<53)), uint64((in[61]-in[60])>>11|((in[62]-in[61])<<14)|((in[63]-in[62])<<39))
 }
-func deltapack64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]uint64, ntz int) {
+func deltapack64_ntz_25[T uint64 | int64](out *[25]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -5313,123 +3438,11 @@ func deltapack64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]uint
 			((in[63] - in[62]) >> ntz << 39))
 }
 
-func deltapack64_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 26) |
-			((in[2] - in[1]) << 52))
-	out[1] = uint64(
-		(in[2]-in[1])>>12 |
-			((in[3] - in[2]) << 14) |
-			((in[4] - in[3]) << 40))
-	out[2] = uint64(
-		(in[4]-in[3])>>24 |
-			((in[5] - in[4]) << 2) |
-			((in[6] - in[5]) << 28) |
-			((in[7] - in[6]) << 54))
-	out[3] = uint64(
-		(in[7]-in[6])>>10 |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 42))
-	out[4] = uint64(
-		(in[9]-in[8])>>22 |
-			((in[10] - in[9]) << 4) |
-			((in[11] - in[10]) << 30) |
-			((in[12] - in[11]) << 56))
-	out[5] = uint64(
-		(in[12]-in[11])>>8 |
-			((in[13] - in[12]) << 18) |
-			((in[14] - in[13]) << 44))
-	out[6] = uint64(
-		(in[14]-in[13])>>20 |
-			((in[15] - in[14]) << 6) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 58))
-	out[7] = uint64(
-		(in[17]-in[16])>>6 |
-			((in[18] - in[17]) << 20) |
-			((in[19] - in[18]) << 46))
-	out[8] = uint64(
-		(in[19]-in[18])>>18 |
-			((in[20] - in[19]) << 8) |
-			((in[21] - in[20]) << 34) |
-			((in[22] - in[21]) << 60))
-	out[9] = uint64(
-		(in[22]-in[21])>>4 |
-			((in[23] - in[22]) << 22) |
-			((in[24] - in[23]) << 48))
-	out[10] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 10) |
-			((in[26] - in[25]) << 36) |
-			((in[27] - in[26]) << 62))
-	out[11] = uint64(
-		(in[27]-in[26])>>2 |
-			((in[28] - in[27]) << 24) |
-			((in[29] - in[28]) << 50))
-	out[12] = uint64(
-		(in[29]-in[28])>>14 |
-			((in[30] - in[29]) << 12) |
-			((in[31] - in[30]) << 38))
-	out[13] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 26) |
-			((in[34] - in[33]) << 52))
-	out[14] = uint64(
-		(in[34]-in[33])>>12 |
-			((in[35] - in[34]) << 14) |
-			((in[36] - in[35]) << 40))
-	out[15] = uint64(
-		(in[36]-in[35])>>24 |
-			((in[37] - in[36]) << 2) |
-			((in[38] - in[37]) << 28) |
-			((in[39] - in[38]) << 54))
-	out[16] = uint64(
-		(in[39]-in[38])>>10 |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 42))
-	out[17] = uint64(
-		(in[41]-in[40])>>22 |
-			((in[42] - in[41]) << 4) |
-			((in[43] - in[42]) << 30) |
-			((in[44] - in[43]) << 56))
-	out[18] = uint64(
-		(in[44]-in[43])>>8 |
-			((in[45] - in[44]) << 18) |
-			((in[46] - in[45]) << 44))
-	out[19] = uint64(
-		(in[46]-in[45])>>20 |
-			((in[47] - in[46]) << 6) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 58))
-	out[20] = uint64(
-		(in[49]-in[48])>>6 |
-			((in[50] - in[49]) << 20) |
-			((in[51] - in[50]) << 46))
-	out[21] = uint64(
-		(in[51]-in[50])>>18 |
-			((in[52] - in[51]) << 8) |
-			((in[53] - in[52]) << 34) |
-			((in[54] - in[53]) << 60))
-	out[22] = uint64(
-		(in[54]-in[53])>>4 |
-			((in[55] - in[54]) << 22) |
-			((in[56] - in[55]) << 48))
-	out[23] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 10) |
-			((in[58] - in[57]) << 36) |
-			((in[59] - in[58]) << 62))
-	out[24] = uint64(
-		(in[59]-in[58])>>2 |
-			((in[60] - in[59]) << 24) |
-			((in[61] - in[60]) << 50))
-	out[25] = uint64(
-		(in[61]-in[60])>>14 |
-			((in[62] - in[61]) << 12) |
-			((in[63] - in[62]) << 38))
+func deltapack64_26[T uint64 | int64](out *[26]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<26)|((in[2]-in[1])<<52)), uint64((in[2]-in[1])>>12|((in[3]-in[2])<<14)|((in[4]-in[3])<<40)), uint64((in[4]-in[3])>>24|((in[5]-in[4])<<2)|((in[6]-in[5])<<28)|((in[7]-in[6])<<54)), uint64((in[7]-in[6])>>10|((in[8]-in[7])<<16)|((in[9]-in[8])<<42)), uint64((in[9]-in[8])>>22|((in[10]-in[9])<<4)|((in[11]-in[10])<<30)|((in[12]-in[11])<<56)), uint64((in[12]-in[11])>>8|((in[13]-in[12])<<18)|((in[14]-in[13])<<44)), uint64((in[14]-in[13])>>20|((in[15]-in[14])<<6)|((in[16]-in[15])<<32)|((in[17]-in[16])<<58)), uint64((in[17]-in[16])>>6|((in[18]-in[17])<<20)|((in[19]-in[18])<<46)), uint64((in[19]-in[18])>>18|((in[20]-in[19])<<8)|((in[21]-in[20])<<34)|((in[22]-in[21])<<60)), uint64((in[22]-in[21])>>4|((in[23]-in[22])<<22)|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<10)|((in[26]-in[25])<<36)|((in[27]-in[26])<<62)), uint64((in[27]-in[26])>>2|((in[28]-in[27])<<24)|((in[29]-in[28])<<50)), uint64((in[29]-in[28])>>14|((in[30]-in[29])<<12)|((in[31]-in[30])<<38)), uint64(in[32]-in[31]|((in[33]-in[32])<<26)|((in[34]-in[33])<<52)), uint64((in[34]-in[33])>>12|((in[35]-in[34])<<14)|((in[36]-in[35])<<40)), uint64((in[36]-in[35])>>24|((in[37]-in[36])<<2)|((in[38]-in[37])<<28)|((in[39]-in[38])<<54)), uint64((in[39]-in[38])>>10|((in[40]-in[39])<<16)|((in[41]-in[40])<<42)), uint64((in[41]-in[40])>>22|((in[42]-in[41])<<4)|((in[43]-in[42])<<30)|((in[44]-in[43])<<56)), uint64((in[44]-in[43])>>8|((in[45]-in[44])<<18)|((in[46]-in[45])<<44)), uint64((in[46]-in[45])>>20|((in[47]-in[46])<<6)|((in[48]-in[47])<<32)|((in[49]-in[48])<<58)), uint64((in[49]-in[48])>>6|((in[50]-in[49])<<20)|((in[51]-in[50])<<46)), uint64((in[51]-in[50])>>18|((in[52]-in[51])<<8)|((in[53]-in[52])<<34)|((in[54]-in[53])<<60)), uint64((in[54]-in[53])>>4|((in[55]-in[54])<<22)|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<10)|((in[58]-in[57])<<36)|((in[59]-in[58])<<62)), uint64((in[59]-in[58])>>2|((in[60]-in[59])<<24)|((in[61]-in[60])<<50)), uint64((in[61]-in[60])>>14|((in[62]-in[61])<<12)|((in[63]-in[62])<<38))
 }
-func deltapack64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]uint64, ntz int) {
+func deltapack64_ntz_26[T uint64 | int64](out *[26]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -5547,126 +3560,11 @@ func deltapack64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]uint
 			((in[63] - in[62]) >> ntz << 38))
 }
 
-func deltapack64_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 27) |
-			((in[2] - in[1]) << 54))
-	out[1] = uint64(
-		(in[2]-in[1])>>10 |
-			((in[3] - in[2]) << 17) |
-			((in[4] - in[3]) << 44))
-	out[2] = uint64(
-		(in[4]-in[3])>>20 |
-			((in[5] - in[4]) << 7) |
-			((in[6] - in[5]) << 34) |
-			((in[7] - in[6]) << 61))
-	out[3] = uint64(
-		(in[7]-in[6])>>3 |
-			((in[8] - in[7]) << 24) |
-			((in[9] - in[8]) << 51))
-	out[4] = uint64(
-		(in[9]-in[8])>>13 |
-			((in[10] - in[9]) << 14) |
-			((in[11] - in[10]) << 41))
-	out[5] = uint64(
-		(in[11]-in[10])>>23 |
-			((in[12] - in[11]) << 4) |
-			((in[13] - in[12]) << 31) |
-			((in[14] - in[13]) << 58))
-	out[6] = uint64(
-		(in[14]-in[13])>>6 |
-			((in[15] - in[14]) << 21) |
-			((in[16] - in[15]) << 48))
-	out[7] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 11) |
-			((in[18] - in[17]) << 38))
-	out[8] = uint64(
-		(in[18]-in[17])>>26 |
-			((in[19] - in[18]) << 1) |
-			((in[20] - in[19]) << 28) |
-			((in[21] - in[20]) << 55))
-	out[9] = uint64(
-		(in[21]-in[20])>>9 |
-			((in[22] - in[21]) << 18) |
-			((in[23] - in[22]) << 45))
-	out[10] = uint64(
-		(in[23]-in[22])>>19 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 35) |
-			((in[26] - in[25]) << 62))
-	out[11] = uint64(
-		(in[26]-in[25])>>2 |
-			((in[27] - in[26]) << 25) |
-			((in[28] - in[27]) << 52))
-	out[12] = uint64(
-		(in[28]-in[27])>>12 |
-			((in[29] - in[28]) << 15) |
-			((in[30] - in[29]) << 42))
-	out[13] = uint64(
-		(in[30]-in[29])>>22 |
-			((in[31] - in[30]) << 5) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 59))
-	out[14] = uint64(
-		(in[33]-in[32])>>5 |
-			((in[34] - in[33]) << 22) |
-			((in[35] - in[34]) << 49))
-	out[15] = uint64(
-		(in[35]-in[34])>>15 |
-			((in[36] - in[35]) << 12) |
-			((in[37] - in[36]) << 39))
-	out[16] = uint64(
-		(in[37]-in[36])>>25 |
-			((in[38] - in[37]) << 2) |
-			((in[39] - in[38]) << 29) |
-			((in[40] - in[39]) << 56))
-	out[17] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 19) |
-			((in[42] - in[41]) << 46))
-	out[18] = uint64(
-		(in[42]-in[41])>>18 |
-			((in[43] - in[42]) << 9) |
-			((in[44] - in[43]) << 36) |
-			((in[45] - in[44]) << 63))
-	out[19] = uint64(
-		(in[45]-in[44])>>1 |
-			((in[46] - in[45]) << 26) |
-			((in[47] - in[46]) << 53))
-	out[20] = uint64(
-		(in[47]-in[46])>>11 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 43))
-	out[21] = uint64(
-		(in[49]-in[48])>>21 |
-			((in[50] - in[49]) << 6) |
-			((in[51] - in[50]) << 33) |
-			((in[52] - in[51]) << 60))
-	out[22] = uint64(
-		(in[52]-in[51])>>4 |
-			((in[53] - in[52]) << 23) |
-			((in[54] - in[53]) << 50))
-	out[23] = uint64(
-		(in[54]-in[53])>>14 |
-			((in[55] - in[54]) << 13) |
-			((in[56] - in[55]) << 40))
-	out[24] = uint64(
-		(in[56]-in[55])>>24 |
-			((in[57] - in[56]) << 3) |
-			((in[58] - in[57]) << 30) |
-			((in[59] - in[58]) << 57))
-	out[25] = uint64(
-		(in[59]-in[58])>>7 |
-			((in[60] - in[59]) << 20) |
-			((in[61] - in[60]) << 47))
-	out[26] = uint64(
-		(in[61]-in[60])>>17 |
-			((in[62] - in[61]) << 10) |
-			((in[63] - in[62]) << 37))
+func deltapack64_27[T uint64 | int64](out *[27]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<27)|((in[2]-in[1])<<54)), uint64((in[2]-in[1])>>10|((in[3]-in[2])<<17)|((in[4]-in[3])<<44)), uint64((in[4]-in[3])>>20|((in[5]-in[4])<<7)|((in[6]-in[5])<<34)|((in[7]-in[6])<<61)), uint64((in[7]-in[6])>>3|((in[8]-in[7])<<24)|((in[9]-in[8])<<51)), uint64((in[9]-in[8])>>13|((in[10]-in[9])<<14)|((in[11]-in[10])<<41)), uint64((in[11]-in[10])>>23|((in[12]-in[11])<<4)|((in[13]-in[12])<<31)|((in[14]-in[13])<<58)), uint64((in[14]-in[13])>>6|((in[15]-in[14])<<21)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<11)|((in[18]-in[17])<<38)), uint64((in[18]-in[17])>>26|((in[19]-in[18])<<1)|((in[20]-in[19])<<28)|((in[21]-in[20])<<55)), uint64((in[21]-in[20])>>9|((in[22]-in[21])<<18)|((in[23]-in[22])<<45)), uint64((in[23]-in[22])>>19|((in[24]-in[23])<<8)|((in[25]-in[24])<<35)|((in[26]-in[25])<<62)), uint64((in[26]-in[25])>>2|((in[27]-in[26])<<25)|((in[28]-in[27])<<52)), uint64((in[28]-in[27])>>12|((in[29]-in[28])<<15)|((in[30]-in[29])<<42)), uint64((in[30]-in[29])>>22|((in[31]-in[30])<<5)|((in[32]-in[31])<<32)|((in[33]-in[32])<<59)), uint64((in[33]-in[32])>>5|((in[34]-in[33])<<22)|((in[35]-in[34])<<49)), uint64((in[35]-in[34])>>15|((in[36]-in[35])<<12)|((in[37]-in[36])<<39)), uint64((in[37]-in[36])>>25|((in[38]-in[37])<<2)|((in[39]-in[38])<<29)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<19)|((in[42]-in[41])<<46)), uint64((in[42]-in[41])>>18|((in[43]-in[42])<<9)|((in[44]-in[43])<<36)|((in[45]-in[44])<<63)), uint64((in[45]-in[44])>>1|((in[46]-in[45])<<26)|((in[47]-in[46])<<53)), uint64((in[47]-in[46])>>11|((in[48]-in[47])<<16)|((in[49]-in[48])<<43)), uint64((in[49]-in[48])>>21|((in[50]-in[49])<<6)|((in[51]-in[50])<<33)|((in[52]-in[51])<<60)), uint64((in[52]-in[51])>>4|((in[53]-in[52])<<23)|((in[54]-in[53])<<50)), uint64((in[54]-in[53])>>14|((in[55]-in[54])<<13)|((in[56]-in[55])<<40)), uint64((in[56]-in[55])>>24|((in[57]-in[56])<<3)|((in[58]-in[57])<<30)|((in[59]-in[58])<<57)), uint64((in[59]-in[58])>>7|((in[60]-in[59])<<20)|((in[61]-in[60])<<47)), uint64((in[61]-in[60])>>17|((in[62]-in[61])<<10)|((in[63]-in[62])<<37))
 }
-func deltapack64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]uint64, ntz int) {
+func deltapack64_ntz_27[T uint64 | int64](out *[27]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -5787,125 +3685,11 @@ func deltapack64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]uint
 			((in[63] - in[62]) >> ntz << 37))
 }
 
-func deltapack64_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 28) |
-			((in[2] - in[1]) << 56))
-	out[1] = uint64(
-		(in[2]-in[1])>>8 |
-			((in[3] - in[2]) << 20) |
-			((in[4] - in[3]) << 48))
-	out[2] = uint64(
-		(in[4]-in[3])>>16 |
-			((in[5] - in[4]) << 12) |
-			((in[6] - in[5]) << 40))
-	out[3] = uint64(
-		(in[6]-in[5])>>24 |
-			((in[7] - in[6]) << 4) |
-			((in[8] - in[7]) << 32) |
-			((in[9] - in[8]) << 60))
-	out[4] = uint64(
-		(in[9]-in[8])>>4 |
-			((in[10] - in[9]) << 24) |
-			((in[11] - in[10]) << 52))
-	out[5] = uint64(
-		(in[11]-in[10])>>12 |
-			((in[12] - in[11]) << 16) |
-			((in[13] - in[12]) << 44))
-	out[6] = uint64(
-		(in[13]-in[12])>>20 |
-			((in[14] - in[13]) << 8) |
-			((in[15] - in[14]) << 36))
-	out[7] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 28) |
-			((in[18] - in[17]) << 56))
-	out[8] = uint64(
-		(in[18]-in[17])>>8 |
-			((in[19] - in[18]) << 20) |
-			((in[20] - in[19]) << 48))
-	out[9] = uint64(
-		(in[20]-in[19])>>16 |
-			((in[21] - in[20]) << 12) |
-			((in[22] - in[21]) << 40))
-	out[10] = uint64(
-		(in[22]-in[21])>>24 |
-			((in[23] - in[22]) << 4) |
-			((in[24] - in[23]) << 32) |
-			((in[25] - in[24]) << 60))
-	out[11] = uint64(
-		(in[25]-in[24])>>4 |
-			((in[26] - in[25]) << 24) |
-			((in[27] - in[26]) << 52))
-	out[12] = uint64(
-		(in[27]-in[26])>>12 |
-			((in[28] - in[27]) << 16) |
-			((in[29] - in[28]) << 44))
-	out[13] = uint64(
-		(in[29]-in[28])>>20 |
-			((in[30] - in[29]) << 8) |
-			((in[31] - in[30]) << 36))
-	out[14] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 28) |
-			((in[34] - in[33]) << 56))
-	out[15] = uint64(
-		(in[34]-in[33])>>8 |
-			((in[35] - in[34]) << 20) |
-			((in[36] - in[35]) << 48))
-	out[16] = uint64(
-		(in[36]-in[35])>>16 |
-			((in[37] - in[36]) << 12) |
-			((in[38] - in[37]) << 40))
-	out[17] = uint64(
-		(in[38]-in[37])>>24 |
-			((in[39] - in[38]) << 4) |
-			((in[40] - in[39]) << 32) |
-			((in[41] - in[40]) << 60))
-	out[18] = uint64(
-		(in[41]-in[40])>>4 |
-			((in[42] - in[41]) << 24) |
-			((in[43] - in[42]) << 52))
-	out[19] = uint64(
-		(in[43]-in[42])>>12 |
-			((in[44] - in[43]) << 16) |
-			((in[45] - in[44]) << 44))
-	out[20] = uint64(
-		(in[45]-in[44])>>20 |
-			((in[46] - in[45]) << 8) |
-			((in[47] - in[46]) << 36))
-	out[21] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 28) |
-			((in[50] - in[49]) << 56))
-	out[22] = uint64(
-		(in[50]-in[49])>>8 |
-			((in[51] - in[50]) << 20) |
-			((in[52] - in[51]) << 48))
-	out[23] = uint64(
-		(in[52]-in[51])>>16 |
-			((in[53] - in[52]) << 12) |
-			((in[54] - in[53]) << 40))
-	out[24] = uint64(
-		(in[54]-in[53])>>24 |
-			((in[55] - in[54]) << 4) |
-			((in[56] - in[55]) << 32) |
-			((in[57] - in[56]) << 60))
-	out[25] = uint64(
-		(in[57]-in[56])>>4 |
-			((in[58] - in[57]) << 24) |
-			((in[59] - in[58]) << 52))
-	out[26] = uint64(
-		(in[59]-in[58])>>12 |
-			((in[60] - in[59]) << 16) |
-			((in[61] - in[60]) << 44))
-	out[27] = uint64(
-		(in[61]-in[60])>>20 |
-			((in[62] - in[61]) << 8) |
-			((in[63] - in[62]) << 36))
+func deltapack64_28[T uint64 | int64](out *[28]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<28)|((in[2]-in[1])<<56)), uint64((in[2]-in[1])>>8|((in[3]-in[2])<<20)|((in[4]-in[3])<<48)), uint64((in[4]-in[3])>>16|((in[5]-in[4])<<12)|((in[6]-in[5])<<40)), uint64((in[6]-in[5])>>24|((in[7]-in[6])<<4)|((in[8]-in[7])<<32)|((in[9]-in[8])<<60)), uint64((in[9]-in[8])>>4|((in[10]-in[9])<<24)|((in[11]-in[10])<<52)), uint64((in[11]-in[10])>>12|((in[12]-in[11])<<16)|((in[13]-in[12])<<44)), uint64((in[13]-in[12])>>20|((in[14]-in[13])<<8)|((in[15]-in[14])<<36)), uint64(in[16]-in[15]|((in[17]-in[16])<<28)|((in[18]-in[17])<<56)), uint64((in[18]-in[17])>>8|((in[19]-in[18])<<20)|((in[20]-in[19])<<48)), uint64((in[20]-in[19])>>16|((in[21]-in[20])<<12)|((in[22]-in[21])<<40)), uint64((in[22]-in[21])>>24|((in[23]-in[22])<<4)|((in[24]-in[23])<<32)|((in[25]-in[24])<<60)), uint64((in[25]-in[24])>>4|((in[26]-in[25])<<24)|((in[27]-in[26])<<52)), uint64((in[27]-in[26])>>12|((in[28]-in[27])<<16)|((in[29]-in[28])<<44)), uint64((in[29]-in[28])>>20|((in[30]-in[29])<<8)|((in[31]-in[30])<<36)), uint64(in[32]-in[31]|((in[33]-in[32])<<28)|((in[34]-in[33])<<56)), uint64((in[34]-in[33])>>8|((in[35]-in[34])<<20)|((in[36]-in[35])<<48)), uint64((in[36]-in[35])>>16|((in[37]-in[36])<<12)|((in[38]-in[37])<<40)), uint64((in[38]-in[37])>>24|((in[39]-in[38])<<4)|((in[40]-in[39])<<32)|((in[41]-in[40])<<60)), uint64((in[41]-in[40])>>4|((in[42]-in[41])<<24)|((in[43]-in[42])<<52)), uint64((in[43]-in[42])>>12|((in[44]-in[43])<<16)|((in[45]-in[44])<<44)), uint64((in[45]-in[44])>>20|((in[46]-in[45])<<8)|((in[47]-in[46])<<36)), uint64(in[48]-in[47]|((in[49]-in[48])<<28)|((in[50]-in[49])<<56)), uint64((in[50]-in[49])>>8|((in[51]-in[50])<<20)|((in[52]-in[51])<<48)), uint64((in[52]-in[51])>>16|((in[53]-in[52])<<12)|((in[54]-in[53])<<40)), uint64((in[54]-in[53])>>24|((in[55]-in[54])<<4)|((in[56]-in[55])<<32)|((in[57]-in[56])<<60)), uint64((in[57]-in[56])>>4|((in[58]-in[57])<<24)|((in[59]-in[58])<<52)), uint64((in[59]-in[58])>>12|((in[60]-in[59])<<16)|((in[61]-in[60])<<44)), uint64((in[61]-in[60])>>20|((in[62]-in[61])<<8)|((in[63]-in[62])<<36))
 }
-func deltapack64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]uint64, ntz int) {
+func deltapack64_ntz_28[T uint64 | int64](out *[28]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -6025,130 +3809,11 @@ func deltapack64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]uint
 			((in[63] - in[62]) >> ntz << 36))
 }
 
-func deltapack64_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 29) |
-			((in[2] - in[1]) << 58))
-	out[1] = uint64(
-		(in[2]-in[1])>>6 |
-			((in[3] - in[2]) << 23) |
-			((in[4] - in[3]) << 52))
-	out[2] = uint64(
-		(in[4]-in[3])>>12 |
-			((in[5] - in[4]) << 17) |
-			((in[6] - in[5]) << 46))
-	out[3] = uint64(
-		(in[6]-in[5])>>18 |
-			((in[7] - in[6]) << 11) |
-			((in[8] - in[7]) << 40))
-	out[4] = uint64(
-		(in[8]-in[7])>>24 |
-			((in[9] - in[8]) << 5) |
-			((in[10] - in[9]) << 34) |
-			((in[11] - in[10]) << 63))
-	out[5] = uint64(
-		(in[11]-in[10])>>1 |
-			((in[12] - in[11]) << 28) |
-			((in[13] - in[12]) << 57))
-	out[6] = uint64(
-		(in[13]-in[12])>>7 |
-			((in[14] - in[13]) << 22) |
-			((in[15] - in[14]) << 51))
-	out[7] = uint64(
-		(in[15]-in[14])>>13 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 45))
-	out[8] = uint64(
-		(in[17]-in[16])>>19 |
-			((in[18] - in[17]) << 10) |
-			((in[19] - in[18]) << 39))
-	out[9] = uint64(
-		(in[19]-in[18])>>25 |
-			((in[20] - in[19]) << 4) |
-			((in[21] - in[20]) << 33) |
-			((in[22] - in[21]) << 62))
-	out[10] = uint64(
-		(in[22]-in[21])>>2 |
-			((in[23] - in[22]) << 27) |
-			((in[24] - in[23]) << 56))
-	out[11] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 21) |
-			((in[26] - in[25]) << 50))
-	out[12] = uint64(
-		(in[26]-in[25])>>14 |
-			((in[27] - in[26]) << 15) |
-			((in[28] - in[27]) << 44))
-	out[13] = uint64(
-		(in[28]-in[27])>>20 |
-			((in[29] - in[28]) << 9) |
-			((in[30] - in[29]) << 38))
-	out[14] = uint64(
-		(in[30]-in[29])>>26 |
-			((in[31] - in[30]) << 3) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 61))
-	out[15] = uint64(
-		(in[33]-in[32])>>3 |
-			((in[34] - in[33]) << 26) |
-			((in[35] - in[34]) << 55))
-	out[16] = uint64(
-		(in[35]-in[34])>>9 |
-			((in[36] - in[35]) << 20) |
-			((in[37] - in[36]) << 49))
-	out[17] = uint64(
-		(in[37]-in[36])>>15 |
-			((in[38] - in[37]) << 14) |
-			((in[39] - in[38]) << 43))
-	out[18] = uint64(
-		(in[39]-in[38])>>21 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 37))
-	out[19] = uint64(
-		(in[41]-in[40])>>27 |
-			((in[42] - in[41]) << 2) |
-			((in[43] - in[42]) << 31) |
-			((in[44] - in[43]) << 60))
-	out[20] = uint64(
-		(in[44]-in[43])>>4 |
-			((in[45] - in[44]) << 25) |
-			((in[46] - in[45]) << 54))
-	out[21] = uint64(
-		(in[46]-in[45])>>10 |
-			((in[47] - in[46]) << 19) |
-			((in[48] - in[47]) << 48))
-	out[22] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 13) |
-			((in[50] - in[49]) << 42))
-	out[23] = uint64(
-		(in[50]-in[49])>>22 |
-			((in[51] - in[50]) << 7) |
-			((in[52] - in[51]) << 36))
-	out[24] = uint64(
-		(in[52]-in[51])>>28 |
-			((in[53] - in[52]) << 1) |
-			((in[54] - in[53]) << 30) |
-			((in[55] - in[54]) << 59))
-	out[25] = uint64(
-		(in[55]-in[54])>>5 |
-			((in[56] - in[55]) << 24) |
-			((in[57] - in[56]) << 53))
-	out[26] = uint64(
-		(in[57]-in[56])>>11 |
-			((in[58] - in[57]) << 18) |
-			((in[59] - in[58]) << 47))
-	out[27] = uint64(
-		(in[59]-in[58])>>17 |
-			((in[60] - in[59]) << 12) |
-			((in[61] - in[60]) << 41))
-	out[28] = uint64(
-		(in[61]-in[60])>>23 |
-			((in[62] - in[61]) << 6) |
-			((in[63] - in[62]) << 35))
+func deltapack64_29[T uint64 | int64](out *[29]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<29)|((in[2]-in[1])<<58)), uint64((in[2]-in[1])>>6|((in[3]-in[2])<<23)|((in[4]-in[3])<<52)), uint64((in[4]-in[3])>>12|((in[5]-in[4])<<17)|((in[6]-in[5])<<46)), uint64((in[6]-in[5])>>18|((in[7]-in[6])<<11)|((in[8]-in[7])<<40)), uint64((in[8]-in[7])>>24|((in[9]-in[8])<<5)|((in[10]-in[9])<<34)|((in[11]-in[10])<<63)), uint64((in[11]-in[10])>>1|((in[12]-in[11])<<28)|((in[13]-in[12])<<57)), uint64((in[13]-in[12])>>7|((in[14]-in[13])<<22)|((in[15]-in[14])<<51)), uint64((in[15]-in[14])>>13|((in[16]-in[15])<<16)|((in[17]-in[16])<<45)), uint64((in[17]-in[16])>>19|((in[18]-in[17])<<10)|((in[19]-in[18])<<39)), uint64((in[19]-in[18])>>25|((in[20]-in[19])<<4)|((in[21]-in[20])<<33)|((in[22]-in[21])<<62)), uint64((in[22]-in[21])>>2|((in[23]-in[22])<<27)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<21)|((in[26]-in[25])<<50)), uint64((in[26]-in[25])>>14|((in[27]-in[26])<<15)|((in[28]-in[27])<<44)), uint64((in[28]-in[27])>>20|((in[29]-in[28])<<9)|((in[30]-in[29])<<38)), uint64((in[30]-in[29])>>26|((in[31]-in[30])<<3)|((in[32]-in[31])<<32)|((in[33]-in[32])<<61)), uint64((in[33]-in[32])>>3|((in[34]-in[33])<<26)|((in[35]-in[34])<<55)), uint64((in[35]-in[34])>>9|((in[36]-in[35])<<20)|((in[37]-in[36])<<49)), uint64((in[37]-in[36])>>15|((in[38]-in[37])<<14)|((in[39]-in[38])<<43)), uint64((in[39]-in[38])>>21|((in[40]-in[39])<<8)|((in[41]-in[40])<<37)), uint64((in[41]-in[40])>>27|((in[42]-in[41])<<2)|((in[43]-in[42])<<31)|((in[44]-in[43])<<60)), uint64((in[44]-in[43])>>4|((in[45]-in[44])<<25)|((in[46]-in[45])<<54)), uint64((in[46]-in[45])>>10|((in[47]-in[46])<<19)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<13)|((in[50]-in[49])<<42)), uint64((in[50]-in[49])>>22|((in[51]-in[50])<<7)|((in[52]-in[51])<<36)), uint64((in[52]-in[51])>>28|((in[53]-in[52])<<1)|((in[54]-in[53])<<30)|((in[55]-in[54])<<59)), uint64((in[55]-in[54])>>5|((in[56]-in[55])<<24)|((in[57]-in[56])<<53)), uint64((in[57]-in[56])>>11|((in[58]-in[57])<<18)|((in[59]-in[58])<<47)), uint64((in[59]-in[58])>>17|((in[60]-in[59])<<12)|((in[61]-in[60])<<41)), uint64((in[61]-in[60])>>23|((in[62]-in[61])<<6)|((in[63]-in[62])<<35))
 }
-func deltapack64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]uint64, ntz int) {
+func deltapack64_ntz_29[T uint64 | int64](out *[29]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -6273,131 +3938,11 @@ func deltapack64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]uint
 			((in[63] - in[62]) >> ntz << 35))
 }
 
-func deltapack64_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 30) |
-			((in[2] - in[1]) << 60))
-	out[1] = uint64(
-		(in[2]-in[1])>>4 |
-			((in[3] - in[2]) << 26) |
-			((in[4] - in[3]) << 56))
-	out[2] = uint64(
-		(in[4]-in[3])>>8 |
-			((in[5] - in[4]) << 22) |
-			((in[6] - in[5]) << 52))
-	out[3] = uint64(
-		(in[6]-in[5])>>12 |
-			((in[7] - in[6]) << 18) |
-			((in[8] - in[7]) << 48))
-	out[4] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 14) |
-			((in[10] - in[9]) << 44))
-	out[5] = uint64(
-		(in[10]-in[9])>>20 |
-			((in[11] - in[10]) << 10) |
-			((in[12] - in[11]) << 40))
-	out[6] = uint64(
-		(in[12]-in[11])>>24 |
-			((in[13] - in[12]) << 6) |
-			((in[14] - in[13]) << 36))
-	out[7] = uint64(
-		(in[14]-in[13])>>28 |
-			((in[15] - in[14]) << 2) |
-			((in[16] - in[15]) << 32) |
-			((in[17] - in[16]) << 62))
-	out[8] = uint64(
-		(in[17]-in[16])>>2 |
-			((in[18] - in[17]) << 28) |
-			((in[19] - in[18]) << 58))
-	out[9] = uint64(
-		(in[19]-in[18])>>6 |
-			((in[20] - in[19]) << 24) |
-			((in[21] - in[20]) << 54))
-	out[10] = uint64(
-		(in[21]-in[20])>>10 |
-			((in[22] - in[21]) << 20) |
-			((in[23] - in[22]) << 50))
-	out[11] = uint64(
-		(in[23]-in[22])>>14 |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 46))
-	out[12] = uint64(
-		(in[25]-in[24])>>18 |
-			((in[26] - in[25]) << 12) |
-			((in[27] - in[26]) << 42))
-	out[13] = uint64(
-		(in[27]-in[26])>>22 |
-			((in[28] - in[27]) << 8) |
-			((in[29] - in[28]) << 38))
-	out[14] = uint64(
-		(in[29]-in[28])>>26 |
-			((in[30] - in[29]) << 4) |
-			((in[31] - in[30]) << 34))
-	out[15] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 30) |
-			((in[34] - in[33]) << 60))
-	out[16] = uint64(
-		(in[34]-in[33])>>4 |
-			((in[35] - in[34]) << 26) |
-			((in[36] - in[35]) << 56))
-	out[17] = uint64(
-		(in[36]-in[35])>>8 |
-			((in[37] - in[36]) << 22) |
-			((in[38] - in[37]) << 52))
-	out[18] = uint64(
-		(in[38]-in[37])>>12 |
-			((in[39] - in[38]) << 18) |
-			((in[40] - in[39]) << 48))
-	out[19] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 14) |
-			((in[42] - in[41]) << 44))
-	out[20] = uint64(
-		(in[42]-in[41])>>20 |
-			((in[43] - in[42]) << 10) |
-			((in[44] - in[43]) << 40))
-	out[21] = uint64(
-		(in[44]-in[43])>>24 |
-			((in[45] - in[44]) << 6) |
-			((in[46] - in[45]) << 36))
-	out[22] = uint64(
-		(in[46]-in[45])>>28 |
-			((in[47] - in[46]) << 2) |
-			((in[48] - in[47]) << 32) |
-			((in[49] - in[48]) << 62))
-	out[23] = uint64(
-		(in[49]-in[48])>>2 |
-			((in[50] - in[49]) << 28) |
-			((in[51] - in[50]) << 58))
-	out[24] = uint64(
-		(in[51]-in[50])>>6 |
-			((in[52] - in[51]) << 24) |
-			((in[53] - in[52]) << 54))
-	out[25] = uint64(
-		(in[53]-in[52])>>10 |
-			((in[54] - in[53]) << 20) |
-			((in[55] - in[54]) << 50))
-	out[26] = uint64(
-		(in[55]-in[54])>>14 |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 46))
-	out[27] = uint64(
-		(in[57]-in[56])>>18 |
-			((in[58] - in[57]) << 12) |
-			((in[59] - in[58]) << 42))
-	out[28] = uint64(
-		(in[59]-in[58])>>22 |
-			((in[60] - in[59]) << 8) |
-			((in[61] - in[60]) << 38))
-	out[29] = uint64(
-		(in[61]-in[60])>>26 |
-			((in[62] - in[61]) << 4) |
-			((in[63] - in[62]) << 34))
+func deltapack64_30[T uint64 | int64](out *[30]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<30)|((in[2]-in[1])<<60)), uint64((in[2]-in[1])>>4|((in[3]-in[2])<<26)|((in[4]-in[3])<<56)), uint64((in[4]-in[3])>>8|((in[5]-in[4])<<22)|((in[6]-in[5])<<52)), uint64((in[6]-in[5])>>12|((in[7]-in[6])<<18)|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<14)|((in[10]-in[9])<<44)), uint64((in[10]-in[9])>>20|((in[11]-in[10])<<10)|((in[12]-in[11])<<40)), uint64((in[12]-in[11])>>24|((in[13]-in[12])<<6)|((in[14]-in[13])<<36)), uint64((in[14]-in[13])>>28|((in[15]-in[14])<<2)|((in[16]-in[15])<<32)|((in[17]-in[16])<<62)), uint64((in[17]-in[16])>>2|((in[18]-in[17])<<28)|((in[19]-in[18])<<58)), uint64((in[19]-in[18])>>6|((in[20]-in[19])<<24)|((in[21]-in[20])<<54)), uint64((in[21]-in[20])>>10|((in[22]-in[21])<<20)|((in[23]-in[22])<<50)), uint64((in[23]-in[22])>>14|((in[24]-in[23])<<16)|((in[25]-in[24])<<46)), uint64((in[25]-in[24])>>18|((in[26]-in[25])<<12)|((in[27]-in[26])<<42)), uint64((in[27]-in[26])>>22|((in[28]-in[27])<<8)|((in[29]-in[28])<<38)), uint64((in[29]-in[28])>>26|((in[30]-in[29])<<4)|((in[31]-in[30])<<34)), uint64(in[32]-in[31]|((in[33]-in[32])<<30)|((in[34]-in[33])<<60)), uint64((in[34]-in[33])>>4|((in[35]-in[34])<<26)|((in[36]-in[35])<<56)), uint64((in[36]-in[35])>>8|((in[37]-in[36])<<22)|((in[38]-in[37])<<52)), uint64((in[38]-in[37])>>12|((in[39]-in[38])<<18)|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<14)|((in[42]-in[41])<<44)), uint64((in[42]-in[41])>>20|((in[43]-in[42])<<10)|((in[44]-in[43])<<40)), uint64((in[44]-in[43])>>24|((in[45]-in[44])<<6)|((in[46]-in[45])<<36)), uint64((in[46]-in[45])>>28|((in[47]-in[46])<<2)|((in[48]-in[47])<<32)|((in[49]-in[48])<<62)), uint64((in[49]-in[48])>>2|((in[50]-in[49])<<28)|((in[51]-in[50])<<58)), uint64((in[51]-in[50])>>6|((in[52]-in[51])<<24)|((in[53]-in[52])<<54)), uint64((in[53]-in[52])>>10|((in[54]-in[53])<<20)|((in[55]-in[54])<<50)), uint64((in[55]-in[54])>>14|((in[56]-in[55])<<16)|((in[57]-in[56])<<46)), uint64((in[57]-in[56])>>18|((in[58]-in[57])<<12)|((in[59]-in[58])<<42)), uint64((in[59]-in[58])>>22|((in[60]-in[59])<<8)|((in[61]-in[60])<<38)), uint64((in[61]-in[60])>>26|((in[62]-in[61])<<4)|((in[63]-in[62])<<34))
 }
-func deltapack64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]uint64, ntz int) {
+func deltapack64_ntz_30[T uint64 | int64](out *[30]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -6523,134 +4068,11 @@ func deltapack64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]uint
 			((in[63] - in[62]) >> ntz << 34))
 }
 
-func deltapack64_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 31) |
-			((in[2] - in[1]) << 62))
-	out[1] = uint64(
-		(in[2]-in[1])>>2 |
-			((in[3] - in[2]) << 29) |
-			((in[4] - in[3]) << 60))
-	out[2] = uint64(
-		(in[4]-in[3])>>4 |
-			((in[5] - in[4]) << 27) |
-			((in[6] - in[5]) << 58))
-	out[3] = uint64(
-		(in[6]-in[5])>>6 |
-			((in[7] - in[6]) << 25) |
-			((in[8] - in[7]) << 56))
-	out[4] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 23) |
-			((in[10] - in[9]) << 54))
-	out[5] = uint64(
-		(in[10]-in[9])>>10 |
-			((in[11] - in[10]) << 21) |
-			((in[12] - in[11]) << 52))
-	out[6] = uint64(
-		(in[12]-in[11])>>12 |
-			((in[13] - in[12]) << 19) |
-			((in[14] - in[13]) << 50))
-	out[7] = uint64(
-		(in[14]-in[13])>>14 |
-			((in[15] - in[14]) << 17) |
-			((in[16] - in[15]) << 48))
-	out[8] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 15) |
-			((in[18] - in[17]) << 46))
-	out[9] = uint64(
-		(in[18]-in[17])>>18 |
-			((in[19] - in[18]) << 13) |
-			((in[20] - in[19]) << 44))
-	out[10] = uint64(
-		(in[20]-in[19])>>20 |
-			((in[21] - in[20]) << 11) |
-			((in[22] - in[21]) << 42))
-	out[11] = uint64(
-		(in[22]-in[21])>>22 |
-			((in[23] - in[22]) << 9) |
-			((in[24] - in[23]) << 40))
-	out[12] = uint64(
-		(in[24]-in[23])>>24 |
-			((in[25] - in[24]) << 7) |
-			((in[26] - in[25]) << 38))
-	out[13] = uint64(
-		(in[26]-in[25])>>26 |
-			((in[27] - in[26]) << 5) |
-			((in[28] - in[27]) << 36))
-	out[14] = uint64(
-		(in[28]-in[27])>>28 |
-			((in[29] - in[28]) << 3) |
-			((in[30] - in[29]) << 34))
-	out[15] = uint64(
-		(in[30]-in[29])>>30 |
-			((in[31] - in[30]) << 1) |
-			((in[32] - in[31]) << 32) |
-			((in[33] - in[32]) << 63))
-	out[16] = uint64(
-		(in[33]-in[32])>>1 |
-			((in[34] - in[33]) << 30) |
-			((in[35] - in[34]) << 61))
-	out[17] = uint64(
-		(in[35]-in[34])>>3 |
-			((in[36] - in[35]) << 28) |
-			((in[37] - in[36]) << 59))
-	out[18] = uint64(
-		(in[37]-in[36])>>5 |
-			((in[38] - in[37]) << 26) |
-			((in[39] - in[38]) << 57))
-	out[19] = uint64(
-		(in[39]-in[38])>>7 |
-			((in[40] - in[39]) << 24) |
-			((in[41] - in[40]) << 55))
-	out[20] = uint64(
-		(in[41]-in[40])>>9 |
-			((in[42] - in[41]) << 22) |
-			((in[43] - in[42]) << 53))
-	out[21] = uint64(
-		(in[43]-in[42])>>11 |
-			((in[44] - in[43]) << 20) |
-			((in[45] - in[44]) << 51))
-	out[22] = uint64(
-		(in[45]-in[44])>>13 |
-			((in[46] - in[45]) << 18) |
-			((in[47] - in[46]) << 49))
-	out[23] = uint64(
-		(in[47]-in[46])>>15 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 47))
-	out[24] = uint64(
-		(in[49]-in[48])>>17 |
-			((in[50] - in[49]) << 14) |
-			((in[51] - in[50]) << 45))
-	out[25] = uint64(
-		(in[51]-in[50])>>19 |
-			((in[52] - in[51]) << 12) |
-			((in[53] - in[52]) << 43))
-	out[26] = uint64(
-		(in[53]-in[52])>>21 |
-			((in[54] - in[53]) << 10) |
-			((in[55] - in[54]) << 41))
-	out[27] = uint64(
-		(in[55]-in[54])>>23 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 39))
-	out[28] = uint64(
-		(in[57]-in[56])>>25 |
-			((in[58] - in[57]) << 6) |
-			((in[59] - in[58]) << 37))
-	out[29] = uint64(
-		(in[59]-in[58])>>27 |
-			((in[60] - in[59]) << 4) |
-			((in[61] - in[60]) << 35))
-	out[30] = uint64(
-		(in[61]-in[60])>>29 |
-			((in[62] - in[61]) << 2) |
-			((in[63] - in[62]) << 33))
+func deltapack64_31[T uint64 | int64](out *[31]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<31)|((in[2]-in[1])<<62)), uint64((in[2]-in[1])>>2|((in[3]-in[2])<<29)|((in[4]-in[3])<<60)), uint64((in[4]-in[3])>>4|((in[5]-in[4])<<27)|((in[6]-in[5])<<58)), uint64((in[6]-in[5])>>6|((in[7]-in[6])<<25)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<23)|((in[10]-in[9])<<54)), uint64((in[10]-in[9])>>10|((in[11]-in[10])<<21)|((in[12]-in[11])<<52)), uint64((in[12]-in[11])>>12|((in[13]-in[12])<<19)|((in[14]-in[13])<<50)), uint64((in[14]-in[13])>>14|((in[15]-in[14])<<17)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<15)|((in[18]-in[17])<<46)), uint64((in[18]-in[17])>>18|((in[19]-in[18])<<13)|((in[20]-in[19])<<44)), uint64((in[20]-in[19])>>20|((in[21]-in[20])<<11)|((in[22]-in[21])<<42)), uint64((in[22]-in[21])>>22|((in[23]-in[22])<<9)|((in[24]-in[23])<<40)), uint64((in[24]-in[23])>>24|((in[25]-in[24])<<7)|((in[26]-in[25])<<38)), uint64((in[26]-in[25])>>26|((in[27]-in[26])<<5)|((in[28]-in[27])<<36)), uint64((in[28]-in[27])>>28|((in[29]-in[28])<<3)|((in[30]-in[29])<<34)), uint64((in[30]-in[29])>>30|((in[31]-in[30])<<1)|((in[32]-in[31])<<32)|((in[33]-in[32])<<63)), uint64((in[33]-in[32])>>1|((in[34]-in[33])<<30)|((in[35]-in[34])<<61)), uint64((in[35]-in[34])>>3|((in[36]-in[35])<<28)|((in[37]-in[36])<<59)), uint64((in[37]-in[36])>>5|((in[38]-in[37])<<26)|((in[39]-in[38])<<57)), uint64((in[39]-in[38])>>7|((in[40]-in[39])<<24)|((in[41]-in[40])<<55)), uint64((in[41]-in[40])>>9|((in[42]-in[41])<<22)|((in[43]-in[42])<<53)), uint64((in[43]-in[42])>>11|((in[44]-in[43])<<20)|((in[45]-in[44])<<51)), uint64((in[45]-in[44])>>13|((in[46]-in[45])<<18)|((in[47]-in[46])<<49)), uint64((in[47]-in[46])>>15|((in[48]-in[47])<<16)|((in[49]-in[48])<<47)), uint64((in[49]-in[48])>>17|((in[50]-in[49])<<14)|((in[51]-in[50])<<45)), uint64((in[51]-in[50])>>19|((in[52]-in[51])<<12)|((in[53]-in[52])<<43)), uint64((in[53]-in[52])>>21|((in[54]-in[53])<<10)|((in[55]-in[54])<<41)), uint64((in[55]-in[54])>>23|((in[56]-in[55])<<8)|((in[57]-in[56])<<39)), uint64((in[57]-in[56])>>25|((in[58]-in[57])<<6)|((in[59]-in[58])<<37)), uint64((in[59]-in[58])>>27|((in[60]-in[59])<<4)|((in[61]-in[60])<<35)), uint64((in[61]-in[60])>>29|((in[62]-in[61])<<2)|((in[63]-in[62])<<33))
 }
-func deltapack64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]uint64, ntz int) {
+func deltapack64_ntz_31[T uint64 | int64](out *[31]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -6779,105 +4201,11 @@ func deltapack64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]uint
 			((in[63] - in[62]) >> ntz << 33))
 }
 
-func deltapack64_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 32))
-	out[1] = uint64(
-		in[2] - in[1] |
-			((in[3] - in[2]) << 32))
-	out[2] = uint64(
-		in[4] - in[3] |
-			((in[5] - in[4]) << 32))
-	out[3] = uint64(
-		in[6] - in[5] |
-			((in[7] - in[6]) << 32))
-	out[4] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 32))
-	out[5] = uint64(
-		in[10] - in[9] |
-			((in[11] - in[10]) << 32))
-	out[6] = uint64(
-		in[12] - in[11] |
-			((in[13] - in[12]) << 32))
-	out[7] = uint64(
-		in[14] - in[13] |
-			((in[15] - in[14]) << 32))
-	out[8] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 32))
-	out[9] = uint64(
-		in[18] - in[17] |
-			((in[19] - in[18]) << 32))
-	out[10] = uint64(
-		in[20] - in[19] |
-			((in[21] - in[20]) << 32))
-	out[11] = uint64(
-		in[22] - in[21] |
-			((in[23] - in[22]) << 32))
-	out[12] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 32))
-	out[13] = uint64(
-		in[26] - in[25] |
-			((in[27] - in[26]) << 32))
-	out[14] = uint64(
-		in[28] - in[27] |
-			((in[29] - in[28]) << 32))
-	out[15] = uint64(
-		in[30] - in[29] |
-			((in[31] - in[30]) << 32))
-	out[16] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 32))
-	out[17] = uint64(
-		in[34] - in[33] |
-			((in[35] - in[34]) << 32))
-	out[18] = uint64(
-		in[36] - in[35] |
-			((in[37] - in[36]) << 32))
-	out[19] = uint64(
-		in[38] - in[37] |
-			((in[39] - in[38]) << 32))
-	out[20] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 32))
-	out[21] = uint64(
-		in[42] - in[41] |
-			((in[43] - in[42]) << 32))
-	out[22] = uint64(
-		in[44] - in[43] |
-			((in[45] - in[44]) << 32))
-	out[23] = uint64(
-		in[46] - in[45] |
-			((in[47] - in[46]) << 32))
-	out[24] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 32))
-	out[25] = uint64(
-		in[50] - in[49] |
-			((in[51] - in[50]) << 32))
-	out[26] = uint64(
-		in[52] - in[51] |
-			((in[53] - in[52]) << 32))
-	out[27] = uint64(
-		in[54] - in[53] |
-			((in[55] - in[54]) << 32))
-	out[28] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 32))
-	out[29] = uint64(
-		in[58] - in[57] |
-			((in[59] - in[58]) << 32))
-	out[30] = uint64(
-		in[60] - in[59] |
-			((in[61] - in[60]) << 32))
-	out[31] = uint64(
-		in[62] - in[61] |
-			((in[63] - in[62]) << 32))
+func deltapack64_32[T uint64 | int64](out *[32]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<32)), uint64(in[2]-in[1]|((in[3]-in[2])<<32)), uint64(in[4]-in[3]|((in[5]-in[4])<<32)), uint64(in[6]-in[5]|((in[7]-in[6])<<32)), uint64(in[8]-in[7]|((in[9]-in[8])<<32)), uint64(in[10]-in[9]|((in[11]-in[10])<<32)), uint64(in[12]-in[11]|((in[13]-in[12])<<32)), uint64(in[14]-in[13]|((in[15]-in[14])<<32)), uint64(in[16]-in[15]|((in[17]-in[16])<<32)), uint64(in[18]-in[17]|((in[19]-in[18])<<32)), uint64(in[20]-in[19]|((in[21]-in[20])<<32)), uint64(in[22]-in[21]|((in[23]-in[22])<<32)), uint64(in[24]-in[23]|((in[25]-in[24])<<32)), uint64(in[26]-in[25]|((in[27]-in[26])<<32)), uint64(in[28]-in[27]|((in[29]-in[28])<<32)), uint64(in[30]-in[29]|((in[31]-in[30])<<32)), uint64(in[32]-in[31]|((in[33]-in[32])<<32)), uint64(in[34]-in[33]|((in[35]-in[34])<<32)), uint64(in[36]-in[35]|((in[37]-in[36])<<32)), uint64(in[38]-in[37]|((in[39]-in[38])<<32)), uint64(in[40]-in[39]|((in[41]-in[40])<<32)), uint64(in[42]-in[41]|((in[43]-in[42])<<32)), uint64(in[44]-in[43]|((in[45]-in[44])<<32)), uint64(in[46]-in[45]|((in[47]-in[46])<<32)), uint64(in[48]-in[47]|((in[49]-in[48])<<32)), uint64(in[50]-in[49]|((in[51]-in[50])<<32)), uint64(in[52]-in[51]|((in[53]-in[52])<<32)), uint64(in[54]-in[53]|((in[55]-in[54])<<32)), uint64(in[56]-in[55]|((in[57]-in[56])<<32)), uint64(in[58]-in[57]|((in[59]-in[58])<<32)), uint64(in[60]-in[59]|((in[61]-in[60])<<32)), uint64(in[62]-in[61]|((in[63]-in[62])<<32))
 }
-func deltapack64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]uint64, ntz int) {
+func deltapack64_ntz_32[T uint64 | int64](out *[32]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -6977,138 +4305,11 @@ func deltapack64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]uint
 			((in[63] - in[62]) >> ntz << 32))
 }
 
-func deltapack64_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 33))
-	out[1] = uint64(
-		(in[1]-in[0])>>31 |
-			((in[2] - in[1]) << 2) |
-			((in[3] - in[2]) << 35))
-	out[2] = uint64(
-		(in[3]-in[2])>>29 |
-			((in[4] - in[3]) << 4) |
-			((in[5] - in[4]) << 37))
-	out[3] = uint64(
-		(in[5]-in[4])>>27 |
-			((in[6] - in[5]) << 6) |
-			((in[7] - in[6]) << 39))
-	out[4] = uint64(
-		(in[7]-in[6])>>25 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 41))
-	out[5] = uint64(
-		(in[9]-in[8])>>23 |
-			((in[10] - in[9]) << 10) |
-			((in[11] - in[10]) << 43))
-	out[6] = uint64(
-		(in[11]-in[10])>>21 |
-			((in[12] - in[11]) << 12) |
-			((in[13] - in[12]) << 45))
-	out[7] = uint64(
-		(in[13]-in[12])>>19 |
-			((in[14] - in[13]) << 14) |
-			((in[15] - in[14]) << 47))
-	out[8] = uint64(
-		(in[15]-in[14])>>17 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 49))
-	out[9] = uint64(
-		(in[17]-in[16])>>15 |
-			((in[18] - in[17]) << 18) |
-			((in[19] - in[18]) << 51))
-	out[10] = uint64(
-		(in[19]-in[18])>>13 |
-			((in[20] - in[19]) << 20) |
-			((in[21] - in[20]) << 53))
-	out[11] = uint64(
-		(in[21]-in[20])>>11 |
-			((in[22] - in[21]) << 22) |
-			((in[23] - in[22]) << 55))
-	out[12] = uint64(
-		(in[23]-in[22])>>9 |
-			((in[24] - in[23]) << 24) |
-			((in[25] - in[24]) << 57))
-	out[13] = uint64(
-		(in[25]-in[24])>>7 |
-			((in[26] - in[25]) << 26) |
-			((in[27] - in[26]) << 59))
-	out[14] = uint64(
-		(in[27]-in[26])>>5 |
-			((in[28] - in[27]) << 28) |
-			((in[29] - in[28]) << 61))
-	out[15] = uint64(
-		(in[29]-in[28])>>3 |
-			((in[30] - in[29]) << 30) |
-			((in[31] - in[30]) << 63))
-	out[16] = uint64(
-		(in[31]-in[30])>>1 |
-			((in[32] - in[31]) << 32))
-	out[17] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 1) |
-			((in[34] - in[33]) << 34))
-	out[18] = uint64(
-		(in[34]-in[33])>>30 |
-			((in[35] - in[34]) << 3) |
-			((in[36] - in[35]) << 36))
-	out[19] = uint64(
-		(in[36]-in[35])>>28 |
-			((in[37] - in[36]) << 5) |
-			((in[38] - in[37]) << 38))
-	out[20] = uint64(
-		(in[38]-in[37])>>26 |
-			((in[39] - in[38]) << 7) |
-			((in[40] - in[39]) << 40))
-	out[21] = uint64(
-		(in[40]-in[39])>>24 |
-			((in[41] - in[40]) << 9) |
-			((in[42] - in[41]) << 42))
-	out[22] = uint64(
-		(in[42]-in[41])>>22 |
-			((in[43] - in[42]) << 11) |
-			((in[44] - in[43]) << 44))
-	out[23] = uint64(
-		(in[44]-in[43])>>20 |
-			((in[45] - in[44]) << 13) |
-			((in[46] - in[45]) << 46))
-	out[24] = uint64(
-		(in[46]-in[45])>>18 |
-			((in[47] - in[46]) << 15) |
-			((in[48] - in[47]) << 48))
-	out[25] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 17) |
-			((in[50] - in[49]) << 50))
-	out[26] = uint64(
-		(in[50]-in[49])>>14 |
-			((in[51] - in[50]) << 19) |
-			((in[52] - in[51]) << 52))
-	out[27] = uint64(
-		(in[52]-in[51])>>12 |
-			((in[53] - in[52]) << 21) |
-			((in[54] - in[53]) << 54))
-	out[28] = uint64(
-		(in[54]-in[53])>>10 |
-			((in[55] - in[54]) << 23) |
-			((in[56] - in[55]) << 56))
-	out[29] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 25) |
-			((in[58] - in[57]) << 58))
-	out[30] = uint64(
-		(in[58]-in[57])>>6 |
-			((in[59] - in[58]) << 27) |
-			((in[60] - in[59]) << 60))
-	out[31] = uint64(
-		(in[60]-in[59])>>4 |
-			((in[61] - in[60]) << 29) |
-			((in[62] - in[61]) << 62))
-	out[32] = uint64(
-		(in[62]-in[61])>>2 |
-			((in[63] - in[62]) << 31))
+func deltapack64_33[T uint64 | int64](out *[33]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<33)), uint64((in[1]-in[0])>>31|((in[2]-in[1])<<2)|((in[3]-in[2])<<35)), uint64((in[3]-in[2])>>29|((in[4]-in[3])<<4)|((in[5]-in[4])<<37)), uint64((in[5]-in[4])>>27|((in[6]-in[5])<<6)|((in[7]-in[6])<<39)), uint64((in[7]-in[6])>>25|((in[8]-in[7])<<8)|((in[9]-in[8])<<41)), uint64((in[9]-in[8])>>23|((in[10]-in[9])<<10)|((in[11]-in[10])<<43)), uint64((in[11]-in[10])>>21|((in[12]-in[11])<<12)|((in[13]-in[12])<<45)), uint64((in[13]-in[12])>>19|((in[14]-in[13])<<14)|((in[15]-in[14])<<47)), uint64((in[15]-in[14])>>17|((in[16]-in[15])<<16)|((in[17]-in[16])<<49)), uint64((in[17]-in[16])>>15|((in[18]-in[17])<<18)|((in[19]-in[18])<<51)), uint64((in[19]-in[18])>>13|((in[20]-in[19])<<20)|((in[21]-in[20])<<53)), uint64((in[21]-in[20])>>11|((in[22]-in[21])<<22)|((in[23]-in[22])<<55)), uint64((in[23]-in[22])>>9|((in[24]-in[23])<<24)|((in[25]-in[24])<<57)), uint64((in[25]-in[24])>>7|((in[26]-in[25])<<26)|((in[27]-in[26])<<59)), uint64((in[27]-in[26])>>5|((in[28]-in[27])<<28)|((in[29]-in[28])<<61)), uint64((in[29]-in[28])>>3|((in[30]-in[29])<<30)|((in[31]-in[30])<<63)), uint64((in[31]-in[30])>>1|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<1)|((in[34]-in[33])<<34)), uint64((in[34]-in[33])>>30|((in[35]-in[34])<<3)|((in[36]-in[35])<<36)), uint64((in[36]-in[35])>>28|((in[37]-in[36])<<5)|((in[38]-in[37])<<38)), uint64((in[38]-in[37])>>26|((in[39]-in[38])<<7)|((in[40]-in[39])<<40)), uint64((in[40]-in[39])>>24|((in[41]-in[40])<<9)|((in[42]-in[41])<<42)), uint64((in[42]-in[41])>>22|((in[43]-in[42])<<11)|((in[44]-in[43])<<44)), uint64((in[44]-in[43])>>20|((in[45]-in[44])<<13)|((in[46]-in[45])<<46)), uint64((in[46]-in[45])>>18|((in[47]-in[46])<<15)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<17)|((in[50]-in[49])<<50)), uint64((in[50]-in[49])>>14|((in[51]-in[50])<<19)|((in[52]-in[51])<<52)), uint64((in[52]-in[51])>>12|((in[53]-in[52])<<21)|((in[54]-in[53])<<54)), uint64((in[54]-in[53])>>10|((in[55]-in[54])<<23)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<25)|((in[58]-in[57])<<58)), uint64((in[58]-in[57])>>6|((in[59]-in[58])<<27)|((in[60]-in[59])<<60)), uint64((in[60]-in[59])>>4|((in[61]-in[60])<<29)|((in[62]-in[61])<<62)), uint64((in[62]-in[61])>>2|((in[63]-in[62])<<31))
 }
-func deltapack64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]uint64, ntz int) {
+func deltapack64_ntz_33[T uint64 | int64](out *[33]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -7241,139 +4442,11 @@ func deltapack64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]uint
 			((in[63] - in[62]) >> ntz << 31))
 }
 
-func deltapack64_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 34))
-	out[1] = uint64(
-		(in[1]-in[0])>>30 |
-			((in[2] - in[1]) << 4) |
-			((in[3] - in[2]) << 38))
-	out[2] = uint64(
-		(in[3]-in[2])>>26 |
-			((in[4] - in[3]) << 8) |
-			((in[5] - in[4]) << 42))
-	out[3] = uint64(
-		(in[5]-in[4])>>22 |
-			((in[6] - in[5]) << 12) |
-			((in[7] - in[6]) << 46))
-	out[4] = uint64(
-		(in[7]-in[6])>>18 |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 50))
-	out[5] = uint64(
-		(in[9]-in[8])>>14 |
-			((in[10] - in[9]) << 20) |
-			((in[11] - in[10]) << 54))
-	out[6] = uint64(
-		(in[11]-in[10])>>10 |
-			((in[12] - in[11]) << 24) |
-			((in[13] - in[12]) << 58))
-	out[7] = uint64(
-		(in[13]-in[12])>>6 |
-			((in[14] - in[13]) << 28) |
-			((in[15] - in[14]) << 62))
-	out[8] = uint64(
-		(in[15]-in[14])>>2 |
-			((in[16] - in[15]) << 32))
-	out[9] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 2) |
-			((in[18] - in[17]) << 36))
-	out[10] = uint64(
-		(in[18]-in[17])>>28 |
-			((in[19] - in[18]) << 6) |
-			((in[20] - in[19]) << 40))
-	out[11] = uint64(
-		(in[20]-in[19])>>24 |
-			((in[21] - in[20]) << 10) |
-			((in[22] - in[21]) << 44))
-	out[12] = uint64(
-		(in[22]-in[21])>>20 |
-			((in[23] - in[22]) << 14) |
-			((in[24] - in[23]) << 48))
-	out[13] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 18) |
-			((in[26] - in[25]) << 52))
-	out[14] = uint64(
-		(in[26]-in[25])>>12 |
-			((in[27] - in[26]) << 22) |
-			((in[28] - in[27]) << 56))
-	out[15] = uint64(
-		(in[28]-in[27])>>8 |
-			((in[29] - in[28]) << 26) |
-			((in[30] - in[29]) << 60))
-	out[16] = uint64(
-		(in[30]-in[29])>>4 |
-			((in[31] - in[30]) << 30))
-	out[17] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 34))
-	out[18] = uint64(
-		(in[33]-in[32])>>30 |
-			((in[34] - in[33]) << 4) |
-			((in[35] - in[34]) << 38))
-	out[19] = uint64(
-		(in[35]-in[34])>>26 |
-			((in[36] - in[35]) << 8) |
-			((in[37] - in[36]) << 42))
-	out[20] = uint64(
-		(in[37]-in[36])>>22 |
-			((in[38] - in[37]) << 12) |
-			((in[39] - in[38]) << 46))
-	out[21] = uint64(
-		(in[39]-in[38])>>18 |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 50))
-	out[22] = uint64(
-		(in[41]-in[40])>>14 |
-			((in[42] - in[41]) << 20) |
-			((in[43] - in[42]) << 54))
-	out[23] = uint64(
-		(in[43]-in[42])>>10 |
-			((in[44] - in[43]) << 24) |
-			((in[45] - in[44]) << 58))
-	out[24] = uint64(
-		(in[45]-in[44])>>6 |
-			((in[46] - in[45]) << 28) |
-			((in[47] - in[46]) << 62))
-	out[25] = uint64(
-		(in[47]-in[46])>>2 |
-			((in[48] - in[47]) << 32))
-	out[26] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 2) |
-			((in[50] - in[49]) << 36))
-	out[27] = uint64(
-		(in[50]-in[49])>>28 |
-			((in[51] - in[50]) << 6) |
-			((in[52] - in[51]) << 40))
-	out[28] = uint64(
-		(in[52]-in[51])>>24 |
-			((in[53] - in[52]) << 10) |
-			((in[54] - in[53]) << 44))
-	out[29] = uint64(
-		(in[54]-in[53])>>20 |
-			((in[55] - in[54]) << 14) |
-			((in[56] - in[55]) << 48))
-	out[30] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 18) |
-			((in[58] - in[57]) << 52))
-	out[31] = uint64(
-		(in[58]-in[57])>>12 |
-			((in[59] - in[58]) << 22) |
-			((in[60] - in[59]) << 56))
-	out[32] = uint64(
-		(in[60]-in[59])>>8 |
-			((in[61] - in[60]) << 26) |
-			((in[62] - in[61]) << 60))
-	out[33] = uint64(
-		(in[62]-in[61])>>4 |
-			((in[63] - in[62]) << 30))
+func deltapack64_34[T uint64 | int64](out *[34]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<34)), uint64((in[1]-in[0])>>30|((in[2]-in[1])<<4)|((in[3]-in[2])<<38)), uint64((in[3]-in[2])>>26|((in[4]-in[3])<<8)|((in[5]-in[4])<<42)), uint64((in[5]-in[4])>>22|((in[6]-in[5])<<12)|((in[7]-in[6])<<46)), uint64((in[7]-in[6])>>18|((in[8]-in[7])<<16)|((in[9]-in[8])<<50)), uint64((in[9]-in[8])>>14|((in[10]-in[9])<<20)|((in[11]-in[10])<<54)), uint64((in[11]-in[10])>>10|((in[12]-in[11])<<24)|((in[13]-in[12])<<58)), uint64((in[13]-in[12])>>6|((in[14]-in[13])<<28)|((in[15]-in[14])<<62)), uint64((in[15]-in[14])>>2|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<2)|((in[18]-in[17])<<36)), uint64((in[18]-in[17])>>28|((in[19]-in[18])<<6)|((in[20]-in[19])<<40)), uint64((in[20]-in[19])>>24|((in[21]-in[20])<<10)|((in[22]-in[21])<<44)), uint64((in[22]-in[21])>>20|((in[23]-in[22])<<14)|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<18)|((in[26]-in[25])<<52)), uint64((in[26]-in[25])>>12|((in[27]-in[26])<<22)|((in[28]-in[27])<<56)), uint64((in[28]-in[27])>>8|((in[29]-in[28])<<26)|((in[30]-in[29])<<60)), uint64((in[30]-in[29])>>4|((in[31]-in[30])<<30)), uint64(in[32]-in[31]|((in[33]-in[32])<<34)), uint64((in[33]-in[32])>>30|((in[34]-in[33])<<4)|((in[35]-in[34])<<38)), uint64((in[35]-in[34])>>26|((in[36]-in[35])<<8)|((in[37]-in[36])<<42)), uint64((in[37]-in[36])>>22|((in[38]-in[37])<<12)|((in[39]-in[38])<<46)), uint64((in[39]-in[38])>>18|((in[40]-in[39])<<16)|((in[41]-in[40])<<50)), uint64((in[41]-in[40])>>14|((in[42]-in[41])<<20)|((in[43]-in[42])<<54)), uint64((in[43]-in[42])>>10|((in[44]-in[43])<<24)|((in[45]-in[44])<<58)), uint64((in[45]-in[44])>>6|((in[46]-in[45])<<28)|((in[47]-in[46])<<62)), uint64((in[47]-in[46])>>2|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<2)|((in[50]-in[49])<<36)), uint64((in[50]-in[49])>>28|((in[51]-in[50])<<6)|((in[52]-in[51])<<40)), uint64((in[52]-in[51])>>24|((in[53]-in[52])<<10)|((in[54]-in[53])<<44)), uint64((in[54]-in[53])>>20|((in[55]-in[54])<<14)|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<18)|((in[58]-in[57])<<52)), uint64((in[58]-in[57])>>12|((in[59]-in[58])<<22)|((in[60]-in[59])<<56)), uint64((in[60]-in[59])>>8|((in[61]-in[60])<<26)|((in[62]-in[61])<<60)), uint64((in[62]-in[61])>>4|((in[63]-in[62])<<30))
 }
-func deltapack64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]uint64, ntz int) {
+func deltapack64_ntz_34[T uint64 | int64](out *[34]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -7507,142 +4580,11 @@ func deltapack64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]uint
 			((in[63] - in[62]) >> ntz << 30))
 }
 
-func deltapack64_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 35))
-	out[1] = uint64(
-		(in[1]-in[0])>>29 |
-			((in[2] - in[1]) << 6) |
-			((in[3] - in[2]) << 41))
-	out[2] = uint64(
-		(in[3]-in[2])>>23 |
-			((in[4] - in[3]) << 12) |
-			((in[5] - in[4]) << 47))
-	out[3] = uint64(
-		(in[5]-in[4])>>17 |
-			((in[6] - in[5]) << 18) |
-			((in[7] - in[6]) << 53))
-	out[4] = uint64(
-		(in[7]-in[6])>>11 |
-			((in[8] - in[7]) << 24) |
-			((in[9] - in[8]) << 59))
-	out[5] = uint64(
-		(in[9]-in[8])>>5 |
-			((in[10] - in[9]) << 30))
-	out[6] = uint64(
-		(in[10]-in[9])>>34 |
-			((in[11] - in[10]) << 1) |
-			((in[12] - in[11]) << 36))
-	out[7] = uint64(
-		(in[12]-in[11])>>28 |
-			((in[13] - in[12]) << 7) |
-			((in[14] - in[13]) << 42))
-	out[8] = uint64(
-		(in[14]-in[13])>>22 |
-			((in[15] - in[14]) << 13) |
-			((in[16] - in[15]) << 48))
-	out[9] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 19) |
-			((in[18] - in[17]) << 54))
-	out[10] = uint64(
-		(in[18]-in[17])>>10 |
-			((in[19] - in[18]) << 25) |
-			((in[20] - in[19]) << 60))
-	out[11] = uint64(
-		(in[20]-in[19])>>4 |
-			((in[21] - in[20]) << 31))
-	out[12] = uint64(
-		(in[21]-in[20])>>33 |
-			((in[22] - in[21]) << 2) |
-			((in[23] - in[22]) << 37))
-	out[13] = uint64(
-		(in[23]-in[22])>>27 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 43))
-	out[14] = uint64(
-		(in[25]-in[24])>>21 |
-			((in[26] - in[25]) << 14) |
-			((in[27] - in[26]) << 49))
-	out[15] = uint64(
-		(in[27]-in[26])>>15 |
-			((in[28] - in[27]) << 20) |
-			((in[29] - in[28]) << 55))
-	out[16] = uint64(
-		(in[29]-in[28])>>9 |
-			((in[30] - in[29]) << 26) |
-			((in[31] - in[30]) << 61))
-	out[17] = uint64(
-		(in[31]-in[30])>>3 |
-			((in[32] - in[31]) << 32))
-	out[18] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 3) |
-			((in[34] - in[33]) << 38))
-	out[19] = uint64(
-		(in[34]-in[33])>>26 |
-			((in[35] - in[34]) << 9) |
-			((in[36] - in[35]) << 44))
-	out[20] = uint64(
-		(in[36]-in[35])>>20 |
-			((in[37] - in[36]) << 15) |
-			((in[38] - in[37]) << 50))
-	out[21] = uint64(
-		(in[38]-in[37])>>14 |
-			((in[39] - in[38]) << 21) |
-			((in[40] - in[39]) << 56))
-	out[22] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 27) |
-			((in[42] - in[41]) << 62))
-	out[23] = uint64(
-		(in[42]-in[41])>>2 |
-			((in[43] - in[42]) << 33))
-	out[24] = uint64(
-		(in[43]-in[42])>>31 |
-			((in[44] - in[43]) << 4) |
-			((in[45] - in[44]) << 39))
-	out[25] = uint64(
-		(in[45]-in[44])>>25 |
-			((in[46] - in[45]) << 10) |
-			((in[47] - in[46]) << 45))
-	out[26] = uint64(
-		(in[47]-in[46])>>19 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 51))
-	out[27] = uint64(
-		(in[49]-in[48])>>13 |
-			((in[50] - in[49]) << 22) |
-			((in[51] - in[50]) << 57))
-	out[28] = uint64(
-		(in[51]-in[50])>>7 |
-			((in[52] - in[51]) << 28) |
-			((in[53] - in[52]) << 63))
-	out[29] = uint64(
-		(in[53]-in[52])>>1 |
-			((in[54] - in[53]) << 34))
-	out[30] = uint64(
-		(in[54]-in[53])>>30 |
-			((in[55] - in[54]) << 5) |
-			((in[56] - in[55]) << 40))
-	out[31] = uint64(
-		(in[56]-in[55])>>24 |
-			((in[57] - in[56]) << 11) |
-			((in[58] - in[57]) << 46))
-	out[32] = uint64(
-		(in[58]-in[57])>>18 |
-			((in[59] - in[58]) << 17) |
-			((in[60] - in[59]) << 52))
-	out[33] = uint64(
-		(in[60]-in[59])>>12 |
-			((in[61] - in[60]) << 23) |
-			((in[62] - in[61]) << 58))
-	out[34] = uint64(
-		(in[62]-in[61])>>6 |
-			((in[63] - in[62]) << 29))
+func deltapack64_35[T uint64 | int64](out *[35]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<35)), uint64((in[1]-in[0])>>29|((in[2]-in[1])<<6)|((in[3]-in[2])<<41)), uint64((in[3]-in[2])>>23|((in[4]-in[3])<<12)|((in[5]-in[4])<<47)), uint64((in[5]-in[4])>>17|((in[6]-in[5])<<18)|((in[7]-in[6])<<53)), uint64((in[7]-in[6])>>11|((in[8]-in[7])<<24)|((in[9]-in[8])<<59)), uint64((in[9]-in[8])>>5|((in[10]-in[9])<<30)), uint64((in[10]-in[9])>>34|((in[11]-in[10])<<1)|((in[12]-in[11])<<36)), uint64((in[12]-in[11])>>28|((in[13]-in[12])<<7)|((in[14]-in[13])<<42)), uint64((in[14]-in[13])>>22|((in[15]-in[14])<<13)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<19)|((in[18]-in[17])<<54)), uint64((in[18]-in[17])>>10|((in[19]-in[18])<<25)|((in[20]-in[19])<<60)), uint64((in[20]-in[19])>>4|((in[21]-in[20])<<31)), uint64((in[21]-in[20])>>33|((in[22]-in[21])<<2)|((in[23]-in[22])<<37)), uint64((in[23]-in[22])>>27|((in[24]-in[23])<<8)|((in[25]-in[24])<<43)), uint64((in[25]-in[24])>>21|((in[26]-in[25])<<14)|((in[27]-in[26])<<49)), uint64((in[27]-in[26])>>15|((in[28]-in[27])<<20)|((in[29]-in[28])<<55)), uint64((in[29]-in[28])>>9|((in[30]-in[29])<<26)|((in[31]-in[30])<<61)), uint64((in[31]-in[30])>>3|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<3)|((in[34]-in[33])<<38)), uint64((in[34]-in[33])>>26|((in[35]-in[34])<<9)|((in[36]-in[35])<<44)), uint64((in[36]-in[35])>>20|((in[37]-in[36])<<15)|((in[38]-in[37])<<50)), uint64((in[38]-in[37])>>14|((in[39]-in[38])<<21)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<27)|((in[42]-in[41])<<62)), uint64((in[42]-in[41])>>2|((in[43]-in[42])<<33)), uint64((in[43]-in[42])>>31|((in[44]-in[43])<<4)|((in[45]-in[44])<<39)), uint64((in[45]-in[44])>>25|((in[46]-in[45])<<10)|((in[47]-in[46])<<45)), uint64((in[47]-in[46])>>19|((in[48]-in[47])<<16)|((in[49]-in[48])<<51)), uint64((in[49]-in[48])>>13|((in[50]-in[49])<<22)|((in[51]-in[50])<<57)), uint64((in[51]-in[50])>>7|((in[52]-in[51])<<28)|((in[53]-in[52])<<63)), uint64((in[53]-in[52])>>1|((in[54]-in[53])<<34)), uint64((in[54]-in[53])>>30|((in[55]-in[54])<<5)|((in[56]-in[55])<<40)), uint64((in[56]-in[55])>>24|((in[57]-in[56])<<11)|((in[58]-in[57])<<46)), uint64((in[58]-in[57])>>18|((in[59]-in[58])<<17)|((in[60]-in[59])<<52)), uint64((in[60]-in[59])>>12|((in[61]-in[60])<<23)|((in[62]-in[61])<<58)), uint64((in[62]-in[61])>>6|((in[63]-in[62])<<29))
 }
-func deltapack64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]uint64, ntz int) {
+func deltapack64_ntz_35[T uint64 | int64](out *[35]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -7779,141 +4721,11 @@ func deltapack64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]uint
 			((in[63] - in[62]) >> ntz << 29))
 }
 
-func deltapack64_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 36))
-	out[1] = uint64(
-		(in[1]-in[0])>>28 |
-			((in[2] - in[1]) << 8) |
-			((in[3] - in[2]) << 44))
-	out[2] = uint64(
-		(in[3]-in[2])>>20 |
-			((in[4] - in[3]) << 16) |
-			((in[5] - in[4]) << 52))
-	out[3] = uint64(
-		(in[5]-in[4])>>12 |
-			((in[6] - in[5]) << 24) |
-			((in[7] - in[6]) << 60))
-	out[4] = uint64(
-		(in[7]-in[6])>>4 |
-			((in[8] - in[7]) << 32))
-	out[5] = uint64(
-		(in[8]-in[7])>>32 |
-			((in[9] - in[8]) << 4) |
-			((in[10] - in[9]) << 40))
-	out[6] = uint64(
-		(in[10]-in[9])>>24 |
-			((in[11] - in[10]) << 12) |
-			((in[12] - in[11]) << 48))
-	out[7] = uint64(
-		(in[12]-in[11])>>16 |
-			((in[13] - in[12]) << 20) |
-			((in[14] - in[13]) << 56))
-	out[8] = uint64(
-		(in[14]-in[13])>>8 |
-			((in[15] - in[14]) << 28))
-	out[9] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 36))
-	out[10] = uint64(
-		(in[17]-in[16])>>28 |
-			((in[18] - in[17]) << 8) |
-			((in[19] - in[18]) << 44))
-	out[11] = uint64(
-		(in[19]-in[18])>>20 |
-			((in[20] - in[19]) << 16) |
-			((in[21] - in[20]) << 52))
-	out[12] = uint64(
-		(in[21]-in[20])>>12 |
-			((in[22] - in[21]) << 24) |
-			((in[23] - in[22]) << 60))
-	out[13] = uint64(
-		(in[23]-in[22])>>4 |
-			((in[24] - in[23]) << 32))
-	out[14] = uint64(
-		(in[24]-in[23])>>32 |
-			((in[25] - in[24]) << 4) |
-			((in[26] - in[25]) << 40))
-	out[15] = uint64(
-		(in[26]-in[25])>>24 |
-			((in[27] - in[26]) << 12) |
-			((in[28] - in[27]) << 48))
-	out[16] = uint64(
-		(in[28]-in[27])>>16 |
-			((in[29] - in[28]) << 20) |
-			((in[30] - in[29]) << 56))
-	out[17] = uint64(
-		(in[30]-in[29])>>8 |
-			((in[31] - in[30]) << 28))
-	out[18] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 36))
-	out[19] = uint64(
-		(in[33]-in[32])>>28 |
-			((in[34] - in[33]) << 8) |
-			((in[35] - in[34]) << 44))
-	out[20] = uint64(
-		(in[35]-in[34])>>20 |
-			((in[36] - in[35]) << 16) |
-			((in[37] - in[36]) << 52))
-	out[21] = uint64(
-		(in[37]-in[36])>>12 |
-			((in[38] - in[37]) << 24) |
-			((in[39] - in[38]) << 60))
-	out[22] = uint64(
-		(in[39]-in[38])>>4 |
-			((in[40] - in[39]) << 32))
-	out[23] = uint64(
-		(in[40]-in[39])>>32 |
-			((in[41] - in[40]) << 4) |
-			((in[42] - in[41]) << 40))
-	out[24] = uint64(
-		(in[42]-in[41])>>24 |
-			((in[43] - in[42]) << 12) |
-			((in[44] - in[43]) << 48))
-	out[25] = uint64(
-		(in[44]-in[43])>>16 |
-			((in[45] - in[44]) << 20) |
-			((in[46] - in[45]) << 56))
-	out[26] = uint64(
-		(in[46]-in[45])>>8 |
-			((in[47] - in[46]) << 28))
-	out[27] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 36))
-	out[28] = uint64(
-		(in[49]-in[48])>>28 |
-			((in[50] - in[49]) << 8) |
-			((in[51] - in[50]) << 44))
-	out[29] = uint64(
-		(in[51]-in[50])>>20 |
-			((in[52] - in[51]) << 16) |
-			((in[53] - in[52]) << 52))
-	out[30] = uint64(
-		(in[53]-in[52])>>12 |
-			((in[54] - in[53]) << 24) |
-			((in[55] - in[54]) << 60))
-	out[31] = uint64(
-		(in[55]-in[54])>>4 |
-			((in[56] - in[55]) << 32))
-	out[32] = uint64(
-		(in[56]-in[55])>>32 |
-			((in[57] - in[56]) << 4) |
-			((in[58] - in[57]) << 40))
-	out[33] = uint64(
-		(in[58]-in[57])>>24 |
-			((in[59] - in[58]) << 12) |
-			((in[60] - in[59]) << 48))
-	out[34] = uint64(
-		(in[60]-in[59])>>16 |
-			((in[61] - in[60]) << 20) |
-			((in[62] - in[61]) << 56))
-	out[35] = uint64(
-		(in[62]-in[61])>>8 |
-			((in[63] - in[62]) << 28))
+func deltapack64_36[T uint64 | int64](out *[36]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<36)), uint64((in[1]-in[0])>>28|((in[2]-in[1])<<8)|((in[3]-in[2])<<44)), uint64((in[3]-in[2])>>20|((in[4]-in[3])<<16)|((in[5]-in[4])<<52)), uint64((in[5]-in[4])>>12|((in[6]-in[5])<<24)|((in[7]-in[6])<<60)), uint64((in[7]-in[6])>>4|((in[8]-in[7])<<32)), uint64((in[8]-in[7])>>32|((in[9]-in[8])<<4)|((in[10]-in[9])<<40)), uint64((in[10]-in[9])>>24|((in[11]-in[10])<<12)|((in[12]-in[11])<<48)), uint64((in[12]-in[11])>>16|((in[13]-in[12])<<20)|((in[14]-in[13])<<56)), uint64((in[14]-in[13])>>8|((in[15]-in[14])<<28)), uint64(in[16]-in[15]|((in[17]-in[16])<<36)), uint64((in[17]-in[16])>>28|((in[18]-in[17])<<8)|((in[19]-in[18])<<44)), uint64((in[19]-in[18])>>20|((in[20]-in[19])<<16)|((in[21]-in[20])<<52)), uint64((in[21]-in[20])>>12|((in[22]-in[21])<<24)|((in[23]-in[22])<<60)), uint64((in[23]-in[22])>>4|((in[24]-in[23])<<32)), uint64((in[24]-in[23])>>32|((in[25]-in[24])<<4)|((in[26]-in[25])<<40)), uint64((in[26]-in[25])>>24|((in[27]-in[26])<<12)|((in[28]-in[27])<<48)), uint64((in[28]-in[27])>>16|((in[29]-in[28])<<20)|((in[30]-in[29])<<56)), uint64((in[30]-in[29])>>8|((in[31]-in[30])<<28)), uint64(in[32]-in[31]|((in[33]-in[32])<<36)), uint64((in[33]-in[32])>>28|((in[34]-in[33])<<8)|((in[35]-in[34])<<44)), uint64((in[35]-in[34])>>20|((in[36]-in[35])<<16)|((in[37]-in[36])<<52)), uint64((in[37]-in[36])>>12|((in[38]-in[37])<<24)|((in[39]-in[38])<<60)), uint64((in[39]-in[38])>>4|((in[40]-in[39])<<32)), uint64((in[40]-in[39])>>32|((in[41]-in[40])<<4)|((in[42]-in[41])<<40)), uint64((in[42]-in[41])>>24|((in[43]-in[42])<<12)|((in[44]-in[43])<<48)), uint64((in[44]-in[43])>>16|((in[45]-in[44])<<20)|((in[46]-in[45])<<56)), uint64((in[46]-in[45])>>8|((in[47]-in[46])<<28)), uint64(in[48]-in[47]|((in[49]-in[48])<<36)), uint64((in[49]-in[48])>>28|((in[50]-in[49])<<8)|((in[51]-in[50])<<44)), uint64((in[51]-in[50])>>20|((in[52]-in[51])<<16)|((in[53]-in[52])<<52)), uint64((in[53]-in[52])>>12|((in[54]-in[53])<<24)|((in[55]-in[54])<<60)), uint64((in[55]-in[54])>>4|((in[56]-in[55])<<32)), uint64((in[56]-in[55])>>32|((in[57]-in[56])<<4)|((in[58]-in[57])<<40)), uint64((in[58]-in[57])>>24|((in[59]-in[58])<<12)|((in[60]-in[59])<<48)), uint64((in[60]-in[59])>>16|((in[61]-in[60])<<20)|((in[62]-in[61])<<56)), uint64((in[62]-in[61])>>8|((in[63]-in[62])<<28))
 }
-func deltapack64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]uint64, ntz int) {
+func deltapack64_ntz_36[T uint64 | int64](out *[36]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -8049,146 +4861,11 @@ func deltapack64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]uint
 			((in[63] - in[62]) >> ntz << 28))
 }
 
-func deltapack64_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 37))
-	out[1] = uint64(
-		(in[1]-in[0])>>27 |
-			((in[2] - in[1]) << 10) |
-			((in[3] - in[2]) << 47))
-	out[2] = uint64(
-		(in[3]-in[2])>>17 |
-			((in[4] - in[3]) << 20) |
-			((in[5] - in[4]) << 57))
-	out[3] = uint64(
-		(in[5]-in[4])>>7 |
-			((in[6] - in[5]) << 30))
-	out[4] = uint64(
-		(in[6]-in[5])>>34 |
-			((in[7] - in[6]) << 3) |
-			((in[8] - in[7]) << 40))
-	out[5] = uint64(
-		(in[8]-in[7])>>24 |
-			((in[9] - in[8]) << 13) |
-			((in[10] - in[9]) << 50))
-	out[6] = uint64(
-		(in[10]-in[9])>>14 |
-			((in[11] - in[10]) << 23) |
-			((in[12] - in[11]) << 60))
-	out[7] = uint64(
-		(in[12]-in[11])>>4 |
-			((in[13] - in[12]) << 33))
-	out[8] = uint64(
-		(in[13]-in[12])>>31 |
-			((in[14] - in[13]) << 6) |
-			((in[15] - in[14]) << 43))
-	out[9] = uint64(
-		(in[15]-in[14])>>21 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 53))
-	out[10] = uint64(
-		(in[17]-in[16])>>11 |
-			((in[18] - in[17]) << 26) |
-			((in[19] - in[18]) << 63))
-	out[11] = uint64(
-		(in[19]-in[18])>>1 |
-			((in[20] - in[19]) << 36))
-	out[12] = uint64(
-		(in[20]-in[19])>>28 |
-			((in[21] - in[20]) << 9) |
-			((in[22] - in[21]) << 46))
-	out[13] = uint64(
-		(in[22]-in[21])>>18 |
-			((in[23] - in[22]) << 19) |
-			((in[24] - in[23]) << 56))
-	out[14] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 29))
-	out[15] = uint64(
-		(in[25]-in[24])>>35 |
-			((in[26] - in[25]) << 2) |
-			((in[27] - in[26]) << 39))
-	out[16] = uint64(
-		(in[27]-in[26])>>25 |
-			((in[28] - in[27]) << 12) |
-			((in[29] - in[28]) << 49))
-	out[17] = uint64(
-		(in[29]-in[28])>>15 |
-			((in[30] - in[29]) << 22) |
-			((in[31] - in[30]) << 59))
-	out[18] = uint64(
-		(in[31]-in[30])>>5 |
-			((in[32] - in[31]) << 32))
-	out[19] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 5) |
-			((in[34] - in[33]) << 42))
-	out[20] = uint64(
-		(in[34]-in[33])>>22 |
-			((in[35] - in[34]) << 15) |
-			((in[36] - in[35]) << 52))
-	out[21] = uint64(
-		(in[36]-in[35])>>12 |
-			((in[37] - in[36]) << 25) |
-			((in[38] - in[37]) << 62))
-	out[22] = uint64(
-		(in[38]-in[37])>>2 |
-			((in[39] - in[38]) << 35))
-	out[23] = uint64(
-		(in[39]-in[38])>>29 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 45))
-	out[24] = uint64(
-		(in[41]-in[40])>>19 |
-			((in[42] - in[41]) << 18) |
-			((in[43] - in[42]) << 55))
-	out[25] = uint64(
-		(in[43]-in[42])>>9 |
-			((in[44] - in[43]) << 28))
-	out[26] = uint64(
-		(in[44]-in[43])>>36 |
-			((in[45] - in[44]) << 1) |
-			((in[46] - in[45]) << 38))
-	out[27] = uint64(
-		(in[46]-in[45])>>26 |
-			((in[47] - in[46]) << 11) |
-			((in[48] - in[47]) << 48))
-	out[28] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 21) |
-			((in[50] - in[49]) << 58))
-	out[29] = uint64(
-		(in[50]-in[49])>>6 |
-			((in[51] - in[50]) << 31))
-	out[30] = uint64(
-		(in[51]-in[50])>>33 |
-			((in[52] - in[51]) << 4) |
-			((in[53] - in[52]) << 41))
-	out[31] = uint64(
-		(in[53]-in[52])>>23 |
-			((in[54] - in[53]) << 14) |
-			((in[55] - in[54]) << 51))
-	out[32] = uint64(
-		(in[55]-in[54])>>13 |
-			((in[56] - in[55]) << 24) |
-			((in[57] - in[56]) << 61))
-	out[33] = uint64(
-		(in[57]-in[56])>>3 |
-			((in[58] - in[57]) << 34))
-	out[34] = uint64(
-		(in[58]-in[57])>>30 |
-			((in[59] - in[58]) << 7) |
-			((in[60] - in[59]) << 44))
-	out[35] = uint64(
-		(in[60]-in[59])>>20 |
-			((in[61] - in[60]) << 17) |
-			((in[62] - in[61]) << 54))
-	out[36] = uint64(
-		(in[62]-in[61])>>10 |
-			((in[63] - in[62]) << 27))
+func deltapack64_37[T uint64 | int64](out *[37]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<37)), uint64((in[1]-in[0])>>27|((in[2]-in[1])<<10)|((in[3]-in[2])<<47)), uint64((in[3]-in[2])>>17|((in[4]-in[3])<<20)|((in[5]-in[4])<<57)), uint64((in[5]-in[4])>>7|((in[6]-in[5])<<30)), uint64((in[6]-in[5])>>34|((in[7]-in[6])<<3)|((in[8]-in[7])<<40)), uint64((in[8]-in[7])>>24|((in[9]-in[8])<<13)|((in[10]-in[9])<<50)), uint64((in[10]-in[9])>>14|((in[11]-in[10])<<23)|((in[12]-in[11])<<60)), uint64((in[12]-in[11])>>4|((in[13]-in[12])<<33)), uint64((in[13]-in[12])>>31|((in[14]-in[13])<<6)|((in[15]-in[14])<<43)), uint64((in[15]-in[14])>>21|((in[16]-in[15])<<16)|((in[17]-in[16])<<53)), uint64((in[17]-in[16])>>11|((in[18]-in[17])<<26)|((in[19]-in[18])<<63)), uint64((in[19]-in[18])>>1|((in[20]-in[19])<<36)), uint64((in[20]-in[19])>>28|((in[21]-in[20])<<9)|((in[22]-in[21])<<46)), uint64((in[22]-in[21])>>18|((in[23]-in[22])<<19)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<29)), uint64((in[25]-in[24])>>35|((in[26]-in[25])<<2)|((in[27]-in[26])<<39)), uint64((in[27]-in[26])>>25|((in[28]-in[27])<<12)|((in[29]-in[28])<<49)), uint64((in[29]-in[28])>>15|((in[30]-in[29])<<22)|((in[31]-in[30])<<59)), uint64((in[31]-in[30])>>5|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<5)|((in[34]-in[33])<<42)), uint64((in[34]-in[33])>>22|((in[35]-in[34])<<15)|((in[36]-in[35])<<52)), uint64((in[36]-in[35])>>12|((in[37]-in[36])<<25)|((in[38]-in[37])<<62)), uint64((in[38]-in[37])>>2|((in[39]-in[38])<<35)), uint64((in[39]-in[38])>>29|((in[40]-in[39])<<8)|((in[41]-in[40])<<45)), uint64((in[41]-in[40])>>19|((in[42]-in[41])<<18)|((in[43]-in[42])<<55)), uint64((in[43]-in[42])>>9|((in[44]-in[43])<<28)), uint64((in[44]-in[43])>>36|((in[45]-in[44])<<1)|((in[46]-in[45])<<38)), uint64((in[46]-in[45])>>26|((in[47]-in[46])<<11)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<21)|((in[50]-in[49])<<58)), uint64((in[50]-in[49])>>6|((in[51]-in[50])<<31)), uint64((in[51]-in[50])>>33|((in[52]-in[51])<<4)|((in[53]-in[52])<<41)), uint64((in[53]-in[52])>>23|((in[54]-in[53])<<14)|((in[55]-in[54])<<51)), uint64((in[55]-in[54])>>13|((in[56]-in[55])<<24)|((in[57]-in[56])<<61)), uint64((in[57]-in[56])>>3|((in[58]-in[57])<<34)), uint64((in[58]-in[57])>>30|((in[59]-in[58])<<7)|((in[60]-in[59])<<44)), uint64((in[60]-in[59])>>20|((in[61]-in[60])<<17)|((in[62]-in[61])<<54)), uint64((in[62]-in[61])>>10|((in[63]-in[62])<<27))
 }
-func deltapack64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]uint64, ntz int) {
+func deltapack64_ntz_37[T uint64 | int64](out *[37]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -8329,147 +5006,11 @@ func deltapack64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]uint
 			((in[63] - in[62]) >> ntz << 27))
 }
 
-func deltapack64_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 38))
-	out[1] = uint64(
-		(in[1]-in[0])>>26 |
-			((in[2] - in[1]) << 12) |
-			((in[3] - in[2]) << 50))
-	out[2] = uint64(
-		(in[3]-in[2])>>14 |
-			((in[4] - in[3]) << 24) |
-			((in[5] - in[4]) << 62))
-	out[3] = uint64(
-		(in[5]-in[4])>>2 |
-			((in[6] - in[5]) << 36))
-	out[4] = uint64(
-		(in[6]-in[5])>>28 |
-			((in[7] - in[6]) << 10) |
-			((in[8] - in[7]) << 48))
-	out[5] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 22) |
-			((in[10] - in[9]) << 60))
-	out[6] = uint64(
-		(in[10]-in[9])>>4 |
-			((in[11] - in[10]) << 34))
-	out[7] = uint64(
-		(in[11]-in[10])>>30 |
-			((in[12] - in[11]) << 8) |
-			((in[13] - in[12]) << 46))
-	out[8] = uint64(
-		(in[13]-in[12])>>18 |
-			((in[14] - in[13]) << 20) |
-			((in[15] - in[14]) << 58))
-	out[9] = uint64(
-		(in[15]-in[14])>>6 |
-			((in[16] - in[15]) << 32))
-	out[10] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 6) |
-			((in[18] - in[17]) << 44))
-	out[11] = uint64(
-		(in[18]-in[17])>>20 |
-			((in[19] - in[18]) << 18) |
-			((in[20] - in[19]) << 56))
-	out[12] = uint64(
-		(in[20]-in[19])>>8 |
-			((in[21] - in[20]) << 30))
-	out[13] = uint64(
-		(in[21]-in[20])>>34 |
-			((in[22] - in[21]) << 4) |
-			((in[23] - in[22]) << 42))
-	out[14] = uint64(
-		(in[23]-in[22])>>22 |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 54))
-	out[15] = uint64(
-		(in[25]-in[24])>>10 |
-			((in[26] - in[25]) << 28))
-	out[16] = uint64(
-		(in[26]-in[25])>>36 |
-			((in[27] - in[26]) << 2) |
-			((in[28] - in[27]) << 40))
-	out[17] = uint64(
-		(in[28]-in[27])>>24 |
-			((in[29] - in[28]) << 14) |
-			((in[30] - in[29]) << 52))
-	out[18] = uint64(
-		(in[30]-in[29])>>12 |
-			((in[31] - in[30]) << 26))
-	out[19] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 38))
-	out[20] = uint64(
-		(in[33]-in[32])>>26 |
-			((in[34] - in[33]) << 12) |
-			((in[35] - in[34]) << 50))
-	out[21] = uint64(
-		(in[35]-in[34])>>14 |
-			((in[36] - in[35]) << 24) |
-			((in[37] - in[36]) << 62))
-	out[22] = uint64(
-		(in[37]-in[36])>>2 |
-			((in[38] - in[37]) << 36))
-	out[23] = uint64(
-		(in[38]-in[37])>>28 |
-			((in[39] - in[38]) << 10) |
-			((in[40] - in[39]) << 48))
-	out[24] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 22) |
-			((in[42] - in[41]) << 60))
-	out[25] = uint64(
-		(in[42]-in[41])>>4 |
-			((in[43] - in[42]) << 34))
-	out[26] = uint64(
-		(in[43]-in[42])>>30 |
-			((in[44] - in[43]) << 8) |
-			((in[45] - in[44]) << 46))
-	out[27] = uint64(
-		(in[45]-in[44])>>18 |
-			((in[46] - in[45]) << 20) |
-			((in[47] - in[46]) << 58))
-	out[28] = uint64(
-		(in[47]-in[46])>>6 |
-			((in[48] - in[47]) << 32))
-	out[29] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 6) |
-			((in[50] - in[49]) << 44))
-	out[30] = uint64(
-		(in[50]-in[49])>>20 |
-			((in[51] - in[50]) << 18) |
-			((in[52] - in[51]) << 56))
-	out[31] = uint64(
-		(in[52]-in[51])>>8 |
-			((in[53] - in[52]) << 30))
-	out[32] = uint64(
-		(in[53]-in[52])>>34 |
-			((in[54] - in[53]) << 4) |
-			((in[55] - in[54]) << 42))
-	out[33] = uint64(
-		(in[55]-in[54])>>22 |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 54))
-	out[34] = uint64(
-		(in[57]-in[56])>>10 |
-			((in[58] - in[57]) << 28))
-	out[35] = uint64(
-		(in[58]-in[57])>>36 |
-			((in[59] - in[58]) << 2) |
-			((in[60] - in[59]) << 40))
-	out[36] = uint64(
-		(in[60]-in[59])>>24 |
-			((in[61] - in[60]) << 14) |
-			((in[62] - in[61]) << 52))
-	out[37] = uint64(
-		(in[62]-in[61])>>12 |
-			((in[63] - in[62]) << 26))
+func deltapack64_38[T uint64 | int64](out *[38]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<38)), uint64((in[1]-in[0])>>26|((in[2]-in[1])<<12)|((in[3]-in[2])<<50)), uint64((in[3]-in[2])>>14|((in[4]-in[3])<<24)|((in[5]-in[4])<<62)), uint64((in[5]-in[4])>>2|((in[6]-in[5])<<36)), uint64((in[6]-in[5])>>28|((in[7]-in[6])<<10)|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<22)|((in[10]-in[9])<<60)), uint64((in[10]-in[9])>>4|((in[11]-in[10])<<34)), uint64((in[11]-in[10])>>30|((in[12]-in[11])<<8)|((in[13]-in[12])<<46)), uint64((in[13]-in[12])>>18|((in[14]-in[13])<<20)|((in[15]-in[14])<<58)), uint64((in[15]-in[14])>>6|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<6)|((in[18]-in[17])<<44)), uint64((in[18]-in[17])>>20|((in[19]-in[18])<<18)|((in[20]-in[19])<<56)), uint64((in[20]-in[19])>>8|((in[21]-in[20])<<30)), uint64((in[21]-in[20])>>34|((in[22]-in[21])<<4)|((in[23]-in[22])<<42)), uint64((in[23]-in[22])>>22|((in[24]-in[23])<<16)|((in[25]-in[24])<<54)), uint64((in[25]-in[24])>>10|((in[26]-in[25])<<28)), uint64((in[26]-in[25])>>36|((in[27]-in[26])<<2)|((in[28]-in[27])<<40)), uint64((in[28]-in[27])>>24|((in[29]-in[28])<<14)|((in[30]-in[29])<<52)), uint64((in[30]-in[29])>>12|((in[31]-in[30])<<26)), uint64(in[32]-in[31]|((in[33]-in[32])<<38)), uint64((in[33]-in[32])>>26|((in[34]-in[33])<<12)|((in[35]-in[34])<<50)), uint64((in[35]-in[34])>>14|((in[36]-in[35])<<24)|((in[37]-in[36])<<62)), uint64((in[37]-in[36])>>2|((in[38]-in[37])<<36)), uint64((in[38]-in[37])>>28|((in[39]-in[38])<<10)|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<22)|((in[42]-in[41])<<60)), uint64((in[42]-in[41])>>4|((in[43]-in[42])<<34)), uint64((in[43]-in[42])>>30|((in[44]-in[43])<<8)|((in[45]-in[44])<<46)), uint64((in[45]-in[44])>>18|((in[46]-in[45])<<20)|((in[47]-in[46])<<58)), uint64((in[47]-in[46])>>6|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<6)|((in[50]-in[49])<<44)), uint64((in[50]-in[49])>>20|((in[51]-in[50])<<18)|((in[52]-in[51])<<56)), uint64((in[52]-in[51])>>8|((in[53]-in[52])<<30)), uint64((in[53]-in[52])>>34|((in[54]-in[53])<<4)|((in[55]-in[54])<<42)), uint64((in[55]-in[54])>>22|((in[56]-in[55])<<16)|((in[57]-in[56])<<54)), uint64((in[57]-in[56])>>10|((in[58]-in[57])<<28)), uint64((in[58]-in[57])>>36|((in[59]-in[58])<<2)|((in[60]-in[59])<<40)), uint64((in[60]-in[59])>>24|((in[61]-in[60])<<14)|((in[62]-in[61])<<52)), uint64((in[62]-in[61])>>12|((in[63]-in[62])<<26))
 }
-func deltapack64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]uint64, ntz int) {
+func deltapack64_ntz_38[T uint64 | int64](out *[38]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -8611,150 +5152,11 @@ func deltapack64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]uint
 			((in[63] - in[62]) >> ntz << 26))
 }
 
-func deltapack64_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 39))
-	out[1] = uint64(
-		(in[1]-in[0])>>25 |
-			((in[2] - in[1]) << 14) |
-			((in[3] - in[2]) << 53))
-	out[2] = uint64(
-		(in[3]-in[2])>>11 |
-			((in[4] - in[3]) << 28))
-	out[3] = uint64(
-		(in[4]-in[3])>>36 |
-			((in[5] - in[4]) << 3) |
-			((in[6] - in[5]) << 42))
-	out[4] = uint64(
-		(in[6]-in[5])>>22 |
-			((in[7] - in[6]) << 17) |
-			((in[8] - in[7]) << 56))
-	out[5] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 31))
-	out[6] = uint64(
-		(in[9]-in[8])>>33 |
-			((in[10] - in[9]) << 6) |
-			((in[11] - in[10]) << 45))
-	out[7] = uint64(
-		(in[11]-in[10])>>19 |
-			((in[12] - in[11]) << 20) |
-			((in[13] - in[12]) << 59))
-	out[8] = uint64(
-		(in[13]-in[12])>>5 |
-			((in[14] - in[13]) << 34))
-	out[9] = uint64(
-		(in[14]-in[13])>>30 |
-			((in[15] - in[14]) << 9) |
-			((in[16] - in[15]) << 48))
-	out[10] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 23) |
-			((in[18] - in[17]) << 62))
-	out[11] = uint64(
-		(in[18]-in[17])>>2 |
-			((in[19] - in[18]) << 37))
-	out[12] = uint64(
-		(in[19]-in[18])>>27 |
-			((in[20] - in[19]) << 12) |
-			((in[21] - in[20]) << 51))
-	out[13] = uint64(
-		(in[21]-in[20])>>13 |
-			((in[22] - in[21]) << 26))
-	out[14] = uint64(
-		(in[22]-in[21])>>38 |
-			((in[23] - in[22]) << 1) |
-			((in[24] - in[23]) << 40))
-	out[15] = uint64(
-		(in[24]-in[23])>>24 |
-			((in[25] - in[24]) << 15) |
-			((in[26] - in[25]) << 54))
-	out[16] = uint64(
-		(in[26]-in[25])>>10 |
-			((in[27] - in[26]) << 29))
-	out[17] = uint64(
-		(in[27]-in[26])>>35 |
-			((in[28] - in[27]) << 4) |
-			((in[29] - in[28]) << 43))
-	out[18] = uint64(
-		(in[29]-in[28])>>21 |
-			((in[30] - in[29]) << 18) |
-			((in[31] - in[30]) << 57))
-	out[19] = uint64(
-		(in[31]-in[30])>>7 |
-			((in[32] - in[31]) << 32))
-	out[20] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 7) |
-			((in[34] - in[33]) << 46))
-	out[21] = uint64(
-		(in[34]-in[33])>>18 |
-			((in[35] - in[34]) << 21) |
-			((in[36] - in[35]) << 60))
-	out[22] = uint64(
-		(in[36]-in[35])>>4 |
-			((in[37] - in[36]) << 35))
-	out[23] = uint64(
-		(in[37]-in[36])>>29 |
-			((in[38] - in[37]) << 10) |
-			((in[39] - in[38]) << 49))
-	out[24] = uint64(
-		(in[39]-in[38])>>15 |
-			((in[40] - in[39]) << 24) |
-			((in[41] - in[40]) << 63))
-	out[25] = uint64(
-		(in[41]-in[40])>>1 |
-			((in[42] - in[41]) << 38))
-	out[26] = uint64(
-		(in[42]-in[41])>>26 |
-			((in[43] - in[42]) << 13) |
-			((in[44] - in[43]) << 52))
-	out[27] = uint64(
-		(in[44]-in[43])>>12 |
-			((in[45] - in[44]) << 27))
-	out[28] = uint64(
-		(in[45]-in[44])>>37 |
-			((in[46] - in[45]) << 2) |
-			((in[47] - in[46]) << 41))
-	out[29] = uint64(
-		(in[47]-in[46])>>23 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 55))
-	out[30] = uint64(
-		(in[49]-in[48])>>9 |
-			((in[50] - in[49]) << 30))
-	out[31] = uint64(
-		(in[50]-in[49])>>34 |
-			((in[51] - in[50]) << 5) |
-			((in[52] - in[51]) << 44))
-	out[32] = uint64(
-		(in[52]-in[51])>>20 |
-			((in[53] - in[52]) << 19) |
-			((in[54] - in[53]) << 58))
-	out[33] = uint64(
-		(in[54]-in[53])>>6 |
-			((in[55] - in[54]) << 33))
-	out[34] = uint64(
-		(in[55]-in[54])>>31 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 47))
-	out[35] = uint64(
-		(in[57]-in[56])>>17 |
-			((in[58] - in[57]) << 22) |
-			((in[59] - in[58]) << 61))
-	out[36] = uint64(
-		(in[59]-in[58])>>3 |
-			((in[60] - in[59]) << 36))
-	out[37] = uint64(
-		(in[60]-in[59])>>28 |
-			((in[61] - in[60]) << 11) |
-			((in[62] - in[61]) << 50))
-	out[38] = uint64(
-		(in[62]-in[61])>>14 |
-			((in[63] - in[62]) << 25))
+func deltapack64_39[T uint64 | int64](out *[39]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<39)), uint64((in[1]-in[0])>>25|((in[2]-in[1])<<14)|((in[3]-in[2])<<53)), uint64((in[3]-in[2])>>11|((in[4]-in[3])<<28)), uint64((in[4]-in[3])>>36|((in[5]-in[4])<<3)|((in[6]-in[5])<<42)), uint64((in[6]-in[5])>>22|((in[7]-in[6])<<17)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<31)), uint64((in[9]-in[8])>>33|((in[10]-in[9])<<6)|((in[11]-in[10])<<45)), uint64((in[11]-in[10])>>19|((in[12]-in[11])<<20)|((in[13]-in[12])<<59)), uint64((in[13]-in[12])>>5|((in[14]-in[13])<<34)), uint64((in[14]-in[13])>>30|((in[15]-in[14])<<9)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<23)|((in[18]-in[17])<<62)), uint64((in[18]-in[17])>>2|((in[19]-in[18])<<37)), uint64((in[19]-in[18])>>27|((in[20]-in[19])<<12)|((in[21]-in[20])<<51)), uint64((in[21]-in[20])>>13|((in[22]-in[21])<<26)), uint64((in[22]-in[21])>>38|((in[23]-in[22])<<1)|((in[24]-in[23])<<40)), uint64((in[24]-in[23])>>24|((in[25]-in[24])<<15)|((in[26]-in[25])<<54)), uint64((in[26]-in[25])>>10|((in[27]-in[26])<<29)), uint64((in[27]-in[26])>>35|((in[28]-in[27])<<4)|((in[29]-in[28])<<43)), uint64((in[29]-in[28])>>21|((in[30]-in[29])<<18)|((in[31]-in[30])<<57)), uint64((in[31]-in[30])>>7|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<7)|((in[34]-in[33])<<46)), uint64((in[34]-in[33])>>18|((in[35]-in[34])<<21)|((in[36]-in[35])<<60)), uint64((in[36]-in[35])>>4|((in[37]-in[36])<<35)), uint64((in[37]-in[36])>>29|((in[38]-in[37])<<10)|((in[39]-in[38])<<49)), uint64((in[39]-in[38])>>15|((in[40]-in[39])<<24)|((in[41]-in[40])<<63)), uint64((in[41]-in[40])>>1|((in[42]-in[41])<<38)), uint64((in[42]-in[41])>>26|((in[43]-in[42])<<13)|((in[44]-in[43])<<52)), uint64((in[44]-in[43])>>12|((in[45]-in[44])<<27)), uint64((in[45]-in[44])>>37|((in[46]-in[45])<<2)|((in[47]-in[46])<<41)), uint64((in[47]-in[46])>>23|((in[48]-in[47])<<16)|((in[49]-in[48])<<55)), uint64((in[49]-in[48])>>9|((in[50]-in[49])<<30)), uint64((in[50]-in[49])>>34|((in[51]-in[50])<<5)|((in[52]-in[51])<<44)), uint64((in[52]-in[51])>>20|((in[53]-in[52])<<19)|((in[54]-in[53])<<58)), uint64((in[54]-in[53])>>6|((in[55]-in[54])<<33)), uint64((in[55]-in[54])>>31|((in[56]-in[55])<<8)|((in[57]-in[56])<<47)), uint64((in[57]-in[56])>>17|((in[58]-in[57])<<22)|((in[59]-in[58])<<61)), uint64((in[59]-in[58])>>3|((in[60]-in[59])<<36)), uint64((in[60]-in[59])>>28|((in[61]-in[60])<<11)|((in[62]-in[61])<<50)), uint64((in[62]-in[61])>>14|((in[63]-in[62])<<25))
 }
-func deltapack64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]uint64, ntz int) {
+func deltapack64_ntz_39[T uint64 | int64](out *[39]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -8899,145 +5301,11 @@ func deltapack64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]uint
 			((in[63] - in[62]) >> ntz << 25))
 }
 
-func deltapack64_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 40))
-	out[1] = uint64(
-		(in[1]-in[0])>>24 |
-			((in[2] - in[1]) << 16) |
-			((in[3] - in[2]) << 56))
-	out[2] = uint64(
-		(in[3]-in[2])>>8 |
-			((in[4] - in[3]) << 32))
-	out[3] = uint64(
-		(in[4]-in[3])>>32 |
-			((in[5] - in[4]) << 8) |
-			((in[6] - in[5]) << 48))
-	out[4] = uint64(
-		(in[6]-in[5])>>16 |
-			((in[7] - in[6]) << 24))
-	out[5] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 40))
-	out[6] = uint64(
-		(in[9]-in[8])>>24 |
-			((in[10] - in[9]) << 16) |
-			((in[11] - in[10]) << 56))
-	out[7] = uint64(
-		(in[11]-in[10])>>8 |
-			((in[12] - in[11]) << 32))
-	out[8] = uint64(
-		(in[12]-in[11])>>32 |
-			((in[13] - in[12]) << 8) |
-			((in[14] - in[13]) << 48))
-	out[9] = uint64(
-		(in[14]-in[13])>>16 |
-			((in[15] - in[14]) << 24))
-	out[10] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 40))
-	out[11] = uint64(
-		(in[17]-in[16])>>24 |
-			((in[18] - in[17]) << 16) |
-			((in[19] - in[18]) << 56))
-	out[12] = uint64(
-		(in[19]-in[18])>>8 |
-			((in[20] - in[19]) << 32))
-	out[13] = uint64(
-		(in[20]-in[19])>>32 |
-			((in[21] - in[20]) << 8) |
-			((in[22] - in[21]) << 48))
-	out[14] = uint64(
-		(in[22]-in[21])>>16 |
-			((in[23] - in[22]) << 24))
-	out[15] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 40))
-	out[16] = uint64(
-		(in[25]-in[24])>>24 |
-			((in[26] - in[25]) << 16) |
-			((in[27] - in[26]) << 56))
-	out[17] = uint64(
-		(in[27]-in[26])>>8 |
-			((in[28] - in[27]) << 32))
-	out[18] = uint64(
-		(in[28]-in[27])>>32 |
-			((in[29] - in[28]) << 8) |
-			((in[30] - in[29]) << 48))
-	out[19] = uint64(
-		(in[30]-in[29])>>16 |
-			((in[31] - in[30]) << 24))
-	out[20] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 40))
-	out[21] = uint64(
-		(in[33]-in[32])>>24 |
-			((in[34] - in[33]) << 16) |
-			((in[35] - in[34]) << 56))
-	out[22] = uint64(
-		(in[35]-in[34])>>8 |
-			((in[36] - in[35]) << 32))
-	out[23] = uint64(
-		(in[36]-in[35])>>32 |
-			((in[37] - in[36]) << 8) |
-			((in[38] - in[37]) << 48))
-	out[24] = uint64(
-		(in[38]-in[37])>>16 |
-			((in[39] - in[38]) << 24))
-	out[25] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 40))
-	out[26] = uint64(
-		(in[41]-in[40])>>24 |
-			((in[42] - in[41]) << 16) |
-			((in[43] - in[42]) << 56))
-	out[27] = uint64(
-		(in[43]-in[42])>>8 |
-			((in[44] - in[43]) << 32))
-	out[28] = uint64(
-		(in[44]-in[43])>>32 |
-			((in[45] - in[44]) << 8) |
-			((in[46] - in[45]) << 48))
-	out[29] = uint64(
-		(in[46]-in[45])>>16 |
-			((in[47] - in[46]) << 24))
-	out[30] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 40))
-	out[31] = uint64(
-		(in[49]-in[48])>>24 |
-			((in[50] - in[49]) << 16) |
-			((in[51] - in[50]) << 56))
-	out[32] = uint64(
-		(in[51]-in[50])>>8 |
-			((in[52] - in[51]) << 32))
-	out[33] = uint64(
-		(in[52]-in[51])>>32 |
-			((in[53] - in[52]) << 8) |
-			((in[54] - in[53]) << 48))
-	out[34] = uint64(
-		(in[54]-in[53])>>16 |
-			((in[55] - in[54]) << 24))
-	out[35] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 40))
-	out[36] = uint64(
-		(in[57]-in[56])>>24 |
-			((in[58] - in[57]) << 16) |
-			((in[59] - in[58]) << 56))
-	out[37] = uint64(
-		(in[59]-in[58])>>8 |
-			((in[60] - in[59]) << 32))
-	out[38] = uint64(
-		(in[60]-in[59])>>32 |
-			((in[61] - in[60]) << 8) |
-			((in[62] - in[61]) << 48))
-	out[39] = uint64(
-		(in[62]-in[61])>>16 |
-			((in[63] - in[62]) << 24))
+func deltapack64_40[T uint64 | int64](out *[40]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<40)), uint64((in[1]-in[0])>>24|((in[2]-in[1])<<16)|((in[3]-in[2])<<56)), uint64((in[3]-in[2])>>8|((in[4]-in[3])<<32)), uint64((in[4]-in[3])>>32|((in[5]-in[4])<<8)|((in[6]-in[5])<<48)), uint64((in[6]-in[5])>>16|((in[7]-in[6])<<24)), uint64(in[8]-in[7]|((in[9]-in[8])<<40)), uint64((in[9]-in[8])>>24|((in[10]-in[9])<<16)|((in[11]-in[10])<<56)), uint64((in[11]-in[10])>>8|((in[12]-in[11])<<32)), uint64((in[12]-in[11])>>32|((in[13]-in[12])<<8)|((in[14]-in[13])<<48)), uint64((in[14]-in[13])>>16|((in[15]-in[14])<<24)), uint64(in[16]-in[15]|((in[17]-in[16])<<40)), uint64((in[17]-in[16])>>24|((in[18]-in[17])<<16)|((in[19]-in[18])<<56)), uint64((in[19]-in[18])>>8|((in[20]-in[19])<<32)), uint64((in[20]-in[19])>>32|((in[21]-in[20])<<8)|((in[22]-in[21])<<48)), uint64((in[22]-in[21])>>16|((in[23]-in[22])<<24)), uint64(in[24]-in[23]|((in[25]-in[24])<<40)), uint64((in[25]-in[24])>>24|((in[26]-in[25])<<16)|((in[27]-in[26])<<56)), uint64((in[27]-in[26])>>8|((in[28]-in[27])<<32)), uint64((in[28]-in[27])>>32|((in[29]-in[28])<<8)|((in[30]-in[29])<<48)), uint64((in[30]-in[29])>>16|((in[31]-in[30])<<24)), uint64(in[32]-in[31]|((in[33]-in[32])<<40)), uint64((in[33]-in[32])>>24|((in[34]-in[33])<<16)|((in[35]-in[34])<<56)), uint64((in[35]-in[34])>>8|((in[36]-in[35])<<32)), uint64((in[36]-in[35])>>32|((in[37]-in[36])<<8)|((in[38]-in[37])<<48)), uint64((in[38]-in[37])>>16|((in[39]-in[38])<<24)), uint64(in[40]-in[39]|((in[41]-in[40])<<40)), uint64((in[41]-in[40])>>24|((in[42]-in[41])<<16)|((in[43]-in[42])<<56)), uint64((in[43]-in[42])>>8|((in[44]-in[43])<<32)), uint64((in[44]-in[43])>>32|((in[45]-in[44])<<8)|((in[46]-in[45])<<48)), uint64((in[46]-in[45])>>16|((in[47]-in[46])<<24)), uint64(in[48]-in[47]|((in[49]-in[48])<<40)), uint64((in[49]-in[48])>>24|((in[50]-in[49])<<16)|((in[51]-in[50])<<56)), uint64((in[51]-in[50])>>8|((in[52]-in[51])<<32)), uint64((in[52]-in[51])>>32|((in[53]-in[52])<<8)|((in[54]-in[53])<<48)), uint64((in[54]-in[53])>>16|((in[55]-in[54])<<24)), uint64(in[56]-in[55]|((in[57]-in[56])<<40)), uint64((in[57]-in[56])>>24|((in[58]-in[57])<<16)|((in[59]-in[58])<<56)), uint64((in[59]-in[58])>>8|((in[60]-in[59])<<32)), uint64((in[60]-in[59])>>32|((in[61]-in[60])<<8)|((in[62]-in[61])<<48)), uint64((in[62]-in[61])>>16|((in[63]-in[62])<<24))
 }
-func deltapack64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]uint64, ntz int) {
+func deltapack64_ntz_40[T uint64 | int64](out *[40]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -9177,154 +5445,11 @@ func deltapack64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]uint
 			((in[63] - in[62]) >> ntz << 24))
 }
 
-func deltapack64_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 41))
-	out[1] = uint64(
-		(in[1]-in[0])>>23 |
-			((in[2] - in[1]) << 18) |
-			((in[3] - in[2]) << 59))
-	out[2] = uint64(
-		(in[3]-in[2])>>5 |
-			((in[4] - in[3]) << 36))
-	out[3] = uint64(
-		(in[4]-in[3])>>28 |
-			((in[5] - in[4]) << 13) |
-			((in[6] - in[5]) << 54))
-	out[4] = uint64(
-		(in[6]-in[5])>>10 |
-			((in[7] - in[6]) << 31))
-	out[5] = uint64(
-		(in[7]-in[6])>>33 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 49))
-	out[6] = uint64(
-		(in[9]-in[8])>>15 |
-			((in[10] - in[9]) << 26))
-	out[7] = uint64(
-		(in[10]-in[9])>>38 |
-			((in[11] - in[10]) << 3) |
-			((in[12] - in[11]) << 44))
-	out[8] = uint64(
-		(in[12]-in[11])>>20 |
-			((in[13] - in[12]) << 21) |
-			((in[14] - in[13]) << 62))
-	out[9] = uint64(
-		(in[14]-in[13])>>2 |
-			((in[15] - in[14]) << 39))
-	out[10] = uint64(
-		(in[15]-in[14])>>25 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 57))
-	out[11] = uint64(
-		(in[17]-in[16])>>7 |
-			((in[18] - in[17]) << 34))
-	out[12] = uint64(
-		(in[18]-in[17])>>30 |
-			((in[19] - in[18]) << 11) |
-			((in[20] - in[19]) << 52))
-	out[13] = uint64(
-		(in[20]-in[19])>>12 |
-			((in[21] - in[20]) << 29))
-	out[14] = uint64(
-		(in[21]-in[20])>>35 |
-			((in[22] - in[21]) << 6) |
-			((in[23] - in[22]) << 47))
-	out[15] = uint64(
-		(in[23]-in[22])>>17 |
-			((in[24] - in[23]) << 24))
-	out[16] = uint64(
-		(in[24]-in[23])>>40 |
-			((in[25] - in[24]) << 1) |
-			((in[26] - in[25]) << 42))
-	out[17] = uint64(
-		(in[26]-in[25])>>22 |
-			((in[27] - in[26]) << 19) |
-			((in[28] - in[27]) << 60))
-	out[18] = uint64(
-		(in[28]-in[27])>>4 |
-			((in[29] - in[28]) << 37))
-	out[19] = uint64(
-		(in[29]-in[28])>>27 |
-			((in[30] - in[29]) << 14) |
-			((in[31] - in[30]) << 55))
-	out[20] = uint64(
-		(in[31]-in[30])>>9 |
-			((in[32] - in[31]) << 32))
-	out[21] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 9) |
-			((in[34] - in[33]) << 50))
-	out[22] = uint64(
-		(in[34]-in[33])>>14 |
-			((in[35] - in[34]) << 27))
-	out[23] = uint64(
-		(in[35]-in[34])>>37 |
-			((in[36] - in[35]) << 4) |
-			((in[37] - in[36]) << 45))
-	out[24] = uint64(
-		(in[37]-in[36])>>19 |
-			((in[38] - in[37]) << 22) |
-			((in[39] - in[38]) << 63))
-	out[25] = uint64(
-		(in[39]-in[38])>>1 |
-			((in[40] - in[39]) << 40))
-	out[26] = uint64(
-		(in[40]-in[39])>>24 |
-			((in[41] - in[40]) << 17) |
-			((in[42] - in[41]) << 58))
-	out[27] = uint64(
-		(in[42]-in[41])>>6 |
-			((in[43] - in[42]) << 35))
-	out[28] = uint64(
-		(in[43]-in[42])>>29 |
-			((in[44] - in[43]) << 12) |
-			((in[45] - in[44]) << 53))
-	out[29] = uint64(
-		(in[45]-in[44])>>11 |
-			((in[46] - in[45]) << 30))
-	out[30] = uint64(
-		(in[46]-in[45])>>34 |
-			((in[47] - in[46]) << 7) |
-			((in[48] - in[47]) << 48))
-	out[31] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 25))
-	out[32] = uint64(
-		(in[49]-in[48])>>39 |
-			((in[50] - in[49]) << 2) |
-			((in[51] - in[50]) << 43))
-	out[33] = uint64(
-		(in[51]-in[50])>>21 |
-			((in[52] - in[51]) << 20) |
-			((in[53] - in[52]) << 61))
-	out[34] = uint64(
-		(in[53]-in[52])>>3 |
-			((in[54] - in[53]) << 38))
-	out[35] = uint64(
-		(in[54]-in[53])>>26 |
-			((in[55] - in[54]) << 15) |
-			((in[56] - in[55]) << 56))
-	out[36] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 33))
-	out[37] = uint64(
-		(in[57]-in[56])>>31 |
-			((in[58] - in[57]) << 10) |
-			((in[59] - in[58]) << 51))
-	out[38] = uint64(
-		(in[59]-in[58])>>13 |
-			((in[60] - in[59]) << 28))
-	out[39] = uint64(
-		(in[60]-in[59])>>36 |
-			((in[61] - in[60]) << 5) |
-			((in[62] - in[61]) << 46))
-	out[40] = uint64(
-		(in[62]-in[61])>>18 |
-			((in[63] - in[62]) << 23))
+func deltapack64_41[T uint64 | int64](out *[41]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<41)), uint64((in[1]-in[0])>>23|((in[2]-in[1])<<18)|((in[3]-in[2])<<59)), uint64((in[3]-in[2])>>5|((in[4]-in[3])<<36)), uint64((in[4]-in[3])>>28|((in[5]-in[4])<<13)|((in[6]-in[5])<<54)), uint64((in[6]-in[5])>>10|((in[7]-in[6])<<31)), uint64((in[7]-in[6])>>33|((in[8]-in[7])<<8)|((in[9]-in[8])<<49)), uint64((in[9]-in[8])>>15|((in[10]-in[9])<<26)), uint64((in[10]-in[9])>>38|((in[11]-in[10])<<3)|((in[12]-in[11])<<44)), uint64((in[12]-in[11])>>20|((in[13]-in[12])<<21)|((in[14]-in[13])<<62)), uint64((in[14]-in[13])>>2|((in[15]-in[14])<<39)), uint64((in[15]-in[14])>>25|((in[16]-in[15])<<16)|((in[17]-in[16])<<57)), uint64((in[17]-in[16])>>7|((in[18]-in[17])<<34)), uint64((in[18]-in[17])>>30|((in[19]-in[18])<<11)|((in[20]-in[19])<<52)), uint64((in[20]-in[19])>>12|((in[21]-in[20])<<29)), uint64((in[21]-in[20])>>35|((in[22]-in[21])<<6)|((in[23]-in[22])<<47)), uint64((in[23]-in[22])>>17|((in[24]-in[23])<<24)), uint64((in[24]-in[23])>>40|((in[25]-in[24])<<1)|((in[26]-in[25])<<42)), uint64((in[26]-in[25])>>22|((in[27]-in[26])<<19)|((in[28]-in[27])<<60)), uint64((in[28]-in[27])>>4|((in[29]-in[28])<<37)), uint64((in[29]-in[28])>>27|((in[30]-in[29])<<14)|((in[31]-in[30])<<55)), uint64((in[31]-in[30])>>9|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<9)|((in[34]-in[33])<<50)), uint64((in[34]-in[33])>>14|((in[35]-in[34])<<27)), uint64((in[35]-in[34])>>37|((in[36]-in[35])<<4)|((in[37]-in[36])<<45)), uint64((in[37]-in[36])>>19|((in[38]-in[37])<<22)|((in[39]-in[38])<<63)), uint64((in[39]-in[38])>>1|((in[40]-in[39])<<40)), uint64((in[40]-in[39])>>24|((in[41]-in[40])<<17)|((in[42]-in[41])<<58)), uint64((in[42]-in[41])>>6|((in[43]-in[42])<<35)), uint64((in[43]-in[42])>>29|((in[44]-in[43])<<12)|((in[45]-in[44])<<53)), uint64((in[45]-in[44])>>11|((in[46]-in[45])<<30)), uint64((in[46]-in[45])>>34|((in[47]-in[46])<<7)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<25)), uint64((in[49]-in[48])>>39|((in[50]-in[49])<<2)|((in[51]-in[50])<<43)), uint64((in[51]-in[50])>>21|((in[52]-in[51])<<20)|((in[53]-in[52])<<61)), uint64((in[53]-in[52])>>3|((in[54]-in[53])<<38)), uint64((in[54]-in[53])>>26|((in[55]-in[54])<<15)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<33)), uint64((in[57]-in[56])>>31|((in[58]-in[57])<<10)|((in[59]-in[58])<<51)), uint64((in[59]-in[58])>>13|((in[60]-in[59])<<28)), uint64((in[60]-in[59])>>36|((in[61]-in[60])<<5)|((in[62]-in[61])<<46)), uint64((in[62]-in[61])>>18|((in[63]-in[62])<<23))
 }
-func deltapack64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]uint64, ntz int) {
+func deltapack64_ntz_41[T uint64 | int64](out *[41]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -9473,155 +5598,11 @@ func deltapack64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]uint
 			((in[63] - in[62]) >> ntz << 23))
 }
 
-func deltapack64_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 42))
-	out[1] = uint64(
-		(in[1]-in[0])>>22 |
-			((in[2] - in[1]) << 20) |
-			((in[3] - in[2]) << 62))
-	out[2] = uint64(
-		(in[3]-in[2])>>2 |
-			((in[4] - in[3]) << 40))
-	out[3] = uint64(
-		(in[4]-in[3])>>24 |
-			((in[5] - in[4]) << 18) |
-			((in[6] - in[5]) << 60))
-	out[4] = uint64(
-		(in[6]-in[5])>>4 |
-			((in[7] - in[6]) << 38))
-	out[5] = uint64(
-		(in[7]-in[6])>>26 |
-			((in[8] - in[7]) << 16) |
-			((in[9] - in[8]) << 58))
-	out[6] = uint64(
-		(in[9]-in[8])>>6 |
-			((in[10] - in[9]) << 36))
-	out[7] = uint64(
-		(in[10]-in[9])>>28 |
-			((in[11] - in[10]) << 14) |
-			((in[12] - in[11]) << 56))
-	out[8] = uint64(
-		(in[12]-in[11])>>8 |
-			((in[13] - in[12]) << 34))
-	out[9] = uint64(
-		(in[13]-in[12])>>30 |
-			((in[14] - in[13]) << 12) |
-			((in[15] - in[14]) << 54))
-	out[10] = uint64(
-		(in[15]-in[14])>>10 |
-			((in[16] - in[15]) << 32))
-	out[11] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 10) |
-			((in[18] - in[17]) << 52))
-	out[12] = uint64(
-		(in[18]-in[17])>>12 |
-			((in[19] - in[18]) << 30))
-	out[13] = uint64(
-		(in[19]-in[18])>>34 |
-			((in[20] - in[19]) << 8) |
-			((in[21] - in[20]) << 50))
-	out[14] = uint64(
-		(in[21]-in[20])>>14 |
-			((in[22] - in[21]) << 28))
-	out[15] = uint64(
-		(in[22]-in[21])>>36 |
-			((in[23] - in[22]) << 6) |
-			((in[24] - in[23]) << 48))
-	out[16] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 26))
-	out[17] = uint64(
-		(in[25]-in[24])>>38 |
-			((in[26] - in[25]) << 4) |
-			((in[27] - in[26]) << 46))
-	out[18] = uint64(
-		(in[27]-in[26])>>18 |
-			((in[28] - in[27]) << 24))
-	out[19] = uint64(
-		(in[28]-in[27])>>40 |
-			((in[29] - in[28]) << 2) |
-			((in[30] - in[29]) << 44))
-	out[20] = uint64(
-		(in[30]-in[29])>>20 |
-			((in[31] - in[30]) << 22))
-	out[21] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 42))
-	out[22] = uint64(
-		(in[33]-in[32])>>22 |
-			((in[34] - in[33]) << 20) |
-			((in[35] - in[34]) << 62))
-	out[23] = uint64(
-		(in[35]-in[34])>>2 |
-			((in[36] - in[35]) << 40))
-	out[24] = uint64(
-		(in[36]-in[35])>>24 |
-			((in[37] - in[36]) << 18) |
-			((in[38] - in[37]) << 60))
-	out[25] = uint64(
-		(in[38]-in[37])>>4 |
-			((in[39] - in[38]) << 38))
-	out[26] = uint64(
-		(in[39]-in[38])>>26 |
-			((in[40] - in[39]) << 16) |
-			((in[41] - in[40]) << 58))
-	out[27] = uint64(
-		(in[41]-in[40])>>6 |
-			((in[42] - in[41]) << 36))
-	out[28] = uint64(
-		(in[42]-in[41])>>28 |
-			((in[43] - in[42]) << 14) |
-			((in[44] - in[43]) << 56))
-	out[29] = uint64(
-		(in[44]-in[43])>>8 |
-			((in[45] - in[44]) << 34))
-	out[30] = uint64(
-		(in[45]-in[44])>>30 |
-			((in[46] - in[45]) << 12) |
-			((in[47] - in[46]) << 54))
-	out[31] = uint64(
-		(in[47]-in[46])>>10 |
-			((in[48] - in[47]) << 32))
-	out[32] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 10) |
-			((in[50] - in[49]) << 52))
-	out[33] = uint64(
-		(in[50]-in[49])>>12 |
-			((in[51] - in[50]) << 30))
-	out[34] = uint64(
-		(in[51]-in[50])>>34 |
-			((in[52] - in[51]) << 8) |
-			((in[53] - in[52]) << 50))
-	out[35] = uint64(
-		(in[53]-in[52])>>14 |
-			((in[54] - in[53]) << 28))
-	out[36] = uint64(
-		(in[54]-in[53])>>36 |
-			((in[55] - in[54]) << 6) |
-			((in[56] - in[55]) << 48))
-	out[37] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 26))
-	out[38] = uint64(
-		(in[57]-in[56])>>38 |
-			((in[58] - in[57]) << 4) |
-			((in[59] - in[58]) << 46))
-	out[39] = uint64(
-		(in[59]-in[58])>>18 |
-			((in[60] - in[59]) << 24))
-	out[40] = uint64(
-		(in[60]-in[59])>>40 |
-			((in[61] - in[60]) << 2) |
-			((in[62] - in[61]) << 44))
-	out[41] = uint64(
-		(in[62]-in[61])>>20 |
-			((in[63] - in[62]) << 22))
+func deltapack64_42[T uint64 | int64](out *[42]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<42)), uint64((in[1]-in[0])>>22|((in[2]-in[1])<<20)|((in[3]-in[2])<<62)), uint64((in[3]-in[2])>>2|((in[4]-in[3])<<40)), uint64((in[4]-in[3])>>24|((in[5]-in[4])<<18)|((in[6]-in[5])<<60)), uint64((in[6]-in[5])>>4|((in[7]-in[6])<<38)), uint64((in[7]-in[6])>>26|((in[8]-in[7])<<16)|((in[9]-in[8])<<58)), uint64((in[9]-in[8])>>6|((in[10]-in[9])<<36)), uint64((in[10]-in[9])>>28|((in[11]-in[10])<<14)|((in[12]-in[11])<<56)), uint64((in[12]-in[11])>>8|((in[13]-in[12])<<34)), uint64((in[13]-in[12])>>30|((in[14]-in[13])<<12)|((in[15]-in[14])<<54)), uint64((in[15]-in[14])>>10|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<10)|((in[18]-in[17])<<52)), uint64((in[18]-in[17])>>12|((in[19]-in[18])<<30)), uint64((in[19]-in[18])>>34|((in[20]-in[19])<<8)|((in[21]-in[20])<<50)), uint64((in[21]-in[20])>>14|((in[22]-in[21])<<28)), uint64((in[22]-in[21])>>36|((in[23]-in[22])<<6)|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<26)), uint64((in[25]-in[24])>>38|((in[26]-in[25])<<4)|((in[27]-in[26])<<46)), uint64((in[27]-in[26])>>18|((in[28]-in[27])<<24)), uint64((in[28]-in[27])>>40|((in[29]-in[28])<<2)|((in[30]-in[29])<<44)), uint64((in[30]-in[29])>>20|((in[31]-in[30])<<22)), uint64(in[32]-in[31]|((in[33]-in[32])<<42)), uint64((in[33]-in[32])>>22|((in[34]-in[33])<<20)|((in[35]-in[34])<<62)), uint64((in[35]-in[34])>>2|((in[36]-in[35])<<40)), uint64((in[36]-in[35])>>24|((in[37]-in[36])<<18)|((in[38]-in[37])<<60)), uint64((in[38]-in[37])>>4|((in[39]-in[38])<<38)), uint64((in[39]-in[38])>>26|((in[40]-in[39])<<16)|((in[41]-in[40])<<58)), uint64((in[41]-in[40])>>6|((in[42]-in[41])<<36)), uint64((in[42]-in[41])>>28|((in[43]-in[42])<<14)|((in[44]-in[43])<<56)), uint64((in[44]-in[43])>>8|((in[45]-in[44])<<34)), uint64((in[45]-in[44])>>30|((in[46]-in[45])<<12)|((in[47]-in[46])<<54)), uint64((in[47]-in[46])>>10|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<10)|((in[50]-in[49])<<52)), uint64((in[50]-in[49])>>12|((in[51]-in[50])<<30)), uint64((in[51]-in[50])>>34|((in[52]-in[51])<<8)|((in[53]-in[52])<<50)), uint64((in[53]-in[52])>>14|((in[54]-in[53])<<28)), uint64((in[54]-in[53])>>36|((in[55]-in[54])<<6)|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<26)), uint64((in[57]-in[56])>>38|((in[58]-in[57])<<4)|((in[59]-in[58])<<46)), uint64((in[59]-in[58])>>18|((in[60]-in[59])<<24)), uint64((in[60]-in[59])>>40|((in[61]-in[60])<<2)|((in[62]-in[61])<<44)), uint64((in[62]-in[61])>>20|((in[63]-in[62])<<22))
 }
-func deltapack64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]uint64, ntz int) {
+func deltapack64_ntz_42[T uint64 | int64](out *[42]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -9771,158 +5752,11 @@ func deltapack64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]uint
 			((in[63] - in[62]) >> ntz << 22))
 }
 
-func deltapack64_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 43))
-	out[1] = uint64(
-		(in[1]-in[0])>>21 |
-			((in[2] - in[1]) << 22))
-	out[2] = uint64(
-		(in[2]-in[1])>>42 |
-			((in[3] - in[2]) << 1) |
-			((in[4] - in[3]) << 44))
-	out[3] = uint64(
-		(in[4]-in[3])>>20 |
-			((in[5] - in[4]) << 23))
-	out[4] = uint64(
-		(in[5]-in[4])>>41 |
-			((in[6] - in[5]) << 2) |
-			((in[7] - in[6]) << 45))
-	out[5] = uint64(
-		(in[7]-in[6])>>19 |
-			((in[8] - in[7]) << 24))
-	out[6] = uint64(
-		(in[8]-in[7])>>40 |
-			((in[9] - in[8]) << 3) |
-			((in[10] - in[9]) << 46))
-	out[7] = uint64(
-		(in[10]-in[9])>>18 |
-			((in[11] - in[10]) << 25))
-	out[8] = uint64(
-		(in[11]-in[10])>>39 |
-			((in[12] - in[11]) << 4) |
-			((in[13] - in[12]) << 47))
-	out[9] = uint64(
-		(in[13]-in[12])>>17 |
-			((in[14] - in[13]) << 26))
-	out[10] = uint64(
-		(in[14]-in[13])>>38 |
-			((in[15] - in[14]) << 5) |
-			((in[16] - in[15]) << 48))
-	out[11] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 27))
-	out[12] = uint64(
-		(in[17]-in[16])>>37 |
-			((in[18] - in[17]) << 6) |
-			((in[19] - in[18]) << 49))
-	out[13] = uint64(
-		(in[19]-in[18])>>15 |
-			((in[20] - in[19]) << 28))
-	out[14] = uint64(
-		(in[20]-in[19])>>36 |
-			((in[21] - in[20]) << 7) |
-			((in[22] - in[21]) << 50))
-	out[15] = uint64(
-		(in[22]-in[21])>>14 |
-			((in[23] - in[22]) << 29))
-	out[16] = uint64(
-		(in[23]-in[22])>>35 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 51))
-	out[17] = uint64(
-		(in[25]-in[24])>>13 |
-			((in[26] - in[25]) << 30))
-	out[18] = uint64(
-		(in[26]-in[25])>>34 |
-			((in[27] - in[26]) << 9) |
-			((in[28] - in[27]) << 52))
-	out[19] = uint64(
-		(in[28]-in[27])>>12 |
-			((in[29] - in[28]) << 31))
-	out[20] = uint64(
-		(in[29]-in[28])>>33 |
-			((in[30] - in[29]) << 10) |
-			((in[31] - in[30]) << 53))
-	out[21] = uint64(
-		(in[31]-in[30])>>11 |
-			((in[32] - in[31]) << 32))
-	out[22] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 11) |
-			((in[34] - in[33]) << 54))
-	out[23] = uint64(
-		(in[34]-in[33])>>10 |
-			((in[35] - in[34]) << 33))
-	out[24] = uint64(
-		(in[35]-in[34])>>31 |
-			((in[36] - in[35]) << 12) |
-			((in[37] - in[36]) << 55))
-	out[25] = uint64(
-		(in[37]-in[36])>>9 |
-			((in[38] - in[37]) << 34))
-	out[26] = uint64(
-		(in[38]-in[37])>>30 |
-			((in[39] - in[38]) << 13) |
-			((in[40] - in[39]) << 56))
-	out[27] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 35))
-	out[28] = uint64(
-		(in[41]-in[40])>>29 |
-			((in[42] - in[41]) << 14) |
-			((in[43] - in[42]) << 57))
-	out[29] = uint64(
-		(in[43]-in[42])>>7 |
-			((in[44] - in[43]) << 36))
-	out[30] = uint64(
-		(in[44]-in[43])>>28 |
-			((in[45] - in[44]) << 15) |
-			((in[46] - in[45]) << 58))
-	out[31] = uint64(
-		(in[46]-in[45])>>6 |
-			((in[47] - in[46]) << 37))
-	out[32] = uint64(
-		(in[47]-in[46])>>27 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 59))
-	out[33] = uint64(
-		(in[49]-in[48])>>5 |
-			((in[50] - in[49]) << 38))
-	out[34] = uint64(
-		(in[50]-in[49])>>26 |
-			((in[51] - in[50]) << 17) |
-			((in[52] - in[51]) << 60))
-	out[35] = uint64(
-		(in[52]-in[51])>>4 |
-			((in[53] - in[52]) << 39))
-	out[36] = uint64(
-		(in[53]-in[52])>>25 |
-			((in[54] - in[53]) << 18) |
-			((in[55] - in[54]) << 61))
-	out[37] = uint64(
-		(in[55]-in[54])>>3 |
-			((in[56] - in[55]) << 40))
-	out[38] = uint64(
-		(in[56]-in[55])>>24 |
-			((in[57] - in[56]) << 19) |
-			((in[58] - in[57]) << 62))
-	out[39] = uint64(
-		(in[58]-in[57])>>2 |
-			((in[59] - in[58]) << 41))
-	out[40] = uint64(
-		(in[59]-in[58])>>23 |
-			((in[60] - in[59]) << 20) |
-			((in[61] - in[60]) << 63))
-	out[41] = uint64(
-		(in[61]-in[60])>>1 |
-			((in[62] - in[61]) << 42))
-	out[42] = uint64(
-		(in[62]-in[61])>>22 |
-			((in[63] - in[62]) << 21))
+func deltapack64_43[T uint64 | int64](out *[43]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<43)), uint64((in[1]-in[0])>>21|((in[2]-in[1])<<22)), uint64((in[2]-in[1])>>42|((in[3]-in[2])<<1)|((in[4]-in[3])<<44)), uint64((in[4]-in[3])>>20|((in[5]-in[4])<<23)), uint64((in[5]-in[4])>>41|((in[6]-in[5])<<2)|((in[7]-in[6])<<45)), uint64((in[7]-in[6])>>19|((in[8]-in[7])<<24)), uint64((in[8]-in[7])>>40|((in[9]-in[8])<<3)|((in[10]-in[9])<<46)), uint64((in[10]-in[9])>>18|((in[11]-in[10])<<25)), uint64((in[11]-in[10])>>39|((in[12]-in[11])<<4)|((in[13]-in[12])<<47)), uint64((in[13]-in[12])>>17|((in[14]-in[13])<<26)), uint64((in[14]-in[13])>>38|((in[15]-in[14])<<5)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<27)), uint64((in[17]-in[16])>>37|((in[18]-in[17])<<6)|((in[19]-in[18])<<49)), uint64((in[19]-in[18])>>15|((in[20]-in[19])<<28)), uint64((in[20]-in[19])>>36|((in[21]-in[20])<<7)|((in[22]-in[21])<<50)), uint64((in[22]-in[21])>>14|((in[23]-in[22])<<29)), uint64((in[23]-in[22])>>35|((in[24]-in[23])<<8)|((in[25]-in[24])<<51)), uint64((in[25]-in[24])>>13|((in[26]-in[25])<<30)), uint64((in[26]-in[25])>>34|((in[27]-in[26])<<9)|((in[28]-in[27])<<52)), uint64((in[28]-in[27])>>12|((in[29]-in[28])<<31)), uint64((in[29]-in[28])>>33|((in[30]-in[29])<<10)|((in[31]-in[30])<<53)), uint64((in[31]-in[30])>>11|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<11)|((in[34]-in[33])<<54)), uint64((in[34]-in[33])>>10|((in[35]-in[34])<<33)), uint64((in[35]-in[34])>>31|((in[36]-in[35])<<12)|((in[37]-in[36])<<55)), uint64((in[37]-in[36])>>9|((in[38]-in[37])<<34)), uint64((in[38]-in[37])>>30|((in[39]-in[38])<<13)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<35)), uint64((in[41]-in[40])>>29|((in[42]-in[41])<<14)|((in[43]-in[42])<<57)), uint64((in[43]-in[42])>>7|((in[44]-in[43])<<36)), uint64((in[44]-in[43])>>28|((in[45]-in[44])<<15)|((in[46]-in[45])<<58)), uint64((in[46]-in[45])>>6|((in[47]-in[46])<<37)), uint64((in[47]-in[46])>>27|((in[48]-in[47])<<16)|((in[49]-in[48])<<59)), uint64((in[49]-in[48])>>5|((in[50]-in[49])<<38)), uint64((in[50]-in[49])>>26|((in[51]-in[50])<<17)|((in[52]-in[51])<<60)), uint64((in[52]-in[51])>>4|((in[53]-in[52])<<39)), uint64((in[53]-in[52])>>25|((in[54]-in[53])<<18)|((in[55]-in[54])<<61)), uint64((in[55]-in[54])>>3|((in[56]-in[55])<<40)), uint64((in[56]-in[55])>>24|((in[57]-in[56])<<19)|((in[58]-in[57])<<62)), uint64((in[58]-in[57])>>2|((in[59]-in[58])<<41)), uint64((in[59]-in[58])>>23|((in[60]-in[59])<<20)|((in[61]-in[60])<<63)), uint64((in[61]-in[60])>>1|((in[62]-in[61])<<42)), uint64((in[62]-in[61])>>22|((in[63]-in[62])<<21))
 }
-func deltapack64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]uint64, ntz int) {
+func deltapack64_ntz_43[T uint64 | int64](out *[43]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -10075,157 +5909,11 @@ func deltapack64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]uint
 			((in[63] - in[62]) >> ntz << 21))
 }
 
-func deltapack64_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 44))
-	out[1] = uint64(
-		(in[1]-in[0])>>20 |
-			((in[2] - in[1]) << 24))
-	out[2] = uint64(
-		(in[2]-in[1])>>40 |
-			((in[3] - in[2]) << 4) |
-			((in[4] - in[3]) << 48))
-	out[3] = uint64(
-		(in[4]-in[3])>>16 |
-			((in[5] - in[4]) << 28))
-	out[4] = uint64(
-		(in[5]-in[4])>>36 |
-			((in[6] - in[5]) << 8) |
-			((in[7] - in[6]) << 52))
-	out[5] = uint64(
-		(in[7]-in[6])>>12 |
-			((in[8] - in[7]) << 32))
-	out[6] = uint64(
-		(in[8]-in[7])>>32 |
-			((in[9] - in[8]) << 12) |
-			((in[10] - in[9]) << 56))
-	out[7] = uint64(
-		(in[10]-in[9])>>8 |
-			((in[11] - in[10]) << 36))
-	out[8] = uint64(
-		(in[11]-in[10])>>28 |
-			((in[12] - in[11]) << 16) |
-			((in[13] - in[12]) << 60))
-	out[9] = uint64(
-		(in[13]-in[12])>>4 |
-			((in[14] - in[13]) << 40))
-	out[10] = uint64(
-		(in[14]-in[13])>>24 |
-			((in[15] - in[14]) << 20))
-	out[11] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 44))
-	out[12] = uint64(
-		(in[17]-in[16])>>20 |
-			((in[18] - in[17]) << 24))
-	out[13] = uint64(
-		(in[18]-in[17])>>40 |
-			((in[19] - in[18]) << 4) |
-			((in[20] - in[19]) << 48))
-	out[14] = uint64(
-		(in[20]-in[19])>>16 |
-			((in[21] - in[20]) << 28))
-	out[15] = uint64(
-		(in[21]-in[20])>>36 |
-			((in[22] - in[21]) << 8) |
-			((in[23] - in[22]) << 52))
-	out[16] = uint64(
-		(in[23]-in[22])>>12 |
-			((in[24] - in[23]) << 32))
-	out[17] = uint64(
-		(in[24]-in[23])>>32 |
-			((in[25] - in[24]) << 12) |
-			((in[26] - in[25]) << 56))
-	out[18] = uint64(
-		(in[26]-in[25])>>8 |
-			((in[27] - in[26]) << 36))
-	out[19] = uint64(
-		(in[27]-in[26])>>28 |
-			((in[28] - in[27]) << 16) |
-			((in[29] - in[28]) << 60))
-	out[20] = uint64(
-		(in[29]-in[28])>>4 |
-			((in[30] - in[29]) << 40))
-	out[21] = uint64(
-		(in[30]-in[29])>>24 |
-			((in[31] - in[30]) << 20))
-	out[22] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 44))
-	out[23] = uint64(
-		(in[33]-in[32])>>20 |
-			((in[34] - in[33]) << 24))
-	out[24] = uint64(
-		(in[34]-in[33])>>40 |
-			((in[35] - in[34]) << 4) |
-			((in[36] - in[35]) << 48))
-	out[25] = uint64(
-		(in[36]-in[35])>>16 |
-			((in[37] - in[36]) << 28))
-	out[26] = uint64(
-		(in[37]-in[36])>>36 |
-			((in[38] - in[37]) << 8) |
-			((in[39] - in[38]) << 52))
-	out[27] = uint64(
-		(in[39]-in[38])>>12 |
-			((in[40] - in[39]) << 32))
-	out[28] = uint64(
-		(in[40]-in[39])>>32 |
-			((in[41] - in[40]) << 12) |
-			((in[42] - in[41]) << 56))
-	out[29] = uint64(
-		(in[42]-in[41])>>8 |
-			((in[43] - in[42]) << 36))
-	out[30] = uint64(
-		(in[43]-in[42])>>28 |
-			((in[44] - in[43]) << 16) |
-			((in[45] - in[44]) << 60))
-	out[31] = uint64(
-		(in[45]-in[44])>>4 |
-			((in[46] - in[45]) << 40))
-	out[32] = uint64(
-		(in[46]-in[45])>>24 |
-			((in[47] - in[46]) << 20))
-	out[33] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 44))
-	out[34] = uint64(
-		(in[49]-in[48])>>20 |
-			((in[50] - in[49]) << 24))
-	out[35] = uint64(
-		(in[50]-in[49])>>40 |
-			((in[51] - in[50]) << 4) |
-			((in[52] - in[51]) << 48))
-	out[36] = uint64(
-		(in[52]-in[51])>>16 |
-			((in[53] - in[52]) << 28))
-	out[37] = uint64(
-		(in[53]-in[52])>>36 |
-			((in[54] - in[53]) << 8) |
-			((in[55] - in[54]) << 52))
-	out[38] = uint64(
-		(in[55]-in[54])>>12 |
-			((in[56] - in[55]) << 32))
-	out[39] = uint64(
-		(in[56]-in[55])>>32 |
-			((in[57] - in[56]) << 12) |
-			((in[58] - in[57]) << 56))
-	out[40] = uint64(
-		(in[58]-in[57])>>8 |
-			((in[59] - in[58]) << 36))
-	out[41] = uint64(
-		(in[59]-in[58])>>28 |
-			((in[60] - in[59]) << 16) |
-			((in[61] - in[60]) << 60))
-	out[42] = uint64(
-		(in[61]-in[60])>>4 |
-			((in[62] - in[61]) << 40))
-	out[43] = uint64(
-		(in[62]-in[61])>>24 |
-			((in[63] - in[62]) << 20))
+func deltapack64_44[T uint64 | int64](out *[44]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<44)), uint64((in[1]-in[0])>>20|((in[2]-in[1])<<24)), uint64((in[2]-in[1])>>40|((in[3]-in[2])<<4)|((in[4]-in[3])<<48)), uint64((in[4]-in[3])>>16|((in[5]-in[4])<<28)), uint64((in[5]-in[4])>>36|((in[6]-in[5])<<8)|((in[7]-in[6])<<52)), uint64((in[7]-in[6])>>12|((in[8]-in[7])<<32)), uint64((in[8]-in[7])>>32|((in[9]-in[8])<<12)|((in[10]-in[9])<<56)), uint64((in[10]-in[9])>>8|((in[11]-in[10])<<36)), uint64((in[11]-in[10])>>28|((in[12]-in[11])<<16)|((in[13]-in[12])<<60)), uint64((in[13]-in[12])>>4|((in[14]-in[13])<<40)), uint64((in[14]-in[13])>>24|((in[15]-in[14])<<20)), uint64(in[16]-in[15]|((in[17]-in[16])<<44)), uint64((in[17]-in[16])>>20|((in[18]-in[17])<<24)), uint64((in[18]-in[17])>>40|((in[19]-in[18])<<4)|((in[20]-in[19])<<48)), uint64((in[20]-in[19])>>16|((in[21]-in[20])<<28)), uint64((in[21]-in[20])>>36|((in[22]-in[21])<<8)|((in[23]-in[22])<<52)), uint64((in[23]-in[22])>>12|((in[24]-in[23])<<32)), uint64((in[24]-in[23])>>32|((in[25]-in[24])<<12)|((in[26]-in[25])<<56)), uint64((in[26]-in[25])>>8|((in[27]-in[26])<<36)), uint64((in[27]-in[26])>>28|((in[28]-in[27])<<16)|((in[29]-in[28])<<60)), uint64((in[29]-in[28])>>4|((in[30]-in[29])<<40)), uint64((in[30]-in[29])>>24|((in[31]-in[30])<<20)), uint64(in[32]-in[31]|((in[33]-in[32])<<44)), uint64((in[33]-in[32])>>20|((in[34]-in[33])<<24)), uint64((in[34]-in[33])>>40|((in[35]-in[34])<<4)|((in[36]-in[35])<<48)), uint64((in[36]-in[35])>>16|((in[37]-in[36])<<28)), uint64((in[37]-in[36])>>36|((in[38]-in[37])<<8)|((in[39]-in[38])<<52)), uint64((in[39]-in[38])>>12|((in[40]-in[39])<<32)), uint64((in[40]-in[39])>>32|((in[41]-in[40])<<12)|((in[42]-in[41])<<56)), uint64((in[42]-in[41])>>8|((in[43]-in[42])<<36)), uint64((in[43]-in[42])>>28|((in[44]-in[43])<<16)|((in[45]-in[44])<<60)), uint64((in[45]-in[44])>>4|((in[46]-in[45])<<40)), uint64((in[46]-in[45])>>24|((in[47]-in[46])<<20)), uint64(in[48]-in[47]|((in[49]-in[48])<<44)), uint64((in[49]-in[48])>>20|((in[50]-in[49])<<24)), uint64((in[50]-in[49])>>40|((in[51]-in[50])<<4)|((in[52]-in[51])<<48)), uint64((in[52]-in[51])>>16|((in[53]-in[52])<<28)), uint64((in[53]-in[52])>>36|((in[54]-in[53])<<8)|((in[55]-in[54])<<52)), uint64((in[55]-in[54])>>12|((in[56]-in[55])<<32)), uint64((in[56]-in[55])>>32|((in[57]-in[56])<<12)|((in[58]-in[57])<<56)), uint64((in[58]-in[57])>>8|((in[59]-in[58])<<36)), uint64((in[59]-in[58])>>28|((in[60]-in[59])<<16)|((in[61]-in[60])<<60)), uint64((in[61]-in[60])>>4|((in[62]-in[61])<<40)), uint64((in[62]-in[61])>>24|((in[63]-in[62])<<20))
 }
-func deltapack64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]uint64, ntz int) {
+func deltapack64_ntz_44[T uint64 | int64](out *[44]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -10377,162 +6065,11 @@ func deltapack64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]uint
 			((in[63] - in[62]) >> ntz << 20))
 }
 
-func deltapack64_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 45))
-	out[1] = uint64(
-		(in[1]-in[0])>>19 |
-			((in[2] - in[1]) << 26))
-	out[2] = uint64(
-		(in[2]-in[1])>>38 |
-			((in[3] - in[2]) << 7) |
-			((in[4] - in[3]) << 52))
-	out[3] = uint64(
-		(in[4]-in[3])>>12 |
-			((in[5] - in[4]) << 33))
-	out[4] = uint64(
-		(in[5]-in[4])>>31 |
-			((in[6] - in[5]) << 14) |
-			((in[7] - in[6]) << 59))
-	out[5] = uint64(
-		(in[7]-in[6])>>5 |
-			((in[8] - in[7]) << 40))
-	out[6] = uint64(
-		(in[8]-in[7])>>24 |
-			((in[9] - in[8]) << 21))
-	out[7] = uint64(
-		(in[9]-in[8])>>43 |
-			((in[10] - in[9]) << 2) |
-			((in[11] - in[10]) << 47))
-	out[8] = uint64(
-		(in[11]-in[10])>>17 |
-			((in[12] - in[11]) << 28))
-	out[9] = uint64(
-		(in[12]-in[11])>>36 |
-			((in[13] - in[12]) << 9) |
-			((in[14] - in[13]) << 54))
-	out[10] = uint64(
-		(in[14]-in[13])>>10 |
-			((in[15] - in[14]) << 35))
-	out[11] = uint64(
-		(in[15]-in[14])>>29 |
-			((in[16] - in[15]) << 16) |
-			((in[17] - in[16]) << 61))
-	out[12] = uint64(
-		(in[17]-in[16])>>3 |
-			((in[18] - in[17]) << 42))
-	out[13] = uint64(
-		(in[18]-in[17])>>22 |
-			((in[19] - in[18]) << 23))
-	out[14] = uint64(
-		(in[19]-in[18])>>41 |
-			((in[20] - in[19]) << 4) |
-			((in[21] - in[20]) << 49))
-	out[15] = uint64(
-		(in[21]-in[20])>>15 |
-			((in[22] - in[21]) << 30))
-	out[16] = uint64(
-		(in[22]-in[21])>>34 |
-			((in[23] - in[22]) << 11) |
-			((in[24] - in[23]) << 56))
-	out[17] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 37))
-	out[18] = uint64(
-		(in[25]-in[24])>>27 |
-			((in[26] - in[25]) << 18) |
-			((in[27] - in[26]) << 63))
-	out[19] = uint64(
-		(in[27]-in[26])>>1 |
-			((in[28] - in[27]) << 44))
-	out[20] = uint64(
-		(in[28]-in[27])>>20 |
-			((in[29] - in[28]) << 25))
-	out[21] = uint64(
-		(in[29]-in[28])>>39 |
-			((in[30] - in[29]) << 6) |
-			((in[31] - in[30]) << 51))
-	out[22] = uint64(
-		(in[31]-in[30])>>13 |
-			((in[32] - in[31]) << 32))
-	out[23] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 13) |
-			((in[34] - in[33]) << 58))
-	out[24] = uint64(
-		(in[34]-in[33])>>6 |
-			((in[35] - in[34]) << 39))
-	out[25] = uint64(
-		(in[35]-in[34])>>25 |
-			((in[36] - in[35]) << 20))
-	out[26] = uint64(
-		(in[36]-in[35])>>44 |
-			((in[37] - in[36]) << 1) |
-			((in[38] - in[37]) << 46))
-	out[27] = uint64(
-		(in[38]-in[37])>>18 |
-			((in[39] - in[38]) << 27))
-	out[28] = uint64(
-		(in[39]-in[38])>>37 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 53))
-	out[29] = uint64(
-		(in[41]-in[40])>>11 |
-			((in[42] - in[41]) << 34))
-	out[30] = uint64(
-		(in[42]-in[41])>>30 |
-			((in[43] - in[42]) << 15) |
-			((in[44] - in[43]) << 60))
-	out[31] = uint64(
-		(in[44]-in[43])>>4 |
-			((in[45] - in[44]) << 41))
-	out[32] = uint64(
-		(in[45]-in[44])>>23 |
-			((in[46] - in[45]) << 22))
-	out[33] = uint64(
-		(in[46]-in[45])>>42 |
-			((in[47] - in[46]) << 3) |
-			((in[48] - in[47]) << 48))
-	out[34] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 29))
-	out[35] = uint64(
-		(in[49]-in[48])>>35 |
-			((in[50] - in[49]) << 10) |
-			((in[51] - in[50]) << 55))
-	out[36] = uint64(
-		(in[51]-in[50])>>9 |
-			((in[52] - in[51]) << 36))
-	out[37] = uint64(
-		(in[52]-in[51])>>28 |
-			((in[53] - in[52]) << 17) |
-			((in[54] - in[53]) << 62))
-	out[38] = uint64(
-		(in[54]-in[53])>>2 |
-			((in[55] - in[54]) << 43))
-	out[39] = uint64(
-		(in[55]-in[54])>>21 |
-			((in[56] - in[55]) << 24))
-	out[40] = uint64(
-		(in[56]-in[55])>>40 |
-			((in[57] - in[56]) << 5) |
-			((in[58] - in[57]) << 50))
-	out[41] = uint64(
-		(in[58]-in[57])>>14 |
-			((in[59] - in[58]) << 31))
-	out[42] = uint64(
-		(in[59]-in[58])>>33 |
-			((in[60] - in[59]) << 12) |
-			((in[61] - in[60]) << 57))
-	out[43] = uint64(
-		(in[61]-in[60])>>7 |
-			((in[62] - in[61]) << 38))
-	out[44] = uint64(
-		(in[62]-in[61])>>26 |
-			((in[63] - in[62]) << 19))
+func deltapack64_45[T uint64 | int64](out *[45]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<45)), uint64((in[1]-in[0])>>19|((in[2]-in[1])<<26)), uint64((in[2]-in[1])>>38|((in[3]-in[2])<<7)|((in[4]-in[3])<<52)), uint64((in[4]-in[3])>>12|((in[5]-in[4])<<33)), uint64((in[5]-in[4])>>31|((in[6]-in[5])<<14)|((in[7]-in[6])<<59)), uint64((in[7]-in[6])>>5|((in[8]-in[7])<<40)), uint64((in[8]-in[7])>>24|((in[9]-in[8])<<21)), uint64((in[9]-in[8])>>43|((in[10]-in[9])<<2)|((in[11]-in[10])<<47)), uint64((in[11]-in[10])>>17|((in[12]-in[11])<<28)), uint64((in[12]-in[11])>>36|((in[13]-in[12])<<9)|((in[14]-in[13])<<54)), uint64((in[14]-in[13])>>10|((in[15]-in[14])<<35)), uint64((in[15]-in[14])>>29|((in[16]-in[15])<<16)|((in[17]-in[16])<<61)), uint64((in[17]-in[16])>>3|((in[18]-in[17])<<42)), uint64((in[18]-in[17])>>22|((in[19]-in[18])<<23)), uint64((in[19]-in[18])>>41|((in[20]-in[19])<<4)|((in[21]-in[20])<<49)), uint64((in[21]-in[20])>>15|((in[22]-in[21])<<30)), uint64((in[22]-in[21])>>34|((in[23]-in[22])<<11)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<37)), uint64((in[25]-in[24])>>27|((in[26]-in[25])<<18)|((in[27]-in[26])<<63)), uint64((in[27]-in[26])>>1|((in[28]-in[27])<<44)), uint64((in[28]-in[27])>>20|((in[29]-in[28])<<25)), uint64((in[29]-in[28])>>39|((in[30]-in[29])<<6)|((in[31]-in[30])<<51)), uint64((in[31]-in[30])>>13|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<13)|((in[34]-in[33])<<58)), uint64((in[34]-in[33])>>6|((in[35]-in[34])<<39)), uint64((in[35]-in[34])>>25|((in[36]-in[35])<<20)), uint64((in[36]-in[35])>>44|((in[37]-in[36])<<1)|((in[38]-in[37])<<46)), uint64((in[38]-in[37])>>18|((in[39]-in[38])<<27)), uint64((in[39]-in[38])>>37|((in[40]-in[39])<<8)|((in[41]-in[40])<<53)), uint64((in[41]-in[40])>>11|((in[42]-in[41])<<34)), uint64((in[42]-in[41])>>30|((in[43]-in[42])<<15)|((in[44]-in[43])<<60)), uint64((in[44]-in[43])>>4|((in[45]-in[44])<<41)), uint64((in[45]-in[44])>>23|((in[46]-in[45])<<22)), uint64((in[46]-in[45])>>42|((in[47]-in[46])<<3)|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<29)), uint64((in[49]-in[48])>>35|((in[50]-in[49])<<10)|((in[51]-in[50])<<55)), uint64((in[51]-in[50])>>9|((in[52]-in[51])<<36)), uint64((in[52]-in[51])>>28|((in[53]-in[52])<<17)|((in[54]-in[53])<<62)), uint64((in[54]-in[53])>>2|((in[55]-in[54])<<43)), uint64((in[55]-in[54])>>21|((in[56]-in[55])<<24)), uint64((in[56]-in[55])>>40|((in[57]-in[56])<<5)|((in[58]-in[57])<<50)), uint64((in[58]-in[57])>>14|((in[59]-in[58])<<31)), uint64((in[59]-in[58])>>33|((in[60]-in[59])<<12)|((in[61]-in[60])<<57)), uint64((in[61]-in[60])>>7|((in[62]-in[61])<<38)), uint64((in[62]-in[61])>>26|((in[63]-in[62])<<19))
 }
-func deltapack64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]uint64, ntz int) {
+func deltapack64_ntz_45[T uint64 | int64](out *[45]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -10689,163 +6226,11 @@ func deltapack64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]uint
 			((in[63] - in[62]) >> ntz << 19))
 }
 
-func deltapack64_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 46))
-	out[1] = uint64(
-		(in[1]-in[0])>>18 |
-			((in[2] - in[1]) << 28))
-	out[2] = uint64(
-		(in[2]-in[1])>>36 |
-			((in[3] - in[2]) << 10) |
-			((in[4] - in[3]) << 56))
-	out[3] = uint64(
-		(in[4]-in[3])>>8 |
-			((in[5] - in[4]) << 38))
-	out[4] = uint64(
-		(in[5]-in[4])>>26 |
-			((in[6] - in[5]) << 20))
-	out[5] = uint64(
-		(in[6]-in[5])>>44 |
-			((in[7] - in[6]) << 2) |
-			((in[8] - in[7]) << 48))
-	out[6] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 30))
-	out[7] = uint64(
-		(in[9]-in[8])>>34 |
-			((in[10] - in[9]) << 12) |
-			((in[11] - in[10]) << 58))
-	out[8] = uint64(
-		(in[11]-in[10])>>6 |
-			((in[12] - in[11]) << 40))
-	out[9] = uint64(
-		(in[12]-in[11])>>24 |
-			((in[13] - in[12]) << 22))
-	out[10] = uint64(
-		(in[13]-in[12])>>42 |
-			((in[14] - in[13]) << 4) |
-			((in[15] - in[14]) << 50))
-	out[11] = uint64(
-		(in[15]-in[14])>>14 |
-			((in[16] - in[15]) << 32))
-	out[12] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 14) |
-			((in[18] - in[17]) << 60))
-	out[13] = uint64(
-		(in[18]-in[17])>>4 |
-			((in[19] - in[18]) << 42))
-	out[14] = uint64(
-		(in[19]-in[18])>>22 |
-			((in[20] - in[19]) << 24))
-	out[15] = uint64(
-		(in[20]-in[19])>>40 |
-			((in[21] - in[20]) << 6) |
-			((in[22] - in[21]) << 52))
-	out[16] = uint64(
-		(in[22]-in[21])>>12 |
-			((in[23] - in[22]) << 34))
-	out[17] = uint64(
-		(in[23]-in[22])>>30 |
-			((in[24] - in[23]) << 16) |
-			((in[25] - in[24]) << 62))
-	out[18] = uint64(
-		(in[25]-in[24])>>2 |
-			((in[26] - in[25]) << 44))
-	out[19] = uint64(
-		(in[26]-in[25])>>20 |
-			((in[27] - in[26]) << 26))
-	out[20] = uint64(
-		(in[27]-in[26])>>38 |
-			((in[28] - in[27]) << 8) |
-			((in[29] - in[28]) << 54))
-	out[21] = uint64(
-		(in[29]-in[28])>>10 |
-			((in[30] - in[29]) << 36))
-	out[22] = uint64(
-		(in[30]-in[29])>>28 |
-			((in[31] - in[30]) << 18))
-	out[23] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 46))
-	out[24] = uint64(
-		(in[33]-in[32])>>18 |
-			((in[34] - in[33]) << 28))
-	out[25] = uint64(
-		(in[34]-in[33])>>36 |
-			((in[35] - in[34]) << 10) |
-			((in[36] - in[35]) << 56))
-	out[26] = uint64(
-		(in[36]-in[35])>>8 |
-			((in[37] - in[36]) << 38))
-	out[27] = uint64(
-		(in[37]-in[36])>>26 |
-			((in[38] - in[37]) << 20))
-	out[28] = uint64(
-		(in[38]-in[37])>>44 |
-			((in[39] - in[38]) << 2) |
-			((in[40] - in[39]) << 48))
-	out[29] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 30))
-	out[30] = uint64(
-		(in[41]-in[40])>>34 |
-			((in[42] - in[41]) << 12) |
-			((in[43] - in[42]) << 58))
-	out[31] = uint64(
-		(in[43]-in[42])>>6 |
-			((in[44] - in[43]) << 40))
-	out[32] = uint64(
-		(in[44]-in[43])>>24 |
-			((in[45] - in[44]) << 22))
-	out[33] = uint64(
-		(in[45]-in[44])>>42 |
-			((in[46] - in[45]) << 4) |
-			((in[47] - in[46]) << 50))
-	out[34] = uint64(
-		(in[47]-in[46])>>14 |
-			((in[48] - in[47]) << 32))
-	out[35] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 14) |
-			((in[50] - in[49]) << 60))
-	out[36] = uint64(
-		(in[50]-in[49])>>4 |
-			((in[51] - in[50]) << 42))
-	out[37] = uint64(
-		(in[51]-in[50])>>22 |
-			((in[52] - in[51]) << 24))
-	out[38] = uint64(
-		(in[52]-in[51])>>40 |
-			((in[53] - in[52]) << 6) |
-			((in[54] - in[53]) << 52))
-	out[39] = uint64(
-		(in[54]-in[53])>>12 |
-			((in[55] - in[54]) << 34))
-	out[40] = uint64(
-		(in[55]-in[54])>>30 |
-			((in[56] - in[55]) << 16) |
-			((in[57] - in[56]) << 62))
-	out[41] = uint64(
-		(in[57]-in[56])>>2 |
-			((in[58] - in[57]) << 44))
-	out[42] = uint64(
-		(in[58]-in[57])>>20 |
-			((in[59] - in[58]) << 26))
-	out[43] = uint64(
-		(in[59]-in[58])>>38 |
-			((in[60] - in[59]) << 8) |
-			((in[61] - in[60]) << 54))
-	out[44] = uint64(
-		(in[61]-in[60])>>10 |
-			((in[62] - in[61]) << 36))
-	out[45] = uint64(
-		(in[62]-in[61])>>28 |
-			((in[63] - in[62]) << 18))
+func deltapack64_46[T uint64 | int64](out *[46]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<46)), uint64((in[1]-in[0])>>18|((in[2]-in[1])<<28)), uint64((in[2]-in[1])>>36|((in[3]-in[2])<<10)|((in[4]-in[3])<<56)), uint64((in[4]-in[3])>>8|((in[5]-in[4])<<38)), uint64((in[5]-in[4])>>26|((in[6]-in[5])<<20)), uint64((in[6]-in[5])>>44|((in[7]-in[6])<<2)|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<30)), uint64((in[9]-in[8])>>34|((in[10]-in[9])<<12)|((in[11]-in[10])<<58)), uint64((in[11]-in[10])>>6|((in[12]-in[11])<<40)), uint64((in[12]-in[11])>>24|((in[13]-in[12])<<22)), uint64((in[13]-in[12])>>42|((in[14]-in[13])<<4)|((in[15]-in[14])<<50)), uint64((in[15]-in[14])>>14|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<14)|((in[18]-in[17])<<60)), uint64((in[18]-in[17])>>4|((in[19]-in[18])<<42)), uint64((in[19]-in[18])>>22|((in[20]-in[19])<<24)), uint64((in[20]-in[19])>>40|((in[21]-in[20])<<6)|((in[22]-in[21])<<52)), uint64((in[22]-in[21])>>12|((in[23]-in[22])<<34)), uint64((in[23]-in[22])>>30|((in[24]-in[23])<<16)|((in[25]-in[24])<<62)), uint64((in[25]-in[24])>>2|((in[26]-in[25])<<44)), uint64((in[26]-in[25])>>20|((in[27]-in[26])<<26)), uint64((in[27]-in[26])>>38|((in[28]-in[27])<<8)|((in[29]-in[28])<<54)), uint64((in[29]-in[28])>>10|((in[30]-in[29])<<36)), uint64((in[30]-in[29])>>28|((in[31]-in[30])<<18)), uint64(in[32]-in[31]|((in[33]-in[32])<<46)), uint64((in[33]-in[32])>>18|((in[34]-in[33])<<28)), uint64((in[34]-in[33])>>36|((in[35]-in[34])<<10)|((in[36]-in[35])<<56)), uint64((in[36]-in[35])>>8|((in[37]-in[36])<<38)), uint64((in[37]-in[36])>>26|((in[38]-in[37])<<20)), uint64((in[38]-in[37])>>44|((in[39]-in[38])<<2)|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<30)), uint64((in[41]-in[40])>>34|((in[42]-in[41])<<12)|((in[43]-in[42])<<58)), uint64((in[43]-in[42])>>6|((in[44]-in[43])<<40)), uint64((in[44]-in[43])>>24|((in[45]-in[44])<<22)), uint64((in[45]-in[44])>>42|((in[46]-in[45])<<4)|((in[47]-in[46])<<50)), uint64((in[47]-in[46])>>14|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<14)|((in[50]-in[49])<<60)), uint64((in[50]-in[49])>>4|((in[51]-in[50])<<42)), uint64((in[51]-in[50])>>22|((in[52]-in[51])<<24)), uint64((in[52]-in[51])>>40|((in[53]-in[52])<<6)|((in[54]-in[53])<<52)), uint64((in[54]-in[53])>>12|((in[55]-in[54])<<34)), uint64((in[55]-in[54])>>30|((in[56]-in[55])<<16)|((in[57]-in[56])<<62)), uint64((in[57]-in[56])>>2|((in[58]-in[57])<<44)), uint64((in[58]-in[57])>>20|((in[59]-in[58])<<26)), uint64((in[59]-in[58])>>38|((in[60]-in[59])<<8)|((in[61]-in[60])<<54)), uint64((in[61]-in[60])>>10|((in[62]-in[61])<<36)), uint64((in[62]-in[61])>>28|((in[63]-in[62])<<18))
 }
-func deltapack64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]uint64, ntz int) {
+func deltapack64_ntz_46[T uint64 | int64](out *[46]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -11003,166 +6388,11 @@ func deltapack64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]uint
 			((in[63] - in[62]) >> ntz << 18))
 }
 
-func deltapack64_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 47))
-	out[1] = uint64(
-		(in[1]-in[0])>>17 |
-			((in[2] - in[1]) << 30))
-	out[2] = uint64(
-		(in[2]-in[1])>>34 |
-			((in[3] - in[2]) << 13) |
-			((in[4] - in[3]) << 60))
-	out[3] = uint64(
-		(in[4]-in[3])>>4 |
-			((in[5] - in[4]) << 43))
-	out[4] = uint64(
-		(in[5]-in[4])>>21 |
-			((in[6] - in[5]) << 26))
-	out[5] = uint64(
-		(in[6]-in[5])>>38 |
-			((in[7] - in[6]) << 9) |
-			((in[8] - in[7]) << 56))
-	out[6] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 39))
-	out[7] = uint64(
-		(in[9]-in[8])>>25 |
-			((in[10] - in[9]) << 22))
-	out[8] = uint64(
-		(in[10]-in[9])>>42 |
-			((in[11] - in[10]) << 5) |
-			((in[12] - in[11]) << 52))
-	out[9] = uint64(
-		(in[12]-in[11])>>12 |
-			((in[13] - in[12]) << 35))
-	out[10] = uint64(
-		(in[13]-in[12])>>29 |
-			((in[14] - in[13]) << 18))
-	out[11] = uint64(
-		(in[14]-in[13])>>46 |
-			((in[15] - in[14]) << 1) |
-			((in[16] - in[15]) << 48))
-	out[12] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 31))
-	out[13] = uint64(
-		(in[17]-in[16])>>33 |
-			((in[18] - in[17]) << 14) |
-			((in[19] - in[18]) << 61))
-	out[14] = uint64(
-		(in[19]-in[18])>>3 |
-			((in[20] - in[19]) << 44))
-	out[15] = uint64(
-		(in[20]-in[19])>>20 |
-			((in[21] - in[20]) << 27))
-	out[16] = uint64(
-		(in[21]-in[20])>>37 |
-			((in[22] - in[21]) << 10) |
-			((in[23] - in[22]) << 57))
-	out[17] = uint64(
-		(in[23]-in[22])>>7 |
-			((in[24] - in[23]) << 40))
-	out[18] = uint64(
-		(in[24]-in[23])>>24 |
-			((in[25] - in[24]) << 23))
-	out[19] = uint64(
-		(in[25]-in[24])>>41 |
-			((in[26] - in[25]) << 6) |
-			((in[27] - in[26]) << 53))
-	out[20] = uint64(
-		(in[27]-in[26])>>11 |
-			((in[28] - in[27]) << 36))
-	out[21] = uint64(
-		(in[28]-in[27])>>28 |
-			((in[29] - in[28]) << 19))
-	out[22] = uint64(
-		(in[29]-in[28])>>45 |
-			((in[30] - in[29]) << 2) |
-			((in[31] - in[30]) << 49))
-	out[23] = uint64(
-		(in[31]-in[30])>>15 |
-			((in[32] - in[31]) << 32))
-	out[24] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 15) |
-			((in[34] - in[33]) << 62))
-	out[25] = uint64(
-		(in[34]-in[33])>>2 |
-			((in[35] - in[34]) << 45))
-	out[26] = uint64(
-		(in[35]-in[34])>>19 |
-			((in[36] - in[35]) << 28))
-	out[27] = uint64(
-		(in[36]-in[35])>>36 |
-			((in[37] - in[36]) << 11) |
-			((in[38] - in[37]) << 58))
-	out[28] = uint64(
-		(in[38]-in[37])>>6 |
-			((in[39] - in[38]) << 41))
-	out[29] = uint64(
-		(in[39]-in[38])>>23 |
-			((in[40] - in[39]) << 24))
-	out[30] = uint64(
-		(in[40]-in[39])>>40 |
-			((in[41] - in[40]) << 7) |
-			((in[42] - in[41]) << 54))
-	out[31] = uint64(
-		(in[42]-in[41])>>10 |
-			((in[43] - in[42]) << 37))
-	out[32] = uint64(
-		(in[43]-in[42])>>27 |
-			((in[44] - in[43]) << 20))
-	out[33] = uint64(
-		(in[44]-in[43])>>44 |
-			((in[45] - in[44]) << 3) |
-			((in[46] - in[45]) << 50))
-	out[34] = uint64(
-		(in[46]-in[45])>>14 |
-			((in[47] - in[46]) << 33))
-	out[35] = uint64(
-		(in[47]-in[46])>>31 |
-			((in[48] - in[47]) << 16) |
-			((in[49] - in[48]) << 63))
-	out[36] = uint64(
-		(in[49]-in[48])>>1 |
-			((in[50] - in[49]) << 46))
-	out[37] = uint64(
-		(in[50]-in[49])>>18 |
-			((in[51] - in[50]) << 29))
-	out[38] = uint64(
-		(in[51]-in[50])>>35 |
-			((in[52] - in[51]) << 12) |
-			((in[53] - in[52]) << 59))
-	out[39] = uint64(
-		(in[53]-in[52])>>5 |
-			((in[54] - in[53]) << 42))
-	out[40] = uint64(
-		(in[54]-in[53])>>22 |
-			((in[55] - in[54]) << 25))
-	out[41] = uint64(
-		(in[55]-in[54])>>39 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 55))
-	out[42] = uint64(
-		(in[57]-in[56])>>9 |
-			((in[58] - in[57]) << 38))
-	out[43] = uint64(
-		(in[58]-in[57])>>26 |
-			((in[59] - in[58]) << 21))
-	out[44] = uint64(
-		(in[59]-in[58])>>43 |
-			((in[60] - in[59]) << 4) |
-			((in[61] - in[60]) << 51))
-	out[45] = uint64(
-		(in[61]-in[60])>>13 |
-			((in[62] - in[61]) << 34))
-	out[46] = uint64(
-		(in[62]-in[61])>>30 |
-			((in[63] - in[62]) << 17))
+func deltapack64_47[T uint64 | int64](out *[47]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<47)), uint64((in[1]-in[0])>>17|((in[2]-in[1])<<30)), uint64((in[2]-in[1])>>34|((in[3]-in[2])<<13)|((in[4]-in[3])<<60)), uint64((in[4]-in[3])>>4|((in[5]-in[4])<<43)), uint64((in[5]-in[4])>>21|((in[6]-in[5])<<26)), uint64((in[6]-in[5])>>38|((in[7]-in[6])<<9)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<39)), uint64((in[9]-in[8])>>25|((in[10]-in[9])<<22)), uint64((in[10]-in[9])>>42|((in[11]-in[10])<<5)|((in[12]-in[11])<<52)), uint64((in[12]-in[11])>>12|((in[13]-in[12])<<35)), uint64((in[13]-in[12])>>29|((in[14]-in[13])<<18)), uint64((in[14]-in[13])>>46|((in[15]-in[14])<<1)|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<31)), uint64((in[17]-in[16])>>33|((in[18]-in[17])<<14)|((in[19]-in[18])<<61)), uint64((in[19]-in[18])>>3|((in[20]-in[19])<<44)), uint64((in[20]-in[19])>>20|((in[21]-in[20])<<27)), uint64((in[21]-in[20])>>37|((in[22]-in[21])<<10)|((in[23]-in[22])<<57)), uint64((in[23]-in[22])>>7|((in[24]-in[23])<<40)), uint64((in[24]-in[23])>>24|((in[25]-in[24])<<23)), uint64((in[25]-in[24])>>41|((in[26]-in[25])<<6)|((in[27]-in[26])<<53)), uint64((in[27]-in[26])>>11|((in[28]-in[27])<<36)), uint64((in[28]-in[27])>>28|((in[29]-in[28])<<19)), uint64((in[29]-in[28])>>45|((in[30]-in[29])<<2)|((in[31]-in[30])<<49)), uint64((in[31]-in[30])>>15|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<15)|((in[34]-in[33])<<62)), uint64((in[34]-in[33])>>2|((in[35]-in[34])<<45)), uint64((in[35]-in[34])>>19|((in[36]-in[35])<<28)), uint64((in[36]-in[35])>>36|((in[37]-in[36])<<11)|((in[38]-in[37])<<58)), uint64((in[38]-in[37])>>6|((in[39]-in[38])<<41)), uint64((in[39]-in[38])>>23|((in[40]-in[39])<<24)), uint64((in[40]-in[39])>>40|((in[41]-in[40])<<7)|((in[42]-in[41])<<54)), uint64((in[42]-in[41])>>10|((in[43]-in[42])<<37)), uint64((in[43]-in[42])>>27|((in[44]-in[43])<<20)), uint64((in[44]-in[43])>>44|((in[45]-in[44])<<3)|((in[46]-in[45])<<50)), uint64((in[46]-in[45])>>14|((in[47]-in[46])<<33)), uint64((in[47]-in[46])>>31|((in[48]-in[47])<<16)|((in[49]-in[48])<<63)), uint64((in[49]-in[48])>>1|((in[50]-in[49])<<46)), uint64((in[50]-in[49])>>18|((in[51]-in[50])<<29)), uint64((in[51]-in[50])>>35|((in[52]-in[51])<<12)|((in[53]-in[52])<<59)), uint64((in[53]-in[52])>>5|((in[54]-in[53])<<42)), uint64((in[54]-in[53])>>22|((in[55]-in[54])<<25)), uint64((in[55]-in[54])>>39|((in[56]-in[55])<<8)|((in[57]-in[56])<<55)), uint64((in[57]-in[56])>>9|((in[58]-in[57])<<38)), uint64((in[58]-in[57])>>26|((in[59]-in[58])<<21)), uint64((in[59]-in[58])>>43|((in[60]-in[59])<<4)|((in[61]-in[60])<<51)), uint64((in[61]-in[60])>>13|((in[62]-in[61])<<34)), uint64((in[62]-in[61])>>30|((in[63]-in[62])<<17))
 }
-func deltapack64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]uint64, ntz int) {
+func deltapack64_ntz_47[T uint64 | int64](out *[47]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -11323,153 +6553,11 @@ func deltapack64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]uint
 			((in[63] - in[62]) >> ntz << 17))
 }
 
-func deltapack64_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 48))
-	out[1] = uint64(
-		(in[1]-in[0])>>16 |
-			((in[2] - in[1]) << 32))
-	out[2] = uint64(
-		(in[2]-in[1])>>32 |
-			((in[3] - in[2]) << 16))
-	out[3] = uint64(
-		in[4] - in[3] |
-			((in[5] - in[4]) << 48))
-	out[4] = uint64(
-		(in[5]-in[4])>>16 |
-			((in[6] - in[5]) << 32))
-	out[5] = uint64(
-		(in[6]-in[5])>>32 |
-			((in[7] - in[6]) << 16))
-	out[6] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 48))
-	out[7] = uint64(
-		(in[9]-in[8])>>16 |
-			((in[10] - in[9]) << 32))
-	out[8] = uint64(
-		(in[10]-in[9])>>32 |
-			((in[11] - in[10]) << 16))
-	out[9] = uint64(
-		in[12] - in[11] |
-			((in[13] - in[12]) << 48))
-	out[10] = uint64(
-		(in[13]-in[12])>>16 |
-			((in[14] - in[13]) << 32))
-	out[11] = uint64(
-		(in[14]-in[13])>>32 |
-			((in[15] - in[14]) << 16))
-	out[12] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 48))
-	out[13] = uint64(
-		(in[17]-in[16])>>16 |
-			((in[18] - in[17]) << 32))
-	out[14] = uint64(
-		(in[18]-in[17])>>32 |
-			((in[19] - in[18]) << 16))
-	out[15] = uint64(
-		in[20] - in[19] |
-			((in[21] - in[20]) << 48))
-	out[16] = uint64(
-		(in[21]-in[20])>>16 |
-			((in[22] - in[21]) << 32))
-	out[17] = uint64(
-		(in[22]-in[21])>>32 |
-			((in[23] - in[22]) << 16))
-	out[18] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 48))
-	out[19] = uint64(
-		(in[25]-in[24])>>16 |
-			((in[26] - in[25]) << 32))
-	out[20] = uint64(
-		(in[26]-in[25])>>32 |
-			((in[27] - in[26]) << 16))
-	out[21] = uint64(
-		in[28] - in[27] |
-			((in[29] - in[28]) << 48))
-	out[22] = uint64(
-		(in[29]-in[28])>>16 |
-			((in[30] - in[29]) << 32))
-	out[23] = uint64(
-		(in[30]-in[29])>>32 |
-			((in[31] - in[30]) << 16))
-	out[24] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 48))
-	out[25] = uint64(
-		(in[33]-in[32])>>16 |
-			((in[34] - in[33]) << 32))
-	out[26] = uint64(
-		(in[34]-in[33])>>32 |
-			((in[35] - in[34]) << 16))
-	out[27] = uint64(
-		in[36] - in[35] |
-			((in[37] - in[36]) << 48))
-	out[28] = uint64(
-		(in[37]-in[36])>>16 |
-			((in[38] - in[37]) << 32))
-	out[29] = uint64(
-		(in[38]-in[37])>>32 |
-			((in[39] - in[38]) << 16))
-	out[30] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 48))
-	out[31] = uint64(
-		(in[41]-in[40])>>16 |
-			((in[42] - in[41]) << 32))
-	out[32] = uint64(
-		(in[42]-in[41])>>32 |
-			((in[43] - in[42]) << 16))
-	out[33] = uint64(
-		in[44] - in[43] |
-			((in[45] - in[44]) << 48))
-	out[34] = uint64(
-		(in[45]-in[44])>>16 |
-			((in[46] - in[45]) << 32))
-	out[35] = uint64(
-		(in[46]-in[45])>>32 |
-			((in[47] - in[46]) << 16))
-	out[36] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 48))
-	out[37] = uint64(
-		(in[49]-in[48])>>16 |
-			((in[50] - in[49]) << 32))
-	out[38] = uint64(
-		(in[50]-in[49])>>32 |
-			((in[51] - in[50]) << 16))
-	out[39] = uint64(
-		in[52] - in[51] |
-			((in[53] - in[52]) << 48))
-	out[40] = uint64(
-		(in[53]-in[52])>>16 |
-			((in[54] - in[53]) << 32))
-	out[41] = uint64(
-		(in[54]-in[53])>>32 |
-			((in[55] - in[54]) << 16))
-	out[42] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 48))
-	out[43] = uint64(
-		(in[57]-in[56])>>16 |
-			((in[58] - in[57]) << 32))
-	out[44] = uint64(
-		(in[58]-in[57])>>32 |
-			((in[59] - in[58]) << 16))
-	out[45] = uint64(
-		in[60] - in[59] |
-			((in[61] - in[60]) << 48))
-	out[46] = uint64(
-		(in[61]-in[60])>>16 |
-			((in[62] - in[61]) << 32))
-	out[47] = uint64(
-		(in[62]-in[61])>>32 |
-			((in[63] - in[62]) << 16))
+func deltapack64_48[T uint64 | int64](out *[48]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<48)), uint64((in[1]-in[0])>>16|((in[2]-in[1])<<32)), uint64((in[2]-in[1])>>32|((in[3]-in[2])<<16)), uint64(in[4]-in[3]|((in[5]-in[4])<<48)), uint64((in[5]-in[4])>>16|((in[6]-in[5])<<32)), uint64((in[6]-in[5])>>32|((in[7]-in[6])<<16)), uint64(in[8]-in[7]|((in[9]-in[8])<<48)), uint64((in[9]-in[8])>>16|((in[10]-in[9])<<32)), uint64((in[10]-in[9])>>32|((in[11]-in[10])<<16)), uint64(in[12]-in[11]|((in[13]-in[12])<<48)), uint64((in[13]-in[12])>>16|((in[14]-in[13])<<32)), uint64((in[14]-in[13])>>32|((in[15]-in[14])<<16)), uint64(in[16]-in[15]|((in[17]-in[16])<<48)), uint64((in[17]-in[16])>>16|((in[18]-in[17])<<32)), uint64((in[18]-in[17])>>32|((in[19]-in[18])<<16)), uint64(in[20]-in[19]|((in[21]-in[20])<<48)), uint64((in[21]-in[20])>>16|((in[22]-in[21])<<32)), uint64((in[22]-in[21])>>32|((in[23]-in[22])<<16)), uint64(in[24]-in[23]|((in[25]-in[24])<<48)), uint64((in[25]-in[24])>>16|((in[26]-in[25])<<32)), uint64((in[26]-in[25])>>32|((in[27]-in[26])<<16)), uint64(in[28]-in[27]|((in[29]-in[28])<<48)), uint64((in[29]-in[28])>>16|((in[30]-in[29])<<32)), uint64((in[30]-in[29])>>32|((in[31]-in[30])<<16)), uint64(in[32]-in[31]|((in[33]-in[32])<<48)), uint64((in[33]-in[32])>>16|((in[34]-in[33])<<32)), uint64((in[34]-in[33])>>32|((in[35]-in[34])<<16)), uint64(in[36]-in[35]|((in[37]-in[36])<<48)), uint64((in[37]-in[36])>>16|((in[38]-in[37])<<32)), uint64((in[38]-in[37])>>32|((in[39]-in[38])<<16)), uint64(in[40]-in[39]|((in[41]-in[40])<<48)), uint64((in[41]-in[40])>>16|((in[42]-in[41])<<32)), uint64((in[42]-in[41])>>32|((in[43]-in[42])<<16)), uint64(in[44]-in[43]|((in[45]-in[44])<<48)), uint64((in[45]-in[44])>>16|((in[46]-in[45])<<32)), uint64((in[46]-in[45])>>32|((in[47]-in[46])<<16)), uint64(in[48]-in[47]|((in[49]-in[48])<<48)), uint64((in[49]-in[48])>>16|((in[50]-in[49])<<32)), uint64((in[50]-in[49])>>32|((in[51]-in[50])<<16)), uint64(in[52]-in[51]|((in[53]-in[52])<<48)), uint64((in[53]-in[52])>>16|((in[54]-in[53])<<32)), uint64((in[54]-in[53])>>32|((in[55]-in[54])<<16)), uint64(in[56]-in[55]|((in[57]-in[56])<<48)), uint64((in[57]-in[56])>>16|((in[58]-in[57])<<32)), uint64((in[58]-in[57])>>32|((in[59]-in[58])<<16)), uint64(in[60]-in[59]|((in[61]-in[60])<<48)), uint64((in[61]-in[60])>>16|((in[62]-in[61])<<32)), uint64((in[62]-in[61])>>32|((in[63]-in[62])<<16))
 }
-func deltapack64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]uint64, ntz int) {
+func deltapack64_ntz_48[T uint64 | int64](out *[48]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -11617,170 +6705,11 @@ func deltapack64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]uint
 			((in[63] - in[62]) >> ntz << 16))
 }
 
-func deltapack64_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 49))
-	out[1] = uint64(
-		(in[1]-in[0])>>15 |
-			((in[2] - in[1]) << 34))
-	out[2] = uint64(
-		(in[2]-in[1])>>30 |
-			((in[3] - in[2]) << 19))
-	out[3] = uint64(
-		(in[3]-in[2])>>45 |
-			((in[4] - in[3]) << 4) |
-			((in[5] - in[4]) << 53))
-	out[4] = uint64(
-		(in[5]-in[4])>>11 |
-			((in[6] - in[5]) << 38))
-	out[5] = uint64(
-		(in[6]-in[5])>>26 |
-			((in[7] - in[6]) << 23))
-	out[6] = uint64(
-		(in[7]-in[6])>>41 |
-			((in[8] - in[7]) << 8) |
-			((in[9] - in[8]) << 57))
-	out[7] = uint64(
-		(in[9]-in[8])>>7 |
-			((in[10] - in[9]) << 42))
-	out[8] = uint64(
-		(in[10]-in[9])>>22 |
-			((in[11] - in[10]) << 27))
-	out[9] = uint64(
-		(in[11]-in[10])>>37 |
-			((in[12] - in[11]) << 12) |
-			((in[13] - in[12]) << 61))
-	out[10] = uint64(
-		(in[13]-in[12])>>3 |
-			((in[14] - in[13]) << 46))
-	out[11] = uint64(
-		(in[14]-in[13])>>18 |
-			((in[15] - in[14]) << 31))
-	out[12] = uint64(
-		(in[15]-in[14])>>33 |
-			((in[16] - in[15]) << 16))
-	out[13] = uint64(
-		(in[16]-in[15])>>48 |
-			((in[17] - in[16]) << 1) |
-			((in[18] - in[17]) << 50))
-	out[14] = uint64(
-		(in[18]-in[17])>>14 |
-			((in[19] - in[18]) << 35))
-	out[15] = uint64(
-		(in[19]-in[18])>>29 |
-			((in[20] - in[19]) << 20))
-	out[16] = uint64(
-		(in[20]-in[19])>>44 |
-			((in[21] - in[20]) << 5) |
-			((in[22] - in[21]) << 54))
-	out[17] = uint64(
-		(in[22]-in[21])>>10 |
-			((in[23] - in[22]) << 39))
-	out[18] = uint64(
-		(in[23]-in[22])>>25 |
-			((in[24] - in[23]) << 24))
-	out[19] = uint64(
-		(in[24]-in[23])>>40 |
-			((in[25] - in[24]) << 9) |
-			((in[26] - in[25]) << 58))
-	out[20] = uint64(
-		(in[26]-in[25])>>6 |
-			((in[27] - in[26]) << 43))
-	out[21] = uint64(
-		(in[27]-in[26])>>21 |
-			((in[28] - in[27]) << 28))
-	out[22] = uint64(
-		(in[28]-in[27])>>36 |
-			((in[29] - in[28]) << 13) |
-			((in[30] - in[29]) << 62))
-	out[23] = uint64(
-		(in[30]-in[29])>>2 |
-			((in[31] - in[30]) << 47))
-	out[24] = uint64(
-		(in[31]-in[30])>>17 |
-			((in[32] - in[31]) << 32))
-	out[25] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 17))
-	out[26] = uint64(
-		(in[33]-in[32])>>47 |
-			((in[34] - in[33]) << 2) |
-			((in[35] - in[34]) << 51))
-	out[27] = uint64(
-		(in[35]-in[34])>>13 |
-			((in[36] - in[35]) << 36))
-	out[28] = uint64(
-		(in[36]-in[35])>>28 |
-			((in[37] - in[36]) << 21))
-	out[29] = uint64(
-		(in[37]-in[36])>>43 |
-			((in[38] - in[37]) << 6) |
-			((in[39] - in[38]) << 55))
-	out[30] = uint64(
-		(in[39]-in[38])>>9 |
-			((in[40] - in[39]) << 40))
-	out[31] = uint64(
-		(in[40]-in[39])>>24 |
-			((in[41] - in[40]) << 25))
-	out[32] = uint64(
-		(in[41]-in[40])>>39 |
-			((in[42] - in[41]) << 10) |
-			((in[43] - in[42]) << 59))
-	out[33] = uint64(
-		(in[43]-in[42])>>5 |
-			((in[44] - in[43]) << 44))
-	out[34] = uint64(
-		(in[44]-in[43])>>20 |
-			((in[45] - in[44]) << 29))
-	out[35] = uint64(
-		(in[45]-in[44])>>35 |
-			((in[46] - in[45]) << 14) |
-			((in[47] - in[46]) << 63))
-	out[36] = uint64(
-		(in[47]-in[46])>>1 |
-			((in[48] - in[47]) << 48))
-	out[37] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 33))
-	out[38] = uint64(
-		(in[49]-in[48])>>31 |
-			((in[50] - in[49]) << 18))
-	out[39] = uint64(
-		(in[50]-in[49])>>46 |
-			((in[51] - in[50]) << 3) |
-			((in[52] - in[51]) << 52))
-	out[40] = uint64(
-		(in[52]-in[51])>>12 |
-			((in[53] - in[52]) << 37))
-	out[41] = uint64(
-		(in[53]-in[52])>>27 |
-			((in[54] - in[53]) << 22))
-	out[42] = uint64(
-		(in[54]-in[53])>>42 |
-			((in[55] - in[54]) << 7) |
-			((in[56] - in[55]) << 56))
-	out[43] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 41))
-	out[44] = uint64(
-		(in[57]-in[56])>>23 |
-			((in[58] - in[57]) << 26))
-	out[45] = uint64(
-		(in[58]-in[57])>>38 |
-			((in[59] - in[58]) << 11) |
-			((in[60] - in[59]) << 60))
-	out[46] = uint64(
-		(in[60]-in[59])>>4 |
-			((in[61] - in[60]) << 45))
-	out[47] = uint64(
-		(in[61]-in[60])>>19 |
-			((in[62] - in[61]) << 30))
-	out[48] = uint64(
-		(in[62]-in[61])>>34 |
-			((in[63] - in[62]) << 15))
+func deltapack64_49[T uint64 | int64](out *[49]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<49)), uint64((in[1]-in[0])>>15|((in[2]-in[1])<<34)), uint64((in[2]-in[1])>>30|((in[3]-in[2])<<19)), uint64((in[3]-in[2])>>45|((in[4]-in[3])<<4)|((in[5]-in[4])<<53)), uint64((in[5]-in[4])>>11|((in[6]-in[5])<<38)), uint64((in[6]-in[5])>>26|((in[7]-in[6])<<23)), uint64((in[7]-in[6])>>41|((in[8]-in[7])<<8)|((in[9]-in[8])<<57)), uint64((in[9]-in[8])>>7|((in[10]-in[9])<<42)), uint64((in[10]-in[9])>>22|((in[11]-in[10])<<27)), uint64((in[11]-in[10])>>37|((in[12]-in[11])<<12)|((in[13]-in[12])<<61)), uint64((in[13]-in[12])>>3|((in[14]-in[13])<<46)), uint64((in[14]-in[13])>>18|((in[15]-in[14])<<31)), uint64((in[15]-in[14])>>33|((in[16]-in[15])<<16)), uint64((in[16]-in[15])>>48|((in[17]-in[16])<<1)|((in[18]-in[17])<<50)), uint64((in[18]-in[17])>>14|((in[19]-in[18])<<35)), uint64((in[19]-in[18])>>29|((in[20]-in[19])<<20)), uint64((in[20]-in[19])>>44|((in[21]-in[20])<<5)|((in[22]-in[21])<<54)), uint64((in[22]-in[21])>>10|((in[23]-in[22])<<39)), uint64((in[23]-in[22])>>25|((in[24]-in[23])<<24)), uint64((in[24]-in[23])>>40|((in[25]-in[24])<<9)|((in[26]-in[25])<<58)), uint64((in[26]-in[25])>>6|((in[27]-in[26])<<43)), uint64((in[27]-in[26])>>21|((in[28]-in[27])<<28)), uint64((in[28]-in[27])>>36|((in[29]-in[28])<<13)|((in[30]-in[29])<<62)), uint64((in[30]-in[29])>>2|((in[31]-in[30])<<47)), uint64((in[31]-in[30])>>17|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<17)), uint64((in[33]-in[32])>>47|((in[34]-in[33])<<2)|((in[35]-in[34])<<51)), uint64((in[35]-in[34])>>13|((in[36]-in[35])<<36)), uint64((in[36]-in[35])>>28|((in[37]-in[36])<<21)), uint64((in[37]-in[36])>>43|((in[38]-in[37])<<6)|((in[39]-in[38])<<55)), uint64((in[39]-in[38])>>9|((in[40]-in[39])<<40)), uint64((in[40]-in[39])>>24|((in[41]-in[40])<<25)), uint64((in[41]-in[40])>>39|((in[42]-in[41])<<10)|((in[43]-in[42])<<59)), uint64((in[43]-in[42])>>5|((in[44]-in[43])<<44)), uint64((in[44]-in[43])>>20|((in[45]-in[44])<<29)), uint64((in[45]-in[44])>>35|((in[46]-in[45])<<14)|((in[47]-in[46])<<63)), uint64((in[47]-in[46])>>1|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<33)), uint64((in[49]-in[48])>>31|((in[50]-in[49])<<18)), uint64((in[50]-in[49])>>46|((in[51]-in[50])<<3)|((in[52]-in[51])<<52)), uint64((in[52]-in[51])>>12|((in[53]-in[52])<<37)), uint64((in[53]-in[52])>>27|((in[54]-in[53])<<22)), uint64((in[54]-in[53])>>42|((in[55]-in[54])<<7)|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<41)), uint64((in[57]-in[56])>>23|((in[58]-in[57])<<26)), uint64((in[58]-in[57])>>38|((in[59]-in[58])<<11)|((in[60]-in[59])<<60)), uint64((in[60]-in[59])>>4|((in[61]-in[60])<<45)), uint64((in[61]-in[60])>>19|((in[62]-in[61])<<30)), uint64((in[62]-in[61])>>34|((in[63]-in[62])<<15))
 }
-func deltapack64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]uint64, ntz int) {
+func deltapack64_ntz_49[T uint64 | int64](out *[49]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -11945,171 +6874,11 @@ func deltapack64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]uint
 			((in[63] - in[62]) >> ntz << 15))
 }
 
-func deltapack64_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 50))
-	out[1] = uint64(
-		(in[1]-in[0])>>14 |
-			((in[2] - in[1]) << 36))
-	out[2] = uint64(
-		(in[2]-in[1])>>28 |
-			((in[3] - in[2]) << 22))
-	out[3] = uint64(
-		(in[3]-in[2])>>42 |
-			((in[4] - in[3]) << 8) |
-			((in[5] - in[4]) << 58))
-	out[4] = uint64(
-		(in[5]-in[4])>>6 |
-			((in[6] - in[5]) << 44))
-	out[5] = uint64(
-		(in[6]-in[5])>>20 |
-			((in[7] - in[6]) << 30))
-	out[6] = uint64(
-		(in[7]-in[6])>>34 |
-			((in[8] - in[7]) << 16))
-	out[7] = uint64(
-		(in[8]-in[7])>>48 |
-			((in[9] - in[8]) << 2) |
-			((in[10] - in[9]) << 52))
-	out[8] = uint64(
-		(in[10]-in[9])>>12 |
-			((in[11] - in[10]) << 38))
-	out[9] = uint64(
-		(in[11]-in[10])>>26 |
-			((in[12] - in[11]) << 24))
-	out[10] = uint64(
-		(in[12]-in[11])>>40 |
-			((in[13] - in[12]) << 10) |
-			((in[14] - in[13]) << 60))
-	out[11] = uint64(
-		(in[14]-in[13])>>4 |
-			((in[15] - in[14]) << 46))
-	out[12] = uint64(
-		(in[15]-in[14])>>18 |
-			((in[16] - in[15]) << 32))
-	out[13] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 18))
-	out[14] = uint64(
-		(in[17]-in[16])>>46 |
-			((in[18] - in[17]) << 4) |
-			((in[19] - in[18]) << 54))
-	out[15] = uint64(
-		(in[19]-in[18])>>10 |
-			((in[20] - in[19]) << 40))
-	out[16] = uint64(
-		(in[20]-in[19])>>24 |
-			((in[21] - in[20]) << 26))
-	out[17] = uint64(
-		(in[21]-in[20])>>38 |
-			((in[22] - in[21]) << 12) |
-			((in[23] - in[22]) << 62))
-	out[18] = uint64(
-		(in[23]-in[22])>>2 |
-			((in[24] - in[23]) << 48))
-	out[19] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 34))
-	out[20] = uint64(
-		(in[25]-in[24])>>30 |
-			((in[26] - in[25]) << 20))
-	out[21] = uint64(
-		(in[26]-in[25])>>44 |
-			((in[27] - in[26]) << 6) |
-			((in[28] - in[27]) << 56))
-	out[22] = uint64(
-		(in[28]-in[27])>>8 |
-			((in[29] - in[28]) << 42))
-	out[23] = uint64(
-		(in[29]-in[28])>>22 |
-			((in[30] - in[29]) << 28))
-	out[24] = uint64(
-		(in[30]-in[29])>>36 |
-			((in[31] - in[30]) << 14))
-	out[25] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 50))
-	out[26] = uint64(
-		(in[33]-in[32])>>14 |
-			((in[34] - in[33]) << 36))
-	out[27] = uint64(
-		(in[34]-in[33])>>28 |
-			((in[35] - in[34]) << 22))
-	out[28] = uint64(
-		(in[35]-in[34])>>42 |
-			((in[36] - in[35]) << 8) |
-			((in[37] - in[36]) << 58))
-	out[29] = uint64(
-		(in[37]-in[36])>>6 |
-			((in[38] - in[37]) << 44))
-	out[30] = uint64(
-		(in[38]-in[37])>>20 |
-			((in[39] - in[38]) << 30))
-	out[31] = uint64(
-		(in[39]-in[38])>>34 |
-			((in[40] - in[39]) << 16))
-	out[32] = uint64(
-		(in[40]-in[39])>>48 |
-			((in[41] - in[40]) << 2) |
-			((in[42] - in[41]) << 52))
-	out[33] = uint64(
-		(in[42]-in[41])>>12 |
-			((in[43] - in[42]) << 38))
-	out[34] = uint64(
-		(in[43]-in[42])>>26 |
-			((in[44] - in[43]) << 24))
-	out[35] = uint64(
-		(in[44]-in[43])>>40 |
-			((in[45] - in[44]) << 10) |
-			((in[46] - in[45]) << 60))
-	out[36] = uint64(
-		(in[46]-in[45])>>4 |
-			((in[47] - in[46]) << 46))
-	out[37] = uint64(
-		(in[47]-in[46])>>18 |
-			((in[48] - in[47]) << 32))
-	out[38] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 18))
-	out[39] = uint64(
-		(in[49]-in[48])>>46 |
-			((in[50] - in[49]) << 4) |
-			((in[51] - in[50]) << 54))
-	out[40] = uint64(
-		(in[51]-in[50])>>10 |
-			((in[52] - in[51]) << 40))
-	out[41] = uint64(
-		(in[52]-in[51])>>24 |
-			((in[53] - in[52]) << 26))
-	out[42] = uint64(
-		(in[53]-in[52])>>38 |
-			((in[54] - in[53]) << 12) |
-			((in[55] - in[54]) << 62))
-	out[43] = uint64(
-		(in[55]-in[54])>>2 |
-			((in[56] - in[55]) << 48))
-	out[44] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 34))
-	out[45] = uint64(
-		(in[57]-in[56])>>30 |
-			((in[58] - in[57]) << 20))
-	out[46] = uint64(
-		(in[58]-in[57])>>44 |
-			((in[59] - in[58]) << 6) |
-			((in[60] - in[59]) << 56))
-	out[47] = uint64(
-		(in[60]-in[59])>>8 |
-			((in[61] - in[60]) << 42))
-	out[48] = uint64(
-		(in[61]-in[60])>>22 |
-			((in[62] - in[61]) << 28))
-	out[49] = uint64(
-		(in[62]-in[61])>>36 |
-			((in[63] - in[62]) << 14))
+func deltapack64_50[T uint64 | int64](out *[50]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<50)), uint64((in[1]-in[0])>>14|((in[2]-in[1])<<36)), uint64((in[2]-in[1])>>28|((in[3]-in[2])<<22)), uint64((in[3]-in[2])>>42|((in[4]-in[3])<<8)|((in[5]-in[4])<<58)), uint64((in[5]-in[4])>>6|((in[6]-in[5])<<44)), uint64((in[6]-in[5])>>20|((in[7]-in[6])<<30)), uint64((in[7]-in[6])>>34|((in[8]-in[7])<<16)), uint64((in[8]-in[7])>>48|((in[9]-in[8])<<2)|((in[10]-in[9])<<52)), uint64((in[10]-in[9])>>12|((in[11]-in[10])<<38)), uint64((in[11]-in[10])>>26|((in[12]-in[11])<<24)), uint64((in[12]-in[11])>>40|((in[13]-in[12])<<10)|((in[14]-in[13])<<60)), uint64((in[14]-in[13])>>4|((in[15]-in[14])<<46)), uint64((in[15]-in[14])>>18|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<18)), uint64((in[17]-in[16])>>46|((in[18]-in[17])<<4)|((in[19]-in[18])<<54)), uint64((in[19]-in[18])>>10|((in[20]-in[19])<<40)), uint64((in[20]-in[19])>>24|((in[21]-in[20])<<26)), uint64((in[21]-in[20])>>38|((in[22]-in[21])<<12)|((in[23]-in[22])<<62)), uint64((in[23]-in[22])>>2|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<34)), uint64((in[25]-in[24])>>30|((in[26]-in[25])<<20)), uint64((in[26]-in[25])>>44|((in[27]-in[26])<<6)|((in[28]-in[27])<<56)), uint64((in[28]-in[27])>>8|((in[29]-in[28])<<42)), uint64((in[29]-in[28])>>22|((in[30]-in[29])<<28)), uint64((in[30]-in[29])>>36|((in[31]-in[30])<<14)), uint64(in[32]-in[31]|((in[33]-in[32])<<50)), uint64((in[33]-in[32])>>14|((in[34]-in[33])<<36)), uint64((in[34]-in[33])>>28|((in[35]-in[34])<<22)), uint64((in[35]-in[34])>>42|((in[36]-in[35])<<8)|((in[37]-in[36])<<58)), uint64((in[37]-in[36])>>6|((in[38]-in[37])<<44)), uint64((in[38]-in[37])>>20|((in[39]-in[38])<<30)), uint64((in[39]-in[38])>>34|((in[40]-in[39])<<16)), uint64((in[40]-in[39])>>48|((in[41]-in[40])<<2)|((in[42]-in[41])<<52)), uint64((in[42]-in[41])>>12|((in[43]-in[42])<<38)), uint64((in[43]-in[42])>>26|((in[44]-in[43])<<24)), uint64((in[44]-in[43])>>40|((in[45]-in[44])<<10)|((in[46]-in[45])<<60)), uint64((in[46]-in[45])>>4|((in[47]-in[46])<<46)), uint64((in[47]-in[46])>>18|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<18)), uint64((in[49]-in[48])>>46|((in[50]-in[49])<<4)|((in[51]-in[50])<<54)), uint64((in[51]-in[50])>>10|((in[52]-in[51])<<40)), uint64((in[52]-in[51])>>24|((in[53]-in[52])<<26)), uint64((in[53]-in[52])>>38|((in[54]-in[53])<<12)|((in[55]-in[54])<<62)), uint64((in[55]-in[54])>>2|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<34)), uint64((in[57]-in[56])>>30|((in[58]-in[57])<<20)), uint64((in[58]-in[57])>>44|((in[59]-in[58])<<6)|((in[60]-in[59])<<56)), uint64((in[60]-in[59])>>8|((in[61]-in[60])<<42)), uint64((in[61]-in[60])>>22|((in[62]-in[61])<<28)), uint64((in[62]-in[61])>>36|((in[63]-in[62])<<14))
 }
-func deltapack64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]uint64, ntz int) {
+func deltapack64_ntz_50[T uint64 | int64](out *[50]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -12275,174 +7044,11 @@ func deltapack64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]uint
 			((in[63] - in[62]) >> ntz << 14))
 }
 
-func deltapack64_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 51))
-	out[1] = uint64(
-		(in[1]-in[0])>>13 |
-			((in[2] - in[1]) << 38))
-	out[2] = uint64(
-		(in[2]-in[1])>>26 |
-			((in[3] - in[2]) << 25))
-	out[3] = uint64(
-		(in[3]-in[2])>>39 |
-			((in[4] - in[3]) << 12) |
-			((in[5] - in[4]) << 63))
-	out[4] = uint64(
-		(in[5]-in[4])>>1 |
-			((in[6] - in[5]) << 50))
-	out[5] = uint64(
-		(in[6]-in[5])>>14 |
-			((in[7] - in[6]) << 37))
-	out[6] = uint64(
-		(in[7]-in[6])>>27 |
-			((in[8] - in[7]) << 24))
-	out[7] = uint64(
-		(in[8]-in[7])>>40 |
-			((in[9] - in[8]) << 11) |
-			((in[10] - in[9]) << 62))
-	out[8] = uint64(
-		(in[10]-in[9])>>2 |
-			((in[11] - in[10]) << 49))
-	out[9] = uint64(
-		(in[11]-in[10])>>15 |
-			((in[12] - in[11]) << 36))
-	out[10] = uint64(
-		(in[12]-in[11])>>28 |
-			((in[13] - in[12]) << 23))
-	out[11] = uint64(
-		(in[13]-in[12])>>41 |
-			((in[14] - in[13]) << 10) |
-			((in[15] - in[14]) << 61))
-	out[12] = uint64(
-		(in[15]-in[14])>>3 |
-			((in[16] - in[15]) << 48))
-	out[13] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 35))
-	out[14] = uint64(
-		(in[17]-in[16])>>29 |
-			((in[18] - in[17]) << 22))
-	out[15] = uint64(
-		(in[18]-in[17])>>42 |
-			((in[19] - in[18]) << 9) |
-			((in[20] - in[19]) << 60))
-	out[16] = uint64(
-		(in[20]-in[19])>>4 |
-			((in[21] - in[20]) << 47))
-	out[17] = uint64(
-		(in[21]-in[20])>>17 |
-			((in[22] - in[21]) << 34))
-	out[18] = uint64(
-		(in[22]-in[21])>>30 |
-			((in[23] - in[22]) << 21))
-	out[19] = uint64(
-		(in[23]-in[22])>>43 |
-			((in[24] - in[23]) << 8) |
-			((in[25] - in[24]) << 59))
-	out[20] = uint64(
-		(in[25]-in[24])>>5 |
-			((in[26] - in[25]) << 46))
-	out[21] = uint64(
-		(in[26]-in[25])>>18 |
-			((in[27] - in[26]) << 33))
-	out[22] = uint64(
-		(in[27]-in[26])>>31 |
-			((in[28] - in[27]) << 20))
-	out[23] = uint64(
-		(in[28]-in[27])>>44 |
-			((in[29] - in[28]) << 7) |
-			((in[30] - in[29]) << 58))
-	out[24] = uint64(
-		(in[30]-in[29])>>6 |
-			((in[31] - in[30]) << 45))
-	out[25] = uint64(
-		(in[31]-in[30])>>19 |
-			((in[32] - in[31]) << 32))
-	out[26] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 19))
-	out[27] = uint64(
-		(in[33]-in[32])>>45 |
-			((in[34] - in[33]) << 6) |
-			((in[35] - in[34]) << 57))
-	out[28] = uint64(
-		(in[35]-in[34])>>7 |
-			((in[36] - in[35]) << 44))
-	out[29] = uint64(
-		(in[36]-in[35])>>20 |
-			((in[37] - in[36]) << 31))
-	out[30] = uint64(
-		(in[37]-in[36])>>33 |
-			((in[38] - in[37]) << 18))
-	out[31] = uint64(
-		(in[38]-in[37])>>46 |
-			((in[39] - in[38]) << 5) |
-			((in[40] - in[39]) << 56))
-	out[32] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 43))
-	out[33] = uint64(
-		(in[41]-in[40])>>21 |
-			((in[42] - in[41]) << 30))
-	out[34] = uint64(
-		(in[42]-in[41])>>34 |
-			((in[43] - in[42]) << 17))
-	out[35] = uint64(
-		(in[43]-in[42])>>47 |
-			((in[44] - in[43]) << 4) |
-			((in[45] - in[44]) << 55))
-	out[36] = uint64(
-		(in[45]-in[44])>>9 |
-			((in[46] - in[45]) << 42))
-	out[37] = uint64(
-		(in[46]-in[45])>>22 |
-			((in[47] - in[46]) << 29))
-	out[38] = uint64(
-		(in[47]-in[46])>>35 |
-			((in[48] - in[47]) << 16))
-	out[39] = uint64(
-		(in[48]-in[47])>>48 |
-			((in[49] - in[48]) << 3) |
-			((in[50] - in[49]) << 54))
-	out[40] = uint64(
-		(in[50]-in[49])>>10 |
-			((in[51] - in[50]) << 41))
-	out[41] = uint64(
-		(in[51]-in[50])>>23 |
-			((in[52] - in[51]) << 28))
-	out[42] = uint64(
-		(in[52]-in[51])>>36 |
-			((in[53] - in[52]) << 15))
-	out[43] = uint64(
-		(in[53]-in[52])>>49 |
-			((in[54] - in[53]) << 2) |
-			((in[55] - in[54]) << 53))
-	out[44] = uint64(
-		(in[55]-in[54])>>11 |
-			((in[56] - in[55]) << 40))
-	out[45] = uint64(
-		(in[56]-in[55])>>24 |
-			((in[57] - in[56]) << 27))
-	out[46] = uint64(
-		(in[57]-in[56])>>37 |
-			((in[58] - in[57]) << 14))
-	out[47] = uint64(
-		(in[58]-in[57])>>50 |
-			((in[59] - in[58]) << 1) |
-			((in[60] - in[59]) << 52))
-	out[48] = uint64(
-		(in[60]-in[59])>>12 |
-			((in[61] - in[60]) << 39))
-	out[49] = uint64(
-		(in[61]-in[60])>>25 |
-			((in[62] - in[61]) << 26))
-	out[50] = uint64(
-		(in[62]-in[61])>>38 |
-			((in[63] - in[62]) << 13))
+func deltapack64_51[T uint64 | int64](out *[51]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<51)), uint64((in[1]-in[0])>>13|((in[2]-in[1])<<38)), uint64((in[2]-in[1])>>26|((in[3]-in[2])<<25)), uint64((in[3]-in[2])>>39|((in[4]-in[3])<<12)|((in[5]-in[4])<<63)), uint64((in[5]-in[4])>>1|((in[6]-in[5])<<50)), uint64((in[6]-in[5])>>14|((in[7]-in[6])<<37)), uint64((in[7]-in[6])>>27|((in[8]-in[7])<<24)), uint64((in[8]-in[7])>>40|((in[9]-in[8])<<11)|((in[10]-in[9])<<62)), uint64((in[10]-in[9])>>2|((in[11]-in[10])<<49)), uint64((in[11]-in[10])>>15|((in[12]-in[11])<<36)), uint64((in[12]-in[11])>>28|((in[13]-in[12])<<23)), uint64((in[13]-in[12])>>41|((in[14]-in[13])<<10)|((in[15]-in[14])<<61)), uint64((in[15]-in[14])>>3|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<35)), uint64((in[17]-in[16])>>29|((in[18]-in[17])<<22)), uint64((in[18]-in[17])>>42|((in[19]-in[18])<<9)|((in[20]-in[19])<<60)), uint64((in[20]-in[19])>>4|((in[21]-in[20])<<47)), uint64((in[21]-in[20])>>17|((in[22]-in[21])<<34)), uint64((in[22]-in[21])>>30|((in[23]-in[22])<<21)), uint64((in[23]-in[22])>>43|((in[24]-in[23])<<8)|((in[25]-in[24])<<59)), uint64((in[25]-in[24])>>5|((in[26]-in[25])<<46)), uint64((in[26]-in[25])>>18|((in[27]-in[26])<<33)), uint64((in[27]-in[26])>>31|((in[28]-in[27])<<20)), uint64((in[28]-in[27])>>44|((in[29]-in[28])<<7)|((in[30]-in[29])<<58)), uint64((in[30]-in[29])>>6|((in[31]-in[30])<<45)), uint64((in[31]-in[30])>>19|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<19)), uint64((in[33]-in[32])>>45|((in[34]-in[33])<<6)|((in[35]-in[34])<<57)), uint64((in[35]-in[34])>>7|((in[36]-in[35])<<44)), uint64((in[36]-in[35])>>20|((in[37]-in[36])<<31)), uint64((in[37]-in[36])>>33|((in[38]-in[37])<<18)), uint64((in[38]-in[37])>>46|((in[39]-in[38])<<5)|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<43)), uint64((in[41]-in[40])>>21|((in[42]-in[41])<<30)), uint64((in[42]-in[41])>>34|((in[43]-in[42])<<17)), uint64((in[43]-in[42])>>47|((in[44]-in[43])<<4)|((in[45]-in[44])<<55)), uint64((in[45]-in[44])>>9|((in[46]-in[45])<<42)), uint64((in[46]-in[45])>>22|((in[47]-in[46])<<29)), uint64((in[47]-in[46])>>35|((in[48]-in[47])<<16)), uint64((in[48]-in[47])>>48|((in[49]-in[48])<<3)|((in[50]-in[49])<<54)), uint64((in[50]-in[49])>>10|((in[51]-in[50])<<41)), uint64((in[51]-in[50])>>23|((in[52]-in[51])<<28)), uint64((in[52]-in[51])>>36|((in[53]-in[52])<<15)), uint64((in[53]-in[52])>>49|((in[54]-in[53])<<2)|((in[55]-in[54])<<53)), uint64((in[55]-in[54])>>11|((in[56]-in[55])<<40)), uint64((in[56]-in[55])>>24|((in[57]-in[56])<<27)), uint64((in[57]-in[56])>>37|((in[58]-in[57])<<14)), uint64((in[58]-in[57])>>50|((in[59]-in[58])<<1)|((in[60]-in[59])<<52)), uint64((in[60]-in[59])>>12|((in[61]-in[60])<<39)), uint64((in[61]-in[60])>>25|((in[62]-in[61])<<26)), uint64((in[62]-in[61])>>38|((in[63]-in[62])<<13))
 }
-func deltapack64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]uint64, ntz int) {
+func deltapack64_ntz_51[T uint64 | int64](out *[51]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -12611,173 +7217,11 @@ func deltapack64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]uint
 			((in[63] - in[62]) >> ntz << 13))
 }
 
-func deltapack64_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 52))
-	out[1] = uint64(
-		(in[1]-in[0])>>12 |
-			((in[2] - in[1]) << 40))
-	out[2] = uint64(
-		(in[2]-in[1])>>24 |
-			((in[3] - in[2]) << 28))
-	out[3] = uint64(
-		(in[3]-in[2])>>36 |
-			((in[4] - in[3]) << 16))
-	out[4] = uint64(
-		(in[4]-in[3])>>48 |
-			((in[5] - in[4]) << 4) |
-			((in[6] - in[5]) << 56))
-	out[5] = uint64(
-		(in[6]-in[5])>>8 |
-			((in[7] - in[6]) << 44))
-	out[6] = uint64(
-		(in[7]-in[6])>>20 |
-			((in[8] - in[7]) << 32))
-	out[7] = uint64(
-		(in[8]-in[7])>>32 |
-			((in[9] - in[8]) << 20))
-	out[8] = uint64(
-		(in[9]-in[8])>>44 |
-			((in[10] - in[9]) << 8) |
-			((in[11] - in[10]) << 60))
-	out[9] = uint64(
-		(in[11]-in[10])>>4 |
-			((in[12] - in[11]) << 48))
-	out[10] = uint64(
-		(in[12]-in[11])>>16 |
-			((in[13] - in[12]) << 36))
-	out[11] = uint64(
-		(in[13]-in[12])>>28 |
-			((in[14] - in[13]) << 24))
-	out[12] = uint64(
-		(in[14]-in[13])>>40 |
-			((in[15] - in[14]) << 12))
-	out[13] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 52))
-	out[14] = uint64(
-		(in[17]-in[16])>>12 |
-			((in[18] - in[17]) << 40))
-	out[15] = uint64(
-		(in[18]-in[17])>>24 |
-			((in[19] - in[18]) << 28))
-	out[16] = uint64(
-		(in[19]-in[18])>>36 |
-			((in[20] - in[19]) << 16))
-	out[17] = uint64(
-		(in[20]-in[19])>>48 |
-			((in[21] - in[20]) << 4) |
-			((in[22] - in[21]) << 56))
-	out[18] = uint64(
-		(in[22]-in[21])>>8 |
-			((in[23] - in[22]) << 44))
-	out[19] = uint64(
-		(in[23]-in[22])>>20 |
-			((in[24] - in[23]) << 32))
-	out[20] = uint64(
-		(in[24]-in[23])>>32 |
-			((in[25] - in[24]) << 20))
-	out[21] = uint64(
-		(in[25]-in[24])>>44 |
-			((in[26] - in[25]) << 8) |
-			((in[27] - in[26]) << 60))
-	out[22] = uint64(
-		(in[27]-in[26])>>4 |
-			((in[28] - in[27]) << 48))
-	out[23] = uint64(
-		(in[28]-in[27])>>16 |
-			((in[29] - in[28]) << 36))
-	out[24] = uint64(
-		(in[29]-in[28])>>28 |
-			((in[30] - in[29]) << 24))
-	out[25] = uint64(
-		(in[30]-in[29])>>40 |
-			((in[31] - in[30]) << 12))
-	out[26] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 52))
-	out[27] = uint64(
-		(in[33]-in[32])>>12 |
-			((in[34] - in[33]) << 40))
-	out[28] = uint64(
-		(in[34]-in[33])>>24 |
-			((in[35] - in[34]) << 28))
-	out[29] = uint64(
-		(in[35]-in[34])>>36 |
-			((in[36] - in[35]) << 16))
-	out[30] = uint64(
-		(in[36]-in[35])>>48 |
-			((in[37] - in[36]) << 4) |
-			((in[38] - in[37]) << 56))
-	out[31] = uint64(
-		(in[38]-in[37])>>8 |
-			((in[39] - in[38]) << 44))
-	out[32] = uint64(
-		(in[39]-in[38])>>20 |
-			((in[40] - in[39]) << 32))
-	out[33] = uint64(
-		(in[40]-in[39])>>32 |
-			((in[41] - in[40]) << 20))
-	out[34] = uint64(
-		(in[41]-in[40])>>44 |
-			((in[42] - in[41]) << 8) |
-			((in[43] - in[42]) << 60))
-	out[35] = uint64(
-		(in[43]-in[42])>>4 |
-			((in[44] - in[43]) << 48))
-	out[36] = uint64(
-		(in[44]-in[43])>>16 |
-			((in[45] - in[44]) << 36))
-	out[37] = uint64(
-		(in[45]-in[44])>>28 |
-			((in[46] - in[45]) << 24))
-	out[38] = uint64(
-		(in[46]-in[45])>>40 |
-			((in[47] - in[46]) << 12))
-	out[39] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 52))
-	out[40] = uint64(
-		(in[49]-in[48])>>12 |
-			((in[50] - in[49]) << 40))
-	out[41] = uint64(
-		(in[50]-in[49])>>24 |
-			((in[51] - in[50]) << 28))
-	out[42] = uint64(
-		(in[51]-in[50])>>36 |
-			((in[52] - in[51]) << 16))
-	out[43] = uint64(
-		(in[52]-in[51])>>48 |
-			((in[53] - in[52]) << 4) |
-			((in[54] - in[53]) << 56))
-	out[44] = uint64(
-		(in[54]-in[53])>>8 |
-			((in[55] - in[54]) << 44))
-	out[45] = uint64(
-		(in[55]-in[54])>>20 |
-			((in[56] - in[55]) << 32))
-	out[46] = uint64(
-		(in[56]-in[55])>>32 |
-			((in[57] - in[56]) << 20))
-	out[47] = uint64(
-		(in[57]-in[56])>>44 |
-			((in[58] - in[57]) << 8) |
-			((in[59] - in[58]) << 60))
-	out[48] = uint64(
-		(in[59]-in[58])>>4 |
-			((in[60] - in[59]) << 48))
-	out[49] = uint64(
-		(in[60]-in[59])>>16 |
-			((in[61] - in[60]) << 36))
-	out[50] = uint64(
-		(in[61]-in[60])>>28 |
-			((in[62] - in[61]) << 24))
-	out[51] = uint64(
-		(in[62]-in[61])>>40 |
-			((in[63] - in[62]) << 12))
+func deltapack64_52[T uint64 | int64](out *[52]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<52)), uint64((in[1]-in[0])>>12|((in[2]-in[1])<<40)), uint64((in[2]-in[1])>>24|((in[3]-in[2])<<28)), uint64((in[3]-in[2])>>36|((in[4]-in[3])<<16)), uint64((in[4]-in[3])>>48|((in[5]-in[4])<<4)|((in[6]-in[5])<<56)), uint64((in[6]-in[5])>>8|((in[7]-in[6])<<44)), uint64((in[7]-in[6])>>20|((in[8]-in[7])<<32)), uint64((in[8]-in[7])>>32|((in[9]-in[8])<<20)), uint64((in[9]-in[8])>>44|((in[10]-in[9])<<8)|((in[11]-in[10])<<60)), uint64((in[11]-in[10])>>4|((in[12]-in[11])<<48)), uint64((in[12]-in[11])>>16|((in[13]-in[12])<<36)), uint64((in[13]-in[12])>>28|((in[14]-in[13])<<24)), uint64((in[14]-in[13])>>40|((in[15]-in[14])<<12)), uint64(in[16]-in[15]|((in[17]-in[16])<<52)), uint64((in[17]-in[16])>>12|((in[18]-in[17])<<40)), uint64((in[18]-in[17])>>24|((in[19]-in[18])<<28)), uint64((in[19]-in[18])>>36|((in[20]-in[19])<<16)), uint64((in[20]-in[19])>>48|((in[21]-in[20])<<4)|((in[22]-in[21])<<56)), uint64((in[22]-in[21])>>8|((in[23]-in[22])<<44)), uint64((in[23]-in[22])>>20|((in[24]-in[23])<<32)), uint64((in[24]-in[23])>>32|((in[25]-in[24])<<20)), uint64((in[25]-in[24])>>44|((in[26]-in[25])<<8)|((in[27]-in[26])<<60)), uint64((in[27]-in[26])>>4|((in[28]-in[27])<<48)), uint64((in[28]-in[27])>>16|((in[29]-in[28])<<36)), uint64((in[29]-in[28])>>28|((in[30]-in[29])<<24)), uint64((in[30]-in[29])>>40|((in[31]-in[30])<<12)), uint64(in[32]-in[31]|((in[33]-in[32])<<52)), uint64((in[33]-in[32])>>12|((in[34]-in[33])<<40)), uint64((in[34]-in[33])>>24|((in[35]-in[34])<<28)), uint64((in[35]-in[34])>>36|((in[36]-in[35])<<16)), uint64((in[36]-in[35])>>48|((in[37]-in[36])<<4)|((in[38]-in[37])<<56)), uint64((in[38]-in[37])>>8|((in[39]-in[38])<<44)), uint64((in[39]-in[38])>>20|((in[40]-in[39])<<32)), uint64((in[40]-in[39])>>32|((in[41]-in[40])<<20)), uint64((in[41]-in[40])>>44|((in[42]-in[41])<<8)|((in[43]-in[42])<<60)), uint64((in[43]-in[42])>>4|((in[44]-in[43])<<48)), uint64((in[44]-in[43])>>16|((in[45]-in[44])<<36)), uint64((in[45]-in[44])>>28|((in[46]-in[45])<<24)), uint64((in[46]-in[45])>>40|((in[47]-in[46])<<12)), uint64(in[48]-in[47]|((in[49]-in[48])<<52)), uint64((in[49]-in[48])>>12|((in[50]-in[49])<<40)), uint64((in[50]-in[49])>>24|((in[51]-in[50])<<28)), uint64((in[51]-in[50])>>36|((in[52]-in[51])<<16)), uint64((in[52]-in[51])>>48|((in[53]-in[52])<<4)|((in[54]-in[53])<<56)), uint64((in[54]-in[53])>>8|((in[55]-in[54])<<44)), uint64((in[55]-in[54])>>20|((in[56]-in[55])<<32)), uint64((in[56]-in[55])>>32|((in[57]-in[56])<<20)), uint64((in[57]-in[56])>>44|((in[58]-in[57])<<8)|((in[59]-in[58])<<60)), uint64((in[59]-in[58])>>4|((in[60]-in[59])<<48)), uint64((in[60]-in[59])>>16|((in[61]-in[60])<<36)), uint64((in[61]-in[60])>>28|((in[62]-in[61])<<24)), uint64((in[62]-in[61])>>40|((in[63]-in[62])<<12))
 }
-func deltapack64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]uint64, ntz int) {
+func deltapack64_ntz_52[T uint64 | int64](out *[52]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -12945,178 +7389,11 @@ func deltapack64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]uint
 			((in[63] - in[62]) >> ntz << 12))
 }
 
-func deltapack64_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 53))
-	out[1] = uint64(
-		(in[1]-in[0])>>11 |
-			((in[2] - in[1]) << 42))
-	out[2] = uint64(
-		(in[2]-in[1])>>22 |
-			((in[3] - in[2]) << 31))
-	out[3] = uint64(
-		(in[3]-in[2])>>33 |
-			((in[4] - in[3]) << 20))
-	out[4] = uint64(
-		(in[4]-in[3])>>44 |
-			((in[5] - in[4]) << 9) |
-			((in[6] - in[5]) << 62))
-	out[5] = uint64(
-		(in[6]-in[5])>>2 |
-			((in[7] - in[6]) << 51))
-	out[6] = uint64(
-		(in[7]-in[6])>>13 |
-			((in[8] - in[7]) << 40))
-	out[7] = uint64(
-		(in[8]-in[7])>>24 |
-			((in[9] - in[8]) << 29))
-	out[8] = uint64(
-		(in[9]-in[8])>>35 |
-			((in[10] - in[9]) << 18))
-	out[9] = uint64(
-		(in[10]-in[9])>>46 |
-			((in[11] - in[10]) << 7) |
-			((in[12] - in[11]) << 60))
-	out[10] = uint64(
-		(in[12]-in[11])>>4 |
-			((in[13] - in[12]) << 49))
-	out[11] = uint64(
-		(in[13]-in[12])>>15 |
-			((in[14] - in[13]) << 38))
-	out[12] = uint64(
-		(in[14]-in[13])>>26 |
-			((in[15] - in[14]) << 27))
-	out[13] = uint64(
-		(in[15]-in[14])>>37 |
-			((in[16] - in[15]) << 16))
-	out[14] = uint64(
-		(in[16]-in[15])>>48 |
-			((in[17] - in[16]) << 5) |
-			((in[18] - in[17]) << 58))
-	out[15] = uint64(
-		(in[18]-in[17])>>6 |
-			((in[19] - in[18]) << 47))
-	out[16] = uint64(
-		(in[19]-in[18])>>17 |
-			((in[20] - in[19]) << 36))
-	out[17] = uint64(
-		(in[20]-in[19])>>28 |
-			((in[21] - in[20]) << 25))
-	out[18] = uint64(
-		(in[21]-in[20])>>39 |
-			((in[22] - in[21]) << 14))
-	out[19] = uint64(
-		(in[22]-in[21])>>50 |
-			((in[23] - in[22]) << 3) |
-			((in[24] - in[23]) << 56))
-	out[20] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 45))
-	out[21] = uint64(
-		(in[25]-in[24])>>19 |
-			((in[26] - in[25]) << 34))
-	out[22] = uint64(
-		(in[26]-in[25])>>30 |
-			((in[27] - in[26]) << 23))
-	out[23] = uint64(
-		(in[27]-in[26])>>41 |
-			((in[28] - in[27]) << 12))
-	out[24] = uint64(
-		(in[28]-in[27])>>52 |
-			((in[29] - in[28]) << 1) |
-			((in[30] - in[29]) << 54))
-	out[25] = uint64(
-		(in[30]-in[29])>>10 |
-			((in[31] - in[30]) << 43))
-	out[26] = uint64(
-		(in[31]-in[30])>>21 |
-			((in[32] - in[31]) << 32))
-	out[27] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 21))
-	out[28] = uint64(
-		(in[33]-in[32])>>43 |
-			((in[34] - in[33]) << 10) |
-			((in[35] - in[34]) << 63))
-	out[29] = uint64(
-		(in[35]-in[34])>>1 |
-			((in[36] - in[35]) << 52))
-	out[30] = uint64(
-		(in[36]-in[35])>>12 |
-			((in[37] - in[36]) << 41))
-	out[31] = uint64(
-		(in[37]-in[36])>>23 |
-			((in[38] - in[37]) << 30))
-	out[32] = uint64(
-		(in[38]-in[37])>>34 |
-			((in[39] - in[38]) << 19))
-	out[33] = uint64(
-		(in[39]-in[38])>>45 |
-			((in[40] - in[39]) << 8) |
-			((in[41] - in[40]) << 61))
-	out[34] = uint64(
-		(in[41]-in[40])>>3 |
-			((in[42] - in[41]) << 50))
-	out[35] = uint64(
-		(in[42]-in[41])>>14 |
-			((in[43] - in[42]) << 39))
-	out[36] = uint64(
-		(in[43]-in[42])>>25 |
-			((in[44] - in[43]) << 28))
-	out[37] = uint64(
-		(in[44]-in[43])>>36 |
-			((in[45] - in[44]) << 17))
-	out[38] = uint64(
-		(in[45]-in[44])>>47 |
-			((in[46] - in[45]) << 6) |
-			((in[47] - in[46]) << 59))
-	out[39] = uint64(
-		(in[47]-in[46])>>5 |
-			((in[48] - in[47]) << 48))
-	out[40] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 37))
-	out[41] = uint64(
-		(in[49]-in[48])>>27 |
-			((in[50] - in[49]) << 26))
-	out[42] = uint64(
-		(in[50]-in[49])>>38 |
-			((in[51] - in[50]) << 15))
-	out[43] = uint64(
-		(in[51]-in[50])>>49 |
-			((in[52] - in[51]) << 4) |
-			((in[53] - in[52]) << 57))
-	out[44] = uint64(
-		(in[53]-in[52])>>7 |
-			((in[54] - in[53]) << 46))
-	out[45] = uint64(
-		(in[54]-in[53])>>18 |
-			((in[55] - in[54]) << 35))
-	out[46] = uint64(
-		(in[55]-in[54])>>29 |
-			((in[56] - in[55]) << 24))
-	out[47] = uint64(
-		(in[56]-in[55])>>40 |
-			((in[57] - in[56]) << 13))
-	out[48] = uint64(
-		(in[57]-in[56])>>51 |
-			((in[58] - in[57]) << 2) |
-			((in[59] - in[58]) << 55))
-	out[49] = uint64(
-		(in[59]-in[58])>>9 |
-			((in[60] - in[59]) << 44))
-	out[50] = uint64(
-		(in[60]-in[59])>>20 |
-			((in[61] - in[60]) << 33))
-	out[51] = uint64(
-		(in[61]-in[60])>>31 |
-			((in[62] - in[61]) << 22))
-	out[52] = uint64(
-		(in[62]-in[61])>>42 |
-			((in[63] - in[62]) << 11))
+func deltapack64_53[T uint64 | int64](out *[53]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<53)), uint64((in[1]-in[0])>>11|((in[2]-in[1])<<42)), uint64((in[2]-in[1])>>22|((in[3]-in[2])<<31)), uint64((in[3]-in[2])>>33|((in[4]-in[3])<<20)), uint64((in[4]-in[3])>>44|((in[5]-in[4])<<9)|((in[6]-in[5])<<62)), uint64((in[6]-in[5])>>2|((in[7]-in[6])<<51)), uint64((in[7]-in[6])>>13|((in[8]-in[7])<<40)), uint64((in[8]-in[7])>>24|((in[9]-in[8])<<29)), uint64((in[9]-in[8])>>35|((in[10]-in[9])<<18)), uint64((in[10]-in[9])>>46|((in[11]-in[10])<<7)|((in[12]-in[11])<<60)), uint64((in[12]-in[11])>>4|((in[13]-in[12])<<49)), uint64((in[13]-in[12])>>15|((in[14]-in[13])<<38)), uint64((in[14]-in[13])>>26|((in[15]-in[14])<<27)), uint64((in[15]-in[14])>>37|((in[16]-in[15])<<16)), uint64((in[16]-in[15])>>48|((in[17]-in[16])<<5)|((in[18]-in[17])<<58)), uint64((in[18]-in[17])>>6|((in[19]-in[18])<<47)), uint64((in[19]-in[18])>>17|((in[20]-in[19])<<36)), uint64((in[20]-in[19])>>28|((in[21]-in[20])<<25)), uint64((in[21]-in[20])>>39|((in[22]-in[21])<<14)), uint64((in[22]-in[21])>>50|((in[23]-in[22])<<3)|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<45)), uint64((in[25]-in[24])>>19|((in[26]-in[25])<<34)), uint64((in[26]-in[25])>>30|((in[27]-in[26])<<23)), uint64((in[27]-in[26])>>41|((in[28]-in[27])<<12)), uint64((in[28]-in[27])>>52|((in[29]-in[28])<<1)|((in[30]-in[29])<<54)), uint64((in[30]-in[29])>>10|((in[31]-in[30])<<43)), uint64((in[31]-in[30])>>21|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<21)), uint64((in[33]-in[32])>>43|((in[34]-in[33])<<10)|((in[35]-in[34])<<63)), uint64((in[35]-in[34])>>1|((in[36]-in[35])<<52)), uint64((in[36]-in[35])>>12|((in[37]-in[36])<<41)), uint64((in[37]-in[36])>>23|((in[38]-in[37])<<30)), uint64((in[38]-in[37])>>34|((in[39]-in[38])<<19)), uint64((in[39]-in[38])>>45|((in[40]-in[39])<<8)|((in[41]-in[40])<<61)), uint64((in[41]-in[40])>>3|((in[42]-in[41])<<50)), uint64((in[42]-in[41])>>14|((in[43]-in[42])<<39)), uint64((in[43]-in[42])>>25|((in[44]-in[43])<<28)), uint64((in[44]-in[43])>>36|((in[45]-in[44])<<17)), uint64((in[45]-in[44])>>47|((in[46]-in[45])<<6)|((in[47]-in[46])<<59)), uint64((in[47]-in[46])>>5|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<37)), uint64((in[49]-in[48])>>27|((in[50]-in[49])<<26)), uint64((in[50]-in[49])>>38|((in[51]-in[50])<<15)), uint64((in[51]-in[50])>>49|((in[52]-in[51])<<4)|((in[53]-in[52])<<57)), uint64((in[53]-in[52])>>7|((in[54]-in[53])<<46)), uint64((in[54]-in[53])>>18|((in[55]-in[54])<<35)), uint64((in[55]-in[54])>>29|((in[56]-in[55])<<24)), uint64((in[56]-in[55])>>40|((in[57]-in[56])<<13)), uint64((in[57]-in[56])>>51|((in[58]-in[57])<<2)|((in[59]-in[58])<<55)), uint64((in[59]-in[58])>>9|((in[60]-in[59])<<44)), uint64((in[60]-in[59])>>20|((in[61]-in[60])<<33)), uint64((in[61]-in[60])>>31|((in[62]-in[61])<<22)), uint64((in[62]-in[61])>>42|((in[63]-in[62])<<11))
 }
-func deltapack64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]uint64, ntz int) {
+func deltapack64_ntz_53[T uint64 | int64](out *[53]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -13289,179 +7566,11 @@ func deltapack64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]uint
 			((in[63] - in[62]) >> ntz << 11))
 }
 
-func deltapack64_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 54))
-	out[1] = uint64(
-		(in[1]-in[0])>>10 |
-			((in[2] - in[1]) << 44))
-	out[2] = uint64(
-		(in[2]-in[1])>>20 |
-			((in[3] - in[2]) << 34))
-	out[3] = uint64(
-		(in[3]-in[2])>>30 |
-			((in[4] - in[3]) << 24))
-	out[4] = uint64(
-		(in[4]-in[3])>>40 |
-			((in[5] - in[4]) << 14))
-	out[5] = uint64(
-		(in[5]-in[4])>>50 |
-			((in[6] - in[5]) << 4) |
-			((in[7] - in[6]) << 58))
-	out[6] = uint64(
-		(in[7]-in[6])>>6 |
-			((in[8] - in[7]) << 48))
-	out[7] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 38))
-	out[8] = uint64(
-		(in[9]-in[8])>>26 |
-			((in[10] - in[9]) << 28))
-	out[9] = uint64(
-		(in[10]-in[9])>>36 |
-			((in[11] - in[10]) << 18))
-	out[10] = uint64(
-		(in[11]-in[10])>>46 |
-			((in[12] - in[11]) << 8) |
-			((in[13] - in[12]) << 62))
-	out[11] = uint64(
-		(in[13]-in[12])>>2 |
-			((in[14] - in[13]) << 52))
-	out[12] = uint64(
-		(in[14]-in[13])>>12 |
-			((in[15] - in[14]) << 42))
-	out[13] = uint64(
-		(in[15]-in[14])>>22 |
-			((in[16] - in[15]) << 32))
-	out[14] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 22))
-	out[15] = uint64(
-		(in[17]-in[16])>>42 |
-			((in[18] - in[17]) << 12))
-	out[16] = uint64(
-		(in[18]-in[17])>>52 |
-			((in[19] - in[18]) << 2) |
-			((in[20] - in[19]) << 56))
-	out[17] = uint64(
-		(in[20]-in[19])>>8 |
-			((in[21] - in[20]) << 46))
-	out[18] = uint64(
-		(in[21]-in[20])>>18 |
-			((in[22] - in[21]) << 36))
-	out[19] = uint64(
-		(in[22]-in[21])>>28 |
-			((in[23] - in[22]) << 26))
-	out[20] = uint64(
-		(in[23]-in[22])>>38 |
-			((in[24] - in[23]) << 16))
-	out[21] = uint64(
-		(in[24]-in[23])>>48 |
-			((in[25] - in[24]) << 6) |
-			((in[26] - in[25]) << 60))
-	out[22] = uint64(
-		(in[26]-in[25])>>4 |
-			((in[27] - in[26]) << 50))
-	out[23] = uint64(
-		(in[27]-in[26])>>14 |
-			((in[28] - in[27]) << 40))
-	out[24] = uint64(
-		(in[28]-in[27])>>24 |
-			((in[29] - in[28]) << 30))
-	out[25] = uint64(
-		(in[29]-in[28])>>34 |
-			((in[30] - in[29]) << 20))
-	out[26] = uint64(
-		(in[30]-in[29])>>44 |
-			((in[31] - in[30]) << 10))
-	out[27] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 54))
-	out[28] = uint64(
-		(in[33]-in[32])>>10 |
-			((in[34] - in[33]) << 44))
-	out[29] = uint64(
-		(in[34]-in[33])>>20 |
-			((in[35] - in[34]) << 34))
-	out[30] = uint64(
-		(in[35]-in[34])>>30 |
-			((in[36] - in[35]) << 24))
-	out[31] = uint64(
-		(in[36]-in[35])>>40 |
-			((in[37] - in[36]) << 14))
-	out[32] = uint64(
-		(in[37]-in[36])>>50 |
-			((in[38] - in[37]) << 4) |
-			((in[39] - in[38]) << 58))
-	out[33] = uint64(
-		(in[39]-in[38])>>6 |
-			((in[40] - in[39]) << 48))
-	out[34] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 38))
-	out[35] = uint64(
-		(in[41]-in[40])>>26 |
-			((in[42] - in[41]) << 28))
-	out[36] = uint64(
-		(in[42]-in[41])>>36 |
-			((in[43] - in[42]) << 18))
-	out[37] = uint64(
-		(in[43]-in[42])>>46 |
-			((in[44] - in[43]) << 8) |
-			((in[45] - in[44]) << 62))
-	out[38] = uint64(
-		(in[45]-in[44])>>2 |
-			((in[46] - in[45]) << 52))
-	out[39] = uint64(
-		(in[46]-in[45])>>12 |
-			((in[47] - in[46]) << 42))
-	out[40] = uint64(
-		(in[47]-in[46])>>22 |
-			((in[48] - in[47]) << 32))
-	out[41] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 22))
-	out[42] = uint64(
-		(in[49]-in[48])>>42 |
-			((in[50] - in[49]) << 12))
-	out[43] = uint64(
-		(in[50]-in[49])>>52 |
-			((in[51] - in[50]) << 2) |
-			((in[52] - in[51]) << 56))
-	out[44] = uint64(
-		(in[52]-in[51])>>8 |
-			((in[53] - in[52]) << 46))
-	out[45] = uint64(
-		(in[53]-in[52])>>18 |
-			((in[54] - in[53]) << 36))
-	out[46] = uint64(
-		(in[54]-in[53])>>28 |
-			((in[55] - in[54]) << 26))
-	out[47] = uint64(
-		(in[55]-in[54])>>38 |
-			((in[56] - in[55]) << 16))
-	out[48] = uint64(
-		(in[56]-in[55])>>48 |
-			((in[57] - in[56]) << 6) |
-			((in[58] - in[57]) << 60))
-	out[49] = uint64(
-		(in[58]-in[57])>>4 |
-			((in[59] - in[58]) << 50))
-	out[50] = uint64(
-		(in[59]-in[58])>>14 |
-			((in[60] - in[59]) << 40))
-	out[51] = uint64(
-		(in[60]-in[59])>>24 |
-			((in[61] - in[60]) << 30))
-	out[52] = uint64(
-		(in[61]-in[60])>>34 |
-			((in[62] - in[61]) << 20))
-	out[53] = uint64(
-		(in[62]-in[61])>>44 |
-			((in[63] - in[62]) << 10))
+func deltapack64_54[T uint64 | int64](out *[54]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<54)), uint64((in[1]-in[0])>>10|((in[2]-in[1])<<44)), uint64((in[2]-in[1])>>20|((in[3]-in[2])<<34)), uint64((in[3]-in[2])>>30|((in[4]-in[3])<<24)), uint64((in[4]-in[3])>>40|((in[5]-in[4])<<14)), uint64((in[5]-in[4])>>50|((in[6]-in[5])<<4)|((in[7]-in[6])<<58)), uint64((in[7]-in[6])>>6|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<38)), uint64((in[9]-in[8])>>26|((in[10]-in[9])<<28)), uint64((in[10]-in[9])>>36|((in[11]-in[10])<<18)), uint64((in[11]-in[10])>>46|((in[12]-in[11])<<8)|((in[13]-in[12])<<62)), uint64((in[13]-in[12])>>2|((in[14]-in[13])<<52)), uint64((in[14]-in[13])>>12|((in[15]-in[14])<<42)), uint64((in[15]-in[14])>>22|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<22)), uint64((in[17]-in[16])>>42|((in[18]-in[17])<<12)), uint64((in[18]-in[17])>>52|((in[19]-in[18])<<2)|((in[20]-in[19])<<56)), uint64((in[20]-in[19])>>8|((in[21]-in[20])<<46)), uint64((in[21]-in[20])>>18|((in[22]-in[21])<<36)), uint64((in[22]-in[21])>>28|((in[23]-in[22])<<26)), uint64((in[23]-in[22])>>38|((in[24]-in[23])<<16)), uint64((in[24]-in[23])>>48|((in[25]-in[24])<<6)|((in[26]-in[25])<<60)), uint64((in[26]-in[25])>>4|((in[27]-in[26])<<50)), uint64((in[27]-in[26])>>14|((in[28]-in[27])<<40)), uint64((in[28]-in[27])>>24|((in[29]-in[28])<<30)), uint64((in[29]-in[28])>>34|((in[30]-in[29])<<20)), uint64((in[30]-in[29])>>44|((in[31]-in[30])<<10)), uint64(in[32]-in[31]|((in[33]-in[32])<<54)), uint64((in[33]-in[32])>>10|((in[34]-in[33])<<44)), uint64((in[34]-in[33])>>20|((in[35]-in[34])<<34)), uint64((in[35]-in[34])>>30|((in[36]-in[35])<<24)), uint64((in[36]-in[35])>>40|((in[37]-in[36])<<14)), uint64((in[37]-in[36])>>50|((in[38]-in[37])<<4)|((in[39]-in[38])<<58)), uint64((in[39]-in[38])>>6|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<38)), uint64((in[41]-in[40])>>26|((in[42]-in[41])<<28)), uint64((in[42]-in[41])>>36|((in[43]-in[42])<<18)), uint64((in[43]-in[42])>>46|((in[44]-in[43])<<8)|((in[45]-in[44])<<62)), uint64((in[45]-in[44])>>2|((in[46]-in[45])<<52)), uint64((in[46]-in[45])>>12|((in[47]-in[46])<<42)), uint64((in[47]-in[46])>>22|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<22)), uint64((in[49]-in[48])>>42|((in[50]-in[49])<<12)), uint64((in[50]-in[49])>>52|((in[51]-in[50])<<2)|((in[52]-in[51])<<56)), uint64((in[52]-in[51])>>8|((in[53]-in[52])<<46)), uint64((in[53]-in[52])>>18|((in[54]-in[53])<<36)), uint64((in[54]-in[53])>>28|((in[55]-in[54])<<26)), uint64((in[55]-in[54])>>38|((in[56]-in[55])<<16)), uint64((in[56]-in[55])>>48|((in[57]-in[56])<<6)|((in[58]-in[57])<<60)), uint64((in[58]-in[57])>>4|((in[59]-in[58])<<50)), uint64((in[59]-in[58])>>14|((in[60]-in[59])<<40)), uint64((in[60]-in[59])>>24|((in[61]-in[60])<<30)), uint64((in[61]-in[60])>>34|((in[62]-in[61])<<20)), uint64((in[62]-in[61])>>44|((in[63]-in[62])<<10))
 }
-func deltapack64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]uint64, ntz int) {
+func deltapack64_ntz_54[T uint64 | int64](out *[54]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -13635,182 +7744,11 @@ func deltapack64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]uint
 			((in[63] - in[62]) >> ntz << 10))
 }
 
-func deltapack64_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 55))
-	out[1] = uint64(
-		(in[1]-in[0])>>9 |
-			((in[2] - in[1]) << 46))
-	out[2] = uint64(
-		(in[2]-in[1])>>18 |
-			((in[3] - in[2]) << 37))
-	out[3] = uint64(
-		(in[3]-in[2])>>27 |
-			((in[4] - in[3]) << 28))
-	out[4] = uint64(
-		(in[4]-in[3])>>36 |
-			((in[5] - in[4]) << 19))
-	out[5] = uint64(
-		(in[5]-in[4])>>45 |
-			((in[6] - in[5]) << 10))
-	out[6] = uint64(
-		(in[6]-in[5])>>54 |
-			((in[7] - in[6]) << 1) |
-			((in[8] - in[7]) << 56))
-	out[7] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 47))
-	out[8] = uint64(
-		(in[9]-in[8])>>17 |
-			((in[10] - in[9]) << 38))
-	out[9] = uint64(
-		(in[10]-in[9])>>26 |
-			((in[11] - in[10]) << 29))
-	out[10] = uint64(
-		(in[11]-in[10])>>35 |
-			((in[12] - in[11]) << 20))
-	out[11] = uint64(
-		(in[12]-in[11])>>44 |
-			((in[13] - in[12]) << 11))
-	out[12] = uint64(
-		(in[13]-in[12])>>53 |
-			((in[14] - in[13]) << 2) |
-			((in[15] - in[14]) << 57))
-	out[13] = uint64(
-		(in[15]-in[14])>>7 |
-			((in[16] - in[15]) << 48))
-	out[14] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 39))
-	out[15] = uint64(
-		(in[17]-in[16])>>25 |
-			((in[18] - in[17]) << 30))
-	out[16] = uint64(
-		(in[18]-in[17])>>34 |
-			((in[19] - in[18]) << 21))
-	out[17] = uint64(
-		(in[19]-in[18])>>43 |
-			((in[20] - in[19]) << 12))
-	out[18] = uint64(
-		(in[20]-in[19])>>52 |
-			((in[21] - in[20]) << 3) |
-			((in[22] - in[21]) << 58))
-	out[19] = uint64(
-		(in[22]-in[21])>>6 |
-			((in[23] - in[22]) << 49))
-	out[20] = uint64(
-		(in[23]-in[22])>>15 |
-			((in[24] - in[23]) << 40))
-	out[21] = uint64(
-		(in[24]-in[23])>>24 |
-			((in[25] - in[24]) << 31))
-	out[22] = uint64(
-		(in[25]-in[24])>>33 |
-			((in[26] - in[25]) << 22))
-	out[23] = uint64(
-		(in[26]-in[25])>>42 |
-			((in[27] - in[26]) << 13))
-	out[24] = uint64(
-		(in[27]-in[26])>>51 |
-			((in[28] - in[27]) << 4) |
-			((in[29] - in[28]) << 59))
-	out[25] = uint64(
-		(in[29]-in[28])>>5 |
-			((in[30] - in[29]) << 50))
-	out[26] = uint64(
-		(in[30]-in[29])>>14 |
-			((in[31] - in[30]) << 41))
-	out[27] = uint64(
-		(in[31]-in[30])>>23 |
-			((in[32] - in[31]) << 32))
-	out[28] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 23))
-	out[29] = uint64(
-		(in[33]-in[32])>>41 |
-			((in[34] - in[33]) << 14))
-	out[30] = uint64(
-		(in[34]-in[33])>>50 |
-			((in[35] - in[34]) << 5) |
-			((in[36] - in[35]) << 60))
-	out[31] = uint64(
-		(in[36]-in[35])>>4 |
-			((in[37] - in[36]) << 51))
-	out[32] = uint64(
-		(in[37]-in[36])>>13 |
-			((in[38] - in[37]) << 42))
-	out[33] = uint64(
-		(in[38]-in[37])>>22 |
-			((in[39] - in[38]) << 33))
-	out[34] = uint64(
-		(in[39]-in[38])>>31 |
-			((in[40] - in[39]) << 24))
-	out[35] = uint64(
-		(in[40]-in[39])>>40 |
-			((in[41] - in[40]) << 15))
-	out[36] = uint64(
-		(in[41]-in[40])>>49 |
-			((in[42] - in[41]) << 6) |
-			((in[43] - in[42]) << 61))
-	out[37] = uint64(
-		(in[43]-in[42])>>3 |
-			((in[44] - in[43]) << 52))
-	out[38] = uint64(
-		(in[44]-in[43])>>12 |
-			((in[45] - in[44]) << 43))
-	out[39] = uint64(
-		(in[45]-in[44])>>21 |
-			((in[46] - in[45]) << 34))
-	out[40] = uint64(
-		(in[46]-in[45])>>30 |
-			((in[47] - in[46]) << 25))
-	out[41] = uint64(
-		(in[47]-in[46])>>39 |
-			((in[48] - in[47]) << 16))
-	out[42] = uint64(
-		(in[48]-in[47])>>48 |
-			((in[49] - in[48]) << 7) |
-			((in[50] - in[49]) << 62))
-	out[43] = uint64(
-		(in[50]-in[49])>>2 |
-			((in[51] - in[50]) << 53))
-	out[44] = uint64(
-		(in[51]-in[50])>>11 |
-			((in[52] - in[51]) << 44))
-	out[45] = uint64(
-		(in[52]-in[51])>>20 |
-			((in[53] - in[52]) << 35))
-	out[46] = uint64(
-		(in[53]-in[52])>>29 |
-			((in[54] - in[53]) << 26))
-	out[47] = uint64(
-		(in[54]-in[53])>>38 |
-			((in[55] - in[54]) << 17))
-	out[48] = uint64(
-		(in[55]-in[54])>>47 |
-			((in[56] - in[55]) << 8) |
-			((in[57] - in[56]) << 63))
-	out[49] = uint64(
-		(in[57]-in[56])>>1 |
-			((in[58] - in[57]) << 54))
-	out[50] = uint64(
-		(in[58]-in[57])>>10 |
-			((in[59] - in[58]) << 45))
-	out[51] = uint64(
-		(in[59]-in[58])>>19 |
-			((in[60] - in[59]) << 36))
-	out[52] = uint64(
-		(in[60]-in[59])>>28 |
-			((in[61] - in[60]) << 27))
-	out[53] = uint64(
-		(in[61]-in[60])>>37 |
-			((in[62] - in[61]) << 18))
-	out[54] = uint64(
-		(in[62]-in[61])>>46 |
-			((in[63] - in[62]) << 9))
+func deltapack64_55[T uint64 | int64](out *[55]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<55)), uint64((in[1]-in[0])>>9|((in[2]-in[1])<<46)), uint64((in[2]-in[1])>>18|((in[3]-in[2])<<37)), uint64((in[3]-in[2])>>27|((in[4]-in[3])<<28)), uint64((in[4]-in[3])>>36|((in[5]-in[4])<<19)), uint64((in[5]-in[4])>>45|((in[6]-in[5])<<10)), uint64((in[6]-in[5])>>54|((in[7]-in[6])<<1)|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<47)), uint64((in[9]-in[8])>>17|((in[10]-in[9])<<38)), uint64((in[10]-in[9])>>26|((in[11]-in[10])<<29)), uint64((in[11]-in[10])>>35|((in[12]-in[11])<<20)), uint64((in[12]-in[11])>>44|((in[13]-in[12])<<11)), uint64((in[13]-in[12])>>53|((in[14]-in[13])<<2)|((in[15]-in[14])<<57)), uint64((in[15]-in[14])>>7|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<39)), uint64((in[17]-in[16])>>25|((in[18]-in[17])<<30)), uint64((in[18]-in[17])>>34|((in[19]-in[18])<<21)), uint64((in[19]-in[18])>>43|((in[20]-in[19])<<12)), uint64((in[20]-in[19])>>52|((in[21]-in[20])<<3)|((in[22]-in[21])<<58)), uint64((in[22]-in[21])>>6|((in[23]-in[22])<<49)), uint64((in[23]-in[22])>>15|((in[24]-in[23])<<40)), uint64((in[24]-in[23])>>24|((in[25]-in[24])<<31)), uint64((in[25]-in[24])>>33|((in[26]-in[25])<<22)), uint64((in[26]-in[25])>>42|((in[27]-in[26])<<13)), uint64((in[27]-in[26])>>51|((in[28]-in[27])<<4)|((in[29]-in[28])<<59)), uint64((in[29]-in[28])>>5|((in[30]-in[29])<<50)), uint64((in[30]-in[29])>>14|((in[31]-in[30])<<41)), uint64((in[31]-in[30])>>23|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<23)), uint64((in[33]-in[32])>>41|((in[34]-in[33])<<14)), uint64((in[34]-in[33])>>50|((in[35]-in[34])<<5)|((in[36]-in[35])<<60)), uint64((in[36]-in[35])>>4|((in[37]-in[36])<<51)), uint64((in[37]-in[36])>>13|((in[38]-in[37])<<42)), uint64((in[38]-in[37])>>22|((in[39]-in[38])<<33)), uint64((in[39]-in[38])>>31|((in[40]-in[39])<<24)), uint64((in[40]-in[39])>>40|((in[41]-in[40])<<15)), uint64((in[41]-in[40])>>49|((in[42]-in[41])<<6)|((in[43]-in[42])<<61)), uint64((in[43]-in[42])>>3|((in[44]-in[43])<<52)), uint64((in[44]-in[43])>>12|((in[45]-in[44])<<43)), uint64((in[45]-in[44])>>21|((in[46]-in[45])<<34)), uint64((in[46]-in[45])>>30|((in[47]-in[46])<<25)), uint64((in[47]-in[46])>>39|((in[48]-in[47])<<16)), uint64((in[48]-in[47])>>48|((in[49]-in[48])<<7)|((in[50]-in[49])<<62)), uint64((in[50]-in[49])>>2|((in[51]-in[50])<<53)), uint64((in[51]-in[50])>>11|((in[52]-in[51])<<44)), uint64((in[52]-in[51])>>20|((in[53]-in[52])<<35)), uint64((in[53]-in[52])>>29|((in[54]-in[53])<<26)), uint64((in[54]-in[53])>>38|((in[55]-in[54])<<17)), uint64((in[55]-in[54])>>47|((in[56]-in[55])<<8)|((in[57]-in[56])<<63)), uint64((in[57]-in[56])>>1|((in[58]-in[57])<<54)), uint64((in[58]-in[57])>>10|((in[59]-in[58])<<45)), uint64((in[59]-in[58])>>19|((in[60]-in[59])<<36)), uint64((in[60]-in[59])>>28|((in[61]-in[60])<<27)), uint64((in[61]-in[60])>>37|((in[62]-in[61])<<18)), uint64((in[62]-in[61])>>46|((in[63]-in[62])<<9))
 }
-func deltapack64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]uint64, ntz int) {
+func deltapack64_ntz_55[T uint64 | int64](out *[55]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -13987,177 +7925,11 @@ func deltapack64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]uint
 			((in[63] - in[62]) >> ntz << 9))
 }
 
-func deltapack64_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 56))
-	out[1] = uint64(
-		(in[1]-in[0])>>8 |
-			((in[2] - in[1]) << 48))
-	out[2] = uint64(
-		(in[2]-in[1])>>16 |
-			((in[3] - in[2]) << 40))
-	out[3] = uint64(
-		(in[3]-in[2])>>24 |
-			((in[4] - in[3]) << 32))
-	out[4] = uint64(
-		(in[4]-in[3])>>32 |
-			((in[5] - in[4]) << 24))
-	out[5] = uint64(
-		(in[5]-in[4])>>40 |
-			((in[6] - in[5]) << 16))
-	out[6] = uint64(
-		(in[6]-in[5])>>48 |
-			((in[7] - in[6]) << 8))
-	out[7] = uint64(
-		in[8] - in[7] |
-			((in[9] - in[8]) << 56))
-	out[8] = uint64(
-		(in[9]-in[8])>>8 |
-			((in[10] - in[9]) << 48))
-	out[9] = uint64(
-		(in[10]-in[9])>>16 |
-			((in[11] - in[10]) << 40))
-	out[10] = uint64(
-		(in[11]-in[10])>>24 |
-			((in[12] - in[11]) << 32))
-	out[11] = uint64(
-		(in[12]-in[11])>>32 |
-			((in[13] - in[12]) << 24))
-	out[12] = uint64(
-		(in[13]-in[12])>>40 |
-			((in[14] - in[13]) << 16))
-	out[13] = uint64(
-		(in[14]-in[13])>>48 |
-			((in[15] - in[14]) << 8))
-	out[14] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 56))
-	out[15] = uint64(
-		(in[17]-in[16])>>8 |
-			((in[18] - in[17]) << 48))
-	out[16] = uint64(
-		(in[18]-in[17])>>16 |
-			((in[19] - in[18]) << 40))
-	out[17] = uint64(
-		(in[19]-in[18])>>24 |
-			((in[20] - in[19]) << 32))
-	out[18] = uint64(
-		(in[20]-in[19])>>32 |
-			((in[21] - in[20]) << 24))
-	out[19] = uint64(
-		(in[21]-in[20])>>40 |
-			((in[22] - in[21]) << 16))
-	out[20] = uint64(
-		(in[22]-in[21])>>48 |
-			((in[23] - in[22]) << 8))
-	out[21] = uint64(
-		in[24] - in[23] |
-			((in[25] - in[24]) << 56))
-	out[22] = uint64(
-		(in[25]-in[24])>>8 |
-			((in[26] - in[25]) << 48))
-	out[23] = uint64(
-		(in[26]-in[25])>>16 |
-			((in[27] - in[26]) << 40))
-	out[24] = uint64(
-		(in[27]-in[26])>>24 |
-			((in[28] - in[27]) << 32))
-	out[25] = uint64(
-		(in[28]-in[27])>>32 |
-			((in[29] - in[28]) << 24))
-	out[26] = uint64(
-		(in[29]-in[28])>>40 |
-			((in[30] - in[29]) << 16))
-	out[27] = uint64(
-		(in[30]-in[29])>>48 |
-			((in[31] - in[30]) << 8))
-	out[28] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 56))
-	out[29] = uint64(
-		(in[33]-in[32])>>8 |
-			((in[34] - in[33]) << 48))
-	out[30] = uint64(
-		(in[34]-in[33])>>16 |
-			((in[35] - in[34]) << 40))
-	out[31] = uint64(
-		(in[35]-in[34])>>24 |
-			((in[36] - in[35]) << 32))
-	out[32] = uint64(
-		(in[36]-in[35])>>32 |
-			((in[37] - in[36]) << 24))
-	out[33] = uint64(
-		(in[37]-in[36])>>40 |
-			((in[38] - in[37]) << 16))
-	out[34] = uint64(
-		(in[38]-in[37])>>48 |
-			((in[39] - in[38]) << 8))
-	out[35] = uint64(
-		in[40] - in[39] |
-			((in[41] - in[40]) << 56))
-	out[36] = uint64(
-		(in[41]-in[40])>>8 |
-			((in[42] - in[41]) << 48))
-	out[37] = uint64(
-		(in[42]-in[41])>>16 |
-			((in[43] - in[42]) << 40))
-	out[38] = uint64(
-		(in[43]-in[42])>>24 |
-			((in[44] - in[43]) << 32))
-	out[39] = uint64(
-		(in[44]-in[43])>>32 |
-			((in[45] - in[44]) << 24))
-	out[40] = uint64(
-		(in[45]-in[44])>>40 |
-			((in[46] - in[45]) << 16))
-	out[41] = uint64(
-		(in[46]-in[45])>>48 |
-			((in[47] - in[46]) << 8))
-	out[42] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 56))
-	out[43] = uint64(
-		(in[49]-in[48])>>8 |
-			((in[50] - in[49]) << 48))
-	out[44] = uint64(
-		(in[50]-in[49])>>16 |
-			((in[51] - in[50]) << 40))
-	out[45] = uint64(
-		(in[51]-in[50])>>24 |
-			((in[52] - in[51]) << 32))
-	out[46] = uint64(
-		(in[52]-in[51])>>32 |
-			((in[53] - in[52]) << 24))
-	out[47] = uint64(
-		(in[53]-in[52])>>40 |
-			((in[54] - in[53]) << 16))
-	out[48] = uint64(
-		(in[54]-in[53])>>48 |
-			((in[55] - in[54]) << 8))
-	out[49] = uint64(
-		in[56] - in[55] |
-			((in[57] - in[56]) << 56))
-	out[50] = uint64(
-		(in[57]-in[56])>>8 |
-			((in[58] - in[57]) << 48))
-	out[51] = uint64(
-		(in[58]-in[57])>>16 |
-			((in[59] - in[58]) << 40))
-	out[52] = uint64(
-		(in[59]-in[58])>>24 |
-			((in[60] - in[59]) << 32))
-	out[53] = uint64(
-		(in[60]-in[59])>>32 |
-			((in[61] - in[60]) << 24))
-	out[54] = uint64(
-		(in[61]-in[60])>>40 |
-			((in[62] - in[61]) << 16))
-	out[55] = uint64(
-		(in[62]-in[61])>>48 |
-			((in[63] - in[62]) << 8))
+func deltapack64_56[T uint64 | int64](out *[56]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<56)), uint64((in[1]-in[0])>>8|((in[2]-in[1])<<48)), uint64((in[2]-in[1])>>16|((in[3]-in[2])<<40)), uint64((in[3]-in[2])>>24|((in[4]-in[3])<<32)), uint64((in[4]-in[3])>>32|((in[5]-in[4])<<24)), uint64((in[5]-in[4])>>40|((in[6]-in[5])<<16)), uint64((in[6]-in[5])>>48|((in[7]-in[6])<<8)), uint64(in[8]-in[7]|((in[9]-in[8])<<56)), uint64((in[9]-in[8])>>8|((in[10]-in[9])<<48)), uint64((in[10]-in[9])>>16|((in[11]-in[10])<<40)), uint64((in[11]-in[10])>>24|((in[12]-in[11])<<32)), uint64((in[12]-in[11])>>32|((in[13]-in[12])<<24)), uint64((in[13]-in[12])>>40|((in[14]-in[13])<<16)), uint64((in[14]-in[13])>>48|((in[15]-in[14])<<8)), uint64(in[16]-in[15]|((in[17]-in[16])<<56)), uint64((in[17]-in[16])>>8|((in[18]-in[17])<<48)), uint64((in[18]-in[17])>>16|((in[19]-in[18])<<40)), uint64((in[19]-in[18])>>24|((in[20]-in[19])<<32)), uint64((in[20]-in[19])>>32|((in[21]-in[20])<<24)), uint64((in[21]-in[20])>>40|((in[22]-in[21])<<16)), uint64((in[22]-in[21])>>48|((in[23]-in[22])<<8)), uint64(in[24]-in[23]|((in[25]-in[24])<<56)), uint64((in[25]-in[24])>>8|((in[26]-in[25])<<48)), uint64((in[26]-in[25])>>16|((in[27]-in[26])<<40)), uint64((in[27]-in[26])>>24|((in[28]-in[27])<<32)), uint64((in[28]-in[27])>>32|((in[29]-in[28])<<24)), uint64((in[29]-in[28])>>40|((in[30]-in[29])<<16)), uint64((in[30]-in[29])>>48|((in[31]-in[30])<<8)), uint64(in[32]-in[31]|((in[33]-in[32])<<56)), uint64((in[33]-in[32])>>8|((in[34]-in[33])<<48)), uint64((in[34]-in[33])>>16|((in[35]-in[34])<<40)), uint64((in[35]-in[34])>>24|((in[36]-in[35])<<32)), uint64((in[36]-in[35])>>32|((in[37]-in[36])<<24)), uint64((in[37]-in[36])>>40|((in[38]-in[37])<<16)), uint64((in[38]-in[37])>>48|((in[39]-in[38])<<8)), uint64(in[40]-in[39]|((in[41]-in[40])<<56)), uint64((in[41]-in[40])>>8|((in[42]-in[41])<<48)), uint64((in[42]-in[41])>>16|((in[43]-in[42])<<40)), uint64((in[43]-in[42])>>24|((in[44]-in[43])<<32)), uint64((in[44]-in[43])>>32|((in[45]-in[44])<<24)), uint64((in[45]-in[44])>>40|((in[46]-in[45])<<16)), uint64((in[46]-in[45])>>48|((in[47]-in[46])<<8)), uint64(in[48]-in[47]|((in[49]-in[48])<<56)), uint64((in[49]-in[48])>>8|((in[50]-in[49])<<48)), uint64((in[50]-in[49])>>16|((in[51]-in[50])<<40)), uint64((in[51]-in[50])>>24|((in[52]-in[51])<<32)), uint64((in[52]-in[51])>>32|((in[53]-in[52])<<24)), uint64((in[53]-in[52])>>40|((in[54]-in[53])<<16)), uint64((in[54]-in[53])>>48|((in[55]-in[54])<<8)), uint64(in[56]-in[55]|((in[57]-in[56])<<56)), uint64((in[57]-in[56])>>8|((in[58]-in[57])<<48)), uint64((in[58]-in[57])>>16|((in[59]-in[58])<<40)), uint64((in[59]-in[58])>>24|((in[60]-in[59])<<32)), uint64((in[60]-in[59])>>32|((in[61]-in[60])<<24)), uint64((in[61]-in[60])>>40|((in[62]-in[61])<<16)), uint64((in[62]-in[61])>>48|((in[63]-in[62])<<8))
 }
-func deltapack64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]uint64, ntz int) {
+func deltapack64_ntz_56[T uint64 | int64](out *[56]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -14329,186 +8101,11 @@ func deltapack64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]uint
 			((in[63] - in[62]) >> ntz << 8))
 }
 
-func deltapack64_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 57))
-	out[1] = uint64(
-		(in[1]-in[0])>>7 |
-			((in[2] - in[1]) << 50))
-	out[2] = uint64(
-		(in[2]-in[1])>>14 |
-			((in[3] - in[2]) << 43))
-	out[3] = uint64(
-		(in[3]-in[2])>>21 |
-			((in[4] - in[3]) << 36))
-	out[4] = uint64(
-		(in[4]-in[3])>>28 |
-			((in[5] - in[4]) << 29))
-	out[5] = uint64(
-		(in[5]-in[4])>>35 |
-			((in[6] - in[5]) << 22))
-	out[6] = uint64(
-		(in[6]-in[5])>>42 |
-			((in[7] - in[6]) << 15))
-	out[7] = uint64(
-		(in[7]-in[6])>>49 |
-			((in[8] - in[7]) << 8))
-	out[8] = uint64(
-		(in[8]-in[7])>>56 |
-			((in[9] - in[8]) << 1) |
-			((in[10] - in[9]) << 58))
-	out[9] = uint64(
-		(in[10]-in[9])>>6 |
-			((in[11] - in[10]) << 51))
-	out[10] = uint64(
-		(in[11]-in[10])>>13 |
-			((in[12] - in[11]) << 44))
-	out[11] = uint64(
-		(in[12]-in[11])>>20 |
-			((in[13] - in[12]) << 37))
-	out[12] = uint64(
-		(in[13]-in[12])>>27 |
-			((in[14] - in[13]) << 30))
-	out[13] = uint64(
-		(in[14]-in[13])>>34 |
-			((in[15] - in[14]) << 23))
-	out[14] = uint64(
-		(in[15]-in[14])>>41 |
-			((in[16] - in[15]) << 16))
-	out[15] = uint64(
-		(in[16]-in[15])>>48 |
-			((in[17] - in[16]) << 9))
-	out[16] = uint64(
-		(in[17]-in[16])>>55 |
-			((in[18] - in[17]) << 2) |
-			((in[19] - in[18]) << 59))
-	out[17] = uint64(
-		(in[19]-in[18])>>5 |
-			((in[20] - in[19]) << 52))
-	out[18] = uint64(
-		(in[20]-in[19])>>12 |
-			((in[21] - in[20]) << 45))
-	out[19] = uint64(
-		(in[21]-in[20])>>19 |
-			((in[22] - in[21]) << 38))
-	out[20] = uint64(
-		(in[22]-in[21])>>26 |
-			((in[23] - in[22]) << 31))
-	out[21] = uint64(
-		(in[23]-in[22])>>33 |
-			((in[24] - in[23]) << 24))
-	out[22] = uint64(
-		(in[24]-in[23])>>40 |
-			((in[25] - in[24]) << 17))
-	out[23] = uint64(
-		(in[25]-in[24])>>47 |
-			((in[26] - in[25]) << 10))
-	out[24] = uint64(
-		(in[26]-in[25])>>54 |
-			((in[27] - in[26]) << 3) |
-			((in[28] - in[27]) << 60))
-	out[25] = uint64(
-		(in[28]-in[27])>>4 |
-			((in[29] - in[28]) << 53))
-	out[26] = uint64(
-		(in[29]-in[28])>>11 |
-			((in[30] - in[29]) << 46))
-	out[27] = uint64(
-		(in[30]-in[29])>>18 |
-			((in[31] - in[30]) << 39))
-	out[28] = uint64(
-		(in[31]-in[30])>>25 |
-			((in[32] - in[31]) << 32))
-	out[29] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 25))
-	out[30] = uint64(
-		(in[33]-in[32])>>39 |
-			((in[34] - in[33]) << 18))
-	out[31] = uint64(
-		(in[34]-in[33])>>46 |
-			((in[35] - in[34]) << 11))
-	out[32] = uint64(
-		(in[35]-in[34])>>53 |
-			((in[36] - in[35]) << 4) |
-			((in[37] - in[36]) << 61))
-	out[33] = uint64(
-		(in[37]-in[36])>>3 |
-			((in[38] - in[37]) << 54))
-	out[34] = uint64(
-		(in[38]-in[37])>>10 |
-			((in[39] - in[38]) << 47))
-	out[35] = uint64(
-		(in[39]-in[38])>>17 |
-			((in[40] - in[39]) << 40))
-	out[36] = uint64(
-		(in[40]-in[39])>>24 |
-			((in[41] - in[40]) << 33))
-	out[37] = uint64(
-		(in[41]-in[40])>>31 |
-			((in[42] - in[41]) << 26))
-	out[38] = uint64(
-		(in[42]-in[41])>>38 |
-			((in[43] - in[42]) << 19))
-	out[39] = uint64(
-		(in[43]-in[42])>>45 |
-			((in[44] - in[43]) << 12))
-	out[40] = uint64(
-		(in[44]-in[43])>>52 |
-			((in[45] - in[44]) << 5) |
-			((in[46] - in[45]) << 62))
-	out[41] = uint64(
-		(in[46]-in[45])>>2 |
-			((in[47] - in[46]) << 55))
-	out[42] = uint64(
-		(in[47]-in[46])>>9 |
-			((in[48] - in[47]) << 48))
-	out[43] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 41))
-	out[44] = uint64(
-		(in[49]-in[48])>>23 |
-			((in[50] - in[49]) << 34))
-	out[45] = uint64(
-		(in[50]-in[49])>>30 |
-			((in[51] - in[50]) << 27))
-	out[46] = uint64(
-		(in[51]-in[50])>>37 |
-			((in[52] - in[51]) << 20))
-	out[47] = uint64(
-		(in[52]-in[51])>>44 |
-			((in[53] - in[52]) << 13))
-	out[48] = uint64(
-		(in[53]-in[52])>>51 |
-			((in[54] - in[53]) << 6) |
-			((in[55] - in[54]) << 63))
-	out[49] = uint64(
-		(in[55]-in[54])>>1 |
-			((in[56] - in[55]) << 56))
-	out[50] = uint64(
-		(in[56]-in[55])>>8 |
-			((in[57] - in[56]) << 49))
-	out[51] = uint64(
-		(in[57]-in[56])>>15 |
-			((in[58] - in[57]) << 42))
-	out[52] = uint64(
-		(in[58]-in[57])>>22 |
-			((in[59] - in[58]) << 35))
-	out[53] = uint64(
-		(in[59]-in[58])>>29 |
-			((in[60] - in[59]) << 28))
-	out[54] = uint64(
-		(in[60]-in[59])>>36 |
-			((in[61] - in[60]) << 21))
-	out[55] = uint64(
-		(in[61]-in[60])>>43 |
-			((in[62] - in[61]) << 14))
-	out[56] = uint64(
-		(in[62]-in[61])>>50 |
-			((in[63] - in[62]) << 7))
+func deltapack64_57[T uint64 | int64](out *[57]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<57)), uint64((in[1]-in[0])>>7|((in[2]-in[1])<<50)), uint64((in[2]-in[1])>>14|((in[3]-in[2])<<43)), uint64((in[3]-in[2])>>21|((in[4]-in[3])<<36)), uint64((in[4]-in[3])>>28|((in[5]-in[4])<<29)), uint64((in[5]-in[4])>>35|((in[6]-in[5])<<22)), uint64((in[6]-in[5])>>42|((in[7]-in[6])<<15)), uint64((in[7]-in[6])>>49|((in[8]-in[7])<<8)), uint64((in[8]-in[7])>>56|((in[9]-in[8])<<1)|((in[10]-in[9])<<58)), uint64((in[10]-in[9])>>6|((in[11]-in[10])<<51)), uint64((in[11]-in[10])>>13|((in[12]-in[11])<<44)), uint64((in[12]-in[11])>>20|((in[13]-in[12])<<37)), uint64((in[13]-in[12])>>27|((in[14]-in[13])<<30)), uint64((in[14]-in[13])>>34|((in[15]-in[14])<<23)), uint64((in[15]-in[14])>>41|((in[16]-in[15])<<16)), uint64((in[16]-in[15])>>48|((in[17]-in[16])<<9)), uint64((in[17]-in[16])>>55|((in[18]-in[17])<<2)|((in[19]-in[18])<<59)), uint64((in[19]-in[18])>>5|((in[20]-in[19])<<52)), uint64((in[20]-in[19])>>12|((in[21]-in[20])<<45)), uint64((in[21]-in[20])>>19|((in[22]-in[21])<<38)), uint64((in[22]-in[21])>>26|((in[23]-in[22])<<31)), uint64((in[23]-in[22])>>33|((in[24]-in[23])<<24)), uint64((in[24]-in[23])>>40|((in[25]-in[24])<<17)), uint64((in[25]-in[24])>>47|((in[26]-in[25])<<10)), uint64((in[26]-in[25])>>54|((in[27]-in[26])<<3)|((in[28]-in[27])<<60)), uint64((in[28]-in[27])>>4|((in[29]-in[28])<<53)), uint64((in[29]-in[28])>>11|((in[30]-in[29])<<46)), uint64((in[30]-in[29])>>18|((in[31]-in[30])<<39)), uint64((in[31]-in[30])>>25|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<25)), uint64((in[33]-in[32])>>39|((in[34]-in[33])<<18)), uint64((in[34]-in[33])>>46|((in[35]-in[34])<<11)), uint64((in[35]-in[34])>>53|((in[36]-in[35])<<4)|((in[37]-in[36])<<61)), uint64((in[37]-in[36])>>3|((in[38]-in[37])<<54)), uint64((in[38]-in[37])>>10|((in[39]-in[38])<<47)), uint64((in[39]-in[38])>>17|((in[40]-in[39])<<40)), uint64((in[40]-in[39])>>24|((in[41]-in[40])<<33)), uint64((in[41]-in[40])>>31|((in[42]-in[41])<<26)), uint64((in[42]-in[41])>>38|((in[43]-in[42])<<19)), uint64((in[43]-in[42])>>45|((in[44]-in[43])<<12)), uint64((in[44]-in[43])>>52|((in[45]-in[44])<<5)|((in[46]-in[45])<<62)), uint64((in[46]-in[45])>>2|((in[47]-in[46])<<55)), uint64((in[47]-in[46])>>9|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<41)), uint64((in[49]-in[48])>>23|((in[50]-in[49])<<34)), uint64((in[50]-in[49])>>30|((in[51]-in[50])<<27)), uint64((in[51]-in[50])>>37|((in[52]-in[51])<<20)), uint64((in[52]-in[51])>>44|((in[53]-in[52])<<13)), uint64((in[53]-in[52])>>51|((in[54]-in[53])<<6)|((in[55]-in[54])<<63)), uint64((in[55]-in[54])>>1|((in[56]-in[55])<<56)), uint64((in[56]-in[55])>>8|((in[57]-in[56])<<49)), uint64((in[57]-in[56])>>15|((in[58]-in[57])<<42)), uint64((in[58]-in[57])>>22|((in[59]-in[58])<<35)), uint64((in[59]-in[58])>>29|((in[60]-in[59])<<28)), uint64((in[60]-in[59])>>36|((in[61]-in[60])<<21)), uint64((in[61]-in[60])>>43|((in[62]-in[61])<<14)), uint64((in[62]-in[61])>>50|((in[63]-in[62])<<7))
 }
-func deltapack64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]uint64, ntz int) {
+func deltapack64_ntz_57[T uint64 | int64](out *[57]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -14689,187 +8286,11 @@ func deltapack64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]uint
 			((in[63] - in[62]) >> ntz << 7))
 }
 
-func deltapack64_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 58))
-	out[1] = uint64(
-		(in[1]-in[0])>>6 |
-			((in[2] - in[1]) << 52))
-	out[2] = uint64(
-		(in[2]-in[1])>>12 |
-			((in[3] - in[2]) << 46))
-	out[3] = uint64(
-		(in[3]-in[2])>>18 |
-			((in[4] - in[3]) << 40))
-	out[4] = uint64(
-		(in[4]-in[3])>>24 |
-			((in[5] - in[4]) << 34))
-	out[5] = uint64(
-		(in[5]-in[4])>>30 |
-			((in[6] - in[5]) << 28))
-	out[6] = uint64(
-		(in[6]-in[5])>>36 |
-			((in[7] - in[6]) << 22))
-	out[7] = uint64(
-		(in[7]-in[6])>>42 |
-			((in[8] - in[7]) << 16))
-	out[8] = uint64(
-		(in[8]-in[7])>>48 |
-			((in[9] - in[8]) << 10))
-	out[9] = uint64(
-		(in[9]-in[8])>>54 |
-			((in[10] - in[9]) << 4) |
-			((in[11] - in[10]) << 62))
-	out[10] = uint64(
-		(in[11]-in[10])>>2 |
-			((in[12] - in[11]) << 56))
-	out[11] = uint64(
-		(in[12]-in[11])>>8 |
-			((in[13] - in[12]) << 50))
-	out[12] = uint64(
-		(in[13]-in[12])>>14 |
-			((in[14] - in[13]) << 44))
-	out[13] = uint64(
-		(in[14]-in[13])>>20 |
-			((in[15] - in[14]) << 38))
-	out[14] = uint64(
-		(in[15]-in[14])>>26 |
-			((in[16] - in[15]) << 32))
-	out[15] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 26))
-	out[16] = uint64(
-		(in[17]-in[16])>>38 |
-			((in[18] - in[17]) << 20))
-	out[17] = uint64(
-		(in[18]-in[17])>>44 |
-			((in[19] - in[18]) << 14))
-	out[18] = uint64(
-		(in[19]-in[18])>>50 |
-			((in[20] - in[19]) << 8))
-	out[19] = uint64(
-		(in[20]-in[19])>>56 |
-			((in[21] - in[20]) << 2) |
-			((in[22] - in[21]) << 60))
-	out[20] = uint64(
-		(in[22]-in[21])>>4 |
-			((in[23] - in[22]) << 54))
-	out[21] = uint64(
-		(in[23]-in[22])>>10 |
-			((in[24] - in[23]) << 48))
-	out[22] = uint64(
-		(in[24]-in[23])>>16 |
-			((in[25] - in[24]) << 42))
-	out[23] = uint64(
-		(in[25]-in[24])>>22 |
-			((in[26] - in[25]) << 36))
-	out[24] = uint64(
-		(in[26]-in[25])>>28 |
-			((in[27] - in[26]) << 30))
-	out[25] = uint64(
-		(in[27]-in[26])>>34 |
-			((in[28] - in[27]) << 24))
-	out[26] = uint64(
-		(in[28]-in[27])>>40 |
-			((in[29] - in[28]) << 18))
-	out[27] = uint64(
-		(in[29]-in[28])>>46 |
-			((in[30] - in[29]) << 12))
-	out[28] = uint64(
-		(in[30]-in[29])>>52 |
-			((in[31] - in[30]) << 6))
-	out[29] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 58))
-	out[30] = uint64(
-		(in[33]-in[32])>>6 |
-			((in[34] - in[33]) << 52))
-	out[31] = uint64(
-		(in[34]-in[33])>>12 |
-			((in[35] - in[34]) << 46))
-	out[32] = uint64(
-		(in[35]-in[34])>>18 |
-			((in[36] - in[35]) << 40))
-	out[33] = uint64(
-		(in[36]-in[35])>>24 |
-			((in[37] - in[36]) << 34))
-	out[34] = uint64(
-		(in[37]-in[36])>>30 |
-			((in[38] - in[37]) << 28))
-	out[35] = uint64(
-		(in[38]-in[37])>>36 |
-			((in[39] - in[38]) << 22))
-	out[36] = uint64(
-		(in[39]-in[38])>>42 |
-			((in[40] - in[39]) << 16))
-	out[37] = uint64(
-		(in[40]-in[39])>>48 |
-			((in[41] - in[40]) << 10))
-	out[38] = uint64(
-		(in[41]-in[40])>>54 |
-			((in[42] - in[41]) << 4) |
-			((in[43] - in[42]) << 62))
-	out[39] = uint64(
-		(in[43]-in[42])>>2 |
-			((in[44] - in[43]) << 56))
-	out[40] = uint64(
-		(in[44]-in[43])>>8 |
-			((in[45] - in[44]) << 50))
-	out[41] = uint64(
-		(in[45]-in[44])>>14 |
-			((in[46] - in[45]) << 44))
-	out[42] = uint64(
-		(in[46]-in[45])>>20 |
-			((in[47] - in[46]) << 38))
-	out[43] = uint64(
-		(in[47]-in[46])>>26 |
-			((in[48] - in[47]) << 32))
-	out[44] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 26))
-	out[45] = uint64(
-		(in[49]-in[48])>>38 |
-			((in[50] - in[49]) << 20))
-	out[46] = uint64(
-		(in[50]-in[49])>>44 |
-			((in[51] - in[50]) << 14))
-	out[47] = uint64(
-		(in[51]-in[50])>>50 |
-			((in[52] - in[51]) << 8))
-	out[48] = uint64(
-		(in[52]-in[51])>>56 |
-			((in[53] - in[52]) << 2) |
-			((in[54] - in[53]) << 60))
-	out[49] = uint64(
-		(in[54]-in[53])>>4 |
-			((in[55] - in[54]) << 54))
-	out[50] = uint64(
-		(in[55]-in[54])>>10 |
-			((in[56] - in[55]) << 48))
-	out[51] = uint64(
-		(in[56]-in[55])>>16 |
-			((in[57] - in[56]) << 42))
-	out[52] = uint64(
-		(in[57]-in[56])>>22 |
-			((in[58] - in[57]) << 36))
-	out[53] = uint64(
-		(in[58]-in[57])>>28 |
-			((in[59] - in[58]) << 30))
-	out[54] = uint64(
-		(in[59]-in[58])>>34 |
-			((in[60] - in[59]) << 24))
-	out[55] = uint64(
-		(in[60]-in[59])>>40 |
-			((in[61] - in[60]) << 18))
-	out[56] = uint64(
-		(in[61]-in[60])>>46 |
-			((in[62] - in[61]) << 12))
-	out[57] = uint64(
-		(in[62]-in[61])>>52 |
-			((in[63] - in[62]) << 6))
+func deltapack64_58[T uint64 | int64](out *[58]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<58)), uint64((in[1]-in[0])>>6|((in[2]-in[1])<<52)), uint64((in[2]-in[1])>>12|((in[3]-in[2])<<46)), uint64((in[3]-in[2])>>18|((in[4]-in[3])<<40)), uint64((in[4]-in[3])>>24|((in[5]-in[4])<<34)), uint64((in[5]-in[4])>>30|((in[6]-in[5])<<28)), uint64((in[6]-in[5])>>36|((in[7]-in[6])<<22)), uint64((in[7]-in[6])>>42|((in[8]-in[7])<<16)), uint64((in[8]-in[7])>>48|((in[9]-in[8])<<10)), uint64((in[9]-in[8])>>54|((in[10]-in[9])<<4)|((in[11]-in[10])<<62)), uint64((in[11]-in[10])>>2|((in[12]-in[11])<<56)), uint64((in[12]-in[11])>>8|((in[13]-in[12])<<50)), uint64((in[13]-in[12])>>14|((in[14]-in[13])<<44)), uint64((in[14]-in[13])>>20|((in[15]-in[14])<<38)), uint64((in[15]-in[14])>>26|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<26)), uint64((in[17]-in[16])>>38|((in[18]-in[17])<<20)), uint64((in[18]-in[17])>>44|((in[19]-in[18])<<14)), uint64((in[19]-in[18])>>50|((in[20]-in[19])<<8)), uint64((in[20]-in[19])>>56|((in[21]-in[20])<<2)|((in[22]-in[21])<<60)), uint64((in[22]-in[21])>>4|((in[23]-in[22])<<54)), uint64((in[23]-in[22])>>10|((in[24]-in[23])<<48)), uint64((in[24]-in[23])>>16|((in[25]-in[24])<<42)), uint64((in[25]-in[24])>>22|((in[26]-in[25])<<36)), uint64((in[26]-in[25])>>28|((in[27]-in[26])<<30)), uint64((in[27]-in[26])>>34|((in[28]-in[27])<<24)), uint64((in[28]-in[27])>>40|((in[29]-in[28])<<18)), uint64((in[29]-in[28])>>46|((in[30]-in[29])<<12)), uint64((in[30]-in[29])>>52|((in[31]-in[30])<<6)), uint64(in[32]-in[31]|((in[33]-in[32])<<58)), uint64((in[33]-in[32])>>6|((in[34]-in[33])<<52)), uint64((in[34]-in[33])>>12|((in[35]-in[34])<<46)), uint64((in[35]-in[34])>>18|((in[36]-in[35])<<40)), uint64((in[36]-in[35])>>24|((in[37]-in[36])<<34)), uint64((in[37]-in[36])>>30|((in[38]-in[37])<<28)), uint64((in[38]-in[37])>>36|((in[39]-in[38])<<22)), uint64((in[39]-in[38])>>42|((in[40]-in[39])<<16)), uint64((in[40]-in[39])>>48|((in[41]-in[40])<<10)), uint64((in[41]-in[40])>>54|((in[42]-in[41])<<4)|((in[43]-in[42])<<62)), uint64((in[43]-in[42])>>2|((in[44]-in[43])<<56)), uint64((in[44]-in[43])>>8|((in[45]-in[44])<<50)), uint64((in[45]-in[44])>>14|((in[46]-in[45])<<44)), uint64((in[46]-in[45])>>20|((in[47]-in[46])<<38)), uint64((in[47]-in[46])>>26|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<26)), uint64((in[49]-in[48])>>38|((in[50]-in[49])<<20)), uint64((in[50]-in[49])>>44|((in[51]-in[50])<<14)), uint64((in[51]-in[50])>>50|((in[52]-in[51])<<8)), uint64((in[52]-in[51])>>56|((in[53]-in[52])<<2)|((in[54]-in[53])<<60)), uint64((in[54]-in[53])>>4|((in[55]-in[54])<<54)), uint64((in[55]-in[54])>>10|((in[56]-in[55])<<48)), uint64((in[56]-in[55])>>16|((in[57]-in[56])<<42)), uint64((in[57]-in[56])>>22|((in[58]-in[57])<<36)), uint64((in[58]-in[57])>>28|((in[59]-in[58])<<30)), uint64((in[59]-in[58])>>34|((in[60]-in[59])<<24)), uint64((in[60]-in[59])>>40|((in[61]-in[60])<<18)), uint64((in[61]-in[60])>>46|((in[62]-in[61])<<12)), uint64((in[62]-in[61])>>52|((in[63]-in[62])<<6))
 }
-func deltapack64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]uint64, ntz int) {
+func deltapack64_ntz_58[T uint64 | int64](out *[58]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -15051,190 +8472,11 @@ func deltapack64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]uint
 			((in[63] - in[62]) >> ntz << 6))
 }
 
-func deltapack64_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 59))
-	out[1] = uint64(
-		(in[1]-in[0])>>5 |
-			((in[2] - in[1]) << 54))
-	out[2] = uint64(
-		(in[2]-in[1])>>10 |
-			((in[3] - in[2]) << 49))
-	out[3] = uint64(
-		(in[3]-in[2])>>15 |
-			((in[4] - in[3]) << 44))
-	out[4] = uint64(
-		(in[4]-in[3])>>20 |
-			((in[5] - in[4]) << 39))
-	out[5] = uint64(
-		(in[5]-in[4])>>25 |
-			((in[6] - in[5]) << 34))
-	out[6] = uint64(
-		(in[6]-in[5])>>30 |
-			((in[7] - in[6]) << 29))
-	out[7] = uint64(
-		(in[7]-in[6])>>35 |
-			((in[8] - in[7]) << 24))
-	out[8] = uint64(
-		(in[8]-in[7])>>40 |
-			((in[9] - in[8]) << 19))
-	out[9] = uint64(
-		(in[9]-in[8])>>45 |
-			((in[10] - in[9]) << 14))
-	out[10] = uint64(
-		(in[10]-in[9])>>50 |
-			((in[11] - in[10]) << 9))
-	out[11] = uint64(
-		(in[11]-in[10])>>55 |
-			((in[12] - in[11]) << 4) |
-			((in[13] - in[12]) << 63))
-	out[12] = uint64(
-		(in[13]-in[12])>>1 |
-			((in[14] - in[13]) << 58))
-	out[13] = uint64(
-		(in[14]-in[13])>>6 |
-			((in[15] - in[14]) << 53))
-	out[14] = uint64(
-		(in[15]-in[14])>>11 |
-			((in[16] - in[15]) << 48))
-	out[15] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 43))
-	out[16] = uint64(
-		(in[17]-in[16])>>21 |
-			((in[18] - in[17]) << 38))
-	out[17] = uint64(
-		(in[18]-in[17])>>26 |
-			((in[19] - in[18]) << 33))
-	out[18] = uint64(
-		(in[19]-in[18])>>31 |
-			((in[20] - in[19]) << 28))
-	out[19] = uint64(
-		(in[20]-in[19])>>36 |
-			((in[21] - in[20]) << 23))
-	out[20] = uint64(
-		(in[21]-in[20])>>41 |
-			((in[22] - in[21]) << 18))
-	out[21] = uint64(
-		(in[22]-in[21])>>46 |
-			((in[23] - in[22]) << 13))
-	out[22] = uint64(
-		(in[23]-in[22])>>51 |
-			((in[24] - in[23]) << 8))
-	out[23] = uint64(
-		(in[24]-in[23])>>56 |
-			((in[25] - in[24]) << 3) |
-			((in[26] - in[25]) << 62))
-	out[24] = uint64(
-		(in[26]-in[25])>>2 |
-			((in[27] - in[26]) << 57))
-	out[25] = uint64(
-		(in[27]-in[26])>>7 |
-			((in[28] - in[27]) << 52))
-	out[26] = uint64(
-		(in[28]-in[27])>>12 |
-			((in[29] - in[28]) << 47))
-	out[27] = uint64(
-		(in[29]-in[28])>>17 |
-			((in[30] - in[29]) << 42))
-	out[28] = uint64(
-		(in[30]-in[29])>>22 |
-			((in[31] - in[30]) << 37))
-	out[29] = uint64(
-		(in[31]-in[30])>>27 |
-			((in[32] - in[31]) << 32))
-	out[30] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 27))
-	out[31] = uint64(
-		(in[33]-in[32])>>37 |
-			((in[34] - in[33]) << 22))
-	out[32] = uint64(
-		(in[34]-in[33])>>42 |
-			((in[35] - in[34]) << 17))
-	out[33] = uint64(
-		(in[35]-in[34])>>47 |
-			((in[36] - in[35]) << 12))
-	out[34] = uint64(
-		(in[36]-in[35])>>52 |
-			((in[37] - in[36]) << 7))
-	out[35] = uint64(
-		(in[37]-in[36])>>57 |
-			((in[38] - in[37]) << 2) |
-			((in[39] - in[38]) << 61))
-	out[36] = uint64(
-		(in[39]-in[38])>>3 |
-			((in[40] - in[39]) << 56))
-	out[37] = uint64(
-		(in[40]-in[39])>>8 |
-			((in[41] - in[40]) << 51))
-	out[38] = uint64(
-		(in[41]-in[40])>>13 |
-			((in[42] - in[41]) << 46))
-	out[39] = uint64(
-		(in[42]-in[41])>>18 |
-			((in[43] - in[42]) << 41))
-	out[40] = uint64(
-		(in[43]-in[42])>>23 |
-			((in[44] - in[43]) << 36))
-	out[41] = uint64(
-		(in[44]-in[43])>>28 |
-			((in[45] - in[44]) << 31))
-	out[42] = uint64(
-		(in[45]-in[44])>>33 |
-			((in[46] - in[45]) << 26))
-	out[43] = uint64(
-		(in[46]-in[45])>>38 |
-			((in[47] - in[46]) << 21))
-	out[44] = uint64(
-		(in[47]-in[46])>>43 |
-			((in[48] - in[47]) << 16))
-	out[45] = uint64(
-		(in[48]-in[47])>>48 |
-			((in[49] - in[48]) << 11))
-	out[46] = uint64(
-		(in[49]-in[48])>>53 |
-			((in[50] - in[49]) << 6))
-	out[47] = uint64(
-		(in[50]-in[49])>>58 |
-			((in[51] - in[50]) << 1) |
-			((in[52] - in[51]) << 60))
-	out[48] = uint64(
-		(in[52]-in[51])>>4 |
-			((in[53] - in[52]) << 55))
-	out[49] = uint64(
-		(in[53]-in[52])>>9 |
-			((in[54] - in[53]) << 50))
-	out[50] = uint64(
-		(in[54]-in[53])>>14 |
-			((in[55] - in[54]) << 45))
-	out[51] = uint64(
-		(in[55]-in[54])>>19 |
-			((in[56] - in[55]) << 40))
-	out[52] = uint64(
-		(in[56]-in[55])>>24 |
-			((in[57] - in[56]) << 35))
-	out[53] = uint64(
-		(in[57]-in[56])>>29 |
-			((in[58] - in[57]) << 30))
-	out[54] = uint64(
-		(in[58]-in[57])>>34 |
-			((in[59] - in[58]) << 25))
-	out[55] = uint64(
-		(in[59]-in[58])>>39 |
-			((in[60] - in[59]) << 20))
-	out[56] = uint64(
-		(in[60]-in[59])>>44 |
-			((in[61] - in[60]) << 15))
-	out[57] = uint64(
-		(in[61]-in[60])>>49 |
-			((in[62] - in[61]) << 10))
-	out[58] = uint64(
-		(in[62]-in[61])>>54 |
-			((in[63] - in[62]) << 5))
+func deltapack64_59[T uint64 | int64](out *[59]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57], out[58] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<59)), uint64((in[1]-in[0])>>5|((in[2]-in[1])<<54)), uint64((in[2]-in[1])>>10|((in[3]-in[2])<<49)), uint64((in[3]-in[2])>>15|((in[4]-in[3])<<44)), uint64((in[4]-in[3])>>20|((in[5]-in[4])<<39)), uint64((in[5]-in[4])>>25|((in[6]-in[5])<<34)), uint64((in[6]-in[5])>>30|((in[7]-in[6])<<29)), uint64((in[7]-in[6])>>35|((in[8]-in[7])<<24)), uint64((in[8]-in[7])>>40|((in[9]-in[8])<<19)), uint64((in[9]-in[8])>>45|((in[10]-in[9])<<14)), uint64((in[10]-in[9])>>50|((in[11]-in[10])<<9)), uint64((in[11]-in[10])>>55|((in[12]-in[11])<<4)|((in[13]-in[12])<<63)), uint64((in[13]-in[12])>>1|((in[14]-in[13])<<58)), uint64((in[14]-in[13])>>6|((in[15]-in[14])<<53)), uint64((in[15]-in[14])>>11|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<43)), uint64((in[17]-in[16])>>21|((in[18]-in[17])<<38)), uint64((in[18]-in[17])>>26|((in[19]-in[18])<<33)), uint64((in[19]-in[18])>>31|((in[20]-in[19])<<28)), uint64((in[20]-in[19])>>36|((in[21]-in[20])<<23)), uint64((in[21]-in[20])>>41|((in[22]-in[21])<<18)), uint64((in[22]-in[21])>>46|((in[23]-in[22])<<13)), uint64((in[23]-in[22])>>51|((in[24]-in[23])<<8)), uint64((in[24]-in[23])>>56|((in[25]-in[24])<<3)|((in[26]-in[25])<<62)), uint64((in[26]-in[25])>>2|((in[27]-in[26])<<57)), uint64((in[27]-in[26])>>7|((in[28]-in[27])<<52)), uint64((in[28]-in[27])>>12|((in[29]-in[28])<<47)), uint64((in[29]-in[28])>>17|((in[30]-in[29])<<42)), uint64((in[30]-in[29])>>22|((in[31]-in[30])<<37)), uint64((in[31]-in[30])>>27|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<27)), uint64((in[33]-in[32])>>37|((in[34]-in[33])<<22)), uint64((in[34]-in[33])>>42|((in[35]-in[34])<<17)), uint64((in[35]-in[34])>>47|((in[36]-in[35])<<12)), uint64((in[36]-in[35])>>52|((in[37]-in[36])<<7)), uint64((in[37]-in[36])>>57|((in[38]-in[37])<<2)|((in[39]-in[38])<<61)), uint64((in[39]-in[38])>>3|((in[40]-in[39])<<56)), uint64((in[40]-in[39])>>8|((in[41]-in[40])<<51)), uint64((in[41]-in[40])>>13|((in[42]-in[41])<<46)), uint64((in[42]-in[41])>>18|((in[43]-in[42])<<41)), uint64((in[43]-in[42])>>23|((in[44]-in[43])<<36)), uint64((in[44]-in[43])>>28|((in[45]-in[44])<<31)), uint64((in[45]-in[44])>>33|((in[46]-in[45])<<26)), uint64((in[46]-in[45])>>38|((in[47]-in[46])<<21)), uint64((in[47]-in[46])>>43|((in[48]-in[47])<<16)), uint64((in[48]-in[47])>>48|((in[49]-in[48])<<11)), uint64((in[49]-in[48])>>53|((in[50]-in[49])<<6)), uint64((in[50]-in[49])>>58|((in[51]-in[50])<<1)|((in[52]-in[51])<<60)), uint64((in[52]-in[51])>>4|((in[53]-in[52])<<55)), uint64((in[53]-in[52])>>9|((in[54]-in[53])<<50)), uint64((in[54]-in[53])>>14|((in[55]-in[54])<<45)), uint64((in[55]-in[54])>>19|((in[56]-in[55])<<40)), uint64((in[56]-in[55])>>24|((in[57]-in[56])<<35)), uint64((in[57]-in[56])>>29|((in[58]-in[57])<<30)), uint64((in[58]-in[57])>>34|((in[59]-in[58])<<25)), uint64((in[59]-in[58])>>39|((in[60]-in[59])<<20)), uint64((in[60]-in[59])>>44|((in[61]-in[60])<<15)), uint64((in[61]-in[60])>>49|((in[62]-in[61])<<10)), uint64((in[62]-in[61])>>54|((in[63]-in[62])<<5))
 }
-func deltapack64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]uint64, ntz int) {
+func deltapack64_ntz_59[T uint64 | int64](out *[59]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -15419,189 +8661,11 @@ func deltapack64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]uint
 			((in[63] - in[62]) >> ntz << 5))
 }
 
-func deltapack64_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 60))
-	out[1] = uint64(
-		(in[1]-in[0])>>4 |
-			((in[2] - in[1]) << 56))
-	out[2] = uint64(
-		(in[2]-in[1])>>8 |
-			((in[3] - in[2]) << 52))
-	out[3] = uint64(
-		(in[3]-in[2])>>12 |
-			((in[4] - in[3]) << 48))
-	out[4] = uint64(
-		(in[4]-in[3])>>16 |
-			((in[5] - in[4]) << 44))
-	out[5] = uint64(
-		(in[5]-in[4])>>20 |
-			((in[6] - in[5]) << 40))
-	out[6] = uint64(
-		(in[6]-in[5])>>24 |
-			((in[7] - in[6]) << 36))
-	out[7] = uint64(
-		(in[7]-in[6])>>28 |
-			((in[8] - in[7]) << 32))
-	out[8] = uint64(
-		(in[8]-in[7])>>32 |
-			((in[9] - in[8]) << 28))
-	out[9] = uint64(
-		(in[9]-in[8])>>36 |
-			((in[10] - in[9]) << 24))
-	out[10] = uint64(
-		(in[10]-in[9])>>40 |
-			((in[11] - in[10]) << 20))
-	out[11] = uint64(
-		(in[11]-in[10])>>44 |
-			((in[12] - in[11]) << 16))
-	out[12] = uint64(
-		(in[12]-in[11])>>48 |
-			((in[13] - in[12]) << 12))
-	out[13] = uint64(
-		(in[13]-in[12])>>52 |
-			((in[14] - in[13]) << 8))
-	out[14] = uint64(
-		(in[14]-in[13])>>56 |
-			((in[15] - in[14]) << 4))
-	out[15] = uint64(
-		in[16] - in[15] |
-			((in[17] - in[16]) << 60))
-	out[16] = uint64(
-		(in[17]-in[16])>>4 |
-			((in[18] - in[17]) << 56))
-	out[17] = uint64(
-		(in[18]-in[17])>>8 |
-			((in[19] - in[18]) << 52))
-	out[18] = uint64(
-		(in[19]-in[18])>>12 |
-			((in[20] - in[19]) << 48))
-	out[19] = uint64(
-		(in[20]-in[19])>>16 |
-			((in[21] - in[20]) << 44))
-	out[20] = uint64(
-		(in[21]-in[20])>>20 |
-			((in[22] - in[21]) << 40))
-	out[21] = uint64(
-		(in[22]-in[21])>>24 |
-			((in[23] - in[22]) << 36))
-	out[22] = uint64(
-		(in[23]-in[22])>>28 |
-			((in[24] - in[23]) << 32))
-	out[23] = uint64(
-		(in[24]-in[23])>>32 |
-			((in[25] - in[24]) << 28))
-	out[24] = uint64(
-		(in[25]-in[24])>>36 |
-			((in[26] - in[25]) << 24))
-	out[25] = uint64(
-		(in[26]-in[25])>>40 |
-			((in[27] - in[26]) << 20))
-	out[26] = uint64(
-		(in[27]-in[26])>>44 |
-			((in[28] - in[27]) << 16))
-	out[27] = uint64(
-		(in[28]-in[27])>>48 |
-			((in[29] - in[28]) << 12))
-	out[28] = uint64(
-		(in[29]-in[28])>>52 |
-			((in[30] - in[29]) << 8))
-	out[29] = uint64(
-		(in[30]-in[29])>>56 |
-			((in[31] - in[30]) << 4))
-	out[30] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 60))
-	out[31] = uint64(
-		(in[33]-in[32])>>4 |
-			((in[34] - in[33]) << 56))
-	out[32] = uint64(
-		(in[34]-in[33])>>8 |
-			((in[35] - in[34]) << 52))
-	out[33] = uint64(
-		(in[35]-in[34])>>12 |
-			((in[36] - in[35]) << 48))
-	out[34] = uint64(
-		(in[36]-in[35])>>16 |
-			((in[37] - in[36]) << 44))
-	out[35] = uint64(
-		(in[37]-in[36])>>20 |
-			((in[38] - in[37]) << 40))
-	out[36] = uint64(
-		(in[38]-in[37])>>24 |
-			((in[39] - in[38]) << 36))
-	out[37] = uint64(
-		(in[39]-in[38])>>28 |
-			((in[40] - in[39]) << 32))
-	out[38] = uint64(
-		(in[40]-in[39])>>32 |
-			((in[41] - in[40]) << 28))
-	out[39] = uint64(
-		(in[41]-in[40])>>36 |
-			((in[42] - in[41]) << 24))
-	out[40] = uint64(
-		(in[42]-in[41])>>40 |
-			((in[43] - in[42]) << 20))
-	out[41] = uint64(
-		(in[43]-in[42])>>44 |
-			((in[44] - in[43]) << 16))
-	out[42] = uint64(
-		(in[44]-in[43])>>48 |
-			((in[45] - in[44]) << 12))
-	out[43] = uint64(
-		(in[45]-in[44])>>52 |
-			((in[46] - in[45]) << 8))
-	out[44] = uint64(
-		(in[46]-in[45])>>56 |
-			((in[47] - in[46]) << 4))
-	out[45] = uint64(
-		in[48] - in[47] |
-			((in[49] - in[48]) << 60))
-	out[46] = uint64(
-		(in[49]-in[48])>>4 |
-			((in[50] - in[49]) << 56))
-	out[47] = uint64(
-		(in[50]-in[49])>>8 |
-			((in[51] - in[50]) << 52))
-	out[48] = uint64(
-		(in[51]-in[50])>>12 |
-			((in[52] - in[51]) << 48))
-	out[49] = uint64(
-		(in[52]-in[51])>>16 |
-			((in[53] - in[52]) << 44))
-	out[50] = uint64(
-		(in[53]-in[52])>>20 |
-			((in[54] - in[53]) << 40))
-	out[51] = uint64(
-		(in[54]-in[53])>>24 |
-			((in[55] - in[54]) << 36))
-	out[52] = uint64(
-		(in[55]-in[54])>>28 |
-			((in[56] - in[55]) << 32))
-	out[53] = uint64(
-		(in[56]-in[55])>>32 |
-			((in[57] - in[56]) << 28))
-	out[54] = uint64(
-		(in[57]-in[56])>>36 |
-			((in[58] - in[57]) << 24))
-	out[55] = uint64(
-		(in[58]-in[57])>>40 |
-			((in[59] - in[58]) << 20))
-	out[56] = uint64(
-		(in[59]-in[58])>>44 |
-			((in[60] - in[59]) << 16))
-	out[57] = uint64(
-		(in[60]-in[59])>>48 |
-			((in[61] - in[60]) << 12))
-	out[58] = uint64(
-		(in[61]-in[60])>>52 |
-			((in[62] - in[61]) << 8))
-	out[59] = uint64(
-		(in[62]-in[61])>>56 |
-			((in[63] - in[62]) << 4))
+func deltapack64_60[T uint64 | int64](out *[60]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57], out[58], out[59] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<60)), uint64((in[1]-in[0])>>4|((in[2]-in[1])<<56)), uint64((in[2]-in[1])>>8|((in[3]-in[2])<<52)), uint64((in[3]-in[2])>>12|((in[4]-in[3])<<48)), uint64((in[4]-in[3])>>16|((in[5]-in[4])<<44)), uint64((in[5]-in[4])>>20|((in[6]-in[5])<<40)), uint64((in[6]-in[5])>>24|((in[7]-in[6])<<36)), uint64((in[7]-in[6])>>28|((in[8]-in[7])<<32)), uint64((in[8]-in[7])>>32|((in[9]-in[8])<<28)), uint64((in[9]-in[8])>>36|((in[10]-in[9])<<24)), uint64((in[10]-in[9])>>40|((in[11]-in[10])<<20)), uint64((in[11]-in[10])>>44|((in[12]-in[11])<<16)), uint64((in[12]-in[11])>>48|((in[13]-in[12])<<12)), uint64((in[13]-in[12])>>52|((in[14]-in[13])<<8)), uint64((in[14]-in[13])>>56|((in[15]-in[14])<<4)), uint64(in[16]-in[15]|((in[17]-in[16])<<60)), uint64((in[17]-in[16])>>4|((in[18]-in[17])<<56)), uint64((in[18]-in[17])>>8|((in[19]-in[18])<<52)), uint64((in[19]-in[18])>>12|((in[20]-in[19])<<48)), uint64((in[20]-in[19])>>16|((in[21]-in[20])<<44)), uint64((in[21]-in[20])>>20|((in[22]-in[21])<<40)), uint64((in[22]-in[21])>>24|((in[23]-in[22])<<36)), uint64((in[23]-in[22])>>28|((in[24]-in[23])<<32)), uint64((in[24]-in[23])>>32|((in[25]-in[24])<<28)), uint64((in[25]-in[24])>>36|((in[26]-in[25])<<24)), uint64((in[26]-in[25])>>40|((in[27]-in[26])<<20)), uint64((in[27]-in[26])>>44|((in[28]-in[27])<<16)), uint64((in[28]-in[27])>>48|((in[29]-in[28])<<12)), uint64((in[29]-in[28])>>52|((in[30]-in[29])<<8)), uint64((in[30]-in[29])>>56|((in[31]-in[30])<<4)), uint64(in[32]-in[31]|((in[33]-in[32])<<60)), uint64((in[33]-in[32])>>4|((in[34]-in[33])<<56)), uint64((in[34]-in[33])>>8|((in[35]-in[34])<<52)), uint64((in[35]-in[34])>>12|((in[36]-in[35])<<48)), uint64((in[36]-in[35])>>16|((in[37]-in[36])<<44)), uint64((in[37]-in[36])>>20|((in[38]-in[37])<<40)), uint64((in[38]-in[37])>>24|((in[39]-in[38])<<36)), uint64((in[39]-in[38])>>28|((in[40]-in[39])<<32)), uint64((in[40]-in[39])>>32|((in[41]-in[40])<<28)), uint64((in[41]-in[40])>>36|((in[42]-in[41])<<24)), uint64((in[42]-in[41])>>40|((in[43]-in[42])<<20)), uint64((in[43]-in[42])>>44|((in[44]-in[43])<<16)), uint64((in[44]-in[43])>>48|((in[45]-in[44])<<12)), uint64((in[45]-in[44])>>52|((in[46]-in[45])<<8)), uint64((in[46]-in[45])>>56|((in[47]-in[46])<<4)), uint64(in[48]-in[47]|((in[49]-in[48])<<60)), uint64((in[49]-in[48])>>4|((in[50]-in[49])<<56)), uint64((in[50]-in[49])>>8|((in[51]-in[50])<<52)), uint64((in[51]-in[50])>>12|((in[52]-in[51])<<48)), uint64((in[52]-in[51])>>16|((in[53]-in[52])<<44)), uint64((in[53]-in[52])>>20|((in[54]-in[53])<<40)), uint64((in[54]-in[53])>>24|((in[55]-in[54])<<36)), uint64((in[55]-in[54])>>28|((in[56]-in[55])<<32)), uint64((in[56]-in[55])>>32|((in[57]-in[56])<<28)), uint64((in[57]-in[56])>>36|((in[58]-in[57])<<24)), uint64((in[58]-in[57])>>40|((in[59]-in[58])<<20)), uint64((in[59]-in[58])>>44|((in[60]-in[59])<<16)), uint64((in[60]-in[59])>>48|((in[61]-in[60])<<12)), uint64((in[61]-in[60])>>52|((in[62]-in[61])<<8)), uint64((in[62]-in[61])>>56|((in[63]-in[62])<<4))
 }
-func deltapack64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]uint64, ntz int) {
+func deltapack64_ntz_60[T uint64 | int64](out *[60]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -15785,194 +8849,11 @@ func deltapack64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]uint
 			((in[63] - in[62]) >> ntz << 4))
 }
 
-func deltapack64_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 61))
-	out[1] = uint64(
-		(in[1]-in[0])>>3 |
-			((in[2] - in[1]) << 58))
-	out[2] = uint64(
-		(in[2]-in[1])>>6 |
-			((in[3] - in[2]) << 55))
-	out[3] = uint64(
-		(in[3]-in[2])>>9 |
-			((in[4] - in[3]) << 52))
-	out[4] = uint64(
-		(in[4]-in[3])>>12 |
-			((in[5] - in[4]) << 49))
-	out[5] = uint64(
-		(in[5]-in[4])>>15 |
-			((in[6] - in[5]) << 46))
-	out[6] = uint64(
-		(in[6]-in[5])>>18 |
-			((in[7] - in[6]) << 43))
-	out[7] = uint64(
-		(in[7]-in[6])>>21 |
-			((in[8] - in[7]) << 40))
-	out[8] = uint64(
-		(in[8]-in[7])>>24 |
-			((in[9] - in[8]) << 37))
-	out[9] = uint64(
-		(in[9]-in[8])>>27 |
-			((in[10] - in[9]) << 34))
-	out[10] = uint64(
-		(in[10]-in[9])>>30 |
-			((in[11] - in[10]) << 31))
-	out[11] = uint64(
-		(in[11]-in[10])>>33 |
-			((in[12] - in[11]) << 28))
-	out[12] = uint64(
-		(in[12]-in[11])>>36 |
-			((in[13] - in[12]) << 25))
-	out[13] = uint64(
-		(in[13]-in[12])>>39 |
-			((in[14] - in[13]) << 22))
-	out[14] = uint64(
-		(in[14]-in[13])>>42 |
-			((in[15] - in[14]) << 19))
-	out[15] = uint64(
-		(in[15]-in[14])>>45 |
-			((in[16] - in[15]) << 16))
-	out[16] = uint64(
-		(in[16]-in[15])>>48 |
-			((in[17] - in[16]) << 13))
-	out[17] = uint64(
-		(in[17]-in[16])>>51 |
-			((in[18] - in[17]) << 10))
-	out[18] = uint64(
-		(in[18]-in[17])>>54 |
-			((in[19] - in[18]) << 7))
-	out[19] = uint64(
-		(in[19]-in[18])>>57 |
-			((in[20] - in[19]) << 4))
-	out[20] = uint64(
-		(in[20]-in[19])>>60 |
-			((in[21] - in[20]) << 1) |
-			((in[22] - in[21]) << 62))
-	out[21] = uint64(
-		(in[22]-in[21])>>2 |
-			((in[23] - in[22]) << 59))
-	out[22] = uint64(
-		(in[23]-in[22])>>5 |
-			((in[24] - in[23]) << 56))
-	out[23] = uint64(
-		(in[24]-in[23])>>8 |
-			((in[25] - in[24]) << 53))
-	out[24] = uint64(
-		(in[25]-in[24])>>11 |
-			((in[26] - in[25]) << 50))
-	out[25] = uint64(
-		(in[26]-in[25])>>14 |
-			((in[27] - in[26]) << 47))
-	out[26] = uint64(
-		(in[27]-in[26])>>17 |
-			((in[28] - in[27]) << 44))
-	out[27] = uint64(
-		(in[28]-in[27])>>20 |
-			((in[29] - in[28]) << 41))
-	out[28] = uint64(
-		(in[29]-in[28])>>23 |
-			((in[30] - in[29]) << 38))
-	out[29] = uint64(
-		(in[30]-in[29])>>26 |
-			((in[31] - in[30]) << 35))
-	out[30] = uint64(
-		(in[31]-in[30])>>29 |
-			((in[32] - in[31]) << 32))
-	out[31] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 29))
-	out[32] = uint64(
-		(in[33]-in[32])>>35 |
-			((in[34] - in[33]) << 26))
-	out[33] = uint64(
-		(in[34]-in[33])>>38 |
-			((in[35] - in[34]) << 23))
-	out[34] = uint64(
-		(in[35]-in[34])>>41 |
-			((in[36] - in[35]) << 20))
-	out[35] = uint64(
-		(in[36]-in[35])>>44 |
-			((in[37] - in[36]) << 17))
-	out[36] = uint64(
-		(in[37]-in[36])>>47 |
-			((in[38] - in[37]) << 14))
-	out[37] = uint64(
-		(in[38]-in[37])>>50 |
-			((in[39] - in[38]) << 11))
-	out[38] = uint64(
-		(in[39]-in[38])>>53 |
-			((in[40] - in[39]) << 8))
-	out[39] = uint64(
-		(in[40]-in[39])>>56 |
-			((in[41] - in[40]) << 5))
-	out[40] = uint64(
-		(in[41]-in[40])>>59 |
-			((in[42] - in[41]) << 2) |
-			((in[43] - in[42]) << 63))
-	out[41] = uint64(
-		(in[43]-in[42])>>1 |
-			((in[44] - in[43]) << 60))
-	out[42] = uint64(
-		(in[44]-in[43])>>4 |
-			((in[45] - in[44]) << 57))
-	out[43] = uint64(
-		(in[45]-in[44])>>7 |
-			((in[46] - in[45]) << 54))
-	out[44] = uint64(
-		(in[46]-in[45])>>10 |
-			((in[47] - in[46]) << 51))
-	out[45] = uint64(
-		(in[47]-in[46])>>13 |
-			((in[48] - in[47]) << 48))
-	out[46] = uint64(
-		(in[48]-in[47])>>16 |
-			((in[49] - in[48]) << 45))
-	out[47] = uint64(
-		(in[49]-in[48])>>19 |
-			((in[50] - in[49]) << 42))
-	out[48] = uint64(
-		(in[50]-in[49])>>22 |
-			((in[51] - in[50]) << 39))
-	out[49] = uint64(
-		(in[51]-in[50])>>25 |
-			((in[52] - in[51]) << 36))
-	out[50] = uint64(
-		(in[52]-in[51])>>28 |
-			((in[53] - in[52]) << 33))
-	out[51] = uint64(
-		(in[53]-in[52])>>31 |
-			((in[54] - in[53]) << 30))
-	out[52] = uint64(
-		(in[54]-in[53])>>34 |
-			((in[55] - in[54]) << 27))
-	out[53] = uint64(
-		(in[55]-in[54])>>37 |
-			((in[56] - in[55]) << 24))
-	out[54] = uint64(
-		(in[56]-in[55])>>40 |
-			((in[57] - in[56]) << 21))
-	out[55] = uint64(
-		(in[57]-in[56])>>43 |
-			((in[58] - in[57]) << 18))
-	out[56] = uint64(
-		(in[58]-in[57])>>46 |
-			((in[59] - in[58]) << 15))
-	out[57] = uint64(
-		(in[59]-in[58])>>49 |
-			((in[60] - in[59]) << 12))
-	out[58] = uint64(
-		(in[60]-in[59])>>52 |
-			((in[61] - in[60]) << 9))
-	out[59] = uint64(
-		(in[61]-in[60])>>55 |
-			((in[62] - in[61]) << 6))
-	out[60] = uint64(
-		(in[62]-in[61])>>58 |
-			((in[63] - in[62]) << 3))
+func deltapack64_61[T uint64 | int64](out *[61]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57], out[58], out[59], out[60] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<61)), uint64((in[1]-in[0])>>3|((in[2]-in[1])<<58)), uint64((in[2]-in[1])>>6|((in[3]-in[2])<<55)), uint64((in[3]-in[2])>>9|((in[4]-in[3])<<52)), uint64((in[4]-in[3])>>12|((in[5]-in[4])<<49)), uint64((in[5]-in[4])>>15|((in[6]-in[5])<<46)), uint64((in[6]-in[5])>>18|((in[7]-in[6])<<43)), uint64((in[7]-in[6])>>21|((in[8]-in[7])<<40)), uint64((in[8]-in[7])>>24|((in[9]-in[8])<<37)), uint64((in[9]-in[8])>>27|((in[10]-in[9])<<34)), uint64((in[10]-in[9])>>30|((in[11]-in[10])<<31)), uint64((in[11]-in[10])>>33|((in[12]-in[11])<<28)), uint64((in[12]-in[11])>>36|((in[13]-in[12])<<25)), uint64((in[13]-in[12])>>39|((in[14]-in[13])<<22)), uint64((in[14]-in[13])>>42|((in[15]-in[14])<<19)), uint64((in[15]-in[14])>>45|((in[16]-in[15])<<16)), uint64((in[16]-in[15])>>48|((in[17]-in[16])<<13)), uint64((in[17]-in[16])>>51|((in[18]-in[17])<<10)), uint64((in[18]-in[17])>>54|((in[19]-in[18])<<7)), uint64((in[19]-in[18])>>57|((in[20]-in[19])<<4)), uint64((in[20]-in[19])>>60|((in[21]-in[20])<<1)|((in[22]-in[21])<<62)), uint64((in[22]-in[21])>>2|((in[23]-in[22])<<59)), uint64((in[23]-in[22])>>5|((in[24]-in[23])<<56)), uint64((in[24]-in[23])>>8|((in[25]-in[24])<<53)), uint64((in[25]-in[24])>>11|((in[26]-in[25])<<50)), uint64((in[26]-in[25])>>14|((in[27]-in[26])<<47)), uint64((in[27]-in[26])>>17|((in[28]-in[27])<<44)), uint64((in[28]-in[27])>>20|((in[29]-in[28])<<41)), uint64((in[29]-in[28])>>23|((in[30]-in[29])<<38)), uint64((in[30]-in[29])>>26|((in[31]-in[30])<<35)), uint64((in[31]-in[30])>>29|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<29)), uint64((in[33]-in[32])>>35|((in[34]-in[33])<<26)), uint64((in[34]-in[33])>>38|((in[35]-in[34])<<23)), uint64((in[35]-in[34])>>41|((in[36]-in[35])<<20)), uint64((in[36]-in[35])>>44|((in[37]-in[36])<<17)), uint64((in[37]-in[36])>>47|((in[38]-in[37])<<14)), uint64((in[38]-in[37])>>50|((in[39]-in[38])<<11)), uint64((in[39]-in[38])>>53|((in[40]-in[39])<<8)), uint64((in[40]-in[39])>>56|((in[41]-in[40])<<5)), uint64((in[41]-in[40])>>59|((in[42]-in[41])<<2)|((in[43]-in[42])<<63)), uint64((in[43]-in[42])>>1|((in[44]-in[43])<<60)), uint64((in[44]-in[43])>>4|((in[45]-in[44])<<57)), uint64((in[45]-in[44])>>7|((in[46]-in[45])<<54)), uint64((in[46]-in[45])>>10|((in[47]-in[46])<<51)), uint64((in[47]-in[46])>>13|((in[48]-in[47])<<48)), uint64((in[48]-in[47])>>16|((in[49]-in[48])<<45)), uint64((in[49]-in[48])>>19|((in[50]-in[49])<<42)), uint64((in[50]-in[49])>>22|((in[51]-in[50])<<39)), uint64((in[51]-in[50])>>25|((in[52]-in[51])<<36)), uint64((in[52]-in[51])>>28|((in[53]-in[52])<<33)), uint64((in[53]-in[52])>>31|((in[54]-in[53])<<30)), uint64((in[54]-in[53])>>34|((in[55]-in[54])<<27)), uint64((in[55]-in[54])>>37|((in[56]-in[55])<<24)), uint64((in[56]-in[55])>>40|((in[57]-in[56])<<21)), uint64((in[57]-in[56])>>43|((in[58]-in[57])<<18)), uint64((in[58]-in[57])>>46|((in[59]-in[58])<<15)), uint64((in[59]-in[58])>>49|((in[60]-in[59])<<12)), uint64((in[60]-in[59])>>52|((in[61]-in[60])<<9)), uint64((in[61]-in[60])>>55|((in[62]-in[61])<<6)), uint64((in[62]-in[61])>>58|((in[63]-in[62])<<3))
 }
-func deltapack64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]uint64, ntz int) {
+func deltapack64_ntz_61[T uint64 | int64](out *[61]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -16161,195 +9042,11 @@ func deltapack64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]uint
 			((in[63] - in[62]) >> ntz << 3))
 }
 
-func deltapack64_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 62))
-	out[1] = uint64(
-		(in[1]-in[0])>>2 |
-			((in[2] - in[1]) << 60))
-	out[2] = uint64(
-		(in[2]-in[1])>>4 |
-			((in[3] - in[2]) << 58))
-	out[3] = uint64(
-		(in[3]-in[2])>>6 |
-			((in[4] - in[3]) << 56))
-	out[4] = uint64(
-		(in[4]-in[3])>>8 |
-			((in[5] - in[4]) << 54))
-	out[5] = uint64(
-		(in[5]-in[4])>>10 |
-			((in[6] - in[5]) << 52))
-	out[6] = uint64(
-		(in[6]-in[5])>>12 |
-			((in[7] - in[6]) << 50))
-	out[7] = uint64(
-		(in[7]-in[6])>>14 |
-			((in[8] - in[7]) << 48))
-	out[8] = uint64(
-		(in[8]-in[7])>>16 |
-			((in[9] - in[8]) << 46))
-	out[9] = uint64(
-		(in[9]-in[8])>>18 |
-			((in[10] - in[9]) << 44))
-	out[10] = uint64(
-		(in[10]-in[9])>>20 |
-			((in[11] - in[10]) << 42))
-	out[11] = uint64(
-		(in[11]-in[10])>>22 |
-			((in[12] - in[11]) << 40))
-	out[12] = uint64(
-		(in[12]-in[11])>>24 |
-			((in[13] - in[12]) << 38))
-	out[13] = uint64(
-		(in[13]-in[12])>>26 |
-			((in[14] - in[13]) << 36))
-	out[14] = uint64(
-		(in[14]-in[13])>>28 |
-			((in[15] - in[14]) << 34))
-	out[15] = uint64(
-		(in[15]-in[14])>>30 |
-			((in[16] - in[15]) << 32))
-	out[16] = uint64(
-		(in[16]-in[15])>>32 |
-			((in[17] - in[16]) << 30))
-	out[17] = uint64(
-		(in[17]-in[16])>>34 |
-			((in[18] - in[17]) << 28))
-	out[18] = uint64(
-		(in[18]-in[17])>>36 |
-			((in[19] - in[18]) << 26))
-	out[19] = uint64(
-		(in[19]-in[18])>>38 |
-			((in[20] - in[19]) << 24))
-	out[20] = uint64(
-		(in[20]-in[19])>>40 |
-			((in[21] - in[20]) << 22))
-	out[21] = uint64(
-		(in[21]-in[20])>>42 |
-			((in[22] - in[21]) << 20))
-	out[22] = uint64(
-		(in[22]-in[21])>>44 |
-			((in[23] - in[22]) << 18))
-	out[23] = uint64(
-		(in[23]-in[22])>>46 |
-			((in[24] - in[23]) << 16))
-	out[24] = uint64(
-		(in[24]-in[23])>>48 |
-			((in[25] - in[24]) << 14))
-	out[25] = uint64(
-		(in[25]-in[24])>>50 |
-			((in[26] - in[25]) << 12))
-	out[26] = uint64(
-		(in[26]-in[25])>>52 |
-			((in[27] - in[26]) << 10))
-	out[27] = uint64(
-		(in[27]-in[26])>>54 |
-			((in[28] - in[27]) << 8))
-	out[28] = uint64(
-		(in[28]-in[27])>>56 |
-			((in[29] - in[28]) << 6))
-	out[29] = uint64(
-		(in[29]-in[28])>>58 |
-			((in[30] - in[29]) << 4))
-	out[30] = uint64(
-		(in[30]-in[29])>>60 |
-			((in[31] - in[30]) << 2))
-	out[31] = uint64(
-		in[32] - in[31] |
-			((in[33] - in[32]) << 62))
-	out[32] = uint64(
-		(in[33]-in[32])>>2 |
-			((in[34] - in[33]) << 60))
-	out[33] = uint64(
-		(in[34]-in[33])>>4 |
-			((in[35] - in[34]) << 58))
-	out[34] = uint64(
-		(in[35]-in[34])>>6 |
-			((in[36] - in[35]) << 56))
-	out[35] = uint64(
-		(in[36]-in[35])>>8 |
-			((in[37] - in[36]) << 54))
-	out[36] = uint64(
-		(in[37]-in[36])>>10 |
-			((in[38] - in[37]) << 52))
-	out[37] = uint64(
-		(in[38]-in[37])>>12 |
-			((in[39] - in[38]) << 50))
-	out[38] = uint64(
-		(in[39]-in[38])>>14 |
-			((in[40] - in[39]) << 48))
-	out[39] = uint64(
-		(in[40]-in[39])>>16 |
-			((in[41] - in[40]) << 46))
-	out[40] = uint64(
-		(in[41]-in[40])>>18 |
-			((in[42] - in[41]) << 44))
-	out[41] = uint64(
-		(in[42]-in[41])>>20 |
-			((in[43] - in[42]) << 42))
-	out[42] = uint64(
-		(in[43]-in[42])>>22 |
-			((in[44] - in[43]) << 40))
-	out[43] = uint64(
-		(in[44]-in[43])>>24 |
-			((in[45] - in[44]) << 38))
-	out[44] = uint64(
-		(in[45]-in[44])>>26 |
-			((in[46] - in[45]) << 36))
-	out[45] = uint64(
-		(in[46]-in[45])>>28 |
-			((in[47] - in[46]) << 34))
-	out[46] = uint64(
-		(in[47]-in[46])>>30 |
-			((in[48] - in[47]) << 32))
-	out[47] = uint64(
-		(in[48]-in[47])>>32 |
-			((in[49] - in[48]) << 30))
-	out[48] = uint64(
-		(in[49]-in[48])>>34 |
-			((in[50] - in[49]) << 28))
-	out[49] = uint64(
-		(in[50]-in[49])>>36 |
-			((in[51] - in[50]) << 26))
-	out[50] = uint64(
-		(in[51]-in[50])>>38 |
-			((in[52] - in[51]) << 24))
-	out[51] = uint64(
-		(in[52]-in[51])>>40 |
-			((in[53] - in[52]) << 22))
-	out[52] = uint64(
-		(in[53]-in[52])>>42 |
-			((in[54] - in[53]) << 20))
-	out[53] = uint64(
-		(in[54]-in[53])>>44 |
-			((in[55] - in[54]) << 18))
-	out[54] = uint64(
-		(in[55]-in[54])>>46 |
-			((in[56] - in[55]) << 16))
-	out[55] = uint64(
-		(in[56]-in[55])>>48 |
-			((in[57] - in[56]) << 14))
-	out[56] = uint64(
-		(in[57]-in[56])>>50 |
-			((in[58] - in[57]) << 12))
-	out[57] = uint64(
-		(in[58]-in[57])>>52 |
-			((in[59] - in[58]) << 10))
-	out[58] = uint64(
-		(in[59]-in[58])>>54 |
-			((in[60] - in[59]) << 8))
-	out[59] = uint64(
-		(in[60]-in[59])>>56 |
-			((in[61] - in[60]) << 6))
-	out[60] = uint64(
-		(in[61]-in[60])>>58 |
-			((in[62] - in[61]) << 4))
-	out[61] = uint64(
-		(in[62]-in[61])>>60 |
-			((in[63] - in[62]) << 2))
+func deltapack64_62[T uint64 | int64](out *[62]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57], out[58], out[59], out[60], out[61] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<62)), uint64((in[1]-in[0])>>2|((in[2]-in[1])<<60)), uint64((in[2]-in[1])>>4|((in[3]-in[2])<<58)), uint64((in[3]-in[2])>>6|((in[4]-in[3])<<56)), uint64((in[4]-in[3])>>8|((in[5]-in[4])<<54)), uint64((in[5]-in[4])>>10|((in[6]-in[5])<<52)), uint64((in[6]-in[5])>>12|((in[7]-in[6])<<50)), uint64((in[7]-in[6])>>14|((in[8]-in[7])<<48)), uint64((in[8]-in[7])>>16|((in[9]-in[8])<<46)), uint64((in[9]-in[8])>>18|((in[10]-in[9])<<44)), uint64((in[10]-in[9])>>20|((in[11]-in[10])<<42)), uint64((in[11]-in[10])>>22|((in[12]-in[11])<<40)), uint64((in[12]-in[11])>>24|((in[13]-in[12])<<38)), uint64((in[13]-in[12])>>26|((in[14]-in[13])<<36)), uint64((in[14]-in[13])>>28|((in[15]-in[14])<<34)), uint64((in[15]-in[14])>>30|((in[16]-in[15])<<32)), uint64((in[16]-in[15])>>32|((in[17]-in[16])<<30)), uint64((in[17]-in[16])>>34|((in[18]-in[17])<<28)), uint64((in[18]-in[17])>>36|((in[19]-in[18])<<26)), uint64((in[19]-in[18])>>38|((in[20]-in[19])<<24)), uint64((in[20]-in[19])>>40|((in[21]-in[20])<<22)), uint64((in[21]-in[20])>>42|((in[22]-in[21])<<20)), uint64((in[22]-in[21])>>44|((in[23]-in[22])<<18)), uint64((in[23]-in[22])>>46|((in[24]-in[23])<<16)), uint64((in[24]-in[23])>>48|((in[25]-in[24])<<14)), uint64((in[25]-in[24])>>50|((in[26]-in[25])<<12)), uint64((in[26]-in[25])>>52|((in[27]-in[26])<<10)), uint64((in[27]-in[26])>>54|((in[28]-in[27])<<8)), uint64((in[28]-in[27])>>56|((in[29]-in[28])<<6)), uint64((in[29]-in[28])>>58|((in[30]-in[29])<<4)), uint64((in[30]-in[29])>>60|((in[31]-in[30])<<2)), uint64(in[32]-in[31]|((in[33]-in[32])<<62)), uint64((in[33]-in[32])>>2|((in[34]-in[33])<<60)), uint64((in[34]-in[33])>>4|((in[35]-in[34])<<58)), uint64((in[35]-in[34])>>6|((in[36]-in[35])<<56)), uint64((in[36]-in[35])>>8|((in[37]-in[36])<<54)), uint64((in[37]-in[36])>>10|((in[38]-in[37])<<52)), uint64((in[38]-in[37])>>12|((in[39]-in[38])<<50)), uint64((in[39]-in[38])>>14|((in[40]-in[39])<<48)), uint64((in[40]-in[39])>>16|((in[41]-in[40])<<46)), uint64((in[41]-in[40])>>18|((in[42]-in[41])<<44)), uint64((in[42]-in[41])>>20|((in[43]-in[42])<<42)), uint64((in[43]-in[42])>>22|((in[44]-in[43])<<40)), uint64((in[44]-in[43])>>24|((in[45]-in[44])<<38)), uint64((in[45]-in[44])>>26|((in[46]-in[45])<<36)), uint64((in[46]-in[45])>>28|((in[47]-in[46])<<34)), uint64((in[47]-in[46])>>30|((in[48]-in[47])<<32)), uint64((in[48]-in[47])>>32|((in[49]-in[48])<<30)), uint64((in[49]-in[48])>>34|((in[50]-in[49])<<28)), uint64((in[50]-in[49])>>36|((in[51]-in[50])<<26)), uint64((in[51]-in[50])>>38|((in[52]-in[51])<<24)), uint64((in[52]-in[51])>>40|((in[53]-in[52])<<22)), uint64((in[53]-in[52])>>42|((in[54]-in[53])<<20)), uint64((in[54]-in[53])>>44|((in[55]-in[54])<<18)), uint64((in[55]-in[54])>>46|((in[56]-in[55])<<16)), uint64((in[56]-in[55])>>48|((in[57]-in[56])<<14)), uint64((in[57]-in[56])>>50|((in[58]-in[57])<<12)), uint64((in[58]-in[57])>>52|((in[59]-in[58])<<10)), uint64((in[59]-in[58])>>54|((in[60]-in[59])<<8)), uint64((in[60]-in[59])>>56|((in[61]-in[60])<<6)), uint64((in[61]-in[60])>>58|((in[62]-in[61])<<4)), uint64((in[62]-in[61])>>60|((in[63]-in[62])<<2))
 }
-func deltapack64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]uint64, ntz int) {
+func deltapack64_ntz_62[T uint64 | int64](out *[62]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -16539,198 +9236,11 @@ func deltapack64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]uint
 			((in[63] - in[62]) >> ntz << 2))
 }
 
-func deltapack64_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]uint64) {
-	out[0] = uint64(
-		in[0] - initoffset |
-			((in[1] - in[0]) << 63))
-	out[1] = uint64(
-		(in[1]-in[0])>>1 |
-			((in[2] - in[1]) << 62))
-	out[2] = uint64(
-		(in[2]-in[1])>>2 |
-			((in[3] - in[2]) << 61))
-	out[3] = uint64(
-		(in[3]-in[2])>>3 |
-			((in[4] - in[3]) << 60))
-	out[4] = uint64(
-		(in[4]-in[3])>>4 |
-			((in[5] - in[4]) << 59))
-	out[5] = uint64(
-		(in[5]-in[4])>>5 |
-			((in[6] - in[5]) << 58))
-	out[6] = uint64(
-		(in[6]-in[5])>>6 |
-			((in[7] - in[6]) << 57))
-	out[7] = uint64(
-		(in[7]-in[6])>>7 |
-			((in[8] - in[7]) << 56))
-	out[8] = uint64(
-		(in[8]-in[7])>>8 |
-			((in[9] - in[8]) << 55))
-	out[9] = uint64(
-		(in[9]-in[8])>>9 |
-			((in[10] - in[9]) << 54))
-	out[10] = uint64(
-		(in[10]-in[9])>>10 |
-			((in[11] - in[10]) << 53))
-	out[11] = uint64(
-		(in[11]-in[10])>>11 |
-			((in[12] - in[11]) << 52))
-	out[12] = uint64(
-		(in[12]-in[11])>>12 |
-			((in[13] - in[12]) << 51))
-	out[13] = uint64(
-		(in[13]-in[12])>>13 |
-			((in[14] - in[13]) << 50))
-	out[14] = uint64(
-		(in[14]-in[13])>>14 |
-			((in[15] - in[14]) << 49))
-	out[15] = uint64(
-		(in[15]-in[14])>>15 |
-			((in[16] - in[15]) << 48))
-	out[16] = uint64(
-		(in[16]-in[15])>>16 |
-			((in[17] - in[16]) << 47))
-	out[17] = uint64(
-		(in[17]-in[16])>>17 |
-			((in[18] - in[17]) << 46))
-	out[18] = uint64(
-		(in[18]-in[17])>>18 |
-			((in[19] - in[18]) << 45))
-	out[19] = uint64(
-		(in[19]-in[18])>>19 |
-			((in[20] - in[19]) << 44))
-	out[20] = uint64(
-		(in[20]-in[19])>>20 |
-			((in[21] - in[20]) << 43))
-	out[21] = uint64(
-		(in[21]-in[20])>>21 |
-			((in[22] - in[21]) << 42))
-	out[22] = uint64(
-		(in[22]-in[21])>>22 |
-			((in[23] - in[22]) << 41))
-	out[23] = uint64(
-		(in[23]-in[22])>>23 |
-			((in[24] - in[23]) << 40))
-	out[24] = uint64(
-		(in[24]-in[23])>>24 |
-			((in[25] - in[24]) << 39))
-	out[25] = uint64(
-		(in[25]-in[24])>>25 |
-			((in[26] - in[25]) << 38))
-	out[26] = uint64(
-		(in[26]-in[25])>>26 |
-			((in[27] - in[26]) << 37))
-	out[27] = uint64(
-		(in[27]-in[26])>>27 |
-			((in[28] - in[27]) << 36))
-	out[28] = uint64(
-		(in[28]-in[27])>>28 |
-			((in[29] - in[28]) << 35))
-	out[29] = uint64(
-		(in[29]-in[28])>>29 |
-			((in[30] - in[29]) << 34))
-	out[30] = uint64(
-		(in[30]-in[29])>>30 |
-			((in[31] - in[30]) << 33))
-	out[31] = uint64(
-		(in[31]-in[30])>>31 |
-			((in[32] - in[31]) << 32))
-	out[32] = uint64(
-		(in[32]-in[31])>>32 |
-			((in[33] - in[32]) << 31))
-	out[33] = uint64(
-		(in[33]-in[32])>>33 |
-			((in[34] - in[33]) << 30))
-	out[34] = uint64(
-		(in[34]-in[33])>>34 |
-			((in[35] - in[34]) << 29))
-	out[35] = uint64(
-		(in[35]-in[34])>>35 |
-			((in[36] - in[35]) << 28))
-	out[36] = uint64(
-		(in[36]-in[35])>>36 |
-			((in[37] - in[36]) << 27))
-	out[37] = uint64(
-		(in[37]-in[36])>>37 |
-			((in[38] - in[37]) << 26))
-	out[38] = uint64(
-		(in[38]-in[37])>>38 |
-			((in[39] - in[38]) << 25))
-	out[39] = uint64(
-		(in[39]-in[38])>>39 |
-			((in[40] - in[39]) << 24))
-	out[40] = uint64(
-		(in[40]-in[39])>>40 |
-			((in[41] - in[40]) << 23))
-	out[41] = uint64(
-		(in[41]-in[40])>>41 |
-			((in[42] - in[41]) << 22))
-	out[42] = uint64(
-		(in[42]-in[41])>>42 |
-			((in[43] - in[42]) << 21))
-	out[43] = uint64(
-		(in[43]-in[42])>>43 |
-			((in[44] - in[43]) << 20))
-	out[44] = uint64(
-		(in[44]-in[43])>>44 |
-			((in[45] - in[44]) << 19))
-	out[45] = uint64(
-		(in[45]-in[44])>>45 |
-			((in[46] - in[45]) << 18))
-	out[46] = uint64(
-		(in[46]-in[45])>>46 |
-			((in[47] - in[46]) << 17))
-	out[47] = uint64(
-		(in[47]-in[46])>>47 |
-			((in[48] - in[47]) << 16))
-	out[48] = uint64(
-		(in[48]-in[47])>>48 |
-			((in[49] - in[48]) << 15))
-	out[49] = uint64(
-		(in[49]-in[48])>>49 |
-			((in[50] - in[49]) << 14))
-	out[50] = uint64(
-		(in[50]-in[49])>>50 |
-			((in[51] - in[50]) << 13))
-	out[51] = uint64(
-		(in[51]-in[50])>>51 |
-			((in[52] - in[51]) << 12))
-	out[52] = uint64(
-		(in[52]-in[51])>>52 |
-			((in[53] - in[52]) << 11))
-	out[53] = uint64(
-		(in[53]-in[52])>>53 |
-			((in[54] - in[53]) << 10))
-	out[54] = uint64(
-		(in[54]-in[53])>>54 |
-			((in[55] - in[54]) << 9))
-	out[55] = uint64(
-		(in[55]-in[54])>>55 |
-			((in[56] - in[55]) << 8))
-	out[56] = uint64(
-		(in[56]-in[55])>>56 |
-			((in[57] - in[56]) << 7))
-	out[57] = uint64(
-		(in[57]-in[56])>>57 |
-			((in[58] - in[57]) << 6))
-	out[58] = uint64(
-		(in[58]-in[57])>>58 |
-			((in[59] - in[58]) << 5))
-	out[59] = uint64(
-		(in[59]-in[58])>>59 |
-			((in[60] - in[59]) << 4))
-	out[60] = uint64(
-		(in[60]-in[59])>>60 |
-			((in[61] - in[60]) << 3))
-	out[61] = uint64(
-		(in[61]-in[60])>>61 |
-			((in[62] - in[61]) << 2))
-	out[62] = uint64(
-		(in[62]-in[61])>>62 |
-			((in[63] - in[62]) << 1))
+func deltapack64_63[T uint64 | int64](out *[63]uint64, in *[64]T, initoffset T) {
+	out[0], out[1], out[2], out[3], out[4], out[5], out[6], out[7], out[8], out[9], out[10], out[11], out[12], out[13], out[14], out[15], out[16], out[17], out[18], out[19], out[20], out[21], out[22], out[23], out[24], out[25], out[26], out[27], out[28], out[29], out[30], out[31], out[32], out[33], out[34], out[35], out[36], out[37], out[38], out[39], out[40], out[41], out[42], out[43], out[44], out[45], out[46], out[47], out[48], out[49], out[50], out[51], out[52], out[53], out[54], out[55], out[56], out[57], out[58], out[59], out[60], out[61], out[62] =
+		uint64(in[0]-initoffset|((in[1]-in[0])<<63)), uint64((in[1]-in[0])>>1|((in[2]-in[1])<<62)), uint64((in[2]-in[1])>>2|((in[3]-in[2])<<61)), uint64((in[3]-in[2])>>3|((in[4]-in[3])<<60)), uint64((in[4]-in[3])>>4|((in[5]-in[4])<<59)), uint64((in[5]-in[4])>>5|((in[6]-in[5])<<58)), uint64((in[6]-in[5])>>6|((in[7]-in[6])<<57)), uint64((in[7]-in[6])>>7|((in[8]-in[7])<<56)), uint64((in[8]-in[7])>>8|((in[9]-in[8])<<55)), uint64((in[9]-in[8])>>9|((in[10]-in[9])<<54)), uint64((in[10]-in[9])>>10|((in[11]-in[10])<<53)), uint64((in[11]-in[10])>>11|((in[12]-in[11])<<52)), uint64((in[12]-in[11])>>12|((in[13]-in[12])<<51)), uint64((in[13]-in[12])>>13|((in[14]-in[13])<<50)), uint64((in[14]-in[13])>>14|((in[15]-in[14])<<49)), uint64((in[15]-in[14])>>15|((in[16]-in[15])<<48)), uint64((in[16]-in[15])>>16|((in[17]-in[16])<<47)), uint64((in[17]-in[16])>>17|((in[18]-in[17])<<46)), uint64((in[18]-in[17])>>18|((in[19]-in[18])<<45)), uint64((in[19]-in[18])>>19|((in[20]-in[19])<<44)), uint64((in[20]-in[19])>>20|((in[21]-in[20])<<43)), uint64((in[21]-in[20])>>21|((in[22]-in[21])<<42)), uint64((in[22]-in[21])>>22|((in[23]-in[22])<<41)), uint64((in[23]-in[22])>>23|((in[24]-in[23])<<40)), uint64((in[24]-in[23])>>24|((in[25]-in[24])<<39)), uint64((in[25]-in[24])>>25|((in[26]-in[25])<<38)), uint64((in[26]-in[25])>>26|((in[27]-in[26])<<37)), uint64((in[27]-in[26])>>27|((in[28]-in[27])<<36)), uint64((in[28]-in[27])>>28|((in[29]-in[28])<<35)), uint64((in[29]-in[28])>>29|((in[30]-in[29])<<34)), uint64((in[30]-in[29])>>30|((in[31]-in[30])<<33)), uint64((in[31]-in[30])>>31|((in[32]-in[31])<<32)), uint64((in[32]-in[31])>>32|((in[33]-in[32])<<31)), uint64((in[33]-in[32])>>33|((in[34]-in[33])<<30)), uint64((in[34]-in[33])>>34|((in[35]-in[34])<<29)), uint64((in[35]-in[34])>>35|((in[36]-in[35])<<28)), uint64((in[36]-in[35])>>36|((in[37]-in[36])<<27)), uint64((in[37]-in[36])>>37|((in[38]-in[37])<<26)), uint64((in[38]-in[37])>>38|((in[39]-in[38])<<25)), uint64((in[39]-in[38])>>39|((in[40]-in[39])<<24)), uint64((in[40]-in[39])>>40|((in[41]-in[40])<<23)), uint64((in[41]-in[40])>>41|((in[42]-in[41])<<22)), uint64((in[42]-in[41])>>42|((in[43]-in[42])<<21)), uint64((in[43]-in[42])>>43|((in[44]-in[43])<<20)), uint64((in[44]-in[43])>>44|((in[45]-in[44])<<19)), uint64((in[45]-in[44])>>45|((in[46]-in[45])<<18)), uint64((in[46]-in[45])>>46|((in[47]-in[46])<<17)), uint64((in[47]-in[46])>>47|((in[48]-in[47])<<16)), uint64((in[48]-in[47])>>48|((in[49]-in[48])<<15)), uint64((in[49]-in[48])>>49|((in[50]-in[49])<<14)), uint64((in[50]-in[49])>>50|((in[51]-in[50])<<13)), uint64((in[51]-in[50])>>51|((in[52]-in[51])<<12)), uint64((in[52]-in[51])>>52|((in[53]-in[52])<<11)), uint64((in[53]-in[52])>>53|((in[54]-in[53])<<10)), uint64((in[54]-in[53])>>54|((in[55]-in[54])<<9)), uint64((in[55]-in[54])>>55|((in[56]-in[55])<<8)), uint64((in[56]-in[55])>>56|((in[57]-in[56])<<7)), uint64((in[57]-in[56])>>57|((in[58]-in[57])<<6)), uint64((in[58]-in[57])>>58|((in[59]-in[58])<<5)), uint64((in[59]-in[58])>>59|((in[60]-in[59])<<4)), uint64((in[60]-in[59])>>60|((in[61]-in[60])<<3)), uint64((in[61]-in[60])>>61|((in[62]-in[61])<<2)), uint64((in[62]-in[61])>>62|((in[63]-in[62])<<1))
 }
-func deltapack64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]uint64, ntz int) {
+func deltapack64_ntz_63[T uint64 | int64](out *[63]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(in[0]-initoffset)>>ntz |
@@ -16923,7 +9433,7 @@ func deltapack64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]uint
 			((in[63] - in[62]) >> ntz << 1))
 }
 
-func deltaunpack64_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64]T) {
+func deltaunpack64_0[T uint64 | int64](out *[64]T, in *[0]uint64, initoffset T) {
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -16989,7 +9499,7 @@ func deltaunpack64_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64]T) 
 	out[62] = initoffset
 	out[63] = initoffset
 }
-func deltaunpack64_ntz_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_0[T uint64 | int64](out *[64]T, in *[0]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = initoffset
 	out[1] = initoffset
@@ -17057,7 +9567,7 @@ func deltaunpack64_ntz_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64
 	out[63] = initoffset
 }
 
-func deltaunpack64_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64]T) {
+func deltaunpack64_1[T uint64 | int64](out *[64]T, in *[1]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1) + initoffset
 	out[1] = T((in[0]>>1)&0x1) + out[0]
 	out[2] = T((in[0]>>2)&0x1) + out[1]
@@ -17123,7 +9633,7 @@ func deltaunpack64_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64]T) 
 	out[62] = T((in[0]>>62)&0x1) + out[61]
 	out[63] = T((in[0] >> 63)) + out[62]
 }
-func deltaunpack64_ntz_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_1[T uint64 | int64](out *[64]T, in *[1]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1)<<ntz + initoffset
 	out[1] = T((in[0]>>1)&0x1)<<ntz + out[0]
@@ -17191,7 +9701,7 @@ func deltaunpack64_ntz_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64
 	out[63] = T((in[0]>>63))<<ntz + out[62]
 }
 
-func deltaunpack64_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64]T) {
+func deltaunpack64_2[T uint64 | int64](out *[64]T, in *[2]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3) + initoffset
 	out[1] = T((in[0]>>2)&0x3) + out[0]
 	out[2] = T((in[0]>>4)&0x3) + out[1]
@@ -17257,7 +9767,7 @@ func deltaunpack64_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64]T) 
 	out[62] = T((in[1]>>60)&0x3) + out[61]
 	out[63] = T((in[1] >> 62)) + out[62]
 }
-func deltaunpack64_ntz_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_2[T uint64 | int64](out *[64]T, in *[2]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3)<<ntz + initoffset
 	out[1] = T((in[0]>>2)&0x3)<<ntz + out[0]
@@ -17325,7 +9835,7 @@ func deltaunpack64_ntz_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64
 	out[63] = T((in[1]>>62))<<ntz + out[62]
 }
 
-func deltaunpack64_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64]T) {
+func deltaunpack64_3[T uint64 | int64](out *[64]T, in *[3]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7) + initoffset
 	out[1] = T((in[0]>>3)&0x7) + out[0]
 	out[2] = T((in[0]>>6)&0x7) + out[1]
@@ -17391,7 +9901,7 @@ func deltaunpack64_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64]T) 
 	out[62] = T((in[2]>>58)&0x7) + out[61]
 	out[63] = T((in[2] >> 61)) + out[62]
 }
-func deltaunpack64_ntz_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_3[T uint64 | int64](out *[64]T, in *[3]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7)<<ntz + initoffset
 	out[1] = T((in[0]>>3)&0x7)<<ntz + out[0]
@@ -17459,7 +9969,7 @@ func deltaunpack64_ntz_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64
 	out[63] = T((in[2]>>61))<<ntz + out[62]
 }
 
-func deltaunpack64_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64]T) {
+func deltaunpack64_4[T uint64 | int64](out *[64]T, in *[4]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xF) + initoffset
 	out[1] = T((in[0]>>4)&0xF) + out[0]
 	out[2] = T((in[0]>>8)&0xF) + out[1]
@@ -17525,7 +10035,7 @@ func deltaunpack64_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64]T) 
 	out[62] = T((in[3]>>56)&0xF) + out[61]
 	out[63] = T((in[3] >> 60)) + out[62]
 }
-func deltaunpack64_ntz_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_4[T uint64 | int64](out *[64]T, in *[4]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xF)<<ntz + initoffset
 	out[1] = T((in[0]>>4)&0xF)<<ntz + out[0]
@@ -17593,7 +10103,7 @@ func deltaunpack64_ntz_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64
 	out[63] = T((in[3]>>60))<<ntz + out[62]
 }
 
-func deltaunpack64_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64]T) {
+func deltaunpack64_5[T uint64 | int64](out *[64]T, in *[5]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1F) + initoffset
 	out[1] = T((in[0]>>5)&0x1F) + out[0]
 	out[2] = T((in[0]>>10)&0x1F) + out[1]
@@ -17659,7 +10169,7 @@ func deltaunpack64_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64]T) 
 	out[62] = T((in[4]>>54)&0x1F) + out[61]
 	out[63] = T((in[4] >> 59)) + out[62]
 }
-func deltaunpack64_ntz_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_5[T uint64 | int64](out *[64]T, in *[5]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1F)<<ntz + initoffset
 	out[1] = T((in[0]>>5)&0x1F)<<ntz + out[0]
@@ -17727,7 +10237,7 @@ func deltaunpack64_ntz_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64
 	out[63] = T((in[4]>>59))<<ntz + out[62]
 }
 
-func deltaunpack64_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64]T) {
+func deltaunpack64_6[T uint64 | int64](out *[64]T, in *[6]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3F) + initoffset
 	out[1] = T((in[0]>>6)&0x3F) + out[0]
 	out[2] = T((in[0]>>12)&0x3F) + out[1]
@@ -17793,7 +10303,7 @@ func deltaunpack64_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64]T) 
 	out[62] = T((in[5]>>52)&0x3F) + out[61]
 	out[63] = T((in[5] >> 58)) + out[62]
 }
-func deltaunpack64_ntz_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_6[T uint64 | int64](out *[64]T, in *[6]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3F)<<ntz + initoffset
 	out[1] = T((in[0]>>6)&0x3F)<<ntz + out[0]
@@ -17861,7 +10371,7 @@ func deltaunpack64_ntz_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64
 	out[63] = T((in[5]>>58))<<ntz + out[62]
 }
 
-func deltaunpack64_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64]T) {
+func deltaunpack64_7[T uint64 | int64](out *[64]T, in *[7]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7F) + initoffset
 	out[1] = T((in[0]>>7)&0x7F) + out[0]
 	out[2] = T((in[0]>>14)&0x7F) + out[1]
@@ -17927,7 +10437,7 @@ func deltaunpack64_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64]T) 
 	out[62] = T((in[6]>>50)&0x7F) + out[61]
 	out[63] = T((in[6] >> 57)) + out[62]
 }
-func deltaunpack64_ntz_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_7[T uint64 | int64](out *[64]T, in *[7]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7F)<<ntz + initoffset
 	out[1] = T((in[0]>>7)&0x7F)<<ntz + out[0]
@@ -17995,7 +10505,7 @@ func deltaunpack64_ntz_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64
 	out[63] = T((in[6]>>57))<<ntz + out[62]
 }
 
-func deltaunpack64_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64]T) {
+func deltaunpack64_8[T uint64 | int64](out *[64]T, in *[8]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFF) + initoffset
 	out[1] = T((in[0]>>8)&0xFF) + out[0]
 	out[2] = T((in[0]>>16)&0xFF) + out[1]
@@ -18061,7 +10571,7 @@ func deltaunpack64_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64]T) 
 	out[62] = T((in[7]>>48)&0xFF) + out[61]
 	out[63] = T((in[7] >> 56)) + out[62]
 }
-func deltaunpack64_ntz_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_8[T uint64 | int64](out *[64]T, in *[8]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFF)<<ntz + initoffset
 	out[1] = T((in[0]>>8)&0xFF)<<ntz + out[0]
@@ -18129,7 +10639,7 @@ func deltaunpack64_ntz_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64
 	out[63] = T((in[7]>>56))<<ntz + out[62]
 }
 
-func deltaunpack64_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64]T) {
+func deltaunpack64_9[T uint64 | int64](out *[64]T, in *[9]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FF) + initoffset
 	out[1] = T((in[0]>>9)&0x1FF) + out[0]
 	out[2] = T((in[0]>>18)&0x1FF) + out[1]
@@ -18195,7 +10705,7 @@ func deltaunpack64_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64]T) 
 	out[62] = T((in[8]>>46)&0x1FF) + out[61]
 	out[63] = T((in[8] >> 55)) + out[62]
 }
-func deltaunpack64_ntz_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_9[T uint64 | int64](out *[64]T, in *[9]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FF)<<ntz + initoffset
 	out[1] = T((in[0]>>9)&0x1FF)<<ntz + out[0]
@@ -18263,7 +10773,7 @@ func deltaunpack64_ntz_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64
 	out[63] = T((in[8]>>55))<<ntz + out[62]
 }
 
-func deltaunpack64_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[64]T) {
+func deltaunpack64_10[T uint64 | int64](out *[64]T, in *[10]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FF) + initoffset
 	out[1] = T((in[0]>>10)&0x3FF) + out[0]
 	out[2] = T((in[0]>>20)&0x3FF) + out[1]
@@ -18329,7 +10839,7 @@ func deltaunpack64_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[64]T
 	out[62] = T((in[9]>>44)&0x3FF) + out[61]
 	out[63] = T((in[9] >> 54)) + out[62]
 }
-func deltaunpack64_ntz_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_10[T uint64 | int64](out *[64]T, in *[10]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FF)<<ntz + initoffset
 	out[1] = T((in[0]>>10)&0x3FF)<<ntz + out[0]
@@ -18397,7 +10907,7 @@ func deltaunpack64_ntz_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[
 	out[63] = T((in[9]>>54))<<ntz + out[62]
 }
 
-func deltaunpack64_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[64]T) {
+func deltaunpack64_11[T uint64 | int64](out *[64]T, in *[11]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FF) + initoffset
 	out[1] = T((in[0]>>11)&0x7FF) + out[0]
 	out[2] = T((in[0]>>22)&0x7FF) + out[1]
@@ -18463,7 +10973,7 @@ func deltaunpack64_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[64]T
 	out[62] = T((in[10]>>42)&0x7FF) + out[61]
 	out[63] = T((in[10] >> 53)) + out[62]
 }
-func deltaunpack64_ntz_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_11[T uint64 | int64](out *[64]T, in *[11]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FF)<<ntz + initoffset
 	out[1] = T((in[0]>>11)&0x7FF)<<ntz + out[0]
@@ -18531,7 +11041,7 @@ func deltaunpack64_ntz_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[
 	out[63] = T((in[10]>>53))<<ntz + out[62]
 }
 
-func deltaunpack64_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[64]T) {
+func deltaunpack64_12[T uint64 | int64](out *[64]T, in *[12]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFF) + initoffset
 	out[1] = T((in[0]>>12)&0xFFF) + out[0]
 	out[2] = T((in[0]>>24)&0xFFF) + out[1]
@@ -18597,7 +11107,7 @@ func deltaunpack64_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[64]T
 	out[62] = T((in[11]>>40)&0xFFF) + out[61]
 	out[63] = T((in[11] >> 52)) + out[62]
 }
-func deltaunpack64_ntz_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_12[T uint64 | int64](out *[64]T, in *[12]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>12)&0xFFF)<<ntz + out[0]
@@ -18665,7 +11175,7 @@ func deltaunpack64_ntz_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[
 	out[63] = T((in[11]>>52))<<ntz + out[62]
 }
 
-func deltaunpack64_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[64]T) {
+func deltaunpack64_13[T uint64 | int64](out *[64]T, in *[13]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFF) + initoffset
 	out[1] = T((in[0]>>13)&0x1FFF) + out[0]
 	out[2] = T((in[0]>>26)&0x1FFF) + out[1]
@@ -18731,7 +11241,7 @@ func deltaunpack64_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[64]T
 	out[62] = T((in[12]>>38)&0x1FFF) + out[61]
 	out[63] = T((in[12] >> 51)) + out[62]
 }
-func deltaunpack64_ntz_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_13[T uint64 | int64](out *[64]T, in *[13]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFF)<<ntz + initoffset
 	out[1] = T((in[0]>>13)&0x1FFF)<<ntz + out[0]
@@ -18799,7 +11309,7 @@ func deltaunpack64_ntz_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[
 	out[63] = T((in[12]>>51))<<ntz + out[62]
 }
 
-func deltaunpack64_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[64]T) {
+func deltaunpack64_14[T uint64 | int64](out *[64]T, in *[14]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFF) + initoffset
 	out[1] = T((in[0]>>14)&0x3FFF) + out[0]
 	out[2] = T((in[0]>>28)&0x3FFF) + out[1]
@@ -18865,7 +11375,7 @@ func deltaunpack64_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[64]T
 	out[62] = T((in[13]>>36)&0x3FFF) + out[61]
 	out[63] = T((in[13] >> 50)) + out[62]
 }
-func deltaunpack64_ntz_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_14[T uint64 | int64](out *[64]T, in *[14]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFF)<<ntz + initoffset
 	out[1] = T((in[0]>>14)&0x3FFF)<<ntz + out[0]
@@ -18933,7 +11443,7 @@ func deltaunpack64_ntz_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[
 	out[63] = T((in[13]>>50))<<ntz + out[62]
 }
 
-func deltaunpack64_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[64]T) {
+func deltaunpack64_15[T uint64 | int64](out *[64]T, in *[15]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFF) + initoffset
 	out[1] = T((in[0]>>15)&0x7FFF) + out[0]
 	out[2] = T((in[0]>>30)&0x7FFF) + out[1]
@@ -18999,7 +11509,7 @@ func deltaunpack64_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[64]T
 	out[62] = T((in[14]>>34)&0x7FFF) + out[61]
 	out[63] = T((in[14] >> 49)) + out[62]
 }
-func deltaunpack64_ntz_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_15[T uint64 | int64](out *[64]T, in *[15]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFF)<<ntz + initoffset
 	out[1] = T((in[0]>>15)&0x7FFF)<<ntz + out[0]
@@ -19067,7 +11577,7 @@ func deltaunpack64_ntz_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[
 	out[63] = T((in[14]>>49))<<ntz + out[62]
 }
 
-func deltaunpack64_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[64]T) {
+func deltaunpack64_16[T uint64 | int64](out *[64]T, in *[16]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFF) + initoffset
 	out[1] = T((in[0]>>16)&0xFFFF) + out[0]
 	out[2] = T((in[0]>>32)&0xFFFF) + out[1]
@@ -19133,7 +11643,7 @@ func deltaunpack64_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[64]T
 	out[62] = T((in[15]>>32)&0xFFFF) + out[61]
 	out[63] = T((in[15] >> 48)) + out[62]
 }
-func deltaunpack64_ntz_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_16[T uint64 | int64](out *[64]T, in *[16]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>16)&0xFFFF)<<ntz + out[0]
@@ -19201,7 +11711,7 @@ func deltaunpack64_ntz_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[
 	out[63] = T((in[15]>>48))<<ntz + out[62]
 }
 
-func deltaunpack64_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[64]T) {
+func deltaunpack64_17[T uint64 | int64](out *[64]T, in *[17]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFF) + initoffset
 	out[1] = T((in[0]>>17)&0x1FFFF) + out[0]
 	out[2] = T((in[0]>>34)&0x1FFFF) + out[1]
@@ -19267,7 +11777,7 @@ func deltaunpack64_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[64]T
 	out[62] = T((in[16]>>30)&0x1FFFF) + out[61]
 	out[63] = T((in[16] >> 47)) + out[62]
 }
-func deltaunpack64_ntz_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_17[T uint64 | int64](out *[64]T, in *[17]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>17)&0x1FFFF)<<ntz + out[0]
@@ -19335,7 +11845,7 @@ func deltaunpack64_ntz_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[
 	out[63] = T((in[16]>>47))<<ntz + out[62]
 }
 
-func deltaunpack64_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[64]T) {
+func deltaunpack64_18[T uint64 | int64](out *[64]T, in *[18]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFF) + initoffset
 	out[1] = T((in[0]>>18)&0x3FFFF) + out[0]
 	out[2] = T((in[0]>>36)&0x3FFFF) + out[1]
@@ -19401,7 +11911,7 @@ func deltaunpack64_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[64]T
 	out[62] = T((in[17]>>28)&0x3FFFF) + out[61]
 	out[63] = T((in[17] >> 46)) + out[62]
 }
-func deltaunpack64_ntz_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_18[T uint64 | int64](out *[64]T, in *[18]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>18)&0x3FFFF)<<ntz + out[0]
@@ -19469,7 +11979,7 @@ func deltaunpack64_ntz_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[
 	out[63] = T((in[17]>>46))<<ntz + out[62]
 }
 
-func deltaunpack64_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[64]T) {
+func deltaunpack64_19[T uint64 | int64](out *[64]T, in *[19]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFF) + initoffset
 	out[1] = T((in[0]>>19)&0x7FFFF) + out[0]
 	out[2] = T((in[0]>>38)&0x7FFFF) + out[1]
@@ -19535,7 +12045,7 @@ func deltaunpack64_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[64]T
 	out[62] = T((in[18]>>26)&0x7FFFF) + out[61]
 	out[63] = T((in[18] >> 45)) + out[62]
 }
-func deltaunpack64_ntz_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_19[T uint64 | int64](out *[64]T, in *[19]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>19)&0x7FFFF)<<ntz + out[0]
@@ -19603,7 +12113,7 @@ func deltaunpack64_ntz_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[
 	out[63] = T((in[18]>>45))<<ntz + out[62]
 }
 
-func deltaunpack64_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[64]T) {
+func deltaunpack64_20[T uint64 | int64](out *[64]T, in *[20]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFF) + initoffset
 	out[1] = T((in[0]>>20)&0xFFFFF) + out[0]
 	out[2] = T((in[0]>>40)&0xFFFFF) + out[1]
@@ -19669,7 +12179,7 @@ func deltaunpack64_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[64]T
 	out[62] = T((in[19]>>24)&0xFFFFF) + out[61]
 	out[63] = T((in[19] >> 44)) + out[62]
 }
-func deltaunpack64_ntz_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_20[T uint64 | int64](out *[64]T, in *[20]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>20)&0xFFFFF)<<ntz + out[0]
@@ -19737,7 +12247,7 @@ func deltaunpack64_ntz_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[
 	out[63] = T((in[19]>>44))<<ntz + out[62]
 }
 
-func deltaunpack64_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[64]T) {
+func deltaunpack64_21[T uint64 | int64](out *[64]T, in *[21]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFF) + initoffset
 	out[1] = T((in[0]>>21)&0x1FFFFF) + out[0]
 	out[2] = T((in[0]>>42)&0x1FFFFF) + out[1]
@@ -19803,7 +12313,7 @@ func deltaunpack64_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[64]T
 	out[62] = T((in[20]>>22)&0x1FFFFF) + out[61]
 	out[63] = T((in[20] >> 43)) + out[62]
 }
-func deltaunpack64_ntz_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_21[T uint64 | int64](out *[64]T, in *[21]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>21)&0x1FFFFF)<<ntz + out[0]
@@ -19871,7 +12381,7 @@ func deltaunpack64_ntz_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[
 	out[63] = T((in[20]>>43))<<ntz + out[62]
 }
 
-func deltaunpack64_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[64]T) {
+func deltaunpack64_22[T uint64 | int64](out *[64]T, in *[22]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFF) + initoffset
 	out[1] = T((in[0]>>22)&0x3FFFFF) + out[0]
 	out[2] = T(((in[0] >> 44) | ((in[1] & 0x3) << 20))) + out[1]
@@ -19937,7 +12447,7 @@ func deltaunpack64_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[64]T
 	out[62] = T((in[21]>>20)&0x3FFFFF) + out[61]
 	out[63] = T((in[21] >> 42)) + out[62]
 }
-func deltaunpack64_ntz_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_22[T uint64 | int64](out *[64]T, in *[22]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>22)&0x3FFFFF)<<ntz + out[0]
@@ -20005,7 +12515,7 @@ func deltaunpack64_ntz_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[
 	out[63] = T((in[21]>>42))<<ntz + out[62]
 }
 
-func deltaunpack64_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[64]T) {
+func deltaunpack64_23[T uint64 | int64](out *[64]T, in *[23]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFF) + initoffset
 	out[1] = T((in[0]>>23)&0x7FFFFF) + out[0]
 	out[2] = T(((in[0] >> 46) | ((in[1] & 0x1F) << 18))) + out[1]
@@ -20071,7 +12581,7 @@ func deltaunpack64_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[64]T
 	out[62] = T((in[22]>>18)&0x7FFFFF) + out[61]
 	out[63] = T((in[22] >> 41)) + out[62]
 }
-func deltaunpack64_ntz_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_23[T uint64 | int64](out *[64]T, in *[23]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>23)&0x7FFFFF)<<ntz + out[0]
@@ -20139,7 +12649,7 @@ func deltaunpack64_ntz_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[
 	out[63] = T((in[22]>>41))<<ntz + out[62]
 }
 
-func deltaunpack64_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[64]T) {
+func deltaunpack64_24[T uint64 | int64](out *[64]T, in *[24]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFF) + initoffset
 	out[1] = T((in[0]>>24)&0xFFFFFF) + out[0]
 	out[2] = T(((in[0] >> 48) | ((in[1] & 0xFF) << 16))) + out[1]
@@ -20205,7 +12715,7 @@ func deltaunpack64_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[64]T
 	out[62] = T((in[23]>>16)&0xFFFFFF) + out[61]
 	out[63] = T((in[23] >> 40)) + out[62]
 }
-func deltaunpack64_ntz_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_24[T uint64 | int64](out *[64]T, in *[24]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>24)&0xFFFFFF)<<ntz + out[0]
@@ -20273,7 +12783,7 @@ func deltaunpack64_ntz_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[
 	out[63] = T((in[23]>>40))<<ntz + out[62]
 }
 
-func deltaunpack64_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[64]T) {
+func deltaunpack64_25[T uint64 | int64](out *[64]T, in *[25]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFF) + initoffset
 	out[1] = T((in[0]>>25)&0x1FFFFFF) + out[0]
 	out[2] = T(((in[0] >> 50) | ((in[1] & 0x7FF) << 14))) + out[1]
@@ -20339,7 +12849,7 @@ func deltaunpack64_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[64]T
 	out[62] = T((in[24]>>14)&0x1FFFFFF) + out[61]
 	out[63] = T((in[24] >> 39)) + out[62]
 }
-func deltaunpack64_ntz_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_25[T uint64 | int64](out *[64]T, in *[25]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>25)&0x1FFFFFF)<<ntz + out[0]
@@ -20407,7 +12917,7 @@ func deltaunpack64_ntz_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[
 	out[63] = T((in[24]>>39))<<ntz + out[62]
 }
 
-func deltaunpack64_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[64]T) {
+func deltaunpack64_26[T uint64 | int64](out *[64]T, in *[26]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFF) + initoffset
 	out[1] = T((in[0]>>26)&0x3FFFFFF) + out[0]
 	out[2] = T(((in[0] >> 52) | ((in[1] & 0x3FFF) << 12))) + out[1]
@@ -20473,7 +12983,7 @@ func deltaunpack64_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[64]T
 	out[62] = T((in[25]>>12)&0x3FFFFFF) + out[61]
 	out[63] = T((in[25] >> 38)) + out[62]
 }
-func deltaunpack64_ntz_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_26[T uint64 | int64](out *[64]T, in *[26]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>26)&0x3FFFFFF)<<ntz + out[0]
@@ -20541,7 +13051,7 @@ func deltaunpack64_ntz_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[
 	out[63] = T((in[25]>>38))<<ntz + out[62]
 }
 
-func deltaunpack64_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[64]T) {
+func deltaunpack64_27[T uint64 | int64](out *[64]T, in *[27]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFF) + initoffset
 	out[1] = T((in[0]>>27)&0x7FFFFFF) + out[0]
 	out[2] = T(((in[0] >> 54) | ((in[1] & 0x1FFFF) << 10))) + out[1]
@@ -20607,7 +13117,7 @@ func deltaunpack64_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[64]T
 	out[62] = T((in[26]>>10)&0x7FFFFFF) + out[61]
 	out[63] = T((in[26] >> 37)) + out[62]
 }
-func deltaunpack64_ntz_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_27[T uint64 | int64](out *[64]T, in *[27]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>27)&0x7FFFFFF)<<ntz + out[0]
@@ -20675,7 +13185,7 @@ func deltaunpack64_ntz_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[
 	out[63] = T((in[26]>>37))<<ntz + out[62]
 }
 
-func deltaunpack64_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[64]T) {
+func deltaunpack64_28[T uint64 | int64](out *[64]T, in *[28]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFF) + initoffset
 	out[1] = T((in[0]>>28)&0xFFFFFFF) + out[0]
 	out[2] = T(((in[0] >> 56) | ((in[1] & 0xFFFFF) << 8))) + out[1]
@@ -20741,7 +13251,7 @@ func deltaunpack64_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[64]T
 	out[62] = T((in[27]>>8)&0xFFFFFFF) + out[61]
 	out[63] = T((in[27] >> 36)) + out[62]
 }
-func deltaunpack64_ntz_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_28[T uint64 | int64](out *[64]T, in *[28]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>28)&0xFFFFFFF)<<ntz + out[0]
@@ -20809,7 +13319,7 @@ func deltaunpack64_ntz_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[
 	out[63] = T((in[27]>>36))<<ntz + out[62]
 }
 
-func deltaunpack64_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[64]T) {
+func deltaunpack64_29[T uint64 | int64](out *[64]T, in *[29]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFF) + initoffset
 	out[1] = T((in[0]>>29)&0x1FFFFFFF) + out[0]
 	out[2] = T(((in[0] >> 58) | ((in[1] & 0x7FFFFF) << 6))) + out[1]
@@ -20875,7 +13385,7 @@ func deltaunpack64_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[64]T
 	out[62] = T((in[28]>>6)&0x1FFFFFFF) + out[61]
 	out[63] = T((in[28] >> 35)) + out[62]
 }
-func deltaunpack64_ntz_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_29[T uint64 | int64](out *[64]T, in *[29]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>29)&0x1FFFFFFF)<<ntz + out[0]
@@ -20943,7 +13453,7 @@ func deltaunpack64_ntz_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[
 	out[63] = T((in[28]>>35))<<ntz + out[62]
 }
 
-func deltaunpack64_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[64]T) {
+func deltaunpack64_30[T uint64 | int64](out *[64]T, in *[30]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFF) + initoffset
 	out[1] = T((in[0]>>30)&0x3FFFFFFF) + out[0]
 	out[2] = T(((in[0] >> 60) | ((in[1] & 0x3FFFFFF) << 4))) + out[1]
@@ -21009,7 +13519,7 @@ func deltaunpack64_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[64]T
 	out[62] = T((in[29]>>4)&0x3FFFFFFF) + out[61]
 	out[63] = T((in[29] >> 34)) + out[62]
 }
-func deltaunpack64_ntz_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_30[T uint64 | int64](out *[64]T, in *[30]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>30)&0x3FFFFFFF)<<ntz + out[0]
@@ -21077,7 +13587,7 @@ func deltaunpack64_ntz_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[
 	out[63] = T((in[29]>>34))<<ntz + out[62]
 }
 
-func deltaunpack64_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[64]T) {
+func deltaunpack64_31[T uint64 | int64](out *[64]T, in *[31]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFF) + initoffset
 	out[1] = T((in[0]>>31)&0x7FFFFFFF) + out[0]
 	out[2] = T(((in[0] >> 62) | ((in[1] & 0x1FFFFFFF) << 2))) + out[1]
@@ -21143,7 +13653,7 @@ func deltaunpack64_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[64]T
 	out[62] = T((in[30]>>2)&0x7FFFFFFF) + out[61]
 	out[63] = T((in[30] >> 33)) + out[62]
 }
-func deltaunpack64_ntz_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_31[T uint64 | int64](out *[64]T, in *[31]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>31)&0x7FFFFFFF)<<ntz + out[0]
@@ -21211,7 +13721,7 @@ func deltaunpack64_ntz_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[
 	out[63] = T((in[30]>>33))<<ntz + out[62]
 }
 
-func deltaunpack64_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[64]T) {
+func deltaunpack64_32[T uint64 | int64](out *[64]T, in *[32]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFF) + initoffset
 	out[1] = T((in[0] >> 32)) + out[0]
 	out[2] = T((in[1]>>0)&0xFFFFFFFF) + out[1]
@@ -21277,7 +13787,7 @@ func deltaunpack64_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[64]T
 	out[62] = T((in[31]>>0)&0xFFFFFFFF) + out[61]
 	out[63] = T((in[31] >> 32)) + out[62]
 }
-func deltaunpack64_ntz_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_32[T uint64 | int64](out *[64]T, in *[32]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFF)<<ntz + initoffset
 	out[1] = T((in[0]>>32))<<ntz + out[0]
@@ -21345,7 +13855,7 @@ func deltaunpack64_ntz_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[
 	out[63] = T((in[31]>>32))<<ntz + out[62]
 }
 
-func deltaunpack64_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[64]T) {
+func deltaunpack64_33[T uint64 | int64](out *[64]T, in *[33]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 33) | ((in[1] & 0x3) << 31))) + out[0]
 	out[2] = T((in[1]>>2)&0x1FFFFFFFF) + out[1]
@@ -21411,7 +13921,7 @@ func deltaunpack64_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[64]T
 	out[62] = T(((in[31] >> 62) | ((in[32] & 0x7FFFFFFF) << 2))) + out[61]
 	out[63] = T((in[32] >> 31)) + out[62]
 }
-func deltaunpack64_ntz_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_33[T uint64 | int64](out *[64]T, in *[33]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>33)|((in[1]&0x3)<<31)))<<ntz + out[0]
@@ -21479,7 +13989,7 @@ func deltaunpack64_ntz_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[
 	out[63] = T((in[32]>>31))<<ntz + out[62]
 }
 
-func deltaunpack64_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[64]T) {
+func deltaunpack64_34[T uint64 | int64](out *[64]T, in *[34]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 34) | ((in[1] & 0xF) << 30))) + out[0]
 	out[2] = T((in[1]>>4)&0x3FFFFFFFF) + out[1]
@@ -21545,7 +14055,7 @@ func deltaunpack64_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[64]T
 	out[62] = T(((in[32] >> 60) | ((in[33] & 0x3FFFFFFF) << 4))) + out[61]
 	out[63] = T((in[33] >> 30)) + out[62]
 }
-func deltaunpack64_ntz_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_34[T uint64 | int64](out *[64]T, in *[34]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>34)|((in[1]&0xF)<<30)))<<ntz + out[0]
@@ -21613,7 +14123,7 @@ func deltaunpack64_ntz_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[
 	out[63] = T((in[33]>>30))<<ntz + out[62]
 }
 
-func deltaunpack64_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[64]T) {
+func deltaunpack64_35[T uint64 | int64](out *[64]T, in *[35]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 35) | ((in[1] & 0x3F) << 29))) + out[0]
 	out[2] = T((in[1]>>6)&0x7FFFFFFFF) + out[1]
@@ -21679,7 +14189,7 @@ func deltaunpack64_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[64]T
 	out[62] = T(((in[33] >> 58) | ((in[34] & 0x1FFFFFFF) << 6))) + out[61]
 	out[63] = T((in[34] >> 29)) + out[62]
 }
-func deltaunpack64_ntz_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_35[T uint64 | int64](out *[64]T, in *[35]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>35)|((in[1]&0x3F)<<29)))<<ntz + out[0]
@@ -21747,7 +14257,7 @@ func deltaunpack64_ntz_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[
 	out[63] = T((in[34]>>29))<<ntz + out[62]
 }
 
-func deltaunpack64_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[64]T) {
+func deltaunpack64_36[T uint64 | int64](out *[64]T, in *[36]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 36) | ((in[1] & 0xFF) << 28))) + out[0]
 	out[2] = T((in[1]>>8)&0xFFFFFFFFF) + out[1]
@@ -21813,7 +14323,7 @@ func deltaunpack64_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[64]T
 	out[62] = T(((in[34] >> 56) | ((in[35] & 0xFFFFFFF) << 8))) + out[61]
 	out[63] = T((in[35] >> 28)) + out[62]
 }
-func deltaunpack64_ntz_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_36[T uint64 | int64](out *[64]T, in *[36]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>36)|((in[1]&0xFF)<<28)))<<ntz + out[0]
@@ -21881,7 +14391,7 @@ func deltaunpack64_ntz_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[
 	out[63] = T((in[35]>>28))<<ntz + out[62]
 }
 
-func deltaunpack64_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[64]T) {
+func deltaunpack64_37[T uint64 | int64](out *[64]T, in *[37]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 37) | ((in[1] & 0x3FF) << 27))) + out[0]
 	out[2] = T((in[1]>>10)&0x1FFFFFFFFF) + out[1]
@@ -21947,7 +14457,7 @@ func deltaunpack64_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[64]T
 	out[62] = T(((in[35] >> 54) | ((in[36] & 0x7FFFFFF) << 10))) + out[61]
 	out[63] = T((in[36] >> 27)) + out[62]
 }
-func deltaunpack64_ntz_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_37[T uint64 | int64](out *[64]T, in *[37]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>37)|((in[1]&0x3FF)<<27)))<<ntz + out[0]
@@ -22015,7 +14525,7 @@ func deltaunpack64_ntz_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[
 	out[63] = T((in[36]>>27))<<ntz + out[62]
 }
 
-func deltaunpack64_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[64]T) {
+func deltaunpack64_38[T uint64 | int64](out *[64]T, in *[38]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 38) | ((in[1] & 0xFFF) << 26))) + out[0]
 	out[2] = T((in[1]>>12)&0x3FFFFFFFFF) + out[1]
@@ -22081,7 +14591,7 @@ func deltaunpack64_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[64]T
 	out[62] = T(((in[36] >> 52) | ((in[37] & 0x3FFFFFF) << 12))) + out[61]
 	out[63] = T((in[37] >> 26)) + out[62]
 }
-func deltaunpack64_ntz_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_38[T uint64 | int64](out *[64]T, in *[38]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>38)|((in[1]&0xFFF)<<26)))<<ntz + out[0]
@@ -22149,7 +14659,7 @@ func deltaunpack64_ntz_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[
 	out[63] = T((in[37]>>26))<<ntz + out[62]
 }
 
-func deltaunpack64_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[64]T) {
+func deltaunpack64_39[T uint64 | int64](out *[64]T, in *[39]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 39) | ((in[1] & 0x3FFF) << 25))) + out[0]
 	out[2] = T((in[1]>>14)&0x7FFFFFFFFF) + out[1]
@@ -22215,7 +14725,7 @@ func deltaunpack64_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[64]T
 	out[62] = T(((in[37] >> 50) | ((in[38] & 0x1FFFFFF) << 14))) + out[61]
 	out[63] = T((in[38] >> 25)) + out[62]
 }
-func deltaunpack64_ntz_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_39[T uint64 | int64](out *[64]T, in *[39]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>39)|((in[1]&0x3FFF)<<25)))<<ntz + out[0]
@@ -22283,7 +14793,7 @@ func deltaunpack64_ntz_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[
 	out[63] = T((in[38]>>25))<<ntz + out[62]
 }
 
-func deltaunpack64_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[64]T) {
+func deltaunpack64_40[T uint64 | int64](out *[64]T, in *[40]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 40) | ((in[1] & 0xFFFF) << 24))) + out[0]
 	out[2] = T((in[1]>>16)&0xFFFFFFFFFF) + out[1]
@@ -22349,7 +14859,7 @@ func deltaunpack64_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[64]T
 	out[62] = T(((in[38] >> 48) | ((in[39] & 0xFFFFFF) << 16))) + out[61]
 	out[63] = T((in[39] >> 24)) + out[62]
 }
-func deltaunpack64_ntz_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_40[T uint64 | int64](out *[64]T, in *[40]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>40)|((in[1]&0xFFFF)<<24)))<<ntz + out[0]
@@ -22417,7 +14927,7 @@ func deltaunpack64_ntz_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[
 	out[63] = T((in[39]>>24))<<ntz + out[62]
 }
 
-func deltaunpack64_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[64]T) {
+func deltaunpack64_41[T uint64 | int64](out *[64]T, in *[41]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 41) | ((in[1] & 0x3FFFF) << 23))) + out[0]
 	out[2] = T((in[1]>>18)&0x1FFFFFFFFFF) + out[1]
@@ -22483,7 +14993,7 @@ func deltaunpack64_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[64]T
 	out[62] = T(((in[39] >> 46) | ((in[40] & 0x7FFFFF) << 18))) + out[61]
 	out[63] = T((in[40] >> 23)) + out[62]
 }
-func deltaunpack64_ntz_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_41[T uint64 | int64](out *[64]T, in *[41]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>41)|((in[1]&0x3FFFF)<<23)))<<ntz + out[0]
@@ -22551,7 +15061,7 @@ func deltaunpack64_ntz_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[
 	out[63] = T((in[40]>>23))<<ntz + out[62]
 }
 
-func deltaunpack64_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[64]T) {
+func deltaunpack64_42[T uint64 | int64](out *[64]T, in *[42]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 42) | ((in[1] & 0xFFFFF) << 22))) + out[0]
 	out[2] = T((in[1]>>20)&0x3FFFFFFFFFF) + out[1]
@@ -22617,7 +15127,7 @@ func deltaunpack64_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[64]T
 	out[62] = T(((in[40] >> 44) | ((in[41] & 0x3FFFFF) << 20))) + out[61]
 	out[63] = T((in[41] >> 22)) + out[62]
 }
-func deltaunpack64_ntz_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_42[T uint64 | int64](out *[64]T, in *[42]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>42)|((in[1]&0xFFFFF)<<22)))<<ntz + out[0]
@@ -22685,7 +15195,7 @@ func deltaunpack64_ntz_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[
 	out[63] = T((in[41]>>22))<<ntz + out[62]
 }
 
-func deltaunpack64_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[64]T) {
+func deltaunpack64_43[T uint64 | int64](out *[64]T, in *[43]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 43) | ((in[1] & 0x3FFFFF) << 21))) + out[0]
 	out[2] = T(((in[1] >> 22) | ((in[2] & 0x1) << 42))) + out[1]
@@ -22751,7 +15261,7 @@ func deltaunpack64_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[64]T
 	out[62] = T(((in[41] >> 42) | ((in[42] & 0x1FFFFF) << 22))) + out[61]
 	out[63] = T((in[42] >> 21)) + out[62]
 }
-func deltaunpack64_ntz_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_43[T uint64 | int64](out *[64]T, in *[43]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>43)|((in[1]&0x3FFFFF)<<21)))<<ntz + out[0]
@@ -22819,7 +15329,7 @@ func deltaunpack64_ntz_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[
 	out[63] = T((in[42]>>21))<<ntz + out[62]
 }
 
-func deltaunpack64_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[64]T) {
+func deltaunpack64_44[T uint64 | int64](out *[64]T, in *[44]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 44) | ((in[1] & 0xFFFFFF) << 20))) + out[0]
 	out[2] = T(((in[1] >> 24) | ((in[2] & 0xF) << 40))) + out[1]
@@ -22885,7 +15395,7 @@ func deltaunpack64_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[64]T
 	out[62] = T(((in[42] >> 40) | ((in[43] & 0xFFFFF) << 24))) + out[61]
 	out[63] = T((in[43] >> 20)) + out[62]
 }
-func deltaunpack64_ntz_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_44[T uint64 | int64](out *[64]T, in *[44]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>44)|((in[1]&0xFFFFFF)<<20)))<<ntz + out[0]
@@ -22953,7 +15463,7 @@ func deltaunpack64_ntz_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[
 	out[63] = T((in[43]>>20))<<ntz + out[62]
 }
 
-func deltaunpack64_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[64]T) {
+func deltaunpack64_45[T uint64 | int64](out *[64]T, in *[45]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 45) | ((in[1] & 0x3FFFFFF) << 19))) + out[0]
 	out[2] = T(((in[1] >> 26) | ((in[2] & 0x7F) << 38))) + out[1]
@@ -23019,7 +15529,7 @@ func deltaunpack64_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[64]T
 	out[62] = T(((in[43] >> 38) | ((in[44] & 0x7FFFF) << 26))) + out[61]
 	out[63] = T((in[44] >> 19)) + out[62]
 }
-func deltaunpack64_ntz_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_45[T uint64 | int64](out *[64]T, in *[45]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>45)|((in[1]&0x3FFFFFF)<<19)))<<ntz + out[0]
@@ -23087,7 +15597,7 @@ func deltaunpack64_ntz_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[
 	out[63] = T((in[44]>>19))<<ntz + out[62]
 }
 
-func deltaunpack64_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[64]T) {
+func deltaunpack64_46[T uint64 | int64](out *[64]T, in *[46]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 46) | ((in[1] & 0xFFFFFFF) << 18))) + out[0]
 	out[2] = T(((in[1] >> 28) | ((in[2] & 0x3FF) << 36))) + out[1]
@@ -23153,7 +15663,7 @@ func deltaunpack64_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[64]T
 	out[62] = T(((in[44] >> 36) | ((in[45] & 0x3FFFF) << 28))) + out[61]
 	out[63] = T((in[45] >> 18)) + out[62]
 }
-func deltaunpack64_ntz_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_46[T uint64 | int64](out *[64]T, in *[46]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>46)|((in[1]&0xFFFFFFF)<<18)))<<ntz + out[0]
@@ -23221,7 +15731,7 @@ func deltaunpack64_ntz_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[
 	out[63] = T((in[45]>>18))<<ntz + out[62]
 }
 
-func deltaunpack64_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[64]T) {
+func deltaunpack64_47[T uint64 | int64](out *[64]T, in *[47]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 47) | ((in[1] & 0x3FFFFFFF) << 17))) + out[0]
 	out[2] = T(((in[1] >> 30) | ((in[2] & 0x1FFF) << 34))) + out[1]
@@ -23287,7 +15797,7 @@ func deltaunpack64_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[64]T
 	out[62] = T(((in[45] >> 34) | ((in[46] & 0x1FFFF) << 30))) + out[61]
 	out[63] = T((in[46] >> 17)) + out[62]
 }
-func deltaunpack64_ntz_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_47[T uint64 | int64](out *[64]T, in *[47]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>47)|((in[1]&0x3FFFFFFF)<<17)))<<ntz + out[0]
@@ -23355,7 +15865,7 @@ func deltaunpack64_ntz_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[
 	out[63] = T((in[46]>>17))<<ntz + out[62]
 }
 
-func deltaunpack64_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[64]T) {
+func deltaunpack64_48[T uint64 | int64](out *[64]T, in *[48]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 48) | ((in[1] & 0xFFFFFFFF) << 16))) + out[0]
 	out[2] = T(((in[1] >> 32) | ((in[2] & 0xFFFF) << 32))) + out[1]
@@ -23421,7 +15931,7 @@ func deltaunpack64_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[64]T
 	out[62] = T(((in[46] >> 32) | ((in[47] & 0xFFFF) << 32))) + out[61]
 	out[63] = T((in[47] >> 16)) + out[62]
 }
-func deltaunpack64_ntz_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_48[T uint64 | int64](out *[64]T, in *[48]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>48)|((in[1]&0xFFFFFFFF)<<16)))<<ntz + out[0]
@@ -23489,7 +15999,7 @@ func deltaunpack64_ntz_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[
 	out[63] = T((in[47]>>16))<<ntz + out[62]
 }
 
-func deltaunpack64_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[64]T) {
+func deltaunpack64_49[T uint64 | int64](out *[64]T, in *[49]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 49) | ((in[1] & 0x3FFFFFFFF) << 15))) + out[0]
 	out[2] = T(((in[1] >> 34) | ((in[2] & 0x7FFFF) << 30))) + out[1]
@@ -23555,7 +16065,7 @@ func deltaunpack64_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[64]T
 	out[62] = T(((in[47] >> 30) | ((in[48] & 0x7FFF) << 34))) + out[61]
 	out[63] = T((in[48] >> 15)) + out[62]
 }
-func deltaunpack64_ntz_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_49[T uint64 | int64](out *[64]T, in *[49]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>49)|((in[1]&0x3FFFFFFFF)<<15)))<<ntz + out[0]
@@ -23623,7 +16133,7 @@ func deltaunpack64_ntz_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[
 	out[63] = T((in[48]>>15))<<ntz + out[62]
 }
 
-func deltaunpack64_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[64]T) {
+func deltaunpack64_50[T uint64 | int64](out *[64]T, in *[50]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 50) | ((in[1] & 0xFFFFFFFFF) << 14))) + out[0]
 	out[2] = T(((in[1] >> 36) | ((in[2] & 0x3FFFFF) << 28))) + out[1]
@@ -23689,7 +16199,7 @@ func deltaunpack64_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[64]T
 	out[62] = T(((in[48] >> 28) | ((in[49] & 0x3FFF) << 36))) + out[61]
 	out[63] = T((in[49] >> 14)) + out[62]
 }
-func deltaunpack64_ntz_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_50[T uint64 | int64](out *[64]T, in *[50]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>50)|((in[1]&0xFFFFFFFFF)<<14)))<<ntz + out[0]
@@ -23757,7 +16267,7 @@ func deltaunpack64_ntz_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[
 	out[63] = T((in[49]>>14))<<ntz + out[62]
 }
 
-func deltaunpack64_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[64]T) {
+func deltaunpack64_51[T uint64 | int64](out *[64]T, in *[51]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13))) + out[0]
 	out[2] = T(((in[1] >> 38) | ((in[2] & 0x1FFFFFF) << 26))) + out[1]
@@ -23823,7 +16333,7 @@ func deltaunpack64_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[64]T
 	out[62] = T(((in[49] >> 26) | ((in[50] & 0x1FFF) << 38))) + out[61]
 	out[63] = T((in[50] >> 13)) + out[62]
 }
-func deltaunpack64_ntz_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_51[T uint64 | int64](out *[64]T, in *[51]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>51)|((in[1]&0x3FFFFFFFFF)<<13)))<<ntz + out[0]
@@ -23891,7 +16401,7 @@ func deltaunpack64_ntz_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[
 	out[63] = T((in[50]>>13))<<ntz + out[62]
 }
 
-func deltaunpack64_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[64]T) {
+func deltaunpack64_52[T uint64 | int64](out *[64]T, in *[52]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12))) + out[0]
 	out[2] = T(((in[1] >> 40) | ((in[2] & 0xFFFFFFF) << 24))) + out[1]
@@ -23957,7 +16467,7 @@ func deltaunpack64_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[64]T
 	out[62] = T(((in[50] >> 24) | ((in[51] & 0xFFF) << 40))) + out[61]
 	out[63] = T((in[51] >> 12)) + out[62]
 }
-func deltaunpack64_ntz_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_52[T uint64 | int64](out *[64]T, in *[52]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>52)|((in[1]&0xFFFFFFFFFF)<<12)))<<ntz + out[0]
@@ -24025,7 +16535,7 @@ func deltaunpack64_ntz_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[
 	out[63] = T((in[51]>>12))<<ntz + out[62]
 }
 
-func deltaunpack64_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[64]T) {
+func deltaunpack64_53[T uint64 | int64](out *[64]T, in *[53]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11))) + out[0]
 	out[2] = T(((in[1] >> 42) | ((in[2] & 0x7FFFFFFF) << 22))) + out[1]
@@ -24091,7 +16601,7 @@ func deltaunpack64_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[64]T
 	out[62] = T(((in[51] >> 22) | ((in[52] & 0x7FF) << 42))) + out[61]
 	out[63] = T((in[52] >> 11)) + out[62]
 }
-func deltaunpack64_ntz_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_53[T uint64 | int64](out *[64]T, in *[53]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>53)|((in[1]&0x3FFFFFFFFFF)<<11)))<<ntz + out[0]
@@ -24159,7 +16669,7 @@ func deltaunpack64_ntz_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[
 	out[63] = T((in[52]>>11))<<ntz + out[62]
 }
 
-func deltaunpack64_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[64]T) {
+func deltaunpack64_54[T uint64 | int64](out *[64]T, in *[54]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10))) + out[0]
 	out[2] = T(((in[1] >> 44) | ((in[2] & 0x3FFFFFFFF) << 20))) + out[1]
@@ -24225,7 +16735,7 @@ func deltaunpack64_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[64]T
 	out[62] = T(((in[52] >> 20) | ((in[53] & 0x3FF) << 44))) + out[61]
 	out[63] = T((in[53] >> 10)) + out[62]
 }
-func deltaunpack64_ntz_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_54[T uint64 | int64](out *[64]T, in *[54]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>54)|((in[1]&0xFFFFFFFFFFF)<<10)))<<ntz + out[0]
@@ -24293,7 +16803,7 @@ func deltaunpack64_ntz_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[
 	out[63] = T((in[53]>>10))<<ntz + out[62]
 }
 
-func deltaunpack64_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[64]T) {
+func deltaunpack64_55[T uint64 | int64](out *[64]T, in *[55]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9))) + out[0]
 	out[2] = T(((in[1] >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18))) + out[1]
@@ -24359,7 +16869,7 @@ func deltaunpack64_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[64]T
 	out[62] = T(((in[53] >> 18) | ((in[54] & 0x1FF) << 46))) + out[61]
 	out[63] = T((in[54] >> 9)) + out[62]
 }
-func deltaunpack64_ntz_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_55[T uint64 | int64](out *[64]T, in *[55]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>55)|((in[1]&0x3FFFFFFFFFFF)<<9)))<<ntz + out[0]
@@ -24427,7 +16937,7 @@ func deltaunpack64_ntz_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[
 	out[63] = T((in[54]>>9))<<ntz + out[62]
 }
 
-func deltaunpack64_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[64]T) {
+func deltaunpack64_56[T uint64 | int64](out *[64]T, in *[56]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8))) + out[0]
 	out[2] = T(((in[1] >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16))) + out[1]
@@ -24493,7 +17003,7 @@ func deltaunpack64_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[64]T
 	out[62] = T(((in[54] >> 16) | ((in[55] & 0xFF) << 48))) + out[61]
 	out[63] = T((in[55] >> 8)) + out[62]
 }
-func deltaunpack64_ntz_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_56[T uint64 | int64](out *[64]T, in *[56]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>56)|((in[1]&0xFFFFFFFFFFFF)<<8)))<<ntz + out[0]
@@ -24561,7 +17071,7 @@ func deltaunpack64_ntz_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[
 	out[63] = T((in[55]>>8))<<ntz + out[62]
 }
 
-func deltaunpack64_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[64]T) {
+func deltaunpack64_57[T uint64 | int64](out *[64]T, in *[57]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7))) + out[0]
 	out[2] = T(((in[1] >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14))) + out[1]
@@ -24627,7 +17137,7 @@ func deltaunpack64_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[64]T
 	out[62] = T(((in[55] >> 14) | ((in[56] & 0x7F) << 50))) + out[61]
 	out[63] = T((in[56] >> 7)) + out[62]
 }
-func deltaunpack64_ntz_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_57[T uint64 | int64](out *[64]T, in *[57]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>57)|((in[1]&0x3FFFFFFFFFFFF)<<7)))<<ntz + out[0]
@@ -24695,7 +17205,7 @@ func deltaunpack64_ntz_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[
 	out[63] = T((in[56]>>7))<<ntz + out[62]
 }
 
-func deltaunpack64_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[64]T) {
+func deltaunpack64_58[T uint64 | int64](out *[64]T, in *[58]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6))) + out[0]
 	out[2] = T(((in[1] >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12))) + out[1]
@@ -24761,7 +17271,7 @@ func deltaunpack64_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[64]T
 	out[62] = T(((in[56] >> 12) | ((in[57] & 0x3F) << 52))) + out[61]
 	out[63] = T((in[57] >> 6)) + out[62]
 }
-func deltaunpack64_ntz_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_58[T uint64 | int64](out *[64]T, in *[58]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>58)|((in[1]&0xFFFFFFFFFFFFF)<<6)))<<ntz + out[0]
@@ -24829,7 +17339,7 @@ func deltaunpack64_ntz_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[
 	out[63] = T((in[57]>>6))<<ntz + out[62]
 }
 
-func deltaunpack64_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[64]T) {
+func deltaunpack64_59[T uint64 | int64](out *[64]T, in *[59]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5))) + out[0]
 	out[2] = T(((in[1] >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10))) + out[1]
@@ -24895,7 +17405,7 @@ func deltaunpack64_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[64]T
 	out[62] = T(((in[57] >> 10) | ((in[58] & 0x1F) << 54))) + out[61]
 	out[63] = T((in[58] >> 5)) + out[62]
 }
-func deltaunpack64_ntz_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_59[T uint64 | int64](out *[64]T, in *[59]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>59)|((in[1]&0x3FFFFFFFFFFFFF)<<5)))<<ntz + out[0]
@@ -24963,7 +17473,7 @@ func deltaunpack64_ntz_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[
 	out[63] = T((in[58]>>5))<<ntz + out[62]
 }
 
-func deltaunpack64_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[64]T) {
+func deltaunpack64_60[T uint64 | int64](out *[64]T, in *[60]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4))) + out[0]
 	out[2] = T(((in[1] >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8))) + out[1]
@@ -25029,7 +17539,7 @@ func deltaunpack64_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[64]T
 	out[62] = T(((in[58] >> 8) | ((in[59] & 0xF) << 56))) + out[61]
 	out[63] = T((in[59] >> 4)) + out[62]
 }
-func deltaunpack64_ntz_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_60[T uint64 | int64](out *[64]T, in *[60]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0xFFFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>60)|((in[1]&0xFFFFFFFFFFFFFF)<<4)))<<ntz + out[0]
@@ -25097,7 +17607,7 @@ func deltaunpack64_ntz_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[
 	out[63] = T((in[59]>>4))<<ntz + out[62]
 }
 
-func deltaunpack64_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[64]T) {
+func deltaunpack64_61[T uint64 | int64](out *[64]T, in *[61]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3))) + out[0]
 	out[2] = T(((in[1] >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6))) + out[1]
@@ -25163,7 +17673,7 @@ func deltaunpack64_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[64]T
 	out[62] = T(((in[59] >> 6) | ((in[60] & 0x7) << 58))) + out[61]
 	out[63] = T((in[60] >> 3)) + out[62]
 }
-func deltaunpack64_ntz_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_61[T uint64 | int64](out *[64]T, in *[61]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x1FFFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>61)|((in[1]&0x3FFFFFFFFFFFFFF)<<3)))<<ntz + out[0]
@@ -25231,7 +17741,7 @@ func deltaunpack64_ntz_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[
 	out[63] = T((in[60]>>3))<<ntz + out[62]
 }
 
-func deltaunpack64_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[64]T) {
+func deltaunpack64_62[T uint64 | int64](out *[64]T, in *[62]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2))) + out[0]
 	out[2] = T(((in[1] >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4))) + out[1]
@@ -25297,7 +17807,7 @@ func deltaunpack64_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[64]T
 	out[62] = T(((in[60] >> 4) | ((in[61] & 0x3) << 60))) + out[61]
 	out[63] = T((in[61] >> 2)) + out[62]
 }
-func deltaunpack64_ntz_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_62[T uint64 | int64](out *[64]T, in *[62]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x3FFFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>62)|((in[1]&0xFFFFFFFFFFFFFFF)<<2)))<<ntz + out[0]
@@ -25365,7 +17875,7 @@ func deltaunpack64_ntz_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[
 	out[63] = T((in[61]>>2))<<ntz + out[62]
 }
 
-func deltaunpack64_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[64]T) {
+func deltaunpack64_63[T uint64 | int64](out *[64]T, in *[63]uint64, initoffset T) {
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFFFF) + initoffset
 	out[1] = T(((in[0] >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1))) + out[0]
 	out[2] = T(((in[1] >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2))) + out[1]
@@ -25431,7 +17941,7 @@ func deltaunpack64_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[64]T
 	out[62] = T(((in[61] >> 2) | ((in[62] & 0x1) << 62))) + out[61]
 	out[63] = T((in[62] >> 1)) + out[62]
 }
-func deltaunpack64_ntz_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[64]T, ntz int) {
+func deltaunpack64_ntz_63[T uint64 | int64](out *[64]T, in *[63]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T((in[0]>>0)&0x7FFFFFFFFFFFFFFF)<<ntz + initoffset
 	out[1] = T(((in[0]>>63)|((in[1]&0x3FFFFFFFFFFFFFFF)<<1)))<<ntz + out[0]
@@ -25505,800 +18015,1056 @@ func deltaunpack64_ntz_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[
 // to out. Differential coding is applied first, the difference is zigzag encoded.
 //
 //	Caller must give the proper `bitlen` of the block
-func deltaPackZigzag_int64(initoffset int64, in []int64, out []uint64, ntz, bitlen int) {
+func deltaPackZigzag_int64(out []uint64, in *[64]int64, initoffset int64, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_0(initoffset, (*[64]int64)(in), (*[0]uint64)(out), ntz)
-			break
+		if len(out) >= 0 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_0((*[0]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_0((*[0]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_0(initoffset, (*[64]int64)(in), (*[0]uint64)(out))
 	case 1:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_1(initoffset, (*[64]int64)(in), (*[1]uint64)(out), ntz)
-			break
+		if len(out) >= 1 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_1((*[1]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_1((*[1]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_1(initoffset, (*[64]int64)(in), (*[1]uint64)(out))
 	case 2:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_2(initoffset, (*[64]int64)(in), (*[2]uint64)(out), ntz)
-			break
+		if len(out) >= 2 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_2((*[2]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_2((*[2]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_2(initoffset, (*[64]int64)(in), (*[2]uint64)(out))
 	case 3:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_3(initoffset, (*[64]int64)(in), (*[3]uint64)(out), ntz)
-			break
+		if len(out) >= 3 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_3((*[3]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_3((*[3]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_3(initoffset, (*[64]int64)(in), (*[3]uint64)(out))
 	case 4:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_4(initoffset, (*[64]int64)(in), (*[4]uint64)(out), ntz)
-			break
+		if len(out) >= 4 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_4((*[4]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_4((*[4]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_4(initoffset, (*[64]int64)(in), (*[4]uint64)(out))
 	case 5:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_5(initoffset, (*[64]int64)(in), (*[5]uint64)(out), ntz)
-			break
+		if len(out) >= 5 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_5((*[5]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_5((*[5]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_5(initoffset, (*[64]int64)(in), (*[5]uint64)(out))
 	case 6:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_6(initoffset, (*[64]int64)(in), (*[6]uint64)(out), ntz)
-			break
+		if len(out) >= 6 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_6((*[6]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_6((*[6]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_6(initoffset, (*[64]int64)(in), (*[6]uint64)(out))
 	case 7:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_7(initoffset, (*[64]int64)(in), (*[7]uint64)(out), ntz)
-			break
+		if len(out) >= 7 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_7((*[7]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_7((*[7]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_7(initoffset, (*[64]int64)(in), (*[7]uint64)(out))
 	case 8:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_8(initoffset, (*[64]int64)(in), (*[8]uint64)(out), ntz)
-			break
+		if len(out) >= 8 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_8((*[8]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_8((*[8]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_8(initoffset, (*[64]int64)(in), (*[8]uint64)(out))
 	case 9:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_9(initoffset, (*[64]int64)(in), (*[9]uint64)(out), ntz)
-			break
+		if len(out) >= 9 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_9((*[9]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_9((*[9]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_9(initoffset, (*[64]int64)(in), (*[9]uint64)(out))
 	case 10:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_10(initoffset, (*[64]int64)(in), (*[10]uint64)(out), ntz)
-			break
+		if len(out) >= 10 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_10((*[10]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_10((*[10]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_10(initoffset, (*[64]int64)(in), (*[10]uint64)(out))
 	case 11:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_11(initoffset, (*[64]int64)(in), (*[11]uint64)(out), ntz)
-			break
+		if len(out) >= 11 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_11((*[11]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_11((*[11]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_11(initoffset, (*[64]int64)(in), (*[11]uint64)(out))
 	case 12:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_12(initoffset, (*[64]int64)(in), (*[12]uint64)(out), ntz)
-			break
+		if len(out) >= 12 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_12((*[12]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_12((*[12]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_12(initoffset, (*[64]int64)(in), (*[12]uint64)(out))
 	case 13:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_13(initoffset, (*[64]int64)(in), (*[13]uint64)(out), ntz)
-			break
+		if len(out) >= 13 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_13((*[13]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_13((*[13]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_13(initoffset, (*[64]int64)(in), (*[13]uint64)(out))
 	case 14:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_14(initoffset, (*[64]int64)(in), (*[14]uint64)(out), ntz)
-			break
+		if len(out) >= 14 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_14((*[14]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_14((*[14]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_14(initoffset, (*[64]int64)(in), (*[14]uint64)(out))
 	case 15:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_15(initoffset, (*[64]int64)(in), (*[15]uint64)(out), ntz)
-			break
+		if len(out) >= 15 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_15((*[15]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_15((*[15]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_15(initoffset, (*[64]int64)(in), (*[15]uint64)(out))
 	case 16:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_16(initoffset, (*[64]int64)(in), (*[16]uint64)(out), ntz)
-			break
+		if len(out) >= 16 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_16((*[16]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_16((*[16]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_16(initoffset, (*[64]int64)(in), (*[16]uint64)(out))
 	case 17:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_17(initoffset, (*[64]int64)(in), (*[17]uint64)(out), ntz)
-			break
+		if len(out) >= 17 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_17((*[17]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_17((*[17]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_17(initoffset, (*[64]int64)(in), (*[17]uint64)(out))
 	case 18:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_18(initoffset, (*[64]int64)(in), (*[18]uint64)(out), ntz)
-			break
+		if len(out) >= 18 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_18((*[18]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_18((*[18]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_18(initoffset, (*[64]int64)(in), (*[18]uint64)(out))
 	case 19:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_19(initoffset, (*[64]int64)(in), (*[19]uint64)(out), ntz)
-			break
+		if len(out) >= 19 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_19((*[19]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_19((*[19]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_19(initoffset, (*[64]int64)(in), (*[19]uint64)(out))
 	case 20:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_20(initoffset, (*[64]int64)(in), (*[20]uint64)(out), ntz)
-			break
+		if len(out) >= 20 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_20((*[20]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_20((*[20]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_20(initoffset, (*[64]int64)(in), (*[20]uint64)(out))
 	case 21:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_21(initoffset, (*[64]int64)(in), (*[21]uint64)(out), ntz)
-			break
+		if len(out) >= 21 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_21((*[21]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_21((*[21]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_21(initoffset, (*[64]int64)(in), (*[21]uint64)(out))
 	case 22:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_22(initoffset, (*[64]int64)(in), (*[22]uint64)(out), ntz)
-			break
+		if len(out) >= 22 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_22((*[22]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_22((*[22]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_22(initoffset, (*[64]int64)(in), (*[22]uint64)(out))
 	case 23:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_23(initoffset, (*[64]int64)(in), (*[23]uint64)(out), ntz)
-			break
+		if len(out) >= 23 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_23((*[23]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_23((*[23]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_23(initoffset, (*[64]int64)(in), (*[23]uint64)(out))
 	case 24:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_24(initoffset, (*[64]int64)(in), (*[24]uint64)(out), ntz)
-			break
+		if len(out) >= 24 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_24((*[24]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_24((*[24]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_24(initoffset, (*[64]int64)(in), (*[24]uint64)(out))
 	case 25:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_25(initoffset, (*[64]int64)(in), (*[25]uint64)(out), ntz)
-			break
+		if len(out) >= 25 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_25((*[25]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_25((*[25]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_25(initoffset, (*[64]int64)(in), (*[25]uint64)(out))
 	case 26:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_26(initoffset, (*[64]int64)(in), (*[26]uint64)(out), ntz)
-			break
+		if len(out) >= 26 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_26((*[26]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_26((*[26]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_26(initoffset, (*[64]int64)(in), (*[26]uint64)(out))
 	case 27:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_27(initoffset, (*[64]int64)(in), (*[27]uint64)(out), ntz)
-			break
+		if len(out) >= 27 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_27((*[27]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_27((*[27]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_27(initoffset, (*[64]int64)(in), (*[27]uint64)(out))
 	case 28:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_28(initoffset, (*[64]int64)(in), (*[28]uint64)(out), ntz)
-			break
+		if len(out) >= 28 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_28((*[28]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_28((*[28]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_28(initoffset, (*[64]int64)(in), (*[28]uint64)(out))
 	case 29:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_29(initoffset, (*[64]int64)(in), (*[29]uint64)(out), ntz)
-			break
+		if len(out) >= 29 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_29((*[29]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_29((*[29]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_29(initoffset, (*[64]int64)(in), (*[29]uint64)(out))
 	case 30:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_30(initoffset, (*[64]int64)(in), (*[30]uint64)(out), ntz)
-			break
+		if len(out) >= 30 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_30((*[30]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_30((*[30]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_30(initoffset, (*[64]int64)(in), (*[30]uint64)(out))
 	case 31:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_31(initoffset, (*[64]int64)(in), (*[31]uint64)(out), ntz)
-			break
+		if len(out) >= 31 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_31((*[31]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_31((*[31]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_31(initoffset, (*[64]int64)(in), (*[31]uint64)(out))
 	case 32:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_32(initoffset, (*[64]int64)(in), (*[32]uint64)(out), ntz)
-			break
+		if len(out) >= 32 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_32((*[32]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_32((*[32]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_32(initoffset, (*[64]int64)(in), (*[32]uint64)(out))
 	case 33:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_33(initoffset, (*[64]int64)(in), (*[33]uint64)(out), ntz)
-			break
+		if len(out) >= 33 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_33((*[33]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_33((*[33]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_33(initoffset, (*[64]int64)(in), (*[33]uint64)(out))
 	case 34:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_34(initoffset, (*[64]int64)(in), (*[34]uint64)(out), ntz)
-			break
+		if len(out) >= 34 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_34((*[34]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_34((*[34]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_34(initoffset, (*[64]int64)(in), (*[34]uint64)(out))
 	case 35:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_35(initoffset, (*[64]int64)(in), (*[35]uint64)(out), ntz)
-			break
+		if len(out) >= 35 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_35((*[35]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_35((*[35]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_35(initoffset, (*[64]int64)(in), (*[35]uint64)(out))
 	case 36:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_36(initoffset, (*[64]int64)(in), (*[36]uint64)(out), ntz)
-			break
+		if len(out) >= 36 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_36((*[36]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_36((*[36]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_36(initoffset, (*[64]int64)(in), (*[36]uint64)(out))
 	case 37:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_37(initoffset, (*[64]int64)(in), (*[37]uint64)(out), ntz)
-			break
+		if len(out) >= 37 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_37((*[37]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_37((*[37]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_37(initoffset, (*[64]int64)(in), (*[37]uint64)(out))
 	case 38:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_38(initoffset, (*[64]int64)(in), (*[38]uint64)(out), ntz)
-			break
+		if len(out) >= 38 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_38((*[38]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_38((*[38]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_38(initoffset, (*[64]int64)(in), (*[38]uint64)(out))
 	case 39:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_39(initoffset, (*[64]int64)(in), (*[39]uint64)(out), ntz)
-			break
+		if len(out) >= 39 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_39((*[39]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_39((*[39]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_39(initoffset, (*[64]int64)(in), (*[39]uint64)(out))
 	case 40:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_40(initoffset, (*[64]int64)(in), (*[40]uint64)(out), ntz)
-			break
+		if len(out) >= 40 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_40((*[40]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_40((*[40]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_40(initoffset, (*[64]int64)(in), (*[40]uint64)(out))
 	case 41:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_41(initoffset, (*[64]int64)(in), (*[41]uint64)(out), ntz)
-			break
+		if len(out) >= 41 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_41((*[41]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_41((*[41]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_41(initoffset, (*[64]int64)(in), (*[41]uint64)(out))
 	case 42:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_42(initoffset, (*[64]int64)(in), (*[42]uint64)(out), ntz)
-			break
+		if len(out) >= 42 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_42((*[42]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_42((*[42]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_42(initoffset, (*[64]int64)(in), (*[42]uint64)(out))
 	case 43:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_43(initoffset, (*[64]int64)(in), (*[43]uint64)(out), ntz)
-			break
+		if len(out) >= 43 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_43((*[43]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_43((*[43]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_43(initoffset, (*[64]int64)(in), (*[43]uint64)(out))
 	case 44:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_44(initoffset, (*[64]int64)(in), (*[44]uint64)(out), ntz)
-			break
+		if len(out) >= 44 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_44((*[44]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_44((*[44]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_44(initoffset, (*[64]int64)(in), (*[44]uint64)(out))
 	case 45:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_45(initoffset, (*[64]int64)(in), (*[45]uint64)(out), ntz)
-			break
+		if len(out) >= 45 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_45((*[45]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_45((*[45]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_45(initoffset, (*[64]int64)(in), (*[45]uint64)(out))
 	case 46:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_46(initoffset, (*[64]int64)(in), (*[46]uint64)(out), ntz)
-			break
+		if len(out) >= 46 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_46((*[46]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_46((*[46]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_46(initoffset, (*[64]int64)(in), (*[46]uint64)(out))
 	case 47:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_47(initoffset, (*[64]int64)(in), (*[47]uint64)(out), ntz)
-			break
+		if len(out) >= 47 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_47((*[47]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_47((*[47]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_47(initoffset, (*[64]int64)(in), (*[47]uint64)(out))
 	case 48:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_48(initoffset, (*[64]int64)(in), (*[48]uint64)(out), ntz)
-			break
+		if len(out) >= 48 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_48((*[48]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_48((*[48]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_48(initoffset, (*[64]int64)(in), (*[48]uint64)(out))
 	case 49:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_49(initoffset, (*[64]int64)(in), (*[49]uint64)(out), ntz)
-			break
+		if len(out) >= 49 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_49((*[49]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_49((*[49]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_49(initoffset, (*[64]int64)(in), (*[49]uint64)(out))
 	case 50:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_50(initoffset, (*[64]int64)(in), (*[50]uint64)(out), ntz)
-			break
+		if len(out) >= 50 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_50((*[50]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_50((*[50]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_50(initoffset, (*[64]int64)(in), (*[50]uint64)(out))
 	case 51:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_51(initoffset, (*[64]int64)(in), (*[51]uint64)(out), ntz)
-			break
+		if len(out) >= 51 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_51((*[51]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_51((*[51]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_51(initoffset, (*[64]int64)(in), (*[51]uint64)(out))
 	case 52:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_52(initoffset, (*[64]int64)(in), (*[52]uint64)(out), ntz)
-			break
+		if len(out) >= 52 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_52((*[52]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_52((*[52]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_52(initoffset, (*[64]int64)(in), (*[52]uint64)(out))
 	case 53:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_53(initoffset, (*[64]int64)(in), (*[53]uint64)(out), ntz)
-			break
+		if len(out) >= 53 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_53((*[53]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_53((*[53]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_53(initoffset, (*[64]int64)(in), (*[53]uint64)(out))
 	case 54:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_54(initoffset, (*[64]int64)(in), (*[54]uint64)(out), ntz)
-			break
+		if len(out) >= 54 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_54((*[54]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_54((*[54]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_54(initoffset, (*[64]int64)(in), (*[54]uint64)(out))
 	case 55:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_55(initoffset, (*[64]int64)(in), (*[55]uint64)(out), ntz)
-			break
+		if len(out) >= 55 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_55((*[55]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_55((*[55]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_55(initoffset, (*[64]int64)(in), (*[55]uint64)(out))
 	case 56:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_56(initoffset, (*[64]int64)(in), (*[56]uint64)(out), ntz)
-			break
+		if len(out) >= 56 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_56((*[56]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_56((*[56]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_56(initoffset, (*[64]int64)(in), (*[56]uint64)(out))
 	case 57:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_57(initoffset, (*[64]int64)(in), (*[57]uint64)(out), ntz)
-			break
+		if len(out) >= 57 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_57((*[57]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_57((*[57]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_57(initoffset, (*[64]int64)(in), (*[57]uint64)(out))
 	case 58:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_58(initoffset, (*[64]int64)(in), (*[58]uint64)(out), ntz)
-			break
+		if len(out) >= 58 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_58((*[58]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_58((*[58]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_58(initoffset, (*[64]int64)(in), (*[58]uint64)(out))
 	case 59:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_59(initoffset, (*[64]int64)(in), (*[59]uint64)(out), ntz)
-			break
+		if len(out) >= 59 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_59((*[59]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_59((*[59]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_59(initoffset, (*[64]int64)(in), (*[59]uint64)(out))
 	case 60:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_60(initoffset, (*[64]int64)(in), (*[60]uint64)(out), ntz)
-			break
+		if len(out) >= 60 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_60((*[60]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_60((*[60]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_60(initoffset, (*[64]int64)(in), (*[60]uint64)(out))
 	case 61:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_61(initoffset, (*[64]int64)(in), (*[61]uint64)(out), ntz)
-			break
+		if len(out) >= 61 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_61((*[61]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_61((*[61]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_61(initoffset, (*[64]int64)(in), (*[61]uint64)(out))
 	case 62:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_62(initoffset, (*[64]int64)(in), (*[62]uint64)(out), ntz)
-			break
+		if len(out) >= 62 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_62((*[62]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_62((*[62]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_62(initoffset, (*[64]int64)(in), (*[62]uint64)(out))
 	case 63:
-		if ntz > 0 {
-			deltapackzigzag64_ntz_63(initoffset, (*[64]int64)(in), (*[63]uint64)(out), ntz)
-			break
+		if len(out) >= 63 { // eliminate bounds check
+			if ntz > 0 {
+				deltapackzigzag64_ntz_63((*[63]uint64)(out), in, initoffset, ntz)
+				break
+			}
+			deltapackzigzag64_63((*[63]uint64)(out), in, initoffset)
 		}
-		deltapackzigzag64_63(initoffset, (*[64]int64)(in), (*[63]uint64)(out))
 	case 64:
-		*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer((*[64]int64)(in))))
-	default:
-		panic("unsupported bitlen")
+		if len(out) >= 64 { // eliminate bounds check
+			*(*[64]uint64)(out) = *((*[64]uint64)(unsafe.Pointer(in)))
+		}
 	}
 }
 
 // deltaUnpackZigzag_int64 Decoding operation for DeltaPackZigzag_int64
-func deltaUnpackZigzag_int64(initoffset int64, in []uint64, out []int64, ntz, bitlen int) {
+func deltaUnpackZigzag_int64(out *[64]int64, in []uint64, initoffset int64, ntz, bitlen int) {
 	switch bitlen - ntz {
 	case 0:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_0(initoffset, (*[0]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 0 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_0(out, (*[0]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_0(out, (*[0]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_0(initoffset, (*[0]uint64)(in), (*[64]int64)(out))
 	case 1:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_1(initoffset, (*[1]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 1 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_1(out, (*[1]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_1(out, (*[1]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_1(initoffset, (*[1]uint64)(in), (*[64]int64)(out))
 	case 2:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_2(initoffset, (*[2]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 2 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_2(out, (*[2]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_2(out, (*[2]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_2(initoffset, (*[2]uint64)(in), (*[64]int64)(out))
 	case 3:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_3(initoffset, (*[3]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 3 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_3(out, (*[3]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_3(out, (*[3]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_3(initoffset, (*[3]uint64)(in), (*[64]int64)(out))
 	case 4:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_4(initoffset, (*[4]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 4 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_4(out, (*[4]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_4(out, (*[4]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_4(initoffset, (*[4]uint64)(in), (*[64]int64)(out))
 	case 5:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_5(initoffset, (*[5]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 5 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_5(out, (*[5]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_5(out, (*[5]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_5(initoffset, (*[5]uint64)(in), (*[64]int64)(out))
 	case 6:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_6(initoffset, (*[6]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 6 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_6(out, (*[6]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_6(out, (*[6]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_6(initoffset, (*[6]uint64)(in), (*[64]int64)(out))
 	case 7:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_7(initoffset, (*[7]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 7 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_7(out, (*[7]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_7(out, (*[7]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_7(initoffset, (*[7]uint64)(in), (*[64]int64)(out))
 	case 8:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_8(initoffset, (*[8]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 8 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_8(out, (*[8]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_8(out, (*[8]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_8(initoffset, (*[8]uint64)(in), (*[64]int64)(out))
 	case 9:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_9(initoffset, (*[9]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 9 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_9(out, (*[9]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_9(out, (*[9]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_9(initoffset, (*[9]uint64)(in), (*[64]int64)(out))
 	case 10:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_10(initoffset, (*[10]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 10 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_10(out, (*[10]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_10(out, (*[10]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_10(initoffset, (*[10]uint64)(in), (*[64]int64)(out))
 	case 11:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_11(initoffset, (*[11]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 11 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_11(out, (*[11]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_11(out, (*[11]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_11(initoffset, (*[11]uint64)(in), (*[64]int64)(out))
 	case 12:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_12(initoffset, (*[12]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 12 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_12(out, (*[12]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_12(out, (*[12]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_12(initoffset, (*[12]uint64)(in), (*[64]int64)(out))
 	case 13:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_13(initoffset, (*[13]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 13 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_13(out, (*[13]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_13(out, (*[13]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_13(initoffset, (*[13]uint64)(in), (*[64]int64)(out))
 	case 14:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_14(initoffset, (*[14]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 14 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_14(out, (*[14]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_14(out, (*[14]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_14(initoffset, (*[14]uint64)(in), (*[64]int64)(out))
 	case 15:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_15(initoffset, (*[15]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 15 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_15(out, (*[15]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_15(out, (*[15]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_15(initoffset, (*[15]uint64)(in), (*[64]int64)(out))
 	case 16:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_16(initoffset, (*[16]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 16 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_16(out, (*[16]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_16(out, (*[16]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_16(initoffset, (*[16]uint64)(in), (*[64]int64)(out))
 	case 17:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_17(initoffset, (*[17]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 17 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_17(out, (*[17]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_17(out, (*[17]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_17(initoffset, (*[17]uint64)(in), (*[64]int64)(out))
 	case 18:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_18(initoffset, (*[18]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 18 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_18(out, (*[18]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_18(out, (*[18]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_18(initoffset, (*[18]uint64)(in), (*[64]int64)(out))
 	case 19:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_19(initoffset, (*[19]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 19 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_19(out, (*[19]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_19(out, (*[19]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_19(initoffset, (*[19]uint64)(in), (*[64]int64)(out))
 	case 20:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_20(initoffset, (*[20]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 20 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_20(out, (*[20]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_20(out, (*[20]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_20(initoffset, (*[20]uint64)(in), (*[64]int64)(out))
 	case 21:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_21(initoffset, (*[21]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 21 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_21(out, (*[21]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_21(out, (*[21]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_21(initoffset, (*[21]uint64)(in), (*[64]int64)(out))
 	case 22:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_22(initoffset, (*[22]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 22 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_22(out, (*[22]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_22(out, (*[22]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_22(initoffset, (*[22]uint64)(in), (*[64]int64)(out))
 	case 23:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_23(initoffset, (*[23]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 23 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_23(out, (*[23]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_23(out, (*[23]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_23(initoffset, (*[23]uint64)(in), (*[64]int64)(out))
 	case 24:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_24(initoffset, (*[24]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 24 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_24(out, (*[24]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_24(out, (*[24]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_24(initoffset, (*[24]uint64)(in), (*[64]int64)(out))
 	case 25:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_25(initoffset, (*[25]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 25 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_25(out, (*[25]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_25(out, (*[25]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_25(initoffset, (*[25]uint64)(in), (*[64]int64)(out))
 	case 26:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_26(initoffset, (*[26]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 26 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_26(out, (*[26]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_26(out, (*[26]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_26(initoffset, (*[26]uint64)(in), (*[64]int64)(out))
 	case 27:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_27(initoffset, (*[27]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 27 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_27(out, (*[27]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_27(out, (*[27]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_27(initoffset, (*[27]uint64)(in), (*[64]int64)(out))
 	case 28:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_28(initoffset, (*[28]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 28 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_28(out, (*[28]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_28(out, (*[28]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_28(initoffset, (*[28]uint64)(in), (*[64]int64)(out))
 	case 29:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_29(initoffset, (*[29]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 29 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_29(out, (*[29]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_29(out, (*[29]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_29(initoffset, (*[29]uint64)(in), (*[64]int64)(out))
 	case 30:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_30(initoffset, (*[30]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 30 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_30(out, (*[30]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_30(out, (*[30]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_30(initoffset, (*[30]uint64)(in), (*[64]int64)(out))
 	case 31:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_31(initoffset, (*[31]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 31 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_31(out, (*[31]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_31(out, (*[31]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_31(initoffset, (*[31]uint64)(in), (*[64]int64)(out))
 	case 32:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_32(initoffset, (*[32]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 32 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_32(out, (*[32]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_32(out, (*[32]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_32(initoffset, (*[32]uint64)(in), (*[64]int64)(out))
 	case 33:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_33(initoffset, (*[33]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 33 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_33(out, (*[33]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_33(out, (*[33]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_33(initoffset, (*[33]uint64)(in), (*[64]int64)(out))
 	case 34:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_34(initoffset, (*[34]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 34 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_34(out, (*[34]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_34(out, (*[34]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_34(initoffset, (*[34]uint64)(in), (*[64]int64)(out))
 	case 35:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_35(initoffset, (*[35]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 35 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_35(out, (*[35]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_35(out, (*[35]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_35(initoffset, (*[35]uint64)(in), (*[64]int64)(out))
 	case 36:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_36(initoffset, (*[36]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 36 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_36(out, (*[36]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_36(out, (*[36]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_36(initoffset, (*[36]uint64)(in), (*[64]int64)(out))
 	case 37:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_37(initoffset, (*[37]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 37 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_37(out, (*[37]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_37(out, (*[37]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_37(initoffset, (*[37]uint64)(in), (*[64]int64)(out))
 	case 38:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_38(initoffset, (*[38]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 38 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_38(out, (*[38]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_38(out, (*[38]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_38(initoffset, (*[38]uint64)(in), (*[64]int64)(out))
 	case 39:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_39(initoffset, (*[39]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 39 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_39(out, (*[39]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_39(out, (*[39]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_39(initoffset, (*[39]uint64)(in), (*[64]int64)(out))
 	case 40:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_40(initoffset, (*[40]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 40 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_40(out, (*[40]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_40(out, (*[40]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_40(initoffset, (*[40]uint64)(in), (*[64]int64)(out))
 	case 41:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_41(initoffset, (*[41]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 41 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_41(out, (*[41]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_41(out, (*[41]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_41(initoffset, (*[41]uint64)(in), (*[64]int64)(out))
 	case 42:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_42(initoffset, (*[42]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 42 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_42(out, (*[42]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_42(out, (*[42]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_42(initoffset, (*[42]uint64)(in), (*[64]int64)(out))
 	case 43:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_43(initoffset, (*[43]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 43 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_43(out, (*[43]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_43(out, (*[43]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_43(initoffset, (*[43]uint64)(in), (*[64]int64)(out))
 	case 44:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_44(initoffset, (*[44]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 44 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_44(out, (*[44]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_44(out, (*[44]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_44(initoffset, (*[44]uint64)(in), (*[64]int64)(out))
 	case 45:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_45(initoffset, (*[45]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 45 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_45(out, (*[45]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_45(out, (*[45]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_45(initoffset, (*[45]uint64)(in), (*[64]int64)(out))
 	case 46:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_46(initoffset, (*[46]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 46 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_46(out, (*[46]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_46(out, (*[46]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_46(initoffset, (*[46]uint64)(in), (*[64]int64)(out))
 	case 47:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_47(initoffset, (*[47]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 47 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_47(out, (*[47]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_47(out, (*[47]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_47(initoffset, (*[47]uint64)(in), (*[64]int64)(out))
 	case 48:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_48(initoffset, (*[48]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 48 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_48(out, (*[48]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_48(out, (*[48]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_48(initoffset, (*[48]uint64)(in), (*[64]int64)(out))
 	case 49:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_49(initoffset, (*[49]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 49 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_49(out, (*[49]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_49(out, (*[49]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_49(initoffset, (*[49]uint64)(in), (*[64]int64)(out))
 	case 50:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_50(initoffset, (*[50]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 50 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_50(out, (*[50]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_50(out, (*[50]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_50(initoffset, (*[50]uint64)(in), (*[64]int64)(out))
 	case 51:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_51(initoffset, (*[51]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 51 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_51(out, (*[51]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_51(out, (*[51]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_51(initoffset, (*[51]uint64)(in), (*[64]int64)(out))
 	case 52:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_52(initoffset, (*[52]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 52 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_52(out, (*[52]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_52(out, (*[52]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_52(initoffset, (*[52]uint64)(in), (*[64]int64)(out))
 	case 53:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_53(initoffset, (*[53]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 53 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_53(out, (*[53]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_53(out, (*[53]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_53(initoffset, (*[53]uint64)(in), (*[64]int64)(out))
 	case 54:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_54(initoffset, (*[54]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 54 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_54(out, (*[54]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_54(out, (*[54]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_54(initoffset, (*[54]uint64)(in), (*[64]int64)(out))
 	case 55:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_55(initoffset, (*[55]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 55 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_55(out, (*[55]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_55(out, (*[55]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_55(initoffset, (*[55]uint64)(in), (*[64]int64)(out))
 	case 56:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_56(initoffset, (*[56]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 56 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_56(out, (*[56]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_56(out, (*[56]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_56(initoffset, (*[56]uint64)(in), (*[64]int64)(out))
 	case 57:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_57(initoffset, (*[57]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 57 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_57(out, (*[57]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_57(out, (*[57]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_57(initoffset, (*[57]uint64)(in), (*[64]int64)(out))
 	case 58:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_58(initoffset, (*[58]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 58 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_58(out, (*[58]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_58(out, (*[58]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_58(initoffset, (*[58]uint64)(in), (*[64]int64)(out))
 	case 59:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_59(initoffset, (*[59]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 59 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_59(out, (*[59]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_59(out, (*[59]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_59(initoffset, (*[59]uint64)(in), (*[64]int64)(out))
 	case 60:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_60(initoffset, (*[60]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 60 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_60(out, (*[60]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_60(out, (*[60]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_60(initoffset, (*[60]uint64)(in), (*[64]int64)(out))
 	case 61:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_61(initoffset, (*[61]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 61 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_61(out, (*[61]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_61(out, (*[61]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_61(initoffset, (*[61]uint64)(in), (*[64]int64)(out))
 	case 62:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_62(initoffset, (*[62]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 62 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_62(out, (*[62]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_62(out, (*[62]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_62(initoffset, (*[62]uint64)(in), (*[64]int64)(out))
 	case 63:
-		if ntz > 0 {
-			deltaunpackzigzag64_ntz_63(initoffset, (*[63]uint64)(in), (*[64]int64)(out), ntz)
-			break
+		if len(in) >= 63 { // eliminate bounds check
+			if ntz > 0 {
+				deltaunpackzigzag64_ntz_63(out, (*[63]uint64)(in), initoffset, ntz)
+				break
+			}
+			deltaunpackzigzag64_63(out, (*[63]uint64)(in), initoffset)
 		}
-		deltaunpackzigzag64_63(initoffset, (*[63]uint64)(in), (*[64]int64)(out))
 	case 64:
-		*(*[64]int64)(out) = *(*[64]int64)(unsafe.Pointer((*[64]uint64)(in)))
-	default:
-		panic("unsupported bitlen")
+		if len(in) >= 64 { // eliminate bounds check
+			*out = *(*[64]int64)(unsafe.Pointer((*[64]uint64)(in)))
+		}
 	}
 }
 
-func deltapackzigzag64_0[T uint64 | int64](initoffset T, in *[64]T, out *[0]uint64) {
+func deltapackzigzag64_0[T uint64 | int64](out *[0]uint64, in *[64]T, initoffset T) {
 }
-func deltapackzigzag64_ntz_0[T uint64 | int64](initoffset T, in *[64]T, out *[0]uint64, ntz int) {
+func deltapackzigzag64_ntz_0[T uint64 | int64](out *[0]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 }
 
-func deltapackzigzag64_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint64) {
+func deltapackzigzag64_1[T uint64 | int64](out *[1]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 1) |
@@ -26365,7 +19131,7 @@ func deltapackzigzag64_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 62) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 63))
 }
-func deltapackzigzag64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]uint64, ntz int) {
+func deltapackzigzag64_ntz_1[T uint64 | int64](out *[1]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -26434,7 +19200,7 @@ func deltapackzigzag64_ntz_1[T uint64 | int64](initoffset T, in *[64]T, out *[1]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 63))
 }
 
-func deltapackzigzag64_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint64) {
+func deltapackzigzag64_2[T uint64 | int64](out *[2]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 2) |
@@ -26502,7 +19268,7 @@ func deltapackzigzag64_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 60) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 62))
 }
-func deltapackzigzag64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]uint64, ntz int) {
+func deltapackzigzag64_ntz_2[T uint64 | int64](out *[2]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -26572,7 +19338,7 @@ func deltapackzigzag64_ntz_2[T uint64 | int64](initoffset T, in *[64]T, out *[2]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 62))
 }
 
-func deltapackzigzag64_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint64) {
+func deltapackzigzag64_3[T uint64 | int64](out *[3]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 3) |
@@ -26643,7 +19409,7 @@ func deltapackzigzag64_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 58) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 61))
 }
-func deltapackzigzag64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]uint64, ntz int) {
+func deltapackzigzag64_ntz_3[T uint64 | int64](out *[3]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -26716,7 +19482,7 @@ func deltapackzigzag64_ntz_3[T uint64 | int64](initoffset T, in *[64]T, out *[3]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 61))
 }
 
-func deltapackzigzag64_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint64) {
+func deltapackzigzag64_4[T uint64 | int64](out *[4]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 4) |
@@ -26786,7 +19552,7 @@ func deltapackzigzag64_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 56) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 60))
 }
-func deltapackzigzag64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]uint64, ntz int) {
+func deltapackzigzag64_ntz_4[T uint64 | int64](out *[4]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -26858,7 +19624,7 @@ func deltapackzigzag64_ntz_4[T uint64 | int64](initoffset T, in *[64]T, out *[4]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 60))
 }
 
-func deltapackzigzag64_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint64) {
+func deltapackzigzag64_5[T uint64 | int64](out *[5]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 5) |
@@ -26933,7 +19699,7 @@ func deltapackzigzag64_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 54) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 59))
 }
-func deltapackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]uint64, ntz int) {
+func deltapackzigzag64_ntz_5[T uint64 | int64](out *[5]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27010,7 +19776,7 @@ func deltapackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[64]T, out *[5]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 59))
 }
 
-func deltapackzigzag64_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint64) {
+func deltapackzigzag64_6[T uint64 | int64](out *[6]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 6) |
@@ -27086,7 +19852,7 @@ func deltapackzigzag64_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 52) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 58))
 }
-func deltapackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]uint64, ntz int) {
+func deltapackzigzag64_ntz_6[T uint64 | int64](out *[6]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27164,7 +19930,7 @@ func deltapackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[64]T, out *[6]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 58))
 }
 
-func deltapackzigzag64_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint64) {
+func deltapackzigzag64_7[T uint64 | int64](out *[7]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 7) |
@@ -27243,7 +20009,7 @@ func deltapackzigzag64_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 50) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 57))
 }
-func deltapackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]uint64, ntz int) {
+func deltapackzigzag64_ntz_7[T uint64 | int64](out *[7]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27324,7 +20090,7 @@ func deltapackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[64]T, out *[7]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 57))
 }
 
-func deltapackzigzag64_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint64) {
+func deltapackzigzag64_8[T uint64 | int64](out *[8]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 8) |
@@ -27398,7 +20164,7 @@ func deltapackzigzag64_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 48) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 56))
 }
-func deltapackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]uint64, ntz int) {
+func deltapackzigzag64_ntz_8[T uint64 | int64](out *[8]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27474,7 +20240,7 @@ func deltapackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[64]T, out *[8]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 56))
 }
 
-func deltapackzigzag64_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint64) {
+func deltapackzigzag64_9[T uint64 | int64](out *[9]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 9) |
@@ -27557,7 +20323,7 @@ func deltapackzigzag64_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 46) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 55))
 }
-func deltapackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]uint64, ntz int) {
+func deltapackzigzag64_ntz_9[T uint64 | int64](out *[9]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27642,7 +20408,7 @@ func deltapackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[64]T, out *[9]
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 55))
 }
 
-func deltapackzigzag64_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]uint64) {
+func deltapackzigzag64_10[T uint64 | int64](out *[10]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 10) |
@@ -27726,7 +20492,7 @@ func deltapackzigzag64_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 44) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 54))
 }
-func deltapackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out *[10]uint64, ntz int) {
+func deltapackzigzag64_ntz_10[T uint64 | int64](out *[10]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27812,7 +20578,7 @@ func deltapackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 54))
 }
 
-func deltapackzigzag64_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]uint64) {
+func deltapackzigzag64_11[T uint64 | int64](out *[11]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 11) |
@@ -27899,7 +20665,7 @@ func deltapackzigzag64_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 42) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 53))
 }
-func deltapackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out *[11]uint64, ntz int) {
+func deltapackzigzag64_ntz_11[T uint64 | int64](out *[11]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -27988,7 +20754,7 @@ func deltapackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 53))
 }
 
-func deltapackzigzag64_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]uint64) {
+func deltapackzigzag64_12[T uint64 | int64](out *[12]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 12) |
@@ -28074,7 +20840,7 @@ func deltapackzigzag64_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 40) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 52))
 }
-func deltapackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out *[12]uint64, ntz int) {
+func deltapackzigzag64_ntz_12[T uint64 | int64](out *[12]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -28162,7 +20928,7 @@ func deltapackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 52))
 }
 
-func deltapackzigzag64_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]uint64) {
+func deltapackzigzag64_13[T uint64 | int64](out *[13]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 13) |
@@ -28253,7 +21019,7 @@ func deltapackzigzag64_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 38) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 51))
 }
-func deltapackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out *[13]uint64, ntz int) {
+func deltapackzigzag64_ntz_13[T uint64 | int64](out *[13]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -28346,7 +21112,7 @@ func deltapackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 51))
 }
 
-func deltapackzigzag64_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]uint64) {
+func deltapackzigzag64_14[T uint64 | int64](out *[14]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 14) |
@@ -28438,7 +21204,7 @@ func deltapackzigzag64_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 36) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 50))
 }
-func deltapackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out *[14]uint64, ntz int) {
+func deltapackzigzag64_ntz_14[T uint64 | int64](out *[14]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -28532,7 +21298,7 @@ func deltapackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 50))
 }
 
-func deltapackzigzag64_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]uint64) {
+func deltapackzigzag64_15[T uint64 | int64](out *[15]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 15) |
@@ -28627,7 +21393,7 @@ func deltapackzigzag64_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 34) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 49))
 }
-func deltapackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out *[15]uint64, ntz int) {
+func deltapackzigzag64_ntz_15[T uint64 | int64](out *[15]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -28724,7 +21490,7 @@ func deltapackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 49))
 }
 
-func deltapackzigzag64_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]uint64) {
+func deltapackzigzag64_16[T uint64 | int64](out *[16]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 16) |
@@ -28806,7 +21572,7 @@ func deltapackzigzag64_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 32) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 48))
 }
-func deltapackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out *[16]uint64, ntz int) {
+func deltapackzigzag64_ntz_16[T uint64 | int64](out *[16]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -28890,7 +21656,7 @@ func deltapackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 48))
 }
 
-func deltapackzigzag64_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]uint64) {
+func deltapackzigzag64_17[T uint64 | int64](out *[17]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 17) |
@@ -28989,7 +21755,7 @@ func deltapackzigzag64_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 30) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 47))
 }
-func deltapackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out *[17]uint64, ntz int) {
+func deltapackzigzag64_ntz_17[T uint64 | int64](out *[17]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -29090,7 +21856,7 @@ func deltapackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 47))
 }
 
-func deltapackzigzag64_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]uint64) {
+func deltapackzigzag64_18[T uint64 | int64](out *[18]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 18) |
@@ -29190,7 +21956,7 @@ func deltapackzigzag64_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 28) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 46))
 }
-func deltapackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out *[18]uint64, ntz int) {
+func deltapackzigzag64_ntz_18[T uint64 | int64](out *[18]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -29292,7 +22058,7 @@ func deltapackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 46))
 }
 
-func deltapackzigzag64_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]uint64) {
+func deltapackzigzag64_19[T uint64 | int64](out *[19]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 19) |
@@ -29395,7 +22161,7 @@ func deltapackzigzag64_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 26) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 45))
 }
-func deltapackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out *[19]uint64, ntz int) {
+func deltapackzigzag64_ntz_19[T uint64 | int64](out *[19]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -29500,7 +22266,7 @@ func deltapackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[64]T, out *[1
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 45))
 }
 
-func deltapackzigzag64_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]uint64) {
+func deltapackzigzag64_20[T uint64 | int64](out *[20]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 20) |
@@ -29602,7 +22368,7 @@ func deltapackzigzag64_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 24) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 44))
 }
-func deltapackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out *[20]uint64, ntz int) {
+func deltapackzigzag64_ntz_20[T uint64 | int64](out *[20]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -29706,7 +22472,7 @@ func deltapackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 44))
 }
 
-func deltapackzigzag64_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]uint64) {
+func deltapackzigzag64_21[T uint64 | int64](out *[21]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 21) |
@@ -29813,7 +22579,7 @@ func deltapackzigzag64_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 22) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 43))
 }
-func deltapackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out *[21]uint64, ntz int) {
+func deltapackzigzag64_ntz_21[T uint64 | int64](out *[21]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -29922,7 +22688,7 @@ func deltapackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 43))
 }
 
-func deltapackzigzag64_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]uint64) {
+func deltapackzigzag64_22[T uint64 | int64](out *[22]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 22) |
@@ -30030,7 +22796,7 @@ func deltapackzigzag64_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 20) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 42))
 }
-func deltapackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out *[22]uint64, ntz int) {
+func deltapackzigzag64_ntz_22[T uint64 | int64](out *[22]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -30140,7 +22906,7 @@ func deltapackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 42))
 }
 
-func deltapackzigzag64_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]uint64) {
+func deltapackzigzag64_23[T uint64 | int64](out *[23]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 23) |
@@ -30251,7 +23017,7 @@ func deltapackzigzag64_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 18) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 41))
 }
-func deltapackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out *[23]uint64, ntz int) {
+func deltapackzigzag64_ntz_23[T uint64 | int64](out *[23]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -30364,7 +23130,7 @@ func deltapackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 41))
 }
 
-func deltapackzigzag64_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]uint64) {
+func deltapackzigzag64_24[T uint64 | int64](out *[24]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 24) |
@@ -30470,7 +23236,7 @@ func deltapackzigzag64_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 16) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 40))
 }
-func deltapackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out *[24]uint64, ntz int) {
+func deltapackzigzag64_ntz_24[T uint64 | int64](out *[24]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -30578,7 +23344,7 @@ func deltapackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 40))
 }
 
-func deltapackzigzag64_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]uint64) {
+func deltapackzigzag64_25[T uint64 | int64](out *[25]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 25) |
@@ -30693,7 +23459,7 @@ func deltapackzigzag64_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 14) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 39))
 }
-func deltapackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out *[25]uint64, ntz int) {
+func deltapackzigzag64_ntz_25[T uint64 | int64](out *[25]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -30810,7 +23576,7 @@ func deltapackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 39))
 }
 
-func deltapackzigzag64_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]uint64) {
+func deltapackzigzag64_26[T uint64 | int64](out *[26]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 26) |
@@ -30926,7 +23692,7 @@ func deltapackzigzag64_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 12) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 38))
 }
-func deltapackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out *[26]uint64, ntz int) {
+func deltapackzigzag64_ntz_26[T uint64 | int64](out *[26]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -31044,7 +23810,7 @@ func deltapackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 38))
 }
 
-func deltapackzigzag64_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]uint64) {
+func deltapackzigzag64_27[T uint64 | int64](out *[27]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 27) |
@@ -31163,7 +23929,7 @@ func deltapackzigzag64_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 10) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 37))
 }
-func deltapackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out *[27]uint64, ntz int) {
+func deltapackzigzag64_ntz_27[T uint64 | int64](out *[27]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -31284,7 +24050,7 @@ func deltapackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 37))
 }
 
-func deltapackzigzag64_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]uint64) {
+func deltapackzigzag64_28[T uint64 | int64](out *[28]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 28) |
@@ -31402,7 +24168,7 @@ func deltapackzigzag64_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 8) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 36))
 }
-func deltapackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out *[28]uint64, ntz int) {
+func deltapackzigzag64_ntz_28[T uint64 | int64](out *[28]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -31522,7 +24288,7 @@ func deltapackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 36))
 }
 
-func deltapackzigzag64_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]uint64) {
+func deltapackzigzag64_29[T uint64 | int64](out *[29]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 29) |
@@ -31645,7 +24411,7 @@ func deltapackzigzag64_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 6) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 35))
 }
-func deltapackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out *[29]uint64, ntz int) {
+func deltapackzigzag64_ntz_29[T uint64 | int64](out *[29]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -31770,7 +24536,7 @@ func deltapackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[64]T, out *[2
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 35))
 }
 
-func deltapackzigzag64_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]uint64) {
+func deltapackzigzag64_30[T uint64 | int64](out *[30]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 30) |
@@ -31894,7 +24660,7 @@ func deltapackzigzag64_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 4) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 34))
 }
-func deltapackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out *[30]uint64, ntz int) {
+func deltapackzigzag64_ntz_30[T uint64 | int64](out *[30]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -32020,7 +24786,7 @@ func deltapackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 34))
 }
 
-func deltapackzigzag64_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]uint64) {
+func deltapackzigzag64_31[T uint64 | int64](out *[31]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 31) |
@@ -32147,7 +24913,7 @@ func deltapackzigzag64_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]ui
 			((((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63)) << 2) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 33))
 }
-func deltapackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out *[31]uint64, ntz int) {
+func deltapackzigzag64_ntz_31[T uint64 | int64](out *[31]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -32276,7 +25042,7 @@ func deltapackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 33))
 }
 
-func deltapackzigzag64_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]uint64) {
+func deltapackzigzag64_32[T uint64 | int64](out *[32]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 32))
@@ -32374,7 +25140,7 @@ func deltapackzigzag64_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]ui
 		((int64(in[62] - in[61])) << 1) ^ ((int64(in[62] - in[61])) >> 63) |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 32))
 }
-func deltapackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out *[32]uint64, ntz int) {
+func deltapackzigzag64_ntz_32[T uint64 | int64](out *[32]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -32474,7 +25240,7 @@ func deltapackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 32))
 }
 
-func deltapackzigzag64_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]uint64) {
+func deltapackzigzag64_33[T uint64 | int64](out *[33]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 33))
@@ -32605,7 +25371,7 @@ func deltapackzigzag64_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>2 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 31))
 }
-func deltapackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out *[33]uint64, ntz int) {
+func deltapackzigzag64_ntz_33[T uint64 | int64](out *[33]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -32738,7 +25504,7 @@ func deltapackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 31))
 }
 
-func deltapackzigzag64_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]uint64) {
+func deltapackzigzag64_34[T uint64 | int64](out *[34]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 34))
@@ -32870,7 +25636,7 @@ func deltapackzigzag64_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>4 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 30))
 }
-func deltapackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out *[34]uint64, ntz int) {
+func deltapackzigzag64_ntz_34[T uint64 | int64](out *[34]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -33004,7 +25770,7 @@ func deltapackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 30))
 }
 
-func deltapackzigzag64_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]uint64) {
+func deltapackzigzag64_35[T uint64 | int64](out *[35]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 35))
@@ -33139,7 +25905,7 @@ func deltapackzigzag64_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>6 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 29))
 }
-func deltapackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out *[35]uint64, ntz int) {
+func deltapackzigzag64_ntz_35[T uint64 | int64](out *[35]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -33276,7 +26042,7 @@ func deltapackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 29))
 }
 
-func deltapackzigzag64_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]uint64) {
+func deltapackzigzag64_36[T uint64 | int64](out *[36]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 36))
@@ -33410,7 +26176,7 @@ func deltapackzigzag64_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>8 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 28))
 }
-func deltapackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out *[36]uint64, ntz int) {
+func deltapackzigzag64_ntz_36[T uint64 | int64](out *[36]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -33546,7 +26312,7 @@ func deltapackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 28))
 }
 
-func deltapackzigzag64_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]uint64) {
+func deltapackzigzag64_37[T uint64 | int64](out *[37]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 37))
@@ -33685,7 +26451,7 @@ func deltapackzigzag64_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>10 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 27))
 }
-func deltapackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out *[37]uint64, ntz int) {
+func deltapackzigzag64_ntz_37[T uint64 | int64](out *[37]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -33826,7 +26592,7 @@ func deltapackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 27))
 }
 
-func deltapackzigzag64_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]uint64) {
+func deltapackzigzag64_38[T uint64 | int64](out *[38]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 38))
@@ -33966,7 +26732,7 @@ func deltapackzigzag64_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>12 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 26))
 }
-func deltapackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out *[38]uint64, ntz int) {
+func deltapackzigzag64_ntz_38[T uint64 | int64](out *[38]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -34108,7 +26874,7 @@ func deltapackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 26))
 }
 
-func deltapackzigzag64_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]uint64) {
+func deltapackzigzag64_39[T uint64 | int64](out *[39]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 39))
@@ -34251,7 +27017,7 @@ func deltapackzigzag64_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>14 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 25))
 }
-func deltapackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out *[39]uint64, ntz int) {
+func deltapackzigzag64_ntz_39[T uint64 | int64](out *[39]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -34396,7 +27162,7 @@ func deltapackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[64]T, out *[3
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 25))
 }
 
-func deltapackzigzag64_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]uint64) {
+func deltapackzigzag64_40[T uint64 | int64](out *[40]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 40))
@@ -34534,7 +27300,7 @@ func deltapackzigzag64_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>16 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 24))
 }
-func deltapackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out *[40]uint64, ntz int) {
+func deltapackzigzag64_ntz_40[T uint64 | int64](out *[40]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -34674,7 +27440,7 @@ func deltapackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 24))
 }
 
-func deltapackzigzag64_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]uint64) {
+func deltapackzigzag64_41[T uint64 | int64](out *[41]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 41))
@@ -34821,7 +27587,7 @@ func deltapackzigzag64_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>18 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 23))
 }
-func deltapackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out *[41]uint64, ntz int) {
+func deltapackzigzag64_ntz_41[T uint64 | int64](out *[41]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -34970,7 +27736,7 @@ func deltapackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 23))
 }
 
-func deltapackzigzag64_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]uint64) {
+func deltapackzigzag64_42[T uint64 | int64](out *[42]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 42))
@@ -35118,7 +27884,7 @@ func deltapackzigzag64_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>20 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 22))
 }
-func deltapackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out *[42]uint64, ntz int) {
+func deltapackzigzag64_ntz_42[T uint64 | int64](out *[42]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -35268,7 +28034,7 @@ func deltapackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 22))
 }
 
-func deltapackzigzag64_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]uint64) {
+func deltapackzigzag64_43[T uint64 | int64](out *[43]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 43))
@@ -35419,7 +28185,7 @@ func deltapackzigzag64_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>22 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 21))
 }
-func deltapackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out *[43]uint64, ntz int) {
+func deltapackzigzag64_ntz_43[T uint64 | int64](out *[43]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -35572,7 +28338,7 @@ func deltapackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 21))
 }
 
-func deltapackzigzag64_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]uint64) {
+func deltapackzigzag64_44[T uint64 | int64](out *[44]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 44))
@@ -35722,7 +28488,7 @@ func deltapackzigzag64_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>24 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 20))
 }
-func deltapackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out *[44]uint64, ntz int) {
+func deltapackzigzag64_ntz_44[T uint64 | int64](out *[44]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -35874,7 +28640,7 @@ func deltapackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 20))
 }
 
-func deltapackzigzag64_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]uint64) {
+func deltapackzigzag64_45[T uint64 | int64](out *[45]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 45))
@@ -36029,7 +28795,7 @@ func deltapackzigzag64_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>26 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 19))
 }
-func deltapackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out *[45]uint64, ntz int) {
+func deltapackzigzag64_ntz_45[T uint64 | int64](out *[45]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -36186,7 +28952,7 @@ func deltapackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 19))
 }
 
-func deltapackzigzag64_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]uint64) {
+func deltapackzigzag64_46[T uint64 | int64](out *[46]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 46))
@@ -36342,7 +29108,7 @@ func deltapackzigzag64_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>28 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 18))
 }
-func deltapackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out *[46]uint64, ntz int) {
+func deltapackzigzag64_ntz_46[T uint64 | int64](out *[46]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -36500,7 +29266,7 @@ func deltapackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 18))
 }
 
-func deltapackzigzag64_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]uint64) {
+func deltapackzigzag64_47[T uint64 | int64](out *[47]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 47))
@@ -36659,7 +29425,7 @@ func deltapackzigzag64_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>30 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 17))
 }
-func deltapackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out *[47]uint64, ntz int) {
+func deltapackzigzag64_ntz_47[T uint64 | int64](out *[47]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -36820,7 +29586,7 @@ func deltapackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 17))
 }
 
-func deltapackzigzag64_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]uint64) {
+func deltapackzigzag64_48[T uint64 | int64](out *[48]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 48))
@@ -36966,7 +29732,7 @@ func deltapackzigzag64_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>32 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 16))
 }
-func deltapackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out *[48]uint64, ntz int) {
+func deltapackzigzag64_ntz_48[T uint64 | int64](out *[48]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -37114,7 +29880,7 @@ func deltapackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 16))
 }
 
-func deltapackzigzag64_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]uint64) {
+func deltapackzigzag64_49[T uint64 | int64](out *[49]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 49))
@@ -37277,7 +30043,7 @@ func deltapackzigzag64_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>34 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 15))
 }
-func deltapackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out *[49]uint64, ntz int) {
+func deltapackzigzag64_ntz_49[T uint64 | int64](out *[49]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -37442,7 +30208,7 @@ func deltapackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[64]T, out *[4
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 15))
 }
 
-func deltapackzigzag64_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]uint64) {
+func deltapackzigzag64_50[T uint64 | int64](out *[50]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 50))
@@ -37606,7 +30372,7 @@ func deltapackzigzag64_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>36 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 14))
 }
-func deltapackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out *[50]uint64, ntz int) {
+func deltapackzigzag64_ntz_50[T uint64 | int64](out *[50]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -37772,7 +30538,7 @@ func deltapackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 14))
 }
 
-func deltapackzigzag64_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]uint64) {
+func deltapackzigzag64_51[T uint64 | int64](out *[51]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 51))
@@ -37939,7 +30705,7 @@ func deltapackzigzag64_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>38 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 13))
 }
-func deltapackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out *[51]uint64, ntz int) {
+func deltapackzigzag64_ntz_51[T uint64 | int64](out *[51]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -38108,7 +30874,7 @@ func deltapackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 13))
 }
 
-func deltapackzigzag64_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]uint64) {
+func deltapackzigzag64_52[T uint64 | int64](out *[52]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 52))
@@ -38274,7 +31040,7 @@ func deltapackzigzag64_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>40 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 12))
 }
-func deltapackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out *[52]uint64, ntz int) {
+func deltapackzigzag64_ntz_52[T uint64 | int64](out *[52]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -38442,7 +31208,7 @@ func deltapackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 12))
 }
 
-func deltapackzigzag64_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]uint64) {
+func deltapackzigzag64_53[T uint64 | int64](out *[53]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 53))
@@ -38613,7 +31379,7 @@ func deltapackzigzag64_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>42 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 11))
 }
-func deltapackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out *[53]uint64, ntz int) {
+func deltapackzigzag64_ntz_53[T uint64 | int64](out *[53]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -38786,7 +31552,7 @@ func deltapackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 11))
 }
 
-func deltapackzigzag64_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]uint64) {
+func deltapackzigzag64_54[T uint64 | int64](out *[54]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 54))
@@ -38958,7 +31724,7 @@ func deltapackzigzag64_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>44 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 10))
 }
-func deltapackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out *[54]uint64, ntz int) {
+func deltapackzigzag64_ntz_54[T uint64 | int64](out *[54]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -39132,7 +31898,7 @@ func deltapackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 10))
 }
 
-func deltapackzigzag64_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]uint64) {
+func deltapackzigzag64_55[T uint64 | int64](out *[55]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 55))
@@ -39307,7 +32073,7 @@ func deltapackzigzag64_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>46 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 9))
 }
-func deltapackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out *[55]uint64, ntz int) {
+func deltapackzigzag64_ntz_55[T uint64 | int64](out *[55]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -39484,7 +32250,7 @@ func deltapackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 9))
 }
 
-func deltapackzigzag64_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]uint64) {
+func deltapackzigzag64_56[T uint64 | int64](out *[56]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 56))
@@ -39654,7 +32420,7 @@ func deltapackzigzag64_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>48 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 8))
 }
-func deltapackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out *[56]uint64, ntz int) {
+func deltapackzigzag64_ntz_56[T uint64 | int64](out *[56]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -39826,7 +32592,7 @@ func deltapackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 8))
 }
 
-func deltapackzigzag64_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]uint64) {
+func deltapackzigzag64_57[T uint64 | int64](out *[57]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 57))
@@ -40005,7 +32771,7 @@ func deltapackzigzag64_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>50 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 7))
 }
-func deltapackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out *[57]uint64, ntz int) {
+func deltapackzigzag64_ntz_57[T uint64 | int64](out *[57]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -40186,7 +32952,7 @@ func deltapackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 7))
 }
 
-func deltapackzigzag64_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]uint64) {
+func deltapackzigzag64_58[T uint64 | int64](out *[58]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 58))
@@ -40366,7 +33132,7 @@ func deltapackzigzag64_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>52 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 6))
 }
-func deltapackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out *[58]uint64, ntz int) {
+func deltapackzigzag64_ntz_58[T uint64 | int64](out *[58]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -40548,7 +33314,7 @@ func deltapackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 6))
 }
 
-func deltapackzigzag64_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]uint64) {
+func deltapackzigzag64_59[T uint64 | int64](out *[59]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 59))
@@ -40731,7 +33497,7 @@ func deltapackzigzag64_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>54 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 5))
 }
-func deltapackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out *[59]uint64, ntz int) {
+func deltapackzigzag64_ntz_59[T uint64 | int64](out *[59]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -40916,7 +33682,7 @@ func deltapackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[64]T, out *[5
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 5))
 }
 
-func deltapackzigzag64_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]uint64) {
+func deltapackzigzag64_60[T uint64 | int64](out *[60]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 60))
@@ -41098,7 +33864,7 @@ func deltapackzigzag64_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>56 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 4))
 }
-func deltapackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out *[60]uint64, ntz int) {
+func deltapackzigzag64_ntz_60[T uint64 | int64](out *[60]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -41282,7 +34048,7 @@ func deltapackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[64]T, out *[6
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 4))
 }
 
-func deltapackzigzag64_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]uint64) {
+func deltapackzigzag64_61[T uint64 | int64](out *[61]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 61))
@@ -41469,7 +34235,7 @@ func deltapackzigzag64_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>58 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 3))
 }
-func deltapackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out *[61]uint64, ntz int) {
+func deltapackzigzag64_ntz_61[T uint64 | int64](out *[61]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -41658,7 +34424,7 @@ func deltapackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[64]T, out *[6
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 3))
 }
 
-func deltapackzigzag64_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]uint64) {
+func deltapackzigzag64_62[T uint64 | int64](out *[62]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 62))
@@ -41846,7 +34612,7 @@ func deltapackzigzag64_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>60 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 2))
 }
-func deltapackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out *[62]uint64, ntz int) {
+func deltapackzigzag64_ntz_62[T uint64 | int64](out *[62]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -42036,7 +34802,7 @@ func deltapackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[64]T, out *[6
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 2))
 }
 
-func deltapackzigzag64_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]uint64) {
+func deltapackzigzag64_63[T uint64 | int64](out *[63]uint64, in *[64]T, initoffset T) {
 	out[0] = uint64(
 		((int64(in[0] - initoffset)) << 1) ^ ((int64(in[0] - initoffset)) >> 63) |
 			((((int64(in[1] - in[0])) << 1) ^ ((int64(in[1] - in[0])) >> 63)) << 63))
@@ -42227,7 +34993,7 @@ func deltapackzigzag64_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]ui
 		(((int64(in[62]-in[61]))<<1)^((int64(in[62]-in[61]))>>63))>>62 |
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) << 1))
 }
-func deltapackzigzag64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out *[63]uint64, ntz int) {
+func deltapackzigzag64_ntz_63[T uint64 | int64](out *[63]uint64, in *[64]T, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = uint64(
 		(((int64(in[0]-initoffset))<<1)^((int64(in[0]-initoffset))>>63))>>ntz |
@@ -42420,7 +35186,7 @@ func deltapackzigzag64_ntz_63[T uint64 | int64](initoffset T, in *[64]T, out *[6
 			((((int64(in[63] - in[62])) << 1) ^ ((int64(in[63] - in[62])) >> 63)) >> ntz << 1))
 }
 
-func deltaunpackzigzag64_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64]T) {
+func deltaunpackzigzag64_0[T uint64 | int64](out *[64]T, in *[0]uint64, initoffset T) {
 	out[0] = initoffset
 	out[1] = initoffset
 	out[2] = initoffset
@@ -42486,7 +35252,7 @@ func deltaunpackzigzag64_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[
 	out[62] = initoffset
 	out[63] = initoffset
 }
-func deltaunpackzigzag64_ntz_0[T uint64 | int64](initoffset T, in *[0]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_0[T uint64 | int64](out *[64]T, in *[0]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = initoffset
 	out[1] = initoffset
@@ -42554,7 +35320,7 @@ func deltaunpackzigzag64_ntz_0[T uint64 | int64](initoffset T, in *[0]uint64, ou
 	out[63] = initoffset
 }
 
-func deltaunpackzigzag64_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64]T) {
+func deltaunpackzigzag64_1[T uint64 | int64](out *[64]T, in *[1]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1) & 1)) ^ (((in[0] >> 0) & 0x1) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 1) & 0x1) & 1)) ^ (((in[0] >> 1) & 0x1) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 2) & 0x1) & 1)) ^ (((in[0] >> 2) & 0x1) >> 1))) + out[1]
@@ -42620,7 +35386,7 @@ func deltaunpackzigzag64_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[
 	out[62] = T(((-(((in[0] >> 62) & 0x1) & 1)) ^ (((in[0] >> 62) & 0x1) >> 1))) + out[61]
 	out[63] = T(((-((in[0] >> 63) & 1)) ^ ((in[0] >> 63) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_1[T uint64 | int64](initoffset T, in *[1]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_1[T uint64 | int64](out *[64]T, in *[1]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1) & 1))^(((in[0]>>0)&0x1)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 1) & 0x1) & 1))^(((in[0]>>1)&0x1)>>1)))<<ntz + out[0]
@@ -42688,7 +35454,7 @@ func deltaunpackzigzag64_ntz_1[T uint64 | int64](initoffset T, in *[1]uint64, ou
 	out[63] = T(((-((in[0] >> 63) & 1))^((in[0]>>63)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64]T) {
+func deltaunpackzigzag64_2[T uint64 | int64](out *[64]T, in *[2]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3) & 1)) ^ (((in[0] >> 0) & 0x3) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 2) & 0x3) & 1)) ^ (((in[0] >> 2) & 0x3) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 4) & 0x3) & 1)) ^ (((in[0] >> 4) & 0x3) >> 1))) + out[1]
@@ -42754,7 +35520,7 @@ func deltaunpackzigzag64_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[
 	out[62] = T(((-(((in[1] >> 60) & 0x3) & 1)) ^ (((in[1] >> 60) & 0x3) >> 1))) + out[61]
 	out[63] = T(((-((in[1] >> 62) & 1)) ^ ((in[1] >> 62) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_2[T uint64 | int64](initoffset T, in *[2]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_2[T uint64 | int64](out *[64]T, in *[2]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3) & 1))^(((in[0]>>0)&0x3)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 2) & 0x3) & 1))^(((in[0]>>2)&0x3)>>1)))<<ntz + out[0]
@@ -42822,7 +35588,7 @@ func deltaunpackzigzag64_ntz_2[T uint64 | int64](initoffset T, in *[2]uint64, ou
 	out[63] = T(((-((in[1] >> 62) & 1))^((in[1]>>62)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64]T) {
+func deltaunpackzigzag64_3[T uint64 | int64](out *[64]T, in *[3]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7) & 1)) ^ (((in[0] >> 0) & 0x7) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 3) & 0x7) & 1)) ^ (((in[0] >> 3) & 0x7) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 6) & 0x7) & 1)) ^ (((in[0] >> 6) & 0x7) >> 1))) + out[1]
@@ -42888,7 +35654,7 @@ func deltaunpackzigzag64_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[
 	out[62] = T(((-(((in[2] >> 58) & 0x7) & 1)) ^ (((in[2] >> 58) & 0x7) >> 1))) + out[61]
 	out[63] = T(((-((in[2] >> 61) & 1)) ^ ((in[2] >> 61) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_3[T uint64 | int64](initoffset T, in *[3]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_3[T uint64 | int64](out *[64]T, in *[3]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7) & 1))^(((in[0]>>0)&0x7)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 3) & 0x7) & 1))^(((in[0]>>3)&0x7)>>1)))<<ntz + out[0]
@@ -42956,7 +35722,7 @@ func deltaunpackzigzag64_ntz_3[T uint64 | int64](initoffset T, in *[3]uint64, ou
 	out[63] = T(((-((in[2] >> 61) & 1))^((in[2]>>61)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64]T) {
+func deltaunpackzigzag64_4[T uint64 | int64](out *[64]T, in *[4]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xF) & 1)) ^ (((in[0] >> 0) & 0xF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 4) & 0xF) & 1)) ^ (((in[0] >> 4) & 0xF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 8) & 0xF) & 1)) ^ (((in[0] >> 8) & 0xF) >> 1))) + out[1]
@@ -43022,7 +35788,7 @@ func deltaunpackzigzag64_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[
 	out[62] = T(((-(((in[3] >> 56) & 0xF) & 1)) ^ (((in[3] >> 56) & 0xF) >> 1))) + out[61]
 	out[63] = T(((-((in[3] >> 60) & 1)) ^ ((in[3] >> 60) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_4[T uint64 | int64](initoffset T, in *[4]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_4[T uint64 | int64](out *[64]T, in *[4]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xF) & 1))^(((in[0]>>0)&0xF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 4) & 0xF) & 1))^(((in[0]>>4)&0xF)>>1)))<<ntz + out[0]
@@ -43090,7 +35856,7 @@ func deltaunpackzigzag64_ntz_4[T uint64 | int64](initoffset T, in *[4]uint64, ou
 	out[63] = T(((-((in[3] >> 60) & 1))^((in[3]>>60)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64]T) {
+func deltaunpackzigzag64_5[T uint64 | int64](out *[64]T, in *[5]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1F) & 1)) ^ (((in[0] >> 0) & 0x1F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 5) & 0x1F) & 1)) ^ (((in[0] >> 5) & 0x1F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 10) & 0x1F) & 1)) ^ (((in[0] >> 10) & 0x1F) >> 1))) + out[1]
@@ -43156,7 +35922,7 @@ func deltaunpackzigzag64_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[
 	out[62] = T(((-(((in[4] >> 54) & 0x1F) & 1)) ^ (((in[4] >> 54) & 0x1F) >> 1))) + out[61]
 	out[63] = T(((-((in[4] >> 59) & 1)) ^ ((in[4] >> 59) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[5]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_5[T uint64 | int64](out *[64]T, in *[5]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1F) & 1))^(((in[0]>>0)&0x1F)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 5) & 0x1F) & 1))^(((in[0]>>5)&0x1F)>>1)))<<ntz + out[0]
@@ -43224,7 +35990,7 @@ func deltaunpackzigzag64_ntz_5[T uint64 | int64](initoffset T, in *[5]uint64, ou
 	out[63] = T(((-((in[4] >> 59) & 1))^((in[4]>>59)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64]T) {
+func deltaunpackzigzag64_6[T uint64 | int64](out *[64]T, in *[6]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3F) & 1)) ^ (((in[0] >> 0) & 0x3F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 6) & 0x3F) & 1)) ^ (((in[0] >> 6) & 0x3F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 12) & 0x3F) & 1)) ^ (((in[0] >> 12) & 0x3F) >> 1))) + out[1]
@@ -43290,7 +36056,7 @@ func deltaunpackzigzag64_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[
 	out[62] = T(((-(((in[5] >> 52) & 0x3F) & 1)) ^ (((in[5] >> 52) & 0x3F) >> 1))) + out[61]
 	out[63] = T(((-((in[5] >> 58) & 1)) ^ ((in[5] >> 58) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[6]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_6[T uint64 | int64](out *[64]T, in *[6]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3F) & 1))^(((in[0]>>0)&0x3F)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 6) & 0x3F) & 1))^(((in[0]>>6)&0x3F)>>1)))<<ntz + out[0]
@@ -43358,7 +36124,7 @@ func deltaunpackzigzag64_ntz_6[T uint64 | int64](initoffset T, in *[6]uint64, ou
 	out[63] = T(((-((in[5] >> 58) & 1))^((in[5]>>58)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64]T) {
+func deltaunpackzigzag64_7[T uint64 | int64](out *[64]T, in *[7]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7F) & 1)) ^ (((in[0] >> 0) & 0x7F) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 7) & 0x7F) & 1)) ^ (((in[0] >> 7) & 0x7F) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 14) & 0x7F) & 1)) ^ (((in[0] >> 14) & 0x7F) >> 1))) + out[1]
@@ -43424,7 +36190,7 @@ func deltaunpackzigzag64_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[
 	out[62] = T(((-(((in[6] >> 50) & 0x7F) & 1)) ^ (((in[6] >> 50) & 0x7F) >> 1))) + out[61]
 	out[63] = T(((-((in[6] >> 57) & 1)) ^ ((in[6] >> 57) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[7]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_7[T uint64 | int64](out *[64]T, in *[7]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7F) & 1))^(((in[0]>>0)&0x7F)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 7) & 0x7F) & 1))^(((in[0]>>7)&0x7F)>>1)))<<ntz + out[0]
@@ -43492,7 +36258,7 @@ func deltaunpackzigzag64_ntz_7[T uint64 | int64](initoffset T, in *[7]uint64, ou
 	out[63] = T(((-((in[6] >> 57) & 1))^((in[6]>>57)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64]T) {
+func deltaunpackzigzag64_8[T uint64 | int64](out *[64]T, in *[8]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFF) & 1)) ^ (((in[0] >> 0) & 0xFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 8) & 0xFF) & 1)) ^ (((in[0] >> 8) & 0xFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 16) & 0xFF) & 1)) ^ (((in[0] >> 16) & 0xFF) >> 1))) + out[1]
@@ -43558,7 +36324,7 @@ func deltaunpackzigzag64_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[
 	out[62] = T(((-(((in[7] >> 48) & 0xFF) & 1)) ^ (((in[7] >> 48) & 0xFF) >> 1))) + out[61]
 	out[63] = T(((-((in[7] >> 56) & 1)) ^ ((in[7] >> 56) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[8]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_8[T uint64 | int64](out *[64]T, in *[8]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFF) & 1))^(((in[0]>>0)&0xFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 8) & 0xFF) & 1))^(((in[0]>>8)&0xFF)>>1)))<<ntz + out[0]
@@ -43626,7 +36392,7 @@ func deltaunpackzigzag64_ntz_8[T uint64 | int64](initoffset T, in *[8]uint64, ou
 	out[63] = T(((-((in[7] >> 56) & 1))^((in[7]>>56)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64]T) {
+func deltaunpackzigzag64_9[T uint64 | int64](out *[64]T, in *[9]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FF) & 1)) ^ (((in[0] >> 0) & 0x1FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 9) & 0x1FF) & 1)) ^ (((in[0] >> 9) & 0x1FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 18) & 0x1FF) & 1)) ^ (((in[0] >> 18) & 0x1FF) >> 1))) + out[1]
@@ -43692,7 +36458,7 @@ func deltaunpackzigzag64_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[
 	out[62] = T(((-(((in[8] >> 46) & 0x1FF) & 1)) ^ (((in[8] >> 46) & 0x1FF) >> 1))) + out[61]
 	out[63] = T(((-((in[8] >> 55) & 1)) ^ ((in[8] >> 55) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[9]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_9[T uint64 | int64](out *[64]T, in *[9]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FF) & 1))^(((in[0]>>0)&0x1FF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 9) & 0x1FF) & 1))^(((in[0]>>9)&0x1FF)>>1)))<<ntz + out[0]
@@ -43760,7 +36526,7 @@ func deltaunpackzigzag64_ntz_9[T uint64 | int64](initoffset T, in *[9]uint64, ou
 	out[63] = T(((-((in[8] >> 55) & 1))^((in[8]>>55)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[64]T) {
+func deltaunpackzigzag64_10[T uint64 | int64](out *[64]T, in *[10]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FF) & 1)) ^ (((in[0] >> 0) & 0x3FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 10) & 0x3FF) & 1)) ^ (((in[0] >> 10) & 0x3FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 20) & 0x3FF) & 1)) ^ (((in[0] >> 20) & 0x3FF) >> 1))) + out[1]
@@ -43826,7 +36592,7 @@ func deltaunpackzigzag64_10[T uint64 | int64](initoffset T, in *[10]uint64, out 
 	out[62] = T(((-(((in[9] >> 44) & 0x3FF) & 1)) ^ (((in[9] >> 44) & 0x3FF) >> 1))) + out[61]
 	out[63] = T(((-((in[9] >> 54) & 1)) ^ ((in[9] >> 54) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[10]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_10[T uint64 | int64](out *[64]T, in *[10]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FF) & 1))^(((in[0]>>0)&0x3FF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 10) & 0x3FF) & 1))^(((in[0]>>10)&0x3FF)>>1)))<<ntz + out[0]
@@ -43894,7 +36660,7 @@ func deltaunpackzigzag64_ntz_10[T uint64 | int64](initoffset T, in *[10]uint64, 
 	out[63] = T(((-((in[9] >> 54) & 1))^((in[9]>>54)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[64]T) {
+func deltaunpackzigzag64_11[T uint64 | int64](out *[64]T, in *[11]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FF) & 1)) ^ (((in[0] >> 0) & 0x7FF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 11) & 0x7FF) & 1)) ^ (((in[0] >> 11) & 0x7FF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 22) & 0x7FF) & 1)) ^ (((in[0] >> 22) & 0x7FF) >> 1))) + out[1]
@@ -43960,7 +36726,7 @@ func deltaunpackzigzag64_11[T uint64 | int64](initoffset T, in *[11]uint64, out 
 	out[62] = T(((-(((in[10] >> 42) & 0x7FF) & 1)) ^ (((in[10] >> 42) & 0x7FF) >> 1))) + out[61]
 	out[63] = T(((-((in[10] >> 53) & 1)) ^ ((in[10] >> 53) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[11]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_11[T uint64 | int64](out *[64]T, in *[11]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FF) & 1))^(((in[0]>>0)&0x7FF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 11) & 0x7FF) & 1))^(((in[0]>>11)&0x7FF)>>1)))<<ntz + out[0]
@@ -44028,7 +36794,7 @@ func deltaunpackzigzag64_ntz_11[T uint64 | int64](initoffset T, in *[11]uint64, 
 	out[63] = T(((-((in[10] >> 53) & 1))^((in[10]>>53)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[64]T) {
+func deltaunpackzigzag64_12[T uint64 | int64](out *[64]T, in *[12]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFF) & 1)) ^ (((in[0] >> 0) & 0xFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 12) & 0xFFF) & 1)) ^ (((in[0] >> 12) & 0xFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 24) & 0xFFF) & 1)) ^ (((in[0] >> 24) & 0xFFF) >> 1))) + out[1]
@@ -44094,7 +36860,7 @@ func deltaunpackzigzag64_12[T uint64 | int64](initoffset T, in *[12]uint64, out 
 	out[62] = T(((-(((in[11] >> 40) & 0xFFF) & 1)) ^ (((in[11] >> 40) & 0xFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[11] >> 52) & 1)) ^ ((in[11] >> 52) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[12]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_12[T uint64 | int64](out *[64]T, in *[12]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFF) & 1))^(((in[0]>>0)&0xFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 12) & 0xFFF) & 1))^(((in[0]>>12)&0xFFF)>>1)))<<ntz + out[0]
@@ -44162,7 +36928,7 @@ func deltaunpackzigzag64_ntz_12[T uint64 | int64](initoffset T, in *[12]uint64, 
 	out[63] = T(((-((in[11] >> 52) & 1))^((in[11]>>52)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[64]T) {
+func deltaunpackzigzag64_13[T uint64 | int64](out *[64]T, in *[13]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFF) & 1)) ^ (((in[0] >> 0) & 0x1FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 13) & 0x1FFF) & 1)) ^ (((in[0] >> 13) & 0x1FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 26) & 0x1FFF) & 1)) ^ (((in[0] >> 26) & 0x1FFF) >> 1))) + out[1]
@@ -44228,7 +36994,7 @@ func deltaunpackzigzag64_13[T uint64 | int64](initoffset T, in *[13]uint64, out 
 	out[62] = T(((-(((in[12] >> 38) & 0x1FFF) & 1)) ^ (((in[12] >> 38) & 0x1FFF) >> 1))) + out[61]
 	out[63] = T(((-((in[12] >> 51) & 1)) ^ ((in[12] >> 51) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[13]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_13[T uint64 | int64](out *[64]T, in *[13]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFF) & 1))^(((in[0]>>0)&0x1FFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 13) & 0x1FFF) & 1))^(((in[0]>>13)&0x1FFF)>>1)))<<ntz + out[0]
@@ -44296,7 +37062,7 @@ func deltaunpackzigzag64_ntz_13[T uint64 | int64](initoffset T, in *[13]uint64, 
 	out[63] = T(((-((in[12] >> 51) & 1))^((in[12]>>51)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[64]T) {
+func deltaunpackzigzag64_14[T uint64 | int64](out *[64]T, in *[14]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFF) & 1)) ^ (((in[0] >> 0) & 0x3FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 14) & 0x3FFF) & 1)) ^ (((in[0] >> 14) & 0x3FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 28) & 0x3FFF) & 1)) ^ (((in[0] >> 28) & 0x3FFF) >> 1))) + out[1]
@@ -44362,7 +37128,7 @@ func deltaunpackzigzag64_14[T uint64 | int64](initoffset T, in *[14]uint64, out 
 	out[62] = T(((-(((in[13] >> 36) & 0x3FFF) & 1)) ^ (((in[13] >> 36) & 0x3FFF) >> 1))) + out[61]
 	out[63] = T(((-((in[13] >> 50) & 1)) ^ ((in[13] >> 50) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[14]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_14[T uint64 | int64](out *[64]T, in *[14]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFF) & 1))^(((in[0]>>0)&0x3FFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 14) & 0x3FFF) & 1))^(((in[0]>>14)&0x3FFF)>>1)))<<ntz + out[0]
@@ -44430,7 +37196,7 @@ func deltaunpackzigzag64_ntz_14[T uint64 | int64](initoffset T, in *[14]uint64, 
 	out[63] = T(((-((in[13] >> 50) & 1))^((in[13]>>50)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[64]T) {
+func deltaunpackzigzag64_15[T uint64 | int64](out *[64]T, in *[15]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFF) & 1)) ^ (((in[0] >> 0) & 0x7FFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 15) & 0x7FFF) & 1)) ^ (((in[0] >> 15) & 0x7FFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 30) & 0x7FFF) & 1)) ^ (((in[0] >> 30) & 0x7FFF) >> 1))) + out[1]
@@ -44496,7 +37262,7 @@ func deltaunpackzigzag64_15[T uint64 | int64](initoffset T, in *[15]uint64, out 
 	out[62] = T(((-(((in[14] >> 34) & 0x7FFF) & 1)) ^ (((in[14] >> 34) & 0x7FFF) >> 1))) + out[61]
 	out[63] = T(((-((in[14] >> 49) & 1)) ^ ((in[14] >> 49) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[15]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_15[T uint64 | int64](out *[64]T, in *[15]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFF) & 1))^(((in[0]>>0)&0x7FFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 15) & 0x7FFF) & 1))^(((in[0]>>15)&0x7FFF)>>1)))<<ntz + out[0]
@@ -44564,7 +37330,7 @@ func deltaunpackzigzag64_ntz_15[T uint64 | int64](initoffset T, in *[15]uint64, 
 	out[63] = T(((-((in[14] >> 49) & 1))^((in[14]>>49)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[64]T) {
+func deltaunpackzigzag64_16[T uint64 | int64](out *[64]T, in *[16]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 16) & 0xFFFF) & 1)) ^ (((in[0] >> 16) & 0xFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 32) & 0xFFFF) & 1)) ^ (((in[0] >> 32) & 0xFFFF) >> 1))) + out[1]
@@ -44630,7 +37396,7 @@ func deltaunpackzigzag64_16[T uint64 | int64](initoffset T, in *[16]uint64, out 
 	out[62] = T(((-(((in[15] >> 32) & 0xFFFF) & 1)) ^ (((in[15] >> 32) & 0xFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[15] >> 48) & 1)) ^ ((in[15] >> 48) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[16]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_16[T uint64 | int64](out *[64]T, in *[16]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFF) & 1))^(((in[0]>>0)&0xFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 16) & 0xFFFF) & 1))^(((in[0]>>16)&0xFFFF)>>1)))<<ntz + out[0]
@@ -44698,7 +37464,7 @@ func deltaunpackzigzag64_ntz_16[T uint64 | int64](initoffset T, in *[16]uint64, 
 	out[63] = T(((-((in[15] >> 48) & 1))^((in[15]>>48)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[64]T) {
+func deltaunpackzigzag64_17[T uint64 | int64](out *[64]T, in *[17]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 17) & 0x1FFFF) & 1)) ^ (((in[0] >> 17) & 0x1FFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 34) & 0x1FFFF) & 1)) ^ (((in[0] >> 34) & 0x1FFFF) >> 1))) + out[1]
@@ -44764,7 +37530,7 @@ func deltaunpackzigzag64_17[T uint64 | int64](initoffset T, in *[17]uint64, out 
 	out[62] = T(((-(((in[16] >> 30) & 0x1FFFF) & 1)) ^ (((in[16] >> 30) & 0x1FFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[16] >> 47) & 1)) ^ ((in[16] >> 47) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[17]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_17[T uint64 | int64](out *[64]T, in *[17]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFF) & 1))^(((in[0]>>0)&0x1FFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 17) & 0x1FFFF) & 1))^(((in[0]>>17)&0x1FFFF)>>1)))<<ntz + out[0]
@@ -44832,7 +37598,7 @@ func deltaunpackzigzag64_ntz_17[T uint64 | int64](initoffset T, in *[17]uint64, 
 	out[63] = T(((-((in[16] >> 47) & 1))^((in[16]>>47)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[64]T) {
+func deltaunpackzigzag64_18[T uint64 | int64](out *[64]T, in *[18]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 18) & 0x3FFFF) & 1)) ^ (((in[0] >> 18) & 0x3FFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 36) & 0x3FFFF) & 1)) ^ (((in[0] >> 36) & 0x3FFFF) >> 1))) + out[1]
@@ -44898,7 +37664,7 @@ func deltaunpackzigzag64_18[T uint64 | int64](initoffset T, in *[18]uint64, out 
 	out[62] = T(((-(((in[17] >> 28) & 0x3FFFF) & 1)) ^ (((in[17] >> 28) & 0x3FFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[17] >> 46) & 1)) ^ ((in[17] >> 46) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[18]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_18[T uint64 | int64](out *[64]T, in *[18]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFF) & 1))^(((in[0]>>0)&0x3FFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 18) & 0x3FFFF) & 1))^(((in[0]>>18)&0x3FFFF)>>1)))<<ntz + out[0]
@@ -44966,7 +37732,7 @@ func deltaunpackzigzag64_ntz_18[T uint64 | int64](initoffset T, in *[18]uint64, 
 	out[63] = T(((-((in[17] >> 46) & 1))^((in[17]>>46)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[64]T) {
+func deltaunpackzigzag64_19[T uint64 | int64](out *[64]T, in *[19]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 19) & 0x7FFFF) & 1)) ^ (((in[0] >> 19) & 0x7FFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 38) & 0x7FFFF) & 1)) ^ (((in[0] >> 38) & 0x7FFFF) >> 1))) + out[1]
@@ -45032,7 +37798,7 @@ func deltaunpackzigzag64_19[T uint64 | int64](initoffset T, in *[19]uint64, out 
 	out[62] = T(((-(((in[18] >> 26) & 0x7FFFF) & 1)) ^ (((in[18] >> 26) & 0x7FFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[18] >> 45) & 1)) ^ ((in[18] >> 45) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[19]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_19[T uint64 | int64](out *[64]T, in *[19]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFF) & 1))^(((in[0]>>0)&0x7FFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 19) & 0x7FFFF) & 1))^(((in[0]>>19)&0x7FFFF)>>1)))<<ntz + out[0]
@@ -45100,7 +37866,7 @@ func deltaunpackzigzag64_ntz_19[T uint64 | int64](initoffset T, in *[19]uint64, 
 	out[63] = T(((-((in[18] >> 45) & 1))^((in[18]>>45)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[64]T) {
+func deltaunpackzigzag64_20[T uint64 | int64](out *[64]T, in *[20]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 20) & 0xFFFFF) & 1)) ^ (((in[0] >> 20) & 0xFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 40) & 0xFFFFF) & 1)) ^ (((in[0] >> 40) & 0xFFFFF) >> 1))) + out[1]
@@ -45166,7 +37932,7 @@ func deltaunpackzigzag64_20[T uint64 | int64](initoffset T, in *[20]uint64, out 
 	out[62] = T(((-(((in[19] >> 24) & 0xFFFFF) & 1)) ^ (((in[19] >> 24) & 0xFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[19] >> 44) & 1)) ^ ((in[19] >> 44) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[20]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_20[T uint64 | int64](out *[64]T, in *[20]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFF) & 1))^(((in[0]>>0)&0xFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 20) & 0xFFFFF) & 1))^(((in[0]>>20)&0xFFFFF)>>1)))<<ntz + out[0]
@@ -45234,7 +38000,7 @@ func deltaunpackzigzag64_ntz_20[T uint64 | int64](initoffset T, in *[20]uint64, 
 	out[63] = T(((-((in[19] >> 44) & 1))^((in[19]>>44)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[64]T) {
+func deltaunpackzigzag64_21[T uint64 | int64](out *[64]T, in *[21]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 21) & 0x1FFFFF) & 1)) ^ (((in[0] >> 21) & 0x1FFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 42) & 0x1FFFFF) & 1)) ^ (((in[0] >> 42) & 0x1FFFFF) >> 1))) + out[1]
@@ -45300,7 +38066,7 @@ func deltaunpackzigzag64_21[T uint64 | int64](initoffset T, in *[21]uint64, out 
 	out[62] = T(((-(((in[20] >> 22) & 0x1FFFFF) & 1)) ^ (((in[20] >> 22) & 0x1FFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[20] >> 43) & 1)) ^ ((in[20] >> 43) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[21]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_21[T uint64 | int64](out *[64]T, in *[21]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFF) & 1))^(((in[0]>>0)&0x1FFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 21) & 0x1FFFFF) & 1))^(((in[0]>>21)&0x1FFFFF)>>1)))<<ntz + out[0]
@@ -45368,7 +38134,7 @@ func deltaunpackzigzag64_ntz_21[T uint64 | int64](initoffset T, in *[21]uint64, 
 	out[63] = T(((-((in[20] >> 43) & 1))^((in[20]>>43)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[64]T) {
+func deltaunpackzigzag64_22[T uint64 | int64](out *[64]T, in *[22]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 22) & 0x3FFFFF) & 1)) ^ (((in[0] >> 22) & 0x3FFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 44) | ((in[1] & 0x3) << 20)) & 1)) ^ (((in[0] >> 44) | ((in[1] & 0x3) << 20)) >> 1))) + out[1]
@@ -45434,7 +38200,7 @@ func deltaunpackzigzag64_22[T uint64 | int64](initoffset T, in *[22]uint64, out 
 	out[62] = T(((-(((in[21] >> 20) & 0x3FFFFF) & 1)) ^ (((in[21] >> 20) & 0x3FFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[21] >> 42) & 1)) ^ ((in[21] >> 42) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[22]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_22[T uint64 | int64](out *[64]T, in *[22]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFF) & 1))^(((in[0]>>0)&0x3FFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 22) & 0x3FFFFF) & 1))^(((in[0]>>22)&0x3FFFFF)>>1)))<<ntz + out[0]
@@ -45502,7 +38268,7 @@ func deltaunpackzigzag64_ntz_22[T uint64 | int64](initoffset T, in *[22]uint64, 
 	out[63] = T(((-((in[21] >> 42) & 1))^((in[21]>>42)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[64]T) {
+func deltaunpackzigzag64_23[T uint64 | int64](out *[64]T, in *[23]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 23) & 0x7FFFFF) & 1)) ^ (((in[0] >> 23) & 0x7FFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 46) | ((in[1] & 0x1F) << 18)) & 1)) ^ (((in[0] >> 46) | ((in[1] & 0x1F) << 18)) >> 1))) + out[1]
@@ -45568,7 +38334,7 @@ func deltaunpackzigzag64_23[T uint64 | int64](initoffset T, in *[23]uint64, out 
 	out[62] = T(((-(((in[22] >> 18) & 0x7FFFFF) & 1)) ^ (((in[22] >> 18) & 0x7FFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[22] >> 41) & 1)) ^ ((in[22] >> 41) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[23]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_23[T uint64 | int64](out *[64]T, in *[23]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFF) & 1))^(((in[0]>>0)&0x7FFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 23) & 0x7FFFFF) & 1))^(((in[0]>>23)&0x7FFFFF)>>1)))<<ntz + out[0]
@@ -45636,7 +38402,7 @@ func deltaunpackzigzag64_ntz_23[T uint64 | int64](initoffset T, in *[23]uint64, 
 	out[63] = T(((-((in[22] >> 41) & 1))^((in[22]>>41)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[64]T) {
+func deltaunpackzigzag64_24[T uint64 | int64](out *[64]T, in *[24]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 24) & 0xFFFFFF) & 1)) ^ (((in[0] >> 24) & 0xFFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 48) | ((in[1] & 0xFF) << 16)) & 1)) ^ (((in[0] >> 48) | ((in[1] & 0xFF) << 16)) >> 1))) + out[1]
@@ -45702,7 +38468,7 @@ func deltaunpackzigzag64_24[T uint64 | int64](initoffset T, in *[24]uint64, out 
 	out[62] = T(((-(((in[23] >> 16) & 0xFFFFFF) & 1)) ^ (((in[23] >> 16) & 0xFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[23] >> 40) & 1)) ^ ((in[23] >> 40) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[24]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_24[T uint64 | int64](out *[64]T, in *[24]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 24) & 0xFFFFFF) & 1))^(((in[0]>>24)&0xFFFFFF)>>1)))<<ntz + out[0]
@@ -45770,7 +38536,7 @@ func deltaunpackzigzag64_ntz_24[T uint64 | int64](initoffset T, in *[24]uint64, 
 	out[63] = T(((-((in[23] >> 40) & 1))^((in[23]>>40)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[64]T) {
+func deltaunpackzigzag64_25[T uint64 | int64](out *[64]T, in *[25]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 25) & 0x1FFFFFF) & 1)) ^ (((in[0] >> 25) & 0x1FFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 50) | ((in[1] & 0x7FF) << 14)) & 1)) ^ (((in[0] >> 50) | ((in[1] & 0x7FF) << 14)) >> 1))) + out[1]
@@ -45836,7 +38602,7 @@ func deltaunpackzigzag64_25[T uint64 | int64](initoffset T, in *[25]uint64, out 
 	out[62] = T(((-(((in[24] >> 14) & 0x1FFFFFF) & 1)) ^ (((in[24] >> 14) & 0x1FFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[24] >> 39) & 1)) ^ ((in[24] >> 39) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[25]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_25[T uint64 | int64](out *[64]T, in *[25]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 25) & 0x1FFFFFF) & 1))^(((in[0]>>25)&0x1FFFFFF)>>1)))<<ntz + out[0]
@@ -45904,7 +38670,7 @@ func deltaunpackzigzag64_ntz_25[T uint64 | int64](initoffset T, in *[25]uint64, 
 	out[63] = T(((-((in[24] >> 39) & 1))^((in[24]>>39)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[64]T) {
+func deltaunpackzigzag64_26[T uint64 | int64](out *[64]T, in *[26]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 26) & 0x3FFFFFF) & 1)) ^ (((in[0] >> 26) & 0x3FFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 52) | ((in[1] & 0x3FFF) << 12)) & 1)) ^ (((in[0] >> 52) | ((in[1] & 0x3FFF) << 12)) >> 1))) + out[1]
@@ -45970,7 +38736,7 @@ func deltaunpackzigzag64_26[T uint64 | int64](initoffset T, in *[26]uint64, out 
 	out[62] = T(((-(((in[25] >> 12) & 0x3FFFFFF) & 1)) ^ (((in[25] >> 12) & 0x3FFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[25] >> 38) & 1)) ^ ((in[25] >> 38) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[26]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_26[T uint64 | int64](out *[64]T, in *[26]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 26) & 0x3FFFFFF) & 1))^(((in[0]>>26)&0x3FFFFFF)>>1)))<<ntz + out[0]
@@ -46038,7 +38804,7 @@ func deltaunpackzigzag64_ntz_26[T uint64 | int64](initoffset T, in *[26]uint64, 
 	out[63] = T(((-((in[25] >> 38) & 1))^((in[25]>>38)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[64]T) {
+func deltaunpackzigzag64_27[T uint64 | int64](out *[64]T, in *[27]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 27) & 0x7FFFFFF) & 1)) ^ (((in[0] >> 27) & 0x7FFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 54) | ((in[1] & 0x1FFFF) << 10)) & 1)) ^ (((in[0] >> 54) | ((in[1] & 0x1FFFF) << 10)) >> 1))) + out[1]
@@ -46104,7 +38870,7 @@ func deltaunpackzigzag64_27[T uint64 | int64](initoffset T, in *[27]uint64, out 
 	out[62] = T(((-(((in[26] >> 10) & 0x7FFFFFF) & 1)) ^ (((in[26] >> 10) & 0x7FFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[26] >> 37) & 1)) ^ ((in[26] >> 37) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[27]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_27[T uint64 | int64](out *[64]T, in *[27]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 27) & 0x7FFFFFF) & 1))^(((in[0]>>27)&0x7FFFFFF)>>1)))<<ntz + out[0]
@@ -46172,7 +38938,7 @@ func deltaunpackzigzag64_ntz_27[T uint64 | int64](initoffset T, in *[27]uint64, 
 	out[63] = T(((-((in[26] >> 37) & 1))^((in[26]>>37)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[64]T) {
+func deltaunpackzigzag64_28[T uint64 | int64](out *[64]T, in *[28]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 28) & 0xFFFFFFF) & 1)) ^ (((in[0] >> 28) & 0xFFFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 56) | ((in[1] & 0xFFFFF) << 8)) & 1)) ^ (((in[0] >> 56) | ((in[1] & 0xFFFFF) << 8)) >> 1))) + out[1]
@@ -46238,7 +39004,7 @@ func deltaunpackzigzag64_28[T uint64 | int64](initoffset T, in *[28]uint64, out 
 	out[62] = T(((-(((in[27] >> 8) & 0xFFFFFFF) & 1)) ^ (((in[27] >> 8) & 0xFFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[27] >> 36) & 1)) ^ ((in[27] >> 36) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[28]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_28[T uint64 | int64](out *[64]T, in *[28]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 28) & 0xFFFFFFF) & 1))^(((in[0]>>28)&0xFFFFFFF)>>1)))<<ntz + out[0]
@@ -46306,7 +39072,7 @@ func deltaunpackzigzag64_ntz_28[T uint64 | int64](initoffset T, in *[28]uint64, 
 	out[63] = T(((-((in[27] >> 36) & 1))^((in[27]>>36)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[64]T) {
+func deltaunpackzigzag64_29[T uint64 | int64](out *[64]T, in *[29]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 29) & 0x1FFFFFFF) & 1)) ^ (((in[0] >> 29) & 0x1FFFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 58) | ((in[1] & 0x7FFFFF) << 6)) & 1)) ^ (((in[0] >> 58) | ((in[1] & 0x7FFFFF) << 6)) >> 1))) + out[1]
@@ -46372,7 +39138,7 @@ func deltaunpackzigzag64_29[T uint64 | int64](initoffset T, in *[29]uint64, out 
 	out[62] = T(((-(((in[28] >> 6) & 0x1FFFFFFF) & 1)) ^ (((in[28] >> 6) & 0x1FFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[28] >> 35) & 1)) ^ ((in[28] >> 35) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[29]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_29[T uint64 | int64](out *[64]T, in *[29]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 29) & 0x1FFFFFFF) & 1))^(((in[0]>>29)&0x1FFFFFFF)>>1)))<<ntz + out[0]
@@ -46440,7 +39206,7 @@ func deltaunpackzigzag64_ntz_29[T uint64 | int64](initoffset T, in *[29]uint64, 
 	out[63] = T(((-((in[28] >> 35) & 1))^((in[28]>>35)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[64]T) {
+func deltaunpackzigzag64_30[T uint64 | int64](out *[64]T, in *[30]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 30) & 0x3FFFFFFF) & 1)) ^ (((in[0] >> 30) & 0x3FFFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 60) | ((in[1] & 0x3FFFFFF) << 4)) & 1)) ^ (((in[0] >> 60) | ((in[1] & 0x3FFFFFF) << 4)) >> 1))) + out[1]
@@ -46506,7 +39272,7 @@ func deltaunpackzigzag64_30[T uint64 | int64](initoffset T, in *[30]uint64, out 
 	out[62] = T(((-(((in[29] >> 4) & 0x3FFFFFFF) & 1)) ^ (((in[29] >> 4) & 0x3FFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[29] >> 34) & 1)) ^ ((in[29] >> 34) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[30]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_30[T uint64 | int64](out *[64]T, in *[30]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 30) & 0x3FFFFFFF) & 1))^(((in[0]>>30)&0x3FFFFFFF)>>1)))<<ntz + out[0]
@@ -46574,7 +39340,7 @@ func deltaunpackzigzag64_ntz_30[T uint64 | int64](initoffset T, in *[30]uint64, 
 	out[63] = T(((-((in[29] >> 34) & 1))^((in[29]>>34)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[64]T) {
+func deltaunpackzigzag64_31[T uint64 | int64](out *[64]T, in *[31]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 31) & 0x7FFFFFFF) & 1)) ^ (((in[0] >> 31) & 0x7FFFFFFF) >> 1))) + out[0]
 	out[2] = T(((-(((in[0] >> 62) | ((in[1] & 0x1FFFFFFF) << 2)) & 1)) ^ (((in[0] >> 62) | ((in[1] & 0x1FFFFFFF) << 2)) >> 1))) + out[1]
@@ -46640,7 +39406,7 @@ func deltaunpackzigzag64_31[T uint64 | int64](initoffset T, in *[31]uint64, out 
 	out[62] = T(((-(((in[30] >> 2) & 0x7FFFFFFF) & 1)) ^ (((in[30] >> 2) & 0x7FFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[30] >> 33) & 1)) ^ ((in[30] >> 33) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[31]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_31[T uint64 | int64](out *[64]T, in *[31]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 31) & 0x7FFFFFFF) & 1))^(((in[0]>>31)&0x7FFFFFFF)>>1)))<<ntz + out[0]
@@ -46708,7 +39474,7 @@ func deltaunpackzigzag64_ntz_31[T uint64 | int64](initoffset T, in *[31]uint64, 
 	out[63] = T(((-((in[30] >> 33) & 1))^((in[30]>>33)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[64]T) {
+func deltaunpackzigzag64_32[T uint64 | int64](out *[64]T, in *[32]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-((in[0] >> 32) & 1)) ^ ((in[0] >> 32) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 0) & 0xFFFFFFFF) & 1)) ^ (((in[1] >> 0) & 0xFFFFFFFF) >> 1))) + out[1]
@@ -46774,7 +39540,7 @@ func deltaunpackzigzag64_32[T uint64 | int64](initoffset T, in *[32]uint64, out 
 	out[62] = T(((-(((in[31] >> 0) & 0xFFFFFFFF) & 1)) ^ (((in[31] >> 0) & 0xFFFFFFFF) >> 1))) + out[61]
 	out[63] = T(((-((in[31] >> 32) & 1)) ^ ((in[31] >> 32) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[32]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_32[T uint64 | int64](out *[64]T, in *[32]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-((in[0] >> 32) & 1))^((in[0]>>32)>>1)))<<ntz + out[0]
@@ -46842,7 +39608,7 @@ func deltaunpackzigzag64_ntz_32[T uint64 | int64](initoffset T, in *[32]uint64, 
 	out[63] = T(((-((in[31] >> 32) & 1))^((in[31]>>32)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[64]T) {
+func deltaunpackzigzag64_33[T uint64 | int64](out *[64]T, in *[33]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 33) | ((in[1] & 0x3) << 31)) & 1)) ^ (((in[0] >> 33) | ((in[1] & 0x3) << 31)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 2) & 0x1FFFFFFFF) & 1)) ^ (((in[1] >> 2) & 0x1FFFFFFFF) >> 1))) + out[1]
@@ -46908,7 +39674,7 @@ func deltaunpackzigzag64_33[T uint64 | int64](initoffset T, in *[33]uint64, out 
 	out[62] = T(((-(((in[31] >> 62) | ((in[32] & 0x7FFFFFFF) << 2)) & 1)) ^ (((in[31] >> 62) | ((in[32] & 0x7FFFFFFF) << 2)) >> 1))) + out[61]
 	out[63] = T(((-((in[32] >> 31) & 1)) ^ ((in[32] >> 31) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[33]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_33[T uint64 | int64](out *[64]T, in *[33]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 33) | ((in[1] & 0x3) << 31)) & 1))^(((in[0]>>33)|((in[1]&0x3)<<31))>>1)))<<ntz + out[0]
@@ -46976,7 +39742,7 @@ func deltaunpackzigzag64_ntz_33[T uint64 | int64](initoffset T, in *[33]uint64, 
 	out[63] = T(((-((in[32] >> 31) & 1))^((in[32]>>31)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[64]T) {
+func deltaunpackzigzag64_34[T uint64 | int64](out *[64]T, in *[34]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 34) | ((in[1] & 0xF) << 30)) & 1)) ^ (((in[0] >> 34) | ((in[1] & 0xF) << 30)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 4) & 0x3FFFFFFFF) & 1)) ^ (((in[1] >> 4) & 0x3FFFFFFFF) >> 1))) + out[1]
@@ -47042,7 +39808,7 @@ func deltaunpackzigzag64_34[T uint64 | int64](initoffset T, in *[34]uint64, out 
 	out[62] = T(((-(((in[32] >> 60) | ((in[33] & 0x3FFFFFFF) << 4)) & 1)) ^ (((in[32] >> 60) | ((in[33] & 0x3FFFFFFF) << 4)) >> 1))) + out[61]
 	out[63] = T(((-((in[33] >> 30) & 1)) ^ ((in[33] >> 30) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[34]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_34[T uint64 | int64](out *[64]T, in *[34]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 34) | ((in[1] & 0xF) << 30)) & 1))^(((in[0]>>34)|((in[1]&0xF)<<30))>>1)))<<ntz + out[0]
@@ -47110,7 +39876,7 @@ func deltaunpackzigzag64_ntz_34[T uint64 | int64](initoffset T, in *[34]uint64, 
 	out[63] = T(((-((in[33] >> 30) & 1))^((in[33]>>30)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[64]T) {
+func deltaunpackzigzag64_35[T uint64 | int64](out *[64]T, in *[35]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 35) | ((in[1] & 0x3F) << 29)) & 1)) ^ (((in[0] >> 35) | ((in[1] & 0x3F) << 29)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 6) & 0x7FFFFFFFF) & 1)) ^ (((in[1] >> 6) & 0x7FFFFFFFF) >> 1))) + out[1]
@@ -47176,7 +39942,7 @@ func deltaunpackzigzag64_35[T uint64 | int64](initoffset T, in *[35]uint64, out 
 	out[62] = T(((-(((in[33] >> 58) | ((in[34] & 0x1FFFFFFF) << 6)) & 1)) ^ (((in[33] >> 58) | ((in[34] & 0x1FFFFFFF) << 6)) >> 1))) + out[61]
 	out[63] = T(((-((in[34] >> 29) & 1)) ^ ((in[34] >> 29) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[35]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_35[T uint64 | int64](out *[64]T, in *[35]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 35) | ((in[1] & 0x3F) << 29)) & 1))^(((in[0]>>35)|((in[1]&0x3F)<<29))>>1)))<<ntz + out[0]
@@ -47244,7 +40010,7 @@ func deltaunpackzigzag64_ntz_35[T uint64 | int64](initoffset T, in *[35]uint64, 
 	out[63] = T(((-((in[34] >> 29) & 1))^((in[34]>>29)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[64]T) {
+func deltaunpackzigzag64_36[T uint64 | int64](out *[64]T, in *[36]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 36) | ((in[1] & 0xFF) << 28)) & 1)) ^ (((in[0] >> 36) | ((in[1] & 0xFF) << 28)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 8) & 0xFFFFFFFFF) & 1)) ^ (((in[1] >> 8) & 0xFFFFFFFFF) >> 1))) + out[1]
@@ -47310,7 +40076,7 @@ func deltaunpackzigzag64_36[T uint64 | int64](initoffset T, in *[36]uint64, out 
 	out[62] = T(((-(((in[34] >> 56) | ((in[35] & 0xFFFFFFF) << 8)) & 1)) ^ (((in[34] >> 56) | ((in[35] & 0xFFFFFFF) << 8)) >> 1))) + out[61]
 	out[63] = T(((-((in[35] >> 28) & 1)) ^ ((in[35] >> 28) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[36]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_36[T uint64 | int64](out *[64]T, in *[36]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 36) | ((in[1] & 0xFF) << 28)) & 1))^(((in[0]>>36)|((in[1]&0xFF)<<28))>>1)))<<ntz + out[0]
@@ -47378,7 +40144,7 @@ func deltaunpackzigzag64_ntz_36[T uint64 | int64](initoffset T, in *[36]uint64, 
 	out[63] = T(((-((in[35] >> 28) & 1))^((in[35]>>28)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[64]T) {
+func deltaunpackzigzag64_37[T uint64 | int64](out *[64]T, in *[37]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 37) | ((in[1] & 0x3FF) << 27)) & 1)) ^ (((in[0] >> 37) | ((in[1] & 0x3FF) << 27)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 10) & 0x1FFFFFFFFF) & 1)) ^ (((in[1] >> 10) & 0x1FFFFFFFFF) >> 1))) + out[1]
@@ -47444,7 +40210,7 @@ func deltaunpackzigzag64_37[T uint64 | int64](initoffset T, in *[37]uint64, out 
 	out[62] = T(((-(((in[35] >> 54) | ((in[36] & 0x7FFFFFF) << 10)) & 1)) ^ (((in[35] >> 54) | ((in[36] & 0x7FFFFFF) << 10)) >> 1))) + out[61]
 	out[63] = T(((-((in[36] >> 27) & 1)) ^ ((in[36] >> 27) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[37]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_37[T uint64 | int64](out *[64]T, in *[37]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 37) | ((in[1] & 0x3FF) << 27)) & 1))^(((in[0]>>37)|((in[1]&0x3FF)<<27))>>1)))<<ntz + out[0]
@@ -47512,7 +40278,7 @@ func deltaunpackzigzag64_ntz_37[T uint64 | int64](initoffset T, in *[37]uint64, 
 	out[63] = T(((-((in[36] >> 27) & 1))^((in[36]>>27)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[64]T) {
+func deltaunpackzigzag64_38[T uint64 | int64](out *[64]T, in *[38]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 38) | ((in[1] & 0xFFF) << 26)) & 1)) ^ (((in[0] >> 38) | ((in[1] & 0xFFF) << 26)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 12) & 0x3FFFFFFFFF) & 1)) ^ (((in[1] >> 12) & 0x3FFFFFFFFF) >> 1))) + out[1]
@@ -47578,7 +40344,7 @@ func deltaunpackzigzag64_38[T uint64 | int64](initoffset T, in *[38]uint64, out 
 	out[62] = T(((-(((in[36] >> 52) | ((in[37] & 0x3FFFFFF) << 12)) & 1)) ^ (((in[36] >> 52) | ((in[37] & 0x3FFFFFF) << 12)) >> 1))) + out[61]
 	out[63] = T(((-((in[37] >> 26) & 1)) ^ ((in[37] >> 26) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[38]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_38[T uint64 | int64](out *[64]T, in *[38]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 38) | ((in[1] & 0xFFF) << 26)) & 1))^(((in[0]>>38)|((in[1]&0xFFF)<<26))>>1)))<<ntz + out[0]
@@ -47646,7 +40412,7 @@ func deltaunpackzigzag64_ntz_38[T uint64 | int64](initoffset T, in *[38]uint64, 
 	out[63] = T(((-((in[37] >> 26) & 1))^((in[37]>>26)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[64]T) {
+func deltaunpackzigzag64_39[T uint64 | int64](out *[64]T, in *[39]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 39) | ((in[1] & 0x3FFF) << 25)) & 1)) ^ (((in[0] >> 39) | ((in[1] & 0x3FFF) << 25)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 14) & 0x7FFFFFFFFF) & 1)) ^ (((in[1] >> 14) & 0x7FFFFFFFFF) >> 1))) + out[1]
@@ -47712,7 +40478,7 @@ func deltaunpackzigzag64_39[T uint64 | int64](initoffset T, in *[39]uint64, out 
 	out[62] = T(((-(((in[37] >> 50) | ((in[38] & 0x1FFFFFF) << 14)) & 1)) ^ (((in[37] >> 50) | ((in[38] & 0x1FFFFFF) << 14)) >> 1))) + out[61]
 	out[63] = T(((-((in[38] >> 25) & 1)) ^ ((in[38] >> 25) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[39]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_39[T uint64 | int64](out *[64]T, in *[39]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 39) | ((in[1] & 0x3FFF) << 25)) & 1))^(((in[0]>>39)|((in[1]&0x3FFF)<<25))>>1)))<<ntz + out[0]
@@ -47780,7 +40546,7 @@ func deltaunpackzigzag64_ntz_39[T uint64 | int64](initoffset T, in *[39]uint64, 
 	out[63] = T(((-((in[38] >> 25) & 1))^((in[38]>>25)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[64]T) {
+func deltaunpackzigzag64_40[T uint64 | int64](out *[64]T, in *[40]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 40) | ((in[1] & 0xFFFF) << 24)) & 1)) ^ (((in[0] >> 40) | ((in[1] & 0xFFFF) << 24)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 16) & 0xFFFFFFFFFF) & 1)) ^ (((in[1] >> 16) & 0xFFFFFFFFFF) >> 1))) + out[1]
@@ -47846,7 +40612,7 @@ func deltaunpackzigzag64_40[T uint64 | int64](initoffset T, in *[40]uint64, out 
 	out[62] = T(((-(((in[38] >> 48) | ((in[39] & 0xFFFFFF) << 16)) & 1)) ^ (((in[38] >> 48) | ((in[39] & 0xFFFFFF) << 16)) >> 1))) + out[61]
 	out[63] = T(((-((in[39] >> 24) & 1)) ^ ((in[39] >> 24) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[40]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_40[T uint64 | int64](out *[64]T, in *[40]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 40) | ((in[1] & 0xFFFF) << 24)) & 1))^(((in[0]>>40)|((in[1]&0xFFFF)<<24))>>1)))<<ntz + out[0]
@@ -47914,7 +40680,7 @@ func deltaunpackzigzag64_ntz_40[T uint64 | int64](initoffset T, in *[40]uint64, 
 	out[63] = T(((-((in[39] >> 24) & 1))^((in[39]>>24)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[64]T) {
+func deltaunpackzigzag64_41[T uint64 | int64](out *[64]T, in *[41]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 41) | ((in[1] & 0x3FFFF) << 23)) & 1)) ^ (((in[0] >> 41) | ((in[1] & 0x3FFFF) << 23)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 18) & 0x1FFFFFFFFFF) & 1)) ^ (((in[1] >> 18) & 0x1FFFFFFFFFF) >> 1))) + out[1]
@@ -47980,7 +40746,7 @@ func deltaunpackzigzag64_41[T uint64 | int64](initoffset T, in *[41]uint64, out 
 	out[62] = T(((-(((in[39] >> 46) | ((in[40] & 0x7FFFFF) << 18)) & 1)) ^ (((in[39] >> 46) | ((in[40] & 0x7FFFFF) << 18)) >> 1))) + out[61]
 	out[63] = T(((-((in[40] >> 23) & 1)) ^ ((in[40] >> 23) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[41]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_41[T uint64 | int64](out *[64]T, in *[41]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 41) | ((in[1] & 0x3FFFF) << 23)) & 1))^(((in[0]>>41)|((in[1]&0x3FFFF)<<23))>>1)))<<ntz + out[0]
@@ -48048,7 +40814,7 @@ func deltaunpackzigzag64_ntz_41[T uint64 | int64](initoffset T, in *[41]uint64, 
 	out[63] = T(((-((in[40] >> 23) & 1))^((in[40]>>23)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[64]T) {
+func deltaunpackzigzag64_42[T uint64 | int64](out *[64]T, in *[42]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 42) | ((in[1] & 0xFFFFF) << 22)) & 1)) ^ (((in[0] >> 42) | ((in[1] & 0xFFFFF) << 22)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 20) & 0x3FFFFFFFFFF) & 1)) ^ (((in[1] >> 20) & 0x3FFFFFFFFFF) >> 1))) + out[1]
@@ -48114,7 +40880,7 @@ func deltaunpackzigzag64_42[T uint64 | int64](initoffset T, in *[42]uint64, out 
 	out[62] = T(((-(((in[40] >> 44) | ((in[41] & 0x3FFFFF) << 20)) & 1)) ^ (((in[40] >> 44) | ((in[41] & 0x3FFFFF) << 20)) >> 1))) + out[61]
 	out[63] = T(((-((in[41] >> 22) & 1)) ^ ((in[41] >> 22) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[42]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_42[T uint64 | int64](out *[64]T, in *[42]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 42) | ((in[1] & 0xFFFFF) << 22)) & 1))^(((in[0]>>42)|((in[1]&0xFFFFF)<<22))>>1)))<<ntz + out[0]
@@ -48182,7 +40948,7 @@ func deltaunpackzigzag64_ntz_42[T uint64 | int64](initoffset T, in *[42]uint64, 
 	out[63] = T(((-((in[41] >> 22) & 1))^((in[41]>>22)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[64]T) {
+func deltaunpackzigzag64_43[T uint64 | int64](out *[64]T, in *[43]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 43) | ((in[1] & 0x3FFFFF) << 21)) & 1)) ^ (((in[0] >> 43) | ((in[1] & 0x3FFFFF) << 21)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 22) | ((in[2] & 0x1) << 42)) & 1)) ^ (((in[1] >> 22) | ((in[2] & 0x1) << 42)) >> 1))) + out[1]
@@ -48248,7 +41014,7 @@ func deltaunpackzigzag64_43[T uint64 | int64](initoffset T, in *[43]uint64, out 
 	out[62] = T(((-(((in[41] >> 42) | ((in[42] & 0x1FFFFF) << 22)) & 1)) ^ (((in[41] >> 42) | ((in[42] & 0x1FFFFF) << 22)) >> 1))) + out[61]
 	out[63] = T(((-((in[42] >> 21) & 1)) ^ ((in[42] >> 21) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[43]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_43[T uint64 | int64](out *[64]T, in *[43]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 43) | ((in[1] & 0x3FFFFF) << 21)) & 1))^(((in[0]>>43)|((in[1]&0x3FFFFF)<<21))>>1)))<<ntz + out[0]
@@ -48316,7 +41082,7 @@ func deltaunpackzigzag64_ntz_43[T uint64 | int64](initoffset T, in *[43]uint64, 
 	out[63] = T(((-((in[42] >> 21) & 1))^((in[42]>>21)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[64]T) {
+func deltaunpackzigzag64_44[T uint64 | int64](out *[64]T, in *[44]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 44) | ((in[1] & 0xFFFFFF) << 20)) & 1)) ^ (((in[0] >> 44) | ((in[1] & 0xFFFFFF) << 20)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 24) | ((in[2] & 0xF) << 40)) & 1)) ^ (((in[1] >> 24) | ((in[2] & 0xF) << 40)) >> 1))) + out[1]
@@ -48382,7 +41148,7 @@ func deltaunpackzigzag64_44[T uint64 | int64](initoffset T, in *[44]uint64, out 
 	out[62] = T(((-(((in[42] >> 40) | ((in[43] & 0xFFFFF) << 24)) & 1)) ^ (((in[42] >> 40) | ((in[43] & 0xFFFFF) << 24)) >> 1))) + out[61]
 	out[63] = T(((-((in[43] >> 20) & 1)) ^ ((in[43] >> 20) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[44]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_44[T uint64 | int64](out *[64]T, in *[44]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 44) | ((in[1] & 0xFFFFFF) << 20)) & 1))^(((in[0]>>44)|((in[1]&0xFFFFFF)<<20))>>1)))<<ntz + out[0]
@@ -48450,7 +41216,7 @@ func deltaunpackzigzag64_ntz_44[T uint64 | int64](initoffset T, in *[44]uint64, 
 	out[63] = T(((-((in[43] >> 20) & 1))^((in[43]>>20)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[64]T) {
+func deltaunpackzigzag64_45[T uint64 | int64](out *[64]T, in *[45]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 45) | ((in[1] & 0x3FFFFFF) << 19)) & 1)) ^ (((in[0] >> 45) | ((in[1] & 0x3FFFFFF) << 19)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 26) | ((in[2] & 0x7F) << 38)) & 1)) ^ (((in[1] >> 26) | ((in[2] & 0x7F) << 38)) >> 1))) + out[1]
@@ -48516,7 +41282,7 @@ func deltaunpackzigzag64_45[T uint64 | int64](initoffset T, in *[45]uint64, out 
 	out[62] = T(((-(((in[43] >> 38) | ((in[44] & 0x7FFFF) << 26)) & 1)) ^ (((in[43] >> 38) | ((in[44] & 0x7FFFF) << 26)) >> 1))) + out[61]
 	out[63] = T(((-((in[44] >> 19) & 1)) ^ ((in[44] >> 19) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[45]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_45[T uint64 | int64](out *[64]T, in *[45]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 45) | ((in[1] & 0x3FFFFFF) << 19)) & 1))^(((in[0]>>45)|((in[1]&0x3FFFFFF)<<19))>>1)))<<ntz + out[0]
@@ -48584,7 +41350,7 @@ func deltaunpackzigzag64_ntz_45[T uint64 | int64](initoffset T, in *[45]uint64, 
 	out[63] = T(((-((in[44] >> 19) & 1))^((in[44]>>19)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[64]T) {
+func deltaunpackzigzag64_46[T uint64 | int64](out *[64]T, in *[46]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 46) | ((in[1] & 0xFFFFFFF) << 18)) & 1)) ^ (((in[0] >> 46) | ((in[1] & 0xFFFFFFF) << 18)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 28) | ((in[2] & 0x3FF) << 36)) & 1)) ^ (((in[1] >> 28) | ((in[2] & 0x3FF) << 36)) >> 1))) + out[1]
@@ -48650,7 +41416,7 @@ func deltaunpackzigzag64_46[T uint64 | int64](initoffset T, in *[46]uint64, out 
 	out[62] = T(((-(((in[44] >> 36) | ((in[45] & 0x3FFFF) << 28)) & 1)) ^ (((in[44] >> 36) | ((in[45] & 0x3FFFF) << 28)) >> 1))) + out[61]
 	out[63] = T(((-((in[45] >> 18) & 1)) ^ ((in[45] >> 18) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[46]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_46[T uint64 | int64](out *[64]T, in *[46]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 46) | ((in[1] & 0xFFFFFFF) << 18)) & 1))^(((in[0]>>46)|((in[1]&0xFFFFFFF)<<18))>>1)))<<ntz + out[0]
@@ -48718,7 +41484,7 @@ func deltaunpackzigzag64_ntz_46[T uint64 | int64](initoffset T, in *[46]uint64, 
 	out[63] = T(((-((in[45] >> 18) & 1))^((in[45]>>18)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[64]T) {
+func deltaunpackzigzag64_47[T uint64 | int64](out *[64]T, in *[47]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 47) | ((in[1] & 0x3FFFFFFF) << 17)) & 1)) ^ (((in[0] >> 47) | ((in[1] & 0x3FFFFFFF) << 17)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 30) | ((in[2] & 0x1FFF) << 34)) & 1)) ^ (((in[1] >> 30) | ((in[2] & 0x1FFF) << 34)) >> 1))) + out[1]
@@ -48784,7 +41550,7 @@ func deltaunpackzigzag64_47[T uint64 | int64](initoffset T, in *[47]uint64, out 
 	out[62] = T(((-(((in[45] >> 34) | ((in[46] & 0x1FFFF) << 30)) & 1)) ^ (((in[45] >> 34) | ((in[46] & 0x1FFFF) << 30)) >> 1))) + out[61]
 	out[63] = T(((-((in[46] >> 17) & 1)) ^ ((in[46] >> 17) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[47]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_47[T uint64 | int64](out *[64]T, in *[47]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 47) | ((in[1] & 0x3FFFFFFF) << 17)) & 1))^(((in[0]>>47)|((in[1]&0x3FFFFFFF)<<17))>>1)))<<ntz + out[0]
@@ -48852,7 +41618,7 @@ func deltaunpackzigzag64_ntz_47[T uint64 | int64](initoffset T, in *[47]uint64, 
 	out[63] = T(((-((in[46] >> 17) & 1))^((in[46]>>17)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[64]T) {
+func deltaunpackzigzag64_48[T uint64 | int64](out *[64]T, in *[48]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 48) | ((in[1] & 0xFFFFFFFF) << 16)) & 1)) ^ (((in[0] >> 48) | ((in[1] & 0xFFFFFFFF) << 16)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 32) | ((in[2] & 0xFFFF) << 32)) & 1)) ^ (((in[1] >> 32) | ((in[2] & 0xFFFF) << 32)) >> 1))) + out[1]
@@ -48918,7 +41684,7 @@ func deltaunpackzigzag64_48[T uint64 | int64](initoffset T, in *[48]uint64, out 
 	out[62] = T(((-(((in[46] >> 32) | ((in[47] & 0xFFFF) << 32)) & 1)) ^ (((in[46] >> 32) | ((in[47] & 0xFFFF) << 32)) >> 1))) + out[61]
 	out[63] = T(((-((in[47] >> 16) & 1)) ^ ((in[47] >> 16) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[48]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_48[T uint64 | int64](out *[64]T, in *[48]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 48) | ((in[1] & 0xFFFFFFFF) << 16)) & 1))^(((in[0]>>48)|((in[1]&0xFFFFFFFF)<<16))>>1)))<<ntz + out[0]
@@ -48986,7 +41752,7 @@ func deltaunpackzigzag64_ntz_48[T uint64 | int64](initoffset T, in *[48]uint64, 
 	out[63] = T(((-((in[47] >> 16) & 1))^((in[47]>>16)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[64]T) {
+func deltaunpackzigzag64_49[T uint64 | int64](out *[64]T, in *[49]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 49) | ((in[1] & 0x3FFFFFFFF) << 15)) & 1)) ^ (((in[0] >> 49) | ((in[1] & 0x3FFFFFFFF) << 15)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 34) | ((in[2] & 0x7FFFF) << 30)) & 1)) ^ (((in[1] >> 34) | ((in[2] & 0x7FFFF) << 30)) >> 1))) + out[1]
@@ -49052,7 +41818,7 @@ func deltaunpackzigzag64_49[T uint64 | int64](initoffset T, in *[49]uint64, out 
 	out[62] = T(((-(((in[47] >> 30) | ((in[48] & 0x7FFF) << 34)) & 1)) ^ (((in[47] >> 30) | ((in[48] & 0x7FFF) << 34)) >> 1))) + out[61]
 	out[63] = T(((-((in[48] >> 15) & 1)) ^ ((in[48] >> 15) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[49]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_49[T uint64 | int64](out *[64]T, in *[49]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 49) | ((in[1] & 0x3FFFFFFFF) << 15)) & 1))^(((in[0]>>49)|((in[1]&0x3FFFFFFFF)<<15))>>1)))<<ntz + out[0]
@@ -49120,7 +41886,7 @@ func deltaunpackzigzag64_ntz_49[T uint64 | int64](initoffset T, in *[49]uint64, 
 	out[63] = T(((-((in[48] >> 15) & 1))^((in[48]>>15)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[64]T) {
+func deltaunpackzigzag64_50[T uint64 | int64](out *[64]T, in *[50]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 50) | ((in[1] & 0xFFFFFFFFF) << 14)) & 1)) ^ (((in[0] >> 50) | ((in[1] & 0xFFFFFFFFF) << 14)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 36) | ((in[2] & 0x3FFFFF) << 28)) & 1)) ^ (((in[1] >> 36) | ((in[2] & 0x3FFFFF) << 28)) >> 1))) + out[1]
@@ -49186,7 +41952,7 @@ func deltaunpackzigzag64_50[T uint64 | int64](initoffset T, in *[50]uint64, out 
 	out[62] = T(((-(((in[48] >> 28) | ((in[49] & 0x3FFF) << 36)) & 1)) ^ (((in[48] >> 28) | ((in[49] & 0x3FFF) << 36)) >> 1))) + out[61]
 	out[63] = T(((-((in[49] >> 14) & 1)) ^ ((in[49] >> 14) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[50]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_50[T uint64 | int64](out *[64]T, in *[50]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 50) | ((in[1] & 0xFFFFFFFFF) << 14)) & 1))^(((in[0]>>50)|((in[1]&0xFFFFFFFFF)<<14))>>1)))<<ntz + out[0]
@@ -49254,7 +42020,7 @@ func deltaunpackzigzag64_ntz_50[T uint64 | int64](initoffset T, in *[50]uint64, 
 	out[63] = T(((-((in[49] >> 14) & 1))^((in[49]>>14)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[64]T) {
+func deltaunpackzigzag64_51[T uint64 | int64](out *[64]T, in *[51]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13)) & 1)) ^ (((in[0] >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 38) | ((in[2] & 0x1FFFFFF) << 26)) & 1)) ^ (((in[1] >> 38) | ((in[2] & 0x1FFFFFF) << 26)) >> 1))) + out[1]
@@ -49320,7 +42086,7 @@ func deltaunpackzigzag64_51[T uint64 | int64](initoffset T, in *[51]uint64, out 
 	out[62] = T(((-(((in[49] >> 26) | ((in[50] & 0x1FFF) << 38)) & 1)) ^ (((in[49] >> 26) | ((in[50] & 0x1FFF) << 38)) >> 1))) + out[61]
 	out[63] = T(((-((in[50] >> 13) & 1)) ^ ((in[50] >> 13) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[51]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_51[T uint64 | int64](out *[64]T, in *[51]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 51) | ((in[1] & 0x3FFFFFFFFF) << 13)) & 1))^(((in[0]>>51)|((in[1]&0x3FFFFFFFFF)<<13))>>1)))<<ntz + out[0]
@@ -49388,7 +42154,7 @@ func deltaunpackzigzag64_ntz_51[T uint64 | int64](initoffset T, in *[51]uint64, 
 	out[63] = T(((-((in[50] >> 13) & 1))^((in[50]>>13)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[64]T) {
+func deltaunpackzigzag64_52[T uint64 | int64](out *[64]T, in *[52]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12)) & 1)) ^ (((in[0] >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 40) | ((in[2] & 0xFFFFFFF) << 24)) & 1)) ^ (((in[1] >> 40) | ((in[2] & 0xFFFFFFF) << 24)) >> 1))) + out[1]
@@ -49454,7 +42220,7 @@ func deltaunpackzigzag64_52[T uint64 | int64](initoffset T, in *[52]uint64, out 
 	out[62] = T(((-(((in[50] >> 24) | ((in[51] & 0xFFF) << 40)) & 1)) ^ (((in[50] >> 24) | ((in[51] & 0xFFF) << 40)) >> 1))) + out[61]
 	out[63] = T(((-((in[51] >> 12) & 1)) ^ ((in[51] >> 12) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[52]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_52[T uint64 | int64](out *[64]T, in *[52]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 52) | ((in[1] & 0xFFFFFFFFFF) << 12)) & 1))^(((in[0]>>52)|((in[1]&0xFFFFFFFFFF)<<12))>>1)))<<ntz + out[0]
@@ -49522,7 +42288,7 @@ func deltaunpackzigzag64_ntz_52[T uint64 | int64](initoffset T, in *[52]uint64, 
 	out[63] = T(((-((in[51] >> 12) & 1))^((in[51]>>12)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[64]T) {
+func deltaunpackzigzag64_53[T uint64 | int64](out *[64]T, in *[53]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11)) & 1)) ^ (((in[0] >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 42) | ((in[2] & 0x7FFFFFFF) << 22)) & 1)) ^ (((in[1] >> 42) | ((in[2] & 0x7FFFFFFF) << 22)) >> 1))) + out[1]
@@ -49588,7 +42354,7 @@ func deltaunpackzigzag64_53[T uint64 | int64](initoffset T, in *[53]uint64, out 
 	out[62] = T(((-(((in[51] >> 22) | ((in[52] & 0x7FF) << 42)) & 1)) ^ (((in[51] >> 22) | ((in[52] & 0x7FF) << 42)) >> 1))) + out[61]
 	out[63] = T(((-((in[52] >> 11) & 1)) ^ ((in[52] >> 11) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[53]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_53[T uint64 | int64](out *[64]T, in *[53]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 53) | ((in[1] & 0x3FFFFFFFFFF) << 11)) & 1))^(((in[0]>>53)|((in[1]&0x3FFFFFFFFFF)<<11))>>1)))<<ntz + out[0]
@@ -49656,7 +42422,7 @@ func deltaunpackzigzag64_ntz_53[T uint64 | int64](initoffset T, in *[53]uint64, 
 	out[63] = T(((-((in[52] >> 11) & 1))^((in[52]>>11)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[64]T) {
+func deltaunpackzigzag64_54[T uint64 | int64](out *[64]T, in *[54]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10)) & 1)) ^ (((in[0] >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 44) | ((in[2] & 0x3FFFFFFFF) << 20)) & 1)) ^ (((in[1] >> 44) | ((in[2] & 0x3FFFFFFFF) << 20)) >> 1))) + out[1]
@@ -49722,7 +42488,7 @@ func deltaunpackzigzag64_54[T uint64 | int64](initoffset T, in *[54]uint64, out 
 	out[62] = T(((-(((in[52] >> 20) | ((in[53] & 0x3FF) << 44)) & 1)) ^ (((in[52] >> 20) | ((in[53] & 0x3FF) << 44)) >> 1))) + out[61]
 	out[63] = T(((-((in[53] >> 10) & 1)) ^ ((in[53] >> 10) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[54]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_54[T uint64 | int64](out *[64]T, in *[54]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 54) | ((in[1] & 0xFFFFFFFFFFF) << 10)) & 1))^(((in[0]>>54)|((in[1]&0xFFFFFFFFFFF)<<10))>>1)))<<ntz + out[0]
@@ -49790,7 +42556,7 @@ func deltaunpackzigzag64_ntz_54[T uint64 | int64](initoffset T, in *[54]uint64, 
 	out[63] = T(((-((in[53] >> 10) & 1))^((in[53]>>10)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[64]T) {
+func deltaunpackzigzag64_55[T uint64 | int64](out *[64]T, in *[55]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9)) & 1)) ^ (((in[0] >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18)) & 1)) ^ (((in[1] >> 46) | ((in[2] & 0x1FFFFFFFFF) << 18)) >> 1))) + out[1]
@@ -49856,7 +42622,7 @@ func deltaunpackzigzag64_55[T uint64 | int64](initoffset T, in *[55]uint64, out 
 	out[62] = T(((-(((in[53] >> 18) | ((in[54] & 0x1FF) << 46)) & 1)) ^ (((in[53] >> 18) | ((in[54] & 0x1FF) << 46)) >> 1))) + out[61]
 	out[63] = T(((-((in[54] >> 9) & 1)) ^ ((in[54] >> 9) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[55]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_55[T uint64 | int64](out *[64]T, in *[55]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 55) | ((in[1] & 0x3FFFFFFFFFFF) << 9)) & 1))^(((in[0]>>55)|((in[1]&0x3FFFFFFFFFFF)<<9))>>1)))<<ntz + out[0]
@@ -49924,7 +42690,7 @@ func deltaunpackzigzag64_ntz_55[T uint64 | int64](initoffset T, in *[55]uint64, 
 	out[63] = T(((-((in[54] >> 9) & 1))^((in[54]>>9)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[64]T) {
+func deltaunpackzigzag64_56[T uint64 | int64](out *[64]T, in *[56]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8)) & 1)) ^ (((in[0] >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16)) & 1)) ^ (((in[1] >> 48) | ((in[2] & 0xFFFFFFFFFF) << 16)) >> 1))) + out[1]
@@ -49990,7 +42756,7 @@ func deltaunpackzigzag64_56[T uint64 | int64](initoffset T, in *[56]uint64, out 
 	out[62] = T(((-(((in[54] >> 16) | ((in[55] & 0xFF) << 48)) & 1)) ^ (((in[54] >> 16) | ((in[55] & 0xFF) << 48)) >> 1))) + out[61]
 	out[63] = T(((-((in[55] >> 8) & 1)) ^ ((in[55] >> 8) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[56]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_56[T uint64 | int64](out *[64]T, in *[56]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 56) | ((in[1] & 0xFFFFFFFFFFFF) << 8)) & 1))^(((in[0]>>56)|((in[1]&0xFFFFFFFFFFFF)<<8))>>1)))<<ntz + out[0]
@@ -50058,7 +42824,7 @@ func deltaunpackzigzag64_ntz_56[T uint64 | int64](initoffset T, in *[56]uint64, 
 	out[63] = T(((-((in[55] >> 8) & 1))^((in[55]>>8)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[64]T) {
+func deltaunpackzigzag64_57[T uint64 | int64](out *[64]T, in *[57]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7)) & 1)) ^ (((in[0] >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14)) & 1)) ^ (((in[1] >> 50) | ((in[2] & 0x7FFFFFFFFFF) << 14)) >> 1))) + out[1]
@@ -50124,7 +42890,7 @@ func deltaunpackzigzag64_57[T uint64 | int64](initoffset T, in *[57]uint64, out 
 	out[62] = T(((-(((in[55] >> 14) | ((in[56] & 0x7F) << 50)) & 1)) ^ (((in[55] >> 14) | ((in[56] & 0x7F) << 50)) >> 1))) + out[61]
 	out[63] = T(((-((in[56] >> 7) & 1)) ^ ((in[56] >> 7) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[57]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_57[T uint64 | int64](out *[64]T, in *[57]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 57) | ((in[1] & 0x3FFFFFFFFFFFF) << 7)) & 1))^(((in[0]>>57)|((in[1]&0x3FFFFFFFFFFFF)<<7))>>1)))<<ntz + out[0]
@@ -50192,7 +42958,7 @@ func deltaunpackzigzag64_ntz_57[T uint64 | int64](initoffset T, in *[57]uint64, 
 	out[63] = T(((-((in[56] >> 7) & 1))^((in[56]>>7)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[64]T) {
+func deltaunpackzigzag64_58[T uint64 | int64](out *[64]T, in *[58]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6)) & 1)) ^ (((in[0] >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12)) & 1)) ^ (((in[1] >> 52) | ((in[2] & 0x3FFFFFFFFFFF) << 12)) >> 1))) + out[1]
@@ -50258,7 +43024,7 @@ func deltaunpackzigzag64_58[T uint64 | int64](initoffset T, in *[58]uint64, out 
 	out[62] = T(((-(((in[56] >> 12) | ((in[57] & 0x3F) << 52)) & 1)) ^ (((in[56] >> 12) | ((in[57] & 0x3F) << 52)) >> 1))) + out[61]
 	out[63] = T(((-((in[57] >> 6) & 1)) ^ ((in[57] >> 6) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[58]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_58[T uint64 | int64](out *[64]T, in *[58]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 58) | ((in[1] & 0xFFFFFFFFFFFFF) << 6)) & 1))^(((in[0]>>58)|((in[1]&0xFFFFFFFFFFFFF)<<6))>>1)))<<ntz + out[0]
@@ -50326,7 +43092,7 @@ func deltaunpackzigzag64_ntz_58[T uint64 | int64](initoffset T, in *[58]uint64, 
 	out[63] = T(((-((in[57] >> 6) & 1))^((in[57]>>6)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[64]T) {
+func deltaunpackzigzag64_59[T uint64 | int64](out *[64]T, in *[59]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5)) & 1)) ^ (((in[0] >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10)) & 1)) ^ (((in[1] >> 54) | ((in[2] & 0x1FFFFFFFFFFFF) << 10)) >> 1))) + out[1]
@@ -50392,7 +43158,7 @@ func deltaunpackzigzag64_59[T uint64 | int64](initoffset T, in *[59]uint64, out 
 	out[62] = T(((-(((in[57] >> 10) | ((in[58] & 0x1F) << 54)) & 1)) ^ (((in[57] >> 10) | ((in[58] & 0x1F) << 54)) >> 1))) + out[61]
 	out[63] = T(((-((in[58] >> 5) & 1)) ^ ((in[58] >> 5) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[59]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_59[T uint64 | int64](out *[64]T, in *[59]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 59) | ((in[1] & 0x3FFFFFFFFFFFFF) << 5)) & 1))^(((in[0]>>59)|((in[1]&0x3FFFFFFFFFFFFF)<<5))>>1)))<<ntz + out[0]
@@ -50460,7 +43226,7 @@ func deltaunpackzigzag64_ntz_59[T uint64 | int64](initoffset T, in *[59]uint64, 
 	out[63] = T(((-((in[58] >> 5) & 1))^((in[58]>>5)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[64]T) {
+func deltaunpackzigzag64_60[T uint64 | int64](out *[64]T, in *[60]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0xFFFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4)) & 1)) ^ (((in[0] >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8)) & 1)) ^ (((in[1] >> 56) | ((in[2] & 0xFFFFFFFFFFFFF) << 8)) >> 1))) + out[1]
@@ -50526,7 +43292,7 @@ func deltaunpackzigzag64_60[T uint64 | int64](initoffset T, in *[60]uint64, out 
 	out[62] = T(((-(((in[58] >> 8) | ((in[59] & 0xF) << 56)) & 1)) ^ (((in[58] >> 8) | ((in[59] & 0xF) << 56)) >> 1))) + out[61]
 	out[63] = T(((-((in[59] >> 4) & 1)) ^ ((in[59] >> 4) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[60]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_60[T uint64 | int64](out *[64]T, in *[60]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0xFFFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0xFFFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 60) | ((in[1] & 0xFFFFFFFFFFFFFF) << 4)) & 1))^(((in[0]>>60)|((in[1]&0xFFFFFFFFFFFFFF)<<4))>>1)))<<ntz + out[0]
@@ -50594,7 +43360,7 @@ func deltaunpackzigzag64_ntz_60[T uint64 | int64](initoffset T, in *[60]uint64, 
 	out[63] = T(((-((in[59] >> 4) & 1))^((in[59]>>4)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[64]T) {
+func deltaunpackzigzag64_61[T uint64 | int64](out *[64]T, in *[61]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x1FFFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3)) & 1)) ^ (((in[0] >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6)) & 1)) ^ (((in[1] >> 58) | ((in[2] & 0x7FFFFFFFFFFFFF) << 6)) >> 1))) + out[1]
@@ -50660,7 +43426,7 @@ func deltaunpackzigzag64_61[T uint64 | int64](initoffset T, in *[61]uint64, out 
 	out[62] = T(((-(((in[59] >> 6) | ((in[60] & 0x7) << 58)) & 1)) ^ (((in[59] >> 6) | ((in[60] & 0x7) << 58)) >> 1))) + out[61]
 	out[63] = T(((-((in[60] >> 3) & 1)) ^ ((in[60] >> 3) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[61]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_61[T uint64 | int64](out *[64]T, in *[61]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x1FFFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x1FFFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 61) | ((in[1] & 0x3FFFFFFFFFFFFFF) << 3)) & 1))^(((in[0]>>61)|((in[1]&0x3FFFFFFFFFFFFFF)<<3))>>1)))<<ntz + out[0]
@@ -50728,7 +43494,7 @@ func deltaunpackzigzag64_ntz_61[T uint64 | int64](initoffset T, in *[61]uint64, 
 	out[63] = T(((-((in[60] >> 3) & 1))^((in[60]>>3)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[64]T) {
+func deltaunpackzigzag64_62[T uint64 | int64](out *[64]T, in *[62]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x3FFFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2)) & 1)) ^ (((in[0] >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4)) & 1)) ^ (((in[1] >> 60) | ((in[2] & 0x3FFFFFFFFFFFFFF) << 4)) >> 1))) + out[1]
@@ -50794,7 +43560,7 @@ func deltaunpackzigzag64_62[T uint64 | int64](initoffset T, in *[62]uint64, out 
 	out[62] = T(((-(((in[60] >> 4) | ((in[61] & 0x3) << 60)) & 1)) ^ (((in[60] >> 4) | ((in[61] & 0x3) << 60)) >> 1))) + out[61]
 	out[63] = T(((-((in[61] >> 2) & 1)) ^ ((in[61] >> 2) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[62]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_62[T uint64 | int64](out *[64]T, in *[62]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x3FFFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x3FFFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 62) | ((in[1] & 0xFFFFFFFFFFFFFFF) << 2)) & 1))^(((in[0]>>62)|((in[1]&0xFFFFFFFFFFFFFFF)<<2))>>1)))<<ntz + out[0]
@@ -50862,7 +43628,7 @@ func deltaunpackzigzag64_ntz_62[T uint64 | int64](initoffset T, in *[62]uint64, 
 	out[63] = T(((-((in[61] >> 2) & 1))^((in[61]>>2)>>1)))<<ntz + out[62]
 }
 
-func deltaunpackzigzag64_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[64]T) {
+func deltaunpackzigzag64_63[T uint64 | int64](out *[64]T, in *[63]uint64, initoffset T) {
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFFFF) & 1)) ^ (((in[0] >> 0) & 0x7FFFFFFFFFFFFFFF) >> 1))) + initoffset
 	out[1] = T(((-(((in[0] >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1)) & 1)) ^ (((in[0] >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1)) >> 1))) + out[0]
 	out[2] = T(((-(((in[1] >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2)) & 1)) ^ (((in[1] >> 62) | ((in[2] & 0x1FFFFFFFFFFFFFFF) << 2)) >> 1))) + out[1]
@@ -50928,7 +43694,7 @@ func deltaunpackzigzag64_63[T uint64 | int64](initoffset T, in *[63]uint64, out 
 	out[62] = T(((-(((in[61] >> 2) | ((in[62] & 0x1) << 62)) & 1)) ^ (((in[61] >> 2) | ((in[62] & 0x1) << 62)) >> 1))) + out[61]
 	out[63] = T(((-((in[62] >> 1) & 1)) ^ ((in[62] >> 1) >> 1))) + out[62]
 }
-func deltaunpackzigzag64_ntz_63[T uint64 | int64](initoffset T, in *[63]uint64, out *[64]T, ntz int) {
+func deltaunpackzigzag64_ntz_63[T uint64 | int64](out *[64]T, in *[63]uint64, initoffset T, ntz int) {
 	ntz = ntz & (64 - 1) //nolint:ineffassign,staticcheck
 	out[0] = T(((-(((in[0] >> 0) & 0x7FFFFFFFFFFFFFFF) & 1))^(((in[0]>>0)&0x7FFFFFFFFFFFFFFF)>>1)))<<ntz + initoffset
 	out[1] = T(((-(((in[0] >> 63) | ((in[1] & 0x3FFFFFFFFFFFFFFF) << 1)) & 1))^(((in[0]>>63)|((in[1]&0x3FFFFFFFFFFFFFFF)<<1))>>1)))<<ntz + out[0]

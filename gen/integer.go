@@ -75,6 +75,13 @@ type deltapackNByte struct {
 	I   int
 }
 
+func (dpnb *deltapackNByte) Coma() string {
+	if dpnb.I == 0 {
+		return ""
+	}
+	return ","
+}
+
 func (dpnb *deltapackNByte) PackLines() []string {
 	return dpnb.packLines(false, false)
 }
