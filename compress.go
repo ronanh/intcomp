@@ -14,6 +14,11 @@ func CompressInt32(in []int32, out []uint32) []uint32 {
 	if len(in) == 0 {
 		return out
 	}
+	// Preserve the caller's retained compressed snapshot before rewriting trailers or blocks.
+	if len(out) > 0 {
+		out = append(out[:0:0], out...)
+	}
+
 	deltaVarByteHeaderPos := -1
 	if len(out) > 0 {
 		// truncate last value (lastBlockCompressedLen)
@@ -97,6 +102,11 @@ func CompressUint32(in, out []uint32) []uint32 {
 	if len(in) == 0 {
 		return out
 	}
+	// Preserve the caller's retained compressed snapshot before rewriting trailers or blocks.
+	if len(out) > 0 {
+		out = append(out[:0:0], out...)
+	}
+
 	deltaVarByteHeaderPos := -1
 	if len(out) > 0 {
 		// truncate last value (lastBlockCompressedLen)
@@ -180,6 +190,11 @@ func CompressInt64(in []int64, out []uint64) []uint64 {
 	if len(in) == 0 {
 		return out
 	}
+	// Preserve the caller's retained compressed snapshot before rewriting trailers or blocks.
+	if len(out) > 0 {
+		out = append(out[:0:0], out...)
+	}
+
 	deltaVarByteHeaderPos := -1
 	if len(out) > 0 {
 		// truncate last value (lastBlockCompressedLen)
@@ -263,6 +278,11 @@ func CompressUint64(in, out []uint64) []uint64 {
 	if len(in) == 0 {
 		return out
 	}
+	// Preserve the caller's retained compressed snapshot before rewriting trailers or blocks.
+	if len(out) > 0 {
+		out = append(out[:0:0], out...)
+	}
+
 	deltaVarByteHeaderPos := -1
 	if len(out) > 0 {
 		// truncate last value (lastBlockCompressedLen)
