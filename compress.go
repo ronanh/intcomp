@@ -7,6 +7,13 @@ package intcomp
 // and append to `out`. `out` slice will be resized if necessary, the modified
 // slice is returned.
 //
+// When `out` already holds compressed data, its end (last block and
+// trailer) may be rewritten in place to merge small blocks: `out` must not be
+// used (or read concurrently) after the call, use the returned slice instead.
+// To keep a snapshot of the compressed data, copy it before appending:
+//
+//	snapshot := append([]uint32(nil), out...)
+//
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackInt32`
 //  2. Compress the remaining input with `CompressDeltaBinPackInt32`
@@ -89,6 +96,13 @@ func UncompressInt32(in []uint32, out []int32) []int32 {
 // CompressUint32 compress integers from `in`
 // and append to `out`. `out` slice will be resized if necessary, the modified
 // slice is returned.
+//
+// When `out` already holds compressed data, its end (last block and
+// trailer) may be rewritten in place to merge small blocks: `out` must not be
+// used (or read concurrently) after the call, use the returned slice instead.
+// To keep a snapshot of the compressed data, copy it before appending:
+//
+//	snapshot := append([]uint32(nil), out...)
 //
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackUint32`
@@ -173,6 +187,13 @@ func UncompressUint32(in, out []uint32) []uint32 {
 // and append to `out`. `out` slice will be resized if necessary, the modified
 // slice is returned.
 //
+// When `out` already holds compressed data, its end (last block and
+// trailer) may be rewritten in place to merge small blocks: `out` must not be
+// used (or read concurrently) after the call, use the returned slice instead.
+// To keep a snapshot of the compressed data, copy it before appending:
+//
+//	snapshot := append([]uint64(nil), out...)
+//
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackInt64`
 //  2. Compress the remaining input with `CompressDeltaBinPackInt64`
@@ -255,6 +276,13 @@ func UncompressInt64(in []uint64, out []int64) []int64 {
 // CompressUint64 compress integers from `in`
 // and append to `out`. `out` slice will be resized if necessary, the modified
 // slice is returned.
+//
+// When `out` already holds compressed data, its end (last block and
+// trailer) may be rewritten in place to merge small blocks: `out` must not be
+// used (or read concurrently) after the call, use the returned slice instead.
+// To keep a snapshot of the compressed data, copy it before appending:
+//
+//	snapshot := append([]uint64(nil), out...)
 //
 // Compression logic:
 //  1. Compress as many input as possible using `CompressDeltaBinPackUint64`
