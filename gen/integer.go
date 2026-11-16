@@ -121,28 +121,36 @@ func (dpnb *deltapackNByte) packLines(zigzag, ntz bool) []string {
 			v2 = fmt.Sprintf("in[%d]", i-1)
 		}
 		diff := fmt.Sprintf("%s - %s", v1, v2)
+		shiftNtz := ntz
 		if zigzag {
 			// force signed
 			diff = fmt.Sprintf("int%d(%s)", dpnb.dpn.dp.Bits, diff)
+			if ntz {
+				// trailing zeros are removed before zigzag encoding (arithmetic
+				// shift keeps the sign), so that decoding unzigzag(v) << ntz
+				// restores negative differences.
+				diff = fmt.Sprintf("(%s >> ntz)", diff)
+				shiftNtz = false
+			}
 			// zigzag encoding of v: (v << 1) ^ (v >> 31)
 			diff = fmt.Sprintf("((%s) << 1) ^ ((%s) >> %d)", diff, diff, dpnb.dpn.dp.Bits-1)
 		}
 		var line string
 		switch {
 		case ishift < 0:
-			if ntz {
+			if shiftNtz {
 				line = fmt.Sprintf("(%s) >> ((%d+ntz)&%d)", diff, -ishift, dpnb.dpn.dp.Bits-1)
 			} else {
 				line = fmt.Sprintf("(%s) >> %d", diff, -ishift)
 			}
 		case ishift > 0:
-			if ntz {
+			if shiftNtz {
 				line = fmt.Sprintf("((%s) >> ntz << %d)", diff, ishift)
 			} else {
 				line = fmt.Sprintf("((%s) << %d)", diff, ishift)
 			}
 		default:
-			if ntz {
+			if shiftNtz {
 				line = fmt.Sprintf("(%s) >> ntz", diff)
 			} else {
 				line = diff

@@ -382,6 +382,100 @@ func TestCompressIssue18(t *testing.T) {
 	}
 }
 
+func roundTripDeltaBinPackInt64(t *testing.T, name string, in []int64) []uint64 {
+	t.Helper()
+	notCompressed, c := intcomp.CompressDeltaBinPackInt64(in, nil)
+	if len(notCompressed) > 0 {
+		t.Fatalf("%s: notCompressed %v", name, notCompressed)
+	}
+	notUncompressed, out := intcomp.UncompressDeltaBinPackInt64(c, nil)
+	if len(notUncompressed) > 0 {
+		t.Fatalf("%s: notUncompressed %v", name, notUncompressed)
+	}
+	if len(in) != len(out) {
+		t.Fatalf("%s: expected len %d, got %d", name, len(in), len(out))
+	}
+	for i, v := range in {
+		if out[i] != v {
+			t.Fatalf("%s: expected %d, got %d for index %d", name, v, out[i], i)
+		}
+	}
+	// same through the high level API
+	out = intcomp.UncompressInt64(intcomp.CompressInt64(in, nil), nil)
+	for i, v := range in {
+		if out[i] != v {
+			t.Fatalf("%s (CompressInt64): expected %d, got %d for index %d", name, v, out[i], i)
+		}
+	}
+	return c
+}
+
+// TestCompressIssue18Variants negative differences combined with common
+// trailing zeros, in every group of a block.
+func TestCompressIssue18Variants(t *testing.T) {
+	const blockSize = 256
+	for group := 0; group < 4; group++ {
+		base := group * 64
+		// differences +2, -3 (odd negative next to even positive)
+		in := make([]int64, blockSize)
+		in[base+1], in[base+2] = 2, -1
+		roundTripDeltaBinPackInt64(t, fmt.Sprintf("+2,-3 group %d", group), in)
+
+		// differences +1000, -2000, +1000: common trailing zeros with a sign
+		in = make([]int64, blockSize)
+		for i := range in {
+			in[i] = int64(i) * 1000
+		}
+		in[base+10] -= 3000
+		roundTripDeltaBinPackInt64(t, fmt.Sprintf("ms timestamps group %d", group), in)
+	}
+
+	// extreme values sharing trailing zeros
+	in := make([]int64, blockSize)
+	for i := range in {
+		switch i % 3 {
+		case 0:
+			in[i] = math.MinInt64
+		case 1:
+			in[i] = 0
+		default:
+			in[i] = math.MaxInt64 &^ 0xFF
+		}
+	}
+	roundTripDeltaBinPackInt64(t, "extremes", in)
+
+	rnd := rand.New(rand.NewSource(18))
+	for iter := 0; iter < 2000; iter++ {
+		ntz := rnd.Intn(40)
+		in := make([]int64, blockSize)
+		var v int64
+		for i := range in {
+			v += (rnd.Int63n(1<<16) - 1<<15) << ntz
+			in[i] = v
+		}
+		roundTripDeltaBinPackInt64(t, fmt.Sprintf("random ntz=%d iter=%d", ntz, iter), in)
+	}
+}
+
+// TestCompressSignedTrailingZeros signed differences sharing trailing zeros
+// compress as well as the same differences without the trailing zeros.
+func TestCompressSignedTrailingZeros(t *testing.T) {
+	rnd := rand.New(rand.NewSource(1))
+	in := make([]int64, 256)
+	scaled := make([]int64, 256)
+	var v int64
+	for i := range in {
+		v += rnd.Int63n(1000) - 500
+		in[i] = v
+		scaled[i] = v * 1024
+	}
+	c := roundTripDeltaBinPackInt64(t, "unscaled", in)
+	cScaled := roundTripDeltaBinPackInt64(t, "scaled", scaled)
+	if len(cScaled) != len(c) {
+		t.Fatalf("expected %d words for differences * 1024, got %d", len(c), len(cScaled))
+	}
+}
+
 // BenchmarkCompressDeltaBinPackInt32 Benchmark compress one block: 128 x int32
 func BenchmarkCompressDeltaBinPackInt32(b *testing.B) {
 	rand.Seed(1) // nolint

@@ -694,7 +694,9 @@ func UncompressDeltaBinPackInt64(in []uint64, out []int64) ([]uint64, []int64) {
 }
 
 func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, int) {
-	var mask uint64
+	// mask: OR of zigzag encoded deltas (bit length and sign)
+	// rawmask: OR of raw deltas (common trailing zeros, tz(d) == tz(-d))
+	var mask, rawmask uint64
 
 	for _, buf := range []*[32]int64{(*[32]int64)(inbuf[:32]), (*[32]int64)(inbuf[32:64])} {
 		{
@@ -706,6 +708,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 4
@@ -716,6 +719,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 8
@@ -726,6 +730,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 12
@@ -736,6 +741,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 16
@@ -746,6 +752,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 20
@@ -756,6 +763,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 24
@@ -766,6 +774,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 		}
 		{
 			const base = 28
@@ -776,6 +785,7 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 			m0 := uint64((d0<<1)^(d0>>63)) | uint64((d1<<1)^(d1>>63))
 			m1 := uint64((d2<<1)^(d2>>63)) | uint64((d3<<1)^(d3>>63))
 			mask |= m0 | m1
+			rawmask |= uint64(d0 | d1 | d2 | d3)
 			initoffset = buf[base+3]
 		}
 	}
@@ -785,8 +795,8 @@ func deltaBitTzAndLenAndSignInt64(initoffset int64, inbuf []int64) (int, int, in
 	mask >>= 1
 
 	var ntz int
-	if mask != 0 && sign == 0 {
-		ntz = bits.TrailingZeros64(mask)
+	if rawmask != 0 {
+		ntz = bits.TrailingZeros64(rawmask)
 	}
 
 	return ntz, bits.Len64(uint64(mask)) + sign, sign
